@@ -1,0 +1,52 @@
+mat-card-header{
+  display: flex;
+}
+.abonne-holder{
+  display: flex;
+  font-size: small;
+  line-height: 24px;
+  color: #fff;
+}
+.space-card{
+  flex: 1 1 auto;
+}
+.abonne-exp{
+  position: absolute;
+  background: #0721be;
+
+}
+.abonne-statut {
+  position: relative;
+  border-radius: 100%;
+  width: 15px;
+  height: 15px;
+  right: 0px;
+}
+.status-offline{
+  background-color: red;
+}
+.statuts-online{
+  background-color: green;
+}
+.abonne-meta{
+  display: flex;
+  padding:5px 10px;
+}
+.abonne-name,.abonne-fonction,.abonne-langue{
+  padding:5px 10px;
+}
+mat-card{
+  padding:25px 0px;
+  margin: 20px auto;
+}
+mat-card-content{
+  margin: 0px;
+}
+mat-card .img-fluid{
+  margin-right: 0px;
+  float: right;
+}
+mat-card-actions{
+  display: flex;
+  padding: 0 15px 10px 20px;
+}

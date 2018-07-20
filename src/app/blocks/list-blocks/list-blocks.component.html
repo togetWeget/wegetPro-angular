@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <div *ngFor="let blk of blocks" class="col-md-4 col-sm col-sm-6">
+      <mat-card class="blocks-items">
+        <a routerLink="{{blk.libelle}}" routerLinkActive="active" (click)="onViewBlock(blk)">
+          <mat-card-header></mat-card-header>
+          <img [src]="blk.path_photo" class="img-fluid photo-list">
+          <mat-card-content>
+            <h5 >{{blk.description}}</h5>
+          </mat-card-content>
+        </a>
+        <mat-card-actions>
+          <button mat-button color="warn" class="mat-button">S'abonner </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,22 @@
+<mat-toolbar color="primary" class="app-top-toolbar">
+  <mat-toolbar-row>
+    <button mat-icon-button (click)="snav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span class="app-title">TogetPro</span>
+    <nav class="app-top-menu">
+      <a class="app-top-menu-item mat-button" mat-button routerLink="."><span>Accueil</span></a>
+      <a class="app-top-menu-item mat-button" mat-button routerLink="."><span>Blocks</span></a>
+      <a class="app-top-menu-item mat-button" mat-button routerLink="profile"><span>Profile</span></a>
+    </nav>
+    <span class="app-top-spacer"></span>
+    <span class="app-top-action">
+      <button mat-icon-button>
+        <mat-icon>search</mat-icon>
+      </button>
+      <button mat-raised-button color="warn" (click)="onSignIn()">Se connecter</button>
+      <button mat-raised-button color="primary">S'inscrire</button>
+    </span>
+  </mat-toolbar-row>
+</mat-toolbar>
+
