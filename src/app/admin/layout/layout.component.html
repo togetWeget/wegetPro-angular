@@ -8,10 +8,14 @@
         <button class="btn-toggle" mat-icon-button (click)="sidenav.toggle()">
           <mat-icon>menu</mat-icon>
         </button>
+        <button class="btn-toggle" mat-icon-button (click)="gotoHome()">
+            <mat-icon>home</mat-icon>
+        </button>
       </mat-toolbar>
     </div>
     <mat-sidenav-container class="educ-side-container" [class.side-is-mobile]="mobileQuery.matches">
-      <mat-sidenav [fixedInViewport]="true" [autoFocus]="true" #sidenav class="sidenavBar mat-elevation-z5" [mode]="mobileQuery.matches ? 'over' : 'side'">
+      <mat-sidenav [fixedInViewport]="true" [autoFocus]="true" #sidenav class="sidenavBar mat-elevation-z5"
+                   [mode]="'side'">
         <div class="menubar">
           <div class="principal">
             <br class="">

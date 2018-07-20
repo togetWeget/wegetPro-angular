@@ -1,21 +1,10 @@
 <div class="weget-conteneur">
   <div class="example-container">
     <div class="contenaire-toolbar">
-      <mat-toolbar color="primary" class="weget-toolbar mat-elevation-z8">
-        <button mat-icon-button (click)="sidenav.toggle()">
-          <mat-icon>menu</mat-icon>
-        </button>
-        <span>
-       <span >
-       <img src="assets/images/logo.png" class="petit logo">
-       </span>
-    <button class="btn-li" mat-button routerLink="/accueil">
-      <strong >Accueil</strong> </button>
-    </span>
-      </mat-toolbar>
+      <app-toolbar [toggle_btn]="sidenav"></app-toolbar>
     </div>
     <mat-sidenav-container class="educ-side-container" [class.side-is-mobile]="mobileQuery.matches">
-      <mat-sidenav #sidenav mode="over" class="sidenavBar" [mode]="mobileQuery.matches ? 'over' : 'side'">
+      <mat-sidenav #sidenav [fixedTopGap]="true" class="sidenavBar" [mode]="mobileQuery.matches ? 'over' : 'side'">
         <div class="menubar">
           <div class="principal">
             <div class="box">
@@ -23,7 +12,6 @@
                 <a mat-list-item="" class="nav-li" routerLink="">
                   <mat-icon mat-list-icon="" color="accent" class="material-icons nav">home</mat-icon>
                   <span class="nav">Accueil</span> </a>
-
               </mat-nav-list>
             </div>
 

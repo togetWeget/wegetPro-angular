@@ -10,6 +10,7 @@ import { SuperAdminModule } from './super-admin/super-admin.module';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
+import {RouterModule} from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { SharedModule } from './shared/shared.module';
     SuperAdminModule,
     NoopAnimationsModule,
     CoreModule,
+    RouterModule,
     SharedModule
   ],
   providers: [],

@@ -42,13 +42,6 @@
 .sidenavBar a{
   color: #eeeeee;
 }
-.contenaire-toolbar .btn-toggle:hover{
-  background: rgba(0,0,0,0.5);
-}
-.contenaire-toolbar .btn-toggle{
-  border-width: 0px;
-}
-
 
 .sidenavBar{
   display: flex;
@@ -59,15 +52,7 @@
   box-sizing: border-box;
 }
 
-.weget-toolbar button{
-  background: rgba(0,0,0,0);
-  color: #fff;
-  font-size: 1rem;
-  border-radius: 3px;
-  font-weight: 300;
-  padding: 5px 15px;
-  border: 1px solid #fff;
-}
+
 .side-content{
   min-height: 50em;
 }
