@@ -1,0 +1,14 @@
+.blocks-items a{
+  color: #333333;
+}
+.blocks-items a:hover{
+  text-decoration: none;
+  color: #333333;
+}
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+mat-card{
+  margin: 20px auto;
+}
