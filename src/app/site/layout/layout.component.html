@@ -1,0 +1,120 @@
+<div class="weget-conteneur">
+  <div class="example-container">
+    <div class="contenaire-toolbar">
+      <mat-toolbar color="primary" class="weget-toolbar mat-elevation-z8">
+        <button mat-icon-button (click)="sidenav.toggle()">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span>
+       <span >
+       <img src="assets/images/logo.png" class="petit logo">
+       </span>
+    <button class="btn-li" mat-button routerLink="/accueil">
+      <strong >Accueil</strong> </button>
+    </span>
+      </mat-toolbar>
+    </div>
+    <mat-sidenav-container class="educ-side-container" [class.side-is-mobile]="mobileQuery.matches">
+      <mat-sidenav #sidenav mode="over" class="sidenavBar" [mode]="mobileQuery.matches ? 'over' : 'side'">
+        <div class="menubar">
+          <div class="principal">
+            <div class="box">
+              <mat-nav-list class="nlist mat-elevation-z8">
+                <a mat-list-item="" class="nav-li" routerLink="">
+                  <mat-icon mat-list-icon="" color="accent" class="material-icons nav">home</mat-icon>
+                  <span class="nav">Accueil</span> </a>
+
+              </mat-nav-list>
+            </div>
+
+            <div>
+              <mat-nav-list class="nlist">
+                <a  mat-list-item="" routerLink="/invite" class="nav-li">
+                  <mat-icon mat-list-icon="" class="nav">person</mat-icon>
+                  <span class="nav">Membres</span>
+                </a>
+              </mat-nav-list>
+            </div>
+            <mat-divider></mat-divider>
+            <div class="box">
+              <mat-nav-list class="nlist">
+                <a mat-list-item="" class="nav-li">
+                  <span>FORMATION</span> </a>
+              </mat-nav-list>
+            </div>
+            <div class="box">
+              <mat-nav-list class="nlist">
+                <a mat-list-item="" class="nav-li">
+                  <mat-icon mat-list-icon="" class="nav">person_outline</mat-icon>
+                  <span class="nav">Abonnes</span> </a>
+              </mat-nav-list>
+            </div>
+            <div class="box">
+              <mat-nav-list class="nlist">
+                <a mat-list-item="" class="nav-li" routerLink="/matiere">
+                  <mat-icon mat-list-icon="" class="material-icons nav">school</mat-icon>
+                  <span class="nav">Discuter</span> </a>
+              </mat-nav-list>
+            </div>
+            <div class="box">
+              <mat-nav-list class="nlist">
+                <a mat-list-item="" class="nav-li">
+                  <mat-icon class="material-icons nav">lock_outline</mat-icon>
+                  <span class="nav">Contacter</span> </a>
+              </mat-nav-list>
+            </div>
+            <div class="box">
+              <mat-nav-list class="nlist">
+                <a mat-list-item="" class="nav-li">
+                  <i class="material-icons nav">work</i>
+                  <span class="nav">Blocks</span> </a>
+              </mat-nav-list>
+            </div>
+            <div class="box">
+              <mat-nav-list class="nlist">
+                <a mat-list-item="" class="nav-li">
+                  <mat-icon mat-list-icon="" class="material-icons nav">invert_colors</mat-icon>
+                  <span class="nav">Competences</span> </a>
+              </mat-nav-list>
+            </div>
+            <mat-divider></mat-divider>
+            <div class="box">
+              <mat-nav-list class="nlist">
+                <a mat-list-item="" class="nav-li">
+                  <span >ADMINISTRTION</span> </a>
+
+              </mat-nav-list>
+
+            </div>
+            <div class="box">
+              <mat-nav-list class="nlist">
+                <a class="nav-li" mat-list-item="" routerLink="/enseignant">
+                  <mat-icon mat-list-icon="" class="material-icons nav">chat_bubble</mat-icon>
+                  <span class="nav">Gestionaire du site</span> </a>
+              </mat-nav-list>
+            </div>
+            <div class="box">
+              <mat-nav-list class="nlist">
+                <a class="nav-li" mat-list-item="" routerLink="">
+                  <mat-icon mat-list-icon="" class="material-icons nav">account_circle</mat-icon>
+                  <span class="nav">Employes</span> </a>
+              </mat-nav-list>
+            </div>
+
+          </div>
+
+        </div>
+      </mat-sidenav>
+
+      <mat-sidenav-content class="side-content">
+
+        <div>
+          <router-outlet></router-outlet>
+        </div>
+
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+    <hr>
+    <app-footer></app-footer>
+  </div>
+</div>

@@ -1,0 +1,82 @@
+<div class="container-accueil">
+  <div>
+    <div class="jumbotron text-center" style="background-image: url('assets/images/cover.jpg'); height: 300px">
+
+      <h2 style="color: orange" align="center">
+        {{title}}
+      </h2>
+    </div>
+  </div>
+  <hr>
+  <div>
+    <h3>
+      <span><strong>Nos abonnes</strong></span>
+    </h3>
+
+  </div>
+  <hr>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="row">
+                <div class="col-sm"><img class="d-block w-100" src="assets/photo/11-700x467.jpg" alt="1 slide"></div>
+                <div class="col-sm"><img class="d-block w-100" src="assets/photo/11-700x467.jpg" alt="2 slide"></div>
+                <div class="col-sm"><img class="d-block w-100" src="assets/photo/11-700x467.jpg" alt="3 slide"></div>
+                <div class="col-sm"><img class="d-block w-100" src="assets/photo/03-700x471.jpg" alt="4 slide"></div>
+                <div class="col-sm"><img class="d-block w-100" src="assets/photo/10-700x525.jpg" alt="5 slide"></div>
+                <div class="col-sm"><img class="d-block w-100" src="assets/photo/11-700x467.jpg" alt="6 slide"></div>
+                <div class="col-sm"><img class="d-block w-100" src="assets/photo/11-700x467.jpg" alt="7 slide"></div>
+                <div class="col-sm"><img class="d-block w-100" src="assets/photo/03-700x471.jpg" alt="8 slide"></div>
+                <div class="col-sm"><img class="d-block w-100" src="assets/photo/10-700x525.jpg" alt="9 slide"></div>
+                <div class="col-sm"><img class="d-block w-100" src="assets/photo/11-700x467.jpg" alt="10 slide"></div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="row">
+                <div class="col-sm"><img class="d-block w-100" src="assets/photo/03-700x471.jpg" alt="4 slide"></div>
+                <div class="col-sm"><img class="d-block w-100" src="assets/photo/10-700x525.jpg" alt="5 slide"></div>
+                <div class="col-sm"><img class="d-block w-100" src="assets/photo/11-700x467.jpg" alt="6 slide"></div>
+                <div class="col-sm"><img class="d-block w-100" src="assets/photo/03-700x471.jpg" alt="4 slide"></div>
+                <div class="col-sm"><img class="d-block w-100" src="assets/photo/10-700x525.jpg" alt="5 slide"></div>
+                <div class="col-sm"><img class="d-block w-100" src="assets/photo/11-700x467.jpg" alt="6 slide"></div>
+                <div class="col-sm"><img class="d-block w-100" src="assets/photo/11-700x467.jpg" alt="7 slide"></div>
+                <div class="col-sm"><img class="d-block w-100" src="assets/photo/03-700x471.jpg" alt="8 slide"></div>
+                <div class="col-sm"><img class="d-block w-100" src="assets/photo/10-700x525.jpg" alt="9 slide"></div>
+                <div class="col-sm"><img class="d-block w-100" src="assets/photo/11-700x467.jpg" alt="10 slide"></div>
+              </div>
+            </div>
+          </div>
+          <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button mat-raised-button   color="accent"  (click)="onBlock()">LES BLOCKS</button>
+</div>
+
+<br>
+<br>
+<div class="row">
+  <div class="col-sm-4" *ngFor="let blk of [1,2,3]">
+    <mat-card>
+      <img src="/assets/photo/03-700x471.jpg" mat-card-image>
+      <mat-card-title>libelle</mat-card-title>
+      <mat-card-content>id description</mat-card-content>
+      <mat-card-actions><a class="btn-block btn btn-primary">S'abonner</a></mat-card-actions>
+    </mat-card>
+  </div>
+</div>
+<br>
+<br>
+
+
