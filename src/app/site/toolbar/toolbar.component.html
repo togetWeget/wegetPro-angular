@@ -1,22 +1,46 @@
 <mat-toolbar color="primary" class="app-top-toolbar mat-elevation-z8">
   <mat-toolbar-row>
-    <button mat-icon-button (click)="toggle_btn.toggle()">
+    <!-- <button mat-icon-button (click)="toggle_btn.toggle()">
       <mat-icon>menu</mat-icon>
-    </button>
+    </button> -->
     <span class="app-title">TogetPro</span>
-    <nav class="app-top-menu">
+    <nav appIfMediaQuery="(min-width: 768px)" class="app-top-menu">
       <a class="app-top-menu-item mat-button" mat-button routerLink="/"><span>Accueil</span></a>
       <a class="app-top-menu-item mat-button" mat-button routerLink="/blocks"><span>Blocks</span></a>
       <a class="app-top-menu-item mat-button" mat-button routerLink="/profile"><span>Profile</span></a>
     </nav>
-    <span class="app-top-spacer"></span>
-    <span class="app-top-action">
+    <span appIfMediaQuery="(min-width: 768px)" class="app-top-spacer"></span>
+    <span appIfMediaQuery="(min-width: 768px)" class="app-top-action">
       <button mat-icon-button>
         <mat-icon>search</mat-icon>
       </button>
-      <button mat-raised-button color="warn" (click)="onSignIn()">Se connecter</button>
-      <button mat-raised-button color="primary">S'inscrire</button>
+      <button mat-raised-button color="warn" (click)="toggleModal()">Se connecter</button>
+      <button mat-raised-button class="app-btn-bg-primary" (click)="inscription()" color="primary">S'inscrire</button>
     </span>
+    <button (click)="toggleMenu()" mat-icon-button appIfMediaQuery="(max-width: 768px)">
+    <mat-icon>dehaze</mat-icon>
+    </button>
   </mat-toolbar-row>
 </mat-toolbar>
+<div appIfMediaQuery="(max-width: 768px)">
+  <mat-card class="menu-mini" [@menuShow]="menu_state">
+    <mat-list>
+      <mat-list-item><a class="app-top-menu-item mat-button" mat-button routerLink="/"><span>Accueil</span></a></mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item><a class="app-top-menu-item mat-button" mat-button routerLink="/blocks"><span>Blocks</span></a></mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item><a class="app-top-menu-item mat-button" mat-button routerLink="/profile"><span>Profile</span></a></mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item><button mat-raised-button color="warn" (click)="toggleModal()">Se connecter</button></mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item><button mat-raised-button class="app-btn-bg-primary" (click)="inscription()" color="primary">S'inscrire</button></mat-list-item>
+    </mat-list>
+  </mat-card>
+</div>
 
+<div [m_toggle]="modal_toggle" appModalBackdrop="modal1">
+  <div appModalContent>
+    <div appModalClose (click)="toggleModal()">X</div>
+    <app-login-content></app-login-content>
+  </div>
+</div>

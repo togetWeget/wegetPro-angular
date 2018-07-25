@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Component, OnDestroy, OnInit} from '@angular/core';
+import {AfterViewInit, ChangeDetectorRef, Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {MediaMatcher} from '@angular/cdk/layout';
 import {Router} from '@angular/router';
 
@@ -7,8 +7,9 @@ import {Router} from '@angular/router';
   templateUrl: './layout.component.html',
   styleUrls: ['./layout.component.scss']
 })
-export class LayoutComponent implements  OnDestroy {
+export class LayoutComponent implements  OnDestroy, AfterViewInit {
   mobileQuery: MediaQueryList;
+  @ViewChild('sidenav') sidenav: any;
 
   fillerNav = Array.from({length: 50}, (_, i) => `Nav Item ${i + 1}`);
 
@@ -28,4 +29,7 @@ export class LayoutComponent implements  OnDestroy {
     this.router.navigate(['/']);
   }
 
+  ngAfterViewInit () {
+    this.sidenav.toggle();
+  }
 }

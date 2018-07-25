@@ -1,0 +1,217 @@
+
+mat-form-field {
+  width: 100%;
+}
+
+/* Custom page header */
+.header {
+  border-bottom: 1px solid #e5e5e5;
+}
+/* Make the masthead heading the same height as the navigation */
+.header h3 {
+  padding-bottom: 19px;
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 40px;
+}
+
+/* Custom page footer */
+.footer {
+  padding-top: 19px;
+  color: #777;
+  border-top: 1px solid #e5e5e5;
+}
+
+/* Customize container */
+@media (min-width: 768px) {
+  .container {
+    max-width: 730px;
+  }
+}
+.container-narrow > hr {
+  margin: 30px 0;
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+  text-align: center;
+  border-bottom: 1px solid #e5e5e5;
+}
+.jumbotron .btn {
+  padding: 14px 24px;
+  font-size: 21px;
+}
+
+/* Supporting marketing content */
+.marketing {
+  margin: 40px 0;
+}
+.marketing p + h4 {
+  margin-top: 28px;
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+  /* Remove the padding we set earlier */
+  .header,
+  .marketing,
+  .footer {
+    padding-right: 0;
+    padding-left: 0;
+  }
+  /* Space out the masthead */
+  .header {
+    margin-bottom: 30px;
+  }
+  /* Remove the bottom border on the jumbotron for visual effect */
+  .jumbotron {
+    border-bottom: 0;
+  }
+}
+
+@-ms-viewport       { max-width: device-width; }
+/*css for login form page*/
+    .or-text-row {
+		display: table-row;
+	}
+	.or-text {
+		display: table;
+		width: 100%;
+		position: relative;
+		margin: 20px 0;
+	}
+	.or-text-step button[disabled] {
+		opacity: 1 !important;
+		filter: alpha(opacity=100) !important;
+	}
+	.or-text-row:before {
+		top: 14px;
+		bottom: 0;
+		position: absolute;
+		content: " ";
+		width: 100%;
+		height: 1px;
+		background-color: #e8e8e8;
+		z-order: 0;
+	}
+	.or-text-line {
+		display: table-cell;
+		text-align: center;
+		position: relative;
+		width: 100%;
+	}
+	.or-text-line p {
+		margin-top:10px;
+	}
+	.btn-circle {
+		width: 30px;
+		height: 30px;
+		text-align: center;
+		padding: 2px 0;
+		font-size: 17px;
+		line-height: 1.428571429;
+		border-radius: 15px;
+	}
+	.btn-group{margin-bottom: 5px;}
+	.fa{padding-right: 10px;}
+
+	.sc_i{
+	width:100% !important;
+	padding:5px;
+	margin:10px;
+	float:right;
+    border: 0px;
+    border-radius: 3px;
+	}
+
+.sc_i:focus{
+  border: 1px solid #09c;
+}
+.sc_i:hover{
+  border: 1px solid #09c;
+}
+
+	.sc_n{
+	width:90% !important;
+	padding:5px;
+	margin:10px;
+	float:right;
+
+	}
+	.border_bot{
+	border-bottom:1px solid #3b5998;
+	padding:10px;
+	margin:10px;
+	}
+
+	.btn-facebook{
+	background:#3b5998;
+	color:#fff;
+	}
+
+	.band-register{
+	line-height:2.5em;
+	background:#ddd !important;
+	font-size:20px;
+	box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1),0 1px 2px 0 rgba(0,0,0,0.2);
+	margin-bottom:15px;
+	}
+
+	.cfa{
+	transform: rotate(95deg);
+	color:#ff6d05;
+	}
+
+	#block_2{
+		border:1px solid #f2f2f2;;
+		box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1),0 1px 2px 0 rgba(0,0,0,0.2);
+		padding:5px;
+    padding-bottom: 15px;
+	}
+	#block_3{
+		border:1px solid #f2f2f2;;
+		box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1),0 1px 2px 0 rgba(0,0,0,0.2);
+		padding:2px;
+		padding:auto;
+		float:right;
+
+	}
+
+	.floter-right{
+	overflow-x:hidden;
+    background: url("/assets/images/bg.jpg") #000000 no-repeat top center fixed;
+    background-size: auto;
+	}
+
+  .ajax-loader{
+    position:fixed;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    background:#000;
+    z-index: 1000000;
+    opacity:0.5;
+  }
+  .loader-img{
+
+  }
+.error{
+  border: 1px solid red !important;
+}
+
+.error1{
+  color:red;
+}
+
+@media screen and (max-width: 1058px) {
+
+.s1{
+  display:none;
+}
+  .s2{
+justify-content: center !important;
+  }
+}
+
+

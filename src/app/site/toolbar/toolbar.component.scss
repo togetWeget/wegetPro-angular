@@ -1,5 +1,6 @@
 .app-top-toolbar{
   display: flex;
+  background: #00b0f0;
 }
 .app-title{
   margin: 0 20px;
@@ -21,4 +22,19 @@ app-top-menu{
 .app-top-menu a:hover{
   text-decoration: none;
   color:black;
+}
+.app-bg-primary{
+  background: #00b0f0;
+}
+.app-btn-bg-primary{
+  background: #0079A7;
+}
+
+.menu-mini{
+  position: absolute;
+  width: 100%;
+  z-index: 100;
+  a,button {
+    width: 100%;
+  }
 }

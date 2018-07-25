@@ -1,0 +1,20 @@
+<mat-card>
+  <div class="bloc-page">
+    <div>
+      <div appBlocTitle [wpr_size]="'2rem'" [wpr_margin]="'0'" [wpr_padding]="'0'" [wpr_color]="'#333333'" [wpr_weight]="'400'">{{wprc_titre}}</div>
+      <div appBlocTitle [wpr_size]="'1rem'" [wpr_margin]="'0'" [wpr_padding]="'0'" [wpr_color]="'#777777'">{{wprc_sous_titre}}</div>
+    </div>
+    <div>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <ng-container *ngFor="let wprc_nav of wprc_navs; let i=index;">
+            <li class="breadcrumb-item"><a href="#">
+              <ng-container *ngIf="i==0"><i class="fa fa-{{wprc_fa}}"></i></ng-container>
+              {{wprc_nav}}</a></li>
+          </ng-container>
+          <li class="breadcrumb-item active" aria-current="page">{{wprc_active_nav}}</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+</mat-card>

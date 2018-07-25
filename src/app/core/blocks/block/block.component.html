@@ -1,0 +1,28 @@
+<div class="principal">
+  <mat-sidenav-container class="matContenaire">
+    <mat-sidenav #sidenav>
+      <mat-toolbar>
+        <mat-toolbar-row routerLink="/">
+          <a mat-raised-button color="warn">Accueil</a>
+        </mat-toolbar-row>
+        <mat-toolbar-row routerLink="/block/liste">
+          <a mat-raised-button color="warn">Gerer</a>
+        </mat-toolbar-row>
+        <mat-toolbar-row routerLink="/block">
+          <a mat-raised-button color="warn">Manage</a>
+        </mat-toolbar-row>
+      </mat-toolbar>
+    </mat-sidenav>
+    <mat-toolbar color="warn">
+      <button mat-fab (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      Les Blocks
+    </mat-toolbar>
+
+    <div class="body-magin center-align">
+      <router-outlet></router-outlet>
+    </div>
+
+  </mat-sidenav-container>
+</div>

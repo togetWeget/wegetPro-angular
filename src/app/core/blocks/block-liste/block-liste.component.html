@@ -1,0 +1,88 @@
+<div class="listes">
+  <div class="item">
+    <mat-sidenav-container class="contsidnav">
+
+      <div *ngIf="statut ===0; else ensVide">
+
+        <div class="card">
+
+          <mat-card class="mat-card" matTooltip="Selectioner un block pour les details">
+            <div>
+              <mat-form-field style="width: 100%">
+                <input matInput placeholder="Filtre" #searchbox (keyup)="search(searchbox.value)">
+              </mat-form-field>
+            </div>
+            <div>
+              <div *ngFor="let blk of oblock | async" class="list-group">
+                <a class="list-group-item  clearfix"
+                   [routerLink]="[blk.id]" routerLinkActive="active"
+                   (click)="onSelect(blk)">
+                  <div class="pull-left">
+                    <h5 >{{blk.libelle}}</h5>
+                    <p> {{blk.id}}</p>
+                  </div>
+                  <span class="pull-right">
+                    <img [src]="blk.pathPhoto || pathNullImage" class="img-fluid photo-list">
+                  </span>
+                </a>
+
+              </div>
+            </div>
+          </mat-card>
+
+        </div>
+
+      </div>
+
+      <div>
+        <ng-template #ensVide>
+          <mat-card>
+            <mat-card-title>
+              <mat-chip-list>
+                <mat-chip color="warn" selected="true">
+                  <mat-icon>sentiment_very_dissatisfied</mat-icon>
+                  <h6> <div class="alert alert-warning" *ngIf="messageServiceErreur"> {{messageServiceErreur}}</div></h6>
+                </mat-chip>
+              </mat-chip-list>
+
+            </mat-card-title>
+          </mat-card>
+        </ng-template>
+      </div>
+    </mat-sidenav-container>
+  </div>
+  <div class="item">
+    <div class="action">
+      <div class="action-1">
+        <a mat-mini-fab matTooltip="Accueil appli" routerLink="/accueil" matTooltipPosition="before">
+          <mat-icon>home</mat-icon>
+        </a>
+      </div>
+
+      <div class="action-2">
+        <div>
+          <a mat-mini-fab color="primary" matTooltip="Accueil des Blocks" routerLink="/block"
+             matTooltipPosition="after">
+            <mat-icon>face</mat-icon>
+          </a>
+        </div>
+      </div>
+      <div class="action-3">
+        <div class="" matTooltip="créer un nouveau block" matTooltipPosition="right">
+          <a mat-mini-fab routerLink="creer" color="warn">
+            <mat-icon>group</mat-icon>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="item">
+    <div class="editer">
+      <div class="edit-1">
+        <router-outlet></router-outlet>
+      </div>
+      <div class="edit-2"></div>
+    </div>
+  </div>
+</div>

@@ -17,23 +17,21 @@ import { FooterComponent } from './footer/footer.component';
 import {CoreModule} from '../core/core.module';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import {RouterModule} from '@angular/router';
+import { CustomMeterialModule } from '../custom-meterial/custom-meterial.module';
+import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
   imports: [
     CommonModule,
     SiteRoutingModule,
-    MatCardModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatSidenavModule,
-    MatListModule,
     CoreModule,
-    MatButtonModule,
-    RouterModule
+    RouterModule,
+    CustomMeterialModule
   ],
   providers: [],
-  declarations: [AccueilComponent, LayoutComponent, FooterComponent, ToolbarComponent],
+  declarations: [AccueilComponent, LayoutComponent, FooterComponent, ToolbarComponent, RegisterComponent, LoginComponent],
   exports: [LayoutComponent]
 })
 export class SiteModule { }

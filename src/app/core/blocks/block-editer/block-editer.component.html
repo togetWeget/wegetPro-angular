@@ -1,0 +1,62 @@
+<mat-sidenav-container>
+  <div *ngIf="editMode; else newBlock">
+    <div class="">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Modifier un Block</mat-card-title>
+          <mat-card-subtitle></mat-card-subtitle>
+        </mat-card-header>
+        <form [formGroup]="blockForm" (ngSubmit)="onSubmit()" novalidate *ngIf="blockForm">
+
+          <mat-form-field>
+            <input matInput placeholder="Libelle" formControlName="libelle">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Description" formControlName="description">
+          </mat-form-field>
+          <hr>
+          <div>
+            <button mat-raised-button color="primary" type="submit" matTooltip="sauver le block"
+                    matTooltipPosition="before"> Modifier
+            </button>
+            <button mat-raised-button color="accent" type="button" matTooltip="annuler l'enregistrement"
+                    matTooltipPosition="before" (click)="annuler()">Annuler
+            </button>
+          </div>
+          <hr>
+
+        </form>
+      </mat-card>
+    </div>
+  </div>
+  <ng-template #newBlock>
+    <div class="well">
+
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title> Enregistrer un block</mat-card-title>
+          <mat-card-subtitle></mat-card-subtitle>
+        </mat-card-header>
+        <form [formGroup]="blockForm" (ngSubmit)="onSubmit()" novalidate>
+          <mat-form-field>
+            <input matInput placeholder="Libelle" formControlName="libelle">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Description" formControlName="description">
+          </mat-form-field>
+          <hr>
+
+          <hr>
+          <div>
+            <button mat-raised-button color="primary" type="submit"> Enregistre</button>
+            <button mat-raised-button color="accent" type="submit" matTooltip="annuler l'enregistrement"
+                    matTooltipPosition="before" (click)="annuler()">Annuler
+            </button>
+          </div>
+
+        </form>
+      </mat-card>
+    </div>
+  </ng-template>
+</mat-sidenav-container>
+

@@ -9,7 +9,7 @@
   </div>
   <hr>
   <div>
-    <h3>
+    <h3 appBlocTitle [wpr_position]="'center'" [wpr_upper]="true" [wpr_padding]="'0'" [wpr_margin]="'0'" [wpr_size]="'2rem'">
       <span>Nos abonnés</span>
     </h3>
 
@@ -61,12 +61,18 @@
       </div>
     </div>
   </div>
-  <button mat-raised-button   color="accent"  (click)="onBlock()">LES BLOCKS</button>
+</div>
+
+<div>
+  <h3 appBlocTitle [wpr_position]="'center'" [wpr_upper]="true" [wpr_padding]="'0'" [wpr_margin]="'30px 0 0 0'" [wpr_size]="'2rem'">
+    <span>Les Blocks</span>
+  </h3>
+
 </div>
 
 <br>
 <br>
-<app-list-blocks></app-list-blocks>
+<app-list-blocks appCustomStyle [csd_margin]="'0'"></app-list-blocks>
 <br>
 <br>
 

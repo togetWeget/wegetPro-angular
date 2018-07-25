@@ -7,20 +7,18 @@ import { AccueilComponent } from './accueil/accueil.component';
 import {MatButtonModule, MatCardModule, MatIconModule, MatListModule, MatSidenavModule, MatToolbarModule} from '@angular/material';
 import { FooterComponent } from './footer/footer.component';
 import {CoreModule} from '../core/core.module';
+import {CustomMeterialModule} from '../custom-meterial/custom-meterial.module';
+import {RouterModule} from '@angular/router';
 
 @NgModule({
   imports: [
     CommonModule,
     AdminRoutingModule,
-    MatCardModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatSidenavModule,
-    MatListModule,
     CoreModule,
-    MatButtonModule
+    RouterModule,
+    CustomMeterialModule
   ],
   declarations: [LayoutComponent, AccueilComponent, FooterComponent],
-  exports: [LayoutComponent, AccueilComponent]
+  exports: [LayoutComponent]
 })
 export class AdminModule { }
