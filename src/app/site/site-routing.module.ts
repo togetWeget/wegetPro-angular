@@ -14,18 +14,19 @@ import {BlockPhotoComponent} from '../core/blocks/block-photo/block-photo.compon
 import {BlockDetailComponent} from '../core/blocks/block-detail/block-detail.component';
 import {RegisterComponent} from './register/register.component';
 import {LoginComponent} from './login/login.component';
+import {AuthGuardTogetService} from '../core/services/AuthGuards/auth-guard-toget.service';
 
 const routes: Routes = [
   {
-    path: '', component: LayoutComponent, children: [
+    path: '', component: LayoutComponent,   children: [
       {
         path: '', component: AccueilComponent
       },
-      {path: 'blocks', component: ListBlocksComponent},
-      {path: 'blocks/:block', component: ListAbonnesBlockComponent},
-      {path: 'profile', component: ProfilAbonneComponent},
-      {path: 'register', component: RegisterComponent},
-      {path: 'login', component: LoginComponent}
+      {path: 'blocks', component: ListBlocksComponent, canActivate: [AuthGuardTogetService]},
+      {path: 'blocks/:block', component: ListAbonnesBlockComponent, canActivate: [AuthGuardTogetService]},
+      {path: 'profile', component: ProfilAbonneComponent, canActivate: [AuthGuardTogetService]},
+      {path: 'register', component: RegisterComponent, canActivate: [AuthGuardTogetService]},
+      {path: 'login', component: LoginComponent, canActivate: [AuthGuardTogetService]}
     ]
   },
   {

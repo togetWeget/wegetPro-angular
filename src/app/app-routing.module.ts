@@ -1,6 +1,7 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {Routes, RouterModule} from '@angular/router';
 import {AccueilComponent} from './site/accueil/accueil.component';
+import {AuthGuardTogetService} from './core/services/AuthGuards/auth-guard-toget.service';
 
 const routes: Routes = [
   {
@@ -10,7 +11,7 @@ const routes: Routes = [
     path: 'site', loadChildren: './site/site.module#SiteModule'
   },
   {
-    path: 'admin', loadChildren: './admin/admin.module#AdminModule'
+    path: 'admin', canActivate: [AuthGuardTogetService], loadChildren: './admin/admin.module#AdminModule'
   },
   {
     path: 'super/admin', loadChildren: './super-admin/super-admin.module#SuperAdminModule'
@@ -21,4 +22,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}

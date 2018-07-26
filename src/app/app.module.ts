@@ -11,6 +11,7 @@ import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 import {RouterModule} from '@angular/router';
+import {AuthGuardTogetService} from './core/services/AuthGuards/auth-guard-toget.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import {RouterModule} from '@angular/router';
     RouterModule,
     SharedModule
   ],
-  providers: [],
+  providers: [AuthGuardTogetService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
