@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import {NgModule, NO_ERRORS_SCHEMA} from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { SiteRoutingModule } from './site-routing.module';
@@ -25,13 +25,14 @@ import { LoginComponent } from './login/login.component';
 @NgModule({
   imports: [
     CommonModule,
-    SiteRoutingModule,
-    CoreModule,
     RouterModule,
-    CustomMeterialModule
+    CustomMeterialModule,
+    CoreModule,
+    SiteRoutingModule
   ],
   providers: [],
   declarations: [AccueilComponent, LayoutComponent, FooterComponent, ToolbarComponent, RegisterComponent, LoginComponent],
-  exports: [LayoutComponent]
+  exports: [LayoutComponent],
+  schemas: [NO_ERRORS_SCHEMA]
 })
 export class SiteModule { }

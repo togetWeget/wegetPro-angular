@@ -1,0 +1,54 @@
+
+<div class="container-msg">
+  <div class="panel-msg" [@msgBoxToggle]="msgToggle">
+    <div class="panel-msg-header">
+      <div class="panel-msg-title"><mat-icon>message</mat-icon> Ch@t directe</div>
+    </div>
+    <div class="panel-msg-body" [@msgBoxSwhitch]="msgSwicher" >
+      <!-- auth -->
+      <div class="panel-msg-auth">
+        <form>
+          <div class="row">
+            <div class="col-sm-12">
+              <mat-form-field>
+                <input matInput type="text" placeholder="Votre Nom Complet">
+              </mat-form-field>
+            </div>
+            <div class="col-sm-12">
+              <mat-form-field>
+                <input matInput type="email" placeholder="Votre Email">
+              </mat-form-field>
+            </div>
+            <div class="col-12">
+              <button (click)="switchPan3()" mat-raised-button class="btn-danger">Commencer à chater</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <!-- /auth -->
+      <!-- select chater -->
+      <div class="panel-msg-select-chater">
+        <h5>Selectionnez une personne pour commencer</h5>
+        <ng-container *ngFor="let chater of [0,1,2,3,4,5,6,7,8,9]">
+          <div class="panel-msg-select-container">
+              <div class="panel-msg-select-img"><img src="/assets/default.jpg" alt="image" /></div>
+              <div class="panel-msg-select-name">Koffi Annas</div>
+          </div>
+        </ng-container>
+      </div>
+      <!-- /select chater -->
+      <!-- chating -->
+      <div class="panel-msg-chating">
+        chating
+      </div>
+      <!-- /chating -->
+    </div>
+  </div>
+
+  <button mat-icon-button class="btn-msg" (click)="toggleMsgBox()" >
+    <ng-container [ngSwitch]="msgToggle" >
+      <mat-icon *ngSwitchCase="'invisible'">message</mat-icon>
+      <mat-icon *ngSwitchCase="'visible'">close</mat-icon>
+    </ng-container>
+  </button>
+</div>

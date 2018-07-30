@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import {NgModule, NO_ERRORS_SCHEMA} from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { AdminRoutingModule } from './admin-routing.module';
@@ -19,6 +19,7 @@ import {RouterModule} from '@angular/router';
     CustomMeterialModule
   ],
   declarations: [LayoutComponent, AccueilComponent, FooterComponent],
-  exports: [LayoutComponent]
+  exports: [LayoutComponent],
+  schemas: [NO_ERRORS_SCHEMA]
 })
 export class AdminModule { }

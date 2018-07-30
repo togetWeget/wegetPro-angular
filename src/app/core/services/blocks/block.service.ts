@@ -6,9 +6,7 @@ import {MessageService} from '../message.service';
 import {Resultat} from '../../../shared/models/Resultat';
 import {Block} from '../../../shared/models/Block.model';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class BlockService {
   /* imagesVibles = [];*/
   private urlBlocks = 'http://localhost:8080/blocks';
@@ -22,7 +20,6 @@ export class BlockService {
   private blockFiltreSource = new Subject<string>();
   private blockSupprimeSource = new Subject<Resultat<boolean>>();
 
-
 // observables streams
   blockCreer$ = this.blockCreerSource.asObservable();
   blockModif$ = this.blockModifSource.asObservable();
@@ -31,6 +28,7 @@ export class BlockService {
 
   constructor(private http: HttpClient, private messageService: MessageService) {
   }
+
 
   getAllBlocks(): Observable<Resultat<Block[]>> {
     return this.http.get<Resultat<Block[]>>(this.urlBlocks)

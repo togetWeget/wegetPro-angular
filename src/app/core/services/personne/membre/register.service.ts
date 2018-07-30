@@ -8,7 +8,7 @@ import {isObject} from 'rxjs/internal/util/isObject';
 
 @Injectable()
 export class RegisterService {
-  private urlMembre = 'http://localhost:8080/personnes/ME';
+  private urlMembre = 'http://localhost:8080/membres';
   private urlPersonne = 'http://localhost:8080/personnes';
   private urlLogin = 'http://localhost:8080/login';
   private urlPhoto = 'http://localhost:8080/photo';

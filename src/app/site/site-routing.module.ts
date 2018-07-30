@@ -14,6 +14,7 @@ import {BlockPhotoComponent} from '../core/blocks/block-photo/block-photo.compon
 import {BlockDetailComponent} from '../core/blocks/block-detail/block-detail.component';
 import {RegisterComponent} from './register/register.component';
 import {LoginComponent} from './login/login.component';
+import {ContactAbonneComponent} from '../core/abonnes/contact-abonne/contact-abonne.component';
 
 const routes: Routes = [
   {
@@ -22,7 +23,9 @@ const routes: Routes = [
         path: '', component: AccueilComponent
       },
       {path: 'blocks', component: ListBlocksComponent},
-      {path: 'blocks/:block', component: ListAbonnesBlockComponent},
+      {path: 'blocks/:id', component: ListAbonnesBlockComponent},
+      {path: 'abonnes/profile/:id', component: ProfilAbonneComponent},
+      {path: 'abonnes/conctater/:id', component: ContactAbonneComponent},
       {path: 'profile', component: ProfilAbonneComponent},
       {path: 'register', component: RegisterComponent},
       {path: 'login', component: LoginComponent}

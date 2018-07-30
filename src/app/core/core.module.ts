@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import {NgModule, NO_ERRORS_SCHEMA} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {MessageService} from './services/message.service';
 import {AbonnesService} from './services/abonnes/abonnes.service';
@@ -36,6 +36,10 @@ import { ModalTriggerDirective } from './directives/modal-trigger.directive';
 import { ModalCloseDirective } from './directives/modal-close.directive';
 import { PanelContainerDirective } from './directives/panel-container.directive';
 import { PanelContentDirective } from './directives/panel-content.directive';
+import { CustomDirectivesModule } from '../custom-directives/custom-directives.module';
+import {ContactAbonneComponent} from './abonnes/contact-abonne/contact-abonne.component';
+import {SearchAbonnesComponent} from './abonnes/search-abonnes/search-abonnes.component';
+import { ChatComponent } from './chat/chat.component';
 
 @NgModule({
   imports: [
@@ -45,7 +49,8 @@ import { PanelContentDirective } from './directives/panel-content.directive';
     FormsModule,
     ReactiveFormsModule,
     CustomMeterialModule,
-    NotifierModule
+    NotifierModule,
+    CustomDirectivesModule
   ],
   declarations: [
     ListBlocksComponent,
@@ -74,7 +79,10 @@ import { PanelContentDirective } from './directives/panel-content.directive';
     ModalTriggerDirective,
     ModalCloseDirective,
     PanelContainerDirective,
-    PanelContentDirective
+    PanelContentDirective,
+    ContactAbonneComponent,
+    SearchAbonnesComponent,
+    ChatComponent
   ],
   exports: [
     ListBlocksComponent,
@@ -103,13 +111,17 @@ import { PanelContentDirective } from './directives/panel-content.directive';
     ModalTriggerDirective,
     ModalCloseDirective,
     PanelContainerDirective,
-    PanelContentDirective
+    PanelContentDirective,
+    ContactAbonneComponent,
+    SearchAbonnesComponent,
+    ChatComponent
   ],
   providers: [
     MessageService,
     AbonnesService,
     BlockService,
     RegisterService
-  ]
+  ],
+  schemas: [NO_ERRORS_SCHEMA]
 })
 export class CoreModule { }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
-import {Block} from '../../../shared/models/Block.model';
+import {Blocks} from '../../../shared/models/blocks/Block.model';
 import {BlockService} from '../../services/blocks/block.service';
 
 @Component({
@@ -9,10 +9,10 @@ import {BlockService} from '../../services/blocks/block.service';
   styleUrls: ['./list-blocks.component.scss']
 })
 export class ListBlocksComponent implements OnInit {
-  blocks: Block[] = [];
+  blocks: Blocks[] = [];
   statut: number;
-  selectedBlock: Block;
-  block: Block;
+  selectedBlock: Blocks;
+  block: Blocks;
   constructor(private router: Router, private blockService: BlockService) {}
 
   ngOnInit() {
@@ -25,8 +25,8 @@ export class ListBlocksComponent implements OnInit {
         this.statut = data.statut;
       });
   }
-  onViewBlock(block: Block) {
+  onViewBlock(block: Blocks) {
     this.selectedBlock = block;
-    this.router.navigate(['blocks', block.libelle]);
+    this.router.navigate(['/blocks', block.id]);
   }
 }

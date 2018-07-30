@@ -3,38 +3,45 @@
       <br/>
       <br/>
 
-      <form>
+      <form [formGroup]="membreForm">
         <div class="row">
-        <div class="col-sm-12">
-          <mat-form-field class="example-full-width">
-            <input type="text" autocomplete="off" id="nom" [(ngModel)]="nom_c" placeholder="Nom complet" name="nom" #nom="ngModel"
-                   required minlength="4" class="  {{error_var1}}"  [ngClass]="error_var1" matInput>
-          </mat-form-field>
-        </div>
+          <div class="col-sm-6">
+            <mat-form-field>
+              <input matInput type="text" autocomplete="off" placeholder="Nom" formControlName="nom" />
+            </mat-form-field>
+          </div>
+          <div class="col-sm-6">
+            <mat-form-field>
+              <input matInput type="text" autocomplete="off" placeholder="Prénoms" formControlName="prenom" />
+            </mat-form-field>
+          </div>
 
-        <div class="col-sm-6">
-          <mat-form-field class="example-full-width">
-            <input matInput type="email" [(ngModel)]="login_ins" placeholder="Email" name="email" class=" {{error_var2}}" [ngClass]="error_var2" >
-          </mat-form-field>
-        </div>
+          <div class="col-sm-6" formGroupName="adresse">
+            <mat-form-field>
+              <input matInput type="email" autocomplete="off" placeholder="Email" formControlName="email" />
+            </mat-form-field>
+          </div>
 
-        <div class="col-sm-6">
-          <mat-form-field class="example-full-width">
-            <input matInput type="text" [(ngModel)]="numero" placeholder="Contact" name="numero" class=" {{error_var2_p}}" [ngClass]="error_var2" >
-          </mat-form-field>
-        </div>
+          <div  class="col-sm-6" formArrayName="telephones">
+            <div *ngFor="let telephone of telephones.controls; let i=index">
+              <mat-form-field [formGroupName]="i">
+                <input matInput type="text" autocomplete="off" placeholder="Numéro" formControlName="numero" />
+              </mat-form-field>
+            </div>
+          </div>
 
-        <div class="col-sm-12">
-          <mat-form-field class="example-full-width">
-            <input matInput type="password" [(ngModel)]="password" name="password" placeholder="Password.." class=" {{error_var3}}" [ngClass]="error_var3" >
-          </mat-form-field>
-        </div>
+          <div class="col-sm-6">
+            <mat-form-field>
+              <input matInput type="password" autocomplete="off" placeholder="Mot de passe" formControlName="password" />
+            </mat-form-field>
+          </div>
 
-        <div class="col-sm-12">
-          <mat-form-field class="example-full-width">
-            <input matInput type="password" [(ngModel)]="repassword" name="repassword"  placeholder="password verif.." class=" {{error_var4}}" [ngClass]="error_var4" >
-          </mat-form-field>
-        </div>
+          <div class="col-sm-6">
+            <mat-form-field>
+              <input matInput type="password" autocomplete="off" placeholder="Verification du mot de passe"
+                     formControlName="repassword" />
+            </mat-form-field>
+          </div>
 
         <div class="col-sm-12 form-group">
           <p>
@@ -46,11 +53,11 @@
 
         <div class="col-sm-12 form-group">
 
-          <label for="checkbox_id"><b *ngIf="cond_use == 0" class="error1" [(ngClass)]="error_var5">*</b><input type="checkbox" name="chk" id="checkbox_id"  [(ngModel)]="cond_use" value="1"/> &nbsp;J'ai lu et j'accepte les <a href="">Conditions Générales d'Utilisation et la <br/>Politique de Protection des Données Personnelles. </a></label>
+          <label for="checkbox_id"><b class="error1">*</b><input type="checkbox" (click)="toggleSend()" name="chk" id="checkbox_id" value="1"/> &nbsp;J'ai lu et j'accepte les <a href="">Conditions Générales d'Utilisation et la <br/>Politique de Protection des Données Personnelles. </a></label>
         </div>
 
           <div class="col-sm-4 text-center" style="">
-            <button type="button" [disabled]="regist.disabl"  (click)="sending()" class="btn btn-block btn-info text-center">S'inscrire <img src="{{regist.ajax_loader}}" class="loader-img" /></button>
+            <button type="button" (click)="sending()" class="btn btn-block btn-info text-center">S'inscrire <img src="{{regist.ajax_loader}}" class="loader-img" /></button>
 
           </div>
         </div>

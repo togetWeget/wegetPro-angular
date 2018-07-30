@@ -1,8 +1,23 @@
-mat-card-header{
-  display: flex;
+.page-header{
+  color: #fff;
+  text-align: center;
+  width: 100%;
+  padding: 60px 40px 100px 40px;
+  background-color: #515a63;
+  background-size: cover;
+  background-repeat: no-repeat;
+  //background-image: url("assets/header-bg3.jpg");
+  background-position: 50% 50%;
+  height: 265px;
+}
+.page-content{
+  padding-bottom: 24px;
 }
 .abonne-holder{
-  display: flex;
+  position: absolute;
+  top: 10px;
+  padding: 0px 10px;
+  width: 100%;
   font-size: small;
   line-height: 24px;
   color: #fff;
@@ -13,14 +28,15 @@ mat-card-header{
 .abonne-exp{
   position: absolute;
   background: #0721be;
+  padding: 0px 5px;
 
 }
 .abonne-statut {
-  position: relative;
+  float: right;
   border-radius: 100%;
-  width: 15px;
-  height: 15px;
-  right: 0px;
+  width: 25px;
+  height: 25px;
+  margin-right: 0px;
 }
 .status-offline{
   background-color: red;
@@ -29,8 +45,17 @@ mat-card-header{
   background-color: green;
 }
 .abonne-meta{
-  display: flex;
-  padding:5px 10px;
+  display: inline-block;
+  padding:0 10px;
+  width: 100%;
+  margin-top: -25px;
+}
+.abonne-profil-view{
+  position: absolute;
+}
+.abonne-pays{
+  float: right;
+  margin-right: 0
 }
 .abonne-name,.abonne-fonction,.abonne-langue{
   padding:5px 10px;
@@ -48,5 +73,10 @@ mat-card .img-fluid{
 }
 mat-card-actions{
   display: flex;
-  padding: 0 15px 10px 20px;
+  padding: 0 20px 10px 25px;
+  flex-direction: row;
+}
+mat-card-content .abonne-name{
+  font-size: 18px;
+  font-weight: bold;
 }

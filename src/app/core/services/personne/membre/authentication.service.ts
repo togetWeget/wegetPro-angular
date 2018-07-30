@@ -4,8 +4,8 @@ import {Observable, of, Subject} from 'rxjs';
 import {MessageService} from '../../message.service';
 import {HttpClient, HttpRequest, HttpResponse} from '@angular/common/http';
 import {Resultat} from '../../../../shared/models/Resultat';
-import {Membres} from '../../../../shared/models/personne/membres/membres';
-import {Personne} from '../../../../shared/models/personne/membres/personne';
+import {Membres} from '../../../../shared/models/personne/membres/membres.model';
+import {Personnes} from '../../../../shared/models/personne/membres/personne.model';
 
 @Injectable({
   providedIn: 'root'
@@ -33,7 +33,7 @@ export class AuthenticationService {
   constructor(private  http: HttpClient, private  messageService: MessageService) {
   }
 
-  login(mens: Personne) {
+  login(mens: Personnes) {
     return this.http.post(this.urlLogin, mens, {observe: 'response'});
   }
 
@@ -42,7 +42,7 @@ export class AuthenticationService {
     return this.http.post<Resultat<Membres>>(this.urlPersonne, mens)
       .pipe(
         tap(res => {
-          this.log(`enseignant ajoute nom et prenom=${res.body._nomComplet}`);
+          this.log(`enseignant ajoute nom et prenom=${res.body.nomComplet}`);
 
         }),
         catchError(this.handleError<Resultat<Membres>>('ajoutMembre'))
@@ -67,13 +67,14 @@ export class AuthenticationService {
     return this.http.put<Resultat<Membres>>(this.urlPersonne, ensModif)
       .pipe(
         tap(res => {
-          this.log(`enseignant modifier nom et prenom =${res.body._nomComplet}`);
+          this.log(`enseignant modifier nom et prenom =${res.body.nomComplet}`);
           this.membretModif(res);
           this.filtreMembre(res.body.nomComplet);
         }),
         catchError(this.handleError<Resultat<Membres>>('modifierMembre'))
       );
   }
+
 
   // supprimer un membres
   supprimerMembre(id: number): Observable<Resultat<boolean>> {

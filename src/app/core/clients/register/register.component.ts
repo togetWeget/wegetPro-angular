@@ -1,99 +1,85 @@
 import { Component, OnInit } from '@angular/core';
 import {RegisterService} from '../../services/personne/membre/register.service';
-
+import {FormBuilder, FormArray} from '@angular/forms';
 @Component({
   selector: 'app-register-content',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-public nom_c: string;
-public login_ins: string;
-public numero: string;
-public password: string;
-public repassword: string;
-public type: string;
-public cond_use = 0;
-public error_var1: string;
-public error_var2: string;
-public error_var2_p: string;
-public error_var3: string;
-public error_var4: string;
-  public error_var5: string;
-  public res: any = {};
-  constructor(public regist: RegisterService) {
 
+  can_send: boolean = null;
+  reponse: any;
+  membreForm = this.fb.group({
+    cni: [''],
+    titre: [''],
+    nom: [''],
+    prenom: [''],
+    password: [''],
+    repassword: [''],
+    actived: [''],
+    nomComplet: [''],
+    pathPhoto: [''],
+    type: ['ME'],
+    adresse: this.fb.group({
+      codePostal: [''],
+      quartier: [''],
+      ville: [''],
+      pays: [''],
+      email: [''],
+    }),
+    login: [''],
+    entreprise: this.fb.group({
+      libelle: [''],
+      description: [''],
+    }),
+    typeStatut: this.fb.group({
+      libelle: ['']
+    }),
+    cvPersonnes: this.fb.group({
+      diplome: [''],
+      specialite: [''],
+      anneExperience: [''],
+      description: [''],
+    }),
+    telephones: this.fb.array([
+      this.fb.group({
+        type: [''],
+        numero: [''],
+      })
+    ]),
+    description: [''],
+  });
+  constructor(public regist: RegisterService, private fb: FormBuilder) {
+    this.can_send = false;
   }
-
-
 
   ngOnInit() {
 
   }
 
-  verification(): any {
-    this.nom_c = '';
-    this.login_ins = '';
-    this.password = '';
-    this.repassword = '';
+  toggleSend () {
+    this.can_send = (this.can_send === true) ? false : true;
+  }
 
+  get telephones() {
+    return this.membreForm.get('telephones') as FormArray;
+  }
+
+  addTelephones() {
+    this.telephones.push(this.fb.group({
+      type: [''],
+      numero: [''],
+    }));
   }
 
   sending() {
-
-      let rec = 0;
-      if (!this.nom_c) {
-        this.error_var1 = 'error';
-        rec++;
-      } else {
-        this.error_var1 = '';
-
-      }
-
-      if (!this.login_ins) {
-        this.error_var2 = 'error';
-        rec++;
-      } else {
-
-        this.error_var2 = '';
-      }
-
-      if (!this.password) {
-        this.error_var3 = 'error';
-        rec++;
-      } else {
-
-        this.error_var3 = '';
-      }
-
-      if (!this.repassword || this.password !== this.repassword) {
-        this.error_var4 = 'error';
-        rec++;
-      } else {
-
-        this.error_var4 = '';
-      }
-
-      if (this.cond_use === 0) {
-        this.error_var5 = 'error1';
-        rec++;
-      } else {
-
-        this.error_var5 = '';
-      }
-
-    if (rec === 0 ) {
-      const url = this.regist.urlPersonnes();
-    this.type = 'ME';
-      const dataObj: any = {
-        nom_complet: this.nom_c,
-        login: this.login_ins,
-        password: this.password,
-        repassword: this.repassword,
-        type: this.type
-      };
-    console.log(url + '   /    ' + dataObj.login);
-    this.res =  this.regist.registering(url, dataObj);
+    if (this.can_send) {
+      const url = this.regist.urlMembres();
+      console.log('post', this.membreForm.value);
+      this.reponse =  this.regist.registering(url, this.membreForm.value);
+    } else {
+      alert('Vous devez accepter les conditions de confidentialité');
+    }
     }
   }
-}

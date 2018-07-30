@@ -3,10 +3,10 @@ import {
   MAT_DIALOG_DEFAULT_OPTIONS,
   MatButtonModule,
   MatCardModule, MatChipsModule, MatDialogModule, MatDividerModule,
-  MatExpansionModule, MatFormFieldModule,
+  MatExpansionModule, MatFormFieldModule, MatGridListModule,
   MatIconModule, MatInputModule,
-  MatListModule,
-  MatSidenavModule, MatSnackBarModule,
+  MatListModule, MatOptionModule, MatSelectModule,
+  MatSidenavModule, MatSnackBarModule, MatTabsModule,
   MatToolbarModule
 } from '@angular/material';
 
@@ -25,7 +25,11 @@ import {
     MatSnackBarModule,
     MatDialogModule,
     MatInputModule,
-    MatDividerModule
+    MatDividerModule,
+    MatOptionModule,
+    MatTabsModule,
+    MatGridListModule,
+    MatSelectModule
   ],
   declarations: [],
   exports: [
@@ -41,7 +45,11 @@ import {
     MatSnackBarModule,
     MatDialogModule,
     MatInputModule,
-    MatDividerModule
+    MatDividerModule,
+    MatOptionModule,
+    MatTabsModule,
+    MatGridListModule,
+    MatSelectModule
   ],
   providers: [{provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: true}}]
 })
