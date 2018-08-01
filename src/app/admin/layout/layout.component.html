@@ -1,0 +1,73 @@
+<div class="weget-conteneur">
+  <div class="example-container">
+    <div class="contenaire-toolbar">
+      <mat-toolbar color="primary" class="weget-toolbar mat-elevation-z5">
+       <span class="logo">
+       TogetProAdmin
+       </span>
+        <button class="btn-toggle" mat-icon-button (click)="sidenav.toggle()">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <button class="btn-toggle" mat-icon-button (click)="gotoHome()">
+            <mat-icon>home</mat-icon>
+        </button>
+      </mat-toolbar>
+    </div>
+    <mat-sidenav-container class="educ-side-container" [class.side-is-mobile]="mobileQuery.matches">
+      <mat-sidenav [fixedInViewport]="true" [autoFocus]="true" #sidenav class="sidenavBar mat-elevation-z5"
+                   [mode]="'side'">
+        <div class="menubar">
+          <div class="principal">
+            <br class="">
+            <br class="">
+            <br class="">
+            <div class="box">
+              <mat-nav-list class="nlist">
+                <a mat-list-item="" class="nav-li" routerLink="">
+                  <mat-icon mat-list-icon="" class="material-icons nav">dashboard</mat-icon>
+                  <span class="nav">Tableau de bord</span> </a>
+
+              </mat-nav-list>
+            </div>
+
+            <div class="box">
+              <mat-nav-list class="nlist">
+                <a  mat-list-item="" routerLink="/invite" class="nav-li">
+                  <mat-icon mat-list-icon="" class="nav">person</mat-icon>
+                  <span class="nav">Compte</span>
+                </a>
+              </mat-nav-list>
+            </div>
+
+            <div class="box">
+              <mat-nav-list class="nlist">
+                <a mat-list-item="" class="nav-li">
+                  <mat-icon mat-list-icon="" class="nav">mail_outline</mat-icon>
+                  <span class="nav">Messagerie</span> </a>
+              </mat-nav-list>
+            </div>
+            <div class="box">
+              <mat-nav-list class="nlist">
+                <a mat-list-item="" class="nav-li" routerLink="/matiere">
+                  <mat-icon mat-list-icon="" class="material-icons nav">casino</mat-icon>
+                  <span class="nav">Blocs</span> </a>
+              </mat-nav-list>
+            </div>
+
+          </div>
+
+        </div>
+      </mat-sidenav>
+
+      <mat-sidenav-content class="side-content">
+        <br>
+        <div>
+          <router-outlet></router-outlet>
+        </div>
+
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+    <hr>
+    <app-footer></app-footer>
+  </div>
+</div>

@@ -1,0 +1,57 @@
+<header class="page-header" style="position: relative">
+  <div class="page-title">
+    <div class="container">
+
+    </div>
+  </div>
+</header>
+<div class="page-content">
+  <div class="container" style="padding: 24px 0;">
+    <div class="row">
+      <div class="col-md-12 col-lg-9 col-12">
+        <div>
+          <div class="panel-search">
+            <app-search-abonnes></app-search-abonnes>
+          </div>
+          <div class="row">
+            <div *ngFor="let abonne of abonnes" class="col-md-6 col-sm-6 col-lg-4 col-12">
+              <mat-card class="abonnes-items">
+                <img mat-card-image   src="{{abonne.personne.pathPhoto}}" alt="Image de couverture " class="img-fluid">
+                <mat-card-header style="width: 100%;">
+                  <div class="abonne-holder">
+                    <div class="abonne-exp">{{abonne.personne.cvPersonne.anneExperience}} d'expérience</div>
+                    <div [ngClass]="{'abonne-statut': true,
+                           'status-offline': abonne.personne.actived ==0,
+                           'status-online' : abonne.personne.actived ==1}"
+                         title="Discuter avec cet abonné">
+                    </div>
+                  </div>
+                </mat-card-header>
+                <mat-card-content>
+                  <div class="abonne-meta">
+                    <div class="abonne-profil-view"><i class="fa fa-eye"></i> 35</div>
+                    <div class="abonne-pays"><i class="fa fa-map-marker"></i> {{abonne.personne.adresse.pays}}</div>
+                  </div>
+                  <div class="abonne-name" >{{abonne.personne.nomComplet}}</div>
+                  <div class="abonne-fonction">{{abonne.personne.cvPersonne.specialite}}</div>
+                  <div class="abonne-langue">Français</div>
+                </mat-card-content>
+                <mat-card-actions>
+                  <button mat-raised-button color="warn" class="mat-button" (click)="onViewProfileAbonne(abonne)">Profile</button>
+                  <span class="space-card"></span>
+                  <button mat-raised-button color="primary" class="mat-button" (click)="onContactAbonne(abonne)">Contacter</button>
+                </mat-card-actions>
+              </mat-card>
+            </div>
+          </div>
+          <div></div>
+        </div>
+      </div>
+      <div class="d-none d-lg-block col-lg-3">
+        <div style="height: 200px; border: 1px solid black;"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

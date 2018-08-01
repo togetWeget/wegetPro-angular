@@ -1,14 +1,20 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ListBlocksComponent} from './blocks/list-blocks/list-blocks.component';
-import {ListAbonnesBlockComponent} from './abonnes/list-abonnes-block/list-abonnes-block.component';
-import {ProfilAbonneComponent} from './abonnes/profil-abonne/profil-abonne.component';
+import {AccueilComponent} from './site/accueil/accueil.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: '/blocks', pathMatch: 'full'},
-  {path: 'blocks', component: ListBlocksComponent},
-  {path: 'blocks/:block', component: ListAbonnesBlockComponent},
-  {path: 'profile', component: ProfilAbonneComponent}
+  {
+    path: '', redirectTo: '/site', pathMatch: 'full'
+  },
+  {
+    path: 'site', loadChildren: './site/site.module#SiteModule'
+  },
+  {
+    path: 'admin', loadChildren: './admin/admin.module#AdminModule'
+  },
+  {
+    path: 'super/admin', loadChildren: './super-admin/super-admin.module#SuperAdminModule'
+  },
 ];
 
 @NgModule({

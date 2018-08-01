@@ -1,0 +1,58 @@
+.petit{
+  width: 100px;
+  height: 50px;
+}
+.weget-conteneur{
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.principal{
+  display: flex;
+  flex-direction: column;
+
+  width: 200px;
+  justify-content: center;
+  align-items: center;
+
+}
+.weget-toolbar {
+  position: fixed;
+  z-index: 2;
+  background: #34a3cd;
+}
+.educ-side-container {
+  flex: 1;
+  margin-top: 40px;
+}
+
+.sidenavBar .box{
+  width: 100%;
+}
+.sidenavBar .box:hover{
+  background: #aaaaaa;
+}
+.sidenavBar{
+  background: #444444;
+}
+.sidenavBar a{
+  color: #eeeeee;
+}
+
+.sidenavBar{
+  display: flex;
+}
+
+.weget-toolbar .logo{
+  margin: 0 10px;
+  box-sizing: border-box;
+}
+
+
+.side-content{
+  min-height: 50em;
+}
