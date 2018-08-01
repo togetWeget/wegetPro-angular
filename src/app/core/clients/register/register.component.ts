@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {RegisterService} from '../../services/personne/membre/register.service';
+import {AuthFirebaseService} from '../../../firebaseDir/auth-firebase.service';
 
 @Component({
   selector: 'app-register-content',
@@ -21,7 +22,7 @@ public error_var3: string;
 public error_var4: string;
   public error_var5: string;
   public res: any = {};
-  constructor(public regist: RegisterService) {
+  constructor(public regist: RegisterService, public authFirebaseService: AuthFirebaseService) {
 
   }
 
@@ -94,6 +95,21 @@ public error_var4: string;
       };
     console.log(url + '   /    ' + dataObj.login);
     this.res =  this.regist.registering(url, dataObj);
+      this.authFirebaseService.createNewUser(this.login_ins, this.password).then(
+
+        () => {
+
+          alert('Ok firebase created ID');
+
+        },
+
+        (error) => {
+
+          alert('Error not create firebase ID '+ error);
+
+        }
+
+      );
     }
   }
 }

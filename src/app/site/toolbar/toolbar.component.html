@@ -14,8 +14,11 @@
       <button mat-icon-button>
         <mat-icon>search</mat-icon>
       </button>
+    <ng-container *ngIf="stor == true">
       <button mat-raised-button color="warn" (click)="toggleModal()">Se connecter</button>
-      <button mat-raised-button class="app-btn-bg-primary" (click)="inscription()" color="primary">S'inscrire</button>
+      <button mat-raised-button  class="app-btn-bg-primary" (click)="inscription()" color="primary">S'inscrire</button>
+    </ng-container>
+      <button mat-raised-button *ngIf="stor == false" class="app-btn-bg-primary" (click)="onSignOut()" color="warn">Déconnexion</button>
     </span>
     <button (click)="toggleMenu()" mat-icon-button appIfMediaQuery="(max-width: 768px)">
     <mat-icon>dehaze</mat-icon>
@@ -30,10 +33,12 @@
       <mat-list-item><a class="app-top-menu-item mat-button" mat-button routerLink="/blocks"><span>Blocks</span></a></mat-list-item>
       <mat-divider></mat-divider>
       <mat-list-item><a class="app-top-menu-item mat-button" mat-button routerLink="/profile"><span>Profile</span></a></mat-list-item>
+     <ng-container *ngIf="stor == true">
       <mat-divider></mat-divider>
-      <mat-list-item><button mat-raised-button color="warn" (click)="toggleModal()">Se connecter</button></mat-list-item>
+      <mat-list-item><button mat-raised-button  color="warn" (click)="toggleModal()">Se connecter</button></mat-list-item>
       <mat-divider></mat-divider>
-      <mat-list-item><button mat-raised-button class="app-btn-bg-primary" (click)="inscription()" color="primary">S'inscrire</button></mat-list-item>
+      <mat-list-item><button mat-raised-button  class="app-btn-bg-primary" (click)="inscription()" color="primary">S'inscrire</button></mat-list-item>
+     </ng-container>
     </mat-list>
   </mat-card>
 </div>

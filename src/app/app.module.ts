@@ -12,10 +12,12 @@ import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 import {RouterModule} from '@angular/router';
 import {AuthGuardTogetService} from './core/services/AuthGuards/auth-guard-toget.service';
+import { ChatroomComponent } from './admin/chatroom/chatroom.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ChatroomComponent
   ],
   imports: [
     BrowserModule,
