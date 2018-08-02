@@ -1,0 +1,206 @@
+/*
+bande gauche : #2c3e50;
+color-ext : #32465a;
+
+ */
+
+.pad {
+  padding: 10px;
+  position: fixed;
+  display:flex;
+  justify-content: center;
+
+}
+
+.pad2 {
+
+  height:100%;
+  border:1px solid red;
+  width: 100%;
+}
+
+.search-bar {
+  border: 0px;
+  background: #32465a;
+  color: #fff;
+  width: 90%;
+  float: left;
+  border-bottom: 1px solid #f2f2f2;
+  display: inline-block;
+  line-height: 1.8em;
+  height: 30px;
+  padding-left: 10px;
+  margin-top:2px;
+}
+.search_icon{
+  border: 0px;
+  background: #32465a;
+  color: #fff;
+  width: auto;
+  float: left;
+  border-bottom: 1px solid #f2f2f2;
+  display: inline-block;
+  line-height: 1.8em;
+  height: 30px;
+  padding-left: 10px;
+  margin-top:2px;
+}
+
+.bl-search{
+  width:100%;
+}
+
+.band-user{
+  width:100%;
+  border-right: 1px solid #f2f2f2;
+  height: calc(90vh - 165px);
+  overflow-y: scroll;
+}
+.band-droite-bas{
+  width:100%;
+  border-right: 1px solid #f2f2f2;
+  height: calc(90vh - 165px);
+  overflow-y: scroll;
+
+}
+
+.input-bas{
+  width:100%;
+  bottom:0;
+  position:fixed;
+  padding:10px;
+  background:#f2f2f2;
+}
+
+.input-bas-in{
+  width: 50%;
+  border:0px;
+  border-bottom: 1px solid #333;
+  height:50px;
+  resize: none;
+}
+.users{
+  border-bottom: 1px solid #f2f2f2;
+  padding:10px;
+}
+.img-g-rond{
+  width:50px;
+  height:50px;
+  border-radius: 100%;
+  margin-right:5px;
+  float:left;
+}
+.break_word {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 50%;
+  font-size: 13px;
+}
+.click-over:hover {
+  cursor: pointer;
+}
+
+.gauche-h {
+  width: 30%;
+  float: left;
+}
+
+.droite-h {
+  width: 70%;
+  float: right;
+}
+
+.band-gauche{
+  background:#2c3e50;
+  width:100%;
+  color:#fff;
+  padding:20px;
+  height:auto;
+  float:left;
+  margin-bottom:10px;
+}
+
+.band-droite{
+  background:#2c3e50;
+  width:100%;
+  color:#fff;
+  padding:10px;
+  height:auto;
+  float:left;
+  margin-bottom:10px;
+  border-left:1px dashed #f2f2f2;
+  margin-right:10px;
+}
+
+.band-droite-bas{
+  width:100%;
+  float:left;
+}
+.default-frm{
+  display:flex;
+  flex-flow: wrap;
+  justify-content: center;
+  width: 100% !important;
+  text-align: center;
+  margin-right:1px;
+}
+
+.default-msg{
+  width: 100% !important;
+
+}
+.receiver{
+  max-width:350px;
+  background:#ddd;
+  border-radius: 10px;
+  padding:5px;
+}
+
+.img-g-rond-r{
+  width:50px;
+  height:50px;
+  border-radius: 100%;
+  margin-right:5px;
+}
+
+.default-frm p{
+  text-align: center;
+  width:100%;
+}
+.default-img{
+  width:200px;
+  height:200px;
+}
+
+@media (max-width: 820px) {
+
+  .droite-h {
+    display: none !important;
+  }
+  .gauche-h {
+    width: 100% !important;
+    position: relative !important;
+    height: 100% !important;
+    overflow: hidden !important;
+  }
+
+  .pad {
+    position: fixed !important;
+    height: 100% !important;
+    margin: 0px !important;
+    padding: 0px !important;
+    width: 100% !important;
+    dispay: flex;
+    justify-content: center !important;
+    overflow:auto !important;
+  }
+
+  .band-user{
+    width:100%;
+    border-right: 1px solid #f2f2f2;
+    height: calc(90vh - 165px) !important;
+    overflow-y: auto !important;
+  }
+}
+

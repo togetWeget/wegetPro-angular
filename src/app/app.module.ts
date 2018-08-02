@@ -1,29 +1,27 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { ServiceWorkerModule } from '@angular/service-worker';
-import { environment } from '../environments/environment';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
+import {ServiceWorkerModule} from '@angular/service-worker';
+import {environment} from '../environments/environment';
 import {SiteModule} from './site/site.module';
-import { AdminModule } from './admin/admin.module';
-import { SuperAdminModule } from './super-admin/super-admin.module';
+import {AdminModule} from './admin/admin.module';
+import {SuperAdminModule} from './super-admin/super-admin.module';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
-import { CoreModule } from './core/core.module';
-import { SharedModule } from './shared/shared.module';
+import {CoreModule} from './core/core.module';
+import {SharedModule} from './shared/shared.module';
 import {RouterModule} from '@angular/router';
 import {AuthGuardTogetService} from './core/services/AuthGuards/auth-guard-toget.service';
-import { ChatroomComponent } from './admin/chatroom/chatroom.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    ChatroomComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     SiteModule,
-    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
+    ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.production}),
     AdminModule,
     SuperAdminModule,
     NoopAnimationsModule,
@@ -34,4 +32,5 @@ import { ChatroomComponent } from './admin/chatroom/chatroom.component';
   providers: [AuthGuardTogetService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
