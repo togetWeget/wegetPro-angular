@@ -13,6 +13,7 @@ import {Detailblock} from '../../../shared/models/detailblock';
 })
 export class ProfilAbonneComponent implements OnInit {
   abonne: Detailblock;
+  abonnes: Detailblock[] = [];
 
   constructor(private abonnesService: AbonnesService,
               private route: ActivatedRoute,
@@ -28,7 +29,15 @@ export class ProfilAbonneComponent implements OnInit {
       this.abonne = res.body;
     });
   }
-
+fethcAllAbonnes() {
+  this.route.paramMap.pipe(
+    switchMap((params: ParamMap) =>
+      this.abonnesService.getAllAbonnesByBlock(+params.get('this.abonne.block.id')))
+  ).subscribe(res => {
+    this.abonnes = res.body;
+    console.log('les abonnes de ListAbonnesBlockComponent', res.body);
+  });
+}
   onContactAbonne(): void {
     const dialogRef = this.contactDialog.open(ContactAbonneComponent,
       {

@@ -53,20 +53,113 @@
               </div>
               <mat-tab-group class="col-md-12 col-sm-12">
                 <mat-tab>
-                  <span *mat-tab-label><i class="fa fa-address-card"></i><span class="d-none d-lg-inline"> Bio</span></span>
+                  <span *mat-tab-label>
+                    <i class="fa fa-address-card"></i>
+                    <span class="d-none d-lg-inline"> Bio</span>
+                  </span>
+                  <div class="tab-content">
+                    <h3 class="tab-content-title">Biographie</h3>
+                    <div>
+                      <div>
+                        <h4 class="hr">A propos de vous</h4>
+                        <p></p>
+                      </div>
+                      <div>
+                        <div class="pull-right">
+                          <a mat-mini-fab class="btn-social facebook" href target="_blank">
+                            <i class="fa fa-facebook"></i>
+                          </a>
+                          <a mat-mini-fab class="btn-social twitter" href target="_blank">
+                            <i class="fa fa-twitter"></i>
+                          </a>
+                          <a mat-mini-fab class="btn-social gplus" href target="_blank">
+                            <i class="fa fa-google-plus"></i>
+                          </a>
+                          <a mat-mini-fab class="btn-social linkedin" href target="_blank">
+                            <i class="fa fa-linkedin"></i>
+                          </a>
+                        </div>
+                      </div>
+                      <div class="row" style="width: 100%">
+                        <div class="col-lg-6">
+                          <ul class="list list-unstyled tags">
+                            <li class="tags-item">
+                              <h4 class="hr">Spécialités</h4>
+                              <span class="tag">{{abonne.personne.cvPersonne.specialite}}</span>
+                            </li>
+                            <li class="tags-item">
+                              <h4 class="hr">Dernier diplôme</h4>
+                              <span class="tag">{{abonne.personne.cvPersonne.diplome}}</span>
+                            </li>
+                            <li class="tags-item">
+                              <h4 class="hr">Lieu de naissance</h4>
+                              <span class="tag">
+                                {{abonne.personne.adresse.ville}}, {{abonne.personne.adresse.pays}}
+                              </span>
+                            </li>
+                            <li class="tags-item">
+                              <h4 class="hr">Langues</h4>
+                              <span class="tag">{{"Français"}}</span>
+                            </li>
+                          </ul>
+                        </div>
+                        <div class="col-lg-6">
+                          <ul class="list list-unstyled tags">
+                            <li class="tags-item">
+                              <h4 class="hr">Spécialités</h4>
+                              <span class="tag">{{abonne.personne.cvPersonne.specialite}}</span>
+                            </li>
+                            <li class="tags-item">
+                              <h4 class="hr">Spécialités</h4>
+                              <span class="tag">{{abonne.personne.cvPersonne.specialite}}</span>
+                            </li>
+                            <li class="tags-item">
+                              <h4 class="hr">Spécialités</h4>
+                              <span class="tag">{{abonne.personne.cvPersonne.specialite}}</span>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </mat-tab>
                 <mat-tab>
-                  <span *mat-tab-label><i class="fa fa-trophy"></i><span class="d-none d-lg-inline"> Expérience</span></span>
+                  <span *mat-tab-label>
+                    <i class="fa fa-trophy"></i>
+                    <span class="d-none d-lg-inline"> Expérience</span>
+                  </span>
+                  <div class="tab-content">
+                    <h3 class="tab-content-title">expérince</h3>
+                    <div></div>
+                  </div>
                 </mat-tab>
                 <mat-tab>
-                  <span *mat-tab-label><i class="fa fa-graduation-cap"></i><span class="d-none d-lg-inline"> Formation</span></span>
+                  <span *mat-tab-label>
+                    <i class="fa fa-graduation-cap"></i>
+                    <span class="d-none d-lg-inline"> Formation</span>
+                  </span>
+                  <div class="tab-content">
+                    <h3 class="tab-content-title">Formations</h3>
+                    <div></div>
+                  </div>
                 </mat-tab>
                 <mat-tab>
-                  <span *mat-tab-label><i class="fa fa-file"></i><span class="d-none d-lg-inline"> Documents</span></span>
+                  <span *mat-tab-label>
+                    <i class="fa fa-file"></i>
+                    <span class="d-none d-lg-inline"> Documents</span>
+                  </span>
+                  <div class="tab-content">
+                    <h3 class="tab-content-title">documents</h3>
+                    <div></div>
+                  </div>
                 </mat-tab>
               </mat-tab-group>
+              <div style="padding: 15px; margin-top:50px;">
+                <h3 class="tab-content-title">Dans ce réseau</h3>
+              </div>
             </div>
-            <div class="col-md-3"></div>
+            <div class="d-none d-lg-block col-lg-3">
+              <div style="height: 200px; border: 1px solid black;"></div>
+            </div>
           </div>
         </div>
       </div>

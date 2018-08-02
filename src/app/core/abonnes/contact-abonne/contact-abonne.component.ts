@@ -74,6 +74,7 @@ export class ContactAbonneComponent implements OnInit {
     msg = this.convertisseur(this.messageForm);
     this.messagerieService.ajoutMessage(msg).subscribe(res => {
       console.log('reponse de contact abonne', res.body);
+      this.dialogRef.close();
     });
   }
 

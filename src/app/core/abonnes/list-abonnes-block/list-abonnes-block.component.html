@@ -21,9 +21,10 @@
                   <div class="abonne-holder">
                     <div class="abonne-exp">{{abonne.personne.cvPersonne.anneExperience}} d'expérience</div>
                     <div [ngClass]="{'abonne-statut': true,
-                           'status-offline': abonne.personne.actived ==0,
-                           'status-online' : abonne.personne.actived ==1}"
+                           'status-offline': abonne.personne.actived ==false,
+                           'status-online' : abonne.personne.actived ==true}"
                          title="Discuter avec cet abonné">
+                      <i class="fa fa-comment"></i>
                     </div>
                   </div>
                 </mat-card-header>

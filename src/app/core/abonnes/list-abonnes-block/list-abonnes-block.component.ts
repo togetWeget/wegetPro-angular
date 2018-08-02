@@ -53,6 +53,5 @@ export class ListAbonnesBlockComponent implements OnInit {
         width: '600px',
         data: {idPersonne: abonne.personne.id, nomPersonne: abonne.personne.nomComplet}
       });
-
   }
 }
