@@ -13,61 +13,73 @@
 
       <div class="" style="background:#f2f2f2; font-size:12px; text-align:center; padding:0;">Liste Membre</div>
       <div class="band-user">
-        <div class="users" *ngFor="let a of dataRec; index as i">
+        <div class="users" (click)="changeVarUser(a.id,a.pathPhoto,a.login);" *ngFor="let a of dataRec; index as i">
           <img src="http://www.acqueon.com/wp-content/uploads/2017/08/avatar-image.png" class="img-g-rond">
-          <span>Djouekan Liam Jean-Elyon <i class="fa fa-circle" style="color:darkgreen;"></i></span>
-          <h6 class="break_word"> lorep ipsum duro para dechdeg polar siem log time lala</h6>
+          <span>{{a.login}} <i class="fa fa-circle" style="color:darkgreen;"></i></span>
+          <h6 class="break_word">{{a.description}} </h6>
         </div>
         <div style="text-align: center; width:100%;" *ngIf="resulloard == true">{{ResultText}}</div>
       </div>
     </div>
 
 
-
-
     <div class="droite-h">
       <!-- bande gauche haut-->
       <div class="band-droite">
         <img src="http://www.acqueon.com/wp-content/uploads/2017/08/avatar-image.png" class="img-g-rond">
-        Djouekan Joel Armel &nbsp;<span class="fa fa-angle-down"></span><br/>
-        <i class="fa fa-circle" style="color:darkgreen;"></i> Connecté
+       <div class="col-sm-12" style="width:500px;height:10px;">{{named}}
+         <span class="fa fa-angle-down"></span><br/>
+         <i class="fa fa-circle" style="color:darkgreen;"></i> Connecté
+       </div> &nbsp;
       </div>
 
-       <div class="band-droite-bas">
-         <div class="col-sm-12 row default-msg ">
-        <div class="col-sm-12 row">
-          <div class="col-sm-12">
-          <img src="http://www.acqueon.com/wp-content/uploads/2017/08/avatar-image.png" class="img-g-rond-r">
+      <div class="band-droite-bas">
+        <div class="col-sm-12 row default-msg " style="margin:0 auto; display:none;">
+          <div class="col-sm-12 row">
+            <div class="col-sm-12">
+              <img src="http://www.acqueon.com/wp-content/uploads/2017/08/avatar-image.png" class="img-g-rond-r">
+            </div>
+            <div class="col-sm-12">
+              <div class="receiver"> lorep ipsum dilor para nuegate n;oloso deskoitro pourdistraca ne distapa </div>
+              <i style="font-size:10px;">
+                le 21/07/2018 à 12h32 |
+                <span class="fa fa-send" style="color:green"></span>
+              </i>
+            </div>
           </div>
-          <div class="col-sm-12">
-          <div class="receiver"> lorep ipsum dilor para nuegate n;oloso deskoitro pourdistraca ne distapa</div>
+
+          <div class="col-sm-12 row">
+            <div class="col-sm-12" style="">
+              <img src="http://www.acqueon.com/wp-content/uploads/2017/08/avatar-image.png"
+                   class="img-g-rond-r pull-right">
+            </div>
+            <div class="col-sm-12" style="">
+              <div class="sender pull-right">
+                lorep ipsum dilor para nuegate n;oloso deskoitro pourdistraca ne distapa
+              </div>
+            </div>
+            <div class="col-sm-12 ">
+              <i style="font-size:10px;" class="pull-right">
+                le 21/07/2018 à 12h32 |
+                <span class="fa fa-send" style="color:green"></span>
+              </i>
+            </div>
+          </div>
+
+
         </div>
+        <div class=" col-sm-12 row default-frm" style="">
+          <p> Salut, Vous êtes sur la platforme de messagerie de toget.</p>
+          <img class="default-img"
+               src="https://fotomelia.com/wp-content/uploads/edd/2015/11/bonhomme-blanc-3d-images-gratuites-libres-de-droits-creative-commons58-1560x1114.jpg"/>
+
         </div>
-
-           <div class="col-sm-12 row pull-right" style="padding-right:0px !important; border:1px solid red; margin-right: 0px !important;">
-             <div class="col-sm-12" style="padding-right:0px !important; border:1px solid black;">
-               <img src="http://www.acqueon.com/wp-content/uploads/2017/08/avatar-image.png" class="img-g-rond-r pull-right">
-             </div>
-             <div class="col-sm-12" style="padding-right:0px !important; border:1px solid blue;">
-               <div class="receiver pull-right" > lorep ipsum dilor para nuegate n;oloso deskoitro pourdistraca ne distapa</div>
-             </div>
-           </div>
-
-
-
-         </div>
-         <div class="default-frm" style="display:none;">
-           <p> Salut, Vous êtes sur la platforme de messagerie de toget.</p>
-         <img class="default-img"
-           src="https://fotomelia.com/wp-content/uploads/edd/2015/11/bonhomme-blanc-3d-images-gratuites-libres-de-droits-creative-commons58-1560x1114.jpg"/>
-
-         </div>
-         <div class="input-bas">
-           <i class="fa fa-plus-circle" style="font-size:50px; color:dodgerblue;"></i>&nbsp;
-           <textarea type="text" class="input-bas-in" placeholder="message ici..." ></textarea>
-           &nbsp; &nbsp;<i class="fa fa-paper-plane" style="font-size:25px;"></i>
-         </div>
-       </div>
+        <div class="col-sm-12 row input-bas">
+          <i class="fa fa-plus-circle" style="font-size:50px; color:dodgerblue;"></i>&nbsp;
+          <textarea type="text" class="input-bas-in" placeholder="message ici..."></textarea>
+          &nbsp; &nbsp;<i class="fa fa-paper-plane" style="font-size:25px;"></i>
+        </div>
+      </div>
 
 
     </div>
