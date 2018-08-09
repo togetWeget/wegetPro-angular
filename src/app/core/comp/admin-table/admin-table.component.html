@@ -1,0 +1,56 @@
+<mat-card>
+	<mat-card-content>
+		<mat-card-title>
+			<div class="titre">Liste toutes les données</div>
+			<div class="action"><button mat-raised-button><i class="fa fa-plus"></i></button></div>
+		</mat-card-title>
+		<div class="table-entete">
+			<div class="afficher">
+				<mat-form-field>
+				  <mat-select placeholder="Afficher" [(value)]="groupSelected">
+				    <mat-option *ngFor="let grp of groupSelect" [value]="grp">
+				      {{grp}}
+				    </mat-option>
+				  </mat-select>
+				</mat-form-field>
+			</div>
+			<div class="other-entete">
+				<span><mat-icon>search</mat-icon></span>
+				<span>
+					<mat-form-field>
+				    	<input matInput placeholder="Rechercher">
+				    </mat-form-field>
+				</span>
+				<span>
+					<mat-button-toggle-group name="globals_actions" aria-label="Actions globales">
+					  <mat-button-toggle (click)="copier()" value="copier">copier</mat-button-toggle>
+					  <mat-button-toggle (click)="excel()" value="excel">excel</mat-button-toggle>
+					  <mat-button-toggle (click)="pdf()" value="pdf">pdf</mat-button-toggle>
+					  <mat-button-toggle (click)="imprimer()" value="imprimer">imprimer</mat-button-toggle>
+					</mat-button-toggle-group>
+				</span>
+			</div>
+		</div>
+		<table class="table table-bordered table-responsive table-striped table-hover">
+			<thead>
+				<tr>
+					<th>fdgfdgf</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>dgdgfd</td>
+				</tr>
+				<tr>
+					<td>dgdgfd</td>
+				</tr>
+				<tr>
+					<td>dgdgfd</td>
+				</tr>
+				<tr>
+					<td>dgdgfd</td>
+				</tr>
+			</tbody>
+		</table>
+	</mat-card-content>
+</mat-card>

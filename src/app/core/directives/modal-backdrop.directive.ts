@@ -14,7 +14,7 @@ export class ModalBackdropDirective implements OnInit, OnChanges {
   ngOnInit () {
     this.el.nativeElement.style.position = 'fixed';
     this.el.nativeElement.style.boxSizing = 'border-box';
-    this.el.nativeElement.style.zIndex = '30';
+    this.el.nativeElement.style.zIndex = '3000';
     this.el.nativeElement.style.background = 'rgba(0,0,0,0.2)';
     this.el.nativeElement.style.width = '100%';
     this.el.nativeElement.style.height = '100%';

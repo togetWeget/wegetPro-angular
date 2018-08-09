@@ -7,74 +7,25 @@
       </h2>
     </div>
   </div>
-  <hr>
-  <div>
-    <h3 appBlocTitle [wpr_position]="'center'" [wpr_upper]="true" [wpr_padding]="'0'" [wpr_margin]="'0'" [wpr_size]="'2rem'">
-      <span>Nos abonnés</span>
-    </h3>
 
-  </div>
-  <hr>
-  <div class="container-fluid">
+  <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <div class="row">
-                <div class="col-sm"><img class="d-block w-100" src="assets/photo/11-700x467.jpg" alt="1 slide"></div>
-                <div class="col-sm"><img class="d-block w-100" src="assets/photo/11-700x467.jpg" alt="2 slide"></div>
-                <div class="col-sm"><img class="d-block w-100" src="assets/photo/11-700x467.jpg" alt="3 slide"></div>
-                <div class="col-sm"><img class="d-block w-100" src="assets/photo/03-700x471.jpg" alt="4 slide"></div>
-                <div class="col-sm"><img class="d-block w-100" src="assets/photo/10-700x525.jpg" alt="5 slide"></div>
-                <div class="col-sm"><img class="d-block w-100" src="assets/photo/11-700x467.jpg" alt="6 slide"></div>
-                <div class="col-sm"><img class="d-block w-100" src="assets/photo/11-700x467.jpg" alt="7 slide"></div>
-                <div class="col-sm"><img class="d-block w-100" src="assets/photo/03-700x471.jpg" alt="8 slide"></div>
-                <div class="col-sm"><img class="d-block w-100" src="assets/photo/10-700x525.jpg" alt="9 slide"></div>
-                <div class="col-sm"><img class="d-block w-100" src="assets/photo/11-700x467.jpg" alt="10 slide"></div>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <div class="row">
-                <div class="col-sm"><img class="d-block w-100" src="assets/photo/03-700x471.jpg" alt="4 slide"></div>
-                <div class="col-sm"><img class="d-block w-100" src="assets/photo/10-700x525.jpg" alt="5 slide"></div>
-                <div class="col-sm"><img class="d-block w-100" src="assets/photo/11-700x467.jpg" alt="6 slide"></div>
-                <div class="col-sm"><img class="d-block w-100" src="assets/photo/03-700x471.jpg" alt="4 slide"></div>
-                <div class="col-sm"><img class="d-block w-100" src="assets/photo/10-700x525.jpg" alt="5 slide"></div>
-                <div class="col-sm"><img class="d-block w-100" src="assets/photo/11-700x467.jpg" alt="6 slide"></div>
-                <div class="col-sm"><img class="d-block w-100" src="assets/photo/11-700x467.jpg" alt="7 slide"></div>
-                <div class="col-sm"><img class="d-block w-100" src="assets/photo/03-700x471.jpg" alt="8 slide"></div>
-                <div class="col-sm"><img class="d-block w-100" src="assets/photo/10-700x525.jpg" alt="9 slide"></div>
-                <div class="col-sm"><img class="d-block w-100" src="assets/photo/11-700x467.jpg" alt="10 slide"></div>
-              </div>
-            </div>
-          </div>
-          <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-          </a>
-          <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-          </a>
-        </div>
+          <h3 class="first-title">Nos abonnés</h3>
+          <app-carousel-site></app-carousel-site>
       </div>
     </div>
   </div>
 </div>
 
-<div>
-  <h3 appBlocTitle [wpr_position]="'center'" [wpr_upper]="true" [wpr_padding]="'0'" [wpr_margin]="'30px 0 0 0'" [wpr_size]="'2rem'">
-    <span>Les Blocks</span>
-  </h3>
 
+<div class="container"> 
+  <div class="row">
+    <div class="col-12">
+      <h3 class="first-title">Les Blocks</h3>
+      <app-list-blocks></app-list-blocks>      
+    </div>
+  </div>
 </div>
-
-<br>
-<br>
-<app-list-blocks appCustomStyle [csd_margin]="'0'"></app-list-blocks>
-
-<br>
-<br>
 
 

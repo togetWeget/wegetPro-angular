@@ -8,12 +8,13 @@ import {
   animate,
   transition
 } from '@angular/animations';
+import * as $ from 'jquery';
 
 
 @Component({
   selector: 'app-toolbar',
   templateUrl: './toolbar.component.html',
-  styleUrls: ['./toolbar.component.scss'],
+  styleUrls: ['./toolbar.component.scss', '../layout/layout.component.scss'],
   animations: [
     trigger('menuShow', [
       state('open', style({
@@ -34,8 +35,23 @@ export class ToolbarComponent implements OnInit {
   menu_state: string;
 
   constructor(private router: Router, private dialog: MatDialog) { }
-  ngOnInit () {
-    this.menu_state = 'close';
+  
+   ngOnInit() {
+    $(document).ready(() => {
+      $('.toolbar .toggle button').click(() => {
+        $('.toolbar nav').toggleClass('toggle-visibility');
+      });
+    });
+  }
+
+  scrollTo (target) {
+    $(document).scrollTop($(target).offset().top);
+  }
+
+  isAuthenticated () {
+    let token = null;
+    token = localStorage.getItem('togetToken');
+    return (token === null || token === undefined) ? false : true;
   }
 
   toggleModal () {
@@ -50,8 +66,12 @@ export class ToolbarComponent implements OnInit {
     this.router.navigate(['/admin']);
   }
 
+  gotoAdmin () {
+    this.router.navigate(['/admin']);
+  }
+
   inscription () {
-    this.router.navigate(['/register']);
+    this.router.navigate(['site/register']);
   }
 
 }

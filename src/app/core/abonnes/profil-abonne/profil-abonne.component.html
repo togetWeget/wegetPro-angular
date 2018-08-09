@@ -1,75 +1,75 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-12 col-lg-12 col-12">
-      <div id="profile-abonne" style="min-height: 200px;">
-        <div class="profile-cover">
-          <div class="wrapper">
-            <div class="cover-image">
-              <div class="block-title">
-                <a title="Revenir sur la liste des abonnés">
-                  <span>{{abonne.blocks.description}}</span>
-                </a>
-                <div class="pull-right"><a title="afficher la liste" class="btn btn-primary" style="border-radius: 0px;"><i class="fa fa-th"></i> </a></div>
-              </div>
-              <a routerLink="." class="btn btn-primary">Modifier mon profile</a>
-              <img src="assets/profile-cover.jpg" alt="">
-            </div>
-          </div>
-          <div class="profile-info">
-            <div class="profile-avatar">
-              <img src="{{abonne.personne.pathPhoto}}" alt="user-image" class="candidate_photo" />
-              <div class="profile-view"><i class="fa fa-eye"></i> 5</div>
-            </div>
-            <ul class="profile-action">
-              <li>
-                <a routerLink=".">
-                  <button mat-raised-button color="primary" (click)="onContactAbonne()">
-                    <i class="fa fa-envelope"></i><span class="d-none d-sm-inline" style="display: none"> Contacter</span>
-                  </button>
-                </a>
-              </li>
-              <li>
-                <a routerLink=".">
-                  <button mat-raised-button color="warn">
-                    <i class="fa fa-comments"></i><span class="d-none d-sm-inline"> Discuter</span>
-                  </button>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="profile-content" style="min-height: 500px;">
-          <div class="row">
-            <div class="col-lg-9 col-md-6 col-12">
-              <div class="abonne-info">
-                <div class="abonne-meta-info">
-                  <div class="abonne-name">
-                    {{abonne.personne.nomComplet |uppercase}}
-                  </div>
-                  <div class="abonne-meta">
-                    {{abonne.personne.cvPersonnes.specialite}} {{abonne.personne.cvPersonnes.anneExperience}} d'espériences
-                  </div>
-                </div>
-              </div>
-              <mat-tab-group class="col-md-12 col-sm-12">
-                <mat-tab>
-                  <span *mat-tab-label><i class="fa fa-address-card"></i><span class="d-none d-lg-inline"> Bio</span></span>
-                </mat-tab>
-                <mat-tab>
-                  <span *mat-tab-label><i class="fa fa-trophy"></i><span class="d-none d-lg-inline"> Expérience</span></span>
-                </mat-tab>
-                <mat-tab>
-                  <span *mat-tab-label><i class="fa fa-graduation-cap"></i><span class="d-none d-lg-inline"> Formation</span></span>
-                </mat-tab>
-                <mat-tab>
-                  <span *mat-tab-label><i class="fa fa-file"></i><span class="d-none d-lg-inline"> Documents</span></span>
-                </mat-tab>
-              </mat-tab-group>
-            </div>
-            <div class="col-md-3"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+<div class="container"> 
+  <div class="row"> 
+    <div class="col-md-12 col-lg-12 col-12"> 
+      <div id="profile-abonne" style="min-height: 200px;"> 
+        <div class="profile-cover"> 
+          <div class="wrapper"> 
+            <div class="cover-image"> 
+              <div class="block-title"> 
+                <a title="Revenir sur la liste des abonnés"> 
+                  <span>{{abonne.blocks.description}}</span> 
+                </a> 
+                <div class="pull-right"><a title="afficher la liste" class="btn btn-primary" style="border-radius: 0px;"><i class="fa fa-th"></i> </a></div> 
+              </div> 
+              <a routerLink="." class="btn btn-primary">Modifier mon profile</a> 
+              <img src="assets/profile-cover.jpg" alt=""> 
+            </div> 
+          </div> 
+          <div class="profile-info"> 
+            <div class="profile-avatar"> 
+              <img src="{{abonne.personne.pathPhoto}}" alt="user-image" class="candidate_photo" /> 
+              <div class="profile-view"><i class="fa fa-eye"></i> 5</div> 
+            </div> 
+            <ul class="profile-action"> 
+              <li> 
+                <a routerLink="."> 
+                  <button mat-raised-button color="primary" (click)="onContactAbonne()"> 
+                    <i class="fa fa-envelope"></i><span class="d-none d-sm-inline" style="display: none"> Contacter</span> 
+                  </button> 
+                </a> 
+              </li> 
+              <li> 
+                <a routerLink="."> 
+                  <button mat-raised-button color="warn"> 
+                    <i class="fa fa-comments"></i><span class="d-none d-sm-inline"> Discuter</span> 
+                  </button> 
+                </a> 
+              </li> 
+            </ul> 
+          </div> 
+        </div> 
+        <div class="profile-content" style="min-height: 500px;"> 
+          <div class="row"> 
+            <div class="col-lg-9 col-md-6 col-12"> 
+              <div class="abonne-info"> 
+                <div class="abonne-meta-info"> 
+                  <div class="abonne-name"> 
+                    {{abonne.personne.nomComplet |uppercase}} 
+                  </div> 
+                  <div class="abonne-meta"> 
+                    {{abonne.personne.cvPersonnes.specialite}} {{abonne.personne.cvPersonnes.anneExperience}} d'espériences 
+                  </div> 
+                </div> 
+              </div> 
+              <mat-tab-group class="col-md-12 col-sm-12"> 
+                <mat-tab> 
+                  <span *mat-tab-label><i class="fa fa-address-card"></i><span class="d-none d-lg-inline"> Bio</span></span> 
+                </mat-tab> 
+                <mat-tab> 
+                  <span *mat-tab-label><i class="fa fa-trophy"></i><span class="d-none d-lg-inline"> Expérience</span></span> 
+                </mat-tab> 
+                <mat-tab> 
+                  <span *mat-tab-label><i class="fa fa-graduation-cap"></i><span class="d-none d-lg-inline"> Formation</span></span> 
+                </mat-tab> 
+                <mat-tab> 
+                  <span *mat-tab-label><i class="fa fa-file"></i><span class="d-none d-lg-inline"> Documents</span></span> 
+                </mat-tab> 
+              </mat-tab-group> 
+            </div> 
+            <div class="col-md-3"></div> 
+          </div> 
+        </div> 
+      </div> 
+    </div> 
+  </div> 
+</div> 

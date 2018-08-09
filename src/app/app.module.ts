@@ -11,6 +11,8 @@ import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 import {RouterModule} from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+import { NgHttpLoaderModule } from 'ng-http-loader';
 
 @NgModule({
   declarations: [
@@ -20,11 +22,13 @@ import {RouterModule} from '@angular/router';
     BrowserModule,
     AppRoutingModule,
     SiteModule,
-    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
-    AdminModule,
+    // ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
     SuperAdminModule,
+    AdminModule,
     NoopAnimationsModule,
     CoreModule,
+    HttpClientModule,
+    NgHttpLoaderModule,
     RouterModule,
     SharedModule
   ],

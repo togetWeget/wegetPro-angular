@@ -1,0 +1,14 @@
+<mat-card class="blocks-items">
+          <img src="/assets/default.jpg" class="img-fluid photo-list">
+          <mat-card-content>
+            <h5>{{block.description}}</h5>
+            <div class="action-container">
+            	<button (click)="viewApercu()" mat-mini-fab class="apercu"><i class="fa fa-eye"></i></button>            	
+            	<button (click)="goto('/super/admin/blocks/update/' + block.id)" mat-mini-fab class="update"><i class="fa fa-pencil"></i></button>            	
+            	<button (click)="goto('/super/admin/blocks/tarifs/' + block.id)" mat-mini-fab class="tarif"><i class="fa fa-money"></i></button>            	
+            </div>
+          </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button color="warn" class="btn btn-block mat-button">S'abonner</button>
+        </mat-card-actions>
+      </mat-card>

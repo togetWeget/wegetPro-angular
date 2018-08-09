@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import {catchError, map, observeOn, tap, timeout} from 'rxjs/internal/operators';
 import {Observable, of, Subject, interval, isObservable} from 'rxjs';
 import {HttpClient, HttpRequest, HttpResponse} from '@angular/common/http';
@@ -20,7 +21,8 @@ export class RegisterService {
   public contenu = '';
   public message_traitement: any;
   private readonly notifier: NotifierService;
-  constructor(public  http: HttpClient, public notifierService: NotifierService) {
+  constructor(public  http: HttpClient, public notifierService: NotifierService,
+    public router: Router) {
     this.notifier = notifierService;
     this.notifierService.notify( 'success', 'You are awesome! I mean it!' );
   }
@@ -59,6 +61,7 @@ registering(urlsender: any, dataBody: any = {}): any {
                 localStorage.setItem('togetToken', 'azerty');
                 const strValue: string = localStorage.getItem('togetToken');
                 alert(strValue);
+                this.router.navigate(['/admin']);
               }
               alert(res.messages[0]);
             }

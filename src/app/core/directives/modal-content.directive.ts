@@ -14,7 +14,7 @@ export class ModalContentDirective implements OnInit {
   ngOnInit () {
     this.el.nativeElement.style.display = 'table';
     this.el.nativeElement.style.background = (this.m_background !== undefined) ? this.m_background : '#ffffff';
-    this.el.nativeElement.style.width = (this.m_width !== undefined) ? this.m_width : '600px';
+    this.el.nativeElement.style.maxWidth = (this.m_width !== undefined) ? this.m_width : '600px';
     this.el.nativeElement.style.height = (this.m_height !== undefined) ? this.m_height : 'auto';
     this.el.nativeElement.style.borderRadius = (this.m_radius !== undefined) ? this.m_radius : '5px';
     this.el.nativeElement.style.padding = (this.m_padding !== undefined) ? this.m_padding : '30px';

@@ -1,11 +1,7 @@
-<div class="container">
-
-
-
   <div class="row">
     <div *ngFor="let blk of blocks" class="col-lg-4 col-12 col-md-6">
       <mat-card class="blocks-items">
-        <a routerLink="{{blk.id}}" routerLinkActive="active" (click)="onViewBlock(blk)">
+        <a routerLink="/site/blocks/{{blk.id}}" routerLinkActive="active" (click)="onViewBlock(blk)">
           <img src="assets/default.jpg" class="img-fluid photo-list">
           <mat-card-content>
             <h5>{{blk.description}}</h5>
@@ -17,6 +13,3 @@
       </mat-card>
     </div>
   </div>
-
-</div>
-

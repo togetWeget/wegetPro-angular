@@ -1,0 +1,103 @@
+<div class="" style="">
+  <div class="pad">
+    <div class="gauche-h">
+      <!-- bande gauche haut-->
+      <div class="band-gauche">
+        Djouekan Joel Armel &nbsp;<span class="fa fa-angle-down"></span><br/>
+        <div class="bl-search">
+          <span class="fa fa-search search_icon"></span><input type="text" name="searchText" value=""
+                                                               [(ngModel)]="userFilter.login"
+                                                               placeholder="Rechercher un Membre"
+                                                               class="search-bar"/>
+        </div>
+      </div>
+      <!-- bande gauche bas -->
+
+      <div class="" style="background:#f2f2f2; font-size:12px; text-align:center; padding:0;">Liste
+        Membre{{userFilter.login}}
+      </div>
+      <div class="band-user">
+        <div class="users" style=" paddind:10px; cursor:pointer; margin-top:10px;"
+             (click)="changeVarUser(a.id,a.pathPhoto,a.login);" *ngFor="let a of dataRec | filterBy: userFilter">
+          <img src="http://www.acqueon.com/wp-content/uploads/2017/08/avatar-image.png" class="img-g-rond">
+          <span>{{a.login}} <i class="fa fa-circle" style="color:darkgreen; float:right;"></i></span>
+          <h6 class="break_word">{{a.description}} <i *ngIf="a.description === null">Aucun description Pour ce
+            membre</i></h6>
+        </div>
+
+        <div class="users" *ngIf="(dataRec | filterBy: userFilter).length === 0">
+          <img src="http://oupscity.fr/wp-content/uploads/2018/04/bulle.jpg" class="card-img">
+          <p>Aucun Elements correspondant à votre recherche trouvé!</p>
+        </div>
+
+        <div style="text-align: center; width:100%;" *ngIf="resulloard == true">{{ResultText}}</div>
+      </div>
+    </div>
+
+
+    <div class="droite-h">
+      <!-- bande gauche haut-->
+      <div class="band-droite">
+        <img src="http://www.acqueon.com/wp-content/uploads/2017/08/avatar-image.png" class="img-g-rond">
+        <div class="col-sm-12" style="width:500px;height:10px;">{{named}}
+          <span class="fa fa-angle-down"></span><br/>
+          <i class="fa fa-circle" style="color:darkgreen;"></i> Connecté
+        </div> &nbsp;
+      </div>
+
+      <div class="band-droite-bas" style="overflow-x:hidden;">
+        <div *ngIf="named != null" style="margin:0 auto; width:100%; margin-left:15px; overflow-x:hidden;">
+          <div class="col-sm-12 row default-msg " *ngFor="let a of [1,2,3,4,5,6,7,8,9];" style="margin:0 auto; ">
+            <div class="col-sm-12 row" style="margin-bottom:5px; margin-top:5px;">
+              <div class="col-sm-12">
+                <img src="http://www.acqueon.com/wp-content/uploads/2017/08/avatar-image.png" class="img-g-rond-r">
+              </div>
+              <div class="col-sm-12">
+                <div class="receiver"> lorep ipsum dilor para nuegate n;oloso deskoitro pourdistraca ne distapa</div>
+                <i style="font-size:10px;">
+                  le 21/07/2018 à 12h32 |
+                  <span class="fa fa-send" style="color:green"></span>
+                </i>
+              </div>
+            </div>
+
+            <div class="col-sm-12 row" style="margin-bottom:5px; margin-top:5px;">
+              <div class="col-sm-12" style="">
+                <img src="http://www.acqueon.com/wp-content/uploads/2017/08/avatar-image.png"
+                     class="img-g-rond-r pull-right">
+              </div>
+              <div class="col-sm-12" style="">
+                <div class="sender pull-right">
+                  lorep ipsum dilor para nuegate n;oloso deskoitro pourdistraca ne distapa
+                </div>
+              </div>
+              <div class="col-sm-12 ">
+                <i style="font-size:10px;" class="pull-right">
+                  le 21/07/2018 à 12h32 |
+                  <span class="fa fa-send" style="color:green"></span>
+                </i>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+        <div class=" col-sm-12 row default-frm" style="" *ngIf="named === null">
+          <p> Salut, Vous êtes sur la platforme de messagerie de toget.</p>
+          <img class="default-img"
+               src="https://fotomelia.com/wp-content/uploads/edd/2015/11/bonhomme-blanc-3d-images-gratuites-libres-de-droits-creative-commons58-1560x1114.jpg"/>
+
+        </div>
+        <div class="col-sm-12 row input-bas" *ngIf="named != null" style="margin-left:10px;">
+          <i class="fa fa-plus-circle" style="font-size:50px; color:dodgerblue;"></i>&nbsp;
+          <textarea type="text" class="input-bas-in" placeholder="message ici..."></textarea>
+          &nbsp; &nbsp;<i class="fa fa-paper-plane" style="font-size:25px;"></i>
+        </div>
+      </div>
+
+
+    </div>
+
+  </div>
+</div>
+

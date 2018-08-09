@@ -7,19 +7,20 @@ import { LayoutComponent } from './layout/layout.component';
 import {CustomMeterialModule} from '../custom-meterial/custom-meterial.module';
 import {RouterModule} from '@angular/router';
 import {CoreModule} from '../core/core.module';
-import {AdminRoutingModule} from '../admin/admin-routing.module';
 import {FooterComponent} from './footer/footer.component';
+import { AbonnesComponent } from './abonnes/abonnes.component';
+import { BlocksComponent } from './blocks/blocks.component';
 
 @NgModule({
   imports: [
     CommonModule,
-    AdminRoutingModule,
+    SuperAdminRoutingModule,
     CoreModule,
     RouterModule,
     CustomMeterialModule,
     SuperAdminRoutingModule
   ],
-  declarations: [LayoutComponent, AccueilComponent, FooterComponent],
+  declarations: [LayoutComponent, AccueilComponent, FooterComponent, AbonnesComponent, BlocksComponent],
   exports: [LayoutComponent]
 })
 export class SuperAdminModule { }

@@ -1,40 +1,92 @@
-.app-top-toolbar{
-  display: flex;
-  background: #00b0f0;
+$xs: 572px;
+$sm: 768px;
+$md: 992px;
+$lg: 1200px;
+$col-1: white;
+$col-2: gray;
+@media screen {
+    .toolbar {
+        background: dodgerblue;
+        color: white;
+        position: fixed;
+        z-index: 10;
+        a:hover {
+            color: ghostwhite;
+        }
+    }
 }
-.app-title{
-  margin: 0 20px;
+@media screen and (min-width: $sm) {
+    .toolbar {
+        display: flex;
+        .toggle {
+            visibility: hidden;
+            position: absolute;
+        }
+        nav a, nav button {
+            text-decoration: none;
+            margin-right: 10px;
+        }
+        .nav-left {
+            display: flex;
+            flex-wrap: wrap;
+            margin-left: 10px;
+        }
+        .nav-right {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .nav-space {
+            flex: 1 1 auto;
+        }
+    }
 }
-app-top-menu{
-  display: flex;
-  padding: 8px 16px;
-}
-.app-top-spacer{
-  flex:1 1 auto;
-}
-.app-top-action{
-  display: flex;
-  padding: 8px 16px;
-}
-.app-top-action button{
-  margin-left: 10px;
-}
-.app-top-menu a:hover{
-  text-decoration: none;
-  color:black;
-}
-.app-bg-primary{
-  background: #00b0f0;
-}
-.app-btn-bg-primary{
-  background: #0079A7;
+@media screen and (max-width: $sm) {
+    .toolbar {
+        display: block;
+        .toggle-visibility {
+            visibility: hidden;
+        }
+        .toggle {
+            top: 10px;
+            position: relative;
+            ;
+        }
+        .logo {
+            top: 10px;
+            position: relative;
+            ;
+        }
+        .nav-container {
+            height: 20px;
+        }
+        nav {
+            display: table;
+            background: $col-1;
+            box-shadow: 0 1px 3px $col-2;
+            width: 100%;
+            color: #5a5a5a;
+            background: #ffffff;
+            a, button {
+                display: block;
+                width: 100%;
+                text-decoration: none;
+            }
+            a:hover {
+                color: #5a5a5a;
+            }
+        }
+        .nav-left {}
+        .nav-right {}
+    }
 }
 
-.menu-mini{
-  position: absolute;
-  width: 100%;
-  z-index: 100;
-  a,button {
-    width: 100%;
-  }
+.app-title {
+    margin: 0 20px;
+}
+
+.app-bg-primary {
+    background: #00b0f0;
+}
+.app-btn-bg-primary {
+    background: #0079A7;
 }

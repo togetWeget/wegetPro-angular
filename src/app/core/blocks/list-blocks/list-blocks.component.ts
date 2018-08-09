@@ -27,6 +27,6 @@ export class ListBlocksComponent implements OnInit {
   }
   onViewBlock(block: Blocks) {
     this.selectedBlock = block;
-    this.router.navigate(['/blocks', block.id]);
+    this.router.navigate(['/site/blocks', block.id]);
   }
 }

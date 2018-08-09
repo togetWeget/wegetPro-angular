@@ -7,7 +7,7 @@ import {Router} from '@angular/router';
   templateUrl: './layout.component.html',
   styleUrls: ['./layout.component.scss']
 })
-export class LayoutComponent implements  OnDestroy, AfterViewInit {
+export class LayoutComponent implements  OnDestroy, AfterViewInit, OnInit {
   mobileQuery: MediaQueryList;
   @ViewChild('sidenav') sidenav: any;
 
@@ -30,6 +30,9 @@ export class LayoutComponent implements  OnDestroy, AfterViewInit {
   }
 
   ngAfterViewInit () {
+    // this.sidenav.toggle();
+  }
+  ngOnInit () {
     this.sidenav.toggle();
   }
 }

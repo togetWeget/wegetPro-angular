@@ -1,0 +1,32 @@
+$xs: 572px;
+$sm: 768px;
+$md: 992px;
+$lg: 1200px;
+
+@media screen {
+	.mat-card {
+		text-align: center;
+		button {
+			margin-right: 10px;
+		}
+	}
+	.bloc-screen {
+		display: block;
+		height: 100%;
+		background: darken(white, 5);
+	}
+}
+
+@media screen and (min-width: $sm) {
+.bloc-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: 10em;
+}	
+}
+
+@media screen and (max-width: $sm) {
+
+}

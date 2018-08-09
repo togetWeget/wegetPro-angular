@@ -2,79 +2,371 @@ $col-1: #ff9900;
 $col-2: white;
 $col-3: #515a63;
 $col-4: #b6c9de;
+$col-5: #008459;
 
-.container-msg {
-  z-index: 1000;
+.mat-form-field {
+  width: 100%;
 }
 
-.btn-msg {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  background: $col-1;
-  color: $col-2;
-  width: 50px;
-  height: 50px;
-  border-radius: 100%;
-  z-index: 1000;
-  bottom: 30px;
-  right: 30px;
-  box-sizing: border-box;
-  box-shadow: 1px 2px 5px $col-3;
-}
 
-.panel-msg {
-  position: fixed;
-  right: 30px;
-  top: 30px;
-  bottom: 100px;
-  overflow: hidden;
-  width: 300px;
-  height: 80%;
-  z-index: 1000;
-  background: $col-2;
-  box-sizing: border-box;
-  box-shadow: -1px 1px 10px $col-3;
+@media all and (min-width: 768px) {
+  .container-msg {
+    z-index: 1000;
+  }
+
+  .btn-msg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    background: $col-1;
+    color: $col-2;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    z-index: 1000;
+    bottom: 30px;
+    right: 30px;
+    box-sizing: border-box;
+    box-shadow: 1px 2px 5px $col-3;
+  }
+
   .panel-msg-header {
     background: $col-1;
+    position: fixed;
+    top: 30px;
+    z-index: 1000;
+    right: 30px;
+    width: 300px;
     padding: 20px;
     color: $col-2;
+    box-shadow: -1px 1px 10px $col-3;
     .panel-msg-title {
       font-size: x-large;
     }
   }
-  .panel-msg-body {
-    position: relative;
-    display: inline-flex;
-    .panel-msg-auth,
-    .panel-msg-select-chater,
-    .panel-msg-chating {
-      padding: 20px;
-      width: 300px !important;
-      display: inline-block;
-    }
-    .panel-msg-select-chater {
-      .panel-msg-select-container {
-        border-bottom: 1px solid $col-4;
-        padding: 15px 0;
-        .panel-msg-select-img {
-          display: inline-block;
-          img {
-            width: 50px;
-            height: 50px;
-            border-radius: 100%;
+
+  .panel-msg {
+    position: fixed;
+    right: 30px;
+    top: 100px;
+    bottom: 100px;
+    overflow: hidden;
+    width: 300px;
+    z-index: 1000;
+    background: $col-2;
+    box-sizing: border-box;
+    box-shadow: -1px 1px 10px $col-3;
+    .panel-msg-body {
+      position: relative;
+      display: inline-flex;
+      height: 100%;
+      .panel-msg-auth,
+      .panel-msg-select-chater,
+      .panel-msg-chating {
+        height: 100%;
+        padding: 20px;
+        position: relative;
+        width: 300px;
+        display: inline-block;
+        overflow: scroll;
+      }
+      .panel-msg-select-chater {
+        .panel-msg-select-container {
+          border-bottom: 1px solid $col-4;
+          padding: 15px 0;
+          .panel-msg-select-img {
+            display: inline-block;
+            img {
+              width: 50px;
+              height: 50px;
+              border-radius: 100%;
+            }
+          }
+          .panel-msg-select-name {
+            display: inline-block;
+            margin-left: 15px;
           }
         }
-        .panel-msg-select-name {
-          display: inline-block;
-          margin-left: 15px;
+      }
+      .panel-msg-chating {
+        background: #f1f1f1;
+        overflow: hidden;
+        .mat-card-content {
+          overflow-y: scroll;
+          height: 100%;
+          &::-webkit-scrollbar {
+            width: 0.5rem;
+            height: 0.5em;
+            margin-left: 10px;
+          }
+
+          &::-webkit-scrollbar-track {
+            -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+            -webkit-border-radius: 1em;
+          }
+
+          &::-webkit-scrollbar-thumb {
+            background-color: darken($col-1, 20);
+            outline: 1px solid slategrey;
+            border-radius: 1em;
+          }
+        }
+        .mat-card-footer {
+          bottom: 24px;
+          position: absolute;
+          z-index: 1000;
+          width: 101%;
+        }
+        .msg-input-zone {
+          bottom: 0;
+          background: $col-5;
+          left: 0;
+          right: 0;
+          width: 100%;
+          box-sizing: border-box;
+          padding: 5px 15px;
+          box-shadow: 0px -1px 5px $col-3;
+        }
+        .msg-zone {
+          padding-bottom: 50px;
+          margin-right: 10px;
+          display: flow-root;
+          .msg-block {
+            img {
+              width: 50px;
+              height: 50px;
+              z-index: 100;
+              position: relative;
+              border-radius: 100%;
+              box-shadow: 1px 1px 5px $col-3;
+            }
+          }
+          .msg-content {
+            padding: 10px;
+            z-index: 99;
+            position: relative;
+            border-radius: 10px;
+            box-shadow: 1px 1px 5px $col-3;
+            .date-publish {
+              margin-top: 15px;
+              font-size: 0.7rem;
+              .pushish-text {
+                font-weight: 600;
+              }
+            }
+          }
+          .msg-sender {
+            img {
+              float: left;
+            }
+            .msg-content {
+              float: left;
+              margin: -10px 0 10px 30px;
+              background: $col-2;
+              color: $col-3;
+              .date-publish {
+                border-top: 1px solid $col-3;
+              }
+            }
+          }
+          .msg-receiver {
+            img {
+              float: right;
+            }
+            .msg-content {
+              margin: -10px 30px 10px 0;
+              background: darken($col-1, 30);
+              color: $col-2;
+              float: right;
+              .date-publish {
+                border-top: 1px solid $col-2;
+              }
+            }
+          }
         }
       }
     }
   }
 }
 
-.mat-form-field {
-  width: 100%;
+@media all and (max-width: 768px) {
+  .container-msg {
+    z-index: 1000;
+  }
+
+  .btn-msg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    background: $col-1;
+    color: $col-2;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    z-index: 1000;
+    bottom: 30px;
+    right: 30px;
+    box-sizing: border-box;
+    box-shadow: 1px 2px 5px $col-3;
+  }
+
+  .panel-msg-header {
+    background: $col-1;
+    position: fixed;
+    top: 30px;
+    z-index: 1000;
+    right: 30px;
+    width: 280px;
+    padding: 20px;
+    color: $col-2;
+    box-shadow: -1px 1px 10px $col-3;
+    .panel-msg-title {
+      font-size: x-large;
+    }
+  }
+
+  .panel-msg {
+    position: fixed;
+    right: 30px;
+    top: 100px;
+    bottom: 100px;
+    overflow: hidden;
+    width: 280px;
+    z-index: 1000;
+    background: $col-2;
+    box-sizing: border-box;
+    box-shadow: -1px 1px 10px $col-3;
+    .panel-msg-body {
+      position: relative;
+      display: inline-flex;
+      height: 100%;
+      .panel-msg-auth,
+      .panel-msg-select-chater,
+      .panel-msg-chating {
+        height: 100%;
+        padding: 20px;
+        position: relative;
+        width: 280px;
+        display: inline-block;
+        overflow: scroll;
+      }
+      .panel-msg-select-chater {
+        .panel-msg-select-container {
+          border-bottom: 1px solid $col-4;
+          padding: 15px 0;
+          .panel-msg-select-img {
+            display: inline-block;
+            img {
+              width: 50px;
+              height: 50px;
+              border-radius: 100%;
+            }
+          }
+          .panel-msg-select-name {
+            display: inline-block;
+            margin-left: 15px;
+          }
+        }
+      }
+      .panel-msg-chating {
+        background: #f1f1f1;
+        overflow: hidden;
+        .mat-card-content {
+          overflow-y: scroll;
+          height: 100%;
+          &::-webkit-scrollbar {
+            width: 0.5rem;
+            height: 0.5em;
+            margin-left: 10px;
+          }
+
+          &::-webkit-scrollbar-track {
+            -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+            -webkit-border-radius: 1em;
+          }
+
+          &::-webkit-scrollbar-thumb {
+            background-color: darken($col-1, 20);
+            outline: 1px solid slategrey;
+            border-radius: 1em;
+          }
+        }
+        .mat-card-footer {
+          bottom: 24px;
+          position: absolute;
+          z-index: 1000;
+          width: 101%;
+        }
+        .msg-input-zone {
+          bottom: 0;
+          background: $col-5;
+          left: 0;
+          right: 0;
+          width: 100%;
+          box-sizing: border-box;
+          padding: 5px 15px;
+          box-shadow: 0px -1px 5px $col-3;
+        }
+        .msg-zone {
+          padding-bottom: 50px;
+          margin-right: 10px;
+          display: flow-root;
+          .msg-block {
+            img {
+              width: 50px;
+              height: 50px;
+              z-index: 100;
+              position: relative;
+              border-radius: 100%;
+              box-shadow: 1px 1px 5px $col-3;
+            }
+          }
+          .msg-content {
+            padding: 10px;
+            z-index: 99;
+            position: relative;
+            border-radius: 10px;
+            box-shadow: 1px 1px 5px $col-3;
+            .date-publish {
+              margin-top: 15px;
+              font-size: 0.7rem;
+              .pushish-text {
+                font-weight: 600;
+              }
+            }
+          }
+          .msg-sender {
+            img {
+              float: left;
+            }
+            .msg-content {
+              float: left;
+              margin: -10px 0 10px 30px;
+              background: $col-2;
+              color: $col-3;
+              .date-publish {
+                border-top: 1px solid $col-3;
+              }
+            }
+          }
+          .msg-receiver {
+            img {
+              float: right;
+            }
+            .msg-content {
+              margin: -10px 30px 10px 0;
+              background: darken($col-1, 30);
+              color: $col-2;
+              float: right;
+              .date-publish {
+                border-top: 1px solid $col-2;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }

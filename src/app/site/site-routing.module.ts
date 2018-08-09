@@ -4,7 +4,7 @@ import {AccueilComponent} from './accueil/accueil.component';
 import {LayoutComponent} from './layout/layout.component';
 import {ProfilAbonneComponent} from '../core/abonnes/profil-abonne/profil-abonne.component';
 import {ListAbonnesBlockComponent} from '../core/abonnes/list-abonnes-block/list-abonnes-block.component';
-import {ListBlocksComponent} from '../core/blocks/list-blocks/list-blocks.component';
+import {ListeBlocComponent} from './liste-bloc/liste-bloc.component';
 import {BlockComponent} from '../core/blocks/block/block.component';
 import {BlockManageComponent} from '../core/blocks/block-manage/block-manage.component';
 import {BlockListeComponent} from '../core/blocks/block-liste/block-liste.component';
@@ -15,6 +15,8 @@ import {BlockDetailComponent} from '../core/blocks/block-detail/block-detail.com
 import {RegisterComponent} from './register/register.component';
 import {LoginComponent} from './login/login.component';
 import {ContactAbonneComponent} from '../core/abonnes/contact-abonne/contact-abonne.component';
+import {AuthGuardTogetService} from '../core/services/AuthGuards/auth-guard-toget.service';
+import {NotFoundComponent} from '../core/not-found/not-found.component';
 
 const routes: Routes = [
   {
@@ -22,13 +24,16 @@ const routes: Routes = [
       {
         path: '', component: AccueilComponent
       },
-      {path: 'blocks', component: ListBlocksComponent},
+      {path: 'blocks', component: ListeBlocComponent},
       {path: 'blocks/:id', component: ListAbonnesBlockComponent},
       {path: 'abonnes/profile/:id', component: ProfilAbonneComponent},
       {path: 'abonnes/conctater/:id', component: ContactAbonneComponent},
       {path: 'profile', component: ProfilAbonneComponent},
       {path: 'register', component: RegisterComponent},
-      {path: 'login', component: LoginComponent}
+      {path: 'login', component: LoginComponent},
+      {
+        path: '**', component: NotFoundComponent
+      }
     ]
   },
   {
@@ -55,8 +60,14 @@ const routes: Routes = [
             path: ':id/edite', component: BlockEditerComponent
           },
           {path: ':id/photo', component: BlockPhotoComponent},
+          {
+            path: '**', component: NotFoundComponent
+          }
 
         ]
+      },
+      {
+        path: '**', component: NotFoundComponent
       }
     ]
   }

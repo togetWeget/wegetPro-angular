@@ -1,0 +1,46 @@
+mat-card{
+  margin: 20px auto;
+  padding:0px;
+  overflow: hidden;
+  mat-card-footer, 
+  mat-card-content, 
+  mat-card-actions {
+    margin: 0 !important;
+  }
+  &:hover {
+    .action-container {
+      top: 5px;
+    }
+  }
+  .action-container {
+    display: flex;
+    justify-content: space-around;
+    position: absolute;
+    right: 5px;
+    top: -100px;
+    transition: 0.5s all ease;
+    .apercu{
+      background: #970ae0;
+      color: #ffffff;
+    }
+    .update{
+      background: #02aa2e;
+      color: #ffffff;
+    }
+    .tarif{
+      background: #0094ea;
+      color: #ffffff;
+    }
+  }
+}
+mat-card-content{
+  padding: 0px 15px;
+  margin-bottom: 50px;
+}
+mat-card-actions{
+  display: flex;
+  padding: 0;
+  margin: 0;
+  flex-direction: row;
+}
+

@@ -1,4 +1,11 @@
+import {Navs} from './navs';
+
 export class AdminTopZone {
-  constructor (public wprc_titre?: string, public wprc_sous_titre?: string, public wprc_navs?: string[],
-               public wprc_active_nav?: string, public wprc_fa?: string) {}
+  constructor (
+  	public titre?: string, 
+  	public sous_titre?: string, 
+  	public navs?: Navs[],
+    public active_nav?: Navs, 
+    public fa?: string
+    ) {}
 }

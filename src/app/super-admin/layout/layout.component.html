@@ -21,39 +21,81 @@
             <br class="">
             <br class="">
             <br class="">
-            <div class="box">
-              <mat-nav-list class="nlist">
-                <a mat-list-item="" class="nav-li" routerLink="">
-                  <mat-icon mat-list-icon="" class="material-icons nav">dashboard</mat-icon>
-                  <span class="nav">Tableau de bord</span> </a>
 
-              </mat-nav-list>
-            </div>
-
-
-            <div class="box">
-              <mat-nav-list class="nlist">
-                <a  mat-list-item="" routerLink="/invite" class="nav-li">
-                  <mat-icon mat-list-icon="" class="nav">person</mat-icon>
-                  <span class="nav">Compte</span>
+            <!-- accordion -->
+            <mat-accordion>
+              <!-- mat-expansion-panel -->
+                <a mat-list-item="" [routerLinkActiveOptions]="{ exact: true }" class="nav-li" routerLinkActive="active" routerLink="/super/admin">
+              <mat-expansion-panel [disabled]="true">
+                  <mat-expansion-panel-header>                  
+                    <mat-panel-title>                  
+                      <i class="fa fa-dashboard"></i> Tableau de bord
+                    </mat-panel-title>                  
+                  </mat-expansion-panel-header>                  
+              </mat-expansion-panel>
                 </a>
-              </mat-nav-list>
-            </div>
+              <!-- /mat-expansion-panel -->
+              <!-- mat-expansion-panel -->
+              <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                      <i class="fa fa-users"></i> Abonnés
+                  </mat-panel-title>
+                </mat-expansion-panel-header>                
+                <mat-list role="list">
+                  <a routerLinkActive="active" routerLink="/super/admin/abonnes" class="item"><mat-list-item role="listitem"><i class="fa fa-circle"></i> Abonnés</mat-list-item></a>                  
+                  <a routerLinkActive="active" routerLink="/super/admin/abonnes_no_confirm" class="item"><mat-list-item role="listitem"><i class="fa fa-circle"></i> Abonnés Non Confirmés</mat-list-item></a>                  
+                  <a routerLinkActive="active" routerLink="/super/admin/abonnes_confirm" class="item"><mat-list-item role="listitem"><i class="fa fa-circle"></i> Abonnés Confimés</mat-list-item></a>                  
+                  <a routerLinkActive="active" routerLink="/super/admin/abonnes_verif" class="item"><mat-list-item role="listitem"><i class="fa fa-circle"></i> Abonnés Vérifiés</mat-list-item></a>                  
+                  <a routerLinkActive="active" routerLink="/super/admin/abonnes_expire" class="item"><mat-list-item role="listitem"><i class="fa fa-circle"></i> Abonnés Expirés</mat-list-item></a>                  
+                  <a routerLinkActive="active" routerLink="/super/admin/abonnes_bannis" class="item"><mat-list-item role="listitem"><i class="fa fa-circle"></i> Abonnés Bannis</mat-list-item></a>
+                </mat-list>
+              </mat-expansion-panel>
+              <!-- /mat-expansion-panel -->
+              <!-- mat-expansion-panel -->
+              <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                      <i class="fa fa-globe"></i> Site
+                  </mat-panel-title>                  
+                </mat-expansion-panel-header>                
+                <mat-list role="list">
+                  <a routerLinkActive="active" routerLink="/super/admin/widgets" class="item"><mat-list-item role="listitem"><i class="fa fa-circle"></i> Widgets</mat-list-item></a>
+                  <a routerLinkActive="active" routerLink="/super/admin/publicite" class="item"><mat-list-item role="listitem"><i class="fa fa-circle"></i> Publicités</mat-list-item></a>
+                  <a routerLinkActive="active" routerLink="/super/admin/blocks" class="item"><mat-list-item role="listitem"><i class="fa fa-circle"></i> Blocks</mat-list-item></a>
+                </mat-list>
+              </mat-expansion-panel>
+              <!-- /mat-expansion-panel -->
+               <!-- mat-expansion-panel -->
+              <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                      <i class="fa fa-wrench"></i> Paramètres
+                  </mat-panel-title>                  
+                </mat-expansion-panel-header>                
+                <mat-list role="list">
+                  <a routerLinkActive="active" routerLink="/super/admin/item" class="item"><mat-list-item role="listitem"><i class="fa fa-circle"></i> Item</mat-list-item></a>
+                  <a routerLinkActive="active" routerLink="/super/admin/item" class="item"><mat-list-item role="listitem"><i class="fa fa-circle"></i> Item</mat-list-item></a>
+                  <a routerLinkActive="active" routerLink="/super/admin/item" class="item"><mat-list-item role="listitem"><i class="fa fa-circle"></i> Item</mat-list-item></a>
+                </mat-list>
+              </mat-expansion-panel>
+              <!-- /mat-expansion-panel -->
+              <!-- mat-expansion-panel -->
+              <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                      <i class="fa fa-shield"></i> Root
+                  </mat-panel-title>                  
+                </mat-expansion-panel-header>                
+                <mat-list role="list">
+                  <a routerLinkActive="active" routerLink="/super/admin/role" class="item"><mat-list-item role="listitem"><i class="fa fa-circle"></i> Rôles</mat-list-item></a>
+                  <a routerLinkActive="active" routerLink="/super/admin/permission" class="item"><mat-list-item role="listitem"><i class="fa fa-circle"></i> Permissions</mat-list-item></a>
+                </mat-list>
+              </mat-expansion-panel>
+              <!-- /mat-expansion-panel -->
+            </mat-accordion>
 
-            <div class="box">
-              <mat-nav-list class="nlist">
-                <a mat-list-item="" class="nav-li">
-                  <mat-icon mat-list-icon="" class="nav">mail_outline</mat-icon>
-                  <span class="nav">Messagerie</span> </a>
-              </mat-nav-list>
-            </div>
-            <div class="box">
-              <mat-nav-list class="nlist">
-                <a mat-list-item="" class="nav-li" routerLink="/matiere">
-                  <mat-icon mat-list-icon="" class="material-icons nav">casino</mat-icon>
-                  <span class="nav">Blocs</span> </a>
-              </mat-nav-list>
-            </div>
+            <!-- /accordion -->
 
           </div>
 

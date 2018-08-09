@@ -1,0 +1,32 @@
+$xs: 572px;
+$sm: 768px;
+$md: 992px;
+$lg: 1200px;
+
+@media screen {
+.body, .footer {
+    top: 55px;
+    position: relative;
+  }
+.body {
+	padding: 20px auto;
+}
+  .first-title {
+  	color: lighten(black, 30);
+  	font-family: Arial;
+  	font-weight: 800;
+  }
+}
+
+@media screen and (min-width: $sm) {
+	.first-title {
+		font-size: 2em;
+		margin: 20px auto;
+	}
+}
+
+@media screen and (max-width: $sm) {
+	.first-title {
+		font-size: 1.5em;
+	}
+}

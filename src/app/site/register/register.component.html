@@ -1,25 +1,31 @@
-<div appBlocPage [wpr_bg_img]="'url(/assets/images/bg.png)'" [wpr_bg_attachment]="'fixed'">
-  <div appBlocTitle [wpr_color]="'#ffffff'" [wpr_position]="'center'">Formulaire d'inscription</div>
-  <div appPanelContainer [pc_position]="'center'">
-
-    <div appIfMediaQuery="(min-width: 768px)" appPanelContent [pc_width]="'40%'" appCustomStyle [csd_margin]="'0 20px'" [pc_background]="'rgba(255,255,255,0.8)'">
-      <div appBlocTitle [wpr_size]="'1.5rem'" [wpr_position]="'center'"
-           [wpr_padding]="'20px;'" [wpr_margin]="'0 0 15px 0'">Pourquoi togetPro ?</div>
-      <div class="text-justify">
-        The special state called void can apply to any animation. It applies when the element is not
-        attached to a view, perhaps because it has not yet been added or because it has been removed.
-        The void state is useful for defining enter and leave animations.
-        For example the * => void transition applies when the element leaves the view, regardless
-        of what state it was in before it left
-        The special state called void can apply to any animation. It applies when the element is not
-        attached to a view, perhaps because it has not yet been added or because it has been removed.
-        The void state is useful for defining enter and leave animations.
-        For example the * => void transition applies when the element leaves the view, regardless
-        of what state it was in before it left
-      </div>
-    </div>
-    <div appPanelContent [pc_width]="'40%'" appCustomStyle [csd_margin]="'0 20px'" [pc_background]="'rgba(255,255,255,0.8)'">
-      <app-register-content></app-register-content>
-    </div>
+<div class="body-register">
+<div class="container">
+<div class="row">
+  <div class="col-12">
+    <div class="first-title text-center">Formulaire d'inscription</div>
   </div>
+  <div class="col-md-6" appIfMediaQuery="(min-width: 768px)">
+    <mat-card>
+      <mat-card-content>
+        <h3 class="text-center">Pourquoi TogetPro ?</h3>
+        <div class="text-justify">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </div>
+      </mat-card-content>  
+    </mat-card>
+  </div>
+  <div class="col-md-6">
+    <mat-card>
+      <mat-card-content>
+        <app-register-content></app-register-content>        
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+</div>
 </div>

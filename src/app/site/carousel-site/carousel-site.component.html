@@ -1,0 +1,19 @@
+<div class="carousel js-carousel">
+	<div class="carousel__container js-carousel-container">
+		<div class="carousel__list js-carousel-list">
+			<div *ngFor="let az of [0,1,2,3,4,5,6,7,8,9]; let i=index;" class="carousel__item js-carousel-item">
+				<mat-card>
+                <img src="assets/photo/11-700x467.jpg" alt="1 slide" mat-card-image>
+                <mat-card-content>
+                  <mat-card-title>Koffi Norbert {{i}}</mat-card-title>
+                  Expert comptable
+                </mat-card-content>
+              </mat-card>
+			</div>
+		</div>
+	</div>
+	<div class="carousel__nav">
+		<button class="carousel__button carousel__button--prev js-carousel-button" data-dir="prev"><i class="fa fa-arrow-left"></i></button>
+		<button class="carousel__button carousel__button--next js-carousel-button" data-dir="next"><i class="fa fa-arrow-right"></i></button>
+	</div>
+</div>

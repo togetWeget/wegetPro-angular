@@ -40,17 +40,28 @@ import { CustomDirectivesModule } from '../custom-directives/custom-directives.m
 import {ContactAbonneComponent} from './abonnes/contact-abonne/contact-abonne.component';
 import {SearchAbonnesComponent} from './abonnes/search-abonnes/search-abonnes.component';
 import { ChatComponent } from './chat/chat.component';
+import { NotFoundComponent } from './not-found/not-found.component'; 
+import { NgHttpLoaderModule } from 'ng-http-loader';
+import { TopZoneComponent } from './comp/top-zone/top-zone.component';
+import { WidgetInfoComponent } from './comp/widget-info/widget-info.component';
+import { AdminTableComponent } from './comp/admin-table/admin-table.component';
+import {NgxPaginationModule} from 'ngx-pagination';
+import { AdminCardComponent } from './comp/admin-card/admin-card.component';
+import { AdminBlockComponent } from './comp/admin-block/admin-block.component';
+import { ApercuBlockComponent } from './comp/apercu-block/apercu-block.component';
 
 @NgModule({
   imports: [
     CommonModule,
     HttpClientModule,
+    NgHttpLoaderModule,
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
     CustomMeterialModule,
     NotifierModule,
-    CustomDirectivesModule
+    CustomDirectivesModule,
+    NgxPaginationModule
   ],
   declarations: [
     ListBlocksComponent,
@@ -82,7 +93,10 @@ import { ChatComponent } from './chat/chat.component';
     PanelContentDirective,
     ContactAbonneComponent,
     SearchAbonnesComponent,
-    ChatComponent
+    ChatComponent,
+    NotFoundComponent,
+    TopZoneComponent, 
+    WidgetInfoComponent, AdminTableComponent, AdminCardComponent, AdminBlockComponent, ApercuBlockComponent
   ],
   exports: [
     ListBlocksComponent,
@@ -114,7 +128,18 @@ import { ChatComponent } from './chat/chat.component';
     PanelContentDirective,
     ContactAbonneComponent,
     SearchAbonnesComponent,
-    ChatComponent
+    ChatComponent,
+    NotFoundComponent,
+    TopZoneComponent, 
+    WidgetInfoComponent, 
+    AdminTableComponent,
+    NgxPaginationModule,
+    AdminCardComponent,
+    AdminBlockComponent,
+    ApercuBlockComponent
+  ],
+  entryComponents: [
+    ApercuBlockComponent
   ],
   providers: [
     MessageService,

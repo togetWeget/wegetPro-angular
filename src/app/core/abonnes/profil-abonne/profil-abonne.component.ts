@@ -1,10 +1,11 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 import {switchMap} from 'rxjs/internal/operators';
 import {AbonnesService} from '../../services/abonnes/abonnes.service';
 import {MatDialog} from '@angular/material';
 import {ContactAbonneComponent} from '../contact-abonne/contact-abonne.component';
 import {Detailblocks} from '../../../shared/models/detailblock';
+import {ChatComponent} from '../../chat/chat.component';
 
 export class Personne {
   id: number;
@@ -21,6 +22,7 @@ export class ProfilAbonneComponent implements OnInit {
   selectAbonne: Detailblocks;
   id: number;
   nomComplet: string;
+  @ViewChild(ChatComponent) chat: ChatComponent;
 
   constructor(private abonnesService: AbonnesService,
               private route: ActivatedRoute,

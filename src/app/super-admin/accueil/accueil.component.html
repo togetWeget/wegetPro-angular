@@ -1,3 +1,17 @@
-<p>
-  accueil works!
-</p>
+<app-top-zone [topZone]="top_zone" ></app-top-zone>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-3">
+			<app-widget-info [widget]="widget1" ></app-widget-info>
+		</div>
+		<div class="col-md-3">
+			<app-widget-info [widget]="widget2" ></app-widget-info>
+		</div>
+		<div class="col-md-3">
+			<app-widget-info [widget]="widget3" ></app-widget-info>
+		</div>
+		<div class="col-md-3">
+			<app-widget-info [widget]="widget4" ></app-widget-info>
+		</div>
+	</div>
+</div>

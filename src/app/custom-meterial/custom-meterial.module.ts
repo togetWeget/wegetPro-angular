@@ -7,7 +7,8 @@ import {
   MatIconModule, MatInputModule,
   MatListModule, MatOptionModule, MatSelectModule,
   MatSidenavModule, MatSnackBarModule, MatTabsModule,
-  MatToolbarModule
+  MatToolbarModule,
+  MatButtonToggleModule
 } from '@angular/material';
 
 
@@ -29,7 +30,8 @@ import {
     MatOptionModule,
     MatTabsModule,
     MatGridListModule,
-    MatSelectModule
+    MatSelectModule,
+    MatButtonToggleModule
   ],
   declarations: [],
   exports: [
@@ -49,7 +51,8 @@ import {
     MatOptionModule,
     MatTabsModule,
     MatGridListModule,
-    MatSelectModule
+    MatSelectModule,
+    MatButtonToggleModule
   ],
   providers: [{provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: true}}]
 })

@@ -20,7 +20,8 @@ import {RouterModule} from '@angular/router';
 import { CustomMeterialModule } from '../custom-meterial/custom-meterial.module';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
-
+import { ListeBlocComponent } from './liste-bloc/liste-bloc.component';
+import { CarouselSiteComponent } from './carousel-site/carousel-site.component';
 
 @NgModule({
   imports: [
@@ -31,7 +32,8 @@ import { LoginComponent } from './login/login.component';
     SiteRoutingModule
   ],
   providers: [],
-  declarations: [AccueilComponent, LayoutComponent, FooterComponent, ToolbarComponent, RegisterComponent, LoginComponent],
+  declarations: [AccueilComponent, LayoutComponent, FooterComponent, ToolbarComponent,
+   RegisterComponent, LoginComponent, ListeBlocComponent, CarouselSiteComponent],
   exports: [LayoutComponent],
   schemas: [NO_ERRORS_SCHEMA]
 })

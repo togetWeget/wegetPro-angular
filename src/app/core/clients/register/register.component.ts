@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {RegisterService} from '../../services/personne/membre/register.service';
 import {FormBuilder, FormArray} from '@angular/forms';
+import {AuthFirebaseService} from '../../../firebaseDir/auth-firebase.service';
+
 @Component({
   selector: 'app-register-content',
   templateUrl: './register.component.html',
@@ -50,7 +52,8 @@ export class RegisterComponent implements OnInit {
     ]),
     description: [''],
   });
-  constructor(public regist: RegisterService, private fb: FormBuilder) {
+  constructor(public regist: RegisterService, private fb: FormBuilder, 
+    public authFirebaseService: AuthFirebaseService) {
     this.can_send = false;
   }
 
@@ -78,6 +81,22 @@ export class RegisterComponent implements OnInit {
       const url = this.regist.urlMembres();
       console.log('post', this.membreForm.value);
       this.reponse =  this.regist.registering(url, this.membreForm.value);
+      this.authFirebaseService.createNewUser(this.membreForm.value.login,
+       this.membreForm.value.password).then(
+
+        () => {
+
+          alert('Ok firebase created ID');
+
+        },
+
+        (error) => {
+
+          alert('Error not create firebase ID '+ error);
+
+        }
+
+      );
     } else {
       alert('Vous devez accepter les conditions de confidentialité');
     }

@@ -1,0 +1,17 @@
+<mat-card>
+	<mat-card-content class="{{widget.theme}}">
+		<div class="titre">{{widget.title}}</div>
+		<div class="value">{{widget.value}}</div>
+		<div class="icon"><i class="fa fa-{{widget.fa}}"></i></div>
+	</mat-card-content>
+		<a [routerLink]="widget.link" routerLink="active" >
+		<mat-card-footer>
+			<div class="voirplus">
+				Voir détails
+			</div>
+			<div class="icon">
+				<i class="fa fas fa-arrow-circle-right"></i>
+			</div>
+		</mat-card-footer>
+		</a>
+</mat-card>
