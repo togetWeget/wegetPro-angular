@@ -31,7 +31,7 @@ export class TarifService {
     return this.http.post<Resultat<Tarif>>(this.urlTarifs, tarif)
       .pipe(
         tap(res => {
-          this.log(`tarif ajouter avec succes : message service=${res.body.montant}`);
+          this.log(`tarif ajouter avec succes : message service=${res.body.prix}`);
 
         }),
         catchError(this.handleError<Resultat<Tarif>>('ajoutTarif'))

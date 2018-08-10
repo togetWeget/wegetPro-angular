@@ -30,6 +30,8 @@ import { PanelContentDirective } from './directives/panel-content.directive';
 import { CustomDirectivesModule } from '../custom-directives/custom-directives.module';
 import {ContactAbonneComponent} from './abonnes/contact-abonne/contact-abonne.component';
 import {SearchAbonnesComponent} from './abonnes/search-abonnes/search-abonnes.component';
+import { PrixComponent } from './abonnements/prix/prix.component';
+import { FormulaireComponent } from './abonnements/formulaire/formulaire.component';
 
 @NgModule({
   imports: [
@@ -62,7 +64,9 @@ import {SearchAbonnesComponent} from './abonnes/search-abonnes/search-abonnes.co
     PanelContainerDirective,
     PanelContentDirective,
     ContactAbonneComponent,
-    SearchAbonnesComponent
+    SearchAbonnesComponent,
+    PrixComponent,
+    FormulaireComponent
   ],
   exports: [
     ListBlocksComponent,

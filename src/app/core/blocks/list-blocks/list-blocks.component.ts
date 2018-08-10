@@ -26,4 +26,11 @@ export class ListBlocksComponent implements OnInit {
     this.selectedBlock = block;
     this.router.navigate(['/blocks', block.id]);
   }
+  /*
+    Le bouton s'abonner de la page d'accueil
+   */
+  onSabonner(block: Block) {
+    this.selectedBlock = block;
+    this.router.navigate(['/abonnement', 'prix', block.id ]);
+  }
 }

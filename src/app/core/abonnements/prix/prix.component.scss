@@ -1,0 +1,51 @@
+.page-header {
+  color: #fff;
+  text-align: center;
+  width: 100%;
+  padding: 60px 40px 100px 40px;
+  background-color: #515a63;
+  background-size: cover;
+  background-repeat: no-repeat;
+  //background-image: url("assets/header-bg3.jpg");
+  background-position: 50% 50%;
+  height: 265px;
+}
+.text-center{
+  text-align:center;
+}
+mat-card{
+  padding: 10px;
+}
+mat-card:hover{
+  background-color: #eeeeee;
+}
+mat-card-actions{
+  margin-left: auto;
+  margin-right: auto;
+  padding: auto;
+}
+mat-card>mat-card-actions:last-child{
+  margin-bottom: auto;
+}
+.pricing-box{
+  text-align: center;
+  padding-bottom: 24px;
+}
+.pricing-intro{
+  margin: 15px 0px;
+}
+.price-title h3{
+  margin-bottom: 0px;
+}
+mat-card-content{
+  margin-bottom: 30px;
+}
+.price span{
+  font-weight: 700;
+  color: #232323;
+  font-size: 300%;
+}
+.price sup{
+  font-size: 25px;
+}
+

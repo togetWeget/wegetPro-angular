@@ -8,6 +8,8 @@ import {ListBlocksComponent} from '../core/blocks/list-blocks/list-blocks.compon
 import {RegisterComponent} from './register/register.component';
 import {LoginComponent} from './login/login.component';
 import {ContactAbonneComponent} from '../core/abonnes/contact-abonne/contact-abonne.component';
+import {PrixComponent} from '../core/abonnements/prix/prix.component';
+import {FormulaireComponent} from '../core/abonnements/formulaire/formulaire.component';
 
 const routes: Routes = [
   {
@@ -19,6 +21,8 @@ const routes: Routes = [
       {path: 'blocks/:id', component: ListAbonnesBlockComponent},
       {path: 'abonnes/profile/:id', component: ProfilAbonneComponent},
       {path: 'abonnes/conctater/:id', component: ContactAbonneComponent},
+      {path: 'abonnement/prix/:id', component: PrixComponent},
+      {path: 'abonnement/form/:id', component: FormulaireComponent},
       {path: 'profile', component: ProfilAbonneComponent},
       {path: 'register', component: RegisterComponent},
       {path: 'login', component: LoginComponent}
