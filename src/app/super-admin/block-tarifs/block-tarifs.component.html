@@ -1,0 +1,70 @@
+<app-top-zone [topZone]="top_zone" ></app-top-zone>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-12">
+			<app-admin-card [adminCard]="admin_card" >
+				<div class="admin-card-content">
+					<form enctype="multipart/form-data">
+					<div class="row">
+						<div class="col-md-6 col-lg-3" *ngFor="let tar of tarifs">
+							<mat-card>
+								<mat-card-title>Nouvelle formule</mat-card-title>
+								<mat-card-content>
+									<div class="row">
+										<div class="col-md-12">
+											<div class="form-group">
+											    <label for="titreDuBlock">Titre du block</label>
+											    <input type="text" value="OK" class="form-control" placeholder="Titre du block">
+											</div>
+										</div>
+										<div class="col-md-12">
+											<div class="form-group">
+											    <label for="contenu">Contenu</label>
+											    <textarea [froalaEditor]="editor_options" ></textarea>
+											</div>
+										</div>
+										<div class="col-md-12">
+											<div class="form-group">
+											    <label for="montant">Montant</label>
+											    <input type="text" value="4990" class="form-control" placeholder="Montant">
+											</div>
+										</div>
+										<div class="col-md-12">
+											<div class="form-group">
+											    <label for="periodeJour">Période en jour</label>
+											    <input type="text" class="form-control" placeholder="Periode en Jour">
+											</div>
+										</div>
+										<div class="col-md-12">
+											<div class="form-group">
+											    <label for="libellePeriode">Libellé période</label>
+											    <input type="text" class="form-control" placeholder="Libellé période">
+											</div>
+										</div>
+										<div class="col-md-12">
+											<div class="form-group">
+											    <div class="checkbox">
+											    	<label>
+											    		<input type="checkbox" value="true">
+											    		Formule gratuite
+											    	</label>
+											    </div>
+											</div>
+										</div>
+									</div>
+								</mat-card-content>
+							</mat-card>
+						</div>
+						<div class="col-md-12">
+							<button mat-raised-button color="primary" type="submit">Ajouter</button>
+						</div>
+					</div>
+					</form>
+				</div>
+				<div class="admin-card-footer">
+					
+				</div>
+			</app-admin-card>
+		</div>
+	</div>
+</div>

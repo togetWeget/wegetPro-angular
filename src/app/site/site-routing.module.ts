@@ -35,42 +35,7 @@ const routes: Routes = [
         path: '**', component: NotFoundComponent
       }
     ]
-  },
-  {
-    path: 'block', component: BlockComponent,
-    children: [
-
-      {
-        path: '', component: BlockManageComponent
-      },
-      {
-        path: 'liste',
-        component: BlockListeComponent,
-        children: [
-          {path: '', component: BlockDebutComponent},
-          {
-            path: 'creer', component: BlockEditerComponent
-          },
-          {path: 'creerPhoto', component: BlockPhotoComponent},
-
-          {
-            path: ':id', component: BlockDetailComponent
-          },
-          {
-            path: ':id/edite', component: BlockEditerComponent
-          },
-          {path: ':id/photo', component: BlockPhotoComponent},
-          {
-            path: '**', component: NotFoundComponent
-          }
-
-        ]
-      },
-      {
-        path: '**', component: NotFoundComponent
-      }
-    ]
-  }
+  }  
 ];
 
 @NgModule({

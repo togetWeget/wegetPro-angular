@@ -5,10 +5,13 @@
 			<app-admin-card [adminCard]="admin_card" >
 				<div class="admin-card-content">
 					<div class="row">
-						<div class="col-md-3" *ngFor="let bl of blocks">
+						<div class="col-md-3" *ngFor="let bl of blocks | paginate: { itemsPerPage: 10, currentPage: p }">
 							<app-admin-block [block]="bl"></app-admin-block>
 						</div>
 					</div>
+				</div>
+				<div class="admin-card-footer">
+					<pagination-controls (pageChange)="p = $event" previousLabel="Précédant" nextLabel="Suivant"></pagination-controls>
 				</div>
 			</app-admin-card>
 		</div>

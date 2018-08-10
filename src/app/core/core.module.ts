@@ -49,6 +49,8 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import { AdminCardComponent } from './comp/admin-card/admin-card.component';
 import { AdminBlockComponent } from './comp/admin-block/admin-block.component';
 import { ApercuBlockComponent } from './comp/apercu-block/apercu-block.component';
+import { AdminTarifsComponent } from './comp/admin-tarifs/admin-tarifs.component';
+import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 
 @NgModule({
   imports: [
@@ -61,7 +63,9 @@ import { ApercuBlockComponent } from './comp/apercu-block/apercu-block.component
     CustomMeterialModule,
     NotifierModule,
     CustomDirectivesModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    FroalaEditorModule.forRoot(), 
+    FroalaViewModule.forRoot()
   ],
   declarations: [
     ListBlocksComponent,
@@ -96,7 +100,7 @@ import { ApercuBlockComponent } from './comp/apercu-block/apercu-block.component
     ChatComponent,
     NotFoundComponent,
     TopZoneComponent, 
-    WidgetInfoComponent, AdminTableComponent, AdminCardComponent, AdminBlockComponent, ApercuBlockComponent
+    WidgetInfoComponent, AdminTableComponent, AdminCardComponent, AdminBlockComponent, ApercuBlockComponent, AdminTarifsComponent
   ],
   exports: [
     ListBlocksComponent,
@@ -136,7 +140,8 @@ import { ApercuBlockComponent } from './comp/apercu-block/apercu-block.component
     NgxPaginationModule,
     AdminCardComponent,
     AdminBlockComponent,
-    ApercuBlockComponent
+    ApercuBlockComponent,
+    AdminTarifsComponent
   ],
   entryComponents: [
     ApercuBlockComponent

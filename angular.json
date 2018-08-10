@@ -31,14 +31,14 @@
               {
                 "input": "node_modules/@angular/material/prebuilt-themes/indigo-pink.css"
               },
-              "node_modules/owl.carousel/dist/assets/owl.carousel.min.css",
-              "node_modules/owl.carousel/dist/assets/owl.theme.default.min.css",
+              "node_modules/froala-editor/css/froala_editor.pkgd.min.css",
+              "node_modules/ngx-toastr/toastr.css",
               "node_modules/bootstrap/dist/css/bootstrap.css",
               "src/styles.scss"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
-              "node_modules/owl.carousel/dist/owl.carousel.min.js",
+              "node_modules/froala-editor/js/froala_editor.pkgd.min.js",
               "node_modules/popper.js/dist/umd/popper.js",
               "node_modules/bootstrap/dist/js/bootstrap.js"
             ]

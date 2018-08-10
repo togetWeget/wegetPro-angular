@@ -36,7 +36,8 @@ export class BlockService {
         tap(res => {
           this.log(`block recuperes`);
         }),
-        catchError(this.handleError<Resultat<Block[]>>('getAllBlocks', new Resultat<Block[]>(null, [], [])))
+        catchError(this.handleError<Resultat<Block[]>>('getAllBlocks', 
+          new Resultat<Block[]>(null, [], [])))
       );
   }
 
@@ -70,7 +71,7 @@ export class BlockService {
       .pipe(
         tap(res => {
           this.log(`bloc de libelle  =${res.body.libelle}`);
-          this.blocktModif(res);
+          //this.blocktModif(res);
           this.filtreblock(res.body.libelle);
         }),
         catchError(this.handleError<Resultat<Block>>('modifierEnseignant'))

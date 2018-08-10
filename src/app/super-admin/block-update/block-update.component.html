@@ -1,0 +1,33 @@
+<app-top-zone [topZone]="top_zone" ></app-top-zone>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-12">
+			<app-admin-card [adminCard]="admin_card" >
+				<div class="admin-card-content">
+					<form [formGroup]="blockForm" (submit)="updateBlock()" >
+					<div class="row">
+						<div class="col-md-12">
+							<div class="form-group">
+							    <label for="titreDuBlock">Titre du block</label>
+							    <input formControlName="libelle" type="text" class="form-control" placeholder="Titre du block">
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+							    <label for="contenu">Contenu</label>
+							    <textarea formControlName="description" [froalaEditor]="editor_options"></textarea>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<button mat-raised-button color="primary" type="submit">Modifier</button>
+						</div>
+					</div>
+					</form>
+				</div>
+				<div class="admin-card-footer">
+					
+				</div>
+			</app-admin-card>
+		</div>
+	</div>
+</div>

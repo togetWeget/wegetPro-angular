@@ -1,3 +1,4 @@
+
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -6,10 +7,17 @@ import { AccueilComponent } from './accueil/accueil.component';
 import { LayoutComponent } from './layout/layout.component';
 import {CustomMeterialModule} from '../custom-meterial/custom-meterial.module';
 import {RouterModule} from '@angular/router';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {NgxPaginationModule} from 'ngx-pagination';
 import {CoreModule} from '../core/core.module';
 import {FooterComponent} from './footer/footer.component';
 import { AbonnesComponent } from './abonnes/abonnes.component';
 import { BlocksComponent } from './blocks/blocks.component';
+import { BlockUpdateComponent } from './block-update/block-update.component';
+import { BlockAddComponent } from './block-add/block-add.component';
+import { BlockTarifsComponent } from './block-tarifs/block-tarifs.component';
+import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
+import { DragAndDropModule } from 'angular-draggable-droppable';
 
 @NgModule({
   imports: [
@@ -18,9 +26,17 @@ import { BlocksComponent } from './blocks/blocks.component';
     CoreModule,
     RouterModule,
     CustomMeterialModule,
-    SuperAdminRoutingModule
+    SuperAdminRoutingModule,
+    NgxPaginationModule,
+    FormsModule, 
+    ReactiveFormsModule,
+    FroalaEditorModule.forRoot(), 
+    FroalaViewModule.forRoot(),
+    DragAndDropModule.forRoot()
   ],
-  declarations: [LayoutComponent, AccueilComponent, FooterComponent, AbonnesComponent, BlocksComponent],
+  declarations: [LayoutComponent, AccueilComponent, FooterComponent, 
+  AbonnesComponent, BlocksComponent, BlockUpdateComponent, BlockAddComponent,
+   BlockTarifsComponent],
   exports: [LayoutComponent]
 })
 export class SuperAdminModule { }

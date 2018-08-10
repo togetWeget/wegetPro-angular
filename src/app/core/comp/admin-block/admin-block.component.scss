@@ -18,7 +18,7 @@ mat-card{
     position: absolute;
     right: 5px;
     top: -100px;
-    transition: 0.5s all ease;
+    transition: 0.1s all ease;
     .apercu{
       background: #970ae0;
       color: #ffffff;
@@ -29,6 +29,14 @@ mat-card{
     }
     .tarif{
       background: #0094ea;
+      color: #ffffff;
+    }
+    .image{
+      background: #CBB500;
+      color: #ffffff;
+    }
+    .delete{
+      background: #EA0600;
       color: #ffffff;
     }
   }

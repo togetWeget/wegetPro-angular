@@ -4,7 +4,7 @@
         <a routerLink="/site/blocks/{{blk.id}}" routerLinkActive="active" (click)="onViewBlock(blk)">
           <img src="assets/default.jpg" class="img-fluid photo-list">
           <mat-card-content>
-            <h5>{{blk.description}}</h5>
+            <h5 [innerHtml]="blk.description"></h5>
           </mat-card-content>
         </a>
         <mat-card-actions>

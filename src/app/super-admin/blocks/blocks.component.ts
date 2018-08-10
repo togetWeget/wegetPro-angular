@@ -6,11 +6,12 @@ import { Block } from '../../shared/models/Block.model';
 import {BlockService} from '../../core/services/blocks/block.service';
 
 @Component({
-  selector: 'app-blocks',
+  selector: 'app-super-admin-blocks',
   templateUrl: './blocks.component.html',
   styleUrls: ['./blocks.component.scss']
 })
 export class BlocksComponent implements OnInit {
+  p: number = 1;
   top_zone: AdminTopZone = null;
   admin_card: AdminCard = null;
   blocks: Block[] = [];
@@ -18,7 +19,7 @@ export class BlocksComponent implements OnInit {
   constructor(private blockService: BlockService) {
   	this.top_zone = new AdminTopZone (
   		'Blocks', 
-  		'Tableau de bord',
+  		'',
   		[
   			new Navs('Accueil', '/super/admin'),
   			new Navs('Blocks', '/super/admin/blocks'),
@@ -28,7 +29,7 @@ export class BlocksComponent implements OnInit {
   	);
 
   	this.admin_card = new AdminCard(
-  		'Liste des bloks',
+  		'Liste des blocks',
   		'/super/admin/blocks/add'
   		);
   	this.fetchBlocks();

@@ -61,9 +61,12 @@ p {
 		padding: 10px 15px;
 		box-shadow: 0 1px 5px #333333;
 	}
-	.breadcrumb-env {
+	.breadcrumb-env {	
 		.breadcrumb {
+			position: relative;
+			top: 10px;
 			background: none;
+			font-size: small;
 			li {
 				a{
 					color: #888888;
@@ -79,7 +82,7 @@ p {
 					}
 				}
 				&.active {
-					color: #555555;
+					color: #333333;
 					font-weight: 400;
 				}
 			}
