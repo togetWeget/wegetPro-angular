@@ -1,6 +1,6 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Messagerie} from '../../../shared/models/messagerie/messagerie';
 import {MessagerieService} from '../../services/messagerie/messagerie.service';
 import {Message} from '../../../shared/models/messagerie/message';

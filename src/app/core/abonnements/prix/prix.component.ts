@@ -28,6 +28,6 @@ export class PrixComponent implements OnInit {
   }
   onPayer(prix: Tarif) {
     this.tarifselected = prix;
-    this.router.navigate(['/abonnement', 'form', prix.block]);
+    this.router.navigate(['/abonnement', 'form', prix.id]);
   }
 }
