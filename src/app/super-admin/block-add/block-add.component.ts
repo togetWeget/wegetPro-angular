@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { AdminTopZone } from '../../shared/views_models/admin-top-zone';
 import { Navs } from '../../shared/views_models/navs';
 import { AdminCard } from '../../shared/views_models/admin-card';
-import { Block } from '../../shared/models/Block.model';
+import { Block } from '../../shared/models/block';
 import {BlockService} from '../../core/services/blocks/block.service';
 import { ToastrService } from 'ngx-toastr';
 import * as $ from 'jquery'; 
@@ -72,7 +72,6 @@ export class BlockAddComponent implements OnInit {
         res.messages.toString();
         console.log(res.messages.toString());
         console.log('block  res ajoute', res.body);
-        this.toastr.success('Block ajouté avec succès', 'Opération réussie');
         this.router.navigate(['/super/admin/blocks/tarifs/', res.body.id]);
     });
   }

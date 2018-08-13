@@ -22,6 +22,14 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { ListeBlocComponent } from './liste-bloc/liste-bloc.component';
 import { CarouselSiteComponent } from './carousel-site/carousel-site.component';
+import {ContactAbonneComponent} from './abonnes/contact-abonne/contact-abonne.component';
+import {SearchAbonnesComponent} from './abonnes/search-abonnes/search-abonnes.component';
+import {ListBlocksComponent} from './list-blocks/list-blocks.component';
+import {ListAbonnesBlockComponent} from './abonnes/list-abonnes-block/list-abonnes-block.component';
+import {ListAbonnesComponent} from './abonnes/list-abonnes/list-abonnes.component';
+import {ProfilAbonneComponent} from './abonnes/profil-abonne/profil-abonne.component';
+import {FormulaireComponent} from './abonnements/formulaire/formulaire.component';
+import {PrixComponent} from './abonnements/prix/prix.component';
 
 @NgModule({
   imports: [
@@ -32,8 +40,24 @@ import { CarouselSiteComponent } from './carousel-site/carousel-site.component';
     SiteRoutingModule
   ],
   providers: [],
-  declarations: [AccueilComponent, LayoutComponent, FooterComponent, ToolbarComponent,
-   RegisterComponent, LoginComponent, ListeBlocComponent, CarouselSiteComponent],
+  declarations: [
+    AccueilComponent, 
+    LayoutComponent, 
+    FooterComponent, 
+    ToolbarComponent,
+    RegisterComponent, 
+    LoginComponent, 
+    ListeBlocComponent, 
+    CarouselSiteComponent,
+    ContactAbonneComponent,
+    SearchAbonnesComponent,
+    ListBlocksComponent,
+    ListAbonnesBlockComponent,
+    ListAbonnesComponent,
+    ProfilAbonneComponent,
+    FormulaireComponent,
+    PrixComponent
+  ],
   exports: [LayoutComponent],
   schemas: [NO_ERRORS_SCHEMA]
 })

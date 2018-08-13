@@ -1,12 +1,12 @@
-import {Personnes} from './personne/membres/personne.model';
-import {Block} from './Block.model';
+import {Personne} from './personne/membres/personne';
+import {Block} from './block';
 
-export class Detailblocks {
+export class Detailblock {
   constructor(
     public id?: number,
     public version?: number,
-    public blocks?: Block,
-    public personne?: Personnes
+    public block?: Block,
+    public personne?: Personne
   ) {
   }
 }

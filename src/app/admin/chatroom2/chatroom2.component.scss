@@ -83,6 +83,15 @@ color-ext : #32465a;
   border-bottom: 1px solid #f2f2f2;
   padding:10px;
 }
+.img-g-rond-s{
+  width:50px;
+  height:50px;
+  border-radius: 100%;
+  margin-right:5px;
+  float:left;
+  background-size: cover !important;
+}
+
 .img-g-rond{
   width:50px;
   height:50px;
@@ -180,6 +189,7 @@ color-ext : #32465a;
   height:200px;
 }
 
+
 @media (max-width: 820px) {
 
   .droite-h {
@@ -209,5 +219,17 @@ color-ext : #32465a;
     height: calc(90vh - 165px) !important;
     overflow-y: auto !important;
   }
+  .retourmembre{
+    display:block !important;
+  }
 }
 
+
+.afficher{
+  display: block !important;
+  width:100% !important;
+}
+
+.cacher{
+  display: none !important;
+}

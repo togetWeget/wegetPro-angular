@@ -3,7 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 import {LayoutComponent} from './layout/layout.component';
 import {AccueilComponent} from './accueil/accueil.component';
 import {AuthGuardTogetService} from '../core/services/AuthGuards/auth-guard-toget.service';
-import {ListBlocksComponent} from '../core/blocks/list-blocks/list-blocks.component';
 import {Chatroom2Component} from './chatroom2/chatroom2.component';
 import {NotFoundComponent} from '../core/not-found/not-found.component';
 

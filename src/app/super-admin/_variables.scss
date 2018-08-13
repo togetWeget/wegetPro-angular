@@ -1,0 +1,22 @@
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
+
+$blue: #34a3cd;
+$green: #04c575;
+$white: #ffffff;
+$purple-dark: #4a4864;
+$green-blue: #27c1c1;
+$dark-blue: #2f2e3e;
+
+$xxs-margin: 5px;
+$xs-margin: 10px;
+$sm-margin: 15px;
+
+button {
+	&.blue {
+		background: $blue;
+		color: $white;
+	}
+}

@@ -1,5 +1,5 @@
 import {Tarif} from '../models/tarif/tarif';
-import {Block} from '../models/Block.model';
+import {Block} from '../models/block';
 
 
 export class AdminTarif {

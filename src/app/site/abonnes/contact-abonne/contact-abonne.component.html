@@ -1,0 +1,45 @@
+<div class="abonne-mailer">
+  <h4 mat-dialog-title>Contacter {{data.nomPersonne}}</h4>
+
+  <mat-dialog-content>
+    <form [formGroup]="messageForm" (ngSubmit)="onEnvoyerMessage()">
+      <div formGroupName="personne">
+        <input matInput hidden formControlName="id">
+      </div>
+      <div formGroupName="expediteur">
+        <div class="row">
+          <mat-form-field class="col-lg-6">
+            <input matInput placeholder="Entreprise" formControlName="entreprise">
+          </mat-form-field>
+          <mat-form-field class="col-lg-6">
+            <input matInput placeholder="Nom" formControlName="nom">
+          </mat-form-field>
+        </div>
+        <div class="row">
+          <mat-form-field class="col-lg-6">
+            <input matInput placeholder="E-mail" formControlName="email">
+          </mat-form-field>
+          <mat-form-field class="col-lg-6">
+            <input matInput placeholder="Telephone" formControlName="telephone">
+          </mat-form-field>
+        </div>
+      </div>
+      <div formGroupName="message">
+        <div class="row">
+          <mat-form-field class="col-lg-12">
+            <input matInput placeholder="Sujet" formControlName="sujet">
+          </mat-form-field>
+        </div>
+        <div class="row">
+          <mat-form-field class="col-lg-12">
+            <textarea matInput placeholder="Message" rows="3"  formControlName="contenu"></textarea>
+          </mat-form-field>
+        </div>
+      </div>
+    </form>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-raised-button color="warn" [mat-dialog-close]="true">Fermer</button>
+    <button mat-raised-button color="primary" type="submit" (click)="onEnvoyerMessage()">Envoyer</button>
+  </mat-dialog-actions>
+</div>

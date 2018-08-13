@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material';
-import { Block } from '../../../shared/models/Block.model';
+import { Block } from '../../../shared/models/block';
 import { ApercuBlockComponent } from '../apercu-block/apercu-block.component';
 
 @Component({
@@ -30,6 +30,10 @@ export class AdminBlockComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       //
     });
+  }
+
+  changeImage () {
+    
   }
 
 }

@@ -25,7 +25,13 @@ import { FilterPipeModule} from 'ngx-filter-pipe';
     FormsModule,
     FilterPipeModule
   ],
-  declarations: [LayoutComponent, AccueilComponent, FooterComponent, Chatroom2Component, FilterPipe],
+  declarations: [
+   LayoutComponent,
+   AccueilComponent, 
+   FooterComponent,
+   Chatroom2Component,
+   FilterPipe
+  ],
   exports: [LayoutComponent]
 })
 export class AdminModule {

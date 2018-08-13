@@ -3,8 +3,9 @@ import {HttpClient, HttpRequest} from '@angular/common/http';
 import {Observable, of, Subject} from 'rxjs';
 import {catchError, tap, map} from 'rxjs/internal/operators';
 import {MessageService} from '../message.service';
-import {Resultat} from '../../../shared/models/Resultat';
-import {Block} from '../../../shared/models/Block.model';
+import {Resultat} from '../../../shared/models/resultat';
+import {Block} from '../../../shared/models/block';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable()
 export class BlockService {
@@ -26,7 +27,8 @@ export class BlockService {
   blockFiltre$ = this.blockFiltreSource.asObservable();
   blockSupprime$ = this.blockSupprimeSource.asObservable();
 
-  constructor(private http: HttpClient, private messageService: MessageService) {
+  constructor(private http: HttpClient, private messageService: MessageService,
+    private toastr: ToastrService) {
   }
 
 
@@ -47,6 +49,8 @@ export class BlockService {
       .pipe(
         tap(res => {
           this.log(`block ajouter avec succes : message service=${res.body.libelle}`);
+          this.toastr.success('block ajouter avec succes : message service= '+ res.body.libelle, 
+            'Opération réussie');
           this.blockCreer(res);
           this.filtreblock(res.body.libelle);
         }),
@@ -71,10 +75,13 @@ export class BlockService {
       .pipe(
         tap(res => {
           this.log(`bloc de libelle  =${res.body.libelle}`);
+          this.toastr.success('bloc de libelle  = '+ res.body.libelle, 
+            'Opération réussie');
           //this.blocktModif(res);
           this.filtreblock(res.body.libelle);
+
         }),
-        catchError(this.handleError<Resultat<Block>>('modifierEnseignant'))
+        catchError(this.handleError<Resultat<Block>>('modifierBlock'))
       );
   }
 
@@ -92,6 +99,8 @@ export class BlockService {
       .pipe(
         tap(res => {
           this.log(`block supprime id =${id}`);
+          this.toastr.success('block supprime id = '+ id, 
+            'Opération réussie');
           this.blocksupprime(res);
         }),
         catchError(this.handleError<Resultat<boolean>>('supprimerBlock'))
@@ -107,6 +116,8 @@ export class BlockService {
     return this.http.request(req)
       .pipe(
         tap(event => {
+          this.toastr.success('Image ajouté avec succès', 
+            'Opération réussie');
           /* this.log(`photo ajoute nom et prenom =${event.body._nomComplet}`)
            this.enseignantModif(event.type.);
            this.filtreEnseignant(event.body.nomComplet);*/
@@ -143,7 +154,7 @@ export class BlockService {
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 
-
+      this.toastr.error(operation + ' a rentre un probleme: ' + error.message, 'Erreur');
       console.error(error);
 
 

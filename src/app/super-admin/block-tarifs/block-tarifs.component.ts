@@ -3,10 +3,11 @@ import { AdminTopZone } from '../../shared/views_models/admin-top-zone';
 import { Navs } from '../../shared/views_models/navs';
 import { AdminCard } from '../../shared/views_models/admin-card';
 import { AdminTarif } from '../../shared/views_models/admin-tarif';
-import { Block } from '../../shared/models/Block.model';
+import { Block } from '../../shared/models/block';
 import { Tarif } from '../../shared/models/tarif/tarif';
 import { PersonalButton } from '../../shared/views_models/personal-button';
 import {BlockService} from '../../core/services/blocks/block.service';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import * as $ from 'jquery'; 
 window["$"] =$; 
 window["jQuery"] = $;
@@ -47,7 +48,7 @@ export class BlockTarifsComponent implements OnInit {
 	};
   tarifs: Tarif[] = [];
 
-  constructor(private blockService: BlockService) {
+  constructor(private blockService: BlockService, public dialog: MatDialog) {
   	this.top_zone = new AdminTopZone (
   		'Block', 
   		'Grille tarifaire',
@@ -67,10 +68,10 @@ export class BlockTarifsComponent implements OnInit {
   		]
   		);
 	this.tarifs = [
-	  new Tarif (null,null, '4000', '', null, null),
-	  new Tarif (null,null, '2000', '', null, null),
-	  new Tarif (null,null, '1000', '', null, null),
-	  new Tarif (null,null, '3000', '', null, null),
+	  new Tarif (),
+	  new Tarif (),
+	  new Tarif (),
+	  new Tarif (),
 	];  	
   }
 

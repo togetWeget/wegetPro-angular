@@ -78,10 +78,10 @@ export class RegisterComponent implements OnInit {
 
   sending() {
     if (this.can_send) {
-      const url = this.regist.urlMembres();
+      const url = this.regist.urlPersonnes();
       console.log('post', this.membreForm.value);
       this.reponse =  this.regist.registering(url, this.membreForm.value);
-      this.authFirebaseService.createNewUser(this.membreForm.value.login,
+      this.authFirebaseService.createNewUser(this.membreForm.value.adresse.email,
        this.membreForm.value.password).then(
 
         () => {

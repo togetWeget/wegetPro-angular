@@ -3,7 +3,7 @@ import {catchError, tap} from 'rxjs/internal/operators';
 import {Observable, of} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {MessageService} from '../message.service';
-import {Resultat} from '../../../shared/models/Resultat';
+import {Resultat} from '../../../shared/models/resultat';
 import {Tarif} from '../../../shared/models/tarif/tarif';
 
 @Injectable({
@@ -31,7 +31,7 @@ export class TarifService {
     return this.http.post<Resultat<Tarif>>(this.urlTarifs, tarif)
       .pipe(
         tap(res => {
-          this.log(`tarif ajouter avec succes : message service=${res.body.montant}`);
+          this.log(`tarif ajouter avec succes : message service=${res.body.prix}`);
 
         }),
         catchError(this.handleError<Resultat<Tarif>>('ajoutTarif'))

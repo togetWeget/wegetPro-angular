@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AdminTopZone } from '../../shared/views_models/admin-top-zone';
 import { Navs } from '../../shared/views_models/navs';
 import { AdminCard } from '../../shared/views_models/admin-card';
-import { Block } from '../../shared/models/Block.model';
+import { Block } from '../../shared/models/block';
 import {BlockService} from '../../core/services/blocks/block.service';
 
 @Component({

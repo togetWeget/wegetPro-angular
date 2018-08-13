@@ -6,7 +6,7 @@
         Djouekan Joel Armel &nbsp;<span class="fa fa-angle-down"></span><br/>
         <div class="bl-search">
           <span class="fa fa-search search_icon"></span><input type="text" name="searchText" value=""
-                                                               [(ngModel)]="userFilter.login"
+                                                               [(ngModel)]="userFilter.nomComplet"
                                                                placeholder="Rechercher un Membre"
                                                                class="search-bar"/>
         </div>
@@ -14,23 +14,46 @@
       <!-- bande gauche bas -->
 
       <div class="" style="background:#f2f2f2; font-size:12px; text-align:center; padding:0;">Liste
-        Membre{{userFilter.login}}
+        Membres  {{userFilter.nomComplet}}
       </div>
       <div class="band-user">
-        <div class="users" style=" paddind:10px; cursor:pointer; margin-top:10px;"
-             (click)="changeVarUser(a.id,a.pathPhoto,a.login);" *ngFor="let a of dataRec | filterBy: userFilter">
-          <img src="http://www.acqueon.com/wp-content/uploads/2017/08/avatar-image.png" class="img-g-rond">
+	  
+	  
+      <div class="" (click)="changeVarUser(a.id,a.pathPhoto,a.nomComplet);" *ngFor="let a of dataRec | filterBy: userFilter">
+        <div class="users" style=" paddind:10px; cursor:pointer; margin-top:10px;" *ngIf="a.id != layoutComponent.InfoMembres.id">
+
+       <!--    <input  class="img-g-rond-s " [ngStyle]="{ 'background' : 'url(' + a.pathPhoto + ')', 'background-repeat' : 'no-repeat',  'background-size ': 'cover',  'border':'0px', 'background-color': '#ff6d05' , 'font-size': '30px', 'color':'#fff',  'text-align':'center', 'text-transform' : 'uppercase'}"
+             
+               [value]="a.pathPhoto? '' : a.login[0] " disabled/>
+	   -->
+			   
+			   <img src="{{a.pathPhoto}}" class="img-g-rond-s " [ngStyle]="{'background-repeat' : 'no-repeat',  'background-size ': 'cover',  'border':'0px', 'background-color': '#ff6d05' , 'font-size': '30px', 'color':'#fff',  'text-align':'center', 'text-transform' : 'uppercase'}"
+             
+               [alt]="a.nomComplet[0] " title="Google Images" />
+
+          <!-- <div *ngIf="a.pathPhoto === null" class="img-g-rond"
+                style="background: #ff6d05; background-size: 100%"><p
+             style="font-size:25px; color:#fff; padding:5px 5px 5px 15px; text-align:center;"
+           >{{a.login[0]}}</p>
+           </div>-->
+
+
           <span>{{a.login}} <i class="fa fa-circle" style="color:darkgreen; float:right;"></i></span>
           <h6 class="break_word">{{a.description}} <i *ngIf="a.description === null">Aucun description Pour ce
             membre</i></h6>
         </div>
+        </div>
 
-        <div class="users" *ngIf="(dataRec | filterBy: userFilter).length === 0">
+        <div class="users" *ngIf="(dataRec | filterBy: userFilter).length === 0 && resulloard === false" style="text-align:center;">
           <img src="http://oupscity.fr/wp-content/uploads/2018/04/bulle.jpg" class="card-img">
-          <p>Aucun Elements correspondant à votre recherche trouvé!</p>
+          <p>Aucun Elements trouvé!</p>
         </div>
 
         <div style="text-align: center; width:100%;" *ngIf="resulloard == true">{{ResultText}}</div>
+		
+		
+		
+		
       </div>
     </div>
 
@@ -38,7 +61,10 @@
     <div class="droite-h">
       <!-- bande gauche haut-->
       <div class="band-droite">
-        <img src="http://www.acqueon.com/wp-content/uploads/2017/08/avatar-image.png" class="img-g-rond">
+        <i class="fa fa-hand-o-left retourmembre" style="float:left;line-height: 1.8em; margin-right:5px; cursor:pointer; display:none;" (click)="retourMembre()" *ngIf="retourAff === true"></i>
+        
+		<img src="{{pathPhoto_rec}}" class="img-g-rond-s " style="background-repeat : no-repeat;  background-size :cover;  border:0px; background-color:#ff6d05;  font-size: 30px; color:#fff;  text-align:center; text-transform : uppercase;" alt="{{named ? named[0] : 'T'}} " />
+		
         <div class="col-sm-12" style="width:500px;height:10px;">{{named}}
           <span class="fa fa-angle-down"></span><br/>
           <i class="fa fa-circle" style="color:darkgreen;"></i> Connecté
@@ -47,13 +73,26 @@
 
       <div class="band-droite-bas" style="overflow-x:hidden;">
         <div *ngIf="named != null" style="margin:0 auto; width:100%; margin-left:15px; overflow-x:hidden;">
-          <div class="col-sm-12 row default-msg " *ngFor="let a of [1,2,3,4,5,6,7,8,9];" style="margin:0 auto; ">
-            <div class="col-sm-12 row" style="margin-bottom:5px; margin-top:5px;">
+		
+		
+				       <div class=" col-sm-12 row default-frm" style="" >
+          <p> Salut, {{named}}</p>
+          <img class="default-img"
+               src="https://fotomelia.com/wp-content/uploads/edd/2015/11/bonhomme-blanc-3d-images-gratuites-libres-de-droits-creative-commons58-1560x1114.jpg"/>
+
+        </div>
+		   
+          <div class="col-sm-12 row default-msg " *ngFor="let a of messageAll; index as i" style="margin:0 auto; ">
+		  
+
+		  
+		  
+            <div class="col-sm-12 row" style="margin-bottom:5px; margin-top:5px;" *ngIf="a.codeSender != layoutComponent.InfoMembres.id">
               <div class="col-sm-12">
                 <img src="http://www.acqueon.com/wp-content/uploads/2017/08/avatar-image.png" class="img-g-rond-r">
               </div>
               <div class="col-sm-12">
-                <div class="receiver"> lorep ipsum dilor para nuegate n;oloso deskoitro pourdistraca ne distapa</div>
+                <div class="receiver">{{a.message}}</div>
                 <i style="font-size:10px;">
                   le 21/07/2018 à 12h32 |
                   <span class="fa fa-send" style="color:green"></span>
@@ -61,14 +100,14 @@
               </div>
             </div>
 
-            <div class="col-sm-12 row" style="margin-bottom:5px; margin-top:5px;">
+            <div class="col-sm-12 row" style="margin-bottom:5px; margin-top:5px;" *ngIf="a.codeSender == layoutComponent.InfoMembres.id">
               <div class="col-sm-12" style="">
                 <img src="http://www.acqueon.com/wp-content/uploads/2017/08/avatar-image.png"
                      class="img-g-rond-r pull-right">
               </div>
               <div class="col-sm-12" style="">
                 <div class="sender pull-right">
-                  lorep ipsum dilor para nuegate n;oloso deskoitro pourdistraca ne distapa
+                  {{a.message}}
                 </div>
               </div>
               <div class="col-sm-12 ">
@@ -82,16 +121,41 @@
 
           </div>
         </div>
-        <div class=" col-sm-12 row default-frm" style="" *ngIf="named === null">
+
+        
+		
+		<div class=" col-sm-12 row default-frm" style="" *ngIf="named === null">
           <p> Salut, Vous êtes sur la platforme de messagerie de toget.</p>
           <img class="default-img"
                src="https://fotomelia.com/wp-content/uploads/edd/2015/11/bonhomme-blanc-3d-images-gratuites-libres-de-droits-creative-commons58-1560x1114.jpg"/>
 
         </div>
         <div class="col-sm-12 row input-bas" *ngIf="named != null" style="margin-left:10px;">
-          <i class="fa fa-plus-circle" style="font-size:50px; color:dodgerblue;"></i>&nbsp;
-          <textarea type="text" class="input-bas-in" placeholder="message ici..."></textarea>
-          &nbsp; &nbsp;<i class="fa fa-paper-plane" style="font-size:25px;"></i>
+
+          <div class="dropdown show">
+
+            <i class="fa fa-plus-circle" role="button" id="dropdownMenuLink"
+               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+               style="font-size:50px; color:dodgerblue; cursor:pointer;"></i>&nbsp;
+
+
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <input type="file" [(ngModel)]="fichierloader" accept="zip,rar,doc,docx,txt,xls,csv,*" style="display: none;" #f>
+              <input type="file" [value]="imgloader" accept="image/*" style="display: none;" #imgloader>
+              <input type="file" [value]="videoloader" accept="video/*" style="display: none;" #videoloader>
+              <i class="dropdown-item fa fa-image" href="#" style="cursor:pointer;" (click)="imgloader.click();">
+                Fichier image </i>
+              <i class="dropdown-item fa fa-link" href="#" style="cursor:pointer;"> Lien</i>
+              <i class="dropdown-item fa fa-file-video-o" href="#" style="cursor:pointer;"
+                 (click)="videoloader.click();"> Fichier Video</i>
+              <i class="dropdown-item fa fa-file" href="#" style="cursor:pointer;" (click)="f.click();">
+                Fichiers {{fichierloader}}</i>
+<!-- http://www.acqueon.com/wp-content/uploads/2017/08/avatar-image.png -->
+            </div>
+          </div>
+          <input type="file" style="display: none;" value="" name="fichier_tt" [(ngModel)]="fichier_tt">
+          <textarea type="text" name="message_ss" class="input-bas-in" placeholder="message ici..." [(ngModel)]="message_ss"></textarea>
+          &nbsp; &nbsp;<i class="fa fa-paper-plane" style="font-size:25px; cursor:pointer;" (click)="SEndDiscusion()"></i>
         </div>
       </div>
 

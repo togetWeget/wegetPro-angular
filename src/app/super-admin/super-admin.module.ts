@@ -18,6 +18,7 @@ import { BlockAddComponent } from './block-add/block-add.component';
 import { BlockTarifsComponent } from './block-tarifs/block-tarifs.component';
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 import { DragAndDropModule } from 'angular-draggable-droppable';
+import { BlockTarifsAddComponent } from './block-tarifs-add/block-tarifs-add.component';
 
 @NgModule({
   imports: [
@@ -36,7 +37,8 @@ import { DragAndDropModule } from 'angular-draggable-droppable';
   ],
   declarations: [LayoutComponent, AccueilComponent, FooterComponent, 
   AbonnesComponent, BlocksComponent, BlockUpdateComponent, BlockAddComponent,
-   BlockTarifsComponent],
+   BlockTarifsComponent,
+   BlockTarifsAddComponent],
   exports: [LayoutComponent]
 })
 export class SuperAdminModule { }
