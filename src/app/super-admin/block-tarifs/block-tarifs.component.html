@@ -2,53 +2,42 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-12">
-			<app-admin-card [adminCard]="admin_card" >
+			<app-admin-card (clickOcur)="handleClick($event)" [adminCard]="admin_card" >
 				<div class="admin-card-content">
 					<div class="row">
+						<div class="col-12" *ngIf="tarifs.length === 0">
+							<div class="alert alert-info" role="alert">
+							  Dézolé nous n'avons pu trouver de formule pour ce block
+							</div>
+						</div>
 						<div class="col-md-6 col-lg-3" *ngFor="let tar of tarifs">
 							<form>
 							<mat-card>
-								<mat-card-title>Nouvelle formule</mat-card-title>
+								<mat-card-title class="text-truncate">Formule {{tar.titre}}</mat-card-title>
 								<mat-card-content>
 									<div class="row">
 										<div class="col-md-12">
 											<div class="form-group">
 											    <label for="titreDuBlock">Titre du block</label>
-											    <input type="text" value="OK" class="form-control" placeholder="Titre du block">
+											    <input type="text" value="{{tar.titre}}" class="form-control" placeholder="Titre du block">
 											</div>
 										</div>
 										<div class="col-md-12">
 											<div class="form-group">
 											    <label for="contenu">Contenu</label>
-											    <textarea [froalaEditor]="editor_options" ></textarea>
+											    <textarea [froalaEditor]="editor_options" [ngModel]="tar.description" [ngModelOptions]="{standalone: true}"></textarea>
 											</div>
 										</div>
 										<div class="col-md-12">
 											<div class="form-group">
 											    <label for="montant">Montant</label>
-											    <input type="text" value="4990" class="form-control" placeholder="Montant">
+											    <input type="text" value="{{tar.prix}}" class="form-control" placeholder="Montant">
 											</div>
 										</div>
 										<div class="col-md-12">
 											<div class="form-group">
-											    <label for="periodeJour">Période en jour</label>
-											    <input type="text" class="form-control" placeholder="Periode en Jour">
-											</div>
-										</div>
-										<div class="col-md-12">
-											<div class="form-group">
-											    <label for="libellePeriode">Libellé période</label>
-											    <input type="text" class="form-control" placeholder="Libellé période">
-											</div>
-										</div>
-										<div class="col-md-12">
-											<div class="form-group">
-											    <div class="checkbox">
-											    	<label>
-											    		<input type="checkbox" value="true">
-											    		Formule gratuite
-											    	</label>
-											    </div>
+											    <label for="periodeJour">Période</label>
+											    <input type="text" class="form-control" value="{{tar.dureeTarif}}" placeholder="Periode en Jour">
 											</div>
 										</div>
 										<div class="col-md-12">

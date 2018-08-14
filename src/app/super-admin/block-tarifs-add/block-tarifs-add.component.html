@@ -1,3 +1,36 @@
-<p>
-  block-tarifs-add works!
-</p>
+<form (submit)="ajouterTarif()" [formGroup]="tarifForm" >
+<mat-card>
+	<mat-card-title>Nouvelle formule</mat-card-title>
+	<mat-card-content>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="form-group">
+				    <label for="titreDuBlock">Titre du block</label>
+				    <input type="text" value="" formControlName="titre" class="form-control" placeholder="Gratuit / OK / Yes / TOP">
+				</div>
+			</div>
+			<div class="col-md-12">
+				<div class="form-group">
+				    <label for="contenu">Contenu</label>
+				    <textarea [froalaEditor]="editor_options" formControlName="description" ></textarea>
+				</div>
+			</div>
+			<div class="col-md-12">
+				<div class="form-group">
+				    <label for="montant">Prix</label>
+				    <input type="text" value="" formControlName="prix" class="form-control" placeholder="4200">
+				</div>
+			</div>
+			<div class="col-md-12">
+				<div class="form-group">
+				    <label for="periodeJour">Période</label>
+				    <input type="text" class="form-control" formControlName="dureeTarif" placeholder="3 MOIS">
+				</div>
+			</div>
+			<div class="col-md-12">
+				<button mat-raised-button class="blue" type="submit">Ajouter</button>
+			</div>
+		</div>
+	</mat-card-content>
+</mat-card>
+</form>

@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import {BlockService} from '../../core/services/blocks/block.service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { switchMap } from 'rxjs/operators';
 import { AdminTopZone } from '../../shared/views_models/admin-top-zone';
 import { Navs } from '../../shared/views_models/navs';
 import { AdminCard } from '../../shared/views_models/admin-card';
 import { Block } from '../../shared/models/block';
-import {BlockService} from '../../core/services/blocks/block.service';
-import { ToastrService } from 'ngx-toastr';
 import * as $ from 'jquery'; 
 window["$"] =$; 
 window["jQuery"] = $;

@@ -27,15 +27,8 @@ import { CustomDirectivesModule } from '../custom-directives/custom-directives.m
 import { ChatComponent } from './chat/chat.component';
 import { NotFoundComponent } from './not-found/not-found.component'; 
 import { NgHttpLoaderModule } from 'ng-http-loader';
-import { TopZoneComponent } from './comp/top-zone/top-zone.component';
-import { WidgetInfoComponent } from './comp/widget-info/widget-info.component';
-import { AdminTableComponent } from './comp/admin-table/admin-table.component';
-import {NgxPaginationModule} from 'ngx-pagination';
-import { AdminCardComponent } from './comp/admin-card/admin-card.component';
-import { AdminBlockComponent } from './comp/admin-block/admin-block.component';
-import { ApercuBlockComponent } from './comp/apercu-block/apercu-block.component';
-import { AdminTarifsComponent } from './comp/admin-tarifs/admin-tarifs.component';
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   imports: [
@@ -68,10 +61,7 @@ import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
     PanelContainerDirective,
     PanelContentDirective,
     ChatComponent,
-    NotFoundComponent,
-    TopZoneComponent, 
-    WidgetInfoComponent, AdminTableComponent, AdminCardComponent,
-     AdminBlockComponent, ApercuBlockComponent, AdminTarifsComponent
+    NotFoundComponent
   ],
   exports: [
     BlocTitleDirective,
@@ -89,18 +79,8 @@ import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
     PanelContainerDirective,
     PanelContentDirective,
     ChatComponent,
-    NotFoundComponent,
-    TopZoneComponent, 
-    WidgetInfoComponent, 
-    AdminTableComponent,
     NgxPaginationModule,
-    AdminCardComponent,
-    AdminBlockComponent,
-    ApercuBlockComponent,
-    AdminTarifsComponent
-  ],
-  entryComponents: [
-    ApercuBlockComponent
+    NotFoundComponent
   ],
   providers: [
     MessageService,

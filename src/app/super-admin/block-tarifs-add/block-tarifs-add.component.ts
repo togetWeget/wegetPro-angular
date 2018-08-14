@@ -1,4 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import { AdminCard } from '../../shared/views_models/admin-card';
+import { AdminTarif } from '../../shared/views_models/admin-tarif';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { Block } from '../../shared/models/block';
+import { ToastrService } from 'ngx-toastr';
+import { Tarif } from '../../shared/models/tarif/tarif';
+import { PersonalButton } from '../../shared/views_models/personal-button';
+import {BlockService} from '../../core/services/blocks/block.service';
+import {TarifService} from '../../core/services/tarif/tarif.service';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import * as $ from 'jquery'; 
+window["$"] =$; 
+window["jQuery"] = $;
+import "froala-editor/js/froala_editor.pkgd.min.js";
 
 @Component({
   selector: 'app-block-tarifs-add',
@@ -6,10 +20,89 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./block-tarifs-add.component.scss']
 })
 export class BlockTarifsAddComponent implements OnInit {
+  admin_card: AdminCard = null;
+  editor_options: Object = {
+	  height: 150,
+	  toolbarButtons: [
+	  'fullscreen', 
+	  'bold', 
+	  'italic', 
+	  'underline', 
+	  'strikeThrough', 
+	  '|', 
+	  'fontFamily', 
+	  'fontSize', 
+	  'color', 
+	  '|', 
+	  'paragraphFormat', 
+	  'align', 
+	  '|', 
+	  'specialCharacters', 
+	  'insertHR', 
+	  '|', 
+	  'html', 
+	  '|', 
+	  'undo', 
+	  'redo']
+	};
+  tarif: Tarif;
+  block: Block;
+  tarifForm: any;
 
-  constructor() { }
+
+  constructor(private tarifService: TarifService, private fb: FormBuilder, 
+  	public dialogRef: MatDialogRef<BlockTarifsAddComponent>, 
+  	private toastr: ToastrService,
+    @Inject(MAT_DIALOG_DATA) public data: any) { 
+  		this.block = data.block;  
+  		this.tarif = new Tarif (null, null, '', 0, '', '', this.block);
+  		this.initForm();
+  }
 
   ngOnInit() {
+  }
+
+
+  private initForm() {
+  	this.tarifForm = this.fb.group({
+	  	id: [this.tarif.id],
+	  	version: [this.tarif.version],
+	  	titre: [this.tarif.titre],
+	  	prix: [this.tarif.prix],
+	  	dureeTarif: [this.tarif.dureeTarif],
+	  	description: [this.tarif.description],
+	  	block: [this.tarif.block]
+	  });
+  }
+
+  
+
+  private convertisseur (fg: FormGroup): Tarif {
+  	const blk = new Tarif(
+  		fg.value['id'],
+  		fg.value['version'],
+  		fg.value['titre'],
+  		fg.value['prix'],
+  		fg.value['dureeTarif'],
+  		fg.value['description'],
+  		fg.value['block']
+  		);
+  	return blk;
+  }
+
+
+  ajouterTarif () {
+  	let tarifAdd: Tarif;
+  	tarifAdd = this.convertisseur((this.tarifForm));
+  	// console.log(tarifAdd);
+  	this.tarifService.ajoutTarif(tarifAdd)
+  	.subscribe(res => {
+        res.messages.toString();
+        console.log(res.messages.toString());
+        console.log('block  res ajoute', res.body);
+        this.toastr.success('Tarif enregistré avec succès', 'Opération réussie');
+        this.dialogRef.close();
+    });
   }
 
 }

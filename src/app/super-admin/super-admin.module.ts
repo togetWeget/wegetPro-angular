@@ -19,6 +19,13 @@ import { BlockTarifsComponent } from './block-tarifs/block-tarifs.component';
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 import { DragAndDropModule } from 'angular-draggable-droppable';
 import { BlockTarifsAddComponent } from './block-tarifs-add/block-tarifs-add.component';
+import { TopZoneComponent } from './comp/top-zone/top-zone.component';
+import { WidgetInfoComponent } from './comp/widget-info/widget-info.component';
+import { AdminTableComponent } from './comp/admin-table/admin-table.component';
+import { AdminCardComponent } from './comp/admin-card/admin-card.component';
+import { AdminBlockComponent } from './comp/admin-block/admin-block.component';
+import { ApercuBlockComponent } from './comp/apercu-block/apercu-block.component';
+import { AdminTarifsComponent } from './comp/admin-tarifs/admin-tarifs.component';
 
 @NgModule({
   imports: [
@@ -36,9 +43,17 @@ import { BlockTarifsAddComponent } from './block-tarifs-add/block-tarifs-add.com
     DragAndDropModule.forRoot()
   ],
   declarations: [LayoutComponent, AccueilComponent, FooterComponent, 
-  AbonnesComponent, BlocksComponent, BlockUpdateComponent, BlockAddComponent,
+   AbonnesComponent, BlocksComponent, BlockUpdateComponent, BlockAddComponent,
    BlockTarifsComponent,
-   BlockTarifsAddComponent],
+   BlockTarifsAddComponent,
+   TopZoneComponent, 
+   WidgetInfoComponent, AdminTableComponent, AdminCardComponent,
+   AdminBlockComponent, ApercuBlockComponent, AdminTarifsComponent
+  ],
+  entryComponents: [
+    ApercuBlockComponent,
+    BlockTarifsAddComponent
+  ],
   exports: [LayoutComponent]
 })
 export class SuperAdminModule { }

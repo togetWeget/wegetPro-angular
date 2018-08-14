@@ -32,8 +32,12 @@ export class AdminBlockComponent implements OnInit {
     });
   }
 
-  changeImage () {
+  deleteBlock () {
     
+  }
+
+  changeImage () {
+
   }
 
 }

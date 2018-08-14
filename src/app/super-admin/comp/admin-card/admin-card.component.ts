@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, EventEmitter, OnInit, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { AdminCard } from '../../../shared/views_models/admin-card';
 
@@ -10,14 +10,19 @@ import { AdminCard } from '../../../shared/views_models/admin-card';
 })
 export class AdminCardComponent implements OnInit {
   @Input('adminCard') admin_card: AdminCard;
+  @Output() clickOcur = new EventEmitter<string>();
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) {
+  }
 
   ngOnInit() {
   }
 
-  goto (url: string) {
-  	this.router.navigate([url]);
+  goto (url?: string, id_button?: string) {
+    if (url !== null && url !== undefined && url !== '') {
+  	  this.router.navigate([url]);
+    }
+    this.clickOcur.emit(id_button);    
   }
 
 }
