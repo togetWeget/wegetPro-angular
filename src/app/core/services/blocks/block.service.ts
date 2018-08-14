@@ -11,7 +11,7 @@ import { ToastrService } from 'ngx-toastr';
 export class BlockService {
   /* imagesVibles = [];*/
   private urlBlocks = 'http://localhost:8080/blocks';
-  private urlPhoto = 'http://localhost:8080/photo';
+  private urlPhoto = 'http://localhost:8080/photoBlock';
   private urlPhoto1 = 'http://localhost:8080/getPhoto';
   private urlRechercheBlk = 'http://localhost:8080/rechercheBlock?mc=';
 

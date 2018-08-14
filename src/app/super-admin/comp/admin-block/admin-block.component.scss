@@ -19,6 +19,9 @@ mat-card{
     right: 5px;
     top: -100px;
     transition: 0.1s all ease;
+    .tooltipclass {
+      font-size: 0.7rem;
+    }
     .apercu{
       background: #970ae0;
       color: #ffffff;

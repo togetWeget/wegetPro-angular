@@ -19,4 +19,20 @@ button {
 		background: $blue;
 		color: $white;
 	}
+	&.green {
+		background: $green;
+		color: $white;
+	}
+	&.purple-dark {
+		background: $purple-dark;
+		color: $white;
+	}
+	&.green-blue {
+		background: $green-blue;
+		color: $white;
+	}
+	&.dark-blue {
+		background: $dark-blue;
+		color: $white;
+	}
 }

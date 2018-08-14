@@ -1,0 +1,13 @@
+<div *ngIf="block">
+  <h3>Modifiez la photo du block</h3>
+  <form [formGroup]="blkPhotoForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label class="-align-center">Photo enseignant: </label>
+      <input type="file" class="form-control"  #blockImage  formControlName="blkImg">
+    </div>
+
+    <button type="submit" class="btn btn-primary blue">Enregister</button>
+    <button  class="btn btn-danger" (click)="annuler()">Annuler</button>
+
+  </form>
+</div>

@@ -26,6 +26,7 @@ import { AdminCardComponent } from './comp/admin-card/admin-card.component';
 import { AdminBlockComponent } from './comp/admin-block/admin-block.component';
 import { ApercuBlockComponent } from './comp/apercu-block/apercu-block.component';
 import { AdminTarifsComponent } from './comp/admin-tarifs/admin-tarifs.component';
+import { BlockPhotoComponent } from './block-photo/block-photo.component';
 
 @NgModule({
   imports: [
@@ -42,17 +43,29 @@ import { AdminTarifsComponent } from './comp/admin-tarifs/admin-tarifs.component
     FroalaViewModule.forRoot(),
     DragAndDropModule.forRoot()
   ],
-  declarations: [LayoutComponent, AccueilComponent, FooterComponent, 
-   AbonnesComponent, BlocksComponent, BlockUpdateComponent, BlockAddComponent,
+  declarations: [
+   LayoutComponent, 
+   AccueilComponent, 
+   FooterComponent, 
+   AbonnesComponent, 
+   BlocksComponent, 
+   BlockUpdateComponent, 
+   BlockAddComponent,
    BlockTarifsComponent,
    BlockTarifsAddComponent,
    TopZoneComponent, 
-   WidgetInfoComponent, AdminTableComponent, AdminCardComponent,
-   AdminBlockComponent, ApercuBlockComponent, AdminTarifsComponent
+   WidgetInfoComponent, 
+   AdminTableComponent, 
+   AdminCardComponent,
+   AdminBlockComponent, 
+   ApercuBlockComponent, 
+   AdminTarifsComponent, 
+   BlockPhotoComponent
   ],
   entryComponents: [
     ApercuBlockComponent,
-    BlockTarifsAddComponent
+    BlockTarifsAddComponent,
+    BlockPhotoComponent
   ],
   exports: [LayoutComponent]
 })

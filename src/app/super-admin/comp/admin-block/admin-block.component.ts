@@ -1,8 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material';
 import { Block } from '../../../shared/models/block';
-import { ApercuBlockComponent } from '../apercu-block/apercu-block.component';
+import { Resultat } from '../../../shared/models/resultat';
+
 
 @Component({
   selector: 'app-admin-block',
@@ -11,10 +12,18 @@ import { ApercuBlockComponent } from '../apercu-block/apercu-block.component';
 })
 export class AdminBlockComponent implements OnInit {
   @Input('block') block: Block;
+  @Output() butonClick = new EventEmitter<Resultat<Block>>();
+  defaultPhoto: string = '/assets/placeholder-image.jpg';
 
   constructor(private router: Router, private dialog: MatDialog) { }
 
   ngOnInit() {
+  }
+
+  getPhotoSrc(): string {
+    return (this.block.pathPhoto !== null && 
+      this.block.pathPhoto !== undefined && this.block.pathPhoto !== '') ? 
+    this.block.pathPhoto : this.defaultPhoto;
   }
 
   goto(url: string){
@@ -22,22 +31,15 @@ export class AdminBlockComponent implements OnInit {
   }
 
   viewApercu () {
-  	const dialogRef = this.dialog.open(ApercuBlockComponent, {
-      maxWidth: '700px',
-      data: {block: this.block}
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      //
-    });
+    this.butonClick.emit(new Resultat (0,['apercu'], this.block));
   }
 
   deleteBlock () {
-    
+    this.butonClick.emit(new Resultat (1,['delete'], this.block));
   }
 
   changeImage () {
-
+    this.butonClick.emit(new Resultat (2,['image'], this.block));
   }
 
 }
