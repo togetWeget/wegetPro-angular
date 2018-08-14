@@ -8,7 +8,7 @@ export class Tarif {
               public prix?: number,
               public dureeTarif?: string,
               public description?: string,
-              public block?: Block,
+              public idBlock?: number,
               ) {
   }
 }

@@ -5,6 +5,11 @@
 			<app-admin-card [adminCard]="admin_card" >
 				<div class="admin-card-content">
 					<div class="row">
+						<div class="col-12" *ngIf="blocks.length === 0">
+							<div class="alert alert-info" role="alert">
+							  Dézolé nous n'avons trouvé aucun block
+							</div>
+						</div>
 						<div class="col-md-3" *ngFor="let bl of blocks | paginate: { itemsPerPage: 10, currentPage: p }">
 							<app-admin-block [block]="bl"></app-admin-block>
 						</div>

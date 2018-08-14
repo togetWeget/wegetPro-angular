@@ -55,7 +55,7 @@ export class BlockTarifsAddComponent implements OnInit {
   	private toastr: ToastrService,
     @Inject(MAT_DIALOG_DATA) public data: any) { 
   		this.block = data.block;  
-  		this.tarif = new Tarif (null, null, '', 0, '', '', this.block);
+  		this.tarif = new Tarif (null, null, '', 0, '', '', this.block.id);
   		this.initForm();
   }
 
@@ -71,7 +71,7 @@ export class BlockTarifsAddComponent implements OnInit {
 	  	prix: [this.tarif.prix],
 	  	dureeTarif: [this.tarif.dureeTarif],
 	  	description: [this.tarif.description],
-	  	block: [this.tarif.block]
+	  	idBlock: [this.tarif.idBlock]
 	  });
   }
 
@@ -85,7 +85,7 @@ export class BlockTarifsAddComponent implements OnInit {
   		fg.value['prix'],
   		fg.value['dureeTarif'],
   		fg.value['description'],
-  		fg.value['block']
+  		fg.value['idBlock']
   		);
   	return blk;
   }
