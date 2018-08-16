@@ -23,9 +23,15 @@
   top: 0px;
   left: 0px;
   right: 0px;
-  z-index: 999;
+  z-index: 10;
   padding-left: 12px;
   height: 36px;
+}
+.absolute {
+  position: absolute;
+}
+.at-right {
+  right: 0;
 }
 #profile-abonne .block-title span{
   color: #000;

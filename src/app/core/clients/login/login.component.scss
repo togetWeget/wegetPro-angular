@@ -178,9 +178,20 @@ cursor:pointer;
 }
 
 .sc_btn{
-width:90%;
+width:100%;
 margin:5px;
 }
 input:focus{
 border:1px solid #09c;
+}
+
+:host {
+  background: #929244;
+    background: url(/assets/login_bg.png);
+    display: flex;
+  .login-container {
+    padding: 25px;
+    background: rgba(255,255,255,0.8);
+    margin: 40px 0;
+  }
 }

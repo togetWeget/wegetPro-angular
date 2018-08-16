@@ -76,7 +76,9 @@ export class BlocksComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.fetchBlocks();
+      setTimeout(() => {
+        this.fetchBlocks();        
+      }, 500);
     });
   }
 

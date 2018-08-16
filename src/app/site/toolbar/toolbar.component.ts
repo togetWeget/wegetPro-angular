@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {MatDialog} from '@angular/material';
+import {LoginComponent} from '../../core/clients/login/login.component';
 import {
   trigger,
   state,
@@ -56,6 +57,16 @@ export class ToolbarComponent implements OnInit {
 
   toggleModal () {
     this.modal_toggle = this.modal_toggle + 1;
+  }
+
+  openModal () {
+    const dialogRef = this.dialog.open(LoginComponent, {
+      maxWidth: '700px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
   }
 
   toggleMenu () {

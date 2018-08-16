@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
-import {switchMap} from 'rxjs/internal/operators';
+import {switchMap} from 'rxjs/operators';
 import {AbonnesService} from '../../../core/services/abonnes/abonnes.service';
 import {MatDialog} from '@angular/material';
 import {ContactAbonneComponent} from '../contact-abonne/contact-abonne.component';

@@ -8,6 +8,7 @@ import {BlocksComponent} from './blocks/blocks.component';
 import {BlockAddComponent} from './block-add/block-add.component';
 import {BlockUpdateComponent} from './block-update/block-update.component';
 import {BlockTarifsComponent} from './block-tarifs/block-tarifs.component';
+import { AbonnesAddComponent } from './abonnes-add/abonnes-add.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,12 @@ const routes: Routes = [
       },
       {
         path: 'abonnes', component: AbonnesComponent
+      },
+      {
+        path: 'abonnes/add', component: AbonnesAddComponent
+      },
+      {
+        path: 'abonnes/update/:id', component: AbonnesComponent
       },
       {
         path: 'blocks', component: BlocksComponent

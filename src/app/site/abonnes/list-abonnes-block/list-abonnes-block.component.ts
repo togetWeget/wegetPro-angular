@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
-import {switchMap} from 'rxjs/internal/operators';
+import {switchMap} from 'rxjs/operators';
 import {AbonnesService} from '../../../core/services/abonnes/abonnes.service';
 import {ContactAbonneComponent} from '../contact-abonne/contact-abonne.component';
 import {MatDialog} from '@angular/material';
@@ -43,7 +43,7 @@ export class ListAbonnesBlockComponent implements OnInit {
 
   onViewProfileAbonne(abonne: Detailblock) {
     this.selectedAbonne = abonne;
-    this.router.navigate(['abonnes', 'profile', abonne.id]);
+    this.router.navigate(['/site/abonnes', 'profile', abonne.id]);
   }
 
   onContactAbonne(abonne: Detailblock): void {

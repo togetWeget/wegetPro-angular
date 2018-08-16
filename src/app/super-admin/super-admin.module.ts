@@ -27,6 +27,7 @@ import { AdminBlockComponent } from './comp/admin-block/admin-block.component';
 import { ApercuBlockComponent } from './comp/apercu-block/apercu-block.component';
 import { AdminTarifsComponent } from './comp/admin-tarifs/admin-tarifs.component';
 import { BlockPhotoComponent } from './block-photo/block-photo.component';
+import { AbonnesAddComponent } from './abonnes-add/abonnes-add.component';
 
 @NgModule({
   imports: [
@@ -60,7 +61,7 @@ import { BlockPhotoComponent } from './block-photo/block-photo.component';
    AdminBlockComponent, 
    ApercuBlockComponent, 
    AdminTarifsComponent, 
-   BlockPhotoComponent
+   BlockPhotoComponent, AbonnesAddComponent
   ],
   entryComponents: [
     ApercuBlockComponent,

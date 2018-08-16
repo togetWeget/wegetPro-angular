@@ -3,7 +3,7 @@ import {Messagerie} from '../../../shared/models/messagerie/messagerie';
 import {Observable, of, Subject} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {Router} from '@angular/router';
-import {catchError, tap} from 'rxjs/internal/operators';
+import {catchError, tap} from 'rxjs/operators';
 import {Resultat} from '../../../shared/models/resultat';
 import {Block} from '../../../shared/models/block';
 import {MessageService} from '../message.service';

@@ -4,7 +4,7 @@ import {MessageService} from '../message.service';
 import {Observable, of} from 'rxjs';
 import {Resultat} from '../../../shared/models/resultat';
 import {Tarif} from '../../../shared/models/tarif/tarif';
-import {catchError, tap} from 'rxjs/internal/operators';
+import {catchError, tap} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'

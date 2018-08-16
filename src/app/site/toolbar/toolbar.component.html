@@ -12,7 +12,7 @@
     <button appIfMediaQuery="(min-width: 768px)" mat-icon-button>
         <mat-icon>search</mat-icon>
       </button>
-      <button mat-raised-button color="warn" *ngIf="!isAuthenticated()" (click)="toggleModal()">Se connecter</button>
+      <button mat-raised-button color="warn" *ngIf="!isAuthenticated()" (click)="openModal()">Se connecter</button>
       <button mat-raised-button class="app-btn-bg-primary" *ngIf="!isAuthenticated()" (click)="inscription()" color="primary">S'inscrire</button>
       <button mat-raised-button class="app-btn-bg-primary" *ngIf="isAuthenticated()" (click)="gotoAdmin()" color="primary">Admin</button>
   </nav>

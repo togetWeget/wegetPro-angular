@@ -2,7 +2,49 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-12">
-			<app-admin-table></app-admin-table>
+			<app-admin-card [adminCard]="admin_card" >
+				<div class="admin-card-content">
+					<app-admin-table (perPage)="setPerPage($event)" >
+						<span class="admin-table-search">
+							<mat-form-field>
+						    	<input matInput placeholder="Rechercher">
+						    </mat-form-field>
+						</span>
+						<div class="admin-table">
+							<table class="table table-bordered table-striped table-hover">
+								<thead>
+									<tr>
+										<th>Nom & Prénoms</th>
+										<th>Téléphone</th>
+										<th>Email</th>
+										<th>Status</th>
+										<th>Actions</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr *ngFor="let ab of abonnes | paginate: { itemsPerPage: per_page, currentPage: p }">
+										<td>{{ab.nomComplet}}</td>
+										<td><span *ngFor="let te of ab.telephones">{{te}} </span></td>
+										<td>{{ab.adresse.email}}</td>
+										<td>
+											<h6 *ngIf="ab.activated === false" class="badge badge-warning">Inactif</h6>
+											<h6 *ngIf="ab.activated === true" class="badge badge-primary">RAS</h6>
+										</td>
+										<td>azeaz</td>
+									</tr>		
+								</tbody>
+							</table>
+						</div>
+
+						<div class="admin-table-control">
+							<pagination-controls (pageChange)="p = $event" previousLabel="Précédant" nextLabel="Suivant"></pagination-controls>
+						</div>
+					</app-admin-table>	
+				</div>
+				<div class="admin-card-footer">
+					<!--  -->
+				</div>
+			</app-admin-card>
 		</div>
 	</div>
 </div>

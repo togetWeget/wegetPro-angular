@@ -82,6 +82,9 @@ import {NgxPaginationModule} from 'ngx-pagination';
     NgxPaginationModule,
     NotFoundComponent
   ],
+  entryComponents: [
+  LoginComponent
+  ],
   providers: [
     MessageService,
     AbonnesService,

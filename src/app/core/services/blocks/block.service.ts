@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpRequest} from '@angular/common/http';
 import {Observable, of, Subject} from 'rxjs';
-import {catchError, tap, map} from 'rxjs/internal/operators';
+import {catchError, tap, map} from 'rxjs/operators';
 import {MessageService} from '../message.service';
 import {Resultat} from '../../../shared/models/resultat';
 import {Block} from '../../../shared/models/block';

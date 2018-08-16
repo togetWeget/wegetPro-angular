@@ -4,7 +4,7 @@ import {Entreprise} from '../entreprise';
 import {TypeStatut} from '../type-statut';
 import {CvPersonne} from '../cv-personne';
 
-export abstract class Personne {
+export class Personne {
 
   constructor(
     public id ?: number,
