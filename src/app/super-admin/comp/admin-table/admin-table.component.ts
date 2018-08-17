@@ -56,7 +56,7 @@ export class AdminTableComponent<T> implements OnInit {
 
   }
 
-  setPerPage () {
+  setPerPage (val: any) {
     this.perPage.emit(this.groupSelected);
   }
   log(val: any){

@@ -17,7 +17,8 @@ export class BlockPhotoComponent implements OnInit {
   block: Block;
   blkPhotoForm: FormGroup;
   blockImageFile: File;
-
+  imageShowed: any = '/assets/placeholder-image.jpg';
+  public static me: BlockPhotoComponent;
   @ViewChild('blockImage') block_image;
 
 
@@ -27,6 +28,7 @@ export class BlockPhotoComponent implements OnInit {
     private toastr: ToastrService,
     @Inject(MAT_DIALOG_DATA) public data: any) {
       this.block = data.block;
+      BlockPhotoComponent.me = this;
   }
 
   ngOnInit() {
@@ -37,6 +39,22 @@ export class BlockPhotoComponent implements OnInit {
 
     //   });
     this.initForm();
+  }
+
+  loadImage () {
+    //get image
+    const image = this.block_image.nativeElement;
+    if(image.files && image.files[0]) {
+      let file = image.files[0];
+        let reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => {
+          this.imageShowed = reader.result;
+        };
+        reader.onerror = (error: any) => {
+        }
+    }
+    //show image
   }
 
   onSubmit() {

@@ -81,7 +81,7 @@ export class RegisterComponent implements OnInit {
       const url = this.regist.urlPersonnes();
       console.log('post', this.membreForm.value);
       this.reponse =  this.regist.registering(url, this.membreForm.value);
-      this.authFirebaseService.createNewUser(this.membreForm.value.adresse.email,
+      this.authFirebaseService.createNewUser(this.membreForm.value.login,
        this.membreForm.value.password).then(
 
         () => {

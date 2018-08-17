@@ -90,4 +90,8 @@ export class AbonnesAddComponent implements OnInit {
 
   }
 
+  ajouterBlock() {
+  	
+  }
+
 }

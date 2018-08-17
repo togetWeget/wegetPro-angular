@@ -3,17 +3,16 @@ SecurityContext, ViewChild, ElementRef} from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material';
-import { Block } from '../../../shared/models/block';
-import { Resultat } from '../../../shared/models/resultat';
-
+import { Block } from '../../shared/models/block';
+import { Resultat } from '../../shared/models/resultat';
 
 @Component({
-  selector: 'app-admin-block',
-  templateUrl: './admin-block.component.html',
-  styleUrls: ['./admin-block.component.scss']
+  selector: 'app-single-block',
+  templateUrl: './single-block.component.html',
+  styleUrls: ['./single-block.component.scss']
 })
-export class AdminBlockComponent implements OnInit {
-  @Input('block') block: Block;
+export class SingleBlockComponent implements OnInit {
+@Input('block') block: Block;
   @Output() butonClick = new EventEmitter<Resultat<Block>>();
   defaultPhoto: any = '/assets/placeholder-image.jpg';
   @ViewChild('imagebg') imagebg: ElementRef;
@@ -42,6 +41,13 @@ export class AdminBlockComponent implements OnInit {
 
   goto(url: string){
   	this.router.navigate([url]);
+  }
+
+	onViewBlock() {
+	    this.router.navigate(['/site/blocks', this.block.id]);
+	  }
+   onSabonner() {
+    this.router.navigate(['/site/abonnement', 'prix', this.block.id ]);
   }
 
   viewApercu () {

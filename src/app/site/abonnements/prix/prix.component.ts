@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Tarif} from '../../../shared/models/tarif/tarif';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 import {AbonnementService} from '../../../core/services/abonnements/abonnement.service';
-import {switchMap} from 'rxjs/internal/operators';
+import {switchMap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-prix',

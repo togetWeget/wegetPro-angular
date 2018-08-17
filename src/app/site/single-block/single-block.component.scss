@@ -1,3 +1,11 @@
+a{
+  color: #333333;
+  &:hover{
+    text-decoration: none;
+    color: #333333;
+  }
+}
+
 mat-card{
   margin: 20px auto;
   padding:0px;

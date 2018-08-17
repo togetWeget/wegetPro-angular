@@ -23,19 +23,22 @@
               <mat-card class="pricing-box">
                 <div class="pricing-intro">
                   <div class="price-title">
-                    <h3>{{tarif.description}}
-                      <i [ngClass]="{'fa':true,
-                       'fa-star':tarif.description==='TOP',
-                       'fa-gift':tarif.description==='GRATUIT',
-                       'fa-smile-o':tarif.description==='YES',
-                       'fa-thumbs-up':tarif.description==='OK'}" style="font-size:24px;color:red"></i></h3>
+                    <span [ngClass]="'tarif-titre'" [innerHtml]="tarif.titre"></span>
+                    &nbsp;
+                    <span  class="tarif-titre">
+                        <i [ngClass]="{'fa':true,
+                         'fa-star':tarif.titre==='TOP',
+                         'fa-gift':tarif.titre==='Gratuit',
+                         'fa-smile-o':tarif.titre==='YES',
+                         'fa-thumbs-up':tarif.titre==='Ok'}" style="font-size:24px;color:red"></i>                        
+                    </span>
                   </div>
                 </div>
                 <div class="content equal-height" style="height: 18px;"></div>
                 <mat-card-content>
                   <div class="price">
                     <span>{{tarif.prix}}</span> <sup>Fcfa</sup> <br>
-                    <small>{{"durée"}}</small>
+                    <small>{{tarif.dureeTarif}}</small>
                   </div>
                 </mat-card-content>
                 <mat-card-actions>

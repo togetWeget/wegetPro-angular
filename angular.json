@@ -33,6 +33,7 @@
               },
               "node_modules/froala-editor/css/froala_editor.pkgd.min.css",
               "node_modules/ngx-toastr/toastr.css",
+              "node_modules/font-awesome/scss/font-awesome",
               "node_modules/bootstrap/dist/css/bootstrap.css",
               "src/styles.scss"
             ],

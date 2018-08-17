@@ -1,0 +1,11 @@
+<mat-card class="blocks-items">
+	<a routerLink="/site/blocks/{{block.id}}" routerLinkActive="active" (click)="onViewBlock()">
+          <div class="imagebg" #imagebg></div>
+          <mat-card-content>
+            <h5 class="titre-block" [innerHtml]="block.description"></h5>            
+          </mat-card-content>
+      </a>
+        <mat-card-actions>
+          <button mat-raised-button color="warn" class="btn btn-block mat-button" (click)="onSabonner()">S'abonner</button>
+        </mat-card-actions>
+      </mat-card>

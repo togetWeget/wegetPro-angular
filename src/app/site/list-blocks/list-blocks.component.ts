@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import {Router} from '@angular/router';
 import {Block} from '../../shared/models/block';
 import {BlockService} from '../../core/services/blocks/block.service';
@@ -11,11 +11,15 @@ import {BlockService} from '../../core/services/blocks/block.service';
 export class ListBlocksComponent implements OnInit {
   blocks: Block[] = [];
   selectedBlock: Block;
+  defaultPhoto: any = '/assets/placeholder-image.jpg';
+  @ViewChild('imagebg') imagebg: ElementRef;
+
   constructor(private router: Router, private blockService: BlockService) {}
 
   ngOnInit() {
     this.fetchBlocks();
   }
+
   fetchBlocks() {
     this.blockService.getAllBlocks()
       .subscribe(data => {

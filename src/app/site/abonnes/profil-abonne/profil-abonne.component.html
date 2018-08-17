@@ -7,7 +7,7 @@
             <div class="cover-image">
               <div class="block-title">
                 <a class="absolute" title="Revenir sur la liste des abonnés">
-                  <span [innerHtml]="abonne.block.description"></span>
+                  <span [innerHtml]="abonne?.block?.description"></span>
                 </a>
                 <div class="absolute at-right"><a title="afficher la liste" class="btn btn-primary" style="border-radius: 0px;"><i class="fa fa-th"></i> </a></div>
               </div>
@@ -17,7 +17,7 @@
           </div>
           <div class="profile-info">
             <div class="profile-avatar">
-              <img src="{{abonne.personne.pathPhoto}}" alt="user-image" class="candidate_photo" />
+              <img src="{{abonne?.personne?.pathPhoto}}" alt="user-image" class="candidate_photo" />
               <div class="profile-view"><i class="fa fa-eye"></i> 5</div>
             </div>
             <ul class="profile-action">
@@ -44,10 +44,10 @@
               <div class="abonne-info">
                 <div class="abonne-meta-info">
                   <div class="abonne-name">
-                    {{abonne.personne.nomComplet |uppercase}}
+                    {{abonne?.personne?.nomComplet |uppercase}}
                   </div>
                   <div class="abonne-meta">
-                    {{abonne.personne.cvPersonne.specialite}} {{abonne.personne.cvPersonne.anneExperience}} d'espériences
+                    {{abonne?.personne?.cvPersonne?.specialite}} {{abonne?.personne?.cvPersonne?.anneExperience}} d'espériences
                   </div>
                 </div>
               </div>
@@ -85,16 +85,16 @@
                           <ul class="list list-unstyled tags">
                             <li class="tags-item">
                               <h4 class="hr">Spécialités</h4>
-                              <span class="tag">{{abonne.personne.cvPersonne.specialite}}</span>
+                              <span class="tag">{{abonne?.personne?.cvPersonne?.specialite}}</span>
                             </li>
                             <li class="tags-item">
                               <h4 class="hr">Dernier diplôme</h4>
-                              <span class="tag">{{abonne.personne.cvPersonne.diplome}}</span>
+                              <span class="tag">{{abonne?.personne?.cvPersonne?.diplome}}</span>
                             </li>
                             <li class="tags-item">
                               <h4 class="hr">Lieu de naissance</h4>
                               <span class="tag">
-                                {{abonne.personne.adresse.ville}}, {{abonne.personne.adresse.pays}}
+                                {{abonne?.personne?.adresse.ville}}, {{abonne?.personne?.adresse.pays}}
                               </span>
                             </li>
                             <li class="tags-item">
@@ -107,15 +107,15 @@
                           <ul class="list list-unstyled tags">
                             <li class="tags-item">
                               <h4 class="hr">Type de contrat souhaité</h4>
-                              <span class="tag">{{abonne.personne.cvPersonne.specialite}}</span>
+                              <span class="tag">{{abonne?.personne?.cvPersonne?.specialite}}</span>
                             </li>
                             <li class="tags-item">
                               <h4 class="hr">Période de contrat souhaité</h4>
-                              <span class="tag">{{abonne.personne.cvPersonne.specialite}}</span>
+                              <span class="tag">{{abonne?.personne?.cvPersonne?.specialite}}</span>
                             </li>
                             <li class="tags-item">
                               <h4 class="hr">Disponibilité</h4>
-                              <span class="tag">{{abonne.personne.cvPersonne.specialite}}</span>
+                              <span class="tag">{{abonne?.personne?.cvPersonne?.specialite}}</span>
                           </ul>
                         </div>
                       </div>

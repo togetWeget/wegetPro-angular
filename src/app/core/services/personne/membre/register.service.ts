@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {catchError, map, observeOn, tap, timeout} from 'rxjs/internal/operators';
+import {catchError, map, observeOn, tap, timeout} from 'rxjs/operators';
 import {Observable, of, Subject, interval, isObservable} from 'rxjs';
 import {HttpClient, HttpHeaders, HttpRequest, HttpResponse} from '@angular/common/http';
 import {NotifierService} from 'angular-notifier';

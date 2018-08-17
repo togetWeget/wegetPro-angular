@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {MatDialog} from '@angular/material';
 import {LoginComponent} from '../../core/clients/login/login.component';
+import {LoginService} from '../../core/services/personne/membre/login.service';
 import {
   trigger,
   state,
@@ -35,7 +36,8 @@ export class ToolbarComponent implements OnInit {
   modal_toggle = 0;
   menu_state: string;
 
-  constructor(private router: Router, private dialog: MatDialog) { }
+  constructor(private router: Router, private dialog: MatDialog,
+    private loginService: LoginService) { }
   
    ngOnInit() {
     $(document).ready(() => {
@@ -75,6 +77,11 @@ export class ToolbarComponent implements OnInit {
 
   connexion () {
     this.router.navigate(['/admin']);
+  }
+
+  logout() {    
+    this.loginService.DestroyLocal();
+    this.router.navigate(['/']);
   }
 
   gotoAdmin () {

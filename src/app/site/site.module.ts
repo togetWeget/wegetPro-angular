@@ -30,6 +30,7 @@ import {ListAbonnesComponent} from './abonnes/list-abonnes/list-abonnes.componen
 import {ProfilAbonneComponent} from './abonnes/profil-abonne/profil-abonne.component';
 import {FormulaireComponent} from './abonnements/formulaire/formulaire.component';
 import {PrixComponent} from './abonnements/prix/prix.component';
+import { SingleBlockComponent } from './single-block/single-block.component';
 
 @NgModule({
   imports: [
@@ -56,7 +57,8 @@ import {PrixComponent} from './abonnements/prix/prix.component';
     ListAbonnesComponent,
     ProfilAbonneComponent,
     FormulaireComponent,
-    PrixComponent
+    PrixComponent,
+    SingleBlockComponent
   ],
   exports: [LayoutComponent],
   schemas: [NO_ERRORS_SCHEMA]
