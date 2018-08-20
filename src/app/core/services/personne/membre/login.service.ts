@@ -42,3 +42,4 @@ export class LoginService {
       this.firebaseDir.signOutUser();
   }
 }
+//modifié
