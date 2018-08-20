@@ -1,9 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthFirebaseService } from 
-'../../../../../../dist/out-tsc/src/app/firebaseDir/auth-firebase.service';
-import {catchError, map, observeOn, tap, timeout} from 'rxjs/operators';
-import {Observable, of, Subject, interval, isObservable} from 'rxjs';
+import { AuthFirebaseService} from '../../../../firebaseDir/auth-firebase.service';
 import {HttpClient, HttpRequest, HttpResponse, HttpHeaders} from '@angular/common/http';
 
 @Injectable({
@@ -17,7 +14,7 @@ export class LoginService {
 
   }
   Authentification(url: any, data: any): any {
-  
+
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
     this.http.post<HttpResponse<any>>(url, data, { headers: headers, observe: 'response' })
     .subscribe((resul) => {
