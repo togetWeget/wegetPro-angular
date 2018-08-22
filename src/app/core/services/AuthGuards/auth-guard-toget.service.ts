@@ -46,7 +46,7 @@ export class AuthGuardTogetService implements CanActivate, CanActivateChild, Can
         if (this.isLoggedIn()) {
           return true;
         } else {
-          this.router.navigate(['/login']);
+          this.router.navigate(['/site/login']);
         }
 
         break;
@@ -144,7 +144,7 @@ export class AuthGuardTogetService implements CanActivate, CanActivateChild, Can
 
   getToken() {
     // this.TokenCheckIn();
-    alert(1);
+    // alert(1);
 
   }
 

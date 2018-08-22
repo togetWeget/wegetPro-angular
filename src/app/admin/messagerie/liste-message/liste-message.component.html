@@ -1,0 +1,21 @@
+<div class="mail-env">	
+	<table class="table mail-table">
+		<thead>
+			<tr>
+				<th class="col-cb"><mat-checkbox>Tous</mat-checkbox></th>
+				<th>Objet</th>
+				<th>Expediteur</th>
+				<th>Date</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class="unread" *ngFor="let msg of messages">
+				<td class="col-cb"><mat-checkbox></mat-checkbox></td>
+				<td class="col-name">objet {{msg.sujet}} - {{msg.contenu}}</td>
+				<td class="col-subject">expediteur</td>
+				<td class="col-time nowrap">Date</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+

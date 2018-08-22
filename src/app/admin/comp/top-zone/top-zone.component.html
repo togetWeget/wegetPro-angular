@@ -1,0 +1,13 @@
+<div class="page-title">
+  <div class="title-env">
+    <h1 class="title">{{top_zone.titre}}</h1>
+    <p class="description">{{top_zone.sous_titre}}</p>
+  </div>
+  <div class="breadcrumb-env">
+    <ol class="breadcrumb bc-1">
+            
+      <li *ngFor="let nav of top_zone.navs; let i=index;" > <a [routerLink]="nav.link"><i *ngIf="i===0" class="fa fa-{{top_zone.fa}}"></i>{{nav.name}}</a> </li>
+            <li class="active"><strong>{{top_zone.active_nav.name}}</strong> </li>
+    </ol>
+  </div>
+  </div>

@@ -1,0 +1,15 @@
+<mat-card>
+	<mat-card-content>
+		<mat-card-title>
+			<div class="titre">{{admin_card.title}}</div>
+			<div class="action">
+				<button class="blue" *ngIf="admin_card.ajout_link !== null && admin_card.ajout_link !== '' && admin_card.ajout_link !== undefined " (click)="goto(admin_card.ajout_link, 0)" mat-raised-button><i class="fa fa-plus"></i></button>
+				<button [ngClass]="bt.theme" *ngFor="let bt of admin_card.button" (click)="goto(bt.link, bt.id)" mat-raised-button><i class="fa fa-{{bt.icon}}"></i> {{bt.title}}</button>
+			</div>
+		</mat-card-title>
+		<ng-content select=".admin-card-content"></ng-content>
+	</mat-card-content>
+	<mat-card-footer>
+		<ng-content select=".admin-card-footer"></ng-content>
+	</mat-card-footer>
+</mat-card>

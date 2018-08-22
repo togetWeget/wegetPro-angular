@@ -1,0 +1,32 @@
+<div class="table-entete">
+	<div class="afficher">
+		<mat-form-field>
+		  <mat-select placeholder="Afficher" (selectionChange)="setPerPage($event.value)" [(value)]="groupSelected">
+		    <mat-option *ngFor="let grp of groupSelect" [value]="grp">
+		      {{grp}}
+		    </mat-option>
+		  </mat-select>
+		</mat-form-field>
+	</div>
+	<div class="other-entete">
+		<span><mat-icon>search</mat-icon></span>
+		<span>
+		    <ng-content select=".admin-table-search"></ng-content>
+		</span>
+		<span>
+			<mat-button-toggle-group name="globals_actions" aria-label="Actions globales">
+			  <mat-button-toggle (click)="copier()" value="copier">copier</mat-button-toggle>
+			  <mat-button-toggle (click)="excel()" value="excel">excel</mat-button-toggle>
+			  <mat-button-toggle (click)="pdf()" value="pdf">pdf</mat-button-toggle>
+			  <mat-button-toggle (click)="imprimer()" value="imprimer">imprimer</mat-button-toggle>
+			</mat-button-toggle-group>
+		</span>
+	</div>
+</div>
+
+<div id="contentToConvert" #contentToConvert>
+	<ng-content select=".admin-table"></ng-content>	
+</div>
+<div class="">
+	<ng-content select=".admin-table-control"></ng-content>
+</div>

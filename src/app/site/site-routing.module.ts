@@ -15,9 +15,10 @@ import {PrixComponent} from './abonnements/prix/prix.component';
 
 const routes: Routes = [
   {
-    path: '', component: LayoutComponent, children: [
+    path: '',  component: LayoutComponent, 
+    canActivateChild: [AuthGuardTogetService], children: [
       {
-        path: '', component: AccueilComponent
+        path: '',  component: AccueilComponent
       },
       {path: 'blocks', component: ListeBlocComponent},
       {path: 'blocks/:id', component: ListAbonnesBlockComponent},

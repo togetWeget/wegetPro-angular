@@ -1,0 +1,9 @@
+
+tbody> tr> td, thead> tr> th{
+	padding-left: 10px;
+    padding-right: 10px;
+    vertical-align: middle;
+}
+tr.unread .col-name{
+	font-weight: bold;
+}

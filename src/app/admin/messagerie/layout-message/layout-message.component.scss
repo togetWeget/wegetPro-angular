@@ -1,0 +1,56 @@
+.top-list {
+	margin-bottom: 5em;
+	a{
+		display: flex;
+		justify-content: space-between;
+		color: #888888;		
+		border-bottom: 1px solid #cccccc;
+		padding: 10px 0;
+		width: 100%;
+	}
+	a:hover {
+		color: #666666;
+		text-decoration: none;
+	}
+	.textin {
+		margin: 0 15px;
+		font-size: 0.8em;
+	}
+	mat-list-item {
+	}
+}
+
+.bottom-list {
+	h3.title {
+		font-weight: 300;
+		text-transform: uppercase;
+		color: #666666;		
+	}	
+	mat-list-item {
+		color: #666666;		
+		font-size: 0.9em;
+		.badge {
+			font-size: 1em;
+		}
+		.list-item-content {
+			display: table;
+			padding: 10px 0;
+			width: 100%;
+			position: relative;			
+			border-bottom: 1px solid #cccccc;
+		}
+		.line1 {
+			display: flex;
+			width: 100%;
+			justify-content: space-between;
+		}
+		.line2 {
+			width: 100%;			
+		}
+		.line3 {
+			display: flex;
+			width: 100%;
+			justify-content: flex-end;
+		}
+	}
+}

@@ -3,7 +3,7 @@
     <div class="contenaire-toolbar">
       <mat-toolbar color="primary" class="weget-toolbar mat-elevation-z5">
        <span class="logo">
-       TogetProAdmin
+       Dashbord
        </span>
         <button class="btn-toggle" mat-icon-button  (click)="sidenav.toggle()">
           <mat-icon>menu</mat-icon>
@@ -11,7 +11,20 @@
         <button class="btn-toggle" mat-icon-button (click)="gotoHome()">
             <mat-icon>home</mat-icon>
         </button>
+		
+	<div class="shopping-cards " style="float:right;">
+	
+		<span class="badge badge_shopping" style="" >1</span> 
+		<span class="fa fa-shopping-basket " ></span>
+		
+		
+	</div> 		
+		
+
       </mat-toolbar>
+	  
+
+	
     </div>
     <mat-sidenav-container class="educ-side-container" [class.side-is-mobile]="mobileQuery.matches">
       <mat-sidenav [fixedInViewport]="true" [autoFocus]="true" #sidenav class="sidenavBar mat-elevation-z5 "
@@ -21,38 +34,69 @@
             <br class="">
             <br class="">
             <br class="">
-            <div class="box">
-              <mat-nav-list class="nlist">
-                <a mat-list-item="" class="nav-li" routerLink="/admin">
-                  <mat-icon mat-list-icon="" class="material-icons nav">dashboard</mat-icon>
-                  <span class="nav">Tableau de bord</span> </a>
 
-              </mat-nav-list>
-            </div>
-
-            <div class="box">
-              <mat-nav-list class="nlist">
-                <a  mat-list-item="" routerLink="/admin/invite" class="nav-li">
-                  <mat-icon mat-list-icon="" class="nav">person</mat-icon>
-                  <span class="nav">Compte</span>
+            <!-- accordion -->
+            <mat-accordion>
+              <!-- mat-expansion-panel -->
+                <a mat-list-item="" [routerLinkActiveOptions]="{ exact: true }" class="nav-li" routerLinkActive="active" routerLink="/admin">
+              <mat-expansion-panel [disabled]="true">
+                  <mat-expansion-panel-header>                  
+                    <mat-panel-title>                  
+                      <i class="fa fa-dashboard"></i> Tableau de bord
+                    </mat-panel-title>                  
+                  </mat-expansion-panel-header>                  
+              </mat-expansion-panel>
                 </a>
-              </mat-nav-list>
-            </div>
+              <!-- /mat-expansion-panel -->
+              <!-- mat-expansion-panel -->
+                <a mat-list-item="" [routerLinkActiveOptions]="{ exact: false }" class="nav-li" routerLinkActive="active" routerLink="/admin/compte">
+              <mat-expansion-panel [disabled]="true">
+                  <mat-expansion-panel-header>                  
+                    <mat-panel-title>                  
+                      <i class="fa fa-user"></i> Compte
+                    </mat-panel-title>                  
+                  </mat-expansion-panel-header>                  
+              </mat-expansion-panel>
+                </a>
+              <!-- /mat-expansion-panel -->
+              <!-- mat-expansion-panel -->
+                <a mat-list-item="" [routerLinkActiveOptions]="{ exact: false }" class="nav-li" routerLinkActive="active" routerLink="/admin/messagerie">
+              <mat-expansion-panel [disabled]="true">
+                  <mat-expansion-panel-header>                  
+                    <mat-panel-title>                  
+                      <i class="fa fa-envelope"></i> Messagerie
+                    </mat-panel-title>                  
+                  </mat-expansion-panel-header>                  
+              </mat-expansion-panel>
+                </a>
+              <!-- /mat-expansion-panel -->                            
+               <!-- mat-expansion-panel -->
+                <a mat-list-item="" [routerLinkActiveOptions]="{ exact: false }" class="nav-li" routerLinkActive="active" routerLink="/admin/chatroom2">
+              <mat-expansion-panel [disabled]="true">
+                  <mat-expansion-panel-header>                  
+                    <mat-panel-title>                  
+                      <i class="fa fa-comments"></i> Chat
+                    </mat-panel-title>                  
+                  </mat-expansion-panel-header>                  
+              </mat-expansion-panel>
+                </a>
+              <!-- /mat-expansion-panel -->                            
+              <!-- mat-expansion-panel -->
+              <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                      <i class="fa fa-credit-card"></i> Paiement
+                  </mat-panel-title>                  
+                </mat-expansion-panel-header>                
+                <mat-list role="list">
+                  <a routerLinkActive="active" routerLink="/admin/paiement/espace" class="item"><mat-list-item role="listitem"><i class="fa fa-circle"></i> Espaces</mat-list-item></a>
+                  <a routerLinkActive="active" routerLink="/admin/paiement/historique" class="item"><mat-list-item role="listitem"><i class="fa fa-circle"></i> Historiques</mat-list-item></a>
+                </mat-list>
+              </mat-expansion-panel>
+              <!-- /mat-expansion-panel -->
+            </mat-accordion>
 
-            <div class="box">
-              <mat-nav-list class="nlist">
-                <a mat-list-item="" class="nav-li" routerLink="/admin/chatroom2">
-                  <mat-icon mat-list-icon="" class="nav">mail_outline</mat-icon>
-                  <span class="nav">Messagerie</span> </a>
-              </mat-nav-list>
-            </div>
-            <div class="box">
-              <mat-nav-list class="nlist">
-                <a mat-list-item="" class="nav-li" routerLink="/admin/matiere">
-                  <mat-icon mat-list-icon="" class="material-icons nav">casino</mat-icon>
-                  <span class="nav">Blocs</span> </a>
-              </mat-nav-list>
-            </div>
+            <!-- /accordion -->
 
           </div>
 

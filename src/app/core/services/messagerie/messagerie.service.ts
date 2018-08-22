@@ -42,6 +42,18 @@ export class MessagerieService {
 
   }
 
+getAllMessagesByAbonneId (id:number): Observable<Resultat<Messagerie[]>>{
+   return this.httpClient.get<Resultat<Messagerie[]>>(this.urlMessagerie)
+      .pipe(
+        tap(res => {
+          this.log(`Messages recuperes`);
+        }),
+        catchError(this.handleError<Resultat<Messagerie[]>>('getAllMessagesByAbonneId', 
+          new Resultat<Messagerie[]>(null, [], [])))
+      );
+
+}
+
   ///////////////////////////////////////////
   // recuperer les errurs
 

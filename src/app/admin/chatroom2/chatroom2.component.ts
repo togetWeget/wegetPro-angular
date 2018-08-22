@@ -63,7 +63,8 @@ export class Chatroom2Component implements OnInit {
     const datesender = new Date();
     const urlData = libelle + '/' + code_disc + '/' + timerDisc;
     const urlData_rec = libelle + '/' + code_disc_rec + '/' + timerDisc;
-    const data: any = {message: this.message_ss, fichier: ' ', Dates: datesender, codeSender: this.layoutComponent.InfoMembres.id };
+    const data: any = {message: this.message_ss, fichier: ' ', Dates: datesender,
+     codeSender: this.layoutComponent.InfoMembres.id };
     this.firbaseRequest.CreateSendData( urlData, data);
     this.firbaseRequest.CreateSendData( urlData_rec, data);
 	this.message_ss = null;
@@ -75,7 +76,8 @@ export class Chatroom2Component implements OnInit {
   scrollF(){
   const interv = setInterval( ()=> {
 
-  const tailleT = Math.round($('.band-droite-bas').outerHeight(true) + $('.band-droite-bas').scrollTop());
+  const tailleT = Math.round($('.band-droite-bas').outerHeight(true) +
+   $('.band-droite-bas').scrollTop());
  
 	  $('.band-droite-bas').animate({'scrollTop': $('.band-droite-bas')[0].scrollHeight}, 'slow');
 	  

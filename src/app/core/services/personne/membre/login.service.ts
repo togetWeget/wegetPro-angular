@@ -21,6 +21,7 @@ export class LoginService {
         if (resul.status === 200) {
           console.log(resul.headers.get('Authorization'));
           localStorage.setItem('togetToken', resul.headers.get('Authorization'));
+		   localStorage.setItem('log', data.login);
           this.router.navigate(['/admin']);
          // let strValue: string = localStorage.getItem('togetToken');
           alert('Authentification correcte!');

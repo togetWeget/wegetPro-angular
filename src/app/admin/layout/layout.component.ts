@@ -3,6 +3,7 @@ import {AfterViewInit, ChangeDetectorRef, Component, ElementRef, OnDestroy,
 import {MediaMatcher} from '@angular/cdk/layout';
 import {Router} from '@angular/router';
 import {RegisterService} from '../../core/services/personne/membre/register.service';
+import {PanierService} from '../../core/services/panier.service';
 import * as $ from 'jquery';
 
 @Component({
@@ -10,7 +11,8 @@ import * as $ from 'jquery';
   templateUrl: './layout.component.html',
   styleUrls: ['./layout.component.scss']
 })
-export class LayoutComponent implements  OnDestroy, AfterViewInit {
+export class LayoutComponent implements  OnDestroy, AfterViewInit,
+OnInit {
   mobileQuery: MediaQueryList;
   @ViewChild('sidenav') sidenav: any;
 
@@ -20,11 +22,12 @@ export class LayoutComponent implements  OnDestroy, AfterViewInit {
 	public InfoMembres: any = {};
 	private urlgetbyLogin = 'http://localhost:8080/membresLogin/';
   constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private router: Router,
-   public regist: RegisterService) {
+   public regist: RegisterService, public panierService: PanierService) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
 	this.getByLogin();
+	// this.panierService.setpanier();
   }
 
   ngOnDestroy(): void {
@@ -36,23 +39,27 @@ export class LayoutComponent implements  OnDestroy, AfterViewInit {
   }
 
   ngAfterViewInit () {
-    this.sidenav.toggle();
+    // this.sidenav.toggle();
   }
   
   
     getByLogin(){
 		const strValue: string = localStorage.getItem('log');
-		if(strValue){
-				let u = this;
-				let url = u.regist.urlgetLogin;
-			$.getJSON( u.urlgetbyLogin + strValue, function( data ) {
+          
+    if(strValue){
+        let u = this;
+        let url = u.regist.urlgetLogin;
+        
+      $.getJSON( u.urlgetbyLogin + strValue, function( data ) {
  
-					u.InfoMembres = data.body;
+          u.InfoMembres = data.body;
+          
 			});
-			
-			
-		
 		}
-
+		
 	}
+
+  ngOnInit () {
+    this.sidenav.toggle();
+  }
 }

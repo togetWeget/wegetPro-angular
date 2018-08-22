@@ -29,6 +29,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { NgHttpLoaderModule } from 'ng-http-loader';
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 import {NgxPaginationModule} from 'ngx-pagination';
+import {PanierService} from './services/panier.service';
 
 @NgModule({
   imports: [
@@ -89,7 +90,8 @@ import {NgxPaginationModule} from 'ngx-pagination';
     MessageService,
     AbonnesService,
     BlockService,
-    RegisterService
+    RegisterService,
+	PanierService
   ],
   schemas: [NO_ERRORS_SCHEMA]
 })

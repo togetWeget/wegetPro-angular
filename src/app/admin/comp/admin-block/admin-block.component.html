@@ -1,0 +1,16 @@
+<mat-card class="blocks-items">
+          <div class="imagebg" #imagebg></div>
+          <mat-card-content>
+            <h5 class="titre-block" [innerHtml]="block.description"></h5>
+            <div class="action-container">
+              <button (click)="changeImage()" matTooltipClass="tooltipclass" matTooltip="Modifier Image du block" mat-mini-fab class="image"><i class="fa fa-image"></i></button>             
+            	<button (click)="viewApercu()" matTooltipClass="tooltipclass" matTooltip="Voir aperçu du block" mat-mini-fab class="apercu"><i class="fa fa-eye"></i></button>            	
+            	<button (click)="goto('/super/admin/blocks/update/' + block.id)" matTooltipClass="tooltipclass" matTooltip="Mettre à jour le block" mat-mini-fab class="update"><i class="fa fa-pencil"></i></button>            	
+              <button (click)="goto('/super/admin/blocks/tarifs/' + block.id)" matTooltipClass="tooltipclass" matTooltip="Modifier tarifs du block" mat-mini-fab class="tarif"><i class="fa fa-money"></i></button>              
+            	<button (click)="deleteBlock()" matTooltipClass="tooltipclass" matTooltip="Supprimer le block" mat-mini-fab class="delete"><i class="fa fa-trash"></i></button>            	
+            </div>
+          </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button color="warn" class="btn btn-block mat-button">S'abonner</button>
+        </mat-card-actions>
+      </mat-card>
