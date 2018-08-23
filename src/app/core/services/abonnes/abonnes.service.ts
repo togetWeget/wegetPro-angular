@@ -11,9 +11,10 @@ import {Abonnes} from '../../../shared/models/abonnes';
   providedIn: 'root'
 })
 export class AbonnesService {
-  private allAbonnesByBlockIdUrl = 'http://localhost:8080/abonneParblocks/';
-  private abonneByIdUrl = 'http://localhost:8080/profil/';
-  private abonnesUrl = 'http://localhost:8080/abonnes/';
+  private allAbonnesByBlockIdUrl = 'http://wegetback:8080/abonneParblocks/';
+  private abonneByIdUrl = 'http://wegetback:8080/profil/';
+  private abonneByLogUrl = 'http://wegetback:8080/profilAbonneLogin/';
+  private abonnesUrl = 'http://wegetback:8080/abonnes/';
 
   constructor(private httpClient: HttpClient, private messageService: MessageService) {
   }
@@ -47,6 +48,16 @@ export class AbonnesService {
         this.log(`L'abonné a été récupéré !`);
       }),
       catchError(this.handleError<Resultat<Detailblock>>('getAbonnesById'))
+    );
+  }
+
+  getAbonnesByLog(log: string): Observable<Resultat<Detailblock>> {
+    return this.httpClient.get<Resultat<Detailblock>>(this.abonneByLogUrl + log)
+      .pipe(
+      tap(res => {
+        this.log(`L'abonné a été récupéré !`);
+      }),
+      catchError(this.handleError<Resultat<Detailblock>>('getAbonnesByLog'))
     );
   }
 

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminTopZone } from '../../../shared/views_models/admin-top-zone';
 import { Navs } from '../../../shared/views_models/navs';
-import { Membre } from '../../../shared/models/personne/membres/membre';
+import { Detailblock } from '../../../shared/models/detailblock';
+import { AbonnesService } from '../../../core/services/abonnes/abonnes.service';
 
 @Component({
   selector: 'app-layout-compte',
@@ -10,13 +11,13 @@ import { Membre } from '../../../shared/models/personne/membres/membre';
 })
 export class LayoutCompteComponent implements OnInit {
 top_zone: AdminTopZone = null;
-  membre: Membre;
+  detailblock: Detailblock;
 
-  constructor() {
-  	this.getMembre();
+  constructor(private abonneService: AbonnesService) {
+  	this.getDetailBlock();
   	this.top_zone = new AdminTopZone (
-  		this.membre.nomComplet, 
-  		'Espace stagiaire / Salarié',
+  		'Abass Yoro', 
+  		'',
   		[
   			new Navs('Accueil', '/admin'),
   		],
@@ -28,27 +29,7 @@ top_zone: AdminTopZone = null;
   ngOnInit() {
   }
 
-  getMembre() {
-  	this.membre = new Membre(
-  		1,
-  		0,
-  		'cni',
-  		'titre',
-  		'Nom',
-  		'prenom1 prenom2',
-  		'password',
-  		'repassword',
-  		true,
-  		'nomComplet',
-  		'pathPhoto',
-  		'type',
-  		null,
-  		'login',
-  		null,
-  		null,
-  		null,
-  		null,
-  		'description',
-  		);
+  getDetailBlock() {
+  	this.detailblock = new Detailblock();
   }
 }

@@ -4,7 +4,8 @@ import {CommonModule} from '@angular/common';
 import {AdminRoutingModule} from './admin-routing.module';
 import {LayoutComponent} from './layout/layout.component';
 import {AccueilComponent} from './accueil/accueil.component';
-import {MatButtonModule, MatCardModule, MatIconModule, MatListModule, MatSidenavModule, MatToolbarModule} from '@angular/material';
+import {MatButtonModule, MatCardModule, MatIconModule, MatListModule, MatSidenavModule, 
+  MatToolbarModule} from '@angular/material';
 import {FooterComponent} from './footer/footer.component';
 import {CoreModule} from '../core/core.module';
 import {CustomMeterialModule} from '../custom-meterial/custom-meterial.module';
@@ -20,13 +21,12 @@ import { AdminCardComponent } from './comp/admin-card/admin-card.component';
 import { AdminBlockComponent } from './comp/admin-block/admin-block.component';
 import { ApercuBlockComponent } from './comp/apercu-block/apercu-block.component';
 import { AdminTarifsComponent } from './comp/admin-tarifs/admin-tarifs.component';
-import { EspaceComponent } from './paiement/espace/espace.component';
+import { ListEspaceComponent } from './paiement/list-espace/list-espace.component';
 import { BlockComponent } from './paiement/block/block.component';
-import { DetailBlockComponent } from './paiement/detail-block/detail-block.component';
+import { FormuleComponent } from './paiement/formules/formule.component';
 import { DesabonneComponent } from './paiement/desabonne/desabonne.component';
 import { ReabonneComponent } from './paiement/reabonne/reabonne.component';
 import { HistoriqueComponent } from './paiement/historique/historique.component';
-import { PaiementComponent } from './paiement/paiement/paiement.component';
 import { CoverProfilComponent } from './comp/cover-profil/cover-profil.component';
 import { ListeMessageComponent } from './messagerie/liste-message/liste-message.component';
 import { MessageComponent } from './messagerie/message/message.component';
@@ -37,6 +37,7 @@ import { LayoutMessageComponent } from './messagerie/layout-message/layout-messa
 import { ListeMessageEnvoyeComponent } from 
 './messagerie/liste-message-envoye/liste-message-envoye.component';
 import { LayoutCompteComponent } from './compte/layout-compte/layout-compte.component';
+import { EspaceComponent } from './paiement/espace/espace.component';
  
 @NgModule({
   imports: [
@@ -61,14 +62,14 @@ import { LayoutCompteComponent } from './compte/layout-compte/layout-compte.comp
    AdminCardComponent,
    AdminBlockComponent, 
    ApercuBlockComponent, 
-   AdminTarifsComponent, EspaceComponent, 
-   BlockComponent, DetailBlockComponent, 
+   AdminTarifsComponent, ListEspaceComponent, 
+   BlockComponent, FormuleComponent, 
    DesabonneComponent, ReabonneComponent, HistoriqueComponent, 
-   PaiementComponent, CoverProfilComponent, 
-   ListeMessageComponent, MessageComponent, ViewMessageComponent, 
+   CoverProfilComponent,ListeMessageComponent, MessageComponent, ViewMessageComponent, 
    SupprimeMessageComponent, RepondreMessageComponent, LayoutMessageComponent,
-    ListeMessageEnvoyeComponent, LayoutCompteComponent, 
+    ListeMessageEnvoyeComponent, LayoutCompteComponent, EspaceComponent, 
   ],
+  entryComponents: [BlockComponent],
   exports: [LayoutComponent]
 })
 export class AdminModule {

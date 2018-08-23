@@ -63,7 +63,8 @@ export class ToolbarComponent implements OnInit {
 
   openModal () {
     const dialogRef = this.dialog.open(LoginComponent, {
-      maxWidth: '700px'
+      maxWidth: '700px',
+      data: {}
     });
 
     dialogRef.afterClosed().subscribe(result => {

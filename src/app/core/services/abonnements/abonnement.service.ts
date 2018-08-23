@@ -11,8 +11,8 @@ import {catchError, tap} from 'rxjs/operators';
 })
 export class AbonnementService {
 
-  private urlTarifs = 'http://localhost:8080/tarifs';
-  private urlTarifsParBlockId = 'http://localhost:8080/tarifsBlocksId/';
+  private urlTarifs = 'http://wegetback:8080/tarifs';
+  private urlTarifsParBlockId = 'http://wegetback:8080/tarifsBlocksId/';
   constructor(private httpClient: HttpClient, private messageService: MessageService) {
   }
   getAlltarifsByBlocksId(id: number): Observable<Resultat<Tarif[]>> {

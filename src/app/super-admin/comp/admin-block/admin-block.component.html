@@ -1,7 +1,7 @@
 <mat-card class="blocks-items">
           <div class="imagebg" #imagebg></div>
           <mat-card-content>
-            <h5 class="titre-block" [innerHtml]="block.description"></h5>
+            <h5 class="titre-block" [innerHtml]="block.libelle"></h5>
             <div class="action-container">
               <button (click)="changeImage()" matTooltipClass="tooltipclass" matTooltip="Modifier Image du block" mat-mini-fab class="image"><i class="fa fa-image"></i></button>             
             	<button (click)="viewApercu()" matTooltipClass="tooltipclass" matTooltip="Voir aperçu du block" mat-mini-fab class="apercu"><i class="fa fa-eye"></i></button>            	

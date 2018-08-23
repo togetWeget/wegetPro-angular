@@ -1,19 +1,16 @@
-<mat-card>
-	<div class="image-cover" style="background-image: url(/assets/profile-cover.jpg);"></div>
-	<mat-card-content>
-		<h5 class="titre-block">Titre de l'espace</h5>
-		<div class="action-block">
-			<button mat-mini-fab matTooltip="Voir les details de mon abonnement" matTooltipClass="tooltipclass" class="voir-detail">
-				<i class="fa fa-eye fa-2x"></i> 
-			</button>
-		</div>
-	</mat-card-content>
-	<mat-card-actions>
-		<button mat-raised-button matTooltip="Se réabonner au block " matTooltipClass="tooltipclass" class="reabonne">
-			Se réabonner
-		</button>
-		<button mat-raised-button matTooltip="Se désabonner du block " matTooltipClass="tooltipclass" class="desabonne">
-			Se désabonner
-		</button>
-	</mat-card-actions>
-</mat-card>
+ <mat-dialog-content>
+    <h4>Choix du block</h4>
+    <hr>
+    <form [formGroup]="blockForm" (ngSubmit)="onSuivant()">
+        <div class="row">
+          <mat-form-field class="col-lg-12" placeholder="Choisir le block auquel vous voulez vous abonner">
+          	<mat-select>
+          		<mat-option *ngFor="let blk of block" [value]="blk.id">{{blk.libelle}}</mat-option>
+          	</mat-select>
+          </mat-form-field>
+        </div>
+    </form>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-raised-button color="primary" type="submit" (click)="onSuivant()">Suivant</button>
+  </mat-dialog-actions>

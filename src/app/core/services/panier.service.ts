@@ -12,17 +12,12 @@ import * as $ from 'jquery';
 export class PanierService {
 public panierAll: any = {};
 public panierId: any = {};
-public urlset = 'http://192.168.1.106:8080/panier';
+public urlset = 'http://wegetback:8080/panier';
   constructor(public  http: HttpClient) { }
   
   
-	setpanier(){
+	setpanier(data){
 		let u = this;
-		let data: any = {
-			idBlock :2,
-			idTarif :1,
-			idMembre :37
-			}
 			console.log(data);
 		$.ajax({
 			
@@ -31,13 +26,12 @@ public urlset = 'http://192.168.1.106:8080/panier';
             contentType: "application/json; charset=utf-8",
 			type:'post',
 			traditional: true,
-			success: function(){
-				console.log(1);
+			dataType:'json',
+			success: function(query){
+				console.log(query);
 				},
-			error: function(){
-				console.log('erreur');
-				
-				
+			error: function(erreur){
+				console.log(erreur.statusText + ', Veuillez verifier votre connexion internet et reessayer svp!');
 				}
 			
 			});

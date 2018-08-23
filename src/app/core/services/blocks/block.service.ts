@@ -10,10 +10,10 @@ import { ToastrService } from 'ngx-toastr';
 @Injectable()
 export class BlockService {
   /* imagesVibles = [];*/
-  private urlBlocks = 'http://localhost:8080/blocks';
-  private urlPhoto = 'http://localhost:8080/photoBlock';
-  private urlPhoto1 = 'http://localhost:8080/getPhoto';
-  private urlRechercheBlk = 'http://localhost:8080/rechercheBlock?mc=';
+  private urlBlocks = 'http://wegetback:8080/blocks';
+  private urlPhoto = 'http://wegetback:8080/photoBlock';
+  private urlPhoto1 = 'http://wegetback:8080/getPhoto';
+  private urlRechercheBlk = 'http://wegetback:8080/rechercheBlock?mc=';
 
   // observables sources
   private blockCreerSource = new Subject<Resultat<Block>>();

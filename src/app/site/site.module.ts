@@ -31,6 +31,32 @@ import {ProfilAbonneComponent} from './abonnes/profil-abonne/profil-abonne.compo
 import {FormulaireComponent} from './abonnements/formulaire/formulaire.component';
 import {PrixComponent} from './abonnements/prix/prix.component';
 import { SingleBlockComponent } from './single-block/single-block.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {
+    SocialLoginModule,
+    AuthServiceConfig,
+    GoogleLoginProvider,
+    FacebookLoginProvider,
+} from "angular-6-social-login";
+
+
+// Configs 
+export function getAuthServiceConfigs() {
+  let config = new AuthServiceConfig(
+      [
+        {
+          id: FacebookLoginProvider.PROVIDER_ID,
+          provider: new FacebookLoginProvider("869099103193529")
+        },
+        {
+          id: GoogleLoginProvider.PROVIDER_ID,
+          provider: new GoogleLoginProvider("7618043472-v75gqiqq6jku8g6pdeb5fhnau7fib1qt.apps.googleusercontent.com")
+        }
+      ]
+  );
+  return config;
+}
+
 
 @NgModule({
   imports: [
@@ -38,9 +64,12 @@ import { SingleBlockComponent } from './single-block/single-block.component';
     RouterModule,
     CustomMeterialModule,
     CoreModule,
-    SiteRoutingModule
+    SiteRoutingModule,
+	SocialLoginModule,
+	FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [{provide: AuthServiceConfig, useFactory: getAuthServiceConfigs}],
   declarations: [
     AccueilComponent, 
     LayoutComponent, 

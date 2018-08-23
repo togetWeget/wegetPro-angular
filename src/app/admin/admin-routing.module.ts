@@ -5,7 +5,8 @@ import {AccueilComponent} from './accueil/accueil.component';
 import {AuthGuardTogetService} from '../core/services/AuthGuards/auth-guard-toget.service';
 import {Chatroom2Component} from './chatroom2/chatroom2.component';
 import {NotFoundComponent} from '../core/not-found/not-found.component';
-import { EspaceComponent } from './paiement/espace/espace.component';
+import { ListEspaceComponent } from './paiement/list-espace/list-espace.component';
+import { ReabonneComponent } from './paiement/reabonne/reabonne.component';
 import { ListeMessageComponent } from './messagerie/liste-message/liste-message.component';
 import { MessageComponent } from './messagerie/message/message.component';
 import { ViewMessageComponent } from './messagerie/view-message/view-message.component';
@@ -27,7 +28,9 @@ const routes: Routes = [
         {path: '', component: LayoutComponent}
         ]
       },
-      {path: 'paiement/espace', component: EspaceComponent},
+      {path: 'paiement/espace', component: ListEspaceComponent},
+      {path: 'abonnement/prix', component: ListEspaceComponent},
+      {path: 'reabonnement/prix/:id', component: ReabonneComponent},
       {
         path: 'messagerie', component: LayoutMessageComponent, 
         children: [

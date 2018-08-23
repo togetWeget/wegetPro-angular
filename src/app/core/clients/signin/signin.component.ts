@@ -1,20 +1,25 @@
-import { Injectable } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {
     AuthService,
     FacebookLoginProvider,
     GoogleLoginProvider
 } from 'angular-6-social-login';
  
- 
-@Injectable({
-  providedIn: 'root'
+@Component({
+  selector: 'app-signin',
+  templateUrl: './signin.component.html',
+  styleUrls: ['./signin.component.scss', '../login/login.component.scss']
 })
-export class LoginsocialService {
-
- constructor( private socialAuthService: AuthService ) {}
+ 
+ 
+export class SigninComponent implements OnInit {
+ 
+  constructor( private socialAuthService: AuthService ) {}
   
-
-  public socialsignin(socialPlatform : string) {
+  ngOnInit() {
+  }
+  
+  public socialSignIn(socialPlatform : string) {
     let socialPlatformProvider;
     if(socialPlatform == "facebook"){
       socialPlatformProvider = FacebookLoginProvider.PROVIDER_ID;
@@ -31,6 +36,5 @@ export class LoginsocialService {
       }
     );
   }
-  
   
 }

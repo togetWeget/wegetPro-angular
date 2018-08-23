@@ -11,8 +11,8 @@ import {Tarif} from '../../../shared/models/tarif/tarif';
 })
 export class TarifService {
 
-  private urlTarifs = 'http://localhost:8080/tarifs';
-  private urlTarifsParBlockId = 'http://localhost:8080/tarifsBlocksId';
+  private urlTarifs = 'http://wegetback:8080/tarifs';
+  private urlTarifsParBlockId = 'http://wegetback:8080/tarifsBlocksId';
   constructor(private http: HttpClient, private messageService: MessageService) {
   }
 

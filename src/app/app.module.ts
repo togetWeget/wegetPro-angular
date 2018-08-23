@@ -9,6 +9,7 @@ import { AdminModule } from './admin/admin.module';
 import { SuperAdminModule } from './super-admin/super-admin.module';
 import {NoopAnimationsModule, BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { CoreModule } from './core/core.module';
+import { LoginComponent } from './core/clients/login/login.component';
 import { SharedModule } from './shared/shared.module';
 import {RouterModule} from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
@@ -18,7 +19,8 @@ import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    // LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -37,6 +39,9 @@ import { ToastrModule } from 'ngx-toastr';
     FroalaViewModule.forRoot(),
     ToastrModule.forRoot(),
     BrowserAnimationsModule
+  ],
+  entryComponents: [
+  // LoginComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

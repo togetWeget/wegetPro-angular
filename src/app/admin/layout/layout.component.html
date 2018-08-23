@@ -80,9 +80,31 @@
                   </mat-expansion-panel-header>                  
               </mat-expansion-panel>
                 </a>
+              <!-- /mat-expansion-panel -->    
+              <!-- mat-expansion-panel -->
+                <a mat-list-item="" [routerLinkActiveOptions]="{ exact: false }" class="nav-li" routerLinkActive="active" routerLink="/admin/paiement/espace">
+              <mat-expansion-panel [disabled]="true">
+                  <mat-expansion-panel-header>                  
+                    <mat-panel-title>                  
+                      <i class="fa fa-fighter-jet"></i> Espaces
+                    </mat-panel-title>                  
+                  </mat-expansion-panel-header>                  
+              </mat-expansion-panel>
+                </a>
               <!-- /mat-expansion-panel -->                            
               <!-- mat-expansion-panel -->
-              <mat-expansion-panel>
+                <a mat-list-item="" [routerLinkActiveOptions]="{ exact: false }" class="nav-li" routerLinkActive="active" routerLink="/admin/paiement/historique">
+              <mat-expansion-panel [disabled]="true">
+                  <mat-expansion-panel-header>                  
+                    <mat-panel-title>                  
+                      <i class="fa fa-list"></i> Historique
+                    </mat-panel-title>                  
+                  </mat-expansion-panel-header>                  
+              </mat-expansion-panel>
+                </a>
+              <!-- /mat-expansion-panel -->                            
+              <!-- mat-expansion-panel -->
+             <!--  <mat-expansion-panel>
                 <mat-expansion-panel-header>
                   <mat-panel-title>
                       <i class="fa fa-credit-card"></i> Paiement
@@ -92,7 +114,7 @@
                   <a routerLinkActive="active" routerLink="/admin/paiement/espace" class="item"><mat-list-item role="listitem"><i class="fa fa-circle"></i> Espaces</mat-list-item></a>
                   <a routerLinkActive="active" routerLink="/admin/paiement/historique" class="item"><mat-list-item role="listitem"><i class="fa fa-circle"></i> Historiques</mat-list-item></a>
                 </mat-list>
-              </mat-expansion-panel>
+              </mat-expansion-panel> -->
               <!-- /mat-expansion-panel -->
             </mat-accordion>
 

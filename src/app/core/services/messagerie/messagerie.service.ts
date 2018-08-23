@@ -13,7 +13,7 @@ import {MessageService} from '../message.service';
 })
 export class MessagerieService {
   private message: Messagerie [] = [];
-  private urlMessagerie = 'http://localhost:8080/messageries';
+  private urlMessagerie = 'http://wegetback:8080/messageries';
 
   messageSubject = new Subject<Messagerie[]>();
 
@@ -70,6 +70,4 @@ getAllMessagesByAbonneId (id:number): Observable<Resultat<Messagerie[]>>{
       return of(result as T);
     };
   }
-
-
 }

@@ -13,7 +13,7 @@ export class LoginService {
     private firebaseDir: AuthFirebaseService) {
 
   }
-  Authentification(url: any, data: any): any {
+  Authentification(url: any, data: any, modal?: any): any {
 
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
     this.http.post<HttpResponse<any>>(url, data, { headers: headers, observe: 'response' })
@@ -24,6 +24,7 @@ export class LoginService {
 		   localStorage.setItem('log', data.login);
           this.router.navigate(['/admin']);
          // let strValue: string = localStorage.getItem('togetToken');
+         modal.close();
           alert('Authentification correcte!');
         } else {
           alert('Authentification incorrecte!');

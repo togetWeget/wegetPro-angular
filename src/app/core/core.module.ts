@@ -30,7 +30,8 @@ import { NgHttpLoaderModule } from 'ng-http-loader';
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 import {NgxPaginationModule} from 'ngx-pagination';
 import {PanierService} from './services/panier.service';
-
+import { SigninComponent } from './clients/signin/signin.component';
+import {LoginsocialService} from './services/personne/membre/loginsocial.service';
 @NgModule({
   imports: [
     CommonModule,
@@ -62,7 +63,8 @@ import {PanierService} from './services/panier.service';
     PanelContainerDirective,
     PanelContentDirective,
     ChatComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    SigninComponent
   ],
   exports: [
     BlocTitleDirective,
@@ -71,7 +73,7 @@ import {PanierService} from './services/panier.service';
     AdminWidgetOneComponent,
     CustomStyleDirective,
     IfMediaQueryDirective,
-    LoginComponent,
+    // LoginComponent,
     RegisterComponent,
     ModalContentDirective,
     ModalBackdropDirective,
@@ -81,7 +83,8 @@ import {PanierService} from './services/panier.service';
     PanelContentDirective,
     ChatComponent,
     NgxPaginationModule,
-    NotFoundComponent
+    NotFoundComponent,
+    SigninComponent
   ],
   entryComponents: [
   LoginComponent
@@ -91,7 +94,8 @@ import {PanierService} from './services/panier.service';
     AbonnesService,
     BlockService,
     RegisterService,
-	PanierService
+	PanierService,
+	LoginsocialService
   ],
   schemas: [NO_ERRORS_SCHEMA]
 })

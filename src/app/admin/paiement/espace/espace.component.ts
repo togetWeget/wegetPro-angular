@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { AdminTopZone } from '../../../shared/views_models/admin-top-zone';
-import { AdminCard } from '../../../shared/views_models/admin-card';
-import { Navs }  from '../../../shared/views_models/navs';
+import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material';
 import { Detailblock } from '../../../shared/models/detailblock';
 
 @Component({
@@ -10,29 +9,27 @@ import { Detailblock } from '../../../shared/models/detailblock';
   styleUrls: ['./espace.component.scss']
 })
 export class EspaceComponent implements OnInit {
-	top_zone: AdminTopZone = null;
-  	admin_card: AdminCard = null;
-  	detailBlock: Detailblock[]=[];
-	constructor() {
-		this.top_zone = new AdminTopZone (
-	  		'Paiement', 
-	  		'Mes espaces',
-	  		[
-	  			new Navs('Accueil', '/admin'),
-	  			new Navs('Paiement', '/admin/paiement'),
-	  		],
-	  		new Navs ('espace', ''),
-	  		'home',
-	  	);
+	@Input('detailBlock') detailBlock: Detailblock;
+	defaultPhoto: string = '/assets/placeholder-image.jpg';
 
-	  	this.admin_card = new AdminCard(
-	  		'Liste de mes abonnements',
-	  		'/admin/paiement/abonnement'
-	  		);
-	}
+  constructor(private router: Router, private dialog: MatDialog,) { }
 
-	ngOnInit() {
+  ngOnInit() {
 
-	}
-
+  }
+  getPhotoSrc(): string {
+    return (this.detailBlock.block.pathPhoto !== null && 
+    this.detailBlock.block.pathPhoto !== undefined && this.detailBlock.block.pathPhoto !== '') ? 
+    this.detailBlock.block.pathPhoto : 
+    this.defaultPhoto;
+  }
+  onVoirDetail(id:number){
+  	this.router.navigate(['/admin/espace', this.detailBlock.id])
+  }
+  onReabonne(id:number){
+  	this.router.navigate(['/admin/reabonnement','prix', this.detailBlock.id])
+  }
+  onDesabonne(id:number){
+  	this.router.navigate(['/admin/espace', this.detailBlock.id])
+  }
 }

@@ -1,0 +1,16 @@
+<app-top-zone [topZone]="top_zone" ></app-top-zone>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-12">
+			<app-admin-card (clickOcur)="handleClick($event)" [adminCard]="admin_card" >
+				<div class="admin-card-content">
+					<div class="row">
+						<div class="col-lg-4">
+							<app-espace></app-espace>
+						</div>
+					</div>
+				</div>
+			</app-admin-card>
+		</div>
+	</div>
+</div>

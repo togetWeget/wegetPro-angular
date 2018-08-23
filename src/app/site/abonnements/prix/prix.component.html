@@ -23,14 +23,14 @@
               <mat-card class="pricing-box">
                 <div class="pricing-intro">
                   <div class="price-title">
-                    <span [ngClass]="'tarif-titre'" [innerHtml]="tarif.titre"></span>
+                    <span [ngClass]="'tarif-titre'" [innerHtml]="(tarif.titre |uppercase)"></span>
                     &nbsp;
                     <span  class="tarif-titre">
                         <i [ngClass]="{'fa':true,
-                         'fa-star':tarif.titre==='TOP',
-                         'fa-gift':tarif.titre==='Gratuit',
-                         'fa-smile-o':tarif.titre==='YES',
-                         'fa-thumbs-up':tarif.titre==='Ok'}" style="font-size:24px;color:red"></i>                        
+                         'fa-star':(tarif.titre |uppercase)==='TOP',
+                         'fa-gift':(tarif.titre |uppercase)==='GRATUIT',
+                         'fa-smile-o':(tarif.titre |uppercase)==='YES',
+                         'fa-thumbs-up':(tarif.titre |uppercase)==='OK'}" style="font-size:24px;color:red"></i>                        
                     </span>
                   </div>
                 </div>

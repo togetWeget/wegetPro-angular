@@ -152,7 +152,7 @@ export class Chatroom2Component implements OnInit {
   recupAllUser() {
 		this.ResultText = '';
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
-    this.http.get<HttpResponse<any>>('http://localhost:8080/typePersonnes/ME', {
+    this.http.get<HttpResponse<any>>('http://wegetback:8080/typePersonnes/ME', {
       headers: headers,
       observe: 'response'
     }).subscribe((resul) => {

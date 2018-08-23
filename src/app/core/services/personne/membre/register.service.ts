@@ -8,13 +8,13 @@ import * as $ from 'jquery';
 
 @Injectable()
 export class RegisterService {
-  private urlMembre = 'http://localhost:8080/membres/ME';
-  private urlPersonne = 'http://localhost:8080/membres';
-  private urlLogin = 'http://localhost:8080/login';
-  private urlPhoto = 'http://localhost:8080/photo';
-  private urlRechercheMens = 'http://localhost:8080/rechePersonneParMc/ME?mc=';
-  private urlgetbyLogin = 'http://localhost:8080/membresLogin/';
-  public images_u = 'http://localhost:4200/assets/ajax-loader.gif';
+  private urlMembre = 'http://wegetback:8080/membres/ME';
+  private urlPersonne = 'http://wegetback:8080/membres';
+  private urlLogin = 'http://wegetback:8080/login';
+  private urlPhoto = 'http://wegetback:8080/photo';
+  private urlRechercheMens = 'http://wegetback:8080/rechePersonneParMc/ME?mc=';
+  private urlgetbyLogin = 'http://wegetback:8080/membresLogin/';
+  public images_u = 'http://wegetback:4200/assets/ajax-loader.gif';
   public ajax_loader = '';
   public disabl = false;
   public alert_toget = '';

@@ -25,11 +25,11 @@
                   </div> 
                 </div> 
               </div>
-              <div class="col-sm-12 text-center"> 
-                  <button type="button" class="btn btn-primary sc_btn fac"><i class="fa fa-facebook"></i>Sign in with Facebook</button> 
+				<div class="col-sm-12 text-center"> 
+                  <button type="button" class="btn btn-primary sc_btn fac" (click)="SocialLogin('facebook')"><i class="fa fa-facebook"></i>Sign in with Facebook</button> 
               </div> 
               <div class="col-sm-12 text-center"> 
-                  <button type="button" class="btn btn-danger sc_btn"><i class="fa fa-google-plus"></i>Sign in with GooglePlus</button> 
+                  <button type="button" class="btn btn-danger sc_btn" (click)="SocialLogin('google')" ><i class="fa fa-google-plus"></i>Sign in with GooglePlus</button> 
               </div>
             </div> 
         </div> 

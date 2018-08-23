@@ -1,3 +1,19 @@
-<div class="cover-profil">
-	cover profil
-</div>
+<mat-card class="head-line">
+	<mat-card-content>
+		Espace stagiaire / Homme de metier
+	</mat-card-content>
+</mat-card>
+<mat-card class="couverture">	
+	<mat-card-content>
+		<div class="img_cover" #img_cover>
+			<button chass="cover-btn-modif" style="position: absolute;right: 10px;top: 10px;" mat-raised-button><i class="fa fa-photo"></i> Modifier la photo de couverture</button>
+		</div>
+		<div class="img_profil_container">
+			<div class="img_profil" #img_profil></div>
+		</div>
+		<div class="bottom_cover">
+			<div class="vues"><i class="fa fa-eye"></i> 5</div>
+			<div class="voir_profil"><button mat-button><i class="fa fa-user"></i> Voir votre profil</button></div>
+		</div>
+	</mat-card-content>
+</mat-card>

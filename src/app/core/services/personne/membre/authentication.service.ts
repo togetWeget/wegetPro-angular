@@ -11,11 +11,11 @@ import {Personne} from '../../../../shared/models/personne/membres/personne';
   providedIn: 'root'
 })
 export class AuthenticationService {
-  private urlMembre = 'http://localhost:8080/personnes/ME';
-  private urlPersonne = 'http://localhost:8080/personnes';
-  private urlLogin = 'http://localhost:8080/login';
-  private urlPhoto = 'http://localhost:8080/photo';
-  private urlRechercheMens = 'http://localhost:8080/rechePersonneParMc/ME?mc=';
+  private urlMembre = 'http://wegetback:8080/personnes/ME';
+  private urlPersonne = 'http://wegetback:8080/personnes';
+  private urlLogin = 'http://wegetback:8080/login';
+  private urlPhoto = 'http://wegetback:8080/photo';
+  private urlRechercheMens = 'http://wegetback:8080/rechePersonneParMc/ME?mc=';
 
   // observables sources
   private membreCreerSource = new Subject<Resultat<Membre>>();
