@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
 
   constructor(public loginS: LoginService, public reg: RegisterService,
    public authFirebaseService: AuthFirebaseService, public loginsocialService : LoginsocialService) {
-		alert(new Date());
+		// alert(new Date());
   }
 
   ngOnInit() {

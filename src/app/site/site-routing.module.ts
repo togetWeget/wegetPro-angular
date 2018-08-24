@@ -12,6 +12,7 @@ import {AuthGuardTogetService} from '../core/services/AuthGuards/auth-guard-toge
 import {NotFoundComponent} from '../core/not-found/not-found.component';
 import {FormulaireComponent} from './abonnements/formulaire/formulaire.component';
 import {PrixComponent} from './abonnements/prix/prix.component';
+import {PanierViewComponent} from './panier-view/panier-view.component';
 
 const routes: Routes = [
   {
@@ -29,6 +30,7 @@ const routes: Routes = [
       {path: 'profile', component: ProfilAbonneComponent},
       {path: 'register', component: RegisterComponent},
       {path: 'login', component: LoginComponent},
+      {path: 'panier/:id', component: PanierViewComponent},
       {
         path: '**', component: NotFoundComponent
       }

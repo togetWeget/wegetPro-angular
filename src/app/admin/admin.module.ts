@@ -38,6 +38,11 @@ import { ListeMessageEnvoyeComponent } from
 './messagerie/liste-message-envoye/liste-message-envoye.component';
 import { LayoutCompteComponent } from './compte/layout-compte/layout-compte.component';
 import { EspaceComponent } from './paiement/espace/espace.component';
+import { DetailsCompteComponent } from './compte/details-compte/details-compte.component';
+import { FormationCompteComponent } from './compte/formation-compte/formation-compte.component';
+import { ExperienceCompteComponent } from './compte/experience-compte/experience-compte.component';
+import { AuthCompteComponent } from './compte/auth-compte/auth-compte.component';
+import { NgSelectModule } from '@ng-select/ng-select';
  
 @NgModule({
   imports: [
@@ -48,7 +53,8 @@ import { EspaceComponent } from './paiement/espace/espace.component';
     CustomMeterialModule,
     ReactiveFormsModule,
     FormsModule,
-    FilterPipeModule
+    FilterPipeModule,
+    NgSelectModule  
   ],
   declarations: [
    LayoutComponent,
@@ -67,7 +73,7 @@ import { EspaceComponent } from './paiement/espace/espace.component';
    DesabonneComponent, ReabonneComponent, HistoriqueComponent, 
    CoverProfilComponent,ListeMessageComponent, MessageComponent, ViewMessageComponent, 
    SupprimeMessageComponent, RepondreMessageComponent, LayoutMessageComponent,
-    ListeMessageEnvoyeComponent, LayoutCompteComponent, EspaceComponent, 
+    ListeMessageEnvoyeComponent, LayoutCompteComponent, EspaceComponent, DetailsCompteComponent, FormationCompteComponent, ExperienceCompteComponent, AuthCompteComponent, 
   ],
   entryComponents: [BlockComponent],
   exports: [LayoutComponent]

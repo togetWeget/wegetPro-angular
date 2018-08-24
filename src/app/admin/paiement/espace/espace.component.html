@@ -1,7 +1,7 @@
 <mat-card>
 	<div class="image-cover" style="background-image: url(/assets/profile-cover.jpg);"></div>
 	<mat-card-content>
-		<h5 class="titre-block">Titre de l'espace</h5>
+		<h5 class="titre-block">{{detailBlock?.block.libelle}}</h5>
 		<div class="action-block">
 			<button mat-mini-fab matTooltip="Voir les details de mon abonnement" matTooltipClass="tooltipclass" class="voir-detail">
 				<i class="fa fa-eye fa-2x"></i> 
@@ -12,8 +12,8 @@
 		<button mat-raised-button matTooltip="Editer mon espace" matTooltipClass="tooltipclass" class="reabonne">
 			Editer mon espace
 		</button>
-		<button mat-raised-button matTooltip="Se désabonner du block " matTooltipClass="tooltipclass" class="desabonne">
-			Se désabonner
+		<button mat-raised-button matTooltip="Se désabonner du block " matTooltipClass="tooltipclass" (click)="onReabonne()" class="desabonne">
+			Se réabonner
 		</button>
 	</mat-card-actions>
 </mat-card>

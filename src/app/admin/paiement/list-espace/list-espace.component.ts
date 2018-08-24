@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { Router,ActivatedRoute } from '@angular/router';
+import { Component, OnInit,Input } from '@angular/core';
+import { Router,ParamMap,ActivatedRoute } from '@angular/router';
+import {switchMap} from 'rxjs/operators';
 import { MatDialog} from '@angular/material';
 import { AdminTopZone } from '../../../shared/views_models/admin-top-zone';
 import { AdminCard } from '../../../shared/views_models/admin-card';
@@ -7,6 +8,8 @@ import { Navs }  from '../../../shared/views_models/navs';
 import { PersonalButton }  from '../../../shared/views_models/personal-button';
 import { Detailblock } from '../../../shared/models/detailblock';
 import { BlockComponent } from '../block/block.component';
+import {AbonnementService} from '../../../core/services/abonnements/abonnement.service';
+import {AbonnesService} from '../../../core/services/abonnes/abonnes.service';
 
 @Component({
   selector: 'app-list-espace',
@@ -16,10 +19,14 @@ import { BlockComponent } from '../block/block.component';
 export class ListEspaceComponent  implements OnInit {
 	top_zone: AdminTopZone = null;
   	admin_card: AdminCard = null;
-  	detailBlock: Detailblock[]=[];
+  	detailBlock: Detailblock;
+  	selectedblock: Detailblock;
+  	idblock: number;
 	constructor(private route: ActivatedRoute,
               	private router: Router,
-              	private formDialog: MatDialog) {
+              	private formDialog: MatDialog,
+              	private abonnementServices:AbonnementService,
+              	private abonneService: AbonnesService) {
 		this.top_zone = new AdminTopZone (
 	  		'Abonnements', 
 	  		'Mes abonnements',
@@ -41,12 +48,12 @@ export class ListEspaceComponent  implements OnInit {
 	}
 
 	ngOnInit() {
-
+		this.fetchAllBlock();
 	}
 	handleClick(event: string) {
 		switch (event) {
 			case "abonnement":
-				this.onContactAbonne();
+				this.onSAbonne();
 				break;
 			
 			default:
@@ -55,11 +62,21 @@ export class ListEspaceComponent  implements OnInit {
 		}
 
 	}
-	onContactAbonne(): void {
+	onSAbonne(): void {
     const dialogRef = this.formDialog.open(BlockComponent,
       {
-        width: '400px'
+        width: '600px'
       });
+    dialogRef.afterClosed().subscribe(result => {
+    	console.log(result);
+  	    this.router.navigate(['/admin/paiement','prix', result]);
+    });
   }
-
+  fetchAllBlock(){
+      this.abonneService.getAbonnesByLog(localStorage.getItem('log'))
+      .subscribe((data: any)=> {
+  	  this.detailBlock = data.body;    
+  	  console.log(this.detailBlock) ;
+    });
+  }
 }

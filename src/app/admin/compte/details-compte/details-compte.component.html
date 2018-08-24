@@ -1,0 +1,198 @@
+<div class="details-container">
+	<form>
+		<div class="row">
+			<!-- photo -->
+			<div class="col-md-4">
+				<legend>Photo</legend>
+				<div class="photo-cadre">
+					<div #photo class="photo"></div>
+				</div>
+				<div class="form-group">
+					<input type="file" style="visibility: hidden;" class="form-control" id="" placeholder="Input field">
+				</div>				
+			</div>
+			<!-- /photo -->
+			<!-- informations personnelles -->
+			<div class="col-md-8">
+				<legend>Informations personnelles</legend>
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group">
+							<label for="">Nom</label>
+							<input type="text" disabled="disabled" class="form-control" id="" placeholder="Input field">
+						</div>
+						<div class="form-group">
+							<label for="">Prénom(s)</label>
+							<input type="text" disabled="disabled" class="form-control" id="" placeholder="Input field">
+						</div>					
+						<div class="form-group">
+							<label for="">Date de naissance <span class="requi-asterix">(*)</span></label>
+							<div class="input-group">
+								<input type="date" class="form-control" id="" required="required" placeholder="Input field">
+								<div class="input-group-append">
+									<span class="input-group-text"><i class="fa fa-calendar"></i></span>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="">Genre <span class="requi-asterix">(*)</span></label>
+							<ng-select class="custom" [items]="['homme','femme']" [markFirst]="true"></ng-select>							
+						</div>					
+						<div class="form-group">
+							<label for="">Langue(s) parlée(s) <span class="requi-asterix">(*)</span></label>
+							<ng-select class="custom" [items]="['français','anglais']" [multiple]="true" [hideSelected]="true"></ng-select>							
+						</div>										
+					</div>
+					<div class="col-md-6">
+						<div class="form-group">
+							<label for="">Pays <span class="requi-asterix">(*)</span></label>
+							<ng-select class="custom" [items]="['Côte d Ivoire','Burkina Faso', 'Mali', 'Bénin']" [hideSelected]="true"></ng-select>
+						</div>	
+						<div class="form-group">
+							<label for="">Ville</label>
+							<ng-select class="custom" [items]="['Yamoussoukro','Abidjan', 'Bouaké', 'Grand-Bassam']" [hideSelected]="true"></ng-select>							
+						</div>
+						<div class="form-group">
+							<label for="">Adresse</label>
+							<input type="text" class="form-control" id="" placeholder="Input field">
+						</div>	
+						<div class="form-group">
+							<label for="">Telephone</label>
+							<input type="text" class="form-control" id="" placeholder="Input field">
+						</div>	
+					</div>
+				</div>
+			</div>
+			<!-- /informations personnelles -->
+		</div>
+	
+		<div class="row">
+			<div class="col-md-4">
+				<legend>Réseaux Sociaux</legend>
+				<div class="form-group">
+					<label for="">Facebook</label>
+					<div class="input-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text">
+								<i class="fa fa-facebook"></i>		
+							</span>
+						</div>
+						<input type="text" class="form-control" id="" placeholder="Facebook">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="">Twitter</label>
+					<div class="input-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text">
+								<i class="fa fa-twitter"></i>		
+							</span>
+						</div>
+						<input type="text" class="form-control" id="" placeholder="Twitter">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="">Google+</label>
+					<div class="input-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text">
+								<i class="fa fa-google-plus"></i>		
+							</span>
+						</div>
+						<input type="text" class="form-control" id="" placeholder="Google+">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="">Linkedin</label>
+					<div class="input-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text">
+								<i class="fa fa-linkedin"></i>		
+							</span>
+						</div>
+						<input type="text" class="form-control" id="" placeholder="Linkedin">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="">Dribbble</label>
+					<div class="input-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text">
+								<i class="fa fa-dribbble"></i>		
+							</span>
+						</div>
+						<input type="text" class="form-control" id="" placeholder="Dribbble">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="">Skype</label>
+					<div class="input-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text">
+								<i class="fa fa-skype"></i>		
+							</span>
+						</div>
+						<input type="text" class="form-control" id="" placeholder="Skype">
+					</div>
+				</div>
+			</div>
+			<div class="col-md-8">
+				<legend>Informations Professionnelles</legend>
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group">
+							<label for="">Vous êtes <span class="requi-asterix">(*)</span></label>
+							<ng-select class="custom" [items]="[]" [hideSelected]="true"></ng-select>
+						</div>
+						<div class="form-group">
+							<label for="">Fonction Actuelle <span class="requi-asterix">(*)</span></label>
+							<ng-select class="custom" [items]="[]" [hideSelected]="true"></ng-select>
+						</div>
+						<div class="form-group">
+							<label for="">Année d'expérience <span class="requi-asterix">(*)</span></label>
+							<input type="text" class="form-control" id="" required="required" placeholder="Input field">
+						</div>
+						<div class="form-group">
+							<label for="">Domaine <span class="requi-asterix">(*)</span></label>
+							<ng-select class="custom" [items]="[]" [hideSelected]="true"></ng-select>
+						</div>
+						<div class="form-group">
+							<label for="">Spécialité <span class="requi-asterix">(*)</span></label>
+							<ng-select class="custom" [items]="[]" [hideSelected]="true"></ng-select>
+						</div>
+						<div class="form-group">
+							<label for="">Autre(s) Spécialité(s)</label>
+							<ng-select class="custom" [items]="[]" [hideSelected]="true" [multiple]="true"></ng-select>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="form-group">
+							<label for="">Dernier diplôme <span class="requi-asterix">(*)</span></label>
+							<ng-select class="custom" [items]="[]" [hideSelected]="true" ></ng-select>
+						</div>
+						<div class="form-group">
+							<label for="">Type de contrat <span class="requi-asterix">(*)</span></label>
+							<ng-select class="custom" [items]="[]" [hideSelected]="true" [multiple]="true"></ng-select>
+						</div>
+						<div class="form-group">
+							<label for="">Durée du contrat <span class="requi-asterix">(*)</span></label>
+							<ng-select class="custom" [items]="[]" [hideSelected]="true" [multiple]="true"></ng-select>
+						</div>
+					</div>
+				</div>
+				<legend>CV</legend>	
+				<div class="form-group">
+					<label for="">Telecharger CV</label>
+					<input type="file" class="form-control" id="" placeholder="Input field">
+				</div>
+				<div class="form-group">
+					<label for="">Motivations</label>
+					<textarea rows="8" class="form-control" name=""></textarea>
+				</div>
+			</div>
+		</div>
+		
+	
+		<button type="submit" class="btn btn-primary"><i class="fa fa-refresh"></i>&nbsp;&nbsp;Mettre à jours</button>
+	</form>
+</div>

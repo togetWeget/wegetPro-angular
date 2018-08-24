@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewChild,
-ElementRef } from '@angular/core';
+ElementRef, Input, Output, EventEmitter } from '@angular/core';
+import {Router} from '@angular/router';
+import { AdminCover } from '../../../shared/views_models/admin-cover';
 
 @Component({
   selector: 'app-cover-profil-admin',
@@ -9,9 +11,12 @@ ElementRef } from '@angular/core';
 export class CoverProfilComponent implements OnInit {
   @ViewChild('img_cover') img_cover: ElementRef;
   @ViewChild('img_profil') img_profil: ElementRef;
-  defaultPhoto: any = '/assets/placeholder-image.jpg';
+  defaultProfil: any = '/assets/placeholder-image.jpg';
+  defaultCover: any = '/assets/profile-cover.jpg';
+  @Input('cover') cover: AdminCover;
+  @Output() clickOcur = new EventEmitter<string>();
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   	this.img_cover.nativeElement.style.backgroundImage = 'url(' + this.getCoverSrc() + ')';
@@ -25,21 +30,32 @@ export class CoverProfilComponent implements OnInit {
   }
 
   getCoverSrc(): any {
-  	return '/assets/profile-cover.jpg';
-    // console.log(this.domSanitizer.bypassSecurityTrustStyle(this.block.pathPhoto));
-    // return (this.block.pathPhoto !== null && 
-    //   this.block.pathPhoto !== undefined && this.block.pathPhoto !== '') ? 
-    // this.block.pathPhoto : 
-    // this.defaultPhoto;
+    return (this.cover.coverPath!== null && 
+      this.cover.coverPath !== undefined && this.cover.coverPath !== '') ? 
+    this.cover.coverPath : 
+    this.defaultCover;
   }
 
   getProfilSrc(): any {
-  	return '/assets/placeholder-image.jpg';
-    // console.log(this.domSanitizer.bypassSecurityTrustStyle(this.block.pathPhoto));
-    // return (this.block.pathPhoto !== null && 
-    //   this.block.pathPhoto !== undefined && this.block.pathPhoto !== '') ? 
-    // this.block.pathPhoto : 
-    // this.defaultPhoto;
+    return (this.cover.profilPath !== null && 
+      this.cover.profilPath !== undefined && this.cover.profilPath !== '') ? 
+    this.cover.profilPath : 
+    this.defaultProfil;
+  }
+
+  modifAction() {
+    if(this.cover.modifLink !== null) {
+      this.router.navigate([this.cover.modifLink]);
+    } else {
+      this.clickOcur.emit('modif');
+    }
+  }
+  voirProfilAction() {
+    if(this.cover.voirProfilLink !== null) {
+      this.router.navigate([this.cover.voirProfilLink]);
+    } else {
+      this.clickOcur.emit('voirProfil');
+    }
   }
 
 }

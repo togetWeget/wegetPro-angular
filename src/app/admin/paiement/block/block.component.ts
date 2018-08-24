@@ -1,13 +1,11 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { FormGroup, FormBuilder } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
 import { Block } from '../../../shared/models/Block';
 import {BlockService} from '../../../core/services/blocks/block.service';
 
-export class Blocks{
-  idBlock:number;
-  libelleBlock: string;
-}
+
 
 @Component({
   selector: 'app-block',
@@ -15,7 +13,8 @@ export class Blocks{
   styleUrls: ['./block.component.scss']
 })
 export class BlockComponent implements OnInit {
-  block: Block[]=[];
+  idblock:number;
+  blocks: Block[]=[];
   constructor(private router: Router,
               private blockService:BlockService,
               public dialogRef: MatDialogRef<BlockComponent>,
@@ -27,10 +26,7 @@ export class BlockComponent implements OnInit {
   fetchBlocks() {
     this.blockService.getAllBlocks()
       .subscribe(data => {
-        this.block = data.body;
+        this.blocks = data.body;
       });
-  }
-  onSuivant(){
-
   }
 }

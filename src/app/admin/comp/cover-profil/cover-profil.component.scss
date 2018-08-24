@@ -21,21 +21,26 @@ mat-card.couverture {
 	.img_profil_container {
 		position: relative;
 		.img_profil {
-			width: 8em;
-			height: 8em;
+			display: table;
 			border-radius: 100%;
 			position: absolute;
 			top: -6em;
 			left: 30px;
-			padding: 3px;
+			padding: 5px;
+			background: #ffffff;
 			box-shadow: 0px 0px 6px rgba(0,0,0,0.8);
+			div {				
+				width: 8em;
+				height: 8em;
+				border-radius: 100%;
+			}
 		}		
 	}
 	.bottom_cover{
 		position: relative;
 		.vues {
 			display: inline-block;
-			position: relative;
+			position: absolute;
 			bottom: 0;
 			left: 10px;
 		}
@@ -49,7 +54,7 @@ mat-card.couverture {
 			}
 			button {
 				color: #aaaaaa;
-				padding: 20px auto !important;	
+				padding: 10px;	
 				&:hover {
 					color: #444444;
 				}

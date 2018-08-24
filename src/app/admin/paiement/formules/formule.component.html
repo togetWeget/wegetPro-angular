@@ -1,26 +1,33 @@
-<mat-card class="pricing-box">
-    <div class="pricing-intro">
-        <div class="price-title">
-            <span [ngClass]="'tarif-titre'" [innerHtml]="tarif.titre"></span>
-            &nbsp;
-            <span  class="tarif-titre">
-                <i [ngClass]="{'fa':true,
-	                         'fa-star':(tarif.titre |uppercase)==='TOP',
-	                         'fa-gift':(tarif.titre |uppercase)==='GRATUIT',
-	                         'fa-smile-o':(tarif.titre |uppercase)==='YES',
-	                         'fa-thumbs-up':(tarif.titre |uppercase)==='OK'}" style="font-size:24px;color:red">
-	            </i>                        
-            </span>
+<app-top-zone [topZone]="top_zone" ></app-top-zone>
+<div class="container-fluid">
+    <div class="row">
+        <div *ngFor="let tarif of tarifs" class="col-md-6 col-sm-6 col-lg-3 col-12" style="margin-bottom: 20px;">
+            <mat-card class="pricing-box">
+                <div class="pricing-intro">
+                    <div class="price-title">
+                        <span [ngClass]="'tarif-titre'" [innerHtml]="tarif.titre"></span>
+                        &nbsp;
+                        <span  class="tarif-titre">
+                            <i [ngClass]="{'fa':true,
+            	                         'fa-star':(tarif.titre |uppercase)==='TOP',
+            	                         'fa-gift':(tarif.titre |uppercase)==='GRATUIT',
+            	                         'fa-smile-o':(tarif.titre |uppercase)==='YES',
+            	                         'fa-thumbs-up':(tarif.titre |uppercase)==='OK'}" style="font-size:24px;color:red">
+            	            </i>                        
+                        </span>
+                    </div>
+                </div>
+               	<div class="content equal-height" style="height: 18px;"></div>
+                <mat-card-content>
+                    <div class="price">
+                        <span>{{tarif.prix}}</span> <sup>Fcfa</sup> <br>
+                        <small>{{tarif.dureeTarif}}</small>
+                    </div>
+                </mat-card-content>
+                <mat-card-actions>
+                    <button mat-raised-button color="primary" (click)="onPayer(tarif)">Payer</button>
+                </mat-card-actions>
+            </mat-card>
         </div>
     </div>
-   	<div class="content equal-height" style="height: 18px;"></div>
-    <mat-card-content>
-        <div class="price">
-            <span>{{tarif.prix}}</span> <sup>Fcfa</sup> <br>
-            <small>{{tarif.dureeTarif}}</small>
-        </div>
-    </mat-card-content>
-    <mat-card-actions>
-        <button mat-raised-button color="primary" (click)="onPayer(tarif)">Payer</button>
-    </mat-card-actions>
-</mat-card>
+</div>

@@ -1,16 +1,16 @@
- <mat-dialog-content>
-    <h4>Choix du block</h4>
+ <mat-dialog-content> 
+      <h4 mat-dialog-title >Choisir un espace</h4>
     <hr>
-    <form [formGroup]="blockForm" (ngSubmit)="onSuivant()">
+    <form>
         <div class="row">
-          <mat-form-field class="col-lg-12" placeholder="Choisir le block auquel vous voulez vous abonner">
-          	<mat-select>
-          		<mat-option *ngFor="let blk of block" [value]="blk.id">{{blk.libelle}}</mat-option>
+          <mat-form-field class="col-lg-12">
+          	<mat-select placeholder="Choisir le block auquel vous voulez vous abonner" [(ngModel)]="idblock" name="block">
+          		<mat-option *ngFor="let blk of blocks" [value]="blk.id">{{blk.libelle}}</mat-option>
           	</mat-select>
           </mat-form-field>
         </div>
     </form>
   </mat-dialog-content>
   <mat-dialog-actions>
-    <button mat-raised-button color="primary" type="submit" (click)="onSuivant()">Suivant</button>
+    <button mat-raised-button  color="primary" [mat-dialog-close]="idblock" cdkFocusInitial>Suivant</button>
   </mat-dialog-actions>

@@ -4,9 +4,14 @@
 		<div class="col-12">
 			<app-admin-card (clickOcur)="handleClick($event)" [adminCard]="admin_card" >
 				<div class="admin-card-content">
+					<!--div class="row" *ngIf="detailBlock.lenght==0">
+						<div class="col-md-12">
+							<span>Vous n'êtes pas encore abonné !</span>
+						</div>
+					</div-->
 					<div class="row">
-						<div class="col-lg-4">
-							<app-espace></app-espace>
+						<div class="col-lg-4" *ngFor="let block of detailBlock">
+							<app-espace [detailBlock]="block"></app-espace>
 						</div>
 					</div>
 				</div>

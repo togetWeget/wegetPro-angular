@@ -92,5 +92,9 @@ export class ToolbarComponent implements OnInit {
   inscription () {
     this.router.navigate(['site/register']);
   }
+  
+  panier () {
+    this.router.navigate(['site/panier/1']);
+  }
 
 }

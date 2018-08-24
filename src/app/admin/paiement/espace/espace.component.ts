@@ -23,13 +23,13 @@ export class EspaceComponent implements OnInit {
     this.detailBlock.block.pathPhoto : 
     this.defaultPhoto;
   }
-  onVoirDetail(id:number){
+  onVoirDetail(){
   	this.router.navigate(['/admin/espace', this.detailBlock.id])
   }
-  onReabonne(id:number){
-  	this.router.navigate(['/admin/reabonnement','prix', this.detailBlock.id])
+  onReabonne(){
+  	this.router.navigate(['/admin/paiement','prix', this.detailBlock.block.id])
   }
-  onDesabonne(id:number){
-  	this.router.navigate(['/admin/espace', this.detailBlock.id])
+  onDesabonne(){
+  	this.router.navigate(['/admin/espace', this.detailBlock.block.id])
   }
 }

@@ -4,6 +4,7 @@ import {MessageService} from '../message.service';
 import {Observable, of} from 'rxjs';
 import {Resultat} from '../../../shared/models/resultat';
 import {Tarif} from '../../../shared/models/tarif/tarif';
+import {Detailblock} from '../../../shared/models/detailblock';
 import {catchError, tap} from 'rxjs/operators';
 
 @Injectable({
@@ -13,6 +14,7 @@ export class AbonnementService {
 
   private urlTarifs = 'http://wegetback:8080/tarifs';
   private urlTarifsParBlockId = 'http://wegetback:8080/tarifsBlocksId/';
+  private urlBlockParAbonne = 'http://wegetback:8080/tousLesBlockParAbonne/';
   constructor(private httpClient: HttpClient, private messageService: MessageService) {
   }
   getAlltarifsByBlocksId(id: number): Observable<Resultat<Tarif[]>> {
@@ -45,6 +47,15 @@ export class AbonnementService {
         catchError(this.handleError<Resultat<Tarif>>('tarifParBlockId'))
       );
   }
+  /*getAllBlockByAbonneId(log:string):Observable<Resultat<Detailblock>>{
+    return this.httpClient.get<Resultat<Detailblock>>(this.urlBlockParAbonne+log)
+    .pipe(
+      tap(res=>{
+        this.log(`les Blocks pour un abonne recuperes`);
+      }),
+      catchError(this.handleError<Resultat<Tarif>>('getAllBlockByAbonneId'))
+    );
+  }*/
   private log(message: string) {
     this.messageService.add('tarifService: ' + message);
 

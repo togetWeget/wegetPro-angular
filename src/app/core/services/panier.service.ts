@@ -12,7 +12,9 @@ import * as $ from 'jquery';
 export class PanierService {
 public panierAll: any = {};
 public panierId: any = {};
-public urlset = 'http://wegetback:8080/panier';
+public urlglobal = 'http://wegetback:8080/panier';
+public urlAll = 'http://wegetback:8080/panierParPersonne';
+public countPanier = 0;
   constructor(public  http: HttpClient) { }
   
   
@@ -21,7 +23,7 @@ public urlset = 'http://wegetback:8080/panier';
 			console.log(data);
 		$.ajax({
 			
-			url:u.urlset,
+			url:u.urlglobal,
 			data: JSON.stringify(data),
             contentType: "application/json; charset=utf-8",
 			type:'post',
@@ -40,10 +42,10 @@ public urlset = 'http://wegetback:8080/panier';
 	  }
 	  
 	  
-	getPanierAll(url){
+	getPanierAll(){
 		
 			let u = this;
-			$.getJSON( url, function( data ) {
+			$.getJSON( u.urlglobal, function( data ) {
  
 					u.panierAll = data.body;
 					
@@ -53,24 +55,60 @@ public urlset = 'http://wegetback:8080/panier';
 		}
 		
 		
-	getPanierId(url){
+		
+		
+		
+	count(id){
 		
 			let u = this;
-			$.getJSON( url, function( data ) {
+			
+			const interval = setInterval(()=>{
+				
+									$.getJSON( u.urlAll + '/' + id, function( data ) {
  
 					u.panierId = data.body;
+					u.countPanier =u.panierId.length;
+					// u.runningcheck();
+					
+					
+					
+						}).done(function() {
+							u.countPanier =u.panierId.length;
+						  })
+						  .fail(function() {
+							u.countPanier = 0;
+						  })
+						  .always(function() {
+						   
+							u.countPanier = u.panierId.length;
+						  });
+			  
+			  
+				
+				},1000);
+		
+	}
+
+		getPanierId(id){
+		
+			let u = this;
+			$.getJSON( u.urlAll + '/' + id, function( data ) {
+ 
+					u.panierId = data.body;
+					console.log(u.panierId);
 					
 			});
+			
 		
 		}
 		
-	deleteByIdPanier(url, data){
+	deleteByIdPanier(id){
+	let u= this;
 		$.ajax({
 			
-			url:url,
-			data: JSON.stringify(data),
+			url:u.urlglobal + '/' + id,
             contentType: "application/json; charset=utf-8",
-			type:'post',
+			type:'delete',
 			traditional: true,
 			success: function(){
 				
@@ -85,14 +123,13 @@ public urlset = 'http://wegetback:8080/panier';
 		
 		}
 		
-	deleteAllPanier(url, data){
-		
+	deleteAllPanier(){
+		let u= this;
 		$.ajax({
 			
-			url:url,
-			data: JSON.stringify(data),
+			url:u.urlglobal,
             contentType: "application/json; charset=utf-8",
-			type:'post',
+			type:'delete',
 			traditional: true,
 			success: function(){
 				
@@ -108,15 +145,15 @@ public urlset = 'http://wegetback:8080/panier';
 		
 		}
 		
-	updatePanier(url, data){
-		
+	updatePanier(data){
+		let u= this;
 		
 		$.ajax({
 			
-			url:url,
+			url:u.urlglobal,
 			data: JSON.stringify(data),
             contentType: "application/json; charset=utf-8",
-			type:'post',
+			type:'put',
 			traditional: true,
 			success: function(){
 				
