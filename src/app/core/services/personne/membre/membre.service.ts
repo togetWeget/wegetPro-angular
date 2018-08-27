@@ -6,9 +6,13 @@ import {MessageService} from '../../message.service';
 import {Resultat} from '../../../../shared/models/resultat';
 import {Membre} from '../../../../shared/models/personne/membres/membre';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class MembreService {
   private urlMembre = 'http://wegetback:8080/personnes/ME';
+  private urlModifMembre = 'http://wegetback:8080/membres';
+  private urlMembreByLogin = 'http://wegetback:8080/membresLogin';
   private urlPersonne = 'http://wegetback:8080/personnes';
   private urlPhoto = 'http://wegetback:8080/photo';
   private urlRechercheMens = 'http://wegetback:8080/rechePersonneParMc/ME?mc=';
@@ -58,7 +62,7 @@ export class MembreService {
 
   // permet de modifier un membre
   modifierMembre(ensModif: Membre): Observable<Resultat<Membre>> {
-    return this.http.put<Resultat<Membre>>(this.urlPersonne, ensModif)
+    return this.http.put<Resultat<Membre>>(this.urlModifMembre, ensModif)
       .pipe(
         tap(res => {
           this.log(`enseignant modifier nom et prenom =${res.body.nomComplet}`);
@@ -88,6 +92,16 @@ export class MembreService {
           this.log(`membres trouve  id=${id}`);
         }),
         catchError(this.handleError<Resultat<Membre>>('getmembreById'))
+      );
+  }
+
+  getMembreByLogin(login: string): Observable<Resultat<Membre>> {
+    return this.http.get<Resultat<Membre>>(`${this.urlMembreByLogin}/${login}`)
+      .pipe(
+        tap(res => {
+          this.log(`membre trouve  login=${login}`);
+        }),
+        catchError(this.handleError<Resultat<Membre>>('getmembreByLogin'))
       );
   }
 

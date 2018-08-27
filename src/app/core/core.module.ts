@@ -32,6 +32,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import {PanierService} from './services/panier.service';
 import { SigninComponent } from './clients/signin/signin.component';
 import {LoginsocialService} from './services/personne/membre/loginsocial.service';
+import {InfoMembreService} from './services/Info-membre/info-membre.service';
 @NgModule({
   imports: [
     CommonModule,
@@ -95,7 +96,8 @@ import {LoginsocialService} from './services/personne/membre/loginsocial.service
     BlockService,
     RegisterService,
 	PanierService,
-	LoginsocialService
+	LoginsocialService,
+	InfoMembreService
   ],
   schemas: [NO_ERRORS_SCHEMA]
 })

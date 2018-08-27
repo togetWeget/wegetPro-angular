@@ -41,6 +41,7 @@ export class LoginService {
 
   DestroyLocal() {
       localStorage.removeItem('togetToken');
+      localStorage.removeItem('log');
       this.firebaseDir.signOutUser();
   }
 }

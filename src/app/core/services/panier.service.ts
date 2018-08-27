@@ -12,6 +12,7 @@ import * as $ from 'jquery';
 export class PanierService {
 public panierAll: any = {};
 public panierId: any = {};
+public panierdata: any = {};
 public urlglobal = 'http://wegetback:8080/panier';
 public urlAll = 'http://wegetback:8080/panierParPersonne';
 public countPanier = 0;
@@ -61,31 +62,43 @@ public countPanier = 0;
 	count(id){
 		
 			let u = this;
+						this.countother(id);	
+				return	$.getJSON( u.urlAll + '/' + id, function( data ) {});
+		
+	}
+	
+	countother(id){
+		
+			let u = this;
+							
+					$.getJSON( u.urlAll + '/' + id, function( data ) {
+					
+					
+					
+					}).done(function(data) {
 			
-			const interval = setInterval(()=>{
-				
-									$.getJSON( u.urlAll + '/' + id, function( data ) {
- 
-					u.panierId = data.body;
-					u.countPanier =u.panierId.length;
-					// u.runningcheck();
+			
+					if(data.status == 0){
+						
+						
+									u.countPanier = data.body.length;
+							
+							
+								
+						}
+												
+					}).fail(function(data) {
 					
-					
-					
-						}).done(function() {
-							u.countPanier =u.panierId.length;
-						  })
-						  .fail(function() {
 							u.countPanier = 0;
-						  })
-						  .always(function() {
-						   
-							u.countPanier = u.panierId.length;
-						  });
-			  
-			  
-				
-				},1000);
+							
+					}).always(function(data) {
+					
+										
+						if(data.status != 0 ){
+							u.countPanier = 0;						
+						}
+										
+					});
 		
 	}
 
@@ -101,6 +114,14 @@ public countPanier = 0;
 			
 		
 		}
+		
+		
+		getingAll(id){
+			
+			this.count(id);
+			this.getPanierId(id);
+			
+			}
 		
 	deleteByIdPanier(id){
 	let u= this;
@@ -155,13 +176,11 @@ public countPanier = 0;
             contentType: "application/json; charset=utf-8",
 			type:'put',
 			traditional: true,
-			success: function(){
-				
+			success: function(dataobject){
+				console.log(dataobject);
 				},
-			error: function(){
-				
-				
-				
+			error: function(error){
+				console.log(error);
 				}
 			
 			});

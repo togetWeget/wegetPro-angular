@@ -4,49 +4,48 @@ import { Navs } from '../../../shared/views_models/navs';
 import { AdminCover } from '../../../shared/views_models/admin-cover';
 import { Detailblock } from '../../../shared/models/detailblock';
 import { Resultat } from '../../../shared/models/resultat';
-import { Personne } from '../../../shared/models/personne/membres/personne';
-import { Membre } from '../../../shared/models/personne/membres/membre';
 import { AbonnesService } from '../../../core/services/abonnes/abonnes.service';
-import {MembreService} from '../../../core/services/personne/membre/membre.service';
 
 @Component({
-  selector: 'app-layout-compte',
-  templateUrl: './layout-compte.component.html',
-  styleUrls: ['./layout-compte.component.scss']
+  selector: 'app-espace-ecole',
+  templateUrl: './espace-ecole.component.html',
+  styleUrls: ['./espace-ecole.component.scss']
 })
-export class LayoutCompteComponent implements OnInit {
-top_zone: AdminTopZone = null;
+export class EspaceEcoleComponent implements OnInit {
+  top_zone: AdminTopZone = null;
   detailblock: Detailblock;
+  detailblocks: Detailblock[];
   coverModel: AdminCover;
-  membre: Membre;
+  type_espace: string;
 
-  constructor(private abonneService: AbonnesService,
-    private membreService: MembreService) {
-  	this.getDetailBlock();
+  constructor(private abonneService: AbonnesService) {
+  this.getDetailBlock(); 
   	this.top_zone = new AdminTopZone (
   		'', 
   		'',
   		[
   			new Navs('Accueil', '/admin'),
+  			new Navs('Espace', '/admin/paiement/espace'),
   		],
-  		new Navs ('Profil', ''),
+  		new Navs (this.type_espace, ''),
   		'home',
   	);
 
-    this.coverModel = new AdminCover();
-  }
+    this.coverModel = new AdminCover('',this.type_espace);
+   }
 
   ngOnInit() {
-  }
 
-  getDetailBlock() {
-    this.membreService.getMembreByLogin(localStorage.getItem('log'))
+  }
+  getDetailBlock(){
+  	this.abonneService.getAbonnesByLog(localStorage.getItem('log'))
     .subscribe((data: any)=> {
-      this.membre = data.body;     
-      this.top_zone.titre = this.membre.nomComplet;
+      this.detailblocks = data.body;      
+      this.top_zone.titre = this.detailblocks[0].block.libelle;
+      this.type_espace='Ecole';
       this.coverModel.titre = '';
       this.coverModel.coverPath = '/assets/profile-cover.jpg';
-      this.coverModel.profilPath = this.membre.pathPhoto;
+      this.coverModel.profilPath = '/assets/default.jpg';
       this.coverModel.vues = -1;
       this.coverModel.voirProfilLink = null;
       this.coverModel.modifLink = null;

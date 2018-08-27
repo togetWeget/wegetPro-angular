@@ -20,6 +20,10 @@ export class Membre extends Personne {
     public actived ?: boolean,
     public nomComplet ?: string,
     public pathPhoto ?: string,
+    public nombreVue ?: string,
+    public groupSanguin ?: string,
+    public dateNaissance ?: string,
+    public genre ?: string,
     public type?: string,
     public adresse ?: Adresse,
     public login ?: string,
@@ -30,7 +34,8 @@ export class Membre extends Personne {
     public description?: string,
   ) {
     super(id, version, cni, titre, nom, prenom, password, repassword, actived, nomComplet,
-      pathPhoto, type, adresse, login, entreprise, typeStatut, cvPersonnes, telephones);
+      pathPhoto, nombreVue, groupSanguin, dateNaissance, genre,
+       type, adresse, login, entreprise, typeStatut, cvPersonnes, telephones);
   }
 }
 

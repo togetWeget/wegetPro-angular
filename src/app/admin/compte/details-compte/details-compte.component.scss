@@ -12,6 +12,23 @@
 		border-radius: 100%;
 	}
 }
+.photo-actions{
+	width: 100%;
+	position: relative;
+	margin: 20px 0;
+	.btn-photo-changer{
+		background: var(--green);
+		color: var(--white);
+	}
+	.btn-photo-fermer{
+		background: var(--red);
+		color: var(--white);
+	}
+}
+
+mat-form-field{
+	width: 100%;
+}
 
 .requi-asterix {
 	color: red;
@@ -30,6 +47,15 @@
 		.photo {
 			width: 150px;
 			height: 150px;
+		}
+	}
+	.photo-actions{
+		width: 100%;
+		position: relative;
+		button {
+			width: 100%;
+			display: block;
+			margin: 5px 0;
 		}
 	}
 }

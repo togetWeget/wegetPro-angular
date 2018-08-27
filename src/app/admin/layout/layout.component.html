@@ -12,9 +12,9 @@
             <mat-icon>home</mat-icon>
         </button>
 		
-	<div class="shopping-cards " style="float:right;">
+	<div class="shopping-cards " style="float:right;" (click)="panierredirect()">
 	
-		<span class="badge badge_shopping" style="" >1</span> 
+		<span class="badge badge_shopping" style="" >{{this.panierService.countPanier}}</span> 
 		<span class="fa fa-shopping-basket " ></span>
 		
 		

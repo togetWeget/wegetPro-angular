@@ -3,6 +3,8 @@ import {Router} from '@angular/router';
 import {MatDialog} from '@angular/material';
 import {LoginComponent} from '../../core/clients/login/login.component';
 import {LoginService} from '../../core/services/personne/membre/login.service';
+import {PanierService} from '../../core/services/panier.service';
+import {InfoMembreService} from '../../core/services/Info-membre/info-membre.service';
 import {
   trigger,
   state,
@@ -35,17 +37,39 @@ export class ToolbarComponent implements OnInit {
   @Input() toggle_btn: any;
   modal_toggle = 0;
   menu_state: string;
-
+public stor = localStorage.getItem('togetToken');
+public storlog = localStorage.getItem('log');
   constructor(private router: Router, private dialog: MatDialog,
-    private loginService: LoginService) { }
+    private loginService: LoginService, public paniers: PanierService, public infoM: InfoMembreService) { 
+		if(this.storlog && this.stor){
+			this.infoM.getbylogin();
+		}
+		}
   
    ngOnInit() {
-    $(document).ready(() => {
-      $('.toolbar .toggle button').click(() => {
-        $('.toolbar nav').toggleClass('toggle-visibility');
-      });
-    });
-  }
+		this.getInfopanier();
+	}
+  
+  
+  
+		
+		
+		getInfopanier(){
+  
+		if(this.storlog && this.stor){
+		
+			const lhtInterval = setInterval(()=>{
+			
+			this.paniers.countother(this.infoM.InfoMembres.id);
+			if(this.paniers.countPanier >= 0){
+			// alert(this.paniers.panierdata.status);
+				clearInterval(lhtInterval);
+			}
+			
+			}, 1000);
+
+		}
+	}
 
   scrollTo (target) {
     $(document).scrollTop($(target).offset().top);

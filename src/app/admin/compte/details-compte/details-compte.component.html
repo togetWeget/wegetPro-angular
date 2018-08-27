@@ -1,11 +1,15 @@
 <div class="details-container">
-	<form>
+	<form [formGroup]="detailsForm" (submit)="updateDetails()">
 		<div class="row">
 			<!-- photo -->
 			<div class="col-md-4">
 				<legend>Photo</legend>
 				<div class="photo-cadre">
 					<div #photo class="photo"></div>
+				</div>
+				<div class="photo-actions">
+					<button mat-raised-button class="btn-photo-changer">Changer</button>
+					<button mat-raised-button class="btn-photo-fermer">Fermer</button>
 				</div>
 				<div class="form-group">
 					<input type="file" style="visibility: hidden;" class="form-control" id="" placeholder="Input field">
@@ -19,16 +23,16 @@
 					<div class="col-md-6">
 						<div class="form-group">
 							<label for="">Nom</label>
-							<input type="text" disabled="disabled" class="form-control" id="" placeholder="Input field">
+							<input type="text" autocomplete="family-name" formControlName="nom" class="form-control" id="nom" placeholder="Votre nom">
 						</div>
 						<div class="form-group">
 							<label for="">Prénom(s)</label>
-							<input type="text" disabled="disabled" class="form-control" id="" placeholder="Input field">
+							<input type="text" autocomplete="given-name" formControlName="prenom" class="form-control" id="prenoms" placeholder="Vos prénoms">
 						</div>					
 						<div class="form-group">
 							<label for="">Date de naissance <span class="requi-asterix">(*)</span></label>
 							<div class="input-group">
-								<input type="date" class="form-control" id="" required="required" placeholder="Input field">
+								<input type="date" autocomplete="off" formControlName="dateNaissance" class="form-control" id="date_naiss" required="required" placeholder="Votre date de naissance">
 								<div class="input-group-append">
 									<span class="input-group-text"><i class="fa fa-calendar"></i></span>
 								</div>
@@ -36,7 +40,7 @@
 						</div>
 						<div class="form-group">
 							<label for="">Genre <span class="requi-asterix">(*)</span></label>
-							<ng-select class="custom" [items]="['homme','femme']" [markFirst]="true"></ng-select>							
+							<ng-select class="custom" formControlName="genre" [items]="outils.genres"></ng-select>							
 						</div>					
 						<div class="form-group">
 							<label for="">Langue(s) parlée(s) <span class="requi-asterix">(*)</span></label>
@@ -54,11 +58,11 @@
 						</div>
 						<div class="form-group">
 							<label for="">Adresse</label>
-							<input type="text" class="form-control" id="" placeholder="Input field">
+							<input type="text" autocomplete="address-line1" class="form-control" id="adresse" placeholder="votre adresse">
 						</div>	
 						<div class="form-group">
 							<label for="">Telephone</label>
-							<input type="text" class="form-control" id="" placeholder="Input field">
+							<input type="text" class="form-control" autocomplete="tel" id="telephone" placeholder="votre telephone">
 						</div>	
 					</div>
 				</div>
@@ -77,7 +81,7 @@
 								<i class="fa fa-facebook"></i>		
 							</span>
 						</div>
-						<input type="text" class="form-control" id="" placeholder="Facebook">
+						<input type="text" autocomplete="off" class="form-control" id="facebook" placeholder="Facebook">
 					</div>
 				</div>
 				<div class="form-group">
@@ -88,7 +92,7 @@
 								<i class="fa fa-twitter"></i>		
 							</span>
 						</div>
-						<input type="text" class="form-control" id="" placeholder="Twitter">
+						<input type="text" autocomplete="off" class="form-control" id="twitter" placeholder="Twitter">
 					</div>
 				</div>
 				<div class="form-group">
@@ -99,7 +103,7 @@
 								<i class="fa fa-google-plus"></i>		
 							</span>
 						</div>
-						<input type="text" class="form-control" id="" placeholder="Google+">
+						<input type="text" autocomplete="off" class="form-control" id="google_plus" placeholder="Google+">
 					</div>
 				</div>
 				<div class="form-group">
@@ -110,7 +114,7 @@
 								<i class="fa fa-linkedin"></i>		
 							</span>
 						</div>
-						<input type="text" class="form-control" id="" placeholder="Linkedin">
+						<input type="text" autocomplete="off" class="form-control" id="linkedin" placeholder="Linkedin">
 					</div>
 				</div>
 				<div class="form-group">
@@ -121,7 +125,7 @@
 								<i class="fa fa-dribbble"></i>		
 							</span>
 						</div>
-						<input type="text" class="form-control" id="" placeholder="Dribbble">
+						<input type="text" autocomplete="off" class="form-control" id="dribbble" placeholder="Dribbble">
 					</div>
 				</div>
 				<div class="form-group">
@@ -132,7 +136,7 @@
 								<i class="fa fa-skype"></i>		
 							</span>
 						</div>
-						<input type="text" class="form-control" id="" placeholder="Skype">
+						<input type="text" autocomplete="off" class="form-control" id="skype" placeholder="Skype">
 					</div>
 				</div>
 			</div>
@@ -150,7 +154,7 @@
 						</div>
 						<div class="form-group">
 							<label for="">Année d'expérience <span class="requi-asterix">(*)</span></label>
-							<input type="text" class="form-control" id="" required="required" placeholder="Input field">
+							<input type="text" autocomplete="off" class="form-control" id="annee_exp" required="required" placeholder="Années d'expérience">
 						</div>
 						<div class="form-group">
 							<label for="">Domaine <span class="requi-asterix">(*)</span></label>
@@ -183,7 +187,7 @@
 				<legend>CV</legend>	
 				<div class="form-group">
 					<label for="">Telecharger CV</label>
-					<input type="file" class="form-control" id="" placeholder="Input field">
+					<input type="file" autocomplete="off" class="form-control" id="cv" placeholder="Votre cv">
 				</div>
 				<div class="form-group">
 					<label for="">Motivations</label>

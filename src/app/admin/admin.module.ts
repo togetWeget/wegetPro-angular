@@ -43,6 +43,10 @@ import { FormationCompteComponent } from './compte/formation-compte/formation-co
 import { ExperienceCompteComponent } from './compte/experience-compte/experience-compte.component';
 import { AuthCompteComponent } from './compte/auth-compte/auth-compte.component';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { EspaceEcoleComponent } from './espace/espace-ecole/espace-ecole.component';
+import { EspaceCompetenceComponent } from './espace/espace-competence/espace-competence.component';
+import { EspaceImmobilierComponent } from './espace/espace-immobilier/espace-immobilier.component';
+import { EspaceAnnonceComponent } from './espace/espace-annonce/espace-annonce.component';
  
 @NgModule({
   imports: [
@@ -73,7 +77,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
    DesabonneComponent, ReabonneComponent, HistoriqueComponent, 
    CoverProfilComponent,ListeMessageComponent, MessageComponent, ViewMessageComponent, 
    SupprimeMessageComponent, RepondreMessageComponent, LayoutMessageComponent,
-    ListeMessageEnvoyeComponent, LayoutCompteComponent, EspaceComponent, DetailsCompteComponent, FormationCompteComponent, ExperienceCompteComponent, AuthCompteComponent, 
+    ListeMessageEnvoyeComponent, LayoutCompteComponent, EspaceComponent, DetailsCompteComponent, FormationCompteComponent, ExperienceCompteComponent, AuthCompteComponent, EspaceEcoleComponent, EspaceCompetenceComponent, EspaceImmobilierComponent, EspaceAnnonceComponent, 
   ],
   entryComponents: [BlockComponent],
   exports: [LayoutComponent]

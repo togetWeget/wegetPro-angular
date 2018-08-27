@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {PanierService} from '../../core/services/panier.service';
+import {InfoMembreService} from '../../core/services/Info-membre/info-membre.service';
 import {isObject} from 'rxjs/internal/util/isObject';
 import * as $ from 'jquery';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-panier-view',
@@ -12,21 +14,82 @@ export class PanierViewComponent implements OnInit {
 public qtite: any = 0;
 public prix = 0;
 public datejr = new Date();
-public getAllPanier: any = {};
+public getAllPanier: any[] = [];
 public verif: boolean;
 public verif2: boolean;
 public countPanier = 0;
-  constructor(public panier: PanierService) {
+public stor = localStorage.getItem('togetToken');
+public storlog = localStorage.getItem('log');
+  constructor(public panier: PanierService, private router: Router, public infoM: InfoMembreService) {
 	  this.verif = true;
-	  this.getpanier(101);
-	  this.runningcheck();
+	  if(this.storlog && this.stor){
+		  this.infoM.getbylogin();
+		}
+	 
 	 
 	  }
 
   ngOnInit() {
-	  this.panier.count(101);
-	  alert(this.panier.countPanier);
+  	  if(this.storlog && this.stor){
+		  this.infoM.getbylogin();
+		}
+	  this.getInfopanier();
+	  this.putupdate();
   }
+  
+  
+  getInfopanier(){
+			let u = this;
+		if(this.storlog && this.stor){
+		
+			const lhtInterval = setInterval(()=>{
+			
+			this.panier.count(this.infoM.InfoMembres.id).done(function(data) {
+			
+			
+					if(data.status == 0){
+						
+								if(u.infoM.InfoMembres.id){
+									u.getpanier(u.infoM.InfoMembres.id);
+									u.countPanier = data.body.length;
+									u.panier.countPanier = u.countPanier;
+									// alert(u.countPanier);
+									u.verif = false;
+									clearInterval(lhtInterval);
+									console.log('closed');
+								}
+								
+						}
+												
+					}).fail(function(data) {
+					
+							u.countPanier = 0;
+							
+					}).always(function(data) {
+					
+						if(data.status != 0 ){
+					
+							u.verif = false;
+							u.countPanier = 0;
+							clearInterval(lhtInterval);
+							console.log('closed 2');
+							
+						}
+						u.panier.countPanier = 	u.countPanier;			
+					});
+					
+
+			
+
+			
+			}, 1000);
+
+		}else{
+			this.verif = false;
+		}
+	}
+		
+		
 	up(param){
 		this.getAllPanier[param].quantite = parseInt(this.getAllPanier[param].quantite) + 1;
 		this.getAllPanier[param].total = parseInt(this.getAllPanier[param].quantite) * parseInt(this.getAllPanier[param].tarif.prix);
@@ -83,8 +146,6 @@ public countPanier = 0;
  
 					u.getAllPanier = data.body;
 					console.log(u.getAllPanier);
-						u.verif = false;
-						u.verif2 = true;
 						if(data.body){		
 						u.calculprix();
 							}
@@ -98,29 +159,43 @@ public countPanier = 0;
 					
 					
 			}).done(function() {
-    u.verif = false;
-  if(u.getAllPanier.length>=0){
-	   u.countPanier = u.getAllPanier.length;
-	   }else{
-	    u.countPanier = 0;
-	   }
-  })
-  .fail(function() {
-    u.verif = false;
-	u.verif2 = false;
-  })
-  .always(function() {
+				if(u.getAllPanier.length>=0){
+				u.countPanier = u.getAllPanier.length;
+				}else{
+				u.countPanier = 0;
+				}
+			})
+			.fail(function() {
+					u.verif2 = false;
+			})
+			.always(function() {
   
-   u.verif = false;
-   if(u.getAllPanier.length>=0){
-	   u.countPanier = u.getAllPanier.length;
-	   }else{
-	    u.countPanier = 0;
-	   }
+						u.verif = false;
+						if(u.getAllPanier.length>=0){
+						u.countPanier = u.getAllPanier.length;
+						}else{
+							u.countPanier = 0;
+						}
     
-  });
+			});
 		
 		
+		}
+		
+		othercheck(){
+			this.router.navigate(['/site/blocks']);
+			
+			}
+			
+	putupdate(){
+		let data: any ={
+					idBlock: 38,
+				  idMembre: 121,
+				   quantite: 30,
+				  idTarif: 40,
+				  id: 130
+		};
+		this.panier.updatePanier(data);
 		}
 	
 }

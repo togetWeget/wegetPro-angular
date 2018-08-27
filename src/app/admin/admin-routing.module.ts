@@ -14,6 +14,10 @@ import { ViewMessageComponent } from './messagerie/view-message/view-message.com
 import { SupprimeMessageComponent } from './messagerie/supprime-message/supprime-message.component';
 import { RepondreMessageComponent } from './messagerie/repondre-message/repondre-message.component';
 import { LayoutMessageComponent } from './messagerie/layout-message/layout-message.component';
+import { EspaceAnnonceComponent } from './espace/espace-annonce/espace-annonce.component';
+import { EspaceCompetenceComponent } from './espace/espace-competence/espace-competence.component';
+import { EspaceEcoleComponent } from './espace/espace-ecole/espace-ecole.component';
+import { EspaceImmobilierComponent } from './espace/espace-immobilier/espace-immobilier.component';
 import { ListeMessageEnvoyeComponent } from 
 './messagerie/liste-message-envoye/liste-message-envoye.component';
 import { LayoutCompteComponent } from './compte/layout-compte/layout-compte.component';
@@ -27,9 +31,20 @@ const routes: Routes = [
       {path: '', component: AccueilComponent},
       {
         path: 'compte', component: LayoutCompteComponent },
-      {path: 'paiement/espace', component: ListEspaceComponent},
-      {path: 'paiement/prix/:id', component: FormuleComponent},
-      {path: 'reabonnement/prix/:id', component: ReabonneComponent},
+      {
+        path: 'espace/annonce', component: EspaceAnnonceComponent},
+      {
+        path: 'espace/competence', component: EspaceCompetenceComponent},
+      {
+        path: 'espace/ecole', component: EspaceEcoleComponent},
+      {
+        path: 'espace/immobiler', component: EspaceImmobilierComponent},
+      {
+        path: 'paiement/espace', component: ListEspaceComponent},
+      {
+        path: 'paiement/prix/:id', component: FormuleComponent},
+      {
+        path: 'reabonnement/prix/:id', component: ReabonneComponent},
       {
         path: 'messagerie', component: LayoutMessageComponent, 
         children: [

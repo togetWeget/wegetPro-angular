@@ -11,6 +11,7 @@ import { Detailblock } from '../../../shared/models/detailblock';
 export class EspaceComponent implements OnInit {
 	@Input('detailBlock') detailBlock: Detailblock;
 	defaultPhoto: string = '/assets/placeholder-image.jpg';
+  type_espace:string ='';
 
   constructor(private router: Router, private dialog: MatDialog,) { }
 
@@ -23,8 +24,23 @@ export class EspaceComponent implements OnInit {
     this.detailBlock.block.pathPhoto : 
     this.defaultPhoto;
   }
-  onVoirDetail(){
-  	this.router.navigate(['/admin/espace', this.detailBlock.id])
+  onEditerEspace(){
+    this.type_espace=this.detailBlock.block.libelle;
+    switch (this.type_espace) {
+      case "annonce":
+        this.router.navigate(['/admin/espace','annonce']);
+        break;
+      case "ecoles":
+        this.router.navigate(['/admin/espace','ecole']);
+        break;
+      case "immobilier":
+        this.router.navigate(['/admin/espace','immobiler']);
+        break;
+      default:
+        this.router.navigate(['/admin/espace','competence']);
+        break;
+    }
+
   }
   onReabonne(){
   	this.router.navigate(['/admin/paiement','prix', this.detailBlock.block.id])
