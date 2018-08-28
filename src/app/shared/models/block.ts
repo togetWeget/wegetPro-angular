@@ -3,7 +3,8 @@ export class  Block {
               public version?: number,
               public libelle?: string,
               public description?: string,
-              public pathPhoto?: string) {
-  }
+              public typeBlock?:string,
+              public pathPhoto?: string
+             ) {}
 }
 

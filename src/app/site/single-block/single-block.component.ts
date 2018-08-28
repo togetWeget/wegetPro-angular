@@ -24,6 +24,7 @@ export class SingleBlockComponent implements OnInit {
   ngOnInit() {
     this.imagebg.nativeElement.style.backgroundImage = 'url(' + this.getPhotoSrc() + ')';
     this.imagebg.nativeElement.style.backgroundSize = 'cover';
+    this.imagebg.nativeElement.style.backgroundPosition = 'center';
   }
 
   getPhotoSrc(): any {

@@ -25,10 +25,10 @@ export class BlockUpdateComponent implements OnInit {
   editor_options: Object = {
 	  height: 250
 	};
-  id: any;
+  id: number;
   block: Block;
 
-  blockForm: any;
+  blockForm: FormGroup;
 
 
   constructor(private blockService: BlockService, private fb: FormBuilder,
@@ -98,7 +98,7 @@ export class BlockUpdateComponent implements OnInit {
   updateBlock () {  	
   	let blockModif: Block;
   	blockModif = this.convertisseur((this.blockForm));
-  	// console.log(block);
+  	 console.log(this.block);
   	this.blockService.modifierBlock(blockModif)
   	.subscribe(res => {
         res.messages.toString();

@@ -8,6 +8,8 @@ import { Personne } from '../../../shared/models/personne/membres/personne';
 import { Membre } from '../../../shared/models/personne/membres/membre';
 import { AbonnesService } from '../../../core/services/abonnes/abonnes.service';
 import {MembreService} from '../../../core/services/personne/membre/membre.service';
+import { CoverSelectComponent } from '../cover-select/cover-select.component';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';  
 
 @Component({
   selector: 'app-layout-compte',
@@ -21,7 +23,7 @@ top_zone: AdminTopZone = null;
   membre: Membre;
 
   constructor(private abonneService: AbonnesService,
-    private membreService: MembreService) {
+    private membreService: MembreService,public dialog: MatDialog) {
   	this.getDetailBlock();
   	this.top_zone = new AdminTopZone (
   		'', 
@@ -47,9 +49,32 @@ top_zone: AdminTopZone = null;
       this.coverModel.titre = '';
       this.coverModel.coverPath = '/assets/profile-cover.jpg';
       this.coverModel.profilPath = this.membre.pathPhoto;
-      this.coverModel.vues = -1;
+      this.coverModel.vues = '-1';
       this.coverModel.voirProfilLink = null;
       this.coverModel.modifLink = null;
+      this.coverModel.vues = this.membre.nombreVue;
     });
+  }
+
+  openModif() {
+    this.dialog.open(CoverSelectComponent, {
+      maxWidth: '700px',
+      data: {}
+    });
+  }
+
+  handleClick(event) {
+    switch (event) {
+      case "modif":
+        this.openModif();
+        break;
+      case "voirProfil":
+        // code...
+        break;
+      
+      default:
+        // code...
+        break;
+    }
   }
 }

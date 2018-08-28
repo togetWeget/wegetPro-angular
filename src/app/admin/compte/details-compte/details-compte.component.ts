@@ -26,7 +26,7 @@ export class DetailsCompteComponent implements OnInit {
 
   constructor(private fb: FormBuilder, 
     private membreService: MembreService, 
-    private outils: OutilsService) {
+    public outils: OutilsService) {
     DetailsCompteComponent.me = this;
   }
 
@@ -50,8 +50,8 @@ export class DetailsCompteComponent implements OnInit {
     this.detailsForm = this.fb.group({
       id: [{value: this.membre.id}],
       version: [{value: this.membre.version}],
-      nom: [{value: this.membre.nom, disabled: true}],
-      prenom: [{value: this.membre.prenom, disabled: true}],
+      nom: [{value: this.membre.nom, disabled: false}],
+      prenom: [{value: this.membre.prenom, disabled: false}],
       dateNaissance: [{value: this.membre.dateNaissance}],
       genre: [{value: this.membre.genre}],
       type: [{value: this.membre.type}],

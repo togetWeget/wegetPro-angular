@@ -2,7 +2,7 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-12">
-    	<app-cover-profil-admin [cover]="coverModel" ></app-cover-profil-admin>
+    	<app-cover-profil-admin (clickOcur)="handleClick($event)" [cover]="coverModel" ></app-cover-profil-admin>
 		
 		<br>
 		<br>

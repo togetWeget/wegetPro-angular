@@ -24,7 +24,7 @@ export class ProfilAbonneComponent implements OnInit {
   ngOnInit() {
     this.route.paramMap.pipe(
       switchMap((params: ParamMap) =>
-        this.abonnesService.getAbonnesById(+params.get('id')))
+        this.abonnesService.getProfilById(+params.get('id')))
     ).subscribe(res => {
       this.abonne = res.body;
     });

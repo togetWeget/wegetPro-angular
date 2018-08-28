@@ -11,7 +11,7 @@ export class OutilsService {
   {id:1, name: "Ghana"},
   {id:2, name: "Burkina Faso"},
   {id:3, name: "Senegal"},
-  {id:4, name: "Senegal"},
+  {id:4, name: "Benin"},
   ];
   constructor() { }
 

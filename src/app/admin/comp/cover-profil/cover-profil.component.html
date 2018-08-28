@@ -14,7 +14,7 @@
 			</div>
 		</div>
 		<div class="bottom_cover">
-			<div class="vues" *ngIf="cover.vues >= 0"><i class="fa fa-eye"></i> <span [innerHtml]="cover.vues"></span></div>
+			<div class="vues" *ngIf="cover.vues !== '-1'"><i class="fa fa-eye"></i> <span [innerHtml]="cover.vues"></span></div>
 			<div class="voir_profil"><button (click)="voirProfilAction()" mat-button><i class="fa fa-user"></i> Voir votre profil</button></div>
 		</div>
 	</mat-card-content>

@@ -17,7 +17,8 @@ export class LoginComponent implements OnInit {
 
   constructor(public loginS: LoginService, public reg: RegisterService,
    public authFirebaseService: AuthFirebaseService, 
-   @Inject(MAT_DIALOG_DATA) public data: any, public loginsocialService : LoginsocialService) {
+   @Inject(MAT_DIALOG_DATA) public data: any, public loginsocialService : LoginsocialService,
+   public dialogRef: MatDialogRef<LoginComponent>) {
 
   }
 
@@ -28,6 +29,7 @@ export class LoginComponent implements OnInit {
     const data: any = {login: this.login, password: this.password, repassword: this.password, type: 'ME'};
     const url = this.reg.urlLogins();
     this.loginS.Authentification(url, data);
+    this.dialogRef.close();
     this.authFirebaseService.signInUser(this.login, this.password).then(
 
       () => {

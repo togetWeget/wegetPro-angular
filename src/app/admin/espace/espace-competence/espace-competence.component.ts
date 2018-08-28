@@ -1,7 +1,6 @@
 import { Component, OnInit,Input } from '@angular/core';
 import { Router,ParamMap,ActivatedRoute } from '@angular/router';
 import {switchMap} from 'rxjs/operators';
-import { MatDialog} from '@angular/material';
 import { AdminTopZone } from '../../../shared/views_models/admin-top-zone';
 import { AdminCard } from '../../../shared/views_models/admin-card';
 import { Navs }  from '../../../shared/views_models/navs';
@@ -20,9 +19,9 @@ export class EspaceCompetenceComponent implements OnInit {
   	top_zone: AdminTopZone = null;
   	admin_card: AdminCard = null;
   	detailBlock: Detailblock;
+  	detailBlocks: Detailblock[]=[];
 	constructor(private route: ActivatedRoute,
               	private router: Router,
-              	private formDialog: MatDialog,
               	private abonnementServices:AbonnementService,
               	private abonneService: AbonnesService) {
 		this.getDetailBlock();
@@ -44,14 +43,24 @@ export class EspaceCompetenceComponent implements OnInit {
 	}
 
   ngOnInit() {
+  	this.fetchAllBlock()
   }
 
   getDetailBlock(){
-      /*this.abonneService.getAbonnesByLog(localStorage.getItem('log'))
+  	this.route.paramMap.pipe(
+  		switchMap((params : ParamMap)=>
+  		this.abonneService.getProfilById(+params.get('id')))
+  	).subscribe(res=>{
+  		this.detailBlock = res.body;
+  	  	this.top_zone.titre = this.detailBlock.block.libelle;
+	    this.top_zone.sous_titre=this.detailBlock.block.libelle;
+  	});
+}
+   fetchAllBlock(){
+      this.abonneService.getAbonnesByLog(localStorage.getItem('log'))
       .subscribe((data: any)=> {
-	  	  this.detailBlock = data.body;
-	  	  this.top_zone.titre = this.detailBlock.block.libelle;
-	      this.top_zone.sous_titre=this.detailBlock.block.libelle;
-  	  });  */ 
-   }
+  	  this.detailBlocks = data.body;    
+  	  console.log(this.detailBlocks) ;
+    });
+  }
 }

@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Observable, of, Subject} from 'rxjs';
 import {catchError, map, tap} from 'rxjs/internal/operators';
-import {HttpClient, HttpRequest} from '@angular/common/http';
+import {HttpClient, HttpRequest, HttpHeaders} from '@angular/common/http';
 import {MessageService} from '../../message.service';
 import {Resultat} from '../../../../shared/models/resultat';
 import {Membre} from '../../../../shared/models/personne/membres/membre';
@@ -16,6 +16,9 @@ export class MembreService {
   private urlPersonne = 'http://wegetback:8080/personnes';
   private urlPhoto = 'http://wegetback:8080/photo';
   private urlRechercheMens = 'http://wegetback:8080/rechePersonneParMc/ME?mc=';
+
+  //other vars
+  private jwtToken: string = null;
 
   // observables sources
   private membreCreerSource = new Subject<Resultat<Membre>>();
@@ -60,9 +63,17 @@ export class MembreService {
       );
   }
 
+  loadToken() {
+    this.jwtToken = localStorage.getItem('togetToken');
+  }
+
   // permet de modifier un membre
   modifierMembre(ensModif: Membre): Observable<Resultat<Membre>> {
-    return this.http.put<Resultat<Membre>>(this.urlModifMembre, ensModif)
+    if(this.jwtToken === null){
+      this.loadToken();
+    }      
+    return this.http.put<Resultat<Membre>>(this.urlModifMembre, ensModif, 
+      {headers: new HttpHeaders({'Authorization': this.jwtToken})})
       .pipe(
         tap(res => {
           this.log(`enseignant modifier nom et prenom =${res.body.nomComplet}`);

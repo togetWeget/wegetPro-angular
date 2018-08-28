@@ -47,6 +47,7 @@ import { EspaceEcoleComponent } from './espace/espace-ecole/espace-ecole.compone
 import { EspaceCompetenceComponent } from './espace/espace-competence/espace-competence.component';
 import { EspaceImmobilierComponent } from './espace/espace-immobilier/espace-immobilier.component';
 import { EspaceAnnonceComponent } from './espace/espace-annonce/espace-annonce.component';
+import { CoverSelectComponent } from './compte/cover-select/cover-select.component';
  
 @NgModule({
   imports: [
@@ -77,9 +78,12 @@ import { EspaceAnnonceComponent } from './espace/espace-annonce/espace-annonce.c
    DesabonneComponent, ReabonneComponent, HistoriqueComponent, 
    CoverProfilComponent,ListeMessageComponent, MessageComponent, ViewMessageComponent, 
    SupprimeMessageComponent, RepondreMessageComponent, LayoutMessageComponent,
-    ListeMessageEnvoyeComponent, LayoutCompteComponent, EspaceComponent, DetailsCompteComponent, FormationCompteComponent, ExperienceCompteComponent, AuthCompteComponent, EspaceEcoleComponent, EspaceCompetenceComponent, EspaceImmobilierComponent, EspaceAnnonceComponent, 
+    ListeMessageEnvoyeComponent, LayoutCompteComponent, EspaceComponent, 
+    DetailsCompteComponent, FormationCompteComponent, ExperienceCompteComponent, 
+    AuthCompteComponent, EspaceEcoleComponent, EspaceCompetenceComponent, 
+    EspaceImmobilierComponent, EspaceAnnonceComponent, CoverSelectComponent, 
   ],
-  entryComponents: [BlockComponent],
+  entryComponents: [BlockComponent,CoverSelectComponent],
   exports: [LayoutComponent]
 })
 export class AdminModule {

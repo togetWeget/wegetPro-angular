@@ -32,13 +32,13 @@ const routes: Routes = [
       {
         path: 'compte', component: LayoutCompteComponent },
       {
-        path: 'espace/annonce', component: EspaceAnnonceComponent},
+        path: 'espace/annonce/:id', component: EspaceAnnonceComponent},
       {
-        path: 'espace/competence', component: EspaceCompetenceComponent},
+        path: 'espace/competence/:id', component: EspaceCompetenceComponent},
       {
-        path: 'espace/ecole', component: EspaceEcoleComponent},
+        path: 'espace/ecole/:id', component: EspaceEcoleComponent},
       {
-        path: 'espace/immobiler', component: EspaceImmobilierComponent},
+        path: 'espace/immobiler/:id', component: EspaceImmobilierComponent},
       {
         path: 'paiement/espace', component: ListEspaceComponent},
       {

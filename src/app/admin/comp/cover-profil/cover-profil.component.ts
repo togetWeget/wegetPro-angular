@@ -3,6 +3,7 @@ ElementRef, Input, Output, EventEmitter } from '@angular/core';
 import {Router} from '@angular/router';
 import { AdminCover } from '../../../shared/views_models/admin-cover';
 
+
 @Component({
   selector: 'app-cover-profil-admin',
   templateUrl: './cover-profil.component.html',
