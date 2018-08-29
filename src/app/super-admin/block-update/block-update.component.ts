@@ -8,10 +8,12 @@ import { AdminTopZone } from '../../shared/views_models/admin-top-zone';
 import { Navs } from '../../shared/views_models/navs';
 import { AdminCard } from '../../shared/views_models/admin-card';
 import { Block } from '../../shared/models/block';
-import * as $ from 'jquery'; 
-window["$"] =$; 
+import * as $ from 'jquery';
+window["$"] =$;
 window["jQuery"] = $;
 import "froala-editor/js/froala_editor.pkgd.min.js";
+import {Resultat} from '../../shared/models/Resultat';
+import {LoginService} from '../../core/services/personne/membre/login.service';
 
 
 @Component({
@@ -29,13 +31,14 @@ export class BlockUpdateComponent implements OnInit {
   block: Block;
 
   blockForm: FormGroup;
+  resultat: Resultat<Block>;
+  succesMessage: string;
 
-
-  constructor(private blockService: BlockService, private fb: FormBuilder,
+  constructor( private fb: FormBuilder, private loginServive: LoginService,
   	private toastr: ToastrService, private router: Router,
   	private route: ActivatedRoute) {
   	this.top_zone = new AdminTopZone (
-  		'Blocks', 
+  		'Blocks',
   		'',
   		[
   			new Navs('Accueil', '/super/admin'),
@@ -46,30 +49,43 @@ export class BlockUpdateComponent implements OnInit {
   	);
 
   	this.admin_card = new AdminCard(
-  		'Ajouter un block',
+  		'Modifier un block',
   		''
   		);
 
-  	this.block = new Block(null,null,'','','');
-  	this.initForm();
-  
-  }
+  	}
 
-  ngOnInit() { 
+  ngOnInit() {
   	this.route.paramMap.pipe(
       switchMap((params: ParamMap) => {
-          this.id = +params.get('id');
-           return this.blockService.getBlockById(this.id); 
-        }
+        this.id = +params.get('id');
+        console.log('message de ngOinit pour recuperer id', +params.get('id'));
+
+        return this.loginServive.getBlockById(this.id);
+
+          }
       )
     ).subscribe(res => {
-  		this.block = res.body;
-  		this.initForm();
-        if (res.statut === 0) {
-          this.initForm();
-        }
+      this.resultat = res;
+      this.block = res.body;
+      console.log('dans la methode suscribe de block editer component', res.body);
+      if (res.status===0) {
+        this.initForm();
+      }
+
+
       }
     );
+  }
+  onSubmit () {
+    let blkModif: Block;
+    blkModif = this.convertisseur(this.blockForm);
+    this.loginServive.modifierBlock(blkModif)
+      .subscribe(res => {
+        console.log('block est modifier', res.body);
+        this.toastr.success('Block modifié avec succès', 'Opération réussie');
+        this.router.navigate(['/super/admin/blocks']);
+      });
   }
 
   private initForm() {
@@ -78,11 +94,12 @@ export class BlockUpdateComponent implements OnInit {
 	  	version: [this.block.version],
 	  	libelle: [this.block.libelle],
 	  	description: [this.block.description],
-	  	pathPhoto: [this.block.pathPhoto]
+	  	pathPhoto: [this.block.pathPhoto],
+      typeBlock: [this.block.typeBlock]
 	  });
   }
 
-  
+
 
   private convertisseur (fg: FormGroup): Block {
   	const blk = new Block(
@@ -90,23 +107,11 @@ export class BlockUpdateComponent implements OnInit {
   		fg.value['version'],
   		fg.value['libelle'],
   		fg.value['description'],
-  		fg.value['pathPhoto']
+  		fg.value['pathPhoto'],
+      fg.value['typeBlock']
   		);
   	return blk;
   }
 
-  updateBlock () {  	
-  	let blockModif: Block;
-  	blockModif = this.convertisseur((this.blockForm));
-  	 console.log(this.block);
-  	this.blockService.modifierBlock(blockModif)
-  	.subscribe(res => {
-        res.messages.toString();
-        console.log(res.messages.toString());
-        console.log('block  res ajoute', res.body);
-        this.toastr.success('Block modifié avec succès', 'Opération réussie');
-        this.router.navigate(['/super/admin/blocks']);
-    });
-  }
 
 }

@@ -9,6 +9,7 @@ import { Resultat } from '../../shared/models/resultat';
 import {BlockService} from '../../core/services/blocks/block.service';
 // import { ApercuBlockComponent } from './comp/apercu-block/apercu-block.component';
 import { BlockPhotoComponent } from '../block-photo/block-photo.component';
+import {LoginService} from '../../core/services/personne/membre/login.service';
 
 @Component({
   selector: 'app-super-admin-blocks',
@@ -21,9 +22,9 @@ export class BlocksComponent implements OnInit {
   admin_card: AdminCard = null;
   blocks: Block[] = [];
 
-  constructor(private blockService: BlockService, private dialog: MatDialog) {
+  constructor(private blockService: BlockService, private dialog: MatDialog,private loginServive: LoginService,) {
   	this.top_zone = new AdminTopZone (
-  		'Blocks', 
+  		'Blocks',
   		'',
   		[
   			new Navs('Accueil', '/super/admin'),
@@ -41,7 +42,7 @@ export class BlocksComponent implements OnInit {
   }
 
   fetchBlocks() {
-    this.blockService.getAllBlocks()
+    this.loginServive.getAllBlocks()
       .subscribe(data => {
         this.blocks = data.body;
       });
@@ -61,7 +62,7 @@ export class BlocksComponent implements OnInit {
       case 'delete':
         this.deleteBlockModal();
         break;
-      
+
       default:
         console.log('default');
         break;
@@ -77,13 +78,13 @@ export class BlocksComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       setTimeout(() => {
-        this.fetchBlocks();        
+        this.fetchBlocks();
       }, 500);
     });
   }
 
   apercuModal () {
-    
+
   }
 
   deleteBlockModal () {

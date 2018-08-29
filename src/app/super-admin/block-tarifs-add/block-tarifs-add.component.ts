@@ -8,6 +8,7 @@ import { Tarif } from '../../shared/models/tarif/tarif';
 import { PersonalButton } from '../../shared/views_models/personal-button';
 import {BlockService} from '../../core/services/blocks/block.service';
 import {TarifService} from '../../core/services/tarif/tarif.service';
+import {LoginService} from '../../core/services/personne/membre/login.service';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import * as $ from 'jquery'; 
 window["$"] =$; 
@@ -50,7 +51,7 @@ export class BlockTarifsAddComponent implements OnInit {
   tarifForm: any;
 
 
-  constructor(private tarifService: TarifService, private fb: FormBuilder, 
+  constructor(private tarifService: TarifService, private fb: FormBuilder,private loginService: LoginService,
   	public dialogRef: MatDialogRef<BlockTarifsAddComponent>, 
   	private toastr: ToastrService,
     @Inject(MAT_DIALOG_DATA) public data: any) { 
@@ -95,7 +96,7 @@ export class BlockTarifsAddComponent implements OnInit {
   	let tarifAdd: Tarif;
   	tarifAdd = this.convertisseur((this.tarifForm));
   	// console.log(tarifAdd);
-  	this.tarifService.ajoutTarif(tarifAdd)
+  	this.loginService.ajoutTarif(tarifAdd)
   	.subscribe(res => {
         res.messages.toString();
         console.log(res.messages.toString());

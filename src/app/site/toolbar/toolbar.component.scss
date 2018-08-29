@@ -15,70 +15,7 @@ $col-2: gray;
         }
     }
 }
-@media screen and (min-width: $sm) {
-    .toolbar {
-        display: flex;
-        .toggle {
-            visibility: hidden;
-            position: absolute;
-        }
-        nav a, nav button {
-            text-decoration: none;
-            margin-right: 10px;
-        }
-        .nav-left {
-            display: flex;
-            flex-wrap: wrap;
-            margin-left: 10px;
-        }
-        .nav-right {
-            display: flex;
-            flex-wrap: wrap;
-        }
-        .nav-space {
-            flex: 1 1 auto;
-        }
-    }
-}
-@media screen and (max-width: $sm) {
-    .toolbar {
-        display: block;
-        .toggle-visibility {
-            visibility: hidden;
-        }
-        .toggle {
-            top: 10px;
-            position: relative;
-            ;
-        }
-        .logo {
-            top: 10px;
-            position: relative;
-            ;
-        }
-        .nav-container {
-            height: 20px;
-        }
-        nav {
-            display: table;
-            background: $col-1;
-            box-shadow: 0 1px 3px $col-2;
-            width: 100%;
-            color: #5a5a5a;
-            background: #ffffff;
-            a, button {
-                display: block;
-                width: 100%;
-                text-decoration: none;
-            }
-            a:hover {
-                color: #5a5a5a;
-            }
-        }
-        .nav-left {}
-        .nav-right {}
-    }
-}
+
 
 .app-title {
     margin: 0 20px;
@@ -120,3 +57,71 @@ background:#fff;
 border:1px dashed #ff6d05;
 
 }
+
+
+@media screen and (max-width: $sm) {
+    .toolbar {
+        display: block;
+        .toggle-visibility {
+            visibility: hidden;
+        }
+        .toggle {
+            top: 10px;
+            position: relative;
+            ;
+        }
+        .logo {
+            top: 10px;
+            position: relative;
+            ;
+        }
+        .nav-container {
+            height: 20px;
+        }
+        nav {
+            display: table;
+            background: $col-1;
+            box-shadow: 0 1px 3px $col-2;
+            width: 100%;
+            color: #5a5a5a;
+            background: #ffffff;
+            a, button {
+                display: block;
+                width: 100%;
+                text-decoration: none;
+            }
+            a:hover {
+                color: #5a5a5a;
+            }
+        }
+        .nav-left {}
+        .nav-right {}
+    }
+}
+
+@media screen and (min-width: $sm) {
+    .toolbar {
+        display: flex;
+        .toggle {
+            visibility: hidden;
+            position: absolute;
+        }
+        nav a, nav button {
+            text-decoration: none;
+            margin-right: 10px;
+        }
+        .nav-left {
+            display: flex;
+            flex-wrap: wrap;
+            margin-left: 10px;
+        }
+        .nav-right {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .nav-space {
+            flex: 1 1 auto;
+        }
+    }
+}
+

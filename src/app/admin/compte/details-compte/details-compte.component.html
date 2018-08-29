@@ -8,8 +8,8 @@
 					<div #photo class="photo"></div>
 				</div>
 				<div class="photo-actions">
-					<button mat-raised-button class="btn-photo-changer">Changer</button>
-					<button mat-raised-button class="btn-photo-fermer">Fermer</button>
+					<input type="file" autocomplete="off" class="form-control changer_photo" id="changer_photo" placeholder="changer">
+					<label for="changer_photo" mat-raised-button><i class="fa fa-photo"></i>&nbsp;&nbsp;Changer photo</label>
 				</div>
 				<div class="form-group">
 					<input type="file" style="visibility: hidden;" class="form-control" id="" placeholder="Input field">
@@ -197,6 +197,6 @@
 		</div>
 		
 	
-		<button type="submit" class="btn btn-primary"><i class="fa fa-refresh"></i>&nbsp;&nbsp;Mettre à jours</button>
+		<button type="submit" class="btn btn-blue"><i class="fa fa-refresh"></i>&nbsp;&nbsp;Mettre à jours</button>
 	</form>
 </div>

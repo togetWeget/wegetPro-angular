@@ -1,14 +1,14 @@
 <span>
 <mat-toolbar class="toolbar mat-elevation-z3">
-  <span class="toggle"><button mat-button><i class="fa fa-bars"></i></button></span>
+  <span class="toggle"><button (click)="toggleMenu()" mat-button><i class="fa fa-bars"></i></button></span>
   <span class="logo">TogetPro</span>
   <div class="nav-container"></div>
-  <nav class="nav-left toggle-visibility">
+  <nav class="nav-left" [ngClass]="{'toggle-visibility': !menu_state}">
     <a class="app-top-menu-item mat-button" mat-button routerLink="/"><span>Accueil</span></a>
       <a class="app-top-menu-item mat-button" mat-button routerLink="blocks"><span>Espaces</span></a>
   </nav>
   <span class="nav-space"></span>
-  <nav class="nav-right toggle-visibility">
+  <nav class="nav-right" [ngClass]="{'toggle-visibility': !menu_state}">
     <button appIfMediaQuery="(min-width: 768px)" mat-icon-button>
         <mat-icon>search</mat-icon>
       </button>

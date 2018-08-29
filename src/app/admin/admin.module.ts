@@ -48,6 +48,10 @@ import { EspaceCompetenceComponent } from './espace/espace-competence/espace-com
 import { EspaceImmobilierComponent } from './espace/espace-immobilier/espace-immobilier.component';
 import { EspaceAnnonceComponent } from './espace/espace-annonce/espace-annonce.component';
 import { CoverSelectComponent } from './compte/cover-select/cover-select.component';
+import { CompetencePhotoComponent } from './espace-competence/competence-photo/competence-photo.component';
+import { CompetenceFormationComponent } from './espace-competence/competence-formation/competence-formation.component';
+import { CompetenceExperienceComponent } from './espace-competence/competence-experience/competence-experience.component';
+import { CompetenceDocumentsComponent } from './espace-competence/competence-documents/competence-documents.component';
  
 @NgModule({
   imports: [
@@ -81,7 +85,7 @@ import { CoverSelectComponent } from './compte/cover-select/cover-select.compone
     ListeMessageEnvoyeComponent, LayoutCompteComponent, EspaceComponent, 
     DetailsCompteComponent, FormationCompteComponent, ExperienceCompteComponent, 
     AuthCompteComponent, EspaceEcoleComponent, EspaceCompetenceComponent, 
-    EspaceImmobilierComponent, EspaceAnnonceComponent, CoverSelectComponent, 
+    EspaceImmobilierComponent, EspaceAnnonceComponent, CoverSelectComponent, CompetencePhotoComponent, CompetenceFormationComponent, CompetenceExperienceComponent, CompetenceDocumentsComponent, 
   ],
   entryComponents: [BlockComponent,CoverSelectComponent],
   exports: [LayoutComponent]

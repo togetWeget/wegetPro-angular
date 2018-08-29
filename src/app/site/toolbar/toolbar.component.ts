@@ -36,13 +36,14 @@ import * as $ from 'jquery';
 export class ToolbarComponent implements OnInit {
   @Input() toggle_btn: any;
   modal_toggle = 0;
-  menu_state: string;
+  menu_state: boolean;
 public stor = localStorage.getItem('togetToken');
 public storlog = localStorage.getItem('log');
   constructor(private router: Router, private dialog: MatDialog,
     private loginService: LoginService, public paniers: PanierService, public infoM: InfoMembreService) { 
 		if(this.storlog && this.stor){
 			this.infoM.getbylogin();
+      this.menu_state = false;
 		}
 		}
   
@@ -97,7 +98,7 @@ public storlog = localStorage.getItem('log');
   }
 
   toggleMenu () {
-    this.menu_state = (this.menu_state === 'close') ? 'open' : 'close';
+    this.menu_state = !this.menu_state;
   }
 
   connexion () {
@@ -118,7 +119,14 @@ public storlog = localStorage.getItem('log');
   }
   
   panier () {
-    this.router.navigate(['site/panier/1']);
+  
+	let Membre = 0;
+  if(this.infoM.InfoMembres.id){
+    Membre = this.infoM.InfoMembres.id;
+	  }else{
+	    Membre = 0;
+	  }
+    this.router.navigate(['site/panier/'+Membre]);
   }
 
 }

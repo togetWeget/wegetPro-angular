@@ -4,7 +4,7 @@
 		<div class="col-12">
 			<app-admin-card [adminCard]="admin_card" >
 				<div class="admin-card-content">
-					<form [formGroup]="blockForm" (submit)="ajouterBlock()" >
+					<form [formGroup]="blockForm" (submit)="ajouterBlock()" *ngIf="blockForm" >
 					<div class="row">
 						<div class="col-md-12">
 							<div class="form-group">
@@ -12,12 +12,25 @@
 							    <input formControlName="libelle" type="text" class="form-control" placeholder="Titre du block">
 							</div>
 						</div>
+
 						<div class="col-md-12">
 							<div class="form-group">
 							    <label for="contenu">Contenu</label>
 							    <textarea formControlName="description" [froalaEditor]="editor_options"></textarea>
 							</div>
 						</div>
+            <div class="col-md-12">
+              <div class="form-group">
+                <label for="contenu">pathPhoto</label>
+                <input formControlName="pathPhoto">
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="form-group">
+                <label for="contenu">type block</label>
+                <input formControlName="typeBlock">
+              </div>
+            </div>
 						<div class="col-md-12">
 							<button mat-raised-button color="primary" class="blue" type="submit">Ajouter</button>
 						</div>
@@ -25,7 +38,7 @@
 					</form>
 				</div>
 				<div class="admin-card-footer">
-					
+
 				</div>
 			</app-admin-card>
 		</div>

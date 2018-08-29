@@ -7,10 +7,11 @@ import { AdminCard } from '../../shared/views_models/admin-card';
 import { Block } from '../../shared/models/block';
 import {BlockService} from '../../core/services/blocks/block.service';
 import { ToastrService } from 'ngx-toastr';
-import * as $ from 'jquery'; 
-window["$"] =$; 
+import * as $ from 'jquery';
+window["$"] =$;
 window["jQuery"] = $;
 import "froala-editor/js/froala_editor.pkgd.min.js";
+import {LoginService} from '../../core/services/personne/membre/login.service';
 
 @Component({
   selector: 'app-super-admin-block-add',
@@ -28,14 +29,15 @@ export class BlockAddComponent implements OnInit {
   	version: [''],
   	libelle: [''],
   	description: [''],
-  	pathPhoto: ['']
+  	pathPhoto: [''],
+    typeBlock: ['']
   });
 
 
-  constructor(private blockService: BlockService, private fb: FormBuilder,
+  constructor(private blockService: BlockService, private fb: FormBuilder,private loginServive: LoginService,
   	private toastr: ToastrService, private router: Router) {
   	this.top_zone = new AdminTopZone (
-  		'Blocks', 
+  		'Blocks',
   		'',
   		[
   			new Navs('Accueil', '/super/admin'),
@@ -49,7 +51,7 @@ export class BlockAddComponent implements OnInit {
   		'Ajouter un block',
   		''
   		);
-  
+
   }
 
   ngOnInit() {
@@ -61,13 +63,14 @@ export class BlockAddComponent implements OnInit {
   		fg.value['version'],
   		fg.value['libelle'],
   		fg.value['description'],
-  		fg.value['pathPhoto']
+  		fg.value['pathPhoto'],
+      fg.value['typeBlock']
   		);
   	return blk;
   }
 
-  ajouterBlock () {  	
-  	this.blockService.ajoutBlock(this.convertisseur((this.blockForm)))
+  ajouterBlock () {
+  	this.loginServive.ajoutBlock(this.convertisseur((this.blockForm)))
   	.subscribe((res: any) => {
         res.messages.toString();
         console.log(res.messages.toString());

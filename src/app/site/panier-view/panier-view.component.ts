@@ -20,7 +20,9 @@ public verif2: boolean;
 public countPanier = 0;
 public stor = localStorage.getItem('togetToken');
 public storlog = localStorage.getItem('log');
+public dataLocal;
   constructor(public panier: PanierService, private router: Router, public infoM: InfoMembreService) {
+  this.countPanier = 0;
 	  this.verif = true;
 	  if(this.storlog && this.stor){
 		  this.infoM.getbylogin();
@@ -34,19 +36,25 @@ public storlog = localStorage.getItem('log');
 		  this.infoM.getbylogin();
 		}
 	  this.getInfopanier();
-	  this.putupdate();
+	  // this.putupdate();
   }
   
   
+  convertDate(date){
+	  
+	 this.dataLocal =  new Date(date).toLocaleString();
+	  }
+  
   getInfopanier(){
 			let u = this;
+			u.countPanier = 0;
 		if(this.storlog && this.stor){
 		
 			const lhtInterval = setInterval(()=>{
 			
 			this.panier.count(this.infoM.InfoMembres.id).done(function(data) {
 			
-			
+						console.log(u.infoM.InfoMembres.id);
 					if(data.status == 0){
 						
 								if(u.infoM.InfoMembres.id){
@@ -117,6 +125,8 @@ public storlog = localStorage.getItem('log');
 		this.prix = 0;
 			for(let i=0; i<this.getAllPanier.length; i++ ){
 					this.prix += parseInt(this.getAllPanier[i].total);
+					let dateLocal = this.getAllPanier[i].date;
+					this.getAllPanier[i].date = new Date(dateLocal).toLocaleString();
 				}
 			
 			}

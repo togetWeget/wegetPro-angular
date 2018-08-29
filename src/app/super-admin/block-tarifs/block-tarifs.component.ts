@@ -13,6 +13,7 @@ import {TarifService} from '../../core/services/tarif/tarif.service';
 import {BlockService} from '../../core/services/blocks/block.service';
 import {BlockTarifsAddComponent} from '../block-tarifs-add/block-tarifs-add.component';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import {LoginService} from '../../core/services/personne/membre/login.service';
 import * as $ from 'jquery'; 
 window["$"] =$; 
 window["jQuery"] = $;
@@ -55,7 +56,7 @@ export class BlockTarifsComponent implements OnInit {
   id: number;
   block: Block;
 
-  constructor(private blockService: BlockService, public dialog: MatDialog,
+  constructor(private blockService: BlockService, public dialog: MatDialog, private  loginService: LoginService,
   	private toastr: ToastrService, private router: Router,
   	private route: ActivatedRoute, private tarifService: TarifService) {
   	this.top_zone = new AdminTopZone (
@@ -82,7 +83,7 @@ export class BlockTarifsComponent implements OnInit {
   	this.route.paramMap.pipe(
       switchMap((params: ParamMap) => {
           this.id = +params.get('id');
-           return this.blockService.getBlockById(this.id); 
+           return this.loginService.getBlockById(this.id); 
         }
       )
     ).subscribe(res => {
@@ -117,7 +118,7 @@ export class BlockTarifsComponent implements OnInit {
   }
 
   getTarifs () {
-  	this.tarifService.tarifParBlockId(this.block.id)
+  	this.loginService.tarifParBlockId(this.block.id)
       .subscribe((res: any) => {
       	this.tarifs = res.body;
 	    }

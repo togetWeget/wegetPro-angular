@@ -16,7 +16,7 @@ public panierdata: any = {};
 public urlglobal = 'http://wegetback:8080/panier';
 public urlAll = 'http://wegetback:8080/panierParPersonne';
 public countPanier = 0;
-  constructor(public  http: HttpClient) { }
+  constructor(public  http: HttpClient) {}
   
   
 	setpanier(data){
@@ -70,6 +70,19 @@ public countPanier = 0;
 	countother(id){
 		
 			let u = this;
+
+				
+				
+			
+				const interval = setInterval(()=>{
+				
+			let token = localStorage.getItem('togetToken');
+			let tokenLog = localStorage.getItem('log');
+			
+			if(token && tokenLog){				
+				
+				
+				
 							
 					$.getJSON( u.urlAll + '/' + id, function( data ) {
 					
@@ -99,6 +112,15 @@ public countPanier = 0;
 						}
 										
 					});
+				}else{
+			clearInterval(interval);
+			u.countPanier = 0;
+			}
+					
+				}, 60000);
+			
+			
+
 		
 	}
 

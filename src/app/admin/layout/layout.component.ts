@@ -89,7 +89,16 @@ public storlog = localStorage.getItem('log');
 	this.getInfopanier();
   }
   
+   
     panierredirect () {
-    this.router.navigate(['site/panier/1']);
+  
+	let Membre = 0;
+  if(this.infoM.InfoMembres.id){
+    Membre = this.infoM.InfoMembres.id;
+	  }else{
+	    Membre = 0;
+	  }
+    this.router.navigate(['site/panier/'+Membre]);
   }
+  
 }

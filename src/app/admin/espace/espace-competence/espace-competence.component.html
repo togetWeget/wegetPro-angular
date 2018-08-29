@@ -1,4 +1,45 @@
 <app-top-zone [topZone]="top_zone" ></app-top-zone>
-<p>
-  espace-competence works!
-</p>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-12">
+			<mat-tab-group>
+				<mat-tab>
+				    <ng-template mat-tab-label>
+				      <i class="fa fa-graduation-cap"></i>&nbsp;&nbsp;
+				      Formations
+				    </ng-template>
+				    <div class="bien-contenir">
+				    	<app-competence-formation></app-competence-formation>
+				    </div>
+				</mat-tab>
+				<mat-tab>
+				    <ng-template mat-tab-label>
+				      <i class="fa fa-trophy"></i>&nbsp;&nbsp;
+				      Expériences
+				    </ng-template>
+				    <div class="bien-contenir">
+						<app-competence-experience></app-competence-experience>
+					</div>
+				</mat-tab>
+				<mat-tab>
+				    <ng-template mat-tab-label>
+				      <i class="fa fa-folder"></i>&nbsp;&nbsp;
+				      Documents
+				    </ng-template>
+				    <div class="bien-contenir">
+						<app-competence-documents></app-competence-documents>
+					</div>
+				</mat-tab>
+				<mat-tab>
+				    <ng-template mat-tab-label>
+				      <i class="fa fa-image"></i>&nbsp;&nbsp;
+				      Photos
+				    </ng-template>
+				    <div class="bien-contenir">
+						<app-competence-photo></app-competence-photo>
+					</div>
+				</mat-tab>
+			</mat-tab-group>
+		</div>
+	</div>
+</div>
