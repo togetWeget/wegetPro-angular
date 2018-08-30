@@ -1,7 +1,9 @@
 import { Component, OnInit, ViewChild,
 	ElementRef, Input } from '@angular/core';
-import {FormBuilder, FormGroup, FormControl,
-Validators } from '@angular/forms';
+import {
+  FormBuilder, FormGroup, FormControl,
+  Validators, FormArray
+} from '@angular/forms';
 import { Detailblock } from '../../../shared/models/detailblock';
 import { Resultat } from '../../../shared/models/resultat';
 import { Personne } from '../../../shared/models/personne/membres/personne';
@@ -25,8 +27,8 @@ export class InfoPersoComponent implements OnInit {
   detailblocks: Detailblock[];
   static me: InfoPersoComponent;
 
-  constructor(private fb: FormBuilder, 
-    private membreService: MembreService, 
+  constructor(private fb: FormBuilder,
+    private membreService: MembreService,
     public outils: OutilsService) {
     InfoPersoComponent.me = this;
   }
@@ -36,22 +38,22 @@ export class InfoPersoComponent implements OnInit {
     this.photo.nativeElement.style.backgroundSize = 'cover';
     this.photo.nativeElement.style.backgroundPosition = 'center';
     this.getDetailBlock();
-    //this.initForm();
+    this.initForm();
   }
 
   getProfilSrc(): any {
-    return (this.membre.pathPhoto !== null && 
-      this.membre.pathPhoto !== undefined && 
-      this.membre.pathPhoto !== '') ? 
-    this.membre.pathPhoto : 
+    return (this.membre.pathPhoto !== null &&
+      this.membre.pathPhoto !== undefined &&
+      this.membre.pathPhoto !== '') ?
+    this.membre.pathPhoto :
     this.defaultProfil;
   }
 
   initForm() {
 
-    /* const telephonesInit = new FormArray([]);
+     const telephonesInit = new FormArray([]);
     let mens: Membre;
-    
+
         mens = this.membre;
         if (mens.telephones.length !== 0) {
           for (const tel of mens.telephones) {
@@ -64,9 +66,9 @@ export class InfoPersoComponent implements OnInit {
               })
             );
           }
-        }*/
-      
-    
+        }
+
+
     this.detailsForm = this.fb.group({
       id: [{value: this.membre.id}],
       version: [{value: this.membre.version}],
@@ -84,41 +86,41 @@ export class InfoPersoComponent implements OnInit {
        dateNaissance: [{value: this.membre.dateNaissance}],
       genre: [{value: this.membre.genre}],
       type: [{value: this.membre.type}],
-      
-       adresse:this.fg.group ({
+
+       adresse:this.fb.group ({
         codePostal: [this.membre.adresse.codePostal],
         email: [this.membre.adresse.email],
         pays: [this.membre.adresse.pays]
          }),
       login: [{value: this.membre.login}],
-      entreprise:this.fg.group({
+      entreprise:this.fb.group({
         id:[this.membre.entreprise.id],
         version:[this.membre.entreprise.version],
         libelle:[this.membre.entreprise.libelle],
         description:[this.membre.entreprise.description]
         }),
-      cvPersonne:this.fg.group({
+      cvPersonne:this.fb.group({
        id:[this.membre.cvPersonne.id],
        version:[this.membre.cvPersonne.version],
        diplome:[this.membre.cvPersonne.diplome],
        specialite:[this.membre.cvPersonne.specialite],
        anneExperience:[this.membre.cvPersonne.anneExperience],
        description:[this.membre.cvPersonne.description],
-       experience:this.membre.cvPersonne.experience],
-       cursusScolaire:this.membre.cvPersonne.cursusScolaire],
-       langue:this.membre.cvPersonne.langue]
+       experience:[this.membre.cvPersonne.experience],
+       cursusScolaire:[this.membre.cvPersonne.cursusScolaire],
+       langue:[this.membre.cvPersonne.langue]
       }),
       telephones:telephonesInit,
-      typeStatut:this.fg.group({
+      typeStatut:this.fb.group({
       id:[this.membre.typeStatut.id],
        version:[this.membre.typeStatut.version],
        libelle:[this.membre.typeStatut.libelle]
         }),
-      contrat:this.fg.group({
+      contrat:this.fb.group({
       id:[this.membre.contrat.id],
        version:[this.membre.contrat.version],
        dureeContrat:[this.membre.contrat.dureeContrat],
-       periodeContrat:[this.membre.typeStatut.periodeContrat],
+       periodeContrat:[this.membre.contrat],
         }),
       description: [{value: this.membre.description}]
     });
@@ -127,7 +129,7 @@ export class InfoPersoComponent implements OnInit {
   getDetailBlock() {
     this.membreService.getMembreByLogin(localStorage.getItem('log'))
     .subscribe((data: any)=> {
-      this.membre = data.body;     
+      this.membre = data.body;
       this.initForm();
       this.photo.nativeElement.style.backgroundImage = 'url(' + this.getProfilSrc() + ')';
     });

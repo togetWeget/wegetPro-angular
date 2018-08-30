@@ -23,15 +23,15 @@ export class CvComponent implements OnInit {
   detailblocks: Detailblock[];
   static me: CvComponent;
 
-  constructor(private fb: FormBuilder, 
-    private membreService: MembreService, 
+  constructor(private fb: FormBuilder,
+    private membreService: MembreService,
     public outils: OutilsService) {
     CvComponent.me = this;
   }
 
   ngOnInit() {
     this.initForm();
-    this.getDetailBlock();
+   // this.getDetailBlock();
   }
 
   initForm() {
@@ -60,7 +60,7 @@ export class CvComponent implements OnInit {
  /* getDetailBlock() {
     this.membreService.getMembreByLogin(localStorage.getItem('log'))
     .subscribe((data: any)=> {
-      this.membre = data.body;     
+      this.membre = data.body;
       this.initForm();
       this.photo.nativeElement.style.backgroundImage = 'url(' + this.getProfilSrc() + ')';
     });

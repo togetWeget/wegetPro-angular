@@ -3,6 +3,7 @@ import {Telephone} from './telephone';
 import {Entreprise} from '../entreprise';
 import {TypeStatut} from '../type-statut';
 import {CvPersonne} from '../cv-personne';
+import {Contrat} from './contrat';
 
 export class Personne {
 
@@ -26,12 +27,12 @@ export class Personne {
     public adresse ?: Adresse,
     public login ?: string,
     public entreprise ?: Entreprise,
-    public cvPersonne ?: CvPersonne
-     public telephones?: Telephone[],
-    public typeStatut ?: TypeStatut
-    public contrat?:contrat
-    
-   
+    public cvPersonne ?: CvPersonne,
+    public telephones?: Telephone[],
+    public typeStatut ?: TypeStatut,
+    public contrat?:Contrat
+
+
     ) {
 
 

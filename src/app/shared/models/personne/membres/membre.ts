@@ -5,6 +5,7 @@ import {Adresse} from '../../adresse/adresse';
 import {Entreprise} from '../entreprise';
 import {TypeStatut} from '../type-statut';
 import {CvPersonne} from '../cv-personne';
+import {Contrat} from './contrat';
 
 export class Membre extends Personne {
 
@@ -28,15 +29,16 @@ export class Membre extends Personne {
     public adresse ?: Adresse,
     public login ?: string,
     public entreprise ?: Entreprise,
-    public cvPersonnes ?: CvPersonne,
+    public cvPersonne ?: CvPersonne,
     public telephones?: Telephone[],
     public typeStatut ?: TypeStatut,
-    public contrat?: contrat, 
+    public contrat?: Contrat,
      public description?: string,
   ) {
     super(id, version, cni, titre, nom, prenom, password, repassword, actived, nomComplet,
       pathPhoto, nombreVue, groupSanguin, dateNaissance, genre,
-       type, adresse, login, entreprise, typeStatut, cvPersonnes, telephones);
+       type, adresse, login, entreprise, typeStatut, telephones);
   }
+
 }
 

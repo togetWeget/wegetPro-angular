@@ -22,9 +22,10 @@ export class SocialComponent implements OnInit {
   detailblock: Detailblock;
   detailblocks: Detailblock[];
   static me: SocialComponent;
+  defaultProfil: any = '/assets/placeholder-image.jpg';
 
-  constructor(private fb: FormBuilder, 
-    private membreService: MembreService, 
+  constructor(private fb: FormBuilder,
+    private membreService: MembreService,
     public outils: OutilsService) {
     SocialComponent.me = this;
   }
@@ -33,7 +34,7 @@ export class SocialComponent implements OnInit {
     this.initForm();
     this.getDetailBlock();
   }
-  
+
   initForm() {
     this.detailsForm = this.fb.group({
       id: [{value: this.membre.id}],
@@ -56,13 +57,21 @@ export class SocialComponent implements OnInit {
       adresse: this.membre.adresse,
     });
   }
+  getProfilSrc(): any {
+    return (this.membre.pathPhoto !== null &&
+      this.membre.pathPhoto !== undefined &&
+      this.membre.pathPhoto !== '') ?
+      this.membre.pathPhoto :
+      this.defaultProfil;
+  }
+
 
   getDetailBlock() {
     this.membreService.getMembreByLogin(localStorage.getItem('log'))
     .subscribe((data: any)=> {
-      this.membre = data.body;     
+      this.membre = data.body;
       this.initForm();
-      this.photo.nativeElement.style.backgroundImage = 'url(' + this.getProfilSrc() + ')';
+     // this.photo.nativeElement.style.backgroundImage = 'url(' + this.getProfilSrc() + ')';
     });
   }
 
