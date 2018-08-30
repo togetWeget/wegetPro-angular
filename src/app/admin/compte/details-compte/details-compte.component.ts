@@ -50,22 +50,21 @@ export class DetailsCompteComponent implements OnInit {
     this.detailsForm = this.fb.group({
       id: [{value: this.membre.id}],
       version: [{value: this.membre.version}],
+       cni: [{value: this.membre.cni}],
+       titre: [{value: this.membre.titre}],
       nom: [{value: this.membre.nom, disabled: false}],
       prenom: [{value: this.membre.prenom, disabled: false}],
+       password: [{value: this.membre.password}],
+      repassword: [{value: this.membre.repassword}],
+      actived: [{value: this.membre.actived}],
+      nomComplet: [{value: this.membre.nomComplet}],
+       pathPhoto: [{value: this.membre.pathPhoto}],
+       nombreVue: [{value: this.membre.nombreVue}],
+      groupSanguin: [{value: this.membre.groupSanguin}],
       dateNaissance: [{value: this.membre.dateNaissance}],
       genre: [{value: this.membre.genre}],
       type: [{value: this.membre.type}],
-      login: [{value: this.membre.login}],
-      password: [{value: this.membre.password}],
-      repassword: [{value: this.membre.repassword}],
-      nomComplet: [{value: this.membre.nomComplet}],
-      cni: [{value: this.membre.cni}],
-      titre: [{value: this.membre.titre}],
-      actived: [{value: this.membre.actived}],
-      pathPhoto: [{value: this.membre.pathPhoto}],
-      nombreVue: [{value: this.membre.nombreVue}],
-      groupSanguin: [{value: this.membre.groupSanguin}],
-      adresse: this.membre.adresse,
+       description: [{value: this.membre.description}]
     });
   }
 
@@ -79,7 +78,7 @@ export class DetailsCompteComponent implements OnInit {
   }
 
   updateDetails() {
-
+  console.log(this.detailsForm.value)
     this.membreService.modifierMembre(this.detailsForm.value)
     .subscribe((data: any) => {
       console.log('MODIFIER MEMBRE SUCCESS', data);

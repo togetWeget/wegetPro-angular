@@ -72,7 +72,7 @@ export class MembreService {
     if(this.jwtToken === null){
       this.loadToken();
     }      
-    return this.http.put<Resultat<Membre>>(this.urlModifMembre, ensModif, 
+    return this.http.post<Resultat<Membre>>(this.urlModifMembre, ensModif, 
       {headers: new HttpHeaders({'Authorization': this.jwtToken})})
       .pipe(
         tap(res => {

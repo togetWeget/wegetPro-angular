@@ -1,0 +1,99 @@
+.photo-cadre {
+	display: table;
+	position: relative;
+	background: #ffffff;
+	padding: 5px;
+	border-radius: 100%;
+	box-shadow: 0 0 5px rgba(0,0,0,0.8);
+	.photo {
+		position: relative;
+		width: 150px;
+		height: 150px;
+		border-radius: 100%;
+	}
+}
+.photo-actions{
+	width: 100%;
+	position: relative;
+	margin: 20px 0;
+	.btn-photo-changer{
+		background: var(--green);
+		color: var(--white);
+	}
+	.btn-photo-fermer{
+		background: var(--red);
+		color: var(--white);
+	}
+}
+
+.btn-green {
+	background: var(--green);
+	color: var(--white);
+}
+.btn-blue {
+	background: var(--blue);
+	color: var(--white);
+}
+
+input.changer_photo {
+	position: absolute;
+    width: 0px;
+    height: 0px;
+    opacity: 0;
+    z-index: -1;
+    overflow: hidden;
+}
+label[for=changer_photo]{
+	background: var(--green);
+    color: var(--white);
+    padding: 10px;
+    box-shadow: 0 0 2px #222;
+    text-align: center;
+    cursor: pointer;
+}
+
+mat-form-field{
+	width: 100%;
+}
+
+.requi-asterix {
+	color: red;
+}
+
+@media screen and (min-width: 576px) {
+	.photo-cadre {
+		.photo {
+			width: 150px;
+			height: 150px;
+		}
+	}
+}
+@media screen and (min-width: 768px) {
+	label[for=changer_photo]{
+	    width: 100%;
+	}
+	.photo-cadre {
+		.photo {
+			width: 150px;
+			height: 150px;
+		}
+	}
+	.photo-actions{
+		width: 100%;
+		position: relative;
+		button {
+			width: 100%;
+			display: block;
+			margin: 5px 0;
+		}
+	}
+}
+@media screen and (min-width: 992px) {
+	.photo-cadre {
+		.photo {
+			width: 250px;
+			height: 250px;
+		}
+	}
+}
+@media screen and (min-width: 1200px) {}

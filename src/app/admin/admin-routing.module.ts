@@ -35,8 +35,8 @@ const routes: Routes = [
         path: 'espace/annonce/:id', component: EspaceAnnonceComponent},
       {
         path: 'espace/competence/:id', component: EspaceCompetenceComponent},
-      {
-        path: 'espace/ecole/:id', component: EspaceEcoleComponent},
+      {path: 'espace/ecole/:id', component: EspaceEcoleComponent},
+      {path: 'espace/ecole/:id', component: EspaceEcoleComponent},
       {
         path: 'espace/immobiler/:id', component: EspaceImmobilierComponent},
       {

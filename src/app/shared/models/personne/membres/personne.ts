@@ -20,15 +20,18 @@ export class Personne {
     public pathPhoto ?: string,
     public nombreVue ?: string,
     public groupSanguin ?: string,
-    public dateNaissance ?: string,
+    public dateNaissance ?: Date,
     public genre ?: string,
     public type?: string,
     public adresse ?: Adresse,
     public login ?: string,
     public entreprise ?: Entreprise,
-    public typeStatut ?: TypeStatut,
-    public cvPersonne ?: CvPersonne,
-    public telephones?: Telephone[],
+    public cvPersonne ?: CvPersonne
+     public telephones?: Telephone[],
+    public typeStatut ?: TypeStatut
+    public contrat?:contrat
+    
+   
     ) {
 
 

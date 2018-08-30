@@ -1,0 +1,21 @@
+<div class="details-container">
+	<form [formGroup]="detailsForm" (submit)="updateDetails()">
+		<div class="row">
+			
+			<div class="col-md-8">
+				<legend>CV</legend>	
+				<div class="form-group">
+					<label for="">Telecharger CV</label>
+					<input type="file" autocomplete="off" class="form-control" id="cv" placeholder="Votre cv">
+				</div>
+				<div class="form-group">
+					<label for="">Motivations</label>
+					<textarea rows="8" class="form-control" name=""></textarea>
+				</div>
+			</div>
+		</div>
+		
+	
+		<button type="submit" class="btn btn-blue"><i class="fa fa-refresh"></i>&nbsp;&nbsp;Mettre à jours</button>
+	</form>
+</div>

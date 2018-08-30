@@ -1,0 +1,76 @@
+<div class="details-container">
+	<form [formGroup]="detailsForm" (submit)="updateDetails()">
+		<div class="row">
+			<!-- photo -->
+			<div class="col-md-4">
+				<legend>Photo</legend>
+				<div class="photo-cadre">
+					<div #photo class="photo"></div>
+				</div>
+				<div class="photo-actions">
+					<input type="file" autocomplete="off" class="form-control changer_photo" id="changer_photo" placeholder="changer">
+					<label for="changer_photo" mat-raised-button><i class="fa fa-photo"></i>&nbsp;&nbsp;Changer photo</label>
+				</div>
+				<div class="form-group">
+					<input type="file" style="visibility: hidden;" class="form-control" id="" placeholder="Input field">
+				</div>				
+			</div>
+			<!-- /photo -->
+			<!-- informations personnelles -->
+			<div class="col-md-8">
+				<legend>Informations personnelles</legend>
+				<div class="row">
+					<div class="col-md-6">
+						<div>
+							<label for="">Nom</label>
+							<input type="text" autocomplete="family-name" formControlName="nom" class="form-control" id="nom" placeholder="Votre nom">
+						</div>
+						<div>
+							<label for="">Prénom(s)</label>
+							<input type="text" autocomplete="given-name" formControlName="prenom" class="form-control" id="prenoms" placeholder="Vos prénoms">
+						</div>					
+						<div>
+							<label for="">Date de naissance <span class="requi-asterix">(*)</span></label>
+							<div class="input-group">
+								<input type="date" autocomplete="off" formControlName="dateNaissance" class="form-control" id="date_naiss" required="required" placeholder="Votre date de naissance">
+								<div class="input-group-append">
+									<span class="input-group-text"><i class="fa fa-calendar"></i></span>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="">Genre <span class="requi-asterix">(*)</span></label>
+							<ng-select class="custom" formControlName="genre" [items]="outils.genres"></ng-select>							
+						</div>	 				
+						 <div class="form-group">
+							<label for="">Langue(s) parlée(s) <span class="requi-asterix">(*)</span></label>
+							<ng-select class="custom" [items]="['français','anglais']" [multiple]="true" [hideSelected]="true"></ng-select>							
+						</div>
+
+					</div>
+
+					<div class="col-md-6">
+						<div class="form-group">
+							<label for="">Pays <span class="requi-asterix">(*)</span></label>
+							<ng-select class="custom" [items]="['Côte d Ivoire','Burkina Faso', 'Mali', 'Bénin']" [hideSelected]="true"></ng-select>
+						</div>	
+						<div class="form-group" >
+							<label for="">Ville</label>
+							<ng-select class="custom" [items]="['Yamoussoukro','Abidjan', 'Bouaké', 'Grand-Bassam']" [hideSelected]="true"></ng-select>							
+						</div>
+						<div class="form-group" formGroupName="adresse">
+							<label for="">Adresse</label>
+							<input type="text" autocomplete="address-line1" class="form-control" id="adresse" placeholder="votre adresse" formControlName="codePostal">
+						</div>	
+						<div class="form-group" formArrayName="telephones">
+							<label for="">Telephone</label>
+							<input type="text" class="form-control" autocomplete="tel" id="telephone" placeholder="votre telephone">
+						</div>	 
+					</div>
+				</div>
+			</div>
+			<!-- /informations personnelles -->
+		</div>		
+		<button type="submit" class="btn btn-blue"><i class="fa fa-refresh"></i>&nbsp;&nbsp;Mettre à jours le compte</button>
+	</form>
+</div>

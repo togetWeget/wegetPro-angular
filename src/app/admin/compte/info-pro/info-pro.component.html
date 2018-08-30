@@ -1,0 +1,55 @@
+<div class="details-container">
+	<form [formGroup]="detailsForm" (submit)="updateDetails()">
+
+		<div class="row">			
+			<div class="col-md-8">
+				<legend>Informations Professionnelles</legend>
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group">
+							<label for="">Vous êtes <span class="requi-asterix">(*)</span></label>
+							<ng-select class="custom" [items]="[]" [hideSelected]="true"></ng-select>
+						</div>
+						<div class="form-group">
+							<label for="">Fonction Actuelle <span class="requi-asterix">(*)</span></label>
+							<ng-select class="custom" [items]="[]" [hideSelected]="true"></ng-select>
+						</div>
+						<div class="form-group">
+							<label for="">Année d'expérience <span class="requi-asterix">(*)</span></label>
+							<input type="text" autocomplete="off" class="form-control" id="annee_exp" required="required" placeholder="Années d'expérience">
+						</div>
+						<div class="form-group">
+							<label for="">Domaine <span class="requi-asterix">(*)</span></label>
+							<ng-select class="custom" [items]="[]" [hideSelected]="true"></ng-select>
+						</div>
+						<div class="form-group">
+							<label for="">Spécialité <span class="requi-asterix">(*)</span></label>
+							<ng-select class="custom" [items]="[]" [hideSelected]="true"></ng-select>
+						</div>
+						<div class="form-group">
+							<label for="">Autre(s) Spécialité(s)</label>
+							<ng-select class="custom" [items]="[]" [hideSelected]="true" [multiple]="true"></ng-select>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="form-group">
+							<label for="">Dernier diplôme <span class="requi-asterix">(*)</span></label>
+							<ng-select class="custom" [items]="[]" [hideSelected]="true" ></ng-select>
+						</div>
+						<div class="form-group">
+							<label for="">Type de contrat <span class="requi-asterix">(*)</span></label>
+							<ng-select class="custom" [items]="[]" [hideSelected]="true" [multiple]="true"></ng-select>
+						</div>
+						<div class="form-group">
+							<label for="">Durée du contrat <span class="requi-asterix">(*)</span></label>
+							<ng-select class="custom" [items]="[]" [hideSelected]="true" [multiple]="true"></ng-select>
+						</div>
+					</div>
+				</div>				
+			</div>
+		</div>
+		
+	
+		<button type="submit" class="btn btn-blue"><i class="fa fa-refresh"></i>&nbsp;&nbsp;Mettre à jours</button>
+	</form>
+</div>

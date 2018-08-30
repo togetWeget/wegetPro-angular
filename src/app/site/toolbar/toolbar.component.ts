@@ -45,6 +45,7 @@ public storlog = localStorage.getItem('log');
 			this.infoM.getbylogin();
       this.menu_state = false;
 		}
+		
 		}
   
    ngOnInit() {
@@ -62,11 +63,11 @@ public storlog = localStorage.getItem('log');
 			const lhtInterval = setInterval(()=>{
 			
 			this.paniers.countother(this.infoM.InfoMembres.id);
-			if(this.paniers.countPanier >= 0){
+			if(this.paniers.countPanier > 0){
 			// alert(this.paniers.panierdata.status);
 				clearInterval(lhtInterval);
 			}
-			
+			console.log(this.paniers.countPanier);
 			}, 1000);
 
 		}

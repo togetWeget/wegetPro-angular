@@ -16,6 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgHttpLoaderModule } from 'ng-http-loader';
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 import { ToastrModule } from 'ngx-toastr';
+import {NgxMaskModule} from 'ngx-mask';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { ToastrModule } from 'ngx-toastr';
     FroalaEditorModule.forRoot(), 
     FroalaViewModule.forRoot(),
     ToastrModule.forRoot(),
+    NgxMaskModule.forRoot(),
     BrowserAnimationsModule
   ],
   entryComponents: [

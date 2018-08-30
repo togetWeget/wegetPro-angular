@@ -16,18 +16,13 @@
 					</div>
 					<div class="form-group col-md-4">
 						<label for="annee">Année</label>
-						<input type="text" name="annee" class="form-control" id="annee" maxlength="9" data-mask="y-y">
+						<input type="text" name="annee" class="form-control" id="annee" maxlength="9" mask="9999-9999" placeholder="2010-2011">
 					</div>
 				</div>
 				<div class="row">
 					<div class="form-group col-md-6">
-						<label for="domaine">Domaine</label>
-						<select class="form-control" id="domaine" name="domaine">
-							<option></option>
-							<option value="1">BAC</option>
-							<option value="2">BTS</option>
-							<option value="3">LICENCE</option>
-						</select>
+						<label for="">Domaine</label>
+						<ng-select class="form-contrl" [items]="diplomes" [hideSelected]="true"></ng-select>
 					</div>
 					<div class="form-group col-md-6">
 						<label for="diplome">Diplôme</label>

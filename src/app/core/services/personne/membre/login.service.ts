@@ -4,6 +4,7 @@ import { AuthFirebaseService} from '../../../../firebaseDir/auth-firebase.servic
 import {HttpClient, HttpRequest, HttpResponse, HttpHeaders} from '@angular/common/http';
 import {Resultat} from '../../../../shared/models/Resultat';
 import {Block} from '../../../../shared/models/block';
+import {Tarif} from '../../../../shared/models/tarif/tarif';
 import {Observable} from 'rxjs';
 import {catchError, tap} from 'rxjs/operators';
 

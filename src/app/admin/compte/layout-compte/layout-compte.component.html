@@ -11,32 +11,42 @@
 		  <mat-tab>
 		    <ng-template mat-tab-label>
 		      <i class="fa fa-gitter"></i>&nbsp;&nbsp;
-		      Details
+		      Informations personnelles
 		    </ng-template>
 		    <div class="bien-contenir">
-		    	<app-details-compte-admin></app-details-compte-admin>		    	
-		    </div>
-		  </mat-tab>
-<!-- 
-		  <mat-tab>
-		    <ng-template mat-tab-label>
-		      <i class="fa fa-graduation-cap"></i>&nbsp;&nbsp;
-		      Formations
-		    </ng-template>
-		    <div class="bien-contenir">
-		    	<app-formation-compte-admin></app-formation-compte-admin>
+		    	<app-info-perso></app-info-perso>		    	
 		    </div>
 		  </mat-tab>
 
+		  <!-- <mat-tab *ngIf="membre.type !== 'ME'">
+		    <ng-template mat-tab-label>
+		      <i class="fa fa-graduation-cap"></i>&nbsp;&nbsp;
+		      Informations professionnelles
+		    </ng-template>
+		    <div class="bien-contenir">
+		    	<app-info-pro></app-info-pro>
+		    </div>
+		  </mat-tab>
+
+		  <mat-tab *ngIf="membre.type !== 'ME'">
+		    <ng-template mat-tab-label>
+		      <i class="fa fa-trophy"></i>&nbsp;&nbsp;
+		      Réseaux sociaux
+		    </ng-template>
+		    <div class="bien-contenir">
+				<app-social></app-social>
+			</div>
+		  </mat-tab>
+ -->
 		  <mat-tab>
 		    <ng-template mat-tab-label>
 		      <i class="fa fa-trophy"></i>&nbsp;&nbsp;
-		      Expériences
+		      CV
 		    </ng-template>
 		    <div class="bien-contenir">
-				<app-experience-compte-admin></app-experience-compte-admin>
+				<app-cv></app-cv>
 			</div>
-		  </mat-tab> -->
+		  </mat-tab>
 		  
 		  <mat-tab>
 		    <ng-template mat-tab-label>

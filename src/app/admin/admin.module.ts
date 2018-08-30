@@ -52,6 +52,17 @@ import { CompetencePhotoComponent } from './espace-competence/competence-photo/c
 import { CompetenceFormationComponent } from './espace-competence/competence-formation/competence-formation.component';
 import { CompetenceExperienceComponent } from './espace-competence/competence-experience/competence-experience.component';
 import { CompetenceDocumentsComponent } from './espace-competence/competence-documents/competence-documents.component';
+import { InfoPersoComponent } from './compte/info-perso/info-perso.component';
+import { InfoProComponent } from './compte/info-pro/info-pro.component';
+import { SocialComponent } from './compte/social/social.component';
+import { CvComponent } from './compte/cv/cv.component';
+import {NgxMaskModule} from 'ngx-mask';
+import { MonEcoleComponent } from './espace-ecole/mon-ecole/mon-ecole.component';
+import { EnteteEcoleComponent } from './espace-ecole/entete-ecole/entete-ecole.component';
+import { FlashInfoEcoleComponent } from './espace-ecole/flash-info-ecole/flash-info-ecole.component';
+import { FormationsEcoleComponent } from './espace-ecole/formations-ecole/formations-ecole.component';
+import { DocumentsEcoleComponent } from './espace-ecole/documents-ecole/documents-ecole.component';
+import { PhotosEcoleComponent } from './espace-ecole/photos-ecole/photos-ecole.component';
  
 @NgModule({
   imports: [
@@ -63,7 +74,8 @@ import { CompetenceDocumentsComponent } from './espace-competence/competence-doc
     ReactiveFormsModule,
     FormsModule,
     FilterPipeModule,
-    NgSelectModule  
+    NgSelectModule,
+    NgxMaskModule.forRoot() 
   ],
   declarations: [
    LayoutComponent,
@@ -85,7 +97,7 @@ import { CompetenceDocumentsComponent } from './espace-competence/competence-doc
     ListeMessageEnvoyeComponent, LayoutCompteComponent, EspaceComponent, 
     DetailsCompteComponent, FormationCompteComponent, ExperienceCompteComponent, 
     AuthCompteComponent, EspaceEcoleComponent, EspaceCompetenceComponent, 
-    EspaceImmobilierComponent, EspaceAnnonceComponent, CoverSelectComponent, CompetencePhotoComponent, CompetenceFormationComponent, CompetenceExperienceComponent, CompetenceDocumentsComponent, 
+    EspaceImmobilierComponent, EspaceAnnonceComponent, CoverSelectComponent, CompetencePhotoComponent, CompetenceFormationComponent, CompetenceExperienceComponent, CompetenceDocumentsComponent, InfoPersoComponent, InfoProComponent, SocialComponent, CvComponent, MonEcoleComponent, EnteteEcoleComponent, FlashInfoEcoleComponent, FormationsEcoleComponent, DocumentsEcoleComponent, PhotosEcoleComponent, 
   ],
   entryComponents: [BlockComponent,CoverSelectComponent],
   exports: [LayoutComponent]
