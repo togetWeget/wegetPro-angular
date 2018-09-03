@@ -1,15 +1,17 @@
-import {Experience} from './cv-personne/experience';
-import {CursusScolaire} from './cv-personne/cursusScolaire';
 export class CvPersonne {
-  constructor (
+  constructor(
     public id?: number,
     public version?: number,
-    public diplome?: string,
-    public specialite?: string,
-    public anneExperience?: string,
-    public description?: string,
-    public experience?:Experience[],
-    public cursusScolaire?:CursusScolaire[],
-    public langue?: string[]
-  ) {}
+    public  titre?: string,
+    public  diplome?: string,
+    public  specialite?: string,
+    public  anneExperience?: string,
+    public  motivation?: string,
+    public  fonctionActuelle?: string,
+    public  domaine?: string,
+    public  autreSpecialite?: string,
+    public  description?: string,
+    public  pathCv?: string,
+  ) {
+  }
 }

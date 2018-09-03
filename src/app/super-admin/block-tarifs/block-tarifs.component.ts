@@ -14,8 +14,8 @@ import {BlockService} from '../../core/services/blocks/block.service';
 import {BlockTarifsAddComponent} from '../block-tarifs-add/block-tarifs-add.component';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import {LoginService} from '../../core/services/personne/membre/login.service';
-import * as $ from 'jquery'; 
-window["$"] =$; 
+import * as $ from 'jquery';
+window["$"] =$;
 window["jQuery"] = $;
 import "froala-editor/js/froala_editor.pkgd.min.js";
 
@@ -31,36 +31,36 @@ export class BlockTarifsComponent implements OnInit {
   editor_options: Object = {
 	  height: 150,
 	  toolbarButtons: [
-	  'fullscreen', 
-	  'bold', 
-	  'italic', 
-	  'underline', 
-	  'strikeThrough', 
-	  '|', 
-	  'fontFamily', 
-	  'fontSize', 
-	  'color', 
-	  '|', 
-	  'paragraphFormat', 
-	  'align', 
-	  '|', 
-	  'specialCharacters', 
-	  'insertHR', 
-	  '|', 
-	  'html', 
-	  '|', 
-	  'undo', 
+	  'fullscreen',
+	  'bold',
+	  'italic',
+	  'underline',
+	  'strikeThrough',
+	  '|',
+	  'fontFamily',
+	  'fontSize',
+	  'color',
+	  '|',
+	  'paragraphFormat',
+	  'align',
+	  '|',
+	  'specialCharacters',
+	  'insertHR',
+	  '|',
+	  'html',
+	  '|',
+	  'undo',
 	  'redo']
 	};
   tarifs: Tarif[] = [];
   id: number;
   block: Block;
 
-  constructor(private blockService: BlockService, public dialog: MatDialog, private  loginService: LoginService,
+  constructor(private blockService: BlockService, public dialog: MatDialog,
   	private toastr: ToastrService, private router: Router,
   	private route: ActivatedRoute, private tarifService: TarifService) {
   	this.top_zone = new AdminTopZone (
-  		'Block', 
+  		'Block',
   		'Grille tarifaire',
   		[
   			new Navs('Accueil', '/super/admin'),
@@ -83,12 +83,12 @@ export class BlockTarifsComponent implements OnInit {
   	this.route.paramMap.pipe(
       switchMap((params: ParamMap) => {
           this.id = +params.get('id');
-           return this.loginService.getBlockById(this.id); 
+           return this.blockService.getBlockById(this.id);
         }
       )
     ).subscribe(res => {
-  		this.block = res.body;  
-  		this.getTarifs();      
+  		this.block = res.body;
+  		this.getTarifs();
       }
     );
   }
@@ -98,7 +98,7 @@ export class BlockTarifsComponent implements OnInit {
   		case "ajoutFormule":
   			this.ajouterModal();
   			break;
-  		
+
   		default:
   			console.log('default ');
   			break;
@@ -118,7 +118,7 @@ export class BlockTarifsComponent implements OnInit {
   }
 
   getTarifs () {
-  	this.loginService.tarifParBlockId(this.block.id)
+  	this.tarifService.tarifParBlockId(this.block.id)
       .subscribe((res: any) => {
       	this.tarifs = res.body;
 	    }

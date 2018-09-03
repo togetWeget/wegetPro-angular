@@ -22,7 +22,7 @@ export class BlocksComponent implements OnInit {
   admin_card: AdminCard = null;
   blocks: Block[] = [];
 
-  constructor(private blockService: BlockService, private dialog: MatDialog,private loginServive: LoginService,) {
+  constructor(private blockService: BlockService, private dialog: MatDialog) {
   	this.top_zone = new AdminTopZone (
   		'Blocks',
   		'',
@@ -42,7 +42,7 @@ export class BlocksComponent implements OnInit {
   }
 
   fetchBlocks() {
-    this.loginServive.getAllBlocks()
+    this.blockService.getAllBlocks()
       .subscribe(data => {
         this.blocks = data.body;
       });

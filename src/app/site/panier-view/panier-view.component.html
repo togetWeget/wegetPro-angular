@@ -6,16 +6,16 @@
     <table class="table table-striped custab">
     <thead>
 		<tr>
-			
+
 			<td style="text-align:right; background:#1e90ff;" colspan="7">
 		<button class="btn btn-info" (click)="othercheck()"> Continuez vos achats</button>
-	<button class="btn btn-danger"> Finalisez {{compteur}}</button>
+	<button class="btn btn-danger"> Finalisez</button>
 	</td>
 			</tr>
         <tr>
-		
-			
-	
+
+
+
             <th>ID</th>
             <th>Libellé</th>
             <th>Image</th>
@@ -30,35 +30,35 @@
                 <td>{{i + 1}}</td>
                 <td>{{ind.block.libelle}}</td>
                 <td><img src="{{ind.block.pathPhoto}}"  alt="{{ind.block.libelle[0]}}" class="img-block"/></td>
-				
+
 			<td><i class="fa fa-angle-down btn btn-info" (click)="down(i)"></i> <input style="background:#fff; width:50px; border:0px; text-align:center;" disabled type="number" id="{{i + 1}}" value="{{ind.quantite}}" ><i class="fa fa-angle-up btn btn-info " (click)="up(i)"></i></td>
-			
+
                 <td>{{ind.tarif.prix}}</td>
                 <td>{{ind.date}}</td>
 			<td class="text-center"><span class="fa fa-remove btn btn-danger"></span>&nbsp; <span class="fa fa-eye  btn btn-info"></span></td>
             </tr>
-			
+
 		<tr *ngIf="verif == true">
 				<td style="font-size:15px; text-align:center;"  colspan="7">chargement en cours...</td>
 		</tr>
-		
+
 		<tr *ngIf="countPanier === 0 && verif === false">
 				<td style="font-size:15px; text-align:center;"  colspan="7">Aucun element trouvé dans votre panier <a href="/site"> cliquer ici pour effectuer un ajout.</a></td>
-		</tr>	
+		</tr>
 	</tbody>
 	<tfoot>
 		<tr>
 		<td style="font-size:25px; text-align:right;" class="pull-right;" colspan="7">Total : {{prix}} F cfa</td>
 		</tr>
-		
+
 		<tr>
 		<td style="font-size:25px; text-align:right;" class="pull-right;" colspan="7">
 						<button class="btn btn-info" (click)="othercheck()"> Continuez vos achats</button>
 			<button class="btn btn-danger"> Finalisez</button>
-			
-			
+
+
 			</td>
-		</tr>	
+		</tr>
 	</tfoot>
 
     </table>

@@ -1,9 +1,11 @@
 import { Pays } from '../parametres/pays';
 export class Adresse {
 
-  constructor(public codePostal?: string,
-              public email?: string,
-              public pays?: Pays[],
+  constructor(public boitePostal?: string,
+              public  email?: string,
+              public  pays?: string,
+              public  ville?: string,
+              public  quartier?: string
 
               ) {}
 }

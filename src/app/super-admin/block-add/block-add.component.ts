@@ -34,7 +34,7 @@ export class BlockAddComponent implements OnInit {
   });
 
 
-  constructor(private blockService: BlockService, private fb: FormBuilder,private loginServive: LoginService,
+  constructor(private blockService: BlockService, private fb: FormBuilder,
   	private toastr: ToastrService, private router: Router) {
   	this.top_zone = new AdminTopZone (
   		'Blocks',
@@ -70,7 +70,7 @@ export class BlockAddComponent implements OnInit {
   }
 
   ajouterBlock () {
-  	this.loginServive.ajoutBlock(this.convertisseur((this.blockForm)))
+  	this.blockService.ajoutBlock(this.convertisseur((this.blockForm)))
   	.subscribe((res: any) => {
         res.messages.toString();
         console.log(res.messages.toString());

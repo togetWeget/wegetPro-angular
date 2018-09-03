@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpRequest} from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpRequest} from '@angular/common/http';
 import {Observable, of, Subject} from 'rxjs';
 import {catchError, tap, map} from 'rxjs/operators';
 import {MessageService} from '../message.service';
@@ -9,7 +9,7 @@ import { ToastrService } from 'ngx-toastr';
 
 @Injectable()
 export class BlockService {
-  /* imagesVibles = [];*/
+  public jwtToken: string;
   private urlBlocks = 'http://wegetback:8080/blocks';
   private urlPhoto = 'http://wegetback:8080/photoBlock';
   private urlPhoto1 = 'http://wegetback:8080/getPhoto';
@@ -31,25 +31,28 @@ export class BlockService {
     private toastr: ToastrService) {
   }
 
-
+  loadToken () {
+    this.jwtToken = localStorage.getItem('togetToken');
+  }
   getAllBlocks(): Observable<Resultat<Block[]>> {
     return this.http.get<Resultat<Block[]>>(this.urlBlocks)
       .pipe(
         tap(res => {
           this.log(`block recuperes`);
         }),
-        catchError(this.handleError<Resultat<Block[]>>('getAllBlocks', 
+        catchError(this.handleError<Resultat<Block[]>>('getAllBlocks',
           new Resultat<Block[]>(null, [], [])))
       );
   }
 
   ajoutBlock(blk: Block): Observable<Resultat<Block>> {
     console.log('methode du service qui ajoute un block', blk);
-    return this.http.post<Resultat<Block>>(this.urlBlocks, blk)
+    if (this.jwtToken==null) this.loadToken()
+    return this.http.post<Resultat<Block>>(this.urlBlocks, blk,{headers: new  HttpHeaders({'Authorization': this.jwtToken})})
       .pipe(
         tap(res => {
           this.log(`block ajouter avec succes : message service=${res.body.libelle}`);
-          this.toastr.success('block ajouter avec succes : message service= '+ res.body.libelle, 
+          this.toastr.success('block ajouter avec succes : message service= '+ res.body.libelle,
             'Opération réussie');
           this.blockCreer(res);
           this.filtreblock(res.body.libelle);
@@ -61,6 +64,7 @@ export class BlockService {
   }
 
   getBlockById(id: number): Observable<Resultat<Block>> {
+
     return this.http.get<Resultat<Block>>(`${this.urlBlocks}/${id}`)
       .pipe(
         tap(res => {
@@ -71,11 +75,12 @@ export class BlockService {
   }
 
   modifierBlock(blkModif: Block): Observable<Resultat<Block>> {
-    return this.http.put<Resultat<Block>>(this.urlBlocks, blkModif)
+    if (this.jwtToken==null) this.loadToken()
+    return this.http.post<Resultat<Block>>(this.urlBlocks, blkModif,{headers: new  HttpHeaders({'Authorization': this.jwtToken})})
       .pipe(
         tap(res => {
           this.log(`bloc de libelle  =${res.body.libelle}`);
-          this.toastr.success('bloc de libelle  = '+ res.body.libelle, 
+          this.toastr.success('bloc de libelle  = '+ res.body.libelle,
             'Opération réussie');
           //this.blocktModif(res);
           this.filtreblock(res.body.libelle);
@@ -86,7 +91,8 @@ export class BlockService {
   }
 
   rechercheBlockParMc(mc: string): Observable<Array<Block>> {
-    return this.http.get<Resultat<Array<Block>>>(`${this.urlRechercheBlk}${mc}`)
+    if (this.jwtToken==null) this.loadToken()
+    return this.http.get<Resultat<Array<Block>>>(`${this.urlRechercheBlk}${mc}`,{headers: new  HttpHeaders({'Authorization': this.jwtToken})})
       .pipe(map(res => res.body,
         tap(res =>
           this.log(`block trouve =${res}`))),
@@ -95,11 +101,12 @@ export class BlockService {
   }
   // supprimer un block
   supprimerBlock(id: number): Observable<Resultat<boolean>> {
-    return this.http.delete<Resultat<boolean>>(`${this.urlBlocks}/${id}`)
+    if (this.jwtToken==null) this.loadToken()
+    return this.http.delete<Resultat<boolean>>(`${this.urlBlocks}/${id}`,{headers: new  HttpHeaders({'Authorization': this.jwtToken})})
       .pipe(
         tap(res => {
           this.log(`block supprime id =${id}`);
-          this.toastr.success('block supprime id = '+ id, 
+          this.toastr.success('block supprime id = '+ id,
             'Opération réussie');
           this.blocksupprime(res);
         }),
@@ -107,7 +114,7 @@ export class BlockService {
       );
   }
   enregistrerPhoto(imageFile: File, libelle: string): Observable<any> {
-
+    if (this.jwtToken==null) this.loadToken()
     const formData: FormData = new FormData();
     formData.append('image_photo', imageFile, libelle);
     const req = new HttpRequest('POST', this.urlPhoto, formData, {
@@ -116,7 +123,7 @@ export class BlockService {
     return this.http.request(req)
       .pipe(
         tap(event => {
-          this.toastr.success('Image ajouté avec succès', 
+          this.toastr.success('Image ajouté avec succès',
             'Opération réussie');
           /* this.log(`photo ajoute nom et prenom =${event.body._nomComplet}`)
            this.enseignantModif(event.type.);

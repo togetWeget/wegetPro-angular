@@ -34,7 +34,7 @@ export class BlockUpdateComponent implements OnInit {
   resultat: Resultat<Block>;
   succesMessage: string;
 
-  constructor( private fb: FormBuilder, private loginServive: LoginService,
+  constructor( private fb: FormBuilder, private blockService: BlockService,
   	private toastr: ToastrService, private router: Router,
   	private route: ActivatedRoute) {
   	this.top_zone = new AdminTopZone (
@@ -61,7 +61,7 @@ export class BlockUpdateComponent implements OnInit {
         this.id = +params.get('id');
         console.log('message de ngOinit pour recuperer id', +params.get('id'));
 
-        return this.loginServive.getBlockById(this.id);
+        return this.blockService.getBlockById(this.id);
 
           }
       )
@@ -80,7 +80,7 @@ export class BlockUpdateComponent implements OnInit {
   onSubmit () {
     let blkModif: Block;
     blkModif = this.convertisseur(this.blockForm);
-    this.loginServive.modifierBlock(blkModif)
+    this.blockService.modifierBlock(blkModif)
       .subscribe(res => {
         console.log('block est modifier', res.body);
         this.toastr.success('Block modifié avec succès', 'Opération réussie');

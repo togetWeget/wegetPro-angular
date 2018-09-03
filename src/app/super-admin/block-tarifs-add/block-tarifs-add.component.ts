@@ -10,8 +10,8 @@ import {BlockService} from '../../core/services/blocks/block.service';
 import {TarifService} from '../../core/services/tarif/tarif.service';
 import {LoginService} from '../../core/services/personne/membre/login.service';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
-import * as $ from 'jquery'; 
-window["$"] =$; 
+import * as $ from 'jquery';
+window["$"] =$;
 window["jQuery"] = $;
 import "froala-editor/js/froala_editor.pkgd.min.js";
 
@@ -25,25 +25,25 @@ export class BlockTarifsAddComponent implements OnInit {
   editor_options: Object = {
 	  height: 150,
 	  toolbarButtons: [
-	  'fullscreen', 
-	  'bold', 
-	  'italic', 
-	  'underline', 
-	  'strikeThrough', 
-	  '|', 
-	  'fontFamily', 
-	  'fontSize', 
-	  'color', 
-	  '|', 
-	  'paragraphFormat', 
-	  'align', 
-	  '|', 
-	  'specialCharacters', 
-	  'insertHR', 
-	  '|', 
-	  'html', 
-	  '|', 
-	  'undo', 
+	  'fullscreen',
+	  'bold',
+	  'italic',
+	  'underline',
+	  'strikeThrough',
+	  '|',
+	  'fontFamily',
+	  'fontSize',
+	  'color',
+	  '|',
+	  'paragraphFormat',
+	  'align',
+	  '|',
+	  'specialCharacters',
+	  'insertHR',
+	  '|',
+	  'html',
+	  '|',
+	  'undo',
 	  'redo']
 	};
   tarif: Tarif;
@@ -51,11 +51,11 @@ export class BlockTarifsAddComponent implements OnInit {
   tarifForm: any;
 
 
-  constructor(private tarifService: TarifService, private fb: FormBuilder,private loginService: LoginService,
-  	public dialogRef: MatDialogRef<BlockTarifsAddComponent>, 
+  constructor(private tarifService: TarifService, private fb: FormBuilder,
+  	public dialogRef: MatDialogRef<BlockTarifsAddComponent>,
   	private toastr: ToastrService,
-    @Inject(MAT_DIALOG_DATA) public data: any) { 
-  		this.block = data.block;  
+    @Inject(MAT_DIALOG_DATA) public data: any) {
+  		this.block = data.block;
   		this.tarif = new Tarif (null, null, '', 0, '', '', this.block.id);
   		this.initForm();
   }
@@ -76,7 +76,7 @@ export class BlockTarifsAddComponent implements OnInit {
 	  });
   }
 
-  
+
 
   private convertisseur (fg: FormGroup): Tarif {
   	const blk = new Tarif(
@@ -96,7 +96,7 @@ export class BlockTarifsAddComponent implements OnInit {
   	let tarifAdd: Tarif;
   	tarifAdd = this.convertisseur((this.tarifForm));
   	// console.log(tarifAdd);
-  	this.loginService.ajoutTarif(tarifAdd)
+  	this.tarifService.ajoutTarif(tarifAdd)
   	.subscribe(res => {
         res.messages.toString();
         console.log(res.messages.toString());

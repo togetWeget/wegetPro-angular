@@ -4,6 +4,7 @@ import {Entreprise} from '../entreprise';
 import {TypeStatut} from '../type-statut';
 import {CvPersonne} from '../cv-personne';
 import {Contrat} from './contrat';
+import {LangueParle} from '../cv-personne/langueParle';
 
 export class Personne {
 
@@ -29,6 +30,7 @@ export class Personne {
     public entreprise ?: Entreprise,
     public cvPersonne ?: CvPersonne,
     public telephones?: Telephone[],
+    public langues?: LangueParle[],
     public typeStatut ?: TypeStatut,
     public contrat?:Contrat
 
