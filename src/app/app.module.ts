@@ -17,6 +17,8 @@ import { NgHttpLoaderModule } from 'ng-http-loader';
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 import { ToastrModule } from 'ngx-toastr';
 import {NgxMaskModule} from 'ngx-mask';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {MatInputModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,7 @@ import {NgxMaskModule} from 'ngx-mask';
     NgHttpLoaderModule,
     RouterModule,
     SharedModule,
-    FroalaEditorModule.forRoot(), 
+    FroalaEditorModule.forRoot(),
     FroalaViewModule.forRoot(),
     ToastrModule.forRoot(),
     NgxMaskModule.forRoot(),

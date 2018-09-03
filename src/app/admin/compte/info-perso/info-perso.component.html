@@ -1,5 +1,5 @@
 <div class="details-container">
-	<form [formGroup]="detailsForm" (ngSubmit)="onSubmit()">
+	<form [formGroup]="detailsForm" (ngSubmit)="onSubmit()" novalidate *ngIf="detailsForm">
 		<div class="row">
 			<!-- photo -->
 			<div class="col-md-4">

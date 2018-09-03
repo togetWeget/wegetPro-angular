@@ -4,8 +4,19 @@ import {CommonModule} from '@angular/common';
 import {AdminRoutingModule} from './admin-routing.module';
 import {LayoutComponent} from './layout/layout.component';
 import {AccueilComponent} from './accueil/accueil.component';
-import {MatButtonModule, MatCardModule, MatIconModule, MatListModule, MatSidenavModule, 
-  MatToolbarModule} from '@angular/material';
+import {
+  MatButtonModule,
+  MatCardModule,
+  MatExpansionModule,
+
+  MatFormFieldModule,
+  MatIconModule,
+  MatInputModule,
+  MatListModule,
+  MatSidenavModule,
+  MatToolbarModule,
+  MatTooltipModule
+} from '@angular/material';
 import {FooterComponent} from './footer/footer.component';
 import {CoreModule} from '../core/core.module';
 import {CustomMeterialModule} from '../custom-meterial/custom-meterial.module';
@@ -34,7 +45,7 @@ import { ViewMessageComponent } from './messagerie/view-message/view-message.com
 import { SupprimeMessageComponent } from './messagerie/supprime-message/supprime-message.component';
 import { RepondreMessageComponent } from './messagerie/repondre-message/repondre-message.component';
 import { LayoutMessageComponent } from './messagerie/layout-message/layout-message.component';
-import { ListeMessageEnvoyeComponent } from 
+import { ListeMessageEnvoyeComponent } from
 './messagerie/liste-message-envoye/liste-message-envoye.component';
 import { LayoutCompteComponent } from './compte/layout-compte/layout-compte.component';
 import { EspaceComponent } from './paiement/espace/espace.component';
@@ -63,7 +74,7 @@ import { FlashInfoEcoleComponent } from './espace-ecole/flash-info-ecole/flash-i
 import { FormationsEcoleComponent } from './espace-ecole/formations-ecole/formations-ecole.component';
 import { DocumentsEcoleComponent } from './espace-ecole/documents-ecole/documents-ecole.component';
 import { PhotosEcoleComponent } from './espace-ecole/photos-ecole/photos-ecole.component';
- 
+
 @NgModule({
   imports: [
     CommonModule,
@@ -75,29 +86,34 @@ import { PhotosEcoleComponent } from './espace-ecole/photos-ecole/photos-ecole.c
     FormsModule,
     FilterPipeModule,
     NgSelectModule,
-    NgxMaskModule.forRoot() 
+    MatInputModule,
+    MatTooltipModule,
+    MatFormFieldModule,
+    MatExpansionModule,
+    MatButtonModule,
+    NgxMaskModule.forRoot()
   ],
   declarations: [
    LayoutComponent,
-   AccueilComponent, 
+   AccueilComponent,
    FooterComponent,
    Chatroom2Component,
    FilterPipe,
-   TopZoneComponent, 
-   WidgetInfoComponent, 
-   AdminTableComponent, 
+   TopZoneComponent,
+   WidgetInfoComponent,
+   AdminTableComponent,
    AdminCardComponent,
-   AdminBlockComponent, 
-   ApercuBlockComponent, 
-   AdminTarifsComponent, ListEspaceComponent, 
-   BlockComponent, FormuleComponent, 
-   DesabonneComponent, ReabonneComponent, HistoriqueComponent, 
-   CoverProfilComponent,ListeMessageComponent, MessageComponent, ViewMessageComponent, 
+   AdminBlockComponent,
+   ApercuBlockComponent,
+   AdminTarifsComponent, ListEspaceComponent,
+   BlockComponent, FormuleComponent,
+   DesabonneComponent, ReabonneComponent, HistoriqueComponent,
+   CoverProfilComponent,ListeMessageComponent, MessageComponent, ViewMessageComponent,
    SupprimeMessageComponent, RepondreMessageComponent, LayoutMessageComponent,
-    ListeMessageEnvoyeComponent, LayoutCompteComponent, EspaceComponent, 
-    DetailsCompteComponent, FormationCompteComponent, ExperienceCompteComponent, 
-    AuthCompteComponent, EspaceEcoleComponent, EspaceCompetenceComponent, 
-    EspaceImmobilierComponent, EspaceAnnonceComponent, CoverSelectComponent, CompetencePhotoComponent, CompetenceFormationComponent, CompetenceExperienceComponent, CompetenceDocumentsComponent, InfoPersoComponent, InfoProComponent, SocialComponent, CvComponent, MonEcoleComponent, EnteteEcoleComponent, FlashInfoEcoleComponent, FormationsEcoleComponent, DocumentsEcoleComponent, PhotosEcoleComponent, 
+    ListeMessageEnvoyeComponent, LayoutCompteComponent, EspaceComponent,
+    DetailsCompteComponent, FormationCompteComponent, ExperienceCompteComponent,
+    AuthCompteComponent, EspaceEcoleComponent, EspaceCompetenceComponent,
+    EspaceImmobilierComponent, EspaceAnnonceComponent, CoverSelectComponent, CompetencePhotoComponent, CompetenceFormationComponent, CompetenceExperienceComponent, CompetenceDocumentsComponent, InfoPersoComponent, InfoProComponent, SocialComponent, CvComponent, MonEcoleComponent, EnteteEcoleComponent, FlashInfoEcoleComponent, FormationsEcoleComponent, DocumentsEcoleComponent, PhotosEcoleComponent,
   ],
   entryComponents: [BlockComponent,CoverSelectComponent],
   exports: [LayoutComponent]
