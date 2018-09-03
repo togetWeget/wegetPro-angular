@@ -9,11 +9,11 @@ import { Resultat } from '../../../shared/models/resultat';
 import { AbonnesService } from '../../../core/services/abonnes/abonnes.service';
 
 @Component({
-  selector: 'app-espace-ecole',
-  templateUrl: './espace-ecole.component.html',
-  styleUrls: ['./espace-ecole.component.scss']
+  selector: 'app-layout-ecole',
+  templateUrl: './layout-ecole.component.html',
+  styleUrls: ['./layout-ecole.component.scss']
 })
-export class EspaceEcoleComponent implements OnInit {
+export class LayoutEcoleComponent implements OnInit {
   top_zone: AdminTopZone = null;
   detailBlock: Detailblock;
   detailBlocks: Detailblock[];

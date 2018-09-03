@@ -10,11 +10,11 @@ import {AbonnementService} from '../../../core/services/abonnements/abonnement.s
 import {AbonnesService} from '../../../core/services/abonnes/abonnes.service';
 
 @Component({
-  selector: 'app-espace-competence',
-  templateUrl: './espace-competence.component.html',
-  styleUrls: ['./espace-competence.component.scss']
+  selector: 'app-layout-competence',
+  templateUrl: './layout-competence.component.html',
+  styleUrls: ['./layout-competence.component.scss']
 })
-export class EspaceCompetenceComponent implements OnInit {
+export class LayoutCompetenceComponent implements OnInit {
 
   	top_zone: AdminTopZone = null;
   	admin_card: AdminCard = null;

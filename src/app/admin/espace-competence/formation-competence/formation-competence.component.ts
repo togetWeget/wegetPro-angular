@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-competence-formation',
-  templateUrl: './competence-formation.component.html',
-  styleUrls: ['./competence-formation.component.scss']
+  selector: 'app-formation-competence',
+  templateUrl: './formation-competence.component.html',
+  styleUrls: ['./formation-competence.component.scss']
 })
-export class CompetenceFormationComponent implements OnInit {
+export class FormationCompetenceComponent implements OnInit {
 	diplomes=[];
   constructor() {
 

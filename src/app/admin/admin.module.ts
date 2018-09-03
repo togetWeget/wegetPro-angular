@@ -54,15 +54,16 @@ import { FormationCompteComponent } from './compte/formation-compte/formation-co
 import { ExperienceCompteComponent } from './compte/experience-compte/experience-compte.component';
 import { AuthCompteComponent } from './compte/auth-compte/auth-compte.component';
 import { NgSelectModule } from '@ng-select/ng-select';
-import { EspaceEcoleComponent } from './espace/espace-ecole/espace-ecole.component';
-import { EspaceCompetenceComponent } from './espace/espace-competence/espace-competence.component';
-import { EspaceImmobilierComponent } from './espace/espace-immobilier/espace-immobilier.component';
-import { EspaceAnnonceComponent } from './espace/espace-annonce/espace-annonce.component';
+import { LayoutEcoleComponent } from './espace-ecole/layout-ecole/layout-ecole.component';
+import { LayoutCompetenceComponent } from './espace-competence/layout-competence/layout-competence.component';
+import { LayoutImmobilierComponent } from './espace-immobilier/layout-immobilier/layout-immobilier.component';
+import { LayoutAnnonceComponent } from './espace-annonce/layout-annonce/layout-annonce.component';
 import { CoverSelectComponent } from './compte/cover-select/cover-select.component';
-import { CompetencePhotoComponent } from './espace-competence/competence-photo/competence-photo.component';
-import { CompetenceFormationComponent } from './espace-competence/competence-formation/competence-formation.component';
-import { CompetenceExperienceComponent } from './espace-competence/competence-experience/competence-experience.component';
-import { CompetenceDocumentsComponent } from './espace-competence/competence-documents/competence-documents.component';
+import { PhotoCompetenceComponent } from './espace-competence/photo-competence/photo-competence.component';
+import { FormationCompetenceComponent } from './espace-competence/formation-competence/formation-competence.component';
+import { ExperienceCompetenceComponent } from './espace-competence/experience-competence/experience-competence.component';
+import { DocumentsCompetenceComponent } from './espace-competence/documents-competence/documents-competence.component';
+import { CvCompetenceComponent } from './espace-competence/cv-competence/cv-competence.component';
 import { InfoPersoComponent } from './compte/info-perso/info-perso.component';
 import { InfoProComponent } from './compte/info-pro/info-pro.component';
 import { SocialComponent } from './compte/social/social.component';
@@ -110,10 +111,12 @@ import { PhotosEcoleComponent } from './espace-ecole/photos-ecole/photos-ecole.c
    DesabonneComponent, ReabonneComponent, HistoriqueComponent,
    CoverProfilComponent,ListeMessageComponent, MessageComponent, ViewMessageComponent,
    SupprimeMessageComponent, RepondreMessageComponent, LayoutMessageComponent,
-    ListeMessageEnvoyeComponent, LayoutCompteComponent, EspaceComponent,
-    DetailsCompteComponent, FormationCompteComponent, ExperienceCompteComponent,
-    AuthCompteComponent, EspaceEcoleComponent, EspaceCompetenceComponent,
-    EspaceImmobilierComponent, EspaceAnnonceComponent, CoverSelectComponent, CompetencePhotoComponent, CompetenceFormationComponent, CompetenceExperienceComponent, CompetenceDocumentsComponent, InfoPersoComponent, InfoProComponent, SocialComponent, CvComponent, MonEcoleComponent, EnteteEcoleComponent, FlashInfoEcoleComponent, FormationsEcoleComponent, DocumentsEcoleComponent, PhotosEcoleComponent,
+   ListeMessageEnvoyeComponent, LayoutCompteComponent, EspaceComponent,
+   DetailsCompteComponent, FormationCompteComponent, ExperienceCompteComponent,
+   AuthCompteComponent, CoverSelectComponent, InfoPersoComponent, InfoProComponent, SocialComponent, CvComponent, 
+   LayoutEcoleComponent, LayoutCompetenceComponent, LayoutImmobilierComponent, LayoutAnnonceComponent, 
+   PhotoCompetenceComponent, FormationCompetenceComponent, ExperienceCompetenceComponent, DocumentsCompetenceComponent, CvCompetenceComponent,
+   MonEcoleComponent, EnteteEcoleComponent, FlashInfoEcoleComponent, FormationsEcoleComponent, DocumentsEcoleComponent, PhotosEcoleComponent,
   ],
   entryComponents: [BlockComponent,CoverSelectComponent],
   exports: [LayoutComponent]

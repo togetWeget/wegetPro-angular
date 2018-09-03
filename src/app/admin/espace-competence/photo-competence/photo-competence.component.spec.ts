@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EspaceEcoleComponent } from './espace-ecole.component';
+import { PhotoCompetenceComponent } from './photo-competence.component';
 
-describe('EspaceEcoleComponent', () => {
-  let component: EspaceEcoleComponent;
-  let fixture: ComponentFixture<EspaceEcoleComponent>;
+describe('PhotoCompetenceComponent', () => {
+  let component: PhotoCompetenceComponent;
+  let fixture: ComponentFixture<PhotoCompetenceComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EspaceEcoleComponent ]
+      declarations: [ PhotoCompetenceComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(EspaceEcoleComponent);
+    fixture = TestBed.createComponent(PhotoCompetenceComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

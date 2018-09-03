@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CompetencePhotoComponent } from './competence-photo.component';
+import { LayoutImmobilierComponent } from './layout-immobilier.component';
 
-describe('CompetencePhotoComponent', () => {
-  let component: CompetencePhotoComponent;
-  let fixture: ComponentFixture<CompetencePhotoComponent>;
+describe('LayoutImmobilierComponent', () => {
+  let component: LayoutImmobilierComponent;
+  let fixture: ComponentFixture<LayoutImmobilierComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CompetencePhotoComponent ]
+      declarations: [ LayoutImmobilierComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CompetencePhotoComponent);
+    fixture = TestBed.createComponent(LayoutImmobilierComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
