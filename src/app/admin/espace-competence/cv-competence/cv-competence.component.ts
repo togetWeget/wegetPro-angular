@@ -61,7 +61,7 @@ export class CvCompetenceComponent implements OnInit {
     .subscribe((data: any)=> {
       this.membre = data.body;     
       this.initForm();
-      this.photo.nativeElement.style.backgroundImage = 'url(' + this.getProfilSrc() + ')';
+      //this.photo.nativeElement.style.backgroundImage = 'url(' + this.getProfilSrc() + ')';
     });
   }
 

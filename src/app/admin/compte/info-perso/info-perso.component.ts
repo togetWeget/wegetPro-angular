@@ -56,9 +56,9 @@ export class InfoPersoComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.photo.nativeElement.style.backgroundImage = 'url(' + this.getProfilSrc() + ')';
-    this.photo.nativeElement.style.backgroundSize = 'cover';
-    this.photo.nativeElement.style.backgroundPosition = 'center';
+    //this.photo.nativeElement.style.backgroundImage = 'url(' + this.getProfilSrc() + ')';
+   // this.photo.nativeElement.style.backgroundSize = 'cover';
+    //this.photo.nativeElement.style.backgroundPosition = 'center';
 
     this.membreService.getMembreByLogin(localStorage.getItem('log'))
       .subscribe(res => {
@@ -130,33 +130,33 @@ export class InfoPersoComponent implements OnInit {
     }
 
     this.detailsForm = this.fb.group({
-      id: [{value: this.membre.id}],
-      version: [{value: this.membre.version}],
-      cni: [{value: this.membre.cni}],
-      titre: [{value: this.membre.titre}],
-      nom: [{value: this.membre.nom, disabled: false}],
-      prenom: [{value: this.membre.prenom, disabled: false}],
-      password: [{value: this.membre.password}],
-      repassword: [{value: this.membre.repassword}],
-      actived: [{value: this.membre.actived}],
-      nomComplet: [{value: this.membre.nomComplet}],
-      pathPhoto: [{value: this.membre.pathPhoto}],
-      nombreVue: [{value: this.membre.nombreVue}],
-      groupSanguin: [{value: this.membre.groupSanguin}],
-      dateNaissance: [{value: this.membre.dateNaissance}],
-      genre: [{value: this.membre.genre}],
-      type: [{value: this.membre.type}],
+      id: [this.membre.id],
+      version: [this.membre.version],
+      //cni: [ this.membre.cni],
+      //titre: [ this.membre.titre],
+      nom: [this.membre.nom],
+      prenom: [this.membre.prenom],
+      /*password: [ this.membre.password],
+      repassword: [ this.membre.repassword],*/
+      /*actived: [ this.membre.actived],
+      nomComplet: [ this.membre.nomComplet],
+      pathPhoto: [ this.membre.pathPhoto],
+      nombreVue: [ this.membre.nombreVue],
+      groupSanguin: [ this.membre.groupSanguin],
+      dateNaissance: [ this.membre.dateNaissance],*/
+      genre: [this.membre.genre],
+      type: [this.membre.type],
 
       adresse: this.fb.group({
-        codePostal: [this.membre.adresse.boitePostal],
+        boitePostal: [this.membre.adresse.boitePostal],
         email: [this.membre.adresse.email],
         pays: [this.membre.adresse.pays],
         ville: [this.membre.adresse.ville],
         quartier: [this.membre.adresse.quartier]
       }),
-      login: [{value: this.membre.login}],
+      login: [this.membre.login],
 
-      cvPersonne: this.fb.group({
+      /*cvPersonne: this.fb.group({
         id: [this.membre.cvPersonne.id],
         version: [this.membre.cvPersonne.version],
         diplome: [this.membre.cvPersonne.diplome],
@@ -169,11 +169,11 @@ export class InfoPersoComponent implements OnInit {
         description: [this.membre.cvPersonne.description],
         pathCv: [this.membre.cvPersonne.pathCv],
 
-      }),
+      }),*/
       telephones: telephonesInit,
-      langues: langueInit,
-      typeStatut: this.fb.group({
-        id: [this.membre.typeStatut.id],
+      //langues: langueInit,
+      /*typeStatut: this.fb.group({
+       /*id: [this.membre.typeStatut.id],
         version: [this.membre.typeStatut.version],
         libelle: [this.membre.typeStatut.libelle]
       }),
@@ -182,8 +182,8 @@ export class InfoPersoComponent implements OnInit {
         version: [this.membre.contrat.version],
         dureeContrat: [this.membre.contrat.dureeContrat],
         periodeContrat: [this.membre.contrat],
-      }),
-      description: [{value: this.membre.description}]
+      }),*/
+      //description: [{value: this.membre.description}]
     });
   }
 
@@ -213,29 +213,29 @@ export class InfoPersoComponent implements OnInit {
     const mens = new Membre(
       fg.value['id'],
       fg.value['version'],
-      fg.value['cni'],
-      fg.value['titre'],
+     null,
+      null,
       fg.value['nom'],
       fg.value['prenom'],
-      fg.value['password'],
-      fg.value['repassword'],
-      fg.value['actived'],
-      fg.value['nomComplet'],
-      fg.value['pathPhoto'],
-      fg.value['nombreVue'],
-      fg.value['groupeSanguin'],
-      fg.value['dateNaissance'],
+     null,
+      null,
+      false,
+      null,
+      null,
+      null,
+      null,
+      null,
       fg.value['genre'],
       'ME',
       fg.value['adresse'],
       fg.value['login'],
-      fg.value['entreprise'],
-      fg.value['cvPersonne'],
+      null,
+      null,
       fg.value['telephone'],
-      fg.value['langues'],
-      fg.value['typeStatut'],
-      fg.value['contrat'],
-      fg.value['description'],
+      null,
+      null,
+      null,
+      null,
     );
     return mens;
   }

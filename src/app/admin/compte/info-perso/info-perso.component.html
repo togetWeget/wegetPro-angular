@@ -24,6 +24,11 @@
             <tr>
               <td>
                 <mat-form-field>
+                  <input matInput placeholder="Login" formControlName="login">
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field>
                   <input matInput placeholder="Nom" formControlName="nom">
                 </mat-form-field>
               </td>
@@ -32,7 +37,11 @@
                   <input matInput placeholder="Prenom" formControlName="prenom">
                 </mat-form-field>
               </td>
-
+              <td>
+                <mat-form-field>
+                  <input matInput placeholder="Genre" formControlName="genre">
+                </mat-form-field>
+              </td>
             </tr>
 
 
@@ -44,7 +53,7 @@
               </mat-expansion-panel-header>
               <div>
                 <mat-form-field>
-                  <input matInput placeholder="Boite Postal" formControlName="codePostal">
+                  <input matInput placeholder="Boite Postal" formControlName="boitePostal">
                 </mat-form-field>
                 <mat-form-field>
                   <input matInput placeholder="Quartier" formControlName="quartier">
