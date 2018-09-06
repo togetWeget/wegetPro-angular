@@ -1,7 +1,9 @@
 import { Component, OnInit, ViewChild,
-ElementRef, Input, Output, EventEmitter } from '@angular/core';
+ElementRef, Input, Output, EventEmitter, OnChange,
+SimpleChange } from '@angular/core';
 import {Router} from '@angular/router';
 import { AdminCover } from '../../../shared/views_models/admin-cover';
+import { Membre} from '../../../shared/models/personne/membres/membre';
 
 
 @Component({
@@ -9,25 +11,32 @@ import { AdminCover } from '../../../shared/views_models/admin-cover';
   templateUrl: './cover-profil.component.html',
   styleUrls: ['./cover-profil.component.scss']
 })
-export class CoverProfilComponent implements OnInit {
+export class CoverProfilComponent implements OnInit, OnChange {
   @ViewChild('img_cover') img_cover: ElementRef;
   @ViewChild('img_profil') img_profil: ElementRef;
   defaultProfil: any = '/assets/placeholder-image.jpg';
   defaultCover: any = '/assets/profile-cover.jpg';
   @Input('cover') cover: AdminCover;
+  // @Input('membre') membre: Membre;
   @Output() clickOcur = new EventEmitter<string>();
 
   constructor(private router: Router) { }
 
   ngOnInit() {
-  	this.img_cover.nativeElement.style.backgroundImage = 'url(' + this.getCoverSrc() + ')';
+    this.img_cover.nativeElement.style.backgroundImage = 'url(' + this.getCoverSrc() + ')';
     this.img_cover.nativeElement.style.backgroundSize = 'cover';
     this.img_cover.nativeElement.style.backgroundPosition = 'center';
     this.img_cover.nativeElement.style.position = 'relative';
-  	this.img_profil.nativeElement.style.backgroundImage = 'url(' + this.getProfilSrc() + ')';
+    this.img_profil.nativeElement.style.backgroundImage = 'url(' + this.getProfilSrc() + ')';
     this.img_profil.nativeElement.style.backgroundSize = 'cover';
     this.img_profil.nativeElement.style.backgroundSize = 'cover';
     this.img_profil.nativeElement.style.backgroundPosition = 'center';
+    // alert(this.cover.profilPath);
+  }
+
+  ngOnChanges(changes: {[propKey: string]: SimpleChange}) {
+    this.img_cover.nativeElement.style.backgroundImage = 'url(' + this.getCoverSrc() + ')';
+    this.img_profil.nativeElement.style.backgroundImage = 'url(' + this.getProfilSrc() + ')';
   }
 
   getCoverSrc(): any {

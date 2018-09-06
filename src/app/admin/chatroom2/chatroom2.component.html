@@ -19,19 +19,18 @@
       <div class="band-user">
 	  
 	  
-      <div *ngFor="let a of dataRec | filterBy: userFilter">
+      <div *ngFor="let a of dataRec | filterBy: userFilter; index as i;">
 		
-      <div class="" (click)="changeVarUser(a.id,a.pathPhoto,a.nomComplet);" >
+      <div class="" (click)="changeVarUser(a.id,a.pathPhoto,a.nomComplet,colortab[i]);" >
         <div class="users" style=" paddind:10px; cursor:pointer; margin-top:10px;" *ngIf="a.id != layoutComponent.InfoMembres.id">
        <!--    <input  class="img-g-rond-s " [ngStyle]="{ 'background' : 'url(' + a.pathPhoto + ')', 'background-repeat' : 'no-repeat',  'background-size ': 'cover',  'border':'0px', 'background-color': '#ff6d05' , 'font-size': '30px', 'color':'#fff',  'text-align':'center', 'text-transform' : 'uppercase'}"
              
                [value]="a.pathPhoto? '' : a.login[0] " disabled/>
 	   -->
 			   
-			   <img src="{{a.pathPhoto}}" class="img-g-rond-s " style="background-repeat : no-repeat;  background-size :cover;  border:0px; background-color:#ff6d05;  font-size: 30px; color:#fff;  text-align:center; text-transform : uppercase;" 
+			   <img src="{{a.pathPhoto}}" class="img-g-rond-s " #imgphoto [ngStyle]="{'background-repeat' : 'no-repeat',  'background-size' :'cover',  'border':'0px',  'font-size': '30px', 'color':'#fff',  'text-align':'center', 'text-transform' : 'uppercase', 'background-color' : colortab[i]}" 
              
                [alt]="a.nomComplet[0] " title="{{a.login}}" />
-
           <!-- <div *ngIf="a.pathPhoto === null" class="img-g-rond"
                 style="background: #ff6d05; background-size: 100%"><p
              style="font-size:25px; color:#fff; padding:5px 5px 5px 15px; text-align:center;"
@@ -39,7 +38,7 @@
            </div>-->
 
 
-          <span>{{a.nomComplet}} <span class="badge badge-pill badge-danger" *ngIf="compteurMsg[a.id]  > 0 "   >{{compteurMsg[a.id]}}</span><i class="fa fa-circle" style="color:darkgreen; float:right;"></i></span>
+          <span><h5 class="break_word"> {{a.nomComplet}} </h5> <span class="badge badge-pill badge-danger" *ngIf="compteurMsg[a.id]  > 0 "   >{{compteurMsg[a.id]}}</span><i class="fa fa-circle" style="color:darkgreen; float:right;"></i></span>
           <h6 class="break_word">{{a.description}} <i *ngIf="a.description === null || a.description.length === 0">Aucune description Pour ce
             membre</i></h6>
         </div>
@@ -65,7 +64,7 @@
       <div class="band-droite">
         <i class="fa fa-hand-o-left retourmembre" style="float:left;line-height: 1.8em; margin-right:5px; cursor:pointer; display:none;" (click)="retourMembre()" *ngIf="retourAff === true"></i>
         
-		<img src="{{pathPhoto_rec}}" class="img-g-rond-s " style="background-repeat : no-repeat;  background-size :cover;  border:0px; background-color:#ff6d05;  font-size: 30px; color:#fff;  text-align:center; text-transform : uppercase;" alt="{{named ? named[0] : 'T'}} " />
+		<img src="{{pathPhoto_rec}}" class="img-g-rond-s " [ngStyle]="{'background-repeat' : 'no-repeat',  'background-size' :'cover',  'border':'0px',  'font-size': '30px', 'color':'#fff',  'text-align':'center', 'text-transform' : 'uppercase', 'background-color' : colorinf}" alt="{{named ? named[0] : 'T'}} " />
 		
         <div class="col-sm-12" style="width:500px;height:10px;">{{named}}
           <span class="fa fa-angle-down"></span><br/>
@@ -79,7 +78,7 @@
 		
 		<div class=" col-sm-12 row default-frm" style="" >
           <p> Salut, {{named}}</p>
-		<audio src="/assets/audio/1.mp3" controls id="player" style="display:none;"></audio>
+		<!-- <audio src="/assets/audio/1.mp3" controls id="player" style="display:block;"></audio> -->
           <img class="default-img"
                src="https://fotomelia.com/wp-content/uploads/edd/2015/11/bonhomme-blanc-3d-images-gratuites-libres-de-droits-creative-commons58-1560x1114.jpg"/>
 
@@ -96,13 +95,14 @@
             <div class="col-sm-12 row" style="margin-bottom:5px; margin-top:5px;" *ngIf="a.codeSender != layoutComponent.InfoMembres.id">
               <div class="col-sm-12">
                 
-				<img src="{{pathPhoto_rec}}" class="img-g-rond-r pull-left" style="background-repeat : no-repeat;  background-size :cover;  border:0px; background-color:#ff6d05;  font-size: 30px; color:#fff;  text-align:center; text-transform : uppercase;" alt="{{named ? named[0] : 'T'}} " />
+				<img src="{{pathPhoto_rec}}" class="img-g-rond-r pull-left" [ngStyle]="{'background-repeat' : 'no-repeat',  'background-size' :'cover',  'border':'0px',  'font-size': '30px', 'color':'#fff',  'text-align':'center', 'text-transform' : 'uppercase', 'background-color' : colorinf}" alt="{{named ? named[0] : 'T'}} " />
               </div>
               <div class="col-sm-12">
                 <div class="receiver pull-left">{{a.message}}
 				    <div class="col-sm-12 ">
                 <i style="font-size:10px;" class="pull-right">
 				le {{a.Date_s}}
+                  <span class="fa fa-send" style="color:green"></span>
                   <span class="fa fa-send" style="color:green"></span>
                 </i>
               </div>
@@ -113,7 +113,7 @@
 
             <div class="col-sm-12 row" style="margin-bottom:5px; margin-top:5px;" *ngIf="a.codeSender == layoutComponent.InfoMembres.id">
               <div class="col-sm-12" style="">
-                <img src="{{layoutComponent.InfoMembres.pathPhoto}}" class="img-g-rond-r pull-right" style="background-repeat : no-repeat;  background-size :cover;  border:0px; background-color:#ff6d05;  font-size: 30px; color:#fff;  text-align:center; text-transform : uppercase;" alt="{{layoutComponent.InfoMembres.nomComplet ? layoutComponent.InfoMembres.nomComplet[0] : 'moi'}} " />
+                <img src="{{layoutComponent.InfoMembres.pathPhoto}}" class="img-g-rond-r pull-right" [ngStyle]="{'background-repeat' : 'no-repeat',  'background-size' :'cover',  'border':'0px',  'font-size': '30px', 'color':'#fff',  'text-align':'center', 'text-transform' : 'uppercase', 'background-color' : '#ff6d05'}" alt="{{layoutComponent.InfoMembres.nomComplet ? layoutComponent.InfoMembres.nomComplet[0] : 'moi'}} " />
               </div>
               <div class="col-sm-12" style="">
                 <div class="sender pull-right">
@@ -123,6 +123,7 @@
                 <i style="font-size:10px;" class="pull-right">
 				le {{a.Date_s}}
                   <span class="fa fa-send" style="color:green"></span>
+                  <span class="fa fa-send" style="color:green" *ngIf="compteurLu[uid_receiv] > 0"></span>
                 </i>
               </div>
                 </div>

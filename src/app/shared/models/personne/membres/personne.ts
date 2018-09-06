@@ -32,7 +32,8 @@ export class Personne {
     public telephones?: Telephone[],
     public langues?: LangueParle[],
     public typeStatut ?: TypeStatut,
-    public contrat?:Contrat
+    public contrat?:Contrat,
+    public couleur?: string
 
 
     ) {

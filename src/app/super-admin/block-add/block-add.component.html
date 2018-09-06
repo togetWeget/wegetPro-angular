@@ -19,18 +19,26 @@
 							    <textarea formControlName="description" [froalaEditor]="editor_options"></textarea>
 							</div>
 						</div>
-            <div class="col-md-12">
-              <div class="form-group">
-                <label for="contenu">pathPhoto</label>
-                <input formControlName="pathPhoto">
-              </div>
-            </div>
-            <div class="col-md-12">
-              <div class="form-group">
-                <label for="contenu">type block</label>
-                <input formControlName="typeBlock">
-              </div>
-            </div>
+
+			            <div class="col-md-12">
+			              <div class="form-group">
+			                <label for="contenu">PathPhoto</label>
+			                <input formControlName="pathPhoto" type="files" class="form-control">
+			              </div>
+			            </div>
+
+			            <div class="col-md-12">
+			              <div class="form-group">
+			                <label for="contenu">Type du block</label>
+			                <select formControlName="typeBlock"  class="form-control">
+			                	<option value="annonce">Annonce</option>
+			        			<option value="competence">Competence</option>
+			                	<option value="ecole">Ecole</option>
+			                	<option value="immobilier">Immobilier</option>
+			                </select>
+			                <!--input formControlName="typeBlock"-->
+			              </div>
+			            </div>
 						<div class="col-md-12">
 							<button mat-raised-button color="primary" class="blue" type="submit">Ajouter</button>
 						</div>

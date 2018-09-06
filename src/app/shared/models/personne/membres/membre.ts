@@ -35,11 +35,34 @@ export class Membre extends Personne {
     public langues?: LangueParle[],
     public typeStatut ?: TypeStatut,
     public contrat?: Contrat,
+    public couleur?: string,
     public description?: string,
   ) {
-    super(id, version, cni, titre, nom, prenom, password, repassword, actived, nomComplet,
-      pathPhoto, nombreVue, groupSanguin, dateNaissance, genre,
-       type, adresse, login, entreprise, typeStatut, telephones,langues);
+    super(id,
+version,
+cni,
+titre,
+nom,
+prenom,
+password,
+repassword,
+actived,
+nomComplet,
+pathPhoto,
+nombreVue,
+groupSanguin,
+dateNaissance,
+genre,
+type,
+adresse,
+login,
+entreprise,
+cvPersonne,
+telephones,
+langues,
+typeStatut,
+contrat,
+couleur);
   }
 
 }

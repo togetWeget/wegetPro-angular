@@ -2,7 +2,7 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-12">
-    	<app-cover-profil-admin (clickOcur)="handleClick($event)" [cover]="coverModel" ></app-cover-profil-admin>
+    	<app-cover-profil-admin #cover (clickOcur)="handleClick($event)" [cover]="coverModel" ></app-cover-profil-admin>
 		
 		<br>
 		<br>
@@ -38,7 +38,7 @@
 			</div>
 		  </mat-tab>
  -->
-		  <mat-tab>
+		  <!-- <mat-tab>
 		    <ng-template mat-tab-label>
 		      <i class="fa fa-trophy"></i>&nbsp;&nbsp;
 		      CV
@@ -51,7 +51,7 @@
 				</div>
 				<app-cv *ngIf="membre.type !== 'ME'"></app-cv>
 			</div>
-		  </mat-tab>
+		  </mat-tab> -->
 		  
 		  <mat-tab>
 		    <ng-template mat-tab-label>

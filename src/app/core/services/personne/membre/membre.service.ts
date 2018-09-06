@@ -16,6 +16,8 @@ export class MembreService {
   private urlMembreByLogin = 'http://wegetback:8080/membresLogin';
   private urlPersonne = 'http://wegetback:8080/personnes';
   private urlPhoto = 'http://wegetback:8080/photo';
+  private urlPhotoMembre = 'http://wegetback:8080/photoMembre';
+  private urlPhotoCouvertureMembre = 'http://wegetback:8080/photoCouvertureMembre';
   private urlRechercheMens = 'http://wegetback:8080/rechePersonneParMc/ME?mc=';
 
   //other vars
@@ -137,11 +139,11 @@ export class MembreService {
 
   }
 
-  enregistrerPhoto(imageFile: File, cni: string): Observable<any> {
+  enregistrerPhoto(imageFile: File, login: string): Observable<any> {
 
     const formData: FormData = new FormData();
-    formData.append('image_photo', imageFile, cni);
-    const req = new HttpRequest('POST', this.urlPhoto, formData, {
+    formData.append('image_photo', imageFile, login);
+    const req = new HttpRequest('POST', this.urlPhotoMembre, formData, {
       /*reportProgress = true;*/
     });
     return this.http.request(req)

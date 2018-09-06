@@ -25,17 +25,17 @@ export class EspaceComponent implements OnInit {
     this.defaultPhoto;
   }
   onEditerEspace(dblk:number){
-    this.type_espace=this.detailBlock.block.libelle;
+    this.type_espace=this.detailBlock.block.typeBlock;
     dblk=this.detailBlock.id;
     switch (this.type_espace) {
       case "annonce":
         this.router.navigate(['/admin/espace','annonce',dblk]);
         break;
-      case "ecoles":
+      case "ecole":
         this.router.navigate(['/admin/espace','ecole',dblk]);
         break;
       case "immobilier":
-        this.router.navigate(['/admin/espace','immobiler',dblk]);
+        this.router.navigate(['/admin/espace','immobilier',dblk]);
         break;
       default:
         this.router.navigate(['/admin/espace','competence',dblk]);

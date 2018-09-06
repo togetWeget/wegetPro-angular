@@ -22,6 +22,7 @@ export class Chatroom2Component implements OnInit {
   public uid_receiv;
   public pathPhoto_rec;
   public named;
+  public colorinf = "#ff6d05";
   public codeFinal;
   public resulloard: boolean;
   public ResultText;
@@ -39,6 +40,7 @@ export class Chatroom2Component implements OnInit {
   public ImgVarshow;
   public TabImg: any = [];
   public compteurMsg: any = [];
+  public compteurLu: any = [];
   public bool: Boolean;
   public checkmsg: any;
   public tabCouleur = [
@@ -52,10 +54,8 @@ export class Chatroom2Component implements OnInit {
 							"#28a745",
 							"#20c997",
 							"#17a2b8",
-							"#fff",
 							"#6c757d",
 							"#343a40",
-							"red",
 							"#6c757d",
 							"#28a745",
 							"#17a2b8",
@@ -66,7 +66,7 @@ export class Chatroom2Component implements OnInit {
 						];
 	public colortab: any = [];
   constructor(public layoutComponent: LayoutComponent, public  http: HttpClient, public fb: FormBuilder, public regist: RegisterService, public firbaseRequest: RequestChatroomService, private _sanitizer: DomSanitizer) {
-    this.changeVarUser(null, null, null);
+    this.changeVarUser(null, null, null, '#ff6d05');
     //  this.sidnavClose();
     this.resulloard = true;
     this.ResultText = 'Chargement en cour...';
@@ -74,32 +74,10 @@ export class Chatroom2Component implements OnInit {
 	this.getEmoti();
 	this.getallStat();
 	this.toogle_close();
-	this.loadTabcolor();
+	// this.loadTabcolor();
   }
   
-  loadTabcolor(){
-	  // if(let i in this.tabCouleur)
-		  const tablength = this.tabCouleur.length;
-
-	
-			let int = setInterval(()=>{
-				if(this.dataRec){
-				
-				for(let i=0; i < tablength; i++){
-				
-					let col = Math.floor(Math.random() * Math.floor(tablength - 1));
-					this.colortab.push(this.tabCouleur[col]);
-					console.log(this.tabCouleur[col]);
-					
-					}
-					clearInterval(int);
-				}
-			}, 1000);
-		  
-			console.log("couleur : ");
-			console.log(this.colortab);
-	  // tabCouleur
-	  }
+ 
   
   // loaderint(){
 		  // alert();
@@ -260,10 +238,7 @@ export class Chatroom2Component implements OnInit {
 				this.ImgVar[i] = this._sanitizer.bypassSecurityTrustResourceUrl(URL.createObjectURL(file.target.files[i]));  
                 // $('#blah').attr('src', URL.createObjectURL(file.target.files[i]));
 				// alert(URL.createObjectURL(file.target.files[i]));
-	  }
-				             
-				alert
-         
+	  }     
 			    
 	  }
 	  
@@ -300,7 +275,7 @@ export class Chatroom2Component implements OnInit {
 		// alert(uidreg);
 		let compr = Object.keys(snapshot.val()).length;
 		let valeurData = Object.keys(snapshot.val());
-		console.log(compr);
+		// console.log(compr);
 		this.conteneur = compr;
 		let i=0;
 		let w = compr;
@@ -362,6 +337,7 @@ export class Chatroom2Component implements OnInit {
 				let id = this.dataRec[i].id;
 				// alert(id);
 				this.receivStatus(id);
+				this.receivStatuslu(id);
 	  const code_disc = this.layoutComponent.InfoMembres.id + '_' + id;				
 				// alert(this.compteurMsg.code_disc);
 			}
@@ -373,45 +349,93 @@ export class Chatroom2Component implements OnInit {
 		}
 	}
 	
+	playaudio(){
+		  
+		let flush = new Audio('/assets/audio/1.mp3');
+		flush.play();
+		flush.volume = 0.5;
+		  }
 	//{{fonction 2}}
 	  receivStatus(uid_receiv){
 		
 	  const libelle = 'Discussion';
 	  const code_disc = this.layoutComponent.InfoMembres.id + '_' + uid_receiv;
 	  const urlData = libelle + '/' + code_disc ;
-	  
+	  let u = this;
 		this.firbaseRequest.getAll(urlData).on("value", snapshot => {
-		
-		let compr = Object.keys(snapshot.val()).length;
-		let valeurData = Object.keys(snapshot.val());
-		let i=0;
-		let w = 0;
-		this.compteurMsg[uid_receiv] = 0;
-		for(i==0; i < compr; i++){
-			const urlData2 = libelle + '/' + code_disc + '/' + valeurData[i];
-			this.firbaseRequest.getAll(urlData2).on("value", snapshot => {
-				
-				if(snapshot.val().status === 0){
-					
-					this.compteurMsg[uid_receiv] = this.compteurMsg[uid_receiv] + 1; 
-					// alert(uid_receiv  +'----' + snapshot.val().status + '----'+ this.compteurMsg[uid_receiv]);
-					// alert(snapshot.val().codeSender + ' ------ ' + this.layoutComponent.InfoMembres.id);
-					if(snapshot.val().codeSender != this.layoutComponent.InfoMembres.id){
+		if(snapshot.val()){
+				let compr = Object.keys(snapshot.val()).length;
+				let valeurData = Object.keys(snapshot.val());
+				let i=0;
+				let w = 0;
+				u.compteurMsg[uid_receiv] = 0;
+				for(i==0; i < compr; i++){
+					const urlData2 = libelle + '/' + code_disc + '/' + valeurData[i];
+					u.firbaseRequest.getAll(urlData2).on("value", snapshot => {
 						
-					$('#player')[0].play();
-					
+						if(snapshot.val().status === 0){
+							
+							u.compteurMsg[uid_receiv] = u.compteurMsg[uid_receiv] + 1; 
+							// alert(uid_receiv  +'----' + snapshot.val().status + '----'+ this.compteurMsg[uid_receiv]);
+							// alert(snapshot.val().codeSender + ' ------ ' + this.layoutComponent.InfoMembres.id);
+							if(snapshot.val().codeSender != u.layoutComponent.InfoMembres.id && u.compteurMsg[uid_receiv] > 0){
+								
+							u.playaudio();
+							
+								}
+						}else{
+						
+							// alert(snapshot.val().status);
 						}
-				}else{
-				
-					// alert(snapshot.val().status);
+						 
+						});
 				}
-				 
-				});
+				this.bool = true;
+				// alert(this.compteurMsg.uid_receiv);
+		
 		}
-		this.bool = true;
-		// alert(this.compteurMsg.uid_receiv);
+  });
+	
+	
+ 
+	  }
+	  
+	  
+	  
+	  
+	  
+	  receivStatuslu(uid_receiv){
 		
+	  const libelle = 'Discussion';
+	  const code_disc = uid_receiv + '_' + this.layoutComponent.InfoMembres.id;
+	  const urlData = libelle + '/' + code_disc ;
+	  let u = this;
+		this.firbaseRequest.getAll(urlData).on("value", snapshot => {
+		if(snapshot.val()){
+				let compr = Object.keys(snapshot.val()).length;
+				let valeurData = Object.keys(snapshot.val());
+				let i=0;
+				let w = 0;
+				u.compteurLu[uid_receiv] = 0;
+				for(i==0; i < compr; i++){
+					const urlData2 = libelle + '/' + code_disc + '/' + valeurData[i];
+					u.firbaseRequest.getAll(urlData2).on("value", snapshot => {
+						
+						if(snapshot.val().status === 0){
+							
+							u.compteurLu[uid_receiv] = u.compteurLu[uid_receiv] + 1; 
+					
+						}else{
+						
+							// alert(snapshot.val().status);
+						}
+						 
+						});
+				}
+				this.bool = true;
+				// alert(this.compteurLu.uid_receiv);
 		
+		}
   });
 	
 	
@@ -419,16 +443,13 @@ export class Chatroom2Component implements OnInit {
 	  }
 	
 	// charger une discussion par user
-  changeVarUser(id, pathPhoto, name) {
+  changeVarUser(id, pathPhoto, name, color) {
     this.uid_receiv = id;
     this.pathPhoto_rec = pathPhoto;
     this.named = name;
+    this.colorinf = color;
 	this.codeFinal = id + '_' + this.layoutComponent.InfoMembres.id;
 	this.receiveMsg(this.uid_receiv);
-	
-    console.log(this.uid_receiv);
-    console.log(this.pathPhoto_rec);
-    console.log(this.named);
 
     if ($(window).width() < 820) {
       $('.gauche-h').addClass('cacher');
@@ -452,6 +473,46 @@ export class Chatroom2Component implements OnInit {
   }
 
   // recuperation de tous les users
+  
+  
+  
+  loadTabcolor(data: any){
+	  // if(let i in this.tabCouleur)
+		  const tablength = this.tabCouleur.length;
+
+	
+			let int = setInterval(()=>{
+				if(data){
+				
+				for(let i=0; i < data.length; i++){
+					let col = Math.floor(Math.random() * Math.floor(tablength));
+					// alert($.inArray(this.tabCouleur[col], this.colortab));
+					if($.inArray(this.tabCouleur[col], this.colortab) == -1 ){
+							
+							this.colortab[i] = this.tabCouleur[col];
+					}else{
+					if(this.colortab.length >= tablength){
+					
+						this.colortab[i] = this.tabCouleur[col];
+						
+						}else{
+						
+						i--;
+						}
+					}
+					
+					
+					
+					
+					}
+					clearInterval(int);
+				}
+			}, 1000);
+							// console.log(this.colortab);
+
+	  // tabCouleur
+	  }
+	  
   recupAllUser() {
 		this.ResultText = '';
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
@@ -460,13 +521,11 @@ export class Chatroom2Component implements OnInit {
       observe: 'response'
     }).subscribe((resul) => {
         if (resul.status === 200) {
+		this.loadTabcolor(resul.body.body);
           this.dataRec = resul.body.body;
-		 
-          console.log(resul.body.body);
           this.resulloard = false;
           const dsp = $('.search-bar').attr('name');
         } else {
-          alert('Authentification incorrecte!');
           console.log(resul.body);
           this.resulloard = true;
           this.ResultText = 'Aucun Membre Trouver ou Disponible';
@@ -474,7 +533,7 @@ export class Chatroom2Component implements OnInit {
         }
       },
       err => {
-        console.log('Error: ' + err);
+        console.log(err);
         this.resulloard = true;
         this.ResultText = 'Erreur de chargement. Veuillez reessayer';
         alert('Alert! erreur.');

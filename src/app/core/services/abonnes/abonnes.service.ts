@@ -16,7 +16,8 @@ export class AbonnesService {
   private profilByIdUrl = 'http://wegetback:8080/detailBlock/';
   private abonneByLogUrl = 'http://wegetback:8080/profilAbonneLogin/';
   private abonnesUrl = 'http://wegetback:8080/abonnes/';
-
+  
+  private jwtToken = null;
   constructor(private httpClient: HttpClient, private messageService: MessageService) {
   }
 
@@ -68,6 +69,9 @@ export class AbonnesService {
       }),
       catchError(this.handleError<Resultat<Detailblock>>('getAbonnesByLog'))
     );
+  }
+  loadToken() {
+    this.jwtToken = localStorage.getItem('togetToken');
   }
 
   private log(message: string) {

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { AdminTopZone } from '../../../shared/views_models/admin-top-zone';
 import { Navs } from '../../../shared/views_models/navs';
 import { AdminCover } from '../../../shared/views_models/admin-cover';
@@ -9,7 +9,10 @@ import { Membre } from '../../../shared/models/personne/membres/membre';
 import { AbonnesService } from '../../../core/services/abonnes/abonnes.service';
 import {MembreService} from '../../../core/services/personne/membre/membre.service';
 import { CoverSelectComponent } from '../cover-select/cover-select.component';
+import { CoverProfilComponent } from '../../comp/cover-profil/cover-profil.component';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';  
+import { Observable, throwError, interval } from 'rxjs';
+import { catchError, retry, tap, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-layout-compte',
@@ -21,6 +24,7 @@ top_zone: AdminTopZone = null;
   detailblock: Detailblock;
   coverModel: AdminCover;
   membre: Membre;
+      @ViewChild(CoverProfilComponent) cover: CoverProfilComponent;
 
   constructor(private abonneService: AbonnesService,
     private membreService: MembreService,public dialog: MatDialog) {
@@ -43,17 +47,23 @@ top_zone: AdminTopZone = null;
 
   getDetailBlock() {
     this.membreService.getMembreByLogin(localStorage.getItem('log'))
-    .subscribe((data: any)=> {
-      this.membre = data.body;     
-      this.top_zone.titre = this.membre.nomComplet;
-      this.coverModel.titre = '';
-      this.coverModel.coverPath = '/assets/profile-cover.jpg';
-      this.coverModel.profilPath = this.membre.pathPhoto;
-      this.coverModel.vues = '-1';
-      this.coverModel.voirProfilLink = null;
-      this.coverModel.modifLink = null;
-      this.coverModel.vues = this.membre.nombreVue;
-    });
+    .pipe(
+      tap((data: any)=> {
+            this.membre = data.body;     
+            this.top_zone.titre = this.membre.nomComplet;
+            this.coverModel.titre = '';
+            this.coverModel.coverPath = '/assets/profile-cover.jpg';
+            this.coverModel.profilPath = this.membre.pathPhoto;
+            this.coverModel.vues = '-1';
+            this.coverModel.voirProfilLink = null;
+            this.coverModel.modifLink = null;
+            this.coverModel.vues = this.membre.nombreVue;
+            // console.log(this.coverModel.profilPath);
+            // this.cover.img_profil.nativeElement.style.backgroundImage = this.coverModel.profilPath;
+            // this.cover.load
+            }
+          )
+    );
   }
 
   openModif() {

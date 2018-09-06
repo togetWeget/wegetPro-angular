@@ -1,57 +1,102 @@
 <div class="details-container">
-	<form [formGroup]="detailsForm" (submit)="updateDetails()">
+	<form [formGroup]="cvCompetenceForm" (submit)="updateCurriculumVitea()" *ngIf="cvCompetenceForm">
 
 		<div class="row">			
 			<div class="col-md-12">
 				<legend>Informations Professionnelles</legend>
 				<div class="row">
-					<div class="col-md-5">
+					<div class="col-md-5" formGroupName="cvPersonne">
 						<div class="form-group">
-							<label for="">Vous êtes <span class="requi-asterix">(*)</span></label>
-							<ng-select class="custom" [items]="['Stagiaire','Salarié']" [hideSelected]="true"></ng-select>
+							<mat-form-field>
+							 	<mat-select placeholder="Vous êtes " formControlName="titre">
+					               <mat-option *ngFor="let titre of titres" [value]="titre.libelle">
+					                 {{titre.name}}
+					               </mat-option>
+					            </mat-select>
+							</mat-form-field>
 						</div>
 						<div class="form-group">
-							<label for="">Fonction Actuelle <span class="requi-asterix">(*)</span></label>
-							<ng-select class="custom" [items]="['Informaticien','Actuaire','Professeur','Mecanicien']" [hideSelected]="true"></ng-select>
+							<mat-form-field>
+							 	<mat-select placeholder="Fonction Actuelle" formControlName="fonctionActuelle">
+					               <mat-option *ngFor="let fonction of fonctions" [value]="fonction.libelle">
+					                 {{fonction.name}}
+					               </mat-option>
+					            </mat-select>
+							</mat-form-field>
 						</div>
 						<div class="form-group">
-							<label for="">Année d'expérience <span class="requi-asterix">(*)</span></label>
-							<input type="text" autocomplete="off" class="form-control" id="annee_exp" required="required" placeholder="Années d'expérience">
+							<mat-form-field>
+								<input matInput placeholder="Année d'expérience" formControlName="anneExperience">
+							</mat-form-field>
 						</div>
 						<div class="form-group">
-							<label for="">Dernier diplôme <span class="requi-asterix">(*)</span></label>
-							<ng-select class="custom" [items]="['Master','Maitrise','Licence','BTS','BAC','BEPC','CEPE']" [hideSelected]="true" ></ng-select>
+							<mat-form-field>
+							 	<mat-select placeholder="Dernier diplôme " formControlName="diplome">
+					               <mat-option *ngFor="let diplome of diplomes" [value]="diplome.libelle">
+					                 {{diplome.name}}
+					               </mat-option>
+					            </mat-select>
+							</mat-form-field>
 						</div>
 						<div class="form-group">
-							<label for="">Domaine <span class="requi-asterix">(*)</span></label>
-							<ng-select class="custom" [items]="['Informatique','Finance','Comptabilité']" [hideSelected]="true"></ng-select>
+							<mat-form-field>
+							 	<mat-select placeholder="Domaine" formControlName="domaine">
+					               <mat-option *ngFor="let domaine of domaines" [value]="domaine.libelle">
+					                 {{domaine.name}}
+					               </mat-option>
+					            </mat-select>
+							</mat-form-field>
 						</div>
 						<div class="form-group">
-							<label for="">Spécialité <span class="requi-asterix">(*)</span></label>
-							<ng-select class="custom" [items]="['Developpeur','Administrateur reseau','Remorquage']" [hideSelected]="true"></ng-select>
-						</div>
-						
+							<mat-form-field>
+							 	<mat-select placeholder="Spécialité" formControlName="specialite">
+					               <mat-option *ngFor="let specialite of specialites" [value]="specialite.libelle">
+					                 {{specialite.name}}
+					               </mat-option>
+					            </mat-select>
+							</mat-form-field>
+						</div>	
 					</div>
 					<div class="col-md-7">
-						<div class="form-group">
-							<label for="">Autre(s) Spécialité(s)</label>
-							<ng-select class="custom" [items]="['Developpeur','Administrateur reseau','Remorquage']" [hideSelected]="true" [multiple]="true"></ng-select>
+						<div class="form-group" formGroupName="cvPersonne">
+							<mat-form-field>
+							 	<mat-select placeholder="Autre(s) Spécialité(s)" formControlName="autreSpecialite" [multiple]="true">
+					               <mat-option *ngFor="let specialite of specialites" [value]="specialite.libelle">
+					                 {{specialite.name}}
+					               </mat-option>
+					            </mat-select>
+							</mat-form-field>
 						</div>
-						<div class="form-group">
-							<label for="">Type de contrat <span class="requi-asterix">(*)</span></label>
-							<ng-select class="custom" [items]="['CDD','CDI','Indeterminé']" [hideSelected]="true" [multiple]="true"></ng-select>
+						<div formGroupName="contrat">
+							<div class="form-group">
+								<mat-form-field>
+								 	<mat-select placeholder="Type de contrat" formControlName="contrat" [multiple]="true">
+						               <mat-option *ngFor="let contrat of contrats" [value]="contrat.libelle">
+						                 {{contrat.name}}
+						               </mat-option>
+						            </mat-select>
+								</mat-form-field>
+							</div>
+							<div class="form-group">
+								<mat-form-field>
+								 	<mat-select placeholder="Durée du contrat" formControlName="dureeContrat" [multiple]="true">
+						               <mat-option *ngFor="let dureeContrat of dureeContrats" [value]="dureeContrat.libelle">
+						                 {{dureeContrat.name}}
+						               </mat-option>
+						            </mat-select>
+								</mat-form-field>
+							</div>
 						</div>
-						<div class="form-group">
-							<label for="">Durée du contrat <span class="requi-asterix">(*)</span></label>
-							<ng-select class="custom" [items]="['1 mois','3 mois','6 mois', '12 mois','Peu importe']" [hideSelected]="true" [multiple]="true"></ng-select>
-						</div>
-						<div class="form-group">
-							<label for="">Telecharger CV</label>
-							<input type="file" autocomplete="off" class="form-control" id="cv" placeholder="Votre cv">
-						</div>
-						<div class="form-group">
-							<label for="">Motivations</label>
-							<textarea rows="5" class="form-control" name=""></textarea>
+						<div formGroupName="cvPersonne">
+							<div class="form-group">
+								<label for="">Telecharger CV</label>
+								<input type="file" autocomplete="off" class="form-control" id="cv" placeholder="Votre cv" formControlName="pathCv">
+							</div>
+							<div class="form-group">
+								<mat-form-field>
+									<textarea matInput placeholder="Motivations" formControlName="motivation" rows="5"></textarea>
+								</mat-form-field>
+							</div>
 						</div>
 					</div>
 				</div>				

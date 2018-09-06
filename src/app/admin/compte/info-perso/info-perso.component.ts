@@ -59,7 +59,7 @@ export class InfoPersoComponent implements OnInit {
           this.initForm();
         }
 
-        this.photo.nativeElement.style.backgroundImage = 'url(' + this.getProfilSrc() + ')';
+        // this.photo.nativeElement.style.backgroundImage = 'url(' + this.getProfilSrc() + ')';
       });
   }
 
@@ -247,8 +247,8 @@ export class InfoPersoComponent implements OnInit {
       fg.value['login'],
       null,
       null,
-      null,
-      null,
+      fg.value['telephones'],
+      fg.value['langues'],
       null,
       null,
       null,

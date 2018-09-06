@@ -32,7 +32,7 @@ export class LayoutCompetenceComponent implements OnInit {
 	  			new Navs('Accueil', '/admin'),
 	  			new Navs('Espace', '/admin/paiement/espace'),
 	  		],
-	  		new Navs ('liste', ''),
+	  		new Navs ('Competence', ''),
 	  		'home',
 	  	);
 
@@ -52,8 +52,8 @@ export class LayoutCompetenceComponent implements OnInit {
   		this.abonneService.getProfilById(+params.get('id')))
   	).subscribe(res=>{
   		this.detailBlock = res.body;
-  	  	this.top_zone.titre = this.detailBlock.block.libelle;
-	    this.top_zone.sous_titre=this.detailBlock.block.libelle;
+  	  this.top_zone.titre = this.detailBlock.block.libelle;
+	    this.top_zone.sous_titre='Espace '+ this.detailBlock.block.typeBlock;
   	});
 }
    fetchAllBlock(){
