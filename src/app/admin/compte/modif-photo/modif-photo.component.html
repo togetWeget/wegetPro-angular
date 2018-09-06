@@ -1,0 +1,26 @@
+<form enctype="multipart/form-data" (click)="modifierPhoto()" >
+<legend>Photo</legend>
+<div class="row">
+	<div class="col-md-12">
+		<div class="photo-cadre">
+		<div #photo class="photo"></div>
+		</div>
+	</div>
+	<div class="col-md-12">
+		<div class="photo-actions">
+		<input type="file" #filephoto autocomplete="off" class="form-control choisir_photo" id="choisir_photo" placeholder="choisir">
+		<label for="choisir_photo" mat-raised-button><i class="fa fa-photo"></i>&nbsp;&nbsp;Choisir photo</label>
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="form-group">
+			<button type="submit" *ngIf="has_changed" mat-raised-button class="btn-green"><i class="fa fa-send"></i> Enregistrer photo</button>
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="form-group">
+			<button type="button" *ngIf="has_changed" (click)="restorePoto()" mat-raised-button class="btn-danger"><i class="fa fa-remove"></i> Annuler</button>
+		</div>
+	</div>
+</div>
+</form>

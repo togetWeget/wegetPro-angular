@@ -44,7 +44,12 @@
 		      CV
 		    </ng-template>
 		    <div class="bien-contenir">
-				<app-cv></app-cv>
+				<div *ngIf="membre.type === 'ME'">
+					<div class="alert alert-warning">						
+						<strong>Ooups!</strong> Cette partie est reservée aux abonnées. Veuillez vous abonner afin de bénéficier de ce service en cliquant <a routerLink="/admin/paiement/espace">ici</a>.
+					</div>
+				</div>
+				<app-cv *ngIf="membre.type !== 'ME'"></app-cv>
 			</div>
 		  </mat-tab>
 		  

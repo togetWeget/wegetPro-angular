@@ -76,7 +76,7 @@ export class BlockService {
 
   modifierBlock(blkModif: Block): Observable<Resultat<Block>> {
     if (this.jwtToken==null) this.loadToken()
-    return this.http.post<Resultat<Block>>(this.urlBlocks, blkModif,{headers: new  HttpHeaders({'Authorization': this.jwtToken})})
+    return this.http.put<Resultat<Block>>(this.urlBlocks, blkModif,{headers: new  HttpHeaders({'Authorization': this.jwtToken})})
       .pipe(
         tap(res => {
           this.log(`bloc de libelle  =${res.body.libelle}`);

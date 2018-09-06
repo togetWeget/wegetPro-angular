@@ -6,9 +6,10 @@ color-ext : #32465a;
 
 .pad {
   padding: 10px;
-  position: fixed;
+  position: relative;
   display:flex;
   justify-content: center;
+  background:#fefefe;
 
 }
 
@@ -67,13 +68,12 @@ color-ext : #32465a;
 .input-bas{
   width:100%;
   bottom:0;
-  position:fixed;
   padding:10px;
   background:#f2f2f2;
 }
 
 .input-bas-in{
-  width: 50%;
+width:70%;
   border:0px;
   border-bottom: 1px solid #333;
   height:50px;
@@ -228,6 +228,10 @@ color-ext : #32465a;
 .afficher{
   display: block !important;
   width:100% !important;
+}
+
+.afficherSimple{
+  display: block !important;
 }
 
 .cacher{

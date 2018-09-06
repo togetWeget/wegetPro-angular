@@ -3,7 +3,7 @@ import {catchError, map, observeOn, tap, timeout} from 'rxjs/operators';
 import {Observable, of, Subject, interval, isObservable} from 'rxjs';
 import {HttpClient, HttpHeaders, HttpRequest, HttpResponse} from '@angular/common/http';
 import {NotifierService} from 'angular-notifier';
-import {isObject} from 'rxjs/internal/util/isObject';
+import {isObject} from 'rxjs/util/isObject';
 import * as $ from 'jquery';
 
 @Injectable({

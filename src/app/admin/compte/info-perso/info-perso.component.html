@@ -3,49 +3,39 @@
 		<div class="row">
 			<!-- photo -->
 			<div class="col-md-4">
-				<legend>Photo</legend>
-				<div class="photo-cadre">
-					<div #photo class="photo"></div>
-				</div>
-				<div class="photo-actions">
-					<input type="file" autocomplete="off" class="form-control changer_photo" id="changer_photo" placeholder="changer">
-					<label for="changer_photo" mat-raised-button><i class="fa fa-photo"></i>&nbsp;&nbsp;Changer photo</label>
-				</div>
-				<div class="form-group">
-					<input type="file" style="visibility: hidden;" class="form-control" id="" placeholder="Input field">
-				</div>
+        <app-modif-photo-membre></app-modif-photo-membre>				
 			</div>
 			<!-- /photo -->
 			<!-- informations personnelles -->
 			<div class="col-md-8">
 				<legend>Informations personnelles</legend>
 				<div class="row">
-
-            <tr>
-              <td>
-                <mat-form-field>
-                  <input matInput placeholder="Login" formControlName="login">
-                </mat-form-field>
-              </td>
-              <td>
-                <mat-form-field>
-                  <input matInput placeholder="Nom" formControlName="nom">
-                </mat-form-field>
-              </td>
-              <td>
-                <mat-form-field>
-                  <input matInput placeholder="Prenom" formControlName="prenom">
-                </mat-form-field>
-              </td>
-              <td>
-                <mat-form-field>
-                  <input matInput placeholder="Genre" formControlName="genre">
-                </mat-form-field>
-              </td>
-            </tr>
-
-
-          <div formGroupName="adresse">
+          <!-- <div class="col-md-6">
+            <mat-form-field>
+              <input matInput placeholder="Login" formControlName="login">
+            </mat-form-field>
+          </div> -->
+          <div class="col-md-6">
+            <mat-form-field>
+              <input matInput placeholder="Nom" formControlName="nom">
+            </mat-form-field>
+          </div>
+          <div class="col-md-6">
+            <mat-form-field>
+              <input matInput placeholder="Prenom" formControlName="prenom">
+            </mat-form-field>
+          </div>
+          <div class="col-md-12">
+            <mat-form-field>
+              <mat-select placeholder="Genre" formControlName="genre">
+                <mat-option *ngFor="let genre of outils.genres" [value]=genre>
+                  {{genre}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+            
+          <div class="col-md-12" formGroupName="adresse">
             <mat-expansion-panel matTooltip="les adresses" matTooltipPosition="above">
               <mat-expansion-panel-header>
                 <mat-panel-title></mat-panel-title>
@@ -68,14 +58,14 @@
             </mat-expansion-panel>
           </div>
           <hr>
-          <div>
+          <div class="col-md-12">
             <mat-expansion-panel matTooltip="Contacts telephoniques" matTooltipPosition="before">
               <mat-expansion-panel-header>
                 <mat-panel-title>Les contacts</mat-panel-title>
                 <mat-panel-description>Saisir les contacts</mat-panel-description>
               </mat-expansion-panel-header>
               <div formArrayName="telephones">
-                <div *ngFor="let tel of detailsForm.get('telephones'); let i = index;">
+                <div *ngFor="let tel of telephones.controls; let i = index;">
                   <mat-panel-title>
                     <mat-action-row>
                       Telephone #{{i+1}}
@@ -90,7 +80,7 @@
                     <mat-action-row>
                       <mat-form-field>
                         <mat-select placeholder="type" formControlName="type">
-                          <mat-option *ngFor="let t of typeTelephones" [value]=t.name>
+                          <mat-option *ngFor="let t of outils.typeTelephones" [value]=t.name>
                             {{t.libelle}}
                           </mat-option>
                         </mat-select>
@@ -104,6 +94,47 @@
                 <mat-action-row>
                   <button mat-raised-button color="warn" type="button" (click)="ajouTelephone()"
                           matTooltip="ajout telephone" matTooltipPosition="above">Ajout Telephone
+                  </button>
+                </mat-action-row>
+              </div>
+            </mat-expansion-panel>
+          </div>
+          <div class="col-md-12">
+            <mat-expansion-panel matTooltip="Langues pratiquées" matTooltipPosition="before">
+              <mat-expansion-panel-header>
+                <mat-panel-title>Les langues</mat-panel-title>
+                <mat-panel-description>Saisir vos langues</mat-panel-description>
+              </mat-expansion-panel-header>
+              <div formArrayName="langues">
+                <div *ngFor="let tel of langues.controls; let i = index;">
+                  <mat-panel-title>
+                    <mat-action-row>
+                      Langue #{{i+1}}
+                    </mat-action-row>
+                    <mat-action-row>
+                      <button type="button" mat-mini-fab color="warn" (click)="removeLangue(i)">
+                        <mat-icon>delete</mat-icon>
+                      </button>
+                    </mat-action-row>
+                  </mat-panel-title>
+                  <div [formGroupName]="i">
+                    <mat-action-row>
+                      <mat-form-field>
+                        <mat-select placeholder="Langue" formControlName="libelle">
+                          <mat-option *ngFor="let t of outils.langues" [value]=t.name>
+                            {{t.libelle}}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                      <mat-form-field>
+                        <input matInput placeholder="Description" formControlName="description">
+                      </mat-form-field>
+                    </mat-action-row>
+                  </div>
+                </div>
+                <mat-action-row>
+                  <button mat-raised-button color="warn" type="button" (click)="ajoutLangue()"
+                          matTooltip="ajout langue" matTooltipPosition="above">Ajout Langue
                   </button>
                 </mat-action-row>
               </div>

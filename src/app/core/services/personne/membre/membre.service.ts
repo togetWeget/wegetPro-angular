@@ -1,10 +1,11 @@
 import {Injectable} from '@angular/core';
 import {Observable, of, Subject} from 'rxjs';
-import {catchError, map, tap} from 'rxjs/internal/operators';
+import {catchError, map, tap} from 'rxjs/operators';
 import {HttpClient, HttpRequest, HttpHeaders} from '@angular/common/http';
 import {MessageService} from '../../message.service';
 import {Resultat} from '../../../../shared/models/resultat';
 import {Membre} from '../../../../shared/models/personne/membres/membre';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
@@ -33,7 +34,8 @@ export class MembreService {
   enseignnantFiltre$ = this.membreFiltreSource.asObservable();
   enseignnantSupprime$ = this.membreSupprimeSource.asObservable();
 
-  constructor(private  http: HttpClient, private  messageService: MessageService) {
+  constructor(private  http: HttpClient, private  messageService: MessageService,
+    private toastr: ToastrService) {
   }
 
 
@@ -42,8 +44,9 @@ export class MembreService {
     return this.http.post<Resultat<Membre>>(this.urlPersonne, mens)
       .pipe(
         tap(res => {
-          this.log(`enseignant ajoute nom et prenom=${res.body.nomComplet}`);
-
+          let msg = `enseignant ajoute nom et prenom=${res.body.nomComplet}`;
+          this.log(msg);
+          this.toastr.success(msg,'Opération réussie');
         }),
         catchError(this.handleError<Resultat<Membre>>('ajoutMembre'))
       );
@@ -56,7 +59,7 @@ export class MembreService {
     return this.http.get<Resultat<Membre[]>>(this.urlMembre)
       .pipe(
         tap(res => {
-          this.log(`enseignants recuperes`);
+          this.log(`enseignants recuperes`);          
         }),
         catchError(this.handleError<Resultat<Membre[]>>('getAllEnseignants',
          new Resultat<Membre[]>(null, [], [])))
@@ -72,11 +75,13 @@ export class MembreService {
     if(this.jwtToken === null){
       this.loadToken();
     }      
-    return this.http.post<Resultat<Membre>>(this.urlModifMembre, ensModif, 
+    return this.http.put<Resultat<Membre>>(this.urlModifMembre, ensModif, 
       {headers: new HttpHeaders({'Authorization': this.jwtToken})})
       .pipe(
         tap(res => {
-          this.log(`enseignant modifier nom et prenom =${res.body.nomComplet}`);
+          let msg = `membre modifier nom et prenom =${res.body.nomComplet}`;
+          this.log(msg);
+          this.toastr.success(msg,'Opération réussie');
           this.membretModif(res);
           this.filtreMembre(res.body.nomComplet);
         }),
@@ -89,7 +94,9 @@ export class MembreService {
     return this.http.delete<Resultat<boolean>>(`${this.urlPersonne}/${id}`)
       .pipe(
         tap(res => {
-          this.log(`enseignant supprime id =${id}`);
+          let msg = `enseignant supprime id =${id}`;
+          this.log(msg);
+          this.toastr.success(msg,'Opération réussie');
           this.membresupprime(res);
         }),
         catchError(this.handleError<Resultat<boolean>>('supprimerMembre'))

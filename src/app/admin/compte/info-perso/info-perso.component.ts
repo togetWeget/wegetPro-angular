@@ -20,6 +20,7 @@ import {TypeStatut} from '../../../shared/models/personne/type-statut';
 import {LangueParle} from '../../../shared/models/personne/cv-personne/langueParle';
 import {Contrat} from '../../../shared/models/personne/membres/contrat';
 import {Adresse} from '../../../shared/models/adresse/adresse';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -28,7 +29,7 @@ import {Adresse} from '../../../shared/models/adresse/adresse';
   styleUrls: ['./info-perso.component.scss']
 })
 export class InfoPersoComponent implements OnInit {
-  @ViewChild('photo') photo: ElementRef;
+ @ViewChild('photo') photo: ElementRef;
   membre = new Membre();
   cv: CvPersonne;
   defaultProfil: any = '/assets/placeholder-image.jpg';
@@ -36,20 +37,11 @@ export class InfoPersoComponent implements OnInit {
   detailblock: Detailblock;
   detailblocks: Detailblock[];
   static me: InfoPersoComponent;
-  titres = [
-    {libelle: 'Mlle', name: 'Mlle'},
-    {libelle: 'Mme', name: 'Mme'},
-    {libelle: 'Mr', name: 'Mr'}
-  ];
-  typeTelephones = [
-    {libelle: 'mobile', name: 'mobile'},
-    {libelle: 'bureau', name: 'bureau'},
-    {libelle: 'domicile', name: 'domicile'}
-  ];
 
   constructor(private fb: FormBuilder,
               private membreService: MembreService,
-              public outils: OutilsService) {
+              public outils: OutilsService,
+              private toastr: ToastrService) {
     InfoPersoComponent.me = this;
    // this.getDetailBlock();
 
@@ -79,7 +71,7 @@ export class InfoPersoComponent implements OnInit {
       this.defaultProfil;
   }
 
-  ajouTelephone() {
+  ajouTelephone() {   
     (<FormArray>this.detailsForm.get('telephones')).push(
       this.fb.group({
         id: [null],
@@ -91,8 +83,24 @@ export class InfoPersoComponent implements OnInit {
     );
   }
 
+  ajoutLangue() {   
+    (<FormArray>this.detailsForm.get('langues')).push(
+      this.fb.group({
+        id: [null],
+        version: [0],
+        libelle: [''],
+        description: ['']
+
+      })
+    );
+  }
+
   removeTephone(i: number) {
     (<FormArray>this.detailsForm.get('telephones')).removeAt(i);
+  }
+
+  removeLangue(i: number) {
+    (<FormArray>this.detailsForm.get('langues')).removeAt(i);
   }
 
   initForm() {
@@ -134,8 +142,8 @@ export class InfoPersoComponent implements OnInit {
       version: [this.membre.version],
       //cni: [ this.membre.cni],
       //titre: [ this.membre.titre],
-      nom: [this.membre.nom],
-      prenom: [this.membre.prenom],
+      nom: [{value: this.membre.nom, disabled:false}],
+      prenom: [{value: this.membre.prenom, disabled: false}],
       /*password: [ this.membre.password],
       repassword: [ this.membre.repassword],*/
       /*actived: [ this.membre.actived],
@@ -170,8 +178,8 @@ export class InfoPersoComponent implements OnInit {
         pathCv: [this.membre.cvPersonne.pathCv],
 
       }),*/
-      telephones: telephonesInit,
-      //langues: langueInit,
+     telephones: telephonesInit,
+      langues: langueInit,
       /*typeStatut: this.fb.group({
        /*id: [this.membre.typeStatut.id],
         version: [this.membre.typeStatut.version],
@@ -187,6 +195,13 @@ export class InfoPersoComponent implements OnInit {
     });
   }
 
+  get telephones() {
+    return this.detailsForm.get('telephones') as FormArray;
+  }
+  get langues() {
+    return this.detailsForm.get('langues') as FormArray;
+  }
+
   getDetailBlock() {
     this.membreService.getMembreByLogin(localStorage.getItem('log'))
       .subscribe(res => {
@@ -200,12 +215,13 @@ export class InfoPersoComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.detailsForm.value);
+
     let mensModif: Membre;
     mensModif = this.convertisseur(this.detailsForm);
+    console.log(mensModif);
     this.membreService.modifierMembre(mensModif)
       .subscribe(res => {
-        console.log('MODIFIER MEMBRE SUCCESS', res);
+        console.log('MODIFIER MEMBRE SUCCESS', res.body.nomComplet);
       });
   }
 
@@ -231,7 +247,7 @@ export class InfoPersoComponent implements OnInit {
       fg.value['login'],
       null,
       null,
-      fg.value['telephone'],
+      null,
       null,
       null,
       null,
