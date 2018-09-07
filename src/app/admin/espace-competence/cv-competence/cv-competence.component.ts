@@ -25,50 +25,50 @@ export class CvCompetenceComponent implements OnInit {
   static me: CvCompetenceComponent;
 
   titres =[
-    {libelle:'salarie', name:'Salarié'},
-    {libelle:'stagiaire', name:'Stagiaire'}
+    {name:'salarie', libelle:'Salarié'},
+    {name:'stagiaire', libelle:'Stagiaire'}
   ];
   fonctions =[
-    {libelle:'informaticien', name:'Informaticien'},
-    {libelle:'actuaire', name:'Actuaire'},
-    {libelle:'professeur', name:'Professeur'},
-    {libelle:'mecanicien', name:'Mecanicien'}
+    {name:'informaticien', libelle:'Informaticien'},
+    {name:'actuaire', libelle:'Actuaire'},
+    {name:'professeur', libelle:'Professeur'},
+    {name:'mecanicien', libelle:'Mecanicien'}
   ];
   domaines =[
-    {libelle:'informatique', name:'Informatique'},
-    {libelle:'banque', name:'Banque'},
-    {libelle:'finance', name:'Finance'},
-    {libelle:'mecanique', name:'Mecanique'}
+    {name:'informatique', libelle:'Informatique'},
+    {name:'banque', libelle:'Banque'},
+    {name:'finance', libelle:'Finance'},
+    {name:'mecanique', libelle:'Mecanique'}
   ];
   diplomes=[
-    {libelle:'CEPE', name:'CEPE'},
-    {libelle:'BEPC', name:'BEPC'},
-    {libelle:'CAP', name:'CAP'},
-    {libelle:'BEP', name:'BEP'},
-    {libelle:'BAC', name:'BAC'},
-    {libelle:'BTS', name:'BTS'},
-    {libelle:'DUT', name:'DUT'},
-    {libelle:'DEUG', name:'DEUG'},
-    {libelle:'LICENCE', name:'LICENCE'},
-    {libelle:'MAITRISE', name:'MAITRISE'}
+    {name:'CEPE', libelle:'CEPE'},
+    {name:'BEPC', libelle:'BEPC'},
+    {name:'CAP', libelle:'CAP'},
+    {name:'BEP', libelle:'BEP'},
+    {name:'BAC', libelle:'BAC'},
+    {name:'BTS', libelle:'BTS'},
+    {name:'DUT', libelle:'DUT'},
+    {name:'DEUG', libelle:'DEUG'},
+    {name:'LICENCE', libelle:'LICENCE'},
+    {name:'MAITRISE', libelle:'MAITRISE'}
   ];
   specialites=[
-    {libelle:'developpeur',name:'Developpeur'},
-    {libelle:'administrateur reseau',name:'Administrateur reseau'},
-    {libelle:'remorquage',name:'Remorquage'},
-    {libelle:'maintenance',name:'Maintenance'}
+    {name:'developpeur',libelle:'Developpeur'},
+    {name:'administrateur reseau',libelle:'Administrateur reseau'},
+    {name:'remorquage',libelle:'Remorquage'},
+    {name:'maintenance',libelle:'Maintenance'}
   ];
   contrats=[
-    {libelle:'cdd',name:'CDD'},
-    {libelle:'cdi',name:'CDI'},
-    {libelle:'indetermine',name:'Indeterminé'},
+    {name:'cdd',libelle:'CDD'},
+    {name:'cdi',libelle:'CDI'},
+    {name:'indetermine',libelle:'Indeterminé'},
   ];
   dureeContrats=[
-    {libelle:'1 mois',name:'1 mois'},
-    {libelle:'3 mois',name:'3 mois'},
-    {libelle:'6 mois',name:'6 mois'},
-    {libelle:'12 mois',name:'12 mois'},
-    {libelle:'peu importe',name:'Peu importe'}
+    {name:'1 mois',libelle:'1 mois'},
+    {name:'3 mois',libelle:'3 mois'},
+    {name:'6 mois',libelle:'6 mois'},
+    {name:'12 mois',libelle:'12 mois'},
+    {name:'peu importe',libelle:'Peu importe'}
   ];
 
   constructor(private fb: FormBuilder, 
@@ -92,7 +92,9 @@ export class CvCompetenceComponent implements OnInit {
     });   
     //this.initForm();
   }
-
+  compareFn(c1: any, c2: any): boolean {
+    return c1 && c2 ? c1.libelle === c2.libelle : c1 === c2;
+  }
   initForm() {
     this.cvCompetenceForm = this.fb.group({
       id: [this.detailblock.personne.id],
@@ -116,7 +118,7 @@ export class CvCompetenceComponent implements OnInit {
         id: [this.detailblock.personne.contrat.id],
         version: [this.detailblock.personne.contrat.version],
         dureeContrat: [this.detailblock.personne.contrat.dureeContrat],
-        periodeContrat: [this.detailblock.personne.contrat],
+        periodeContrat: [this.detailblock.personne.contrat.periodeContrat],
       }),
     });
   }
@@ -131,10 +133,11 @@ export class CvCompetenceComponent implements OnInit {
     });
   }
 
-  updateCurriculumVitea() {
+  onSubmit() {
     let dblk:Detailblock;
     dblk=this.convertisseur(this.cvCompetenceForm);
-    this.membreService.modifierMembre(dblk.personne)
+    console.log("Formulaire envoyé ", dblk);
+    this.membreService.modifierMembre(dblk)
     .subscribe(res => {
       console.log('MODIFIER MEMBRE SUCCESS', res.body);
     });
@@ -142,31 +145,32 @@ export class CvCompetenceComponent implements OnInit {
 
   private convertisseur(fg: FormGroup): Membre {
     const mens = new Membre(
-      fg.value['id'],
-      fg.value['version'],
-     null,
-      null,
-      null,
-      null,
-     null,
-      null,
-      false,
-      null,
-      null,
-      null,
-      null,
-      null,
-      null,
-      'ME',
-      null,
-      null,
-      null,
-      fg.value['cvPersonne'],
-      null,
-      null,
-      null,
-      fg.value['contrat'],
-      null,
+        fg.value['id'],
+        fg.value['version'],
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        false,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        'ME',
+        null,
+        null,
+        null,
+        fg.value['cvPersonne'],
+        null,
+        null,
+        null,
+        fg.value['contrat'],      
+        null,
     );
     return mens;
   }

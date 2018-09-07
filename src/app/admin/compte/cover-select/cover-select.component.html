@@ -1,16 +1,16 @@
-<div class="close"><i class="fa fa-close"></i></div>
+<div (click)="annuler()" class="close"><i class="fa fa-close"></i></div>
 <div class="select-container">
 	<div class="row">
 		<div class="col-12">
 			<h3>Photo de couverture</h3>
-		  <form [formGroup]="coverPhotoForm" (ngSubmit)="onSubmit()">
+		  <form (ngSubmit)="onSubmit()">
 		    <div class="form-group">
 		      <label class="-align-center">Photo du block: </label>
-		      <input type="file" class="form-control"  (change)="loadImage()" #blockImage  formControlName="blkImg">
+		      <input type="file" class="form-control"  (change)="loadImage()" #blockImage  name="image_photo">
 		    </div>
 
 		    <div class="form-group">
-		    	<img src="{{imageShowed}}" class="img-showed" alt="">
+		    	<div #imageShowed class="img-showed"></div>
 		    </div>
 
 		    <button type="submit" mat-raised-button color="primary" class="green">Enregister</button>

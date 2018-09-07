@@ -53,6 +53,9 @@ export class AbonnesService {
     );
   }
   getProfilById(id: number): Observable<Resultat<Detailblock>> {
+    if(this.jwtToken === null){
+      this.loadToken();
+    } 
     return this.httpClient.get<Resultat<Detailblock>>(this.profilByIdUrl + id)
       .pipe(
       tap(res => {

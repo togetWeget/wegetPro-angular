@@ -1,0 +1,27 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<!------ Include the above in your HEAD tag ---------->
+
+<section>
+  <div class="container gal-container">
+	<div class="col-sm-12" style="font-size:30px; border-bottom:4px solid #343a40; margin-bottom:10px; margin-top:10px;">
+	<div class="col-sm-8">Gallery Photo</div>
+	<div class="col-sm-4"> <button class="pull-right" style="border:0px; background:#ff6d05; width:100px; color:#fff;"><i class="fa fa-plus"></i></button></div>
+	</div>
+    <div class="col-md-8 col-sm-12 co-xs-12 gal-item" *ngFor="let ie of [1,2,3,4,5,6,7,8,9,10]; index as i">
+      <div class="box">
+        <a href="#" data-toggle="modal" data-target="#{{i}}" (click)="geturi(i);">
+          <img src="http://nabeel.co.in/files/bootsnipp/gallery/3.jpg">
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+<footer>
+    <div class="container">
+        <div class="col-md-10 col-md-offset-1 text-center">
+            
+            <h6>end gallery loarder</h6>
+        </div>   
+    </div>
+</footer>

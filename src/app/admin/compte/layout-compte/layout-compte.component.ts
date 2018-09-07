@@ -11,8 +11,10 @@ import {MembreService} from '../../../core/services/personne/membre/membre.servi
 import { CoverSelectComponent } from '../cover-select/cover-select.component';
 import { CoverProfilComponent } from '../../comp/cover-profil/cover-profil.component';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';  
-import { Observable, throwError, interval } from 'rxjs';
-import { catchError, retry, tap, map } from 'rxjs/operators';
+import { Observable, throwError, interval,
+Subject, BehaviorSubject } from 'rxjs';
+import { catchError, retry, tap, map,
+debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-layout-compte',
@@ -24,31 +26,54 @@ top_zone: AdminTopZone = null;
   detailblock: Detailblock;
   coverModel: AdminCover;
   membre: Membre;
-      @ViewChild(CoverProfilComponent) cover: CoverProfilComponent;
+  membre$ : Observable<Resultat<Membre>>;
+  membreSubject$ = new BehaviorSubject<string>('');
+  @ViewChild(CoverProfilComponent) cover: CoverProfilComponent;
 
   constructor(private abonneService: AbonnesService,
     private membreService: MembreService,public dialog: MatDialog) {
-  	this.getDetailBlock();
-  	this.top_zone = new AdminTopZone (
-  		'', 
-  		'',
-  		[
-  			new Navs('Accueil', '/admin'),
-  		],
-  		new Navs ('Profil', ''),
-  		'home',
-  	);
-
+    // this.membre$ = this.membreService.getMembreByLogin(localStorage.getItem('log'));
+    // this.membre$ = this.membreSubject$
+    //   .debounceTime(500)
+    //   .distinctUntilChanged()
+    //   .switchMap(login => login ? this.membreService.getMembreByLogin(login) :  
+    //     this.membreService.getMembreByLogin(localStorage.getItem('log')));
+        
+    this.membre$ = this.membreSubject$.pipe(
+      debounceTime(500),
+      // distinctUntilChanged(),
+      switchMap(login => login ? this.membreService.getMembreByLogin(login) :  
+        this.membreService.getMembreByLogin(localStorage.getItem('log')))
+      );
+    this.search(localStorage.getItem('log'));
+    // console.log(this.membre$);
+    this.top_zone = new AdminTopZone (
+      '', 
+      '',
+      [
+        new Navs('Accueil', '/admin'),
+      ],
+      new Navs ('Profil', ''),
+      'home',
+    );
     this.coverModel = new AdminCover();
   }
 
-  ngOnInit() {
+  handlImageChange(event){
+    this.search(event);
+  }
+
+  ngOnInit() {    
+    this.getDetailBlock();
+  }
+
+  search(login: string){
+    this.membreSubject$.next(login);
   }
 
   getDetailBlock() {
-    this.membreService.getMembreByLogin(localStorage.getItem('log'))
-    .pipe(
-      tap((data: any)=> {
+    this.membre$.subscribe(
+      (data: any)=> {
             this.membre = data.body;     
             this.top_zone.titre = this.membre.nomComplet;
             this.coverModel.titre = '';
@@ -62,14 +87,17 @@ top_zone: AdminTopZone = null;
             // this.cover.img_profil.nativeElement.style.backgroundImage = this.coverModel.profilPath;
             // this.cover.load
             }
-          )
     );
   }
 
   openModif() {
-    this.dialog.open(CoverSelectComponent, {
+    const dialogRef = this.dialog.open(CoverSelectComponent, {
       maxWidth: '700px',
-      data: {}
+      data: {membre: this.membre}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.search(localStorage.getItem('log'));
     });
   }
 

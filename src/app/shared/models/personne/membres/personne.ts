@@ -20,6 +20,7 @@ export class Personne {
     public actived ?: boolean,
     public nomComplet ?: string,
     public pathPhoto ?: string,
+    public pathPhotoCouveture ?: string,
     public nombreVue ?: string,
     public groupSanguin ?: string,
     public dateNaissance ?: Date,
@@ -32,7 +33,7 @@ export class Personne {
     public telephones?: Telephone[],
     public langues?: LangueParle[],
     public typeStatut ?: TypeStatut,
-    public contrat?:Contrat,
+    public contrat?: Contrat,
     public couleur?: string
 
 

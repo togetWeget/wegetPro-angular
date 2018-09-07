@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Observable, of, Subject} from 'rxjs';
-import {catchError, map, tap} from 'rxjs/operators';
+import {catchError, map, tap, debounceTime, 
+  distinctUntilChanged, switchMap} from 'rxjs/operators';
 import {HttpClient, HttpRequest, HttpHeaders} from '@angular/common/http';
 import {MessageService} from '../../message.service';
 import {Resultat} from '../../../../shared/models/resultat';
@@ -117,7 +118,7 @@ export class MembreService {
 
   getMembreByLogin(login: string): Observable<Resultat<Membre>> {
     return this.http.get<Resultat<Membre>>(`${this.urlMembreByLogin}/${login}`)
-      .pipe(
+      .pipe(       
         tap(res => {
           this.log(`membre trouve  login=${login}`);
         }),
@@ -144,6 +145,23 @@ export class MembreService {
     const formData: FormData = new FormData();
     formData.append('image_photo', imageFile, login);
     const req = new HttpRequest('POST', this.urlPhotoMembre, formData, {
+      /*reportProgress = true;*/
+    });
+    return this.http.request(req)
+      .pipe(
+        tap(event => {
+          /* this.log(`photo ajoute nom et prenom =${event.body._nomComplet}`)
+           this.enseignantModif(event.type.);
+           this.filtreEnseignant(event.body.nomComplet);*/
+        }),
+        catchError(this.handleError<Resultat<Membre>>('enregistrerPhoto'))
+      );
+  }
+ enregistrerPhotoCouverture(imageFile: File, login: string): Observable<any> {
+
+    const formData: FormData = new FormData();
+    formData.append('image_photo', imageFile, login);
+    const req = new HttpRequest('POST', this.urlPhotoCouvertureMembre, formData, {
       /*reportProgress = true;*/
     });
     return this.http.request(req)

@@ -1,9 +1,10 @@
 import { Component, OnInit, ViewChild,
-ElementRef, Input, Output, EventEmitter, OnChange,
+ElementRef, Input, Output, EventEmitter, OnChanges,
 SimpleChange } from '@angular/core';
 import {Router} from '@angular/router';
 import { AdminCover } from '../../../shared/views_models/admin-cover';
 import { Membre} from '../../../shared/models/personne/membres/membre';
+import { Resultat} from '../../../shared/models/Resultat';
 
 
 @Component({
@@ -11,16 +12,17 @@ import { Membre} from '../../../shared/models/personne/membres/membre';
   templateUrl: './cover-profil.component.html',
   styleUrls: ['./cover-profil.component.scss']
 })
-export class CoverProfilComponent implements OnInit, OnChange {
+export class CoverProfilComponent implements OnInit, OnChanges {
   @ViewChild('img_cover') img_cover: ElementRef;
   @ViewChild('img_profil') img_profil: ElementRef;
   defaultProfil: any = '/assets/placeholder-image.jpg';
   defaultCover: any = '/assets/profile-cover.jpg';
   @Input('cover') cover: AdminCover;
-  // @Input('membre') membre: Membre;
+  @Input('membre') membre: Resultat<Membre> = null;
   @Output() clickOcur = new EventEmitter<string>();
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) {
+  }
 
   ngOnInit() {
     this.img_cover.nativeElement.style.backgroundImage = 'url(' + this.getCoverSrc() + ')';
@@ -35,8 +37,12 @@ export class CoverProfilComponent implements OnInit, OnChange {
   }
 
   ngOnChanges(changes: {[propKey: string]: SimpleChange}) {
+    if(this.membre){      
+    this.cover.profilPath = this.membre.body.pathPhoto;
+    this.cover.coverPath = this.membre.body.pathPhotoCouveture;
     this.img_cover.nativeElement.style.backgroundImage = 'url(' + this.getCoverSrc() + ')';
     this.img_profil.nativeElement.style.backgroundImage = 'url(' + this.getProfilSrc() + ')';
+    }
   }
 
   getCoverSrc(): any {

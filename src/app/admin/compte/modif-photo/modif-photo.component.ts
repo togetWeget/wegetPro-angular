@@ -1,6 +1,6 @@
 import {
   Component, OnInit, ViewChild,
-  ElementRef, Input
+  ElementRef, Input, Output, EventEmitter
 } from '@angular/core';
 import {
   FormBuilder, FormGroup, FormControl,
@@ -29,10 +29,12 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class ModifPhotoComponent implements OnInit {
   has_changed: boolean = null;
+  @Output('imageChange') imageChange = new EventEmitter<string>();
   @ViewChild('filephoto') filephoto;
   @ViewChild('photo') photo: ElementRef;
-  membre = new Membre();
+  membre: Membre = new Membre();
   defaultProfil: any = '/assets/placeholder-image.jpg';
+  image: string = null;
   profilImageFile: File;
 
   constructor(private fb: FormBuilder,
@@ -40,6 +42,7 @@ export class ModifPhotoComponent implements OnInit {
               public outils: OutilsService,
               private toastr: ToastrService) {
   	this.restorePhoto();
+    this.image = this.defaultProfil;
   }
 
   ngOnInit() {
@@ -53,7 +56,7 @@ export class ModifPhotoComponent implements OnInit {
         if (res.status === 0) {
           // this.initForm();
         }
-
+        this.image = this.membre.pathPhoto;
         this.photo.nativeElement.style.backgroundImage = 'url(' + this.getProfilSrc() + ')';
       });
   }
@@ -66,28 +69,32 @@ export class ModifPhotoComponent implements OnInit {
         let reader = new FileReader();
         reader.readAsDataURL(file);
         reader.onload = () => {
-          this.membre.pathPhoto = reader.result;
-  		  this.has_changed = true;
-    	  this.photo.nativeElement.style.backgroundImage = 'url(' + this.getProfilSrc() + ')';
+          this.image = reader.result + '';
+        this.has_changed = true;
+        this.photo.nativeElement.style.backgroundImage = 'url(' + this.getProfilSrc() + ')';
         };
         reader.onerror = (error: any) => {
-    	  this.photo.nativeElement.style.backgroundImage = 'url(' + this.getProfilSrc() + ')';
+         this.image = this.membre.pathPhoto;
+        this.photo.nativeElement.style.backgroundImage = 'url(' + this.getProfilSrc() + ')';
         }
+    }else {
+      this.image = this.membre.pathPhoto;
+        this.photo.nativeElement.style.backgroundImage = 'url(' + this.getProfilSrc() + ')';
     }
     //show image
   }
 
  getProfilSrc(): any {
-    return (this.membre.pathPhoto !== null &&
-      this.membre.pathPhoto !== undefined &&
-      this.membre.pathPhoto !== '') ?
-      this.membre.pathPhoto :
+    return (this.image !== null &&
+      this.image !== undefined &&
+      this.image !== '') ?
+      this.image :
       this.defaultProfil;
   }
 
   restorePhoto() {
   	this.has_changed = false;
-  	this.membre.pathPhoto = this.defaultProfil;
+  	this.image = this.membre.pathPhoto;
   }
 
   modifierPhoto() {
@@ -99,6 +106,8 @@ export class ModifPhotoComponent implements OnInit {
     this.membreService.enregistrerPhoto(imageFile, this.membre.login)
       .subscribe(event => {
         console.log('Le fichier est completement charger!', event);
+        this.imageChange.emit(this.membre.login);
+        this.restorePhoto();
         /* if (event.type === HttpEventType.UploadProgress) {
            const percentDone = Math.round(100 * event.loaded / event.total);
            console.log(`Le fichier ${percentDone}% charger.`);

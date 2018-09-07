@@ -1,6 +1,6 @@
 import {
   Component, OnInit, ViewChild,
-  ElementRef, Input
+  ElementRef, Input, Output, EventEmitter
 } from '@angular/core';
 import {
   FormBuilder, FormGroup, FormControl,
@@ -30,6 +30,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class InfoPersoComponent implements OnInit {
  @ViewChild('photo') photo: ElementRef;
+ @Output('imageChanges') imageChange = new EventEmitter<string>();
   membre = new Membre();
   cv: CvPersonne;
   defaultProfil: any = '/assets/placeholder-image.jpg';
@@ -61,6 +62,10 @@ export class InfoPersoComponent implements OnInit {
 
         // this.photo.nativeElement.style.backgroundImage = 'url(' + this.getProfilSrc() + ')';
       });
+  }
+
+  handlImageChange(event: string){
+    this.imageChange.emit(event);
   }
 
   getProfilSrc(): any {

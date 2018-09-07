@@ -22,6 +22,7 @@ import { ListeMessageEnvoyeComponent } from
 './messagerie/liste-message-envoye/liste-message-envoye.component';
 import { LayoutCompteComponent } from './compte/layout-compte/layout-compte.component';
 import { DetailsCompteComponent } from './compte/details-compte/details-compte.component';
+import { GalleryComponent } from './compte/gallery/gallery.component';
 
 const routes: Routes = [
   {
@@ -59,6 +60,7 @@ const routes: Routes = [
         ]
       },
       {path: 'chatroom2', component: Chatroom2Component},
+      {path: 'gallery', component: GalleryComponent},
 	  {
 	    path: '**', component: NotFoundComponent
 	  }

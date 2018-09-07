@@ -22,7 +22,7 @@ export class InfoMembreService {
 	        let url = u.regist.urlgetLogin;	        
 	    $.getJSON( u.urlgetbyLogin + strValue, function( data ) {	 
 	        u.InfoMembres = data.body;
-			  console.log(u.InfoMembres);
+			  // console.log(u.InfoMembres);
 			});
 		}	
 	}

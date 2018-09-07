@@ -76,6 +76,7 @@ import { FormationsEcoleComponent } from './espace-ecole/formations-ecole/format
 import { DocumentsEcoleComponent } from './espace-ecole/documents-ecole/documents-ecole.component';
 import { PhotosEcoleComponent } from './espace-ecole/photos-ecole/photos-ecole.component';
 import { ModifPhotoComponent } from './compte/modif-photo/modif-photo.component';
+import { GalleryComponent } from './compte/gallery/gallery.component';
 
 @NgModule({
   imports: [
@@ -117,7 +118,7 @@ import { ModifPhotoComponent } from './compte/modif-photo/modif-photo.component'
    AuthCompteComponent, CoverSelectComponent, InfoPersoComponent, InfoProComponent, SocialComponent, CvComponent, 
    LayoutEcoleComponent, LayoutCompetenceComponent, LayoutImmobilierComponent, LayoutAnnonceComponent, 
    PhotoCompetenceComponent, FormationCompetenceComponent, ExperienceCompetenceComponent, DocumentsCompetenceComponent, CvCompetenceComponent,
-   MonEcoleComponent, EnteteEcoleComponent, FlashInfoEcoleComponent, FormationsEcoleComponent, DocumentsEcoleComponent, PhotosEcoleComponent, ModifPhotoComponent,
+   MonEcoleComponent, EnteteEcoleComponent, FlashInfoEcoleComponent, FormationsEcoleComponent, DocumentsEcoleComponent, PhotosEcoleComponent, ModifPhotoComponent, GalleryComponent,
   ],
   entryComponents: [BlockComponent,CoverSelectComponent],
   exports: [LayoutComponent]

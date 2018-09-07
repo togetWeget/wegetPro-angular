@@ -1,5 +1,5 @@
 <div class="details-container">
-	<form [formGroup]="cvCompetenceForm" (submit)="updateCurriculumVitea()" *ngIf="cvCompetenceForm">
+	<form [formGroup]="cvCompetenceForm" (submit)="onSubmit()" *ngIf="cvCompetenceForm">
 
 		<div class="row">			
 			<div class="col-md-12">
@@ -9,8 +9,8 @@
 						<div class="form-group">
 							<mat-form-field>
 							 	<mat-select placeholder="Vous êtes " formControlName="titre">
-					               <mat-option *ngFor="let titre of titres" [value]="titre.libelle">
-					                 {{titre.name}}
+					               <mat-option *ngFor="let titre of titres" [value]="titre.name">
+					                 {{titre.libelle}}
 					               </mat-option>
 					            </mat-select>
 							</mat-form-field>
@@ -18,8 +18,8 @@
 						<div class="form-group">
 							<mat-form-field>
 							 	<mat-select placeholder="Fonction Actuelle" formControlName="fonctionActuelle">
-					               <mat-option *ngFor="let fonction of fonctions" [value]="fonction.libelle">
-					                 {{fonction.name}}
+					               <mat-option *ngFor="let fonction of fonctions" [value]="fonction.name">
+					                 {{fonction.libelle}}
 					               </mat-option>
 					            </mat-select>
 							</mat-form-field>
@@ -32,8 +32,8 @@
 						<div class="form-group">
 							<mat-form-field>
 							 	<mat-select placeholder="Dernier diplôme " formControlName="diplome">
-					               <mat-option *ngFor="let diplome of diplomes" [value]="diplome.libelle">
-					                 {{diplome.name}}
+					               <mat-option *ngFor="let diplome of diplomes" [value]="diplome.name">
+					                 {{diplome.libelle}}
 					               </mat-option>
 					            </mat-select>
 							</mat-form-field>
@@ -41,8 +41,8 @@
 						<div class="form-group">
 							<mat-form-field>
 							 	<mat-select placeholder="Domaine" formControlName="domaine">
-					               <mat-option *ngFor="let domaine of domaines" [value]="domaine.libelle">
-					                 {{domaine.name}}
+					               <mat-option *ngFor="let domaine of domaines" [value]="domaine.name">
+					                 {{domaine.libelle}}
 					               </mat-option>
 					            </mat-select>
 							</mat-form-field>
@@ -50,8 +50,8 @@
 						<div class="form-group">
 							<mat-form-field>
 							 	<mat-select placeholder="Spécialité" formControlName="specialite">
-					               <mat-option *ngFor="let specialite of specialites" [value]="specialite.libelle">
-					                 {{specialite.name}}
+					               <mat-option *ngFor="let specialite of specialites" [value]="specialite.name">
+					                 {{specialite.libelle}}
 					               </mat-option>
 					            </mat-select>
 							</mat-form-field>
@@ -60,9 +60,9 @@
 					<div class="col-md-7">
 						<div class="form-group" formGroupName="cvPersonne">
 							<mat-form-field>
-							 	<mat-select placeholder="Autre(s) Spécialité(s)" formControlName="autreSpecialite" [multiple]="true">
-					               <mat-option *ngFor="let specialite of specialites" [value]="specialite.libelle">
-					                 {{specialite.name}}
+							 	<mat-select placeholder="Autre(s) Spécialité(s)" formControlName="autreSpecialite" multiple [compareWith]="compareFn">
+					               <mat-option *ngFor="let specialite of specialites" [value]="specialite.name">
+					                 {{specialite.libelle}}
 					               </mat-option>
 					            </mat-select>
 							</mat-form-field>
@@ -70,18 +70,18 @@
 						<div formGroupName="contrat">
 							<div class="form-group">
 								<mat-form-field>
-								 	<mat-select placeholder="Type de contrat" formControlName="contrat" [multiple]="true">
-						               <mat-option *ngFor="let contrat of contrats" [value]="contrat.libelle">
-						                 {{contrat.name}}
+								 	<mat-select placeholder="Type de contrat" formControlName="periodeContrat" multiple>
+						               <mat-option *ngFor="let contrat of contrats" [value]="contrat.name">
+						                 {{contrat.libelle}}
 						               </mat-option>
 						            </mat-select>
 								</mat-form-field>
 							</div>
 							<div class="form-group">
 								<mat-form-field>
-								 	<mat-select placeholder="Durée du contrat" formControlName="dureeContrat" [multiple]="true">
-						               <mat-option *ngFor="let dureeContrat of dureeContrats" [value]="dureeContrat.libelle">
-						                 {{dureeContrat.name}}
+								 	<mat-select placeholder="Durée du contrat" formControlName="dureeContrat" multiple>
+						               <mat-option *ngFor="let dureeContrat of dureeContrats" [value]="dureeContrat.name">
+						                 {{dureeContrat.libelle}}
 						               </mat-option>
 						            </mat-select>
 								</mat-form-field>
