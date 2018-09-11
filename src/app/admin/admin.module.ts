@@ -77,6 +77,12 @@ import { DocumentsEcoleComponent } from './espace-ecole/documents-ecole/document
 import { PhotosEcoleComponent } from './espace-ecole/photos-ecole/photos-ecole.component';
 import { ModifPhotoComponent } from './compte/modif-photo/modif-photo.component';
 import { GalleryComponent } from './compte/gallery/gallery.component';
+import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
+import { ModifPhotoEcoleComponent } from './espace-ecole/modif-photo-ecole/modif-photo-ecole.component';
+import { MatdiologComponent } from './compte/gallery/matdiolog/matdiolog.component';
+// import { NgxEditorModule } from 'ngx-editor';
+// import { TooltipModule } from 'ngx-bootstrap/tooltip';
+
 
 @NgModule({
   imports: [
@@ -94,6 +100,9 @@ import { GalleryComponent } from './compte/gallery/gallery.component';
     MatFormFieldModule,
     MatExpansionModule,
     MatButtonModule,
+    // NgxEditorModule,
+    FroalaEditorModule.forRoot(), 
+    FroalaViewModule.forRoot(),
     NgxMaskModule.forRoot()
   ],
   declarations: [
@@ -117,10 +126,12 @@ import { GalleryComponent } from './compte/gallery/gallery.component';
    DetailsCompteComponent, FormationCompteComponent, ExperienceCompteComponent,
    AuthCompteComponent, CoverSelectComponent, InfoPersoComponent, InfoProComponent, SocialComponent, CvComponent, 
    LayoutEcoleComponent, LayoutCompetenceComponent, LayoutImmobilierComponent, LayoutAnnonceComponent, 
-   PhotoCompetenceComponent, FormationCompetenceComponent, ExperienceCompetenceComponent, DocumentsCompetenceComponent, CvCompetenceComponent,
-   MonEcoleComponent, EnteteEcoleComponent, FlashInfoEcoleComponent, FormationsEcoleComponent, DocumentsEcoleComponent, PhotosEcoleComponent, ModifPhotoComponent, GalleryComponent,
+   PhotoCompetenceComponent, FormationCompetenceComponent, ExperienceCompetenceComponent, 
+   DocumentsCompetenceComponent, CvCompetenceComponent,
+   MonEcoleComponent, EnteteEcoleComponent, FlashInfoEcoleComponent, FormationsEcoleComponent,
+   DocumentsEcoleComponent, PhotosEcoleComponent, ModifPhotoComponent, GalleryComponent, ModifPhotoEcoleComponent, MatdiologComponent
   ],
-  entryComponents: [BlockComponent,CoverSelectComponent],
+  entryComponents: [BlockComponent,CoverSelectComponent, MatdiologComponent ],
   exports: [LayoutComponent]
 })
 export class AdminModule {

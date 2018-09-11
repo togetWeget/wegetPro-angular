@@ -246,6 +246,7 @@ export class InfoPersoComponent implements OnInit {
       null,
       null,
       null,
+      null,
       fg.value['genre'],
       'ME',
       fg.value['adresse'],

@@ -13,7 +13,8 @@ import {MessageService} from '../message.service';
 })
 export class MessagerieService {
   private message: Messagerie [] = [];
-  private urlMessagerie = 'http://wegetback:8080/messageries';
+  private urlMessagerie = 'http://wegetback:8080/messageries/';
+  private urlMessage='http://wegetback:8080/message/';
 
   messageSubject = new Subject<Messagerie[]>();
 
@@ -43,7 +44,7 @@ export class MessagerieService {
   }
 
 getAllMessagesByAbonneId (id:number): Observable<Resultat<Messagerie[]>>{
-   return this.httpClient.get<Resultat<Messagerie[]>>(this.urlMessagerie)
+   return this.httpClient.get<Resultat<Messagerie[]>>(this.urlMessagerie+id)
       .pipe(
         tap(res => {
           this.log(`Messages recuperes`);
@@ -52,6 +53,14 @@ getAllMessagesByAbonneId (id:number): Observable<Resultat<Messagerie[]>>{
           new Resultat<Messagerie[]>(null, [], [])))
       );
 
+}
+getMessageById(id:number):Observable<Resultat<Messagerie>>{
+  return this.httpClient.get<Resultat<Messagerie>>(this.urlMessage+id).pipe(
+    tap(res=>{
+      this.log(`Le message est récuperé`);
+    }),
+    catchError(this.handleError<Resultat<Messagerie>>('getMessageById'))
+  );
 }
 
   ///////////////////////////////////////////

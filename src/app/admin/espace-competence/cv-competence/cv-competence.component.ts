@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild,
 	ElementRef, Input } from '@angular/core';
 import {FormBuilder, FormGroup, FormControl,
-Validators } from '@angular/forms';
+Validators,FormArray } from '@angular/forms';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 import {switchMap} from 'rxjs/operators';
 import { Detailblock } from '../../../shared/models/detailblock';
@@ -18,11 +18,12 @@ import {OutilsService} from '../../../core/services/outils.service';
   styleUrls: ['./cv-competence.component.scss']
 })
 export class CvCompetenceComponent implements OnInit {
-  membre = new Membre();
+  membre: Membre;
   cvCompetenceForm: FormGroup;
+  resultat:Resultat<Detailblock>;
   detailblock: Detailblock;
   //detailblocks: Detailblock[];
-  static me: CvCompetenceComponent;
+  //static me: CvCompetenceComponent;
 
   titres =[
     {name:'salarie', libelle:'Salarié'},
@@ -81,10 +82,13 @@ export class CvCompetenceComponent implements OnInit {
 
   ngOnInit() { 
     this.route.paramMap.pipe(
-      switchMap((params: ParamMap) =>
-        this.abonnesService.getProfilById(+params.get('id')))
+      switchMap((params: ParamMap) =>{
+       return this.abonnesService.getProfilById(+params.get('id'))
+     })
     ).subscribe(res=> {
+      this.resultat = res;
       this.detailblock = res.body;  
+      this.membre = this.detailblock.personne;
       if (res.status===0) {
            this.initForm();
          }   
@@ -92,33 +96,34 @@ export class CvCompetenceComponent implements OnInit {
     });   
     //this.initForm();
   }
-  compareFn(c1: any, c2: any): boolean {
-    return c1 && c2 ? c1.libelle === c2.libelle : c1 === c2;
-  }
+
   initForm() {
+    const autreSpecialiteInit= new FormArray([]);
+    const dureeContratInit= new FormArray([]);
+    const periodeContratInit= new FormArray([]);
     this.cvCompetenceForm = this.fb.group({
-      id: [this.detailblock.personne.id],
-      version: [this.detailblock.personne.version],
+      id: [this.membre.id],
+      version: [this.membre.version],
       cvPersonne: this.fb.group({
-        id: [this.detailblock.personne.cvPersonne.id],
-        version: [this.detailblock.personne.cvPersonne.version],
-        titre: [this.detailblock.personne.cvPersonne.titre],
-        diplome: [this.detailblock.personne.cvPersonne.diplome],
-        specialite: [this.detailblock.personne.cvPersonne.specialite],
-        anneExperience: [this.detailblock.personne.cvPersonne.anneExperience],
-        motivation: [this.detailblock.personne.cvPersonne.motivation],
-        fonctionActuelle: [this.detailblock.personne.cvPersonne.fonctionActuelle],
-        domaine: [this.detailblock.personne.cvPersonne.domaine],
-        autreSpecialite: [this.detailblock.personne.cvPersonne.autreSpecialite],
-        description: [this.detailblock.personne.cvPersonne.description],
-        pathCv: [this.detailblock.personne.cvPersonne.pathCv],
+        id: [this.membre.cvPersonne.id],
+        version: [this.membre.cvPersonne.version],
+        titre: [this.membre.cvPersonne.titre],
+        diplome: [this.membre.cvPersonne.diplome],
+        specialite: [this.membre.cvPersonne.specialite],
+        anneExperience: [this.membre.cvPersonne.anneExperience],
+        motivation: [this.membre.cvPersonne.motivation],
+        fonctionActuelle: [this.membre.cvPersonne.fonctionActuelle],
+        domaine: [this.membre.cvPersonne.domaine],
+        autreSpecialite: autreSpecialiteInit,
+        description: [this.membre.cvPersonne.description],
+        pathCv: [this.membre.cvPersonne.pathCv],
 
       }),
       contrat: this.fb.group({
-        id: [this.detailblock.personne.contrat.id],
-        version: [this.detailblock.personne.contrat.version],
-        dureeContrat: [this.detailblock.personne.contrat.dureeContrat],
-        periodeContrat: [this.detailblock.personne.contrat.periodeContrat],
+        id: [this.membre.contrat.id],
+        version: [this.membre.contrat.version],
+        dureeContrat: dureeContratInit,
+        periodeContrat: periodeContratInit,
       }),
     });
   }
@@ -134,12 +139,12 @@ export class CvCompetenceComponent implements OnInit {
   }
 
   onSubmit() {
-    let dblk:Detailblock;
-    dblk=this.convertisseur(this.cvCompetenceForm);
-    console.log("Formulaire envoyé ", dblk);
-    this.membreService.modifierMembre(dblk)
+    let memb=this.membre;
+    memb=this.convertisseur(this.cvCompetenceForm);
+    console.log("Formulaire envoyé ", memb);
+    this.membreService.modifierMembre(memb)
     .subscribe(res => {
-      console.log('MODIFIER MEMBRE SUCCESS', res.body);
+      console.log('MODIFIER MEMBRE SUCCESS', res.body.id);
     });
   }
 
@@ -163,13 +168,14 @@ export class CvCompetenceComponent implements OnInit {
         null,
         'ME',
         null,
-        null,
+        this.detailblock.personne.login,
         null,
         fg.value['cvPersonne'],
         null,
         null,
         null,
         fg.value['contrat'],      
+        null,
         null,
     );
     return mens;

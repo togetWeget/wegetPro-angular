@@ -1,3 +1,32 @@
-<p>
-  flash-info-ecole works!
-</p>
+<app-admin-card [adminCard]="admin_card" >
+	<div class="admin-card-content">
+		<table class="table table-hover table-bordered">
+			<thead>
+				<tr>
+					<th>Contenu</th>
+					<th>Etat</th>
+					<th>Date</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>
+						info
+					</td>
+					<td>
+						<span><i class="fa fa-eye"></i></span>
+					</td>
+					<td>01 - 01 - 2018</td>
+					<td>
+						<button mat-raised-button class="green">Modifier</button>
+						<button mat-raised-button class="red">supprimer</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="admin-card-footer">
+
+	</div>
+</app-admin-card>

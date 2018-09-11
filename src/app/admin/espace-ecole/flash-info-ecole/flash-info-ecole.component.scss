@@ -1,0 +1,39 @@
+$fa-font-path : '../node_modules/font-awesome/fonts';
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
+
+$blue: #34a3cd;
+$green: #04c575;
+$white: #ffffff;
+$purple-dark: #4a4864;
+$green-blue: #27c1c1;
+$dark-blue: #2f2e3e;
+
+$xxs-margin: 5px;
+$xs-margin: 10px;
+$sm-margin: 15px;
+
+button {
+	&.blue {
+		background: $blue;
+		color: $white;
+	}
+	&.green {
+		background: $green;
+		color: $white;
+	}
+	&.purple-dark {
+		background: $purple-dark;
+		color: $white;
+	}
+	&.green-blue {
+		background: $green-blue;
+		color: $white;
+	}
+	&.dark-blue {
+		background: $dark-blue;
+		color: $white;
+	}
+}

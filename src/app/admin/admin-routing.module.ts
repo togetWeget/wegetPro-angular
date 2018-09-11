@@ -53,7 +53,7 @@ const routes: Routes = [
            {path:'liste_message', component: ListeMessageComponent}, 
            {path:'liste_message_envoye', component: ListeMessageEnvoyeComponent}, 
            {path:'message', component: MessageComponent}, 
-           {path:'view_message', component: ViewMessageComponent}, 
+           {path:'read/:id', component: ViewMessageComponent}, 
            {path:'supprime_message', component: SupprimeMessageComponent}, 
            {path:'repondre_message', component: RepondreMessageComponent}, 
            {path: '**', component: NotFoundComponent}, 

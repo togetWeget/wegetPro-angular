@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {AdminCard} from '../../../shared/views_models/admin-card';
 
 @Component({
   selector: 'app-flash-info-ecole',
@@ -7,7 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FlashInfoEcoleComponent implements OnInit {
 
-  constructor() { }
+  admin_card: AdminCard;
+  constructor() {
+  	this.admin_card = new AdminCard('liste des fhash infos', null, null);
+  }
 
   ngOnInit() {
   }

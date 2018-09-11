@@ -1,0 +1,18 @@
+<i class="fa fa-remove" style="color:red; float:right; font-size:20px; cursor:pointer;" (click)="onNoClick()"></i>
+<div class="col-mod">
+			<i class="fa fa-angle-left angle-taille-left" (keyup)="keyleft($event, data.uri)" (click)="left(data.uri)"></i>
+			<img src="http://nabeel.co.in/files/bootsnipp/gallery/{{data.uri}}.jpg"  class="imgzoom"/>
+			<i class="fa fa-angle-right angle-taille-right" (keydown.arrowup)="alert(1)"  (click)="right(data.uri)"></i>
+</div>
+
+<!-- <div class="mod" style="display:none;" (click)="hidemod()"> -->
+	<!-- <div class="col-mod" (click)="returnf($event)">  -->
+	
+			<!-- <i class="fa fa-angle-left angle-taille-left"></i> -->
+			<!-- <img src="{{uri}}"  class="imgzoom"/> -->
+			<!-- <i class="fa fa-angle-right angle-taille-right"></i> -->
+
+	<!-- </div> -->
+<!-- </div> -->
+
+

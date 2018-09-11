@@ -44,5 +44,8 @@ fethcAllAbonnes() {
         width: '600px',
         data: {idPersonne: this.abonne.personne.id, nomPersonne: this.abonne.personne.nomComplet}
       });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(result);
+    });
   }
 }

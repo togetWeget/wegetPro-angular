@@ -1,0 +1,70 @@
+.mail-single {
+    background: #fff;
+    padding: 30px;
+    margin-bottom: 30px;
+}
+.mail-single .mail-single-header {
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    height: 50px;
+}
+.mail-single .mail-single-header > h2 {
+    font-weight: bold;
+}
+.mail-single .mail-single-header > h2 {
+    float: left;
+    margin: 0;
+    font-size: 23px;
+}
+.mail-single .mail-single-header .mail-single-header-options {
+    float: right;
+}
+.btn.btn-gray {
+    background-color: #eeeeee;
+    color: #333333;
+}
+
+.btn.btn-icon {
+    line-height: 1;
+}
+.btn + .btn {
+    margin-left: 5px;
+}
+.mail-single .mail-single-info {
+    border-bottom: 1px solid #f0f0f0;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    height: 50px;
+}
+.mail-single .mail-single-info .mail-single-info-user {
+    float: left;
+}
+.mail-single .mail-single-info .mail-single-info-user > a {
+    display: block;
+    color: #979898;
+    text-decoration: none;
+}
+.mail-single .mail-single-info .mail-single-info-user > a img {
+    float: left;
+    margin-right: 10px;
+}
+.mail-single .mail-single-info .mail-single-info-user > a span {
+    color: #717272;
+    font-weight: bold;
+}
+.mail-single .mail-single-info .mail-single-info-user > a em {
+    font-style: normal;
+    display: block;
+    color: #CCC;
+    padding-top: 2px;
+}
+.mail-single .mail-single-info .mail-single-info-options {
+    float: right;
+    padding-top: 10px;
+}
+.mail-single .mail-single-body {
+    border-bottom: 1px solid #f0f0f0;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}

@@ -9,6 +9,7 @@ import { Navs } from '../../../shared/views_models/navs';
 })
 export class LayoutMessageComponent implements OnInit {
   top_zone: AdminTopZone = null;
+  //maxMsg:number;
 
   constructor() {
   	this.top_zone = new AdminTopZone (

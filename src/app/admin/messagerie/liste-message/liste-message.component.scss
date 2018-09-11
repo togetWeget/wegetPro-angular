@@ -4,8 +4,28 @@
 }
 .mail-table .col-cb{
 	padding-left: 15px;
+	vertical-align:top;
+}
+.col-middle{
+	vertical-align:middle;
+}
+th{
+	border: 0;
+}
+.mail-env .mail-table .col-cb, .mailbox-env .mail-env .mail-table .col-options {
+    width: 2%;
 }
 th.col-cb {
 	position: relative;
 	top: 5px;
+}
+.mail-env .mail-table .col-cb {
+    padding-left: 30px;
+}
+.mail-env .mail-table >tbody >tr.unread .col-subject{
+
+	overflow: hidden;
+}
+.mail-env .mail-table > tbody > tr.unread .col-subject a {
+    color: #646565;
 }

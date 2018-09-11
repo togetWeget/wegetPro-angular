@@ -5,7 +5,9 @@ export class Adresse {
               public  email?: string,
               public  pays?: string,
               public  ville?: string,
-              public  quartier?: string
+              public  quartier?: string,
+              public  adresseGeographique?: string,
+              public  siteWeb?: string
 
               ) {}
 }

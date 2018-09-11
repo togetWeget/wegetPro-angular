@@ -39,6 +39,7 @@ import {
     FacebookLoginProvider,
 } from "angular-6-social-login";
 import { PanierViewComponent } from './panier-view/panier-view.component';
+import { AbonneComponent } from './abonnes/abonne/abonne.component';
 
 
 // Configs 
@@ -89,7 +90,8 @@ export function getAuthServiceConfigs() {
     FormulaireComponent,
     PrixComponent,
     SingleBlockComponent,
-    PanierViewComponent
+    PanierViewComponent,
+    AbonneComponent
   ],
   exports: [LayoutComponent],
   schemas: [NO_ERRORS_SCHEMA]

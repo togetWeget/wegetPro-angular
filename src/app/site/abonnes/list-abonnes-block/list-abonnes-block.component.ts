@@ -19,8 +19,7 @@ export class ListAbonnesBlockComponent implements OnInit {
 
   constructor(private router: Router,
               private abonnesService: AbonnesService,
-              private route: ActivatedRoute,
-              private contactDialog: MatDialog) {
+              private route: ActivatedRoute) {
   }
 
   ngOnInit() {
@@ -33,25 +32,4 @@ export class ListAbonnesBlockComponent implements OnInit {
     });
   }
 
-  getStatutMembre() {
-    if (this.status === 1) {
-      return 'Discuter avec cet abonné';
-    } else {
-      return '';
-    }
-  }
-
-  onViewProfileAbonne(abonne: Detailblock) {
-    this.selectedAbonne = abonne;
-    this.router.navigate(['/site/abonnes', 'profile', abonne.id]);
-  }
-
-  onContactAbonne(abonne: Detailblock): void {
-    this.selectedAbonne = abonne;
-    const dialogRef = this.contactDialog.open(ContactAbonneComponent,
-      {
-        width: '600px',
-        data: {idPersonne: abonne.personne.id, nomPersonne: abonne.personne.nomComplet}
-      });
-  }
 }

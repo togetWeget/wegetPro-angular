@@ -19,6 +19,7 @@ import { ToastrModule } from 'ngx-toastr';
 import {NgxMaskModule} from 'ngx-mask';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material';
+// import { TinymceModule } from 'angular2-tinymce';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import {MatInputModule} from '@angular/material';
     BrowserModule,
     AppRoutingModule,
     SiteModule,
+    // TinymceModule.withConfig({}),
     // ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
     SuperAdminModule,
     AdminModule,

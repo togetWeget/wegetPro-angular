@@ -92,14 +92,14 @@
                               <span class="tag">{{abonne?.personne?.cvPersonne?.diplome}}</span>
                             </li>
                             <li class="tags-item">
-                              <h4 class="hr">Lieu de naissance</h4>
+                              <h4 class="hr">Lieu de résidence</h4>
                               <span class="tag">
-                                {{abonne?.personne?.adresse.pays}}, {{abonne?.personne?.adresse.pays}}
+                                {{abonne?.personne?.adresse?.ville}}, {{abonne?.personne?.adresse?.pays}}
                               </span>
                             </li>
                             <li class="tags-item">
                               <h4 class="hr">Langues</h4>
-                              <span class="tag">{{"Français"}}</span>
+                              <span class="tag" *ngFor="let langue of abonne?.personne?.langues">{{langue.libelle}}, </span>
                             </li>
                           </ul>
                         </div>
@@ -107,11 +107,11 @@
                           <ul class="list list-unstyled tags">
                             <li class="tags-item">
                               <h4 class="hr">Type de contrat souhaité</h4>
-                              <span class="tag">{{abonne?.personne?.cvPersonne?.specialite}}</span>
+                              <span class="tag" *ngFor="let contrat of abonne?.personne?.contrat?.periodeContrat">{{contrat}}</span>&nbsp;
                             </li>
                             <li class="tags-item">
                               <h4 class="hr">Période de contrat souhaité</h4>
-                              <span class="tag">{{abonne?.personne?.cvPersonne?.specialite}}</span>
+                              <span class="tag" *ngFor="let contrat of abonne?.personne?.contrat?.dureeContrat">{{contrat}}</span>&nbsp;
                             </li>
                             <li class="tags-item">
                               <h4 class="hr">Disponibilité</h4>

@@ -1,3 +1,140 @@
-<p>
-  mon-ecole works!
-</p>
+<form [formGroup]="ecoleForm" (submit)="update()" >
+<div class="row">
+	<div class="col-md-8">
+		<mat-expansion-panel>
+		  <mat-expansion-panel-header>
+		    <mat-panel-title>
+		      Informations Personnelles
+		    </mat-panel-title>
+		  </mat-expansion-panel-header>
+			<div class="row">
+				<div class="col-md-6">
+					<mat-form-field>
+						<input matInput placeholder="Nom établissement" />
+					</mat-form-field>
+
+					<mat-form-field>
+					  <mat-select placeholder="Type établissement">
+					    <mat-option *ngFor="let typ of outils.typeEtablissement" [value]="typ.name">
+					      {{typ.libelle}}
+					    </mat-option>
+					  </mat-select>
+					</mat-form-field>
+					<div class="row">
+						<div class="col-md-6">
+							<mat-form-field>
+								<input matInput placeholder="Téléphone 1" required="required" />
+							</mat-form-field>
+						</div>
+						<div class="col-md-6">
+							<mat-form-field>
+								<input matInput placeholder="Téléphone 2"/>
+							</mat-form-field>
+						</div>
+						<div class="col-md-6">
+							<mat-form-field>
+								<input matInput placeholder="Mobile 1" required="required" />
+							</mat-form-field>
+						</div>
+						<div class="col-md-6">
+							<mat-form-field>
+								<input matInput placeholder="Mobile 2"/>
+							</mat-form-field>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<mat-form-field>
+					  <mat-select placeholder="Pays">
+					    <mat-option *ngFor="let pays of outils.pays" [value]="pays.name">
+					      {{pays.name}}
+					    </mat-option>
+					  </mat-select>
+					</mat-form-field>
+
+					<mat-form-field>
+					  <mat-select placeholder="Ville">
+					    <mat-option *ngFor="let ville of outils.villes" [value]="ville.name">
+					      {{ville.name}}
+					    </mat-option>
+					  </mat-select>
+					</mat-form-field>
+
+					<mat-form-field>
+						<input matInput placeholder="Adresse postale"/>
+					</mat-form-field>
+
+					<div class="row">
+						<div class="col-md-6">
+							<mat-form-field>
+								<input matInput placeholder="Email" required="required" />
+							</mat-form-field>
+						</div>
+						<div class="col-md-6">
+							<mat-form-field>
+								<input matInput placeholder="Site web" />
+							</mat-form-field>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</mat-expansion-panel>
+
+		<mat-expansion-panel>
+		  <mat-expansion-panel-header>
+		    <mat-panel-title>
+		      Présentation
+		    </mat-panel-title>
+		  </mat-expansion-panel-header>
+			<div class="row">
+				<div class="col-md-12">
+					<textarea [froalaEditor]="editor_options" [formControl]="contentControl" ></textarea>
+				</div>
+			</div>
+		</mat-expansion-panel>
+		
+		<mat-expansion-panel>
+		    <mat-expansion-panel-header>
+		      <mat-panel-title>
+		        Chiffres
+		      </mat-panel-title>
+		    </mat-expansion-panel-header>
+	  	  	  <button mat-raised-button class="btn-blue">Ajouter</button>
+
+		  </mat-expansion-panel>
+
+		<mat-expansion-panel>
+		    <mat-expansion-panel-header>
+		      <mat-panel-title>
+		        Partenaires
+		      </mat-panel-title>
+		    </mat-expansion-panel-header>
+	  	  	  <button mat-raised-button class="btn-blue">Ajouter</button>
+
+		  </mat-expansion-panel>
+
+		<mat-expansion-panel>
+		    <mat-expansion-panel-header>
+		      <mat-panel-title>
+		        Témoignages
+		      </mat-panel-title>
+		    </mat-expansion-panel-header>
+	  	  	  <button mat-raised-button class="btn-blue">Ajouter</button>
+
+		  </mat-expansion-panel>
+
+		  <mat-expansion-panel>
+		    <mat-expansion-panel-header>
+		      <mat-panel-title>
+		        Adresse géographique
+		      </mat-panel-title>
+		    </mat-expansion-panel-header>
+
+		  </mat-expansion-panel>
+	</div>
+	<div class="col-md-4">
+		<app-modif-photo-ecole></app-modif-photo-ecole>
+	</div>
+</div>
+</form>

@@ -32,7 +32,7 @@ export class ContactAbonneComponent implements OnInit {
 
   initForm() {
     const pers = new Membre(this.data.idPersonne, 0, null, null, null, null, 
-      null, null, false, null, null, 'ME', null, null, null, null, null, null, null);
+      null, null, false, null, null,null,null,null,null,null, 'ME', null, null, null, null, null, null, null);
     const msg = new Message(null, 0, null, null, null);
     const exp = new Expediteur(null, 0, null, null, null, null, null);
     const newMessage = new Messagerie(null, 0, pers, msg, exp);
@@ -75,7 +75,6 @@ export class ContactAbonneComponent implements OnInit {
     msg = this.convertisseur(this.messageForm);
     this.messagerieService.ajoutMessage(msg).subscribe(res => {
       console.log('reponse de contact abonne', res.body);
-      this.dialogRef.close();
     });
   }
 

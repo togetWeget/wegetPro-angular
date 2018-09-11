@@ -1,3 +1,38 @@
-<p>
-  view-message works!
-</p>
+<div class="mail-single" *ngIf="message">
+    <!-- Email Title and Button Options -->
+    <div class="mail-single-header">
+      <h2>{{message.message.sujet}}</h2>
+      <div class="mail-single-header-options"> 
+        <a href="#" class="btn btn-gray btn-icon"> 
+          <span>Répondre </span> 
+          <i class="fa fa-reply-all"></i> 
+        </a> 
+        <a href="#" class="btn btn-gray btn-icon">
+          <span>Supprimer </span> 
+          <i class="fa fa-trash"></i>
+        </a> 
+    </div>
+    </div>
+
+    <!-- Email Info From/Reply -->
+    <div class="mail-single-info">
+      <div class="mail-single-info-user "> 
+        <a href="#" data-toggle="dropdown">
+          <img src="{{message.personne.pathPhoto}}" class="img-circle" width="38"> 
+          <span>{{message.expediteur.nom}}</span> ({{message.expediteur.email}}) to <span>me</span> 
+          <em class="time">{{message.message.date|date:'dd-MM-y'}} à {{message.message.date|date:'HH:mm:ss'}}</em> 
+        </a>
+      </div>
+      <div class="pull-right">
+        <span><i class="fa fa-building"></i> {{message.expediteur.entreprise}}</span> - 
+        <span><i class="fa fa-phone"></i> {{message.expediteur.telephone}}</span>
+      </div>
+      <div class="mail-single-info-options">
+        <a href="#" class="star starred"> <i class="fa-star-empty"></i> </a> 
+      </div>
+    </div>
+
+    <!-- Email Body -->
+    <div class="mail-single-body" style="text-align: justify;">
+      testsestsestsestsegsgssgst </div>
+  </div>
