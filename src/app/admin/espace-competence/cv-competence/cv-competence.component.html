@@ -71,8 +71,8 @@
 							<div class="form-group">
 								<mat-form-field>
 								 	<mat-select placeholder="Type de contrat" formControlName="periodeContrat" multiple>
-						               <mat-option *ngFor="let contrat of contrats" [value]="contrat.name">
-						                 {{contrat.libelle}}
+						               <mat-option *ngFor="let contra of contrats" [value]="contra.name">
+						                 {{contra.libelle}}
 						               </mat-option>
 						            </mat-select>
 								</mat-form-field>

@@ -6,6 +6,7 @@ export class SousBlock {
 	constructor (
 		public id?: number,
 		public version?: number,
+		public nom?: string,
 		public typeEtablissement?: string,
 		public refSousBlock?: string,
 		public presentation?: string,
@@ -14,6 +15,6 @@ export class SousBlock {
 		public pathLogo?: string,
 		public adresse?: Adresse,
 		public telephones?: string[],
-		public id_Block?: Block
+		public block?: Block
 		) {}
 }

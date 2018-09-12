@@ -1,0 +1,10 @@
+	<div class="gal-container" > 
+    <div class="col-md-8 col-sm-12 co-xs-12 gal-item" *ngFor="let ie of [1,2,3,4,5,6,7,8,9]; index as i">
+      <div class="box">
+        <a href="#" data-toggle="modal" data-target="#1" (click)="geturi(i+1)">
+          <img src="http://nabeel.co.in/files/bootsnipp/gallery/{{i+1}}.jpg" class="">
+        </a>
+      </div>
+    </div>
+
+  </div>

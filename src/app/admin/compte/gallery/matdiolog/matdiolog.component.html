@@ -1,10 +1,13 @@
-<i class="fa fa-remove" style="color:red; float:right; font-size:20px; cursor:pointer;" (click)="onNoClick()"></i>
-<div class="col-mod">
-			<i class="fa fa-angle-left angle-taille-left" (keyup)="keyleft($event, data.uri)" (click)="left(data.uri)"></i>
-			<img src="http://nabeel.co.in/files/bootsnipp/gallery/{{data.uri}}.jpg"  class="imgzoom"/>
-			<i class="fa fa-angle-right angle-taille-right" (keydown.arrowup)="alert(1)"  (click)="right(data.uri)"></i>
-</div>
 
+<mat-dialog-content style="overflow:hidden !important; background:#000 !important; padding:0 !important; margin:0 !important;">
+<div class="" style=" width:100%;  font-size:20px;  text-align:right; z-index:99999999; color:#fff; margin-right:15px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"> <i class="fa fa-remove pull-right"  style="cursor:pointer;" (click)="onNoClick()"></i> </div>
+
+<div class="col-mod" [ngStyle]="{'background-image' : 'url(http://nabeel.co.in/files/bootsnipp/gallery/'+ data.uri +'.jpg)','background-color':'#333', 'background-repeat' : 'no-repeat', 'background-position' : 'center'}">
+			<i class="fa fa-angle-left angle-taille-left" (click)="left(data.uri)"></i>
+			<!-- <img src="http://nabeel.co.in/files/bootsnipp/gallery/{{data.uri}}.jpg"  class="imgzoom"/> -->
+			<i class="fa fa-angle-right angle-taille-right"   (click)="right(data.uri)"></i>
+</div>
+</mat-dialog-content>
 <!-- <div class="mod" style="display:none;" (click)="hidemod()"> -->
 	<!-- <div class="col-mod" (click)="returnf($event)">  -->
 	
@@ -14,5 +17,6 @@
 
 	<!-- </div> -->
 <!-- </div> -->
+
 
 

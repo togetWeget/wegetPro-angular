@@ -10,42 +10,32 @@
 			<div class="row">
 				<div class="col-md-6">
 					<mat-form-field>
-						<input matInput placeholder="Nom établissement" />
+						<input matInput placeholder="Nom établissement" formControlName="nom" />
 					</mat-form-field>
 
 					<mat-form-field>
-					  <mat-select placeholder="Type établissement">
+					  <mat-select placeholder="Type établissement" formControlName="typeEtablissement">
 					    <mat-option *ngFor="let typ of outils.typeEtablissement" [value]="typ.name">
 					      {{typ.libelle}}
 					    </mat-option>
 					  </mat-select>
 					</mat-form-field>
-					<div class="row">
-						<div class="col-md-6">
+					<div formArrayName="telephones">
+						<button mat-raised-button class="btn-blue" type="button" (click)="addTelephone()">Ajouter téléphone</button>
+						<div *ngFor="let tel of telephones?.controls; let i=index;">
+							<label>
+								Telephone #{{i + 1}}
 							<mat-form-field>
-								<input matInput placeholder="Téléphone 1" required="required" />
+								<input matInput placeholder="Téléphone" [formControlName]="i"/>
+								<button matSuffix mat-fab type="button" (click)="deleteTelephone(i)" ><mat-icon>delete</mat-icon></button>
 							</mat-form-field>
-						</div>
-						<div class="col-md-6">
-							<mat-form-field>
-								<input matInput placeholder="Téléphone 2"/>
-							</mat-form-field>
-						</div>
-						<div class="col-md-6">
-							<mat-form-field>
-								<input matInput placeholder="Mobile 1" required="required" />
-							</mat-form-field>
-						</div>
-						<div class="col-md-6">
-							<mat-form-field>
-								<input matInput placeholder="Mobile 2"/>
-							</mat-form-field>
+						</label>
 						</div>
 					</div>
 				</div>
-				<div class="col-md-6">
+				<div class="col-md-6" formGroupName="adresse">
 					<mat-form-field>
-					  <mat-select placeholder="Pays">
+					  <mat-select placeholder="Pays" formControlName="pays">
 					    <mat-option *ngFor="let pays of outils.pays" [value]="pays.name">
 					      {{pays.name}}
 					    </mat-option>
@@ -53,7 +43,7 @@
 					</mat-form-field>
 
 					<mat-form-field>
-					  <mat-select placeholder="Ville">
+					  <mat-select placeholder="Ville" formControlName="ville">
 					    <mat-option *ngFor="let ville of outils.villes" [value]="ville.name">
 					      {{ville.name}}
 					    </mat-option>
@@ -61,22 +51,17 @@
 					</mat-form-field>
 
 					<mat-form-field>
-						<input matInput placeholder="Adresse postale"/>
+						<input matInput formControlName="boitePostal" placeholder="Adresse postale"/>
+					</mat-form-field>
+					
+					<mat-form-field>
+						<input matInput formControlName="email" placeholder="Email" required="required" />
 					</mat-form-field>
 
-					<div class="row">
-						<div class="col-md-6">
-							<mat-form-field>
-								<input matInput placeholder="Email" required="required" />
-							</mat-form-field>
-						</div>
-						<div class="col-md-6">
-							<mat-form-field>
-								<input matInput placeholder="Site web" />
-							</mat-form-field>
-						</div>
-					</div>
-
+					<mat-form-field>
+						<input matInput formControlName="siteWeb" placeholder="Site web" />
+					</mat-form-field>
+					
 				</div>
 			</div>
 		</mat-expansion-panel>
@@ -89,7 +74,7 @@
 		  </mat-expansion-panel-header>
 			<div class="row">
 				<div class="col-md-12">
-					<textarea [froalaEditor]="editor_options" [formControl]="contentControl" ></textarea>
+					<textarea [froalaEditor]="editor_options" formControlName="presentation" ></textarea>
 				</div>
 			</div>
 		</mat-expansion-panel>
@@ -135,6 +120,9 @@
 	</div>
 	<div class="col-md-4">
 		<app-modif-photo-ecole></app-modif-photo-ecole>
+	</div>
+	<div class="col-md-12">
+		<button class="btn-blue" type="submit" mat-raised-button>Enregistrer</button>
 	</div>
 </div>
 </form>

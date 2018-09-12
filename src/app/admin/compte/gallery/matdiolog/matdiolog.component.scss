@@ -19,7 +19,9 @@ display:flex;
 justify-content:center;
 align-items:center;
 overflow:hidden;
+margin:0;
 }
+
 
 .angle-taille-left{
 	position:relative;
@@ -59,6 +61,12 @@ overflow:hidden;
 
 .imgzoom{
 	width:auto;
-	height:100%;
+	max-height:490px;
 	background-repeat:cover;
+}
+
+mat-dialog-container{
+background:#000 !important;
+padding:0 !important;
+overflow:hidden !important;
 }

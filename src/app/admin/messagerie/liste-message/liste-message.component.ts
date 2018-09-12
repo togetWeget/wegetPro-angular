@@ -39,7 +39,7 @@ export class ListeMessageComponent implements OnInit {
 	    
 	}
 	fetchBlocks() {
-	    this.messages=this.messagerieService.getAllMessagesByAbonneId(+this.idPersonne)
+	   this.messagerieService.getAllMessagesByAbonneId(+this.idPersonne)
 		.subscribe(res => {
 	    this.messages = res.body;
 	     console.log('les abonnes de ListAbonnesBlockComponent', res.body);

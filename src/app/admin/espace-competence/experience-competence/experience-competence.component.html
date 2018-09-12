@@ -1,3 +1,85 @@
-<p>
-  competence-experience works!
-</p>
+<div class="details-container">
+	<div class="col-md-12" style="margin-bottom: 30px; margin-left: -15px;">
+      <button mat-raised-button class="btn btn-success btn-icon btn-icon-standalone pull-left" matTooltip="Ajouter une expérience"
+      (click)="ajouterExperience()"> 
+      	<i class="fa fa-plus"></i> <span>Ajouter</span> 
+      </button>
+    </div>
+    <br>
+	<form [formGroup]="experienceForm" (ngSubmit)="onSubmit()">
+		<div formArrayName="experiences">
+			<mat-card class="details-container" *ngFor="let experience of experiences.controls; let i = index;" style="margin-bottom: 15px;">
+				<div class="form-header">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="title"><span>Expériences</span></div>
+							<div class="action pull-right">
+								<button class="btn btn-icon btn-red" (click)="removeExperience(i)"><i class="fa fa-trash"></i></button>
+								&nbsp;
+								<button class="btn btn-icon btn-white"><i class="fa fa-bars"></i></button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<mat-card-content [formGroupName]="i">
+					<div class="row">
+						<div class="col-md-7">
+							<div class="row">
+								<div class="col-md-12">
+									<div class="form-group">
+										<mat-form-field>
+											<input matInput placeholder="Nom de l'entreprise" formControlName="entreprise">
+										</mat-form-field>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12">
+									<div class="form-group">
+										<mat-form-field>
+											<input matInput placeholder="Poste occupé" formControlName="postOccupe">
+										</mat-form-field>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12">
+									<div class="form-group">
+										<mat-form-field>
+											<input matInput placeholder="Lieu" formControlName="lieu">
+										</mat-form-field>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+										<mat-form-field>
+											<input matInput placeholder="Date du debut" formControlName="dateDebut" type="date">
+										</mat-form-field>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<mat-form-field>
+											<input matInput placeholder="Date de fin" formControlName="dateFin" type="date">
+										</mat-form-field>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-5">
+							<div class="form-group">
+								<mat-form-field>
+									<textarea matInput placeholder="Taches exécutées" name="tache" rows="15" style="min-height: 237px;"></textarea>
+								</mat-form-field>
+							</div>
+						</div>
+					</div>
+				</mat-card-content>
+			</mat-card>
+			<br>
+		</div>
+		<button mat-raised-button type="submit" class="btn pull-right"><i class="fa fa-refresh"></i>&nbsp;&nbsp;Mettre à jour</button>
+	</form>
+</div>

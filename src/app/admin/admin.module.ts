@@ -80,6 +80,9 @@ import { GalleryComponent } from './compte/gallery/gallery.component';
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 import { ModifPhotoEcoleComponent } from './espace-ecole/modif-photo-ecole/modif-photo-ecole.component';
 import { MatdiologComponent } from './compte/gallery/matdiolog/matdiolog.component';
+import { AllGalleryComponent } from './compte/gallery/all-gallery/all-gallery.component';
+import { VideoComponent } from './compte/gallery/video/video.component';
+import { PhotosComponent } from './compte/gallery/photos/photos.component';
 // import { NgxEditorModule } from 'ngx-editor';
 // import { TooltipModule } from 'ngx-bootstrap/tooltip';
 
@@ -129,7 +132,7 @@ import { MatdiologComponent } from './compte/gallery/matdiolog/matdiolog.compone
    PhotoCompetenceComponent, FormationCompetenceComponent, ExperienceCompetenceComponent, 
    DocumentsCompetenceComponent, CvCompetenceComponent,
    MonEcoleComponent, EnteteEcoleComponent, FlashInfoEcoleComponent, FormationsEcoleComponent,
-   DocumentsEcoleComponent, PhotosEcoleComponent, ModifPhotoComponent, GalleryComponent, ModifPhotoEcoleComponent, MatdiologComponent
+   DocumentsEcoleComponent, PhotosEcoleComponent, ModifPhotoComponent, GalleryComponent, ModifPhotoEcoleComponent, MatdiologComponent, AllGalleryComponent, VideoComponent, PhotosComponent
   ],
   entryComponents: [BlockComponent,CoverSelectComponent, MatdiologComponent ],
   exports: [LayoutComponent]

@@ -6,8 +6,10 @@ export class Experience {
     public version?: number,
     public postOccupe?: string,
     public entreprise?: string,
-    public periode?: string,
+    public dateDebut?: string,
+    public dateFin?: string,
     public tache?: string,
+    public lieu?: string,
     public membre?: Membre
   ) {
   }

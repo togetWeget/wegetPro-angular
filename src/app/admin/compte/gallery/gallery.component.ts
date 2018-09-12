@@ -13,7 +13,7 @@ export class GalleryComponent implements OnInit {
 public uri: any;
   name: string;
   constructor(public dialog: MatDialog) { }
-
+ativ: string;
   
   
   openDialog(): void {
@@ -31,19 +31,57 @@ public uri: any;
   
   
   ngOnInit() {
+    const urlget = document.location.href;
+	let spl = urlget.split("/");
+	const fib = spl[spl.length-1];
+	  this.actived(fib);
   }
   
-  geturi(param){
-		this.uri = param;
-		this.openDialog();
-	  }
-	  
+  actived(param){
+	  this.ativ = param;
+	  const urlget = document.location.href;
+	  let spl = urlget.split("/");
+	  const fib = spl[spl.length-1];		
+		if(fib == param){
+			this.ativ = fib;
+			}
+	}
+	
+	affichecache(){
+	
+		 if ( $( ".sscach" ).is( ":hidden" ) ) {
+			$(".sscach").fadeIn(700);
+        }else{
+			$(".sscach").fadeOut(500);
+        }
+	}
+	
+	
+	sendphotos(){
+	
+	
+   // $("#formContent").submit(function(e){
 
-	  
-	  returnf(param){
-		 param.stopPropagation();
-		  }
+     // e.preventDefault();
+     // var formdata = new FormData(this);
 
+ // $.ajax({
+     // url: "",
+     // type: "POST",
+     // data: formdata,
+     // mimeTypes:"multipart/form-data",
+     // contentType: false,
+     // cache: false,
+     // processData: false,
+     // success: function(){
+
+     // alert("successfully");
+
+     // });
+   // });
+   
+		
+	}
 }
 
 

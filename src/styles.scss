@@ -20,3 +20,10 @@ body {
 
 html, body { height: 100%; }
 body { margin: 0; font-family: 'Roboto', sans-serif; }
+
+
+.fr-wrapper{
+	&>div:not(.fr-element.fr-view) {
+		display: none;
+	}
+}

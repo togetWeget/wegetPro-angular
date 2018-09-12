@@ -23,6 +23,9 @@ import { ListeMessageEnvoyeComponent } from
 import { LayoutCompteComponent } from './compte/layout-compte/layout-compte.component';
 import { DetailsCompteComponent } from './compte/details-compte/details-compte.component';
 import { GalleryComponent } from './compte/gallery/gallery.component';
+import { PhotosComponent } from './compte/gallery/photos/photos.component';
+import { VideoComponent } from './compte/gallery/video/video.component';
+import { AllGalleryComponent } from './compte/gallery/all-gallery/all-gallery.component';
 
 const routes: Routes = [
   {
@@ -60,7 +63,26 @@ const routes: Routes = [
         ]
       },
       {path: 'chatroom2', component: Chatroom2Component},
-      {path: 'gallery', component: GalleryComponent},
+      {
+		path: 'gallery', component: GalleryComponent,
+			children: [
+			{
+				path: '', redirectTo: 'photo', pathMatch: 'full'
+			},
+			{
+				path: 'photo', component: PhotosComponent
+			},
+			{
+			path: 'video', component: VideoComponent
+			},
+			{
+			path: 'allgallery', component: AllGalleryComponent
+			},
+			{
+				path: '**', component: NotFoundComponent
+			}, 
+			]
+	  },
 	  {
 	    path: '**', component: NotFoundComponent
 	  }

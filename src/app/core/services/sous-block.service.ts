@@ -2,9 +2,9 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders, HttpRequest} from '@angular/common/http';
 import {Observable, of, Subject} from 'rxjs';
 import {catchError, tap, map} from 'rxjs/operators';
-import {MessageService} from '../message.service';
-import {Resultat} from '../../../shared/models/resultat';
-import {SousBlock} from '../../../shared/models/sous-block';
+import {MessageService} from './message.service';
+import {Resultat} from '../../shared/models/resultat';
+import {SousBlock} from '../../shared/models/sous-block';
 import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
@@ -13,6 +13,7 @@ import { ToastrService } from 'ngx-toastr';
 export class SousBlockService {
   public jwtToken: string;
   private urlSousBlocks = 'http://wegetback:8080/sousBlocks';
+  private urlSousBlocksParBlock = 'http://wegetback:8080/SousBlocksParBlock';
   private urlPhoto = 'http://wegetback:8080/photoBlock';
   private urlPhoto1 = 'http://wegetback:8080/getPhoto';
   private urlRechercheBlk = 'http://wegetback:8080/rechercheBlock?mc=';
@@ -53,11 +54,11 @@ export class SousBlockService {
     return this.http.post<Resultat<SousBlock>>(this.urlSousBlocks, blk,{headers: new  HttpHeaders({'Authorization': this.jwtToken})})
       .pipe(
         tap(res => {
-          this.log(`block ajouter avec succes : message service=${res.body.libelle}`);
-          this.toastr.success('block ajouter avec succes : message service= '+ res.body.libelle,
+          this.log(`block ajouter avec succes : message service=${res.body.nom}`);
+          this.toastr.success('block ajouter avec succes : message service= '+ res.body.nom,
             'Opération réussie');
           this.blockCreer(res);
-          this.filtreblock(res.body.libelle);
+          this.filtreblock(res.body.nom);
         }),
         catchError(this.handleError<Resultat<SousBlock>>('ajoutSousBlock'))
       );
@@ -76,16 +77,27 @@ export class SousBlockService {
       );
   }
 
+  getSousBlockByBlock(id: number): Observable<Resultat<SousBlock>> {
+
+    return this.http.get<Resultat<SousBlock>>(`${this.urlSousBlocksParBlock}/${id}`)
+      .pipe(
+        tap(res => {
+          this.log(`block trouve  id=${id}`);
+        }),
+        catchError(this.handleError<Resultat<SousBlock>>('getSousBlockByBlock'))
+      );
+  }
+
   modifierSosusBlock(blkModif: SousBlock): Observable<Resultat<SousBlock>> {
     if (this.jwtToken==null) this.loadToken()
     return this.http.put<Resultat<SousBlock>>(this.urlSousBlocks, blkModif,{headers: new  HttpHeaders({'Authorization': this.jwtToken})})
       .pipe(
         tap(res => {
-          this.log(`bloc de libelle  =${res.body.libelle}`);
-          this.toastr.success('bloc de libelle  = '+ res.body.libelle,
+          this.log(`bloc de nom  =${res.body.nom}`);
+          this.toastr.success('bloc de nom  = '+ res.body.nom,
             'Opération réussie');
           //this.blocktModif(res);
-          this.filtreblock(res.body.libelle);
+          this.filtreblock(res.body.nom);
 
         }),
         catchError(this.handleError<Resultat<SousBlock>>('modifierSosusBlock'))
@@ -115,10 +127,10 @@ export class SousBlockService {
         catchError(this.handleError<Resultat<boolean>>('supprimerSousBlock'))
       );
   }
-  enregistrerPhoto(imageFile: File, libelle: string): Observable<any> {
+  enregistrerPhoto(imageFile: File, nom: string): Observable<any> {
     if (this.jwtToken==null) this.loadToken()
     const formData: FormData = new FormData();
-    formData.append('image_photo', imageFile, libelle);
+    formData.append('image_photo', imageFile, nom);
     const req = new HttpRequest('POST', this.urlPhoto, formData, {
       /*reportProgress = true;*/
     });

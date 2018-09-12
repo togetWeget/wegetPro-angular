@@ -7,6 +7,7 @@ import {Resultat} from '../../../shared/models/resultat';
 import {Detailblock} from '../../../shared/models/detailblock';
 import {Abonnes} from '../../../shared/models/abonnes';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -73,6 +74,7 @@ export class AbonnesService {
       catchError(this.handleError<Resultat<Detailblock>>('getAbonnesByLog'))
     );
   }
+
   loadToken() {
     this.jwtToken = localStorage.getItem('togetToken');
   }

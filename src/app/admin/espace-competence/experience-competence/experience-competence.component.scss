@@ -1,0 +1,51 @@
+mat-form-field{
+	width: 100%;
+}
+.btn.btn-icon {
+    line-height: 1;
+}
+
+.btn {
+    outline: none;
+    border: 1px solid transparent;
+    margin-bottom: 10px;
+    border-radius: none;
+}
+.btn.btn-icon i {
+    vertical-align: middle;
+    display: inline-block;
+    padding: 5px 0;
+}
+.btn.btn-icon-standalone {
+    padding: 0;
+    border: 0;
+    line-height: 1;
+}
+.btn.btn-success.btn-icon-standalone i {
+    background-color: rgb(6, 95, 6);
+}
+.btn.btn-icon-standalone i {
+    border-right: 1px solid transparent;
+    float: left;
+}
+.btn.btn-icon-standalone i, .btn.btn-icon-standalone span {
+    display: block;
+    padding: 12px 12px;
+}
+.btn.btn-icon-standalone span {
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-right: -5px;
+    margin-left: 30px;
+}
+
+.form-header .title {
+    float: left;
+    padding: 5px 0;
+    line-height: 24px;
+    font-weight: bold;
+}
+.btn.btn-red{
+	background-color:red;
+	color:#fff;
+}
