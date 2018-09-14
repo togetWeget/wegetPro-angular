@@ -101,6 +101,9 @@ export class CvCompetenceComponent implements OnInit {
     const autreSpecialiteInit= new FormArray([]);
     const dureeContratInit= new FormArray([]);
     const periodeContratInit= new FormArray([]);
+
+
+
     this.cvCompetenceForm = this.fb.group({
       id: [this.membre.id],
       version: [this.membre.version],
@@ -114,7 +117,7 @@ export class CvCompetenceComponent implements OnInit {
         motivation: [this.membre.cvPersonne.motivation],
         fonctionActuelle: [this.membre.cvPersonne.fonctionActuelle],
         domaine: [this.membre.cvPersonne.domaine],
-        autreSpecialite: autreSpecialiteInit,
+        autreSpecialite: [this.membre.cvPersonne.autreSpecialite], // autreSpecialite: autreSpecialiteInit,
         description: [this.membre.cvPersonne.description],
         pathCv: [this.membre.cvPersonne.pathCv],
 
@@ -122,8 +125,8 @@ export class CvCompetenceComponent implements OnInit {
       contrat: this.fb.group({
         id: [this.membre.contrat.id],
         version: [this.membre.contrat.version],
-        dureeContrat: dureeContratInit,
-        periodeContrat: periodeContratInit,
+        dureeContrat: [this.membre.contrat.dureeContrat],//dureeContrat: dureeContratInit,
+        periodeContrat: [this.membre.contrat.periodeContrat], //periodeContrat: periodeContratInit,
       }),
     });
   }
@@ -149,35 +152,35 @@ export class CvCompetenceComponent implements OnInit {
   }
 
   private convertisseur(fg: FormGroup): Membre {
-    const mens = new Membre(
-        fg.value['id'],
-        fg.value['version'],
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        false,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        'ME',
-        null,
-        this.detailblock.personne.login,
-        null,
-        fg.value['cvPersonne'],
-        null,
-        null,
-        null,
-        fg.value['contrat'],      
-        null,
-        null,
-    );
+    let mens = new Membre();
+    mens.id = fg.value['id'];
+    mens.version = fg.value['version'];
+    mens.cni = this.detailblock.personne.cni;
+    mens.titre = this.detailblock.personne.titre;
+    mens.nom = this.detailblock.personne.nom;
+    mens.prenom = this.detailblock.personne.prenom;
+    mens.nomComplet = this.detailblock.personne.nomComplet;
+    mens.pathPhoto = this.detailblock.personne.pathPhoto;
+    mens.pathPhotoCouveture = this.detailblock.personne.pathPhotoCouveture;
+    mens.nombreVue = this.detailblock.personne.nombreVue;
+    mens.groupSanguin = this.detailblock.personne.groupSanguin;
+    mens.dateNaissance = this.detailblock.personne.dateNaissance;
+    mens.genre = this.detailblock.personne.genre;
+    mens.type = 'ME';
+    mens.adresse = this.detailblock.personne.adresse;
+    mens.login = this.detailblock.personne.login;
+    mens.entreprise = this.detailblock.personne.entreprise;
+    mens.cvPersonne = fg.value['cvPersonne'];
+    mens.telephones = this.detailblock.personne.telephones;
+    mens.langues = this.detailblock.personne.langues;
+    mens.typeStatut = this.detailblock.personne.typeStatut;
+    mens.contrat = fg.value['contrat'];
+    mens.couleur = this.detailblock.personne.couleur;
+    mens.description = this.detailblock.personne.description;
     return mens;
+  }
+
+  handleChange() {
+
   }
 }

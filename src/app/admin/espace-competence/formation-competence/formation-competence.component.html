@@ -6,7 +6,7 @@
       </button>
     </div>
     <br>
-	<form [formGroup]="formationForm" (ngSubmit)="onSubmit()">
+	<form [formGroup]="formationForm" *ngIf="formationForm" (ngSubmit)="onSubmit()">
 		<div formArrayName="formations">
 			<mat-card class="details-container" *ngFor="let formation of formations.controls; let i = index;" style="margin-bottom: 15px;">
 				<div class="form-header">
@@ -21,7 +21,7 @@
 						</div>
 					</div>
 				</div>
-				<mat-card-content [formGroupName]="i">
+				<mat-card-content *ngIf="i" [formGroupName]="i">
 					<div class="row">
 						<div class="col-md-6">
 							<div class="row">

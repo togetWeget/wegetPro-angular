@@ -3,6 +3,9 @@ import * as $ from 'jquery';
 import { Router } from '@angular/router';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import {MatdiologComponent} from './matdiolog/matdiolog.component';
+import {ImgloardComponent} from './matdiolog/imgloard/imgloard.component';
+import {VideoloardComponent} from './matdiolog/videoloard/videoloard.component';
+import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-gallery',
@@ -12,8 +15,10 @@ import {MatdiologComponent} from './matdiolog/matdiolog.component';
 export class GalleryComponent implements OnInit {
 public uri: any;
   name: string;
-  constructor(public dialog: MatDialog) { }
-ativ: string;
+  ativ: string;
+  ImgVar : any = [];
+  constructor(public dialog: MatDialog, private _sanitizer: DomSanitizer) { }
+
   
   
   openDialog(): void {
@@ -21,6 +26,33 @@ ativ: string;
       width: '80%',
 	  height: '500px',
       data: {name: this.name, uri: this.uri}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.uri = result;
+    });
+  }
+  
+  openDialogImg(): void {
+    const dialogRef = this.dialog.open(ImgloardComponent, {
+      width: '80%',
+	  height: '93%',
+      data: {name: this.name, ImgVar: this.ImgVar}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.uri = result;
+    });
+  }
+  
+  
+  openDialogVideo(): void {
+    const dialogRef = this.dialog.open(VideoloardComponent, {
+      width: '80%',
+	  height: '93%',
+      data: {name: this.name, ImgVar: this.ImgVar}
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -57,31 +89,12 @@ ativ: string;
 	}
 	
 	
-	sendphotos(){
-	
-	
-   // $("#formContent").submit(function(e){
-
-     // e.preventDefault();
-     // var formdata = new FormData(this);
-
- // $.ajax({
-     // url: "",
-     // type: "POST",
-     // data: formdata,
-     // mimeTypes:"multipart/form-data",
-     // contentType: false,
-     // cache: false,
-     // processData: false,
-     // success: function(){
-
-     // alert("successfully");
-
-     // });
-   // });
-   
-		
+	recuptImgs(){
+      
+			this.openDialogImg();    
 	}
+	
+
 }
 
 

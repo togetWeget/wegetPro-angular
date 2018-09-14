@@ -8,35 +8,33 @@ import {LangueParle} from '../cv-personne/langueParle';
 
 export class Personne {
 
+    id : number;
+    version: number;
+    cni : string;
+    titre : string;
+    nom : string;
+    prenom : string;
+    password : string;
+    repassword: string;
+    actived : boolean;
+    nomComplet : string;
+    pathPhoto : string;
+    pathPhotoCouveture : string;
+    nombreVue : string;
+    groupSanguin : string;
+    dateNaissance : Date;
+    genre : string;
+    type: string;
+    adresse : Adresse;
+    login : string;
+    entreprise : Entreprise;
+    telephones: Telephone[];
+    langues: LangueParle[];
+    typeStatut : TypeStatut;
+    contrat: Contrat;
+    couleur: string;
+    description: string;
   constructor(
-    public id ?: number,
-    public version?: number,
-    public cni ?: string,
-    public titre ?: string,
-    public nom ?: string,
-    public prenom ?: string,
-    public password ?: string,
-    public repassword?: string,
-    public actived ?: boolean,
-    public nomComplet ?: string,
-    public pathPhoto ?: string,
-    public pathPhotoCouveture ?: string,
-    public nombreVue ?: string,
-    public groupSanguin ?: string,
-    public dateNaissance ?: Date,
-    public genre ?: string,
-    public type?: string,
-    public adresse ?: Adresse,
-    public login ?: string,
-    public entreprise ?: Entreprise,
-    public cvPersonne ?: CvPersonne,
-    public telephones?: Telephone[],
-    public langues?: LangueParle[],
-    public typeStatut ?: TypeStatut,
-    public contrat?: Contrat,
-    public couleur?: string
-
-
     ) {
 
 

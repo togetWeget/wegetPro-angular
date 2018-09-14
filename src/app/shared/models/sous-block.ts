@@ -1,5 +1,7 @@
 import {Adresse} from './adresse/adresse';
 import {Block} from './block';
+import {Detailblock} from './detailblock';
+import {Telephone} from './personne/membres/telephone';
 
 
 export class SousBlock {
@@ -14,7 +16,8 @@ export class SousBlock {
 		public pathPhoto?: string[],
 		public pathLogo?: string,
 		public adresse?: Adresse,
-		public telephones?: string[],
-		public block?: Block
+		public telephones?: Telephone[],
+		public detailBlock?: Detailblock
+		// public detailBlock?: number
 		) {}
 }

@@ -9,7 +9,7 @@ export class CvPersonne {
     public  motivation?: string,
     public  fonctionActuelle?: string,
     public  domaine?: string,
-    public  autreSpecialite?: string [],
+    public  autreSpecialite?: string[],
     public  description?: string,
     public  pathCv?: string,
   ) {

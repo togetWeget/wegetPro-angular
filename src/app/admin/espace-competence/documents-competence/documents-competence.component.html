@@ -1,3 +1,66 @@
-<p>
-  competence-documents works!
-</p>
+<div class="details-container">
+	<div class="col-md-12" style="margin-bottom: 30px;">
+      <button mat-raised-button class="btn btn-blue btn-icon btn-icon-standalone pull-right" (click)="ajouterDocument()" matTooltip="Ajouter un document" style="margin-right:-15px;"> 
+      	<i class="fa fa-plus"></i> <span>Ajouter</span> 
+      </button>
+    </div>
+    <br>
+	<form [formGroup]="docCompetenceForm" (ngSubmit)="onSubmit()">
+		<div *ngIf="active===true">
+			<mat-card class="details-container" style="margin-bottom: 15px;">
+				<div class="form-header">
+					<div class="row">
+						<div class="col-md-12">
+							Nouveau document
+							<div class="action">
+								<mat-icon (click)="removeDocument()" >clear</mat-icon>
+							</div>
+						</div>
+					</div>
+				</div>
+				<mat-card-content>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="form-group">
+								<label for="">Telecharger le document</label>
+								<input type="file" autocomplete="off" class="form-control" id="doc" formControlName="docPath">
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="form-group">
+								<mat-form-field>
+									<input matInput placeholder="Titre du document" formControlName="titre">
+								</mat-form-field>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="form-group">
+								<mat-form-field>
+									<textarea matInput placeholder="Description du document" formControlName="description" rows="5"></textarea>
+								</mat-form-field>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<button type="submit" class="btn btn-success btn-icon btn pull-right">
+								<i class="fa fa-save"></i>&nbsp;&nbsp;Envoyer
+							</button>
+						</div>
+					</div>
+				</mat-card-content>
+			</mat-card>
+		</div>
+	</form>
+	<div class="col-md-2">
+        <div class="doc">
+          <img src="http://toget.ibemscreative.com/images/doc-pdf.jpg">
+          <button class="btn btn-danger delete-document" type="submit" title="supprimer le document"><i class="fa fa-trash"></i></button>          
+        </div>
+        <div class="caption"><i class="fa fa-file-pdf-o"></i>&nbsp;Cv...</div>
+      </div>
+</div>

@@ -1,4 +1,4 @@
-<form [formGroup]="ecoleForm" (submit)="update()" >
+<form [formGroup]="ecoleForm" *ngIf="ecoleForm" (submit)="update()" >
 <div class="row">
 	<div class="col-md-8">
 		<mat-expansion-panel>
@@ -23,13 +23,22 @@
 					<div formArrayName="telephones">
 						<button mat-raised-button class="btn-blue" type="button" (click)="addTelephone()">Ajouter téléphone</button>
 						<div *ngFor="let tel of telephones?.controls; let i=index;">
-							<label>
-								Telephone #{{i + 1}}
-							<mat-form-field>
-								<input matInput placeholder="Téléphone" [formControlName]="i"/>
-								<button matSuffix mat-fab type="button" (click)="deleteTelephone(i)" ><mat-icon>delete</mat-icon></button>
-							</mat-form-field>
-						</label>
+							<div [formGroupName]="i">
+								<label>
+									Telephone #{{i + 1}}
+									<mat-form-field class="example-full-width">
+										<mat-select placeholder="Type telephone" formControlName="type">
+										    <mat-option *ngFor="let typ of outils.typeTelephones" [value]="typ.name">
+										      {{typ.libelle}}
+										    </mat-option>
+										  </mat-select>
+									</mat-form-field>
+								<mat-form-field>
+									<input matInput placeholder="Téléphone" formControlName="numero"/>
+									<button matSuffix mat-fab type="button" (click)="deleteTelephone(i)" ><mat-icon>delete</mat-icon></button>
+								</mat-form-field>
+								</label>
+							</div>
 						</div>
 					</div>
 				</div>

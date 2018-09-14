@@ -1,109 +1,113 @@
 <div class="details-container">
-	<form [formGroup]="cvCompetenceForm" (submit)="onSubmit()" *ngIf="cvCompetenceForm">
+	<mat-card>
+		<mat-card-content>
+			<form [formGroup]="cvCompetenceForm" (submit)="onSubmit()" *ngIf="cvCompetenceForm">
 
-		<div class="row">			
-			<div class="col-md-12">
-				<legend>Informations Professionnelles</legend>
-				<div class="row">
-					<div class="col-md-5" formGroupName="cvPersonne">
-						<div class="form-group">
-							<mat-form-field>
-							 	<mat-select placeholder="Vous êtes " formControlName="titre">
-					               <mat-option *ngFor="let titre of titres" [value]="titre.name">
-					                 {{titre.libelle}}
-					               </mat-option>
-					            </mat-select>
-							</mat-form-field>
-						</div>
-						<div class="form-group">
-							<mat-form-field>
-							 	<mat-select placeholder="Fonction Actuelle" formControlName="fonctionActuelle">
-					               <mat-option *ngFor="let fonction of fonctions" [value]="fonction.name">
-					                 {{fonction.libelle}}
-					               </mat-option>
-					            </mat-select>
-							</mat-form-field>
-						</div>
-						<div class="form-group">
-							<mat-form-field>
-								<input matInput placeholder="Année d'expérience" formControlName="anneExperience">
-							</mat-form-field>
-						</div>
-						<div class="form-group">
-							<mat-form-field>
-							 	<mat-select placeholder="Dernier diplôme " formControlName="diplome">
-					               <mat-option *ngFor="let diplome of diplomes" [value]="diplome.name">
-					                 {{diplome.libelle}}
-					               </mat-option>
-					            </mat-select>
-							</mat-form-field>
-						</div>
-						<div class="form-group">
-							<mat-form-field>
-							 	<mat-select placeholder="Domaine" formControlName="domaine">
-					               <mat-option *ngFor="let domaine of domaines" [value]="domaine.name">
-					                 {{domaine.libelle}}
-					               </mat-option>
-					            </mat-select>
-							</mat-form-field>
-						</div>
-						<div class="form-group">
-							<mat-form-field>
-							 	<mat-select placeholder="Spécialité" formControlName="specialite">
-					               <mat-option *ngFor="let specialite of specialites" [value]="specialite.name">
-					                 {{specialite.libelle}}
-					               </mat-option>
-					            </mat-select>
-							</mat-form-field>
-						</div>	
+				<div class="row">			
+					<div class="col-md-12">
+						<legend>Informations Professionnelles</legend>
+						<div class="row">
+							<div class="col-md-5" formGroupName="cvPersonne">
+								<div class="form-group">
+									<mat-form-field>
+									 	<mat-select placeholder="Vous êtes " formControlName="titre">
+							               <mat-option *ngFor="let titre of titres" [value]="titre.name">
+							                 {{titre.libelle}}
+							               </mat-option>
+							            </mat-select>
+									</mat-form-field>
+								</div>
+								<div class="form-group">
+									<mat-form-field>
+									 	<mat-select placeholder="Fonction Actuelle" formControlName="fonctionActuelle">
+							               <mat-option *ngFor="let fonction of fonctions" [value]="fonction.name">
+							                 {{fonction.libelle}}
+							               </mat-option>
+							            </mat-select>
+									</mat-form-field>
+								</div>
+								<div class="form-group">
+									<mat-form-field>
+										<input matInput placeholder="Année d'expérience" formControlName="anneExperience">
+									</mat-form-field>
+								</div>
+								<div class="form-group">
+									<mat-form-field>
+									 	<mat-select placeholder="Dernier diplôme " formControlName="diplome">
+							               <mat-option *ngFor="let diplome of diplomes" [value]="diplome.name">
+							                 {{diplome.libelle}}
+							               </mat-option>
+							            </mat-select>
+									</mat-form-field>
+								</div>
+								<div class="form-group">
+									<mat-form-field>
+									 	<mat-select placeholder="Domaine" formControlName="domaine">
+							               <mat-option *ngFor="let domaine of domaines" [value]="domaine.name">
+							                 {{domaine.libelle}}
+							               </mat-option>
+							            </mat-select>
+									</mat-form-field>
+								</div>
+								<div class="form-group">
+									<mat-form-field>
+									 	<mat-select placeholder="Spécialité" formControlName="specialite">
+							               <mat-option *ngFor="let specialite of specialites" [value]="specialite.name">
+							                 {{specialite.libelle}}
+							               </mat-option>
+							            </mat-select>
+									</mat-form-field>
+								</div>	
+							</div>
+							<div class="col-md-7">
+								<div class="form-group" formGroupName="cvPersonne">
+									<mat-form-field>
+									 	<mat-select placeholder="Autre(s) Spécialité(s)" formControlName="autreSpecialite" multiple >
+							               <mat-option *ngFor="let specialite of specialites" [value]="specialite.name">
+							                 {{specialite.libelle}}
+							               </mat-option>
+							            </mat-select>
+									</mat-form-field>
+								</div>
+								<div formGroupName="contrat">
+									<div class="form-group">
+										<mat-form-field>
+										 	<mat-select placeholder="Type de contrat" formControlName="periodeContrat" multiple>
+								               <mat-option *ngFor="let contra of contrats" [value]="contra.name">
+								                 {{contra.libelle}}
+								               </mat-option>
+								            </mat-select>
+										</mat-form-field>
+									</div>
+									<div class="form-group">
+										<mat-form-field>
+										 	<mat-select placeholder="Durée du contrat" formControlName="dureeContrat" multiple>
+								               <mat-option *ngFor="let dureeContrat of dureeContrats" [value]="dureeContrat.name">
+								                 {{dureeContrat.libelle}}
+								               </mat-option>
+								            </mat-select>
+										</mat-form-field>
+									</div>
+								</div>
+								<div formGroupName="cvPersonne">
+									<div class="form-group">
+										<label for="">Telecharger CV</label>
+										<input type="file" autocomplete="off" class="form-control" id="cv" placeholder="Votre cv" formControlName="pathCv">
+									</div>
+									<div class="form-group">
+										<mat-form-field>
+											<textarea matInput placeholder="Motivations" formControlName="motivation" rows="5"></textarea>
+										</mat-form-field>
+									</div>
+								</div>
+							</div>
+						</div>				
 					</div>
-					<div class="col-md-7">
-						<div class="form-group" formGroupName="cvPersonne">
-							<mat-form-field>
-							 	<mat-select placeholder="Autre(s) Spécialité(s)" formControlName="autreSpecialite" multiple [compareWith]="compareFn">
-					               <mat-option *ngFor="let specialite of specialites" [value]="specialite.name">
-					                 {{specialite.libelle}}
-					               </mat-option>
-					            </mat-select>
-							</mat-form-field>
-						</div>
-						<div formGroupName="contrat">
-							<div class="form-group">
-								<mat-form-field>
-								 	<mat-select placeholder="Type de contrat" formControlName="periodeContrat" multiple>
-						               <mat-option *ngFor="let contra of contrats" [value]="contra.name">
-						                 {{contra.libelle}}
-						               </mat-option>
-						            </mat-select>
-								</mat-form-field>
-							</div>
-							<div class="form-group">
-								<mat-form-field>
-								 	<mat-select placeholder="Durée du contrat" formControlName="dureeContrat" multiple>
-						               <mat-option *ngFor="let dureeContrat of dureeContrats" [value]="dureeContrat.name">
-						                 {{dureeContrat.libelle}}
-						               </mat-option>
-						            </mat-select>
-								</mat-form-field>
-							</div>
-						</div>
-						<div formGroupName="cvPersonne">
-							<div class="form-group">
-								<label for="">Telecharger CV</label>
-								<input type="file" autocomplete="off" class="form-control" id="cv" placeholder="Votre cv" formControlName="pathCv">
-							</div>
-							<div class="form-group">
-								<mat-form-field>
-									<textarea matInput placeholder="Motivations" formControlName="motivation" rows="5"></textarea>
-								</mat-form-field>
-							</div>
-						</div>
-					</div>
-				</div>				
-			</div>
-		</div>
-		
-	
-		<button type="submit" class="btn btn-blue"><i class="fa fa-refresh"></i>&nbsp;&nbsp;Mettre à jours</button>
-	</form>
+				</div>
+				
+			
+				<button type="submit" class="btn btn-blue"><i class="fa fa-refresh"></i>&nbsp;&nbsp;Mettre à jours</button>
+			</form>
+		</mat-card-content>
+	</mat-card>
 </div>

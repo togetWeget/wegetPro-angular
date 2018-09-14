@@ -83,6 +83,10 @@ import { MatdiologComponent } from './compte/gallery/matdiolog/matdiolog.compone
 import { AllGalleryComponent } from './compte/gallery/all-gallery/all-gallery.component';
 import { VideoComponent } from './compte/gallery/video/video.component';
 import { PhotosComponent } from './compte/gallery/photos/photos.component';
+import { ContactComponent } from './messagerie/contact/contact.component';
+import { ListContactComponent } from './messagerie/list-contact/list-contact.component';
+import { ImgloardComponent } from './compte/gallery/matdiolog/imgloard/imgloard.component';
+import { VideoloardComponent } from './compte/gallery/matdiolog/videoloard/videoloard.component';
 // import { NgxEditorModule } from 'ngx-editor';
 // import { TooltipModule } from 'ngx-bootstrap/tooltip';
 
@@ -132,9 +136,9 @@ import { PhotosComponent } from './compte/gallery/photos/photos.component';
    PhotoCompetenceComponent, FormationCompetenceComponent, ExperienceCompetenceComponent, 
    DocumentsCompetenceComponent, CvCompetenceComponent,
    MonEcoleComponent, EnteteEcoleComponent, FlashInfoEcoleComponent, FormationsEcoleComponent,
-   DocumentsEcoleComponent, PhotosEcoleComponent, ModifPhotoComponent, GalleryComponent, ModifPhotoEcoleComponent, MatdiologComponent, AllGalleryComponent, VideoComponent, PhotosComponent
+   DocumentsEcoleComponent, PhotosEcoleComponent, ModifPhotoComponent, GalleryComponent, ModifPhotoEcoleComponent, MatdiologComponent, AllGalleryComponent, VideoComponent, PhotosComponent, ContactComponent, ListContactComponent, ImgloardComponent, VideoloardComponent
   ],
-  entryComponents: [BlockComponent,CoverSelectComponent, MatdiologComponent ],
+  entryComponents: [BlockComponent,CoverSelectComponent, MatdiologComponent, ImgloardComponent, VideoloardComponent ],
   exports: [LayoutComponent]
 })
 export class AdminModule {

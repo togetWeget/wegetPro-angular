@@ -231,34 +231,16 @@ export class InfoPersoComponent implements OnInit {
   }
 
   private convertisseur(fg: FormGroup): Membre {
-    const mens = new Membre(
-      fg.value['id'],
-      fg.value['version'],
-     null,
-      null,
-      fg.value['nom'],
-      fg.value['prenom'],
-     null,
-      null,
-      false,
-      null,
-      null,
-      null,
-      null,
-      null,
-      null,
-      fg.value['genre'],
-      'ME',
-      fg.value['adresse'],
-      fg.value['login'],
-      null,
-      null,
-      fg.value['telephones'],
-      fg.value['langues'],
-      null,
-      null,
-      null,
-    );
+    let mens = new Membre();
+    mens.id = fg.value['id'];
+    mens.version = fg.value['version'];
+    mens.nom = fg.value['nom'];
+    mens.prenom = fg.value['prenom'];
+    mens.genre = fg.value['genre'];
+    mens.adresse = fg.value['adresse'];
+    mens.login = fg.value['login'];
+    mens.telephones = fg.value['telephones'];
+    mens.langues = fg.value['langues'];
     return mens;
   }
 }

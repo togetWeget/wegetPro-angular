@@ -31,8 +31,10 @@ export class ContactAbonneComponent implements OnInit {
   }
 
   initForm() {
-    const pers = new Membre(this.data.idPersonne, 0, null, null, null, null, 
-      null, null, false, null, null,null,null,null,null,null, 'ME', null, null, null, null, null, null, null);
+    let pers = new Membre();
+    pers.id = this.data.idPersonne;
+    pers.version = 0;
+    pers.type = 'ME';
     const msg = new Message(null, 0, null, null, null);
     const exp = new Expediteur(null, 0, null, null, null, null, null);
     const newMessage = new Messagerie(null, 0, pers, msg, exp);

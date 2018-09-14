@@ -2,7 +2,7 @@
 <mat-dialog-content style="overflow:hidden !important; background:#000 !important; padding:0 !important; margin:0 !important;">
 <div class="" style=" width:100%;  font-size:20px;  text-align:right; z-index:99999999; color:#fff; margin-right:15px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"> <i class="fa fa-remove pull-right"  style="cursor:pointer;" (click)="onNoClick()"></i> </div>
 
-<div class="col-mod" [ngStyle]="{'background-image' : 'url(http://nabeel.co.in/files/bootsnipp/gallery/'+ data.uri +'.jpg)','background-color':'#333', 'background-repeat' : 'no-repeat', 'background-position' : 'center'}">
+<div class="col-mod" [ngStyle]="{'background-image' : 'url(http://nabeel.co.in/files/bootsnipp/gallery/'+ data.uri +'.jpg)','background-color':'#333', 'background-repeat' : 'no-repeat', 'background-position' : 'center', 'background-size' : 'contain', 'height': '400px', 'max-width' : '100%'}">
 			<i class="fa fa-angle-left angle-taille-left" (click)="left(data.uri)"></i>
 			<!-- <img src="http://nabeel.co.in/files/bootsnipp/gallery/{{data.uri}}.jpg"  class="imgzoom"/> -->
 			<i class="fa fa-angle-right angle-taille-right"   (click)="right(data.uri)"></i>

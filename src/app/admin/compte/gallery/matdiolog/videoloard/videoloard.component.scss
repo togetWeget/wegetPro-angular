@@ -1,0 +1,65 @@
+/* layout.css Style */
+.upload-drop-zone {
+  height: 200px;
+  border-width: 2px;
+  margin-bottom: 20px;
+  overflow:auto;
+  	display:flex;
+	flex-wrap: wrap;
+	justify-content:center;
+}
+
+/* skin.css Style*/
+.upload-drop-zone {
+  color: #ccc;
+  border-style: dashed;
+  border-color: #ccc;
+  line-height: 200px;
+  text-align: center
+}
+.upload-drop-zone.drop {
+  color: #222;
+  border-color: #222;
+}
+
+.container{
+width:100%;
+display:flex;
+}
+
+.imgb{
+max-width:100px;
+height:100px;
+margin:10px;
+padding:5px;
+float:left;
+cursor:pointer;
+}
+
+.bl_big{
+	padding: 12px;
+	display:flex;
+	flex-wrap: wrap;
+	justify-content:center;
+	width:100%;
+	background:#ddd;
+}
+
+.trashed:hover{
+color:#ff6d05;
+font-weight:bold;
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: 300px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.example-full-width textarea{
+  resize: none;
+}

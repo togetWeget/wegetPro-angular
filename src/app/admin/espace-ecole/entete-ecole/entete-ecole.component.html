@@ -1,3 +1,14 @@
-<p>
-  entete-ecole works!
-</p>
+<app-admin-card [adminCard]="admin_card" >
+	<div class="admin-card-content">
+		<form>
+			<mat-form-field class="example-full-width">
+				<input matInput placeholder="choisir un fichier" type="file" value="">
+				<button mat-raised-button matSuffix>Ajouter</button>
+			</mat-form-field>
+			<button mat-raised-button>Modifier</button>
+		</form>
+	</div>
+	<div class="admin-card-footer">
+
+	</div>
+</app-admin-card>

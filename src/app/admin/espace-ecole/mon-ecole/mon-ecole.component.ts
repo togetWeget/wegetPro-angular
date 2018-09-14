@@ -54,7 +54,7 @@ export class MonEcoleComponent implements OnInit {
 	ecoleForm: FormGroup;
 	id_block: number = null;
   detailBlock: Detailblock = null;
-	block: Block = null;
+	// block: Block = null;
   sousBlock: SousBlock;
   sousBlock$: Observable<Resultat<SousBlock>>;
   sousBlockSubject$ =  new BehaviorSubject<string>('');
@@ -65,11 +65,11 @@ export class MonEcoleComponent implements OnInit {
     private abonnesS: AbonnesService) { }
 
   ngOnInit() {
-  	this.initForm();
+  	// this.initForm();
     this.sousBlock$ = this.sousBlockSubject$.pipe(
       debounceTime(300),
       distinctUntilChanged(),
-      switchMap(d => this.sousBlocksS.getSousBlockByBlock(this.block.id))
+      switchMap(d => this.sousBlocksS.getSousBlockByBlock(this.id_block))
       );
 
   	this.route.paramMap.pipe(
@@ -80,7 +80,7 @@ export class MonEcoleComponent implements OnInit {
   		).subscribe(
   		(data) => {
         this.detailBlock = data.body;    
-        this.block = this.detailBlock.block;
+        // this.block = this.detailBlock.block;
 
         // this.ecoleForm.get('block').setValue(this.block);
         this.updateForm();
@@ -93,15 +93,22 @@ export class MonEcoleComponent implements OnInit {
   }
 
   initForm(){
-    // const telephonesInit = new FormArray([]);
+    const telephonesInit = new FormArray([]);
+    let soub: SousBlock;
 
-    // if (this.sousBlock.telephones.length !== 0) {
-    //   for (const tel of this.sousBlock.telephones) {
-    //     telephonesInit.push(
-    //       this.fb.control('')
-    //     );
-    //   }
-    // }
+    soub = this.sousBlock;
+    if (soub.telephones.length !== 0) {
+      for (const tel of soub.telephones) {
+        telephonesInit.push(
+          this.fb.group({
+            type: tel.type,
+            numero: tel.numero,
+            version: tel.version,
+            id: tel.id
+          })
+        );
+      }
+    }
 
     this.ecoleForm = this.fb.group({
       id: [null],
@@ -125,13 +132,27 @@ export class MonEcoleComponent implements OnInit {
         siteWeb: ['']
       }),
       telephones: this.fb.array([
-        this.fb.control('')
-      ]),
-      block: [this.block]
+        this.fb.group({
+            type: [''],
+            numero: [''],
+            version: [0],
+            id: [null]
+          })
+        ]),
+      // telephones: telephonesInit,
+      detailBlock: [this.detailBlock]
     });
   }
 
 
+  telephoneBody(){
+    return this.fb.group({
+      id: [0],
+      version: [0],
+      type: [''],
+      numero: ['']
+    });
+  }
 
   convertToSousBlock(){
     const sousBloc = new SousBlock(
@@ -145,17 +166,34 @@ export class MonEcoleComponent implements OnInit {
       this.ecoleForm.value.pathPhoto,
       this.ecoleForm.value.pathLogo,
       this.ecoleForm.value.adresse,
-      null, //this.ecoleForm.value.telephones,
-      this.ecoleForm.value.block
+      this.ecoleForm.value.telephones,
+      this.ecoleForm.value.detailBlock
       );
     return sousBloc;
   }
 
   updateForm(){
     this.sousBlock$.subscribe(d => {
-          console.log('CONV Av', d.body[0]);
+          // console.log('CONV Av', d);
           this.sousBlock = d.body[0];
           let adresse_const: any = null;
+          const telephonesInit = new FormArray([]);
+          let soub: SousBlock;
+
+          soub = this.sousBlock;
+          if (soub.telephones.length !== 0) {
+            for (const tel of soub.telephones) {
+              telephonesInit.push(
+                this.fb.group({
+                  type: tel.type,
+                  numero: tel.numero,
+                  version: tel.version,
+                  id: tel.id
+                })
+              );
+            }
+          }
+
           if(this.sousBlock && this.sousBlock.adresse){
             adresse_const = this.fb.group({
               boitePostal: [this.sousBlock.adresse.boitePostal],
@@ -191,10 +229,8 @@ export class MonEcoleComponent implements OnInit {
             ]),
             pathLogo: [this.sousBlock.pathLogo],
             adresse: adresse_const,
-            telephones: this.fb.array([
-              this.fb.control('')
-            ]),
-            block: [this.block]
+            telephones: telephonesInit,
+            detailBlock: [this.detailBlock]
           });
           // console.log('CONV Av',this.ecoleForm.value);
         });
@@ -209,14 +245,23 @@ export class MonEcoleComponent implements OnInit {
   }
 
   get telephones(){
-    if(this.ecoleForm.get('telephones') === null || this.ecoleForm.get('telephones') === undefined){
-      (<FormArray>this.ecoleForm.get('telephones')).push(this.fb.control(''));
+    if(this.ecoleForm !== undefined || this.ecoleForm !== null){
+      return this.ecoleForm.get('telephones') as FormArray;
+    } else {
+      return null;
     }
-    return this.ecoleForm.get('telephones') as FormArray;
   }
 
-  addTelephone() {
-    this.telephones.push(this.fb.control(''));
+  addTelephone() {   
+    (<FormArray>this.ecoleForm.get('telephones')).push(
+      this.fb.group({
+        id: [null],
+        version: [0],
+        type: [''],
+        numero: ['']
+
+      })
+    );
   }
 
   deleteTelephone(id: any){

@@ -14,12 +14,12 @@ import { ViewMessageComponent } from './messagerie/view-message/view-message.com
 import { SupprimeMessageComponent } from './messagerie/supprime-message/supprime-message.component';
 import { RepondreMessageComponent } from './messagerie/repondre-message/repondre-message.component';
 import { LayoutMessageComponent } from './messagerie/layout-message/layout-message.component';
+import { ListContactComponent} from './messagerie/list-contact/list-contact.component';
 import { LayoutAnnonceComponent } from './espace-annonce/layout-annonce/layout-annonce.component';
 import { LayoutCompetenceComponent } from './espace-competence/layout-competence/layout-competence.component';
 import { LayoutEcoleComponent } from './espace-ecole/layout-ecole/layout-ecole.component';
 import { LayoutImmobilierComponent } from './espace-immobilier/layout-immobilier/layout-immobilier.component';
-import { ListeMessageEnvoyeComponent } from 
-'./messagerie/liste-message-envoye/liste-message-envoye.component';
+import { ListeMessageEnvoyeComponent } from './messagerie/liste-message-envoye/liste-message-envoye.component';
 import { LayoutCompteComponent } from './compte/layout-compte/layout-compte.component';
 import { DetailsCompteComponent } from './compte/details-compte/details-compte.component';
 import { GalleryComponent } from './compte/gallery/gallery.component';
@@ -54,6 +54,7 @@ const routes: Routes = [
         children: [
            {path:'', redirectTo: 'liste_message', pathMatch: 'full'}, 
            {path:'liste_message', component: ListeMessageComponent}, 
+          { path: 'liste_contacts', component: ListContactComponent}, 
            {path:'liste_message_envoye', component: ListeMessageEnvoyeComponent}, 
            {path:'message', component: MessageComponent}, 
            {path:'read/:id', component: ViewMessageComponent}, 
