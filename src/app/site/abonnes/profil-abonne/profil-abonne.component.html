@@ -17,7 +17,7 @@
           </div>
           <div class="profile-info">
             <div class="profile-avatar">
-              <img src="{{abonne?.personne?.pathPhoto}}" alt="user-image" class="candidate_photo" />
+              <img src="{{abonne?.membre?.pathPhoto}}" alt="user-image" class="candidate_photo" />
               <div class="profile-view"><i class="fa fa-eye"></i> 5</div>
             </div>
             <ul class="profile-action">
@@ -44,10 +44,10 @@
               <div class="abonne-info">
                 <div class="abonne-meta-info">
                   <div class="abonne-name">
-                    {{abonne?.personne?.nomComplet |uppercase}}
+                    {{abonne?.membre?.nomComplet |uppercase}}
                   </div>
                   <div class="abonne-meta">
-                    {{abonne?.personne?.cvPersonne?.specialite}} {{abonne?.personne?.cvPersonne?.anneExperience}} d'espériences
+                    {{abonne?.membre?.cvPersonne?.specialite}} {{abonne?.membre?.cvPersonne?.anneExperience}} d'espériences
                   </div>
                 </div>
               </div>
@@ -85,21 +85,21 @@
                           <ul class="list list-unstyled tags">
                             <li class="tags-item">
                               <h4 class="hr">Spécialités</h4>
-                              <span class="tag">{{abonne?.personne?.cvPersonne?.specialite}}</span>
+                              <span class="tag">{{abonne?.membre?.cvPersonne?.specialite}}</span>
                             </li>
                             <li class="tags-item">
                               <h4 class="hr">Dernier diplôme</h4>
-                              <span class="tag">{{abonne?.personne?.cvPersonne?.diplome}}</span>
+                              <span class="tag">{{abonne?.membre?.cvPersonne?.diplome}}</span>
                             </li>
                             <li class="tags-item">
                               <h4 class="hr">Lieu de résidence</h4>
                               <span class="tag">
-                                {{abonne?.personne?.adresse?.ville}}, {{abonne?.personne?.adresse?.pays}}
+                                {{abonne?.membre?.adresse?.ville}}, {{abonne?.membre?.adresse?.pays}}
                               </span>
                             </li>
                             <li class="tags-item">
                               <h4 class="hr">Langues</h4>
-                              <span class="tag" *ngFor="let langue of abonne?.personne?.langues">{{langue.libelle}}, </span>
+                              <span class="tag" *ngFor="let langue of abonne?.membre?.langues">{{langue.libelle}}, </span>
                             </li>
                           </ul>
                         </div>
@@ -107,15 +107,15 @@
                           <ul class="list list-unstyled tags">
                             <li class="tags-item">
                               <h4 class="hr">Type de contrat souhaité</h4>
-                              <span class="tag" *ngFor="let contrat of abonne?.personne?.contrat?.periodeContrat">{{contrat}}</span>&nbsp;
+                              <span class="tag" *ngFor="let contrat of abonne?.membre?.contrat?.periodeContrat">{{contrat}}</span>&nbsp;
                             </li>
                             <li class="tags-item">
                               <h4 class="hr">Période de contrat souhaité</h4>
-                              <span class="tag" *ngFor="let contrat of abonne?.personne?.contrat?.dureeContrat">{{contrat}}</span>&nbsp;
+                              <span class="tag" *ngFor="let contrat of abonne?.membre?.contrat?.dureeContrat">{{contrat}}</span>&nbsp;
                             </li>
                             <li class="tags-item">
                               <h4 class="hr">Disponibilité</h4>
-                              <span class="tag">{{abonne?.personne?.cvPersonne?.specialite}}</span>
+                              <span class="tag">{{abonne?.membre?.cvPersonne?.specialite}}</span>
                           </ul>
                         </div>
                       </div>

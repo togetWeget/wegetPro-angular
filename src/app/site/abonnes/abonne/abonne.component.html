@@ -3,10 +3,10 @@
     <div class="imagebg" #imagebg></div>
     <mat-card-header style="width: 100%;">
         <div class="abonne-holder">
-            <div class="abonne-exp">{{abonne?.personne?.cvPersonne?.anneExperience}} d'expérience</div>
+            <div class="abonne-exp">{{abonne?.membre?.cvPersonne?.anneExperience}} d'expérience</div>
             <div [ngClass]="{'abonne-statut': true,
-                 'status-offline': abonne.personne.actived ==false,
-                 'status-online' : abonne.personne.actived ==true}"
+                 'status-offline': abonne.membre.actived ==false,
+                 'status-online' : abonne.membre.actived ==true}"
                  title="Discuter avec cet abonné">
               	<i class="fa fa-comment"></i>
            	</div>
@@ -15,10 +15,10 @@
     <mat-card-content>
         <div class="abonne-meta">
             <div class="abonne-profil-view"><i class="fa fa-eye"></i> 35</div>
-            <div class="abonne-pays"><i class="fa fa-map-marker"></i> {{abonne?.personne?.adresse?.pays}}</div>
+            <div class="abonne-pays"><i class="fa fa-map-marker"></i> {{abonne?.membre?.adresse?.pays}}</div>
         </div>
-        <div class="abonne-name" >{{abonne?.personne?.nomComplet}}</div>
-        <div class="abonne-fonction">{{abonne.personne?.cvPersonne?.specialite}}</div>
+        <div class="abonne-name" >{{abonne?.membre?.nomComplet}}</div>
+        <div class="abonne-fonction">{{abonne.membre?.cvPersonne?.specialite}}</div>
         <div class="abonne-langue">Français</div>
     </mat-card-content>
    	<mat-card-actions>

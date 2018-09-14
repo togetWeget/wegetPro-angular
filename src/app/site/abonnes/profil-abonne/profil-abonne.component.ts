@@ -42,7 +42,7 @@ fethcAllAbonnes() {
     const dialogRef = this.contactDialog.open(ContactAbonneComponent,
       {
         width: '600px',
-        data: {idPersonne: this.abonne.personne.id, nomPersonne: this.abonne.personne.nomComplet}
+        data: {idPersonne: this.abonne.membre.id, nomPersonne: this.abonne.membre.nomComplet}
       });
     dialogRef.afterClosed().subscribe(result => {
       console.log(result);

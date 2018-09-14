@@ -33,7 +33,7 @@ export class ListeMessageComponent implements OnInit {
 	    .subscribe((res:any)=> {
 	  	    this.dblk = res.body;    
 		    console.log(res.body);
-		    this.idPersonne=this.dblk[0].personne.id;
+		    this.idPersonne=this.dblk[0].membre.id;
 		    this.fetchBlocks()
 	    });
 	    

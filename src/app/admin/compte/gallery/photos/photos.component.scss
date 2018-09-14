@@ -12,15 +12,15 @@
 	overflow: hidden;
 	padding: 3px;
 	float:left;
-	flex: 1 1 content;
-	/* width:100%; */
+	flex: 0 0 content;
+
 }
 .gal-item .box{
 	height: 350px;
 	overflow: hidden;
 	border:1px solid #eeeeee;
 	background:#ddd;
-	width:100%;
+	width:30%;
 }
 .box img{
 	height: 100%;
