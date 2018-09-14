@@ -15,7 +15,7 @@ export class MembreService {
   private urlMembre = 'http://wegetback:8080/personnes/ME';
   private urlModifMembre = 'http://wegetback:8080/membres';
   private urlMembreByLogin = 'http://wegetback:8080/membresLogin';
-  private urlPersonne = 'http://wegetback:8080/personnes';
+  private urlPersonne = 'http://wegetback:8080/membres';
   private urlPhoto = 'http://wegetback:8080/photo';
   private urlPhotoMembre = 'http://wegetback:8080/photoMembre';
   private urlPhotoCouvertureMembre = 'http://wegetback:8080/photoCouvertureMembre';

@@ -2,29 +2,31 @@
 <div class="container col-sm-12">
       <div class="panel panel-default" style="width:100%;">
         <div class="panel-heading"><strong>Charger vos images</strong> <small>WegetPro</small></div>
-        <div class="panel-body">
+        <div class="panel-body col-sm-12">
 
           
- 
+			<div class="col-sm-4">
 			<form class="example-form" action="" method="post" enctype="multipart/form-data" id="js-upload-form">
 			
 			
 			<div class="form-inline">
               <div class="form-group">
-                <input type="file" name="files[]" (change)="recupimg($event)" id="js-upload-files" class="btn btn-sm btn-primary" style="display:block;" max="10" multiple>
+                <input type="file" name="files[]" (change)="recupimg($event)" id="js-upload-files" class="btn btn-sm btn-primary inputmat" style="display:block;" max="10" multiple>
               </div>
               
             </div>
 			
 			  <mat-form-field class="example-full-width">
-				<input matInput placeholder="Titre" value="" name="titre" [(ngModel)]="titre">{{titre}}
+				<input matInput placeholder="Titre" value="" name="titre" [(ngModel)]="titre">
 			  </mat-form-field>
 
 			  <mat-form-field class="example-full-width">
-				<textarea matInput placeholder="Description" name="description" [(ngModel)]="description"></textarea>{{description}}
+				<textarea matInput placeholder="Description" name="description" [(ngModel)]="description"></textarea>
 			  </mat-form-field>
 			</form>
+			</div>
           <!-- Drop Zone -->
+		  <div class="col-sm-8">
           <h4>Aperçus des images </h4>
           <div class="upload-drop-zone" id="drop-zone"  (drop)="drop($event)" (dragover)="allowDrop($event)">
 			<div *ngFor="let img of ImgVars; index as i" style="position:relative; cursor:pointer;">
@@ -34,14 +36,24 @@
 			<div id="lorded"></div>
           </div>
         </div>
+        </div>
       </div>
     </div> <!-- /container -->
+	
+		<div class="col-sm-12 bg-light">
+			  <div class="text-white bg-info"> AVERTISSEMENT ! (WARNING)</div>
+			<p>
+				Si tout comportement ou post d'un créateur Weget (en ligne et/ou en dehors de la plate-forme) nuit à nos utilisateurs, notre communauté ou notre écosystème, nous pouvons adopter un certain nombre de mesures, basées notamment sur le caractère flagrant des infractions et leur fréquence.
+				Les sanctions prévues vont de la suspension des privilèges du créateur à la fermeture de son compte.	
+				
+			</p>  
+	</div>
 	
 <div class="col-sm-12 row" style="display:flex; justify-content:right;">
 		
 			<div class="pull-right">
 			<button mat-raised-button color="warn" class="routing" style="margin:8px; padding:5px;" (click)="onNoClick();">Annulé</button>
-			<button mat-raised-button color="primary" class="routing" style="margin:8px; padding:5px;"> Uploader</button>
+			<button mat-raised-button color="primary" class="routing" style="margin:8px; padding:5px;" (click)="sendphotosInfo()"> Uploader</button>
 			</div>
 	
 		

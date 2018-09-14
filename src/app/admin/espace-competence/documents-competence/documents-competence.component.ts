@@ -16,6 +16,8 @@ export class DocumentsCompetenceComponent implements OnInit {
 
   ngOnInit() {
 
+    this.initForm();
+
   }
   initForm(){
   	this.docCompetenceForm = this.fb.group({

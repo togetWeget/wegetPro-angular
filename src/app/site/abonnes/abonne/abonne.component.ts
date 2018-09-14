@@ -32,9 +32,9 @@ export class AbonneComponent implements OnInit {
   }
 
   getPhotoSrc(): string {
-    return (this.abonne.personne.pathPhoto!== null && 
-      this.abonne.personne.pathPhoto !== undefined && this.abonne.personne.pathPhoto!== '') ? 
-      this.abonne.personne.pathPhoto : 
+    return (this.abonne.membre.pathPhoto!== null && 
+      this.abonne.membre.pathPhoto !== undefined && this.abonne.membre.pathPhoto!== '') ? 
+      this.abonne.membre.pathPhoto : 
       this.defaultPhoto;
     }
 
@@ -54,7 +54,7 @@ export class AbonneComponent implements OnInit {
     	const dialogRef = this.contactDialog.open(ContactAbonneComponent,
       	{
         	width: '600px',
-        	data: {idPersonne: this.abonne.personne.id, nomPersonne: this.abonne.personne.nomComplet}
+        	data: {idPersonne: this.abonne.membre.id, nomPersonne: this.abonne.membre.nomComplet}
       	});
   	}
 }

@@ -37,7 +37,7 @@ public uri: any;
   openDialogImg(): void {
     const dialogRef = this.dialog.open(ImgloardComponent, {
       width: '80%',
-	  height: '93%',
+	  height: '86%',
       data: {name: this.name, ImgVar: this.ImgVar}
     });
 
@@ -51,7 +51,7 @@ public uri: any;
   openDialogVideo(): void {
     const dialogRef = this.dialog.open(VideoloardComponent, {
       width: '80%',
-	  height: '93%',
+	  height: '85%',
       data: {name: this.name, ImgVar: this.ImgVar}
     });
 

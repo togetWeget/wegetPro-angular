@@ -1,4 +1,4 @@
-import {Personne} from './personne/membres/personne';
+import {Membre} from './personne/membres/membre';
 import {Block} from './block';
 
 export class Detailblock {
@@ -9,7 +9,7 @@ export class Detailblock {
     public pathPhoto?: string,
     public pathPhotoCouveture?: string,
     public block?: Block,
-    public personne?: Personne
+    public membre?: Membre
   ) {
   }
 }

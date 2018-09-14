@@ -68,9 +68,22 @@ ImgVars : any = [];
 				}
 		  
 		  }
-		  
+	
+	returnVidExte(name : any): boolean{
+					let extend = name.split(".");
+					let endExetend = extend[extend.length - 1];
+					// console.log(endExetend);
+					let i = $.inArray(endExetend,this.extensionValid);
+					if (i >= 0){
+						return true;
+					}else{
+						return false;
+					}
+		
+	}
 		  
 	recupimg(file){
+	let h= 0;
 				if(file.target.files.length > 0){
 					
 					let compt = file.target.files.length;
@@ -78,13 +91,20 @@ ImgVars : any = [];
 						if(this.returnVidExte(file.target.files[i].name)){
 								this.datafiles.push(file.target.files[i]);
 								this.ImgVars.push(this._sanitizer.bypassSecurityTrustResourceUrl(URL.createObjectURL(file.target.files[i]))); 
+								h++;
 						}
 					} 
-					} 	
-					$("#lorded").html("");
-					this.ImgVars.reverse();
-					this.datafiles.push(file.target.files);
-				}
+					if(this.ImgVars.length === 0){ $("#lorded").html(this.textaltern);}	
+					if(h > 0){
+						$("#lorded").html("");
+					}else{
+						$("#lorded").html(this.textaltern);
+					}
+						this.ImgVars.reverse();
+					// this.datafiles.push(file.target.files);
+					}else{
+						$("#lorded").html(this.textaltern);
+					}
 
 	}
 	
@@ -101,36 +121,34 @@ ImgVars : any = [];
 	  drop(ev) {
 		ev.preventDefault();
 		let data = ev.dataTransfer;
+		let h = 0;
 		// ev.target.appendChild(document.getElementById(data));
 
 		let compt = data.files.length;
-		for(let i=0; i< compt; i++){
-			if(this.returnVidExte(data.files[i].name)){
-				this.datafiles.push(data.files[i]);
-				this.ImgVars.push(this._sanitizer.bypassSecurityTrustResourceUrl(URL.createObjectURL(data.files[i])));  
+		if(compt > 0){
+			for(let i=0; i< compt; i++){
+				if(this.returnVidExte(data.files[i].name)){
+					this.datafiles.push(data.files[i]);
+					this.ImgVars.push(this._sanitizer.bypassSecurityTrustResourceUrl(URL.createObjectURL(data.files[i])));  
+					h++;
+				}
 			}
-		}
-		this.datafiles.push(data.files);
+			if(this.ImgVars.length === 0){ $("#lorded").html(this.textaltern);}
+			if(h > 0){
+						$("#lorded").html("");
+					}else{
+						$("#lorded").html(this.textaltern);
+					}
+			// this.datafiles.push(data.files);
 				$("#lorded").html("");
 				this.ImgVars.reverse();
-		
+		}else{
+			$("#lorded").html(this.textaltern);
+		}
 	  }
 	  
 	  
-	returnVidExte(name : any): boolean{
-			let extend = name.split(".");
-					let endExetend = extend[extend.length - 1];
-					// console.log(endExetend);
-					let i = $.inArray(endExetend,this.extensionValid);
-					if (i >= 0){
-						return true;
-					}else{
-						return false;
-					}
-		
-	}
-	  
-	sendphotos():Observable<any>{
+	sendvideo():Observable<any>{
 	
 			 const formdata = new FormData();
 				 formdata.append( 'files', this.datafiles);

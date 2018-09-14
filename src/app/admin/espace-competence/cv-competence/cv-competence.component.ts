@@ -11,6 +11,7 @@ import { Membre } from '../../../shared/models/personne/membres/membre';
 import { AbonnesService } from '../../../core/services/abonnes/abonnes.service';
 import {MembreService} from '../../../core/services/personne/membre/membre.service';
 import {OutilsService} from '../../../core/services/outils.service';
+import {CvPersonne} from '../../../shared/models/personne/cv-personne';
 
 @Component({
   selector: 'app-cv-competence',
@@ -77,6 +78,7 @@ export class CvCompetenceComponent implements OnInit {
     private abonnesService: AbonnesService,
     public outils: OutilsService,
     private route: ActivatedRoute) {
+    this.membre = new Membre();
    // CvCompetenceComponent.me = this;
   }
 
@@ -88,7 +90,7 @@ export class CvCompetenceComponent implements OnInit {
     ).subscribe(res=> {
       this.resultat = res;
       this.detailblock = res.body;  
-      this.membre = this.detailblock.personne;
+      this.membre = this.detailblock.membre;
       if (res.status===0) {
            this.initForm();
          }   
@@ -101,9 +103,27 @@ export class CvCompetenceComponent implements OnInit {
     const autreSpecialiteInit= new FormArray([]);
     const dureeContratInit= new FormArray([]);
     const periodeContratInit= new FormArray([]);
+    const contratInit= new FormArray([]);
 
+    if(this.membre !== null && this.membre.cvPersonne !== null && 
+     this.membre.cvPersonne.contrat !== null && 
+    this.membre.cvPersonne.contrat.length !== 0){
+    let contrat = this.membre.cvPersonne.contrat;
+      for(const cont of contrat){
+        this.fb.group({
+        id: [cont.id],
+        version: [cont.version],
+        dureeContrat: [cont.dureeContrat],//dureeContrat: dureeContratInit,
+        periodeContrat: [cont.periodeContrat], //periodeContrat: periodeContratInit,
+      });
+      }
+    }
 
+    if(this.membre.cvPersonne === null){
+      this.membre.cvPersonne = new CvPersonne(null, 0);
+    }
 
+    console.log('MEMBRE',this.membre);
     this.cvCompetenceForm = this.fb.group({
       id: [this.membre.id],
       version: [this.membre.version],
@@ -120,15 +140,35 @@ export class CvCompetenceComponent implements OnInit {
         autreSpecialite: [this.membre.cvPersonne.autreSpecialite], // autreSpecialite: autreSpecialiteInit,
         description: [this.membre.cvPersonne.description],
         pathCv: [this.membre.cvPersonne.pathCv],
-
+        contrat: contratInit
       }),
-      contrat: this.fb.group({
-        id: [this.membre.contrat.id],
-        version: [this.membre.contrat.version],
-        dureeContrat: [this.membre.contrat.dureeContrat],//dureeContrat: dureeContratInit,
-        periodeContrat: [this.membre.contrat.periodeContrat], //periodeContrat: periodeContratInit,
-      }),
+      // contrat: this.fb.group({
+      //   id: [this.membre.contrat.id],
+      //   version: [this.membre.contrat.version],
+      //   dureeContrat: [this.membre.contrat.dureeContrat],//dureeContrat: dureeContratInit,
+      //   periodeContrat: [this.membre.contrat.periodeContrat], //periodeContrat: periodeContratInit,
+      // }),
     });
+  }
+
+
+  get contratss (){
+    // console.log("AQS", (<FormGroup>this.cvCompetenceForm.get('cvPersonne')));
+    // console.log("AQ", (<FormGroup>this.cvCompetenceForm.get('cvPersonne')).get('contrat') as FormArray);
+    return (<FormGroup>this.cvCompetenceForm.get('cvPersonne')).get('contrat') as FormArray;
+  }
+
+  addContrat(){
+    this.contratss.push(this.fb.group({
+        id: [null],
+        version: [0],
+        dureeContrat: [''],//dureeContrat: dureeContratInit,
+        periodeContrat: [''], //periodeContrat: periodeContratInit,
+      }));
+  }
+
+  removeContrat(i: number){
+    this.contratss.removeAt(i);
   }
 
   getDetailBlock() {
@@ -143,40 +183,53 @@ export class CvCompetenceComponent implements OnInit {
 
   onSubmit() {
     let memb=this.membre;
-    memb=this.convertisseur(this.cvCompetenceForm);
+    if (this.membre.cvPersonne.id === null){
+      memb=this.convertisseur(this.cvCompetenceForm);
     console.log("Formulaire envoyé ", memb);
-    this.membreService.modifierMembre(memb)
-    .subscribe(res => {
-      console.log('MODIFIER MEMBRE SUCCESS', res.body.id);
-    });
+      this.membreService.ajoutMembre(memb)
+      .subscribe(res => {
+        console.log('MODIFIER MEMBRE SUCCESS', res.body.id);
+      });
+    }else{
+      memb=this.convertisseur(this.cvCompetenceForm);
+      console.log("Formulaire envoyé ", memb);
+      this.membreService.modifierMembre(memb)
+      .subscribe(res => {
+        console.log('MODIFIER MEMBRE SUCCESS', res.body.id);
+      });
+    }
   }
 
   private convertisseur(fg: FormGroup): Membre {
     let mens = new Membre();
-    mens.id = fg.value['id'];
-    mens.version = fg.value['version'];
-    mens.cni = this.detailblock.personne.cni;
-    mens.titre = this.detailblock.personne.titre;
-    mens.nom = this.detailblock.personne.nom;
-    mens.prenom = this.detailblock.personne.prenom;
-    mens.nomComplet = this.detailblock.personne.nomComplet;
-    mens.pathPhoto = this.detailblock.personne.pathPhoto;
-    mens.pathPhotoCouveture = this.detailblock.personne.pathPhotoCouveture;
-    mens.nombreVue = this.detailblock.personne.nombreVue;
-    mens.groupSanguin = this.detailblock.personne.groupSanguin;
-    mens.dateNaissance = this.detailblock.personne.dateNaissance;
-    mens.genre = this.detailblock.personne.genre;
-    mens.type = 'ME';
-    mens.adresse = this.detailblock.personne.adresse;
-    mens.login = this.detailblock.personne.login;
-    mens.entreprise = this.detailblock.personne.entreprise;
-    mens.cvPersonne = fg.value['cvPersonne'];
-    mens.telephones = this.detailblock.personne.telephones;
-    mens.langues = this.detailblock.personne.langues;
-    mens.typeStatut = this.detailblock.personne.typeStatut;
-    mens.contrat = fg.value['contrat'];
-    mens.couleur = this.detailblock.personne.couleur;
-    mens.description = this.detailblock.personne.description;
+    const menss = new Membre(
+        fg.value['id'],
+        fg.value['version'],
+        this.detailblock.membre.cni,
+        this.detailblock.membre.titre,
+        this.detailblock.membre.nom,
+        this.detailblock.membre.prenom,
+        null,
+        null,
+        false,
+        this.detailblock.membre.nomComplet,
+        this.detailblock.membre.pathPhoto,
+        this.detailblock.membre.pathPhotoCouveture,
+        this.detailblock.membre.nombreVue,
+        this.detailblock.membre.groupSanguin,
+        this.detailblock.membre.dateNaissance,
+        this.detailblock.membre.genre,
+        'ME',
+        this.detailblock.membre.adresse,
+        this.detailblock.membre.login,
+        this.detailblock.membre.entreprise,
+        this.detailblock.membre.telephones,
+        this.detailblock.membre.langues,
+        this.detailblock.membre.typeStatut,   
+        this.detailblock.membre.couleur,
+        fg.value['cvPersonne'],
+        this.detailblock.membre.description,
+    );
     return mens;
   }
 

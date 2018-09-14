@@ -128,6 +128,35 @@ export class ImgloardComponent implements OnInit {
 	  }
 	  
 	  
+	sendphotosInfo(){
+	
+
+				const dataload : any = {id: 42, libelle : this.titre, description : this.description};				
+				
+				console.log("chargement...");
+				$.ajax({
+					url:'http://wegetback:8080/gallery',
+					type:'post',
+					contentType: 'application/json',
+					dataType: 'json',
+					data:JSON.stringify(dataload),
+					success: (data, status)=>{
+						console.log(status);
+						console.log(data);
+						},
+						error: (error, status, msg)=>{
+							console.log('1' + error);
+							console.log(status);
+							console.log('3' + msg);
+							
+							}
+					});
+				console.log(" fin chargement...");
+   
+		
+	}
+	
+	
 	sendphotos():Observable<any>{
 	
 			 const formdata = new FormData();

@@ -51,8 +51,6 @@ font-weight:bold;
 }
 
 .example-form {
-  min-width: 150px;
-  max-width: 300px;
   width: 100%;
 }
 
@@ -62,4 +60,10 @@ font-weight:bold;
 
 .example-full-width textarea{
   resize: none;
+}
+
+.inputmat{
+width:100% !important;
+ overflow: hidden;
+ text-overflow: ellipsis; 
 }

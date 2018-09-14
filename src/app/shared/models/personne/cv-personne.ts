@@ -1,3 +1,7 @@
+import {CursusScolaire} from './cv-personne/cursusScolaire';
+import {Experience} from './cv-personne/experience';
+import {Contrat} from './membres/contrat';
+
 export class CvPersonne {
   constructor(
     public id?: number,
@@ -12,6 +16,10 @@ export class CvPersonne {
     public  autreSpecialite?: string[],
     public  description?: string,
     public  pathCv?: string,
+    public  experience?: Experience[],
+    public  cursusScolaire?: CursusScolaire[],
+    public contrat?:Contrat[]
+    
   ) {
   }
 }
