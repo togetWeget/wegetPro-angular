@@ -42,7 +42,7 @@ export class ListeMessageComponent implements OnInit {
 	   this.messagerieService.getAllMessagesByAbonneId(+this.idPersonne)
 		.subscribe(res => {
 	    this.messages = res.body;
-	     console.log('les abonnes de ListAbonnesBlockComponent', res.body);
+	     console.log('les messages recupérés', res.body);
 	    this.maxMsg = this.messages.length;
 	  });
 	}

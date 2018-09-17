@@ -16,7 +16,7 @@
 <div class="pull-left" style="line-height:4.5em;">
 <button mat-raised-button  routerLink="photo" class="routing" [disabled]="ativ === 'photo'? true : false" (click)="actived('photo')">Mes photos (10)</button>
 <button mat-raised-button routerLink="video" class="routing" [disabled]="ativ === 'video'? true : false" (click)="actived('video')"> Mes videos (02)</button>
-  <a mat-raised-button routerLink="allgallery" class="routing" [disabled]="ativ === 'allgallery'? true : false" (click)="actived('allgallery')">Touts</a>
+  <a mat-raised-button routerLink="allgallery" class="routing" [disabled]="ativ === 'allgallery'? true : false" (click)="actived('allgallery')">Albums</a>
 </div>
 	
 	<div class="pull-right">
@@ -44,8 +44,7 @@
 <footer>
     <div class="container">
         <div class="col-md-10 col-md-offset-1 text-center">
-            
-            <h6>WegetPro Galerie</h6>
+            <hr/>
         </div>   
     </div>
 </footer>

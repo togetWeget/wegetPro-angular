@@ -60,15 +60,15 @@ public storlog = localStorage.getItem('log');
   
 		if(this.storlog && this.stor){
 		
-			const lhtInterval = setInterval(()=>{
+			// const lhtInterval = setInterval(()=>{
 			
 			this.paniers.countother(this.infoM.InfoMembres.id);
 			if(this.paniers.countPanier > 0){
 			// alert(this.paniers.panierdata.status);
-				clearInterval(lhtInterval);
+				// clearInterval(lhtInterval);
 			}
 			console.log(this.paniers.countPanier);
-			}, 1000);
+			// }, 1000);
 
 		}
 	}

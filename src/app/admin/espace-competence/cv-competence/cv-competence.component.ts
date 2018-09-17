@@ -21,7 +21,6 @@ import {CvPersonne} from '../../../shared/models/personne/cv-personne';
 export class CvCompetenceComponent implements OnInit {
   membre: Membre;
   cvCompetenceForm: FormGroup;
-  resultat:Resultat<Detailblock>;
   detailblock: Detailblock;
   //detailblocks: Detailblock[];
   //static me: CvCompetenceComponent;
@@ -53,6 +52,17 @@ export class CvCompetenceComponent implements OnInit {
     {name:'DEUG', libelle:'DEUG'},
     {name:'LICENCE', libelle:'LICENCE'},
     {name:'MAITRISE', libelle:'MAITRISE'}
+  ];
+  disponibilite=[
+    {name:'maintenant', libelle:'maintenant'},
+    {name:'1_mois', libelle:'1 mois'},
+    {name:'2_mois', libelle:'2 mois'},
+    {name:'3_mois', libelle:'3 mois'},
+    {name:'4_mois', libelle:'4 mois'},
+    {name:'5_mois', libelle:'5 mois'},
+    {name:'6_mois', libelle:'6 mois'},
+    {name:'7_mois', libelle:'7 mois'},
+    {name:'8_mois', libelle:'8 mois'},
   ];
   specialites=[
     {name:'developpeur',libelle:'Developpeur'},
@@ -88,7 +98,6 @@ export class CvCompetenceComponent implements OnInit {
        return this.abonnesService.getProfilById(+params.get('id'))
      })
     ).subscribe(res=> {
-      this.resultat = res;
       this.detailblock = res.body;  
       this.membre = this.detailblock.membre;
       if (res.status===0) {
@@ -100,30 +109,10 @@ export class CvCompetenceComponent implements OnInit {
   }
 
   initForm() {
-    const autreSpecialiteInit= new FormArray([]);
-    const dureeContratInit= new FormArray([]);
-    const periodeContratInit= new FormArray([]);
-    const contratInit= new FormArray([]);
-
-    if(this.membre !== null && this.membre.cvPersonne !== null && 
-     this.membre.cvPersonne.contrat !== null && 
-    this.membre.cvPersonne.contrat.length !== 0){
-    let contrat = this.membre.cvPersonne.contrat;
-      for(const cont of contrat){
-        this.fb.group({
-        id: [cont.id],
-        version: [cont.version],
-        dureeContrat: [cont.dureeContrat],//dureeContrat: dureeContratInit,
-        periodeContrat: [cont.periodeContrat], //periodeContrat: periodeContratInit,
-      });
-      }
-    }
-
     if(this.membre.cvPersonne === null){
       this.membre.cvPersonne = new CvPersonne(null, 0);
     }
 
-    console.log('MEMBRE',this.membre);
     this.cvCompetenceForm = this.fb.group({
       id: [this.membre.id],
       version: [this.membre.version],
@@ -140,35 +129,14 @@ export class CvCompetenceComponent implements OnInit {
         autreSpecialite: [this.membre.cvPersonne.autreSpecialite], // autreSpecialite: autreSpecialiteInit,
         description: [this.membre.cvPersonne.description],
         pathCv: [this.membre.cvPersonne.pathCv],
-        contrat: contratInit
+        experience: [this.membre.cvPersonne.experience],
+        cursus: [this.membre.cvPersonne.cursus],
+        dureeContrat: [this.membre.cvPersonne.dureeContrat],
+        periodeContrat: [this.membre.cvPersonne.periodeContrat],
+        disponibilite: [this.membre.cvPersonne.disponibilite]
       }),
-      // contrat: this.fb.group({
-      //   id: [this.membre.contrat.id],
-      //   version: [this.membre.contrat.version],
-      //   dureeContrat: [this.membre.contrat.dureeContrat],//dureeContrat: dureeContratInit,
-      //   periodeContrat: [this.membre.contrat.periodeContrat], //periodeContrat: periodeContratInit,
-      // }),
     });
-  }
-
-
-  get contratss (){
-    // console.log("AQS", (<FormGroup>this.cvCompetenceForm.get('cvPersonne')));
-    // console.log("AQ", (<FormGroup>this.cvCompetenceForm.get('cvPersonne')).get('contrat') as FormArray);
-    return (<FormGroup>this.cvCompetenceForm.get('cvPersonne')).get('contrat') as FormArray;
-  }
-
-  addContrat(){
-    this.contratss.push(this.fb.group({
-        id: [null],
-        version: [0],
-        dureeContrat: [''],//dureeContrat: dureeContratInit,
-        periodeContrat: [''], //periodeContrat: periodeContratInit,
-      }));
-  }
-
-  removeContrat(i: number){
-    this.contratss.removeAt(i);
+    console.log('MEMBRE',this.cvCompetenceForm.value);
   }
 
   getDetailBlock() {
@@ -183,28 +151,18 @@ export class CvCompetenceComponent implements OnInit {
 
   onSubmit() {
     let memb=this.membre;
-    if (this.membre.cvPersonne.id === null){
-      memb=this.convertisseur(this.cvCompetenceForm);
-    console.log("Formulaire envoyé ", memb);
-      this.membreService.ajoutMembre(memb)
-      .subscribe(res => {
-        console.log('MODIFIER MEMBRE SUCCESS', res.body.id);
-      });
-    }else{
-      memb=this.convertisseur(this.cvCompetenceForm);
-      console.log("Formulaire envoyé ", memb);
+    memb=this.convertisseur(this.cvCompetenceForm);
+      console.log("Formulaire envoyé PUT", memb);
       this.membreService.modifierMembre(memb)
       .subscribe(res => {
         console.log('MODIFIER MEMBRE SUCCESS', res.body.id);
       });
-    }
   }
 
   private convertisseur(fg: FormGroup): Membre {
-    let mens = new Membre();
-    const menss = new Membre(
-        fg.value['id'],
-        fg.value['version'],
+    const mens = new Membre(
+        this.detailblock.membre.id,
+        this.detailblock.membre.version,
         this.detailblock.membre.cni,
         this.detailblock.membre.titre,
         this.detailblock.membre.nom,

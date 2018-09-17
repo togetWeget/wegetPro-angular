@@ -1,0 +1,49 @@
+<form [formGroup]="uploadDocForm" (ngSubmit)="onSubmit()">
+	<mat-card class="details-container" style="margin-bottom: 15px;">
+		<div class="form-header">
+			<div class="row">
+				<div class="col-md-12">
+					Nouveau document
+					<div class="action">
+						<mat-icon (click)="removeDocument()" >clear</mat-icon>
+					</div>
+				</div>
+			</div>
+		</div>
+		<mat-card-content>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="form-group">
+						<label for="">Telecharger le document</label>
+						<input type="file" autocomplete="off" class="form-control" id="doc" formControlName="docPath">
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="form-group">
+						<mat-form-field>
+							<input matInput placeholder="Titre du document" formControlName="titre">
+						</mat-form-field>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="form-group">
+						<mat-form-field>
+							<textarea matInput placeholder="Description du document" formControlName="description" rows="5"></textarea>
+						</mat-form-field>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<button type="submit" class="btn btn-success btn-icon btn pull-right">
+						<i class="fa fa-save"></i>&nbsp;&nbsp;Envoyer
+					</button>
+				</div>
+			</div>
+		</mat-card-content>
+	</mat-card>
+</form>

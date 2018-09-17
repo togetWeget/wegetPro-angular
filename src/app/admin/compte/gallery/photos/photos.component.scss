@@ -4,30 +4,10 @@
 	padding: 12px;
 	display:flex;
 	flex-wrap: wrap;
-	width:100%;
+	justify-content:center;
 	margin:0;
 	}
 	
-.gal-item{
-	overflow: hidden;
-	padding: 3px;
-	float:left;
-	flex: 0 0 content;
-
-}
-.gal-item .box{
-	height: 350px;
-	overflow: hidden;
-	border:1px solid #eeeeee;
-	background:#ddd;
-	width:30%;
-}
-.box img{
-	height: 100%;
-	width: 100%;
-	object-fit:cover;
-	-o-object-fit:cover;
-}
 .gal-item a:focus{
 	outline: none;
 }
@@ -37,10 +17,10 @@
 	opacity: 0;
 	background-color: rgba(0, 0, 0, 0.75);
 	position: absolute;
-	right: 3px;
-	left: 3px;
-	top: 3px;
-	bottom: 3px;
+	right: 0;
+	left: 0;
+	top: 0;
+	bottom: 0;
 	text-align: center;
     line-height: 350px;
     font-size: 30px;
@@ -55,17 +35,6 @@
 
 
 
-@media (min-width: 768px) {
-
-}
-
-@media (max-width: 768px) {
-	.gal-container{
-	justify-content:center;
-	}
-
-}
-
 
 .button-row button,
 .button-row a {
@@ -77,4 +46,63 @@
      mat-dialog-container {
         padding: 0;
     }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+img{ max-width:100%;}
+
+.gallery_box li{ width:33.333333%; max-width: 100% ; display:inline-block; float: left; text-align: center; overflow: hidden;    position: relative;}
+.gallery_box{ padding:0;display: flow-root;}
+
+.gallery_box li:hover img {
+    -moz-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+    transform: scale(1.1);
+}
+.gallery_box li img{-webkit-transition: transform 0.5s ease;
+    -o-transition: transform 0.5s ease;
+    transition: transform 0.5s ease;}
+.gallery_box li:nth-child(even) {
+    height:auto;
+}
+.gallery_box li:nth-child(odd) {
+    height:auto;
+}
+
+
+.gallery_box .box_data{
+position:absolute; top: 0; left: 0; right:0; bottom:0; color:#fff; z-index:99999999999999; opacity:0;
+}
+
+.gallery_box .box_data span{
+
+position:absolute; top: 8px; right:3px; transform: translateY(-50%); font-size:15px;
+
+}
+
+.gallery_box .box_data p{
+
+position:absolute; top: 15px; left:3px; transform: translateY(-50%); font-size:24px;
+
+}
+
+
+
+.gallery_box .box_data:hover{
+	opacity: 1;
+}
+.gallery_box li:hover .box_data{ 
+
 }

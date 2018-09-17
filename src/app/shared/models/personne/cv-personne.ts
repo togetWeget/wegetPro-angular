@@ -17,8 +17,10 @@ export class CvPersonne {
     public  description?: string,
     public  pathCv?: string,
     public  experience?: Experience[],
-    public  cursusScolaire?: CursusScolaire[],
-    public contrat?:Contrat[]
+    public  cursus?: CursusScolaire[],
+    public dureeContrat?: string[],
+    public periodeContrat?: string[],
+    public disponibilite?: string[]
     
   ) {
   }

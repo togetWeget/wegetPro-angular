@@ -145,18 +145,18 @@ export class InfoPersoComponent implements OnInit {
     this.detailsForm = this.fb.group({
       id: [this.membre.id],
       version: [this.membre.version],
-      //cni: [ this.membre.cni],
-      //titre: [ this.membre.titre],
+      cni: [ this.membre.cni],
+      titre: [ this.membre.titre],
       nom: [{value: this.membre.nom, disabled:false}],
       prenom: [{value: this.membre.prenom, disabled: false}],
-      /*password: [ this.membre.password],
-      repassword: [ this.membre.repassword],*/
-      /*actived: [ this.membre.actived],
+      password: [ this.membre.password],
+      repassword: [ this.membre.repassword],
+      actived: [ this.membre.actived],
       nomComplet: [ this.membre.nomComplet],
       pathPhoto: [ this.membre.pathPhoto],
       nombreVue: [ this.membre.nombreVue],
       groupSanguin: [ this.membre.groupSanguin],
-      dateNaissance: [ this.membre.dateNaissance],*/
+      dateNaissance: [ this.membre.dateNaissance],
       genre: [this.membre.genre],
       type: [this.membre.type],
 
@@ -226,21 +226,42 @@ export class InfoPersoComponent implements OnInit {
     console.log(mensModif);
     this.membreService.modifierMembre(mensModif)
       .subscribe(res => {
+        this.membre = res.body;
         console.log('MODIFIER MEMBRE SUCCESS', res.body.nomComplet);
       });
   }
 
   private convertisseur(fg: FormGroup): Membre {
-    let mens = new Membre();
-    mens.id = fg.value['id'];
-    mens.version = fg.value['version'];
-    mens.nom = fg.value['nom'];
-    mens.prenom = fg.value['prenom'];
-    mens.genre = fg.value['genre'];
-    mens.adresse = fg.value['adresse'];
-    mens.login = fg.value['login'];
-    mens.telephones = fg.value['telephones'];
-    mens.langues = fg.value['langues'];
+    const mens = new Membre(
+        // fg.value['id'],
+        // fg.value['version'],
+        this.membre.id,
+        this.membre.version,
+        this.membre.cni,
+        this.membre.titre,
+        fg.value['nom'],
+        fg.value['prenom'],
+        null,
+        null,
+        false,
+        this.membre.nomComplet,
+        this.membre.pathPhoto,
+        this.membre.pathPhotoCouveture,
+        this.membre.nombreVue,
+        this.membre.groupSanguin,
+        this.membre.dateNaissance,
+        fg.value['genre'],
+        'ME',
+         fg.value['adresse'],
+        this.membre.login,
+        this.membre.entreprise,
+        fg.value['telephones'],
+        fg.value['langues'],
+        this.membre.typeStatut,   
+        this.membre.couleur,
+        this.membre.cvPersonne,
+        this.membre.description,
+    );
     return mens;
   }
 }

@@ -68,7 +68,7 @@ export class ContactAbonneComponent implements OnInit {
   });
   }
 
-  onNoclieck(): void {
+  onNoClick(): void {
     this.dialogRef.close();
   }
 

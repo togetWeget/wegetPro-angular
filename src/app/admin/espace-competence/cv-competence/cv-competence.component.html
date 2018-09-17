@@ -70,14 +70,14 @@
 									</mat-form-field>
 								</div>
 								<div formGroupName="cvPersonne">
-									<div formArrayName="contrat">
+									<!-- <div formArrayName="contrat">
 										<button mat-raised-button class="btn-blue" type="button" (click)="addContrat()" >Nouveau contrat</button>
 										<div *ngFor="let cont of contratss.controls; let i=index;">
 											<div [formGroupName]="i">
 												Contrat #{{i}} <button mat-fab type="button" (click)="removeContrat(i)" class="btn-danger" ><mat-icon>delete</mat-icon></button>
 												<div class="form-group">
 													<mat-form-field>
-													 	<mat-select placeholder="Type de contrat" formControlName="periodeContrat" multiple>
+													 	<mat-select placeholder="Type de contrat" formControlName="periodeContrat">
 											               <mat-option *ngFor="let contra of contrats" [value]="contra.name">
 											                 {{contra.libelle}}
 											               </mat-option>
@@ -86,7 +86,16 @@
 												</div>
 												<div class="form-group">
 													<mat-form-field>
-													 	<mat-select placeholder="Durée du contrat" formControlName="dureeContrat" multiple>
+													 	<mat-select placeholder="Durée du contrat" formControlName="dureeContrat">
+											               <mat-option *ngFor="let dureeContrat of dureeContrats" [value]="dureeContrat.name">
+											                 {{dureeContrat.libelle}}
+											               </mat-option>
+											            </mat-select>
+													</mat-form-field>
+												</div>
+												<div class="form-group">
+													<mat-form-field>
+													 	<mat-select placeholder="Disponibilité contrat" formControlName="disponibilte">
 											               <mat-option *ngFor="let dureeContrat of dureeContrats" [value]="dureeContrat.name">
 											                 {{dureeContrat.libelle}}
 											               </mat-option>
@@ -95,6 +104,33 @@
 												</div>
 											</div>
 										</div>
+									</div> -->
+									<div class="form-group">
+										<mat-form-field>
+										 	<mat-select multiple placeholder="Type de contrat" formControlName="periodeContrat">
+								               <mat-option *ngFor="let contra of contrats" [value]="contra.name">
+								                 {{contra.libelle}}
+								               </mat-option>
+								            </mat-select>
+										</mat-form-field>
+									</div>
+									<div class="form-group">
+										<mat-form-field>
+										 	<mat-select multiple placeholder="Durée du contrat" formControlName="dureeContrat">
+								               <mat-option *ngFor="let dureeContrat of dureeContrats" [value]="dureeContrat.name">
+								                 {{dureeContrat.libelle}}
+								               </mat-option>
+								            </mat-select>
+										</mat-form-field>
+									</div>
+									<div class="form-group">
+										<mat-form-field>
+										 	<mat-select multiple placeholder="Disponibilité contrat" formControlName="disponibilite">
+								               <mat-option *ngFor="let dureeContrat of disponibilite" [value]="dureeContrat.name">
+								                 {{dureeContrat.libelle}}
+								               </mat-option>
+								            </mat-select>
+										</mat-form-field>
 									</div>
 									<div class="form-group">
 										<label for="">Telecharger CV</label>

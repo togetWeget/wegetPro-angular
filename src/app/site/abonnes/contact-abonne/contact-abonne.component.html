@@ -39,7 +39,7 @@
     </form>
   </mat-dialog-content>
   <mat-dialog-actions>
-    <button mat-raised-button color="warn" [mat-dialog-close]="true">Fermer</button>
-    <button mat-raised-button color="primary" type="submit" (click)="onEnvoyerMessage()">Envoyer</button>
+    <button mat-raised-button color="warn" (click)="onNoClick()">Fermer</button>
+    <button mat-raised-button color="primary" type="submit" (click)="onEnvoyerMessage()" [mat-dialog-close]="true">Envoyer</button>
   </mat-dialog-actions>
 </div>

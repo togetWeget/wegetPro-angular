@@ -1,32 +1,13 @@
-<div class="container">
-  
-
- 
-    <div class="row">
-      
-      <div class="col-sm-3 nopadding">
-        <div class="embed-responsive embed-responsive-16by9">
-          <iframe width="560" height="315" src="//www.youtube.com/embed/Nvs5pqf-DMA" allowfullscreen></iframe>
-        </div>
-      </div>
-      <div class="col-sm-3 nopadding">
-        <div class="embed-responsive embed-responsive-16by9">
-          <iframe width="560" height="315" src="//www.youtube.com/embed/k3jt5ibfRzw" allowfullscreen></iframe>
-        </div>
-      </div>
-      
-      <div class="col-sm-3 nopadding">
-        <div class="embed-responsive embed-responsive-16by9">
-          <iframe width="560" height="315" src="//www.youtube.com/embed/A8yjNbcKkNY" allowfullscreen></iframe>
-        </div>
-      </div>
-      
-      <div class="col-sm-3 nopadding">
-        <div class="embed-responsive embed-responsive-16by9">
-          <iframe width="560" height="315" src="//www.youtube.com/embed/JvKIWjnEPNY" allowfullscreen></iframe>
-        </div>
-      </div>
-      
-    </div>
-    
-  </div>
+  <div class="col-sm-12 gal-container">
+<ul class="gallery_box gal-item" style="display:block; width:100%;">
+	<li *ngFor="let ie of [1,2,3,4,5,6,7,8,9]; index as i">
+				<video  controls class="videob">
+				  <source [src]="img" type="video/mp4">
+				  <source [src]="img" type="video/3gp">
+				  <source [src]="img" type="video/avi">
+				  <source [src]="img" type="video/webm">
+				  Your browser does not support HTML5 video.
+				 </video>
+	</li>
+</ul>
+</div>

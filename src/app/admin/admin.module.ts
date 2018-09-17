@@ -87,6 +87,7 @@ import { ContactComponent } from './messagerie/contact/contact.component';
 import { ListContactComponent } from './messagerie/list-contact/list-contact.component';
 import { ImgloardComponent } from './compte/gallery/matdiolog/imgloard/imgloard.component';
 import { VideoloardComponent } from './compte/gallery/matdiolog/videoloard/videoloard.component';
+import { UploadDocComponent } from './comp/upload-doc/upload-doc.component';
 // import { NgxEditorModule } from 'ngx-editor';
 // import { TooltipModule } from 'ngx-bootstrap/tooltip';
 
@@ -136,7 +137,7 @@ import { VideoloardComponent } from './compte/gallery/matdiolog/videoloard/video
    PhotoCompetenceComponent, FormationCompetenceComponent, ExperienceCompetenceComponent, 
    DocumentsCompetenceComponent, CvCompetenceComponent,
    MonEcoleComponent, EnteteEcoleComponent, FlashInfoEcoleComponent, FormationsEcoleComponent,
-   DocumentsEcoleComponent, PhotosEcoleComponent, ModifPhotoComponent, GalleryComponent, ModifPhotoEcoleComponent, MatdiologComponent, AllGalleryComponent, VideoComponent, PhotosComponent, ContactComponent, ListContactComponent, ImgloardComponent, VideoloardComponent
+   DocumentsEcoleComponent, PhotosEcoleComponent, ModifPhotoComponent, GalleryComponent, ModifPhotoEcoleComponent, MatdiologComponent, AllGalleryComponent, VideoComponent, PhotosComponent, ContactComponent, ListContactComponent, ImgloardComponent, VideoloardComponent, UploadDocComponent
   ],
   entryComponents: [BlockComponent,CoverSelectComponent, MatdiologComponent, ImgloardComponent, VideoloardComponent ],
   exports: [LayoutComponent]

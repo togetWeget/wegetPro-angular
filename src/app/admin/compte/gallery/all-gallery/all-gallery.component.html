@@ -1,10 +1,8 @@
-	<div class="gal-container" > 
-    <div class="col-md-8 col-sm-12 co-xs-12 gal-item" *ngFor="let ie of [1,2,3,4,5,6,7,8,9]; index as i">
-      <div class="box">
-        <a href="#" data-toggle="modal" data-target="#1" (click)="geturi(i+1)">
-          <img src="http://nabeel.co.in/files/bootsnipp/gallery/{{i+1}}.jpg" class="">
-        </a>
-      </div>
+<div class="container">
+  <div class="cardList" *ngFor="let cont of [1,2,3,4,5,6,7,8,9,10]; index as is">
+    <div class="card" *ngFor="let cont of [1,2,3]; index as i">
+      <div class="card__bg" [ngStyle]="{'background-image' : 'url(http://nabeel.co.in/files/bootsnipp/gallery/'+ cont +'.jpg)'}"></div>
     </div>
-
+	<span class="cardList__title">Group {{is}}</span>
   </div>
+</div>

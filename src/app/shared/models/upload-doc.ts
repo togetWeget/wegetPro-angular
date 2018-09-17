@@ -1,5 +1,5 @@
 import { Membre } from './personne/membres/membre';
-export class DocCompetence{
+export class UploadDoc{
 	constructor(
 		public id?: number,
 		public version?: number,

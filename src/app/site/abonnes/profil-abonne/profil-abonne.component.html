@@ -1,3 +1,12 @@
+<style type="text/css">
+  .tag{
+    display: inline-block; 
+    padding: 5px;
+    background-color: #f5f5f5;
+    border-radius: 3px;
+    margin-right: 5px;
+  }
+</style>
 <div class="container">
   <div class="row">
     <div class="col-md-12 col-lg-12 col-12">
@@ -7,7 +16,7 @@
             <div class="cover-image">
               <div class="block-title">
                 <a class="absolute" title="Revenir sur la liste des abonnés">
-                  <span [innerHtml]="abonne?.block?.description"></span>
+                  <span [innerHtml]="abonne?.block?.libelle"></span>
                 </a>
                 <div class="absolute at-right"><a title="afficher la liste" class="btn btn-primary" style="border-radius: 0px;"><i class="fa fa-th"></i> </a></div>
               </div>
@@ -107,15 +116,15 @@
                           <ul class="list list-unstyled tags">
                             <li class="tags-item">
                               <h4 class="hr">Type de contrat souhaité</h4>
-                              <span class="tag" *ngFor="let contrat of abonne?.membre?.contrat?.periodeContrat">{{contrat}}</span>&nbsp;
+                              <span class="tag" *ngFor="let type of abonne?.membre?.cvPersonne?.periodeContrat">{{type}}&nbsp;</span>
                             </li>
                             <li class="tags-item">
                               <h4 class="hr">Période de contrat souhaité</h4>
-                              <span class="tag" *ngFor="let contrat of abonne?.membre?.contrat?.dureeContrat">{{contrat}}</span>&nbsp;
+                              <span class="tag" *ngFor="let periode of abonne?.membre?.cvPersonne?.dureeContrat">{{periode}}&nbsp;</span>
                             </li>
                             <li class="tags-item">
                               <h4 class="hr">Disponibilité</h4>
-                              <span class="tag">{{abonne?.membre?.cvPersonne?.specialite}}</span>
+                              <span class="tag" *ngFor="let dispo of abonne?.membre?.cvPersonne?.disponibilite">{{dispo}}&nbsp;</span>
                           </ul>
                         </div>
                       </div>

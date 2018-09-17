@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import {FormBuilder, FormGroup, FormControl,Validators,FormArray } from '@angular/forms';
-import { DocCompetence } from '../../../shared/models/doc-competence';
+import { UploadDoc } from '../../../shared/models/upload-doc';
 
 @Component({
   selector: 'app-documents-competence',
@@ -8,40 +8,18 @@ import { DocCompetence } from '../../../shared/models/doc-competence';
   styleUrls: ['./documents-competence.component.scss']
 })
 export class DocumentsCompetenceComponent implements OnInit {
-  docCompetenceForm:FormGroup;
-  docCompetences: DocCompetence[]=[];
-  active:boolean =false;
+  uploadDocs: UploadDoc[]=[];
+ @Input() active:boolean =false;
 
   constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
 
-    this.initForm();
 
-  }
-  initForm(){
-  	this.docCompetenceForm = this.fb.group({
-		id: [null],
-		version: [0],
-		docPath: [''],
-		titre: [''],
-		description: [''],
-		membre:['']	    
-  		
-  	})
-
-  }
-
-  onSubmit(){
-  	
   }
 
   ajouterDocument() { 
     this.active=true;
-  }
-
-  removeDocument(){
-  	this.active=false;
   }
 
 }
