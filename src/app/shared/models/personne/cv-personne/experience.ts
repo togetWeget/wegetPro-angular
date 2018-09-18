@@ -9,8 +9,7 @@ export class Experience {
     public dateDebut?: string,
     public dateFin?: string,
     public tache?: string,
-    public lieu?: string,
-    public membre?: Membre
+    public lieu?: string
   ) {
   }
 }

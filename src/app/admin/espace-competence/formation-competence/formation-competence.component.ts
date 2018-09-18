@@ -24,6 +24,7 @@ export class FormationCompetenceComponent implements OnInit {
 	formationForm: FormGroup;
 	cursus : CursusScolaire[]=[];
   detailblock: Detailblock;
+  id: number;
 	membre : Membre;
 
 	domaines =[
@@ -58,11 +59,13 @@ export class FormationCompetenceComponent implements OnInit {
   	ngOnInit() {
       this.route.paramMap.pipe(
       switchMap((params: ParamMap) =>{
-       return this.abonnesService.getProfilById(+params.get('id'))
+       this.id = +params.get('id');
+     return this.abonnesService.getProfilById(this.id)
      })
     ).subscribe(res=> {
       this.detailblock = res.body;  
-      this.membre = this.detailblock.membre;
+      this.membre = this.newMembre(this.detailblock.membre);
+      // this.getDetailBlock();
       if (res.status===0) {
            this.initForm();
          }
@@ -70,15 +73,44 @@ export class FormationCompetenceComponent implements OnInit {
   	}
 
   getDetailBlock() {
-    this.route.paramMap.pipe(
-      switchMap((params: ParamMap) =>
-        this.abonnesService.getAbonnesById(+params.get('id')))
-    ).subscribe((data: any)=> {
+    this.abonnesService.getProfilById(this.id)
+    .subscribe((data: any)=> {
       this.detailblock = data.body;     
+      this.membre = this.newMembre(this.detailblock.membre);
       this.initForm();
     });
   }
 
+  newMembre(mb:any){
+    return new Membre(
+        mb.id,
+        mb.version,
+        mb.cni,
+        mb.titre,
+        mb.nom,
+        mb.prenom,
+        null,
+        null,
+        false,
+        mb.nomComplet,
+        mb.pathPhoto,
+        mb.pathPhotoCouveture,
+        mb.nombreVue,
+        mb.groupSanguin,
+        mb.dateNaissance,
+        mb.genre,
+        'ME',
+        mb.adresse,
+        mb.login,
+        mb.entreprise,
+        mb.telephones,
+        mb.langues,
+        mb.typeStatut,   
+        mb.couleur,
+        mb.cvPersonne,
+        mb.description,
+    );
+  }
 
   	initForm(){
   		const formationInit = new FormArray([]);
@@ -92,7 +124,6 @@ export class FormationCompetenceComponent implements OnInit {
         			etablissement: format.etablissement,
         			diplome: format.diplome,
               formation: format.formation,
-              membre: this.membre,
         			description: format.description,
         		})
       		);
@@ -107,10 +138,11 @@ export class FormationCompetenceComponent implements OnInit {
   	onSubmit(){
       let memb=this.membre;
       memb=this.convertisseur(this.formationForm);
-      console.log("Formulaire envoyé PUT", memb);
+      // console.log("Formulaire envoyé PUT", memb);
       this.membreService.modifierMembre(memb)
       .subscribe(res => {
-        console.log('MODIFIER MEMBRE SUCCESS', res.body.id);
+        this.getDetailBlock();
+        // console.log('MODIFIER MEMBRE SUCCESS', res.body.id);
       });
   	}
 
@@ -123,7 +155,6 @@ export class FormationCompetenceComponent implements OnInit {
         		etablissement:[''],
         		diplome:[''],
             formation: [''],
-            membre: [this.membre],
         		description: [''],
 			})
     	);
@@ -140,50 +171,50 @@ export class FormationCompetenceComponent implements OnInit {
 
   	private convertisseur(fg: FormGroup): Membre {
       const mens = new Membre(
-        this.detailblock.membre.id,
-        this.detailblock.membre.version,
-        this.detailblock.membre.cni,
-        this.detailblock.membre.titre,
-        this.detailblock.membre.nom,
-        this.detailblock.membre.prenom,
+        this.membre.id,
+        this.membre.version,
+        this.membre.cni,
+        this.membre.titre,
+        this.membre.nom,
+        this.membre.prenom,
         null,
         null,
         false,
-        this.detailblock.membre.nomComplet,
-        this.detailblock.membre.pathPhoto,
-        this.detailblock.membre.pathPhotoCouveture,
-        this.detailblock.membre.nombreVue,
-        this.detailblock.membre.groupSanguin,
-        this.detailblock.membre.dateNaissance,
-        this.detailblock.membre.genre,
+        this.membre.nomComplet,
+        this.membre.pathPhoto,
+        this.membre.pathPhotoCouveture,
+        this.membre.nombreVue,
+        this.membre.groupSanguin,
+        this.membre.dateNaissance,
+        this.membre.genre,
         'ME',
-        this.detailblock.membre.adresse,
-        this.detailblock.membre.login,
-        this.detailblock.membre.entreprise,
-        this.detailblock.membre.telephones,
-        this.detailblock.membre.langues,
-        this.detailblock.membre.typeStatut,   
-        this.detailblock.membre.couleur,
+        this.membre.adresse,
+        this.membre.login,
+        this.membre.entreprise,
+        this.membre.telephones,
+        this.membre.langues,
+        this.membre.typeStatut,   
+        this.membre.couleur,
         new CvPersonne(
-          this.detailblock.membre.cvPersonne.id,
-          this.detailblock.membre.cvPersonne.version,
-          this.detailblock.membre.cvPersonne.titre,
-          this.detailblock.membre.cvPersonne.diplome,
-          this.detailblock.membre.cvPersonne.specialite,
-          this.detailblock.membre.cvPersonne.anneExperience,
-          this.detailblock.membre.cvPersonne.motivation,
-          this.detailblock.membre.cvPersonne.fonctionActuelle,
-          this.detailblock.membre.cvPersonne.domaine,
-          this.detailblock.membre.cvPersonne.autreSpecialite,
-          this.detailblock.membre.cvPersonne.description,
-          this.detailblock.membre.cvPersonne.pathCv,
-          this.detailblock.membre.cvPersonne.experience,
+          this.membre.cvPersonne.id,
+          this.membre.cvPersonne.version,
+          this.membre.cvPersonne.titre,
+          this.membre.cvPersonne.diplome,
+          this.membre.cvPersonne.specialite,
+          this.membre.cvPersonne.anneExperience,
+          this.membre.cvPersonne.motivation,
+          this.membre.cvPersonne.fonctionActuelle,
+          this.membre.cvPersonne.domaine,
+          this.membre.cvPersonne.autreSpecialite,
+          this.membre.cvPersonne.description,
+          this.membre.cvPersonne.pathCv,
+          this.membre.cvPersonne.experience,
           fg.value['formations'],
-          this.detailblock.membre.cvPersonne.dureeContrat,
-          this.detailblock.membre.cvPersonne.periodeContrat,
-          this.detailblock.membre.cvPersonne.disponibilite,
+          this.membre.cvPersonne.dureeContrat,
+          this.membre.cvPersonne.periodeContrat,
+          this.membre.cvPersonne.disponibilite,
           ),
-        this.detailblock.membre.description,
+        this.membre.description,
     );
     return mens;
   }

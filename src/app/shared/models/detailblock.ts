@@ -9,7 +9,8 @@ export class Detailblock {
     public pathPhoto?: string,
     public pathPhotoCouveture?: string,
     public block?: Block,
-    public membre?: Membre
+    public membre?: Membre,
+    public nombreVue?:number
   ) {
   }
 }

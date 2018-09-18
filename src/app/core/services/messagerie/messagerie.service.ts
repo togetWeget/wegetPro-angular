@@ -3,7 +3,8 @@ import {Messagerie} from '../../../shared/models/messagerie/messagerie';
 import {Observable, of, Subject} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {Router} from '@angular/router';
-import {catchError, tap} from 'rxjs/operators';
+import {catchError, debounceTime, distinctUntilChanged,
+switchMap, tap} from 'rxjs/operators';
 import {Resultat} from '../../../shared/models/resultat';
 import {Block} from '../../../shared/models/block';
 import {MessageService} from '../message.service';
@@ -14,12 +15,30 @@ import {MessageService} from '../message.service';
 export class MessagerieService {
   private message: Messagerie [] = [];
   private urlMessagerie = 'http://wegetback:8080/messageries/';
+  private urlMessages = 'http://wegetback:8080/messages/';
   private urlMessage='http://wegetback:8080/message/';
 
   messageSubject = new Subject<Messagerie[]>();
+  nonLusSubject$ = new Subject<number>();
+  // nonLu$: Observable<number>;
 
   constructor(private httpClient: HttpClient, private router: Router, 
-    private messageService: MessageService) { }
+    private messageService: MessageService) {
+    this.nonLusSubject$.pipe(
+      debounceTime(300),
+      distinctUntilChanged(),
+      switchMap((d: number) => (d)? new Observable((observer)=>{
+        observer.next(d);
+      }) : new Observable((observer)=>{
+        observer.next(0);
+      }))
+    );
+  }
+
+  setNonLu(nl: number){
+    this.nonLusSubject$.next(nl);
+  }
+
   emitMessage() {
     this.messageSubject.next(this.message);
   }
@@ -29,6 +48,19 @@ export class MessagerieService {
         tap(res => {
           this.log(`messagerie ajouter avec succes : message service=${res.body}`);
           console.log('methode du service qui ajoute un message', msg);
+        }),
+        catchError(this.handleError<Resultat<Messagerie>>('ajoutMessage'))
+      );
+
+
+  }
+
+  changeStatusMessage(msg: Messagerie): Observable<Resultat<Messagerie>> {
+    return this.httpClient.put<Resultat<Messagerie>>(this.urlMessages, msg)
+      .pipe(
+        tap(res => {
+          this.log(`messagerie lu : message service=${res.body}`);
+          console.log('methode du service qui change le status d\'un message', msg);
         }),
         catchError(this.handleError<Resultat<Messagerie>>('ajoutMessage'))
       );

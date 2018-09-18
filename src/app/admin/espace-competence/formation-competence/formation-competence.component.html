@@ -35,7 +35,7 @@
 								<div class="col-md-4">
 									<div class="form-group">
 										<mat-form-field>
-											<input matInput placeholder="Année" formControlName="date" id="date" maxlength="9" mask="9999-9999">
+											<input matInput placeholder="Année" formControlName="date" id="date" maxlength="9"         [dropSpecialCharacters]="false" mask="9999-9999">
 										</mat-form-field>
 									</div>
 								</div>

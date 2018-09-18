@@ -6,7 +6,7 @@
       	<mat-card-content>
       		<div class="top-list">
 	      		<mat-list>
-	      			<mat-list-item><a routerLink="/admin/messagerie/liste_message"><i class="fa fa-inbox"></i> <span class="textin text-truncate">Boite de réception</span><span class="badge badge-success">2</span></a></mat-list-item>
+	      			<mat-list-item><a routerLink="/admin/messagerie/liste_message"><i class="fa fa-inbox"></i> <span class="textin text-truncate">Boite de réception</span><span class="badge badge-success">{{nonLu$ | async}}</span></a></mat-list-item>
 	      			<mat-list-item><a routerLink="/admin/messagerie/liste_message"><i class="fa fa-paper-plane"></i> <span class="textin text-truncate">Messages Envoyées</span> <span class="badge badge-success">0</span></a></mat-list-item>
 	      			<mat-list-item><a routerLink="/admin/messagerie/liste_contacts"><i class="fa fa-users"></i> <span class="textin text-truncate">Mes Contacts</span> <span class="badge badge-success">5</span></a></mat-list-item>
 	      		</mat-list>      			

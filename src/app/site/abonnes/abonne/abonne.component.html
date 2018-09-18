@@ -14,7 +14,7 @@
     </mat-card-header>
     <mat-card-content>
         <div class="abonne-meta">
-            <div class="abonne-profil-view"><i class="fa fa-eye"></i> 35</div>
+            <div class="abonne-profil-view"><i class="fa fa-eye"></i> {{nombredevue}}</div>
             <div class="abonne-pays"><i class="fa fa-map-marker"></i> {{abonne?.membre?.adresse?.pays}}</div>
         </div>
         <div class="abonne-name" >{{abonne?.membre?.nomComplet}}</div>
@@ -22,8 +22,8 @@
         <div class="abonne-langue">Français</div>
     </mat-card-content>
    	<mat-card-actions>
-        <button mat-raised-button color="warn" class="mat-button" (click)="onViewProfileAbonne(abonne)">Profile</button>
+        <button mat-raised-button color="warn" class="mat-button" (click)="onViewProfileAbonne(abonne); newview()">Profile</button>
             <span class="space-card"></span>
-        <button mat-raised-button color="primary" class="mat-button" (click)="onContactAbonne(abonne)">Contacter</button>
+        <button mat-raised-button color="primary" class="mat-button" (click)="onContactAbonne(abonne); newview()">Contacter</button>
     </mat-card-actions>
 </mat-card>

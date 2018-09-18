@@ -4,7 +4,8 @@ export class Message {
     public version?: number,
     public  sujet?: string,
     public  contenu?: string,
-    public  date?: Date
+    public  date?: Date,
+    public  statutMessage?: boolean
   ) {
   }
 }

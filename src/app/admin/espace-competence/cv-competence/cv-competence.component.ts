@@ -22,6 +22,8 @@ export class CvCompetenceComponent implements OnInit {
   membre: Membre;
   cvCompetenceForm: FormGroup;
   detailblock: Detailblock;
+  id: number;
+
   //detailblocks: Detailblock[];
   //static me: CvCompetenceComponent;
 
@@ -95,7 +97,8 @@ export class CvCompetenceComponent implements OnInit {
   ngOnInit() { 
     this.route.paramMap.pipe(
       switchMap((params: ParamMap) =>{
-       return this.abonnesService.getProfilById(+params.get('id'))
+       this.id = +params.get('id');
+     return this.abonnesService.getProfilById(this.id)
      })
     ).subscribe(res=> {
       this.detailblock = res.body;  
@@ -138,16 +141,15 @@ export class CvCompetenceComponent implements OnInit {
     });
     console.log('MEMBRE',this.cvCompetenceForm.value);
   }
-
   getDetailBlock() {
-    this.route.paramMap.pipe(
-      switchMap((params: ParamMap) =>
-        this.abonnesService.getAbonnesById(+params.get('id')))
-    ).subscribe((data: any)=> {
+    this.abonnesService.getProfilById(this.id)
+    .subscribe((data: any)=> {
       this.detailblock = data.body;     
+      this.membre = this.detailblock.membre;
       this.initForm();
     });
   }
+
 
   onSubmit() {
     let memb=this.membre;
@@ -155,7 +157,8 @@ export class CvCompetenceComponent implements OnInit {
       console.log("Formulaire envoyé PUT", memb);
       this.membreService.modifierMembre(memb)
       .subscribe(res => {
-        console.log('MODIFIER MEMBRE SUCCESS', res.body.id);
+        this.getDetailBlock();
+        // console.log('MODIFIER MEMBRE SUCCESS', res.body.id);
       });
   }
 

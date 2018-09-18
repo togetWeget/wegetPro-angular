@@ -6,9 +6,9 @@
       </button>
     </div>
     <br>
-	<form [formGroup]="experienceForm" (ngSubmit)="onSubmit()">
-		<div formArrayName="experiences">
-			<mat-card class="details-container" *ngFor="let experience of experiences.controls; let i = index;" style="margin-bottom: 15px;">
+	<form [formGroup]="experienceForm" *ngIf="experienceForm" (ngSubmit)="onSubmit()">
+		<div formArrayName="experiences" *ngIf="experiences">
+			<mat-card class="details-container" *ngFor="let exp of experiences.controls; let i = index;" style="margin-bottom: 15px;">
 				<div class="form-header">
 					<div class="row">
 						<div class="col-md-12">
@@ -71,7 +71,7 @@
 						<div class="col-md-5">
 							<div class="form-group">
 								<mat-form-field>
-									<textarea matInput placeholder="Taches exécutées" name="tache" rows="15" style="min-height: 240px;"></textarea>
+									<textarea matInput placeholder="Taches exécutées" name="tache" rows="15" formControlName="tache" style="min-height: 240px;"></textarea>
 								</mat-form-field>
 							</div>
 						</div>

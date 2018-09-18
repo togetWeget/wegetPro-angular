@@ -9,17 +9,17 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr class="unread" *ngFor="let msg of messages">
+			<tr class="unread" [ngClass]="{'nonlu':msg.message.statutMessage}" *ngFor="let msg of messages">
 				<td class="col-cb"><mat-checkbox></mat-checkbox></td>
-				<td class="col-subject">
-					<a routerLink="/admin/messagerie/read/{{msg.message.id}}" class="star">
+				<td (click)="lireMessage(msg)" class="col-subject">
+					<!-- <a routerLink="/admin/messagerie/read/{{msg.message.id}}" class="star"> -->
 						{{msg.message.sujet}}
-					</a>
+					<!-- </a> -->
 				</td>
-				<td class="col-name">
-					<a routerLink="/admin/messagerie/read/{{msg.message.id}}">
+				<td (click)="lireMessage(msg)" class="col-name">
+					<!-- <a routerLink="/admin/messagerie/read/{{msg.message.id}}"> -->
 						{{msg.expediteur.telephone}} &nbsp; {{msg.expediteur.email}}
-					</a>
+					<!-- </a> -->
 				</td>
 				<td class="col-time nowrap">
 					<i class="fa fa-calendar">&nbsp;{{msg.message.date | date :'dd-MM-y'}}</i> &nbsp; <i class="fa fa-clock-o">&nbsp;{{msg.message.date | date :'HH:mm:ss'}}</i>

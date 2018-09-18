@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
+
 import * as firebase from 'firebase/app';
 
 @Component({
@@ -8,7 +10,7 @@ import * as firebase from 'firebase/app';
 })
 export class AppComponent {
   title = 'app';
-  constructor () {
+  constructor (private router: Router) {
   	const config = {
       apiKey: 'AIzaSyBcBo2iHpfSO3CzwTXdICgV2VX_erq_sKg',
       authDomain: 'toget-2b431.firebaseapp.com',
@@ -19,4 +21,21 @@ export class AppComponent {
     };
     firebase.initializeApp(config);
   }
+  
+ ngOnInit() {
+        this.router.events.subscribe((evt) => {
+            if (!(evt instanceof NavigationEnd)) {
+                return;
+            }
+
+            let scrollToTop = window.setInterval(function () {
+                let pos = window.pageYOffset;
+                if (pos > 0) {
+                    window.scrollTo(0, 0); // how far to scroll on each step
+                } else {
+                    window.clearInterval(scrollToTop);
+                }
+            }, 16); // how fast to scroll (this equals roughly 60 fps)
+        });
+    }
 }

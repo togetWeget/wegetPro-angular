@@ -6,6 +6,7 @@ import {AbonnesService} from '../../../core/services/abonnes/abonnes.service';
 import {ContactAbonneComponent} from '../contact-abonne/contact-abonne.component';
 import { Detailblock } from '../../../shared/models/detailblock';
 import { Resultat } from '../../../shared/models/Resultat';
+import * as $ from 'jquery';
 
 
 @Component({
@@ -19,7 +20,7 @@ export class AbonneComponent implements OnInit {
   	defaultPhoto: any = '/assets/placeholder-image.jpg';
   	@ViewChild('imagebg') imagebg: ElementRef;
   	status: number;
-
+	public nombredevue = 0;
   	constructor(private router: Router,
                 private abonnesService: AbonnesService,
                 private route: ActivatedRoute,
@@ -29,6 +30,8 @@ export class AbonneComponent implements OnInit {
       this.imagebg.nativeElement.style.backgroundImage = 'url(' + this.getPhotoSrc() + ')';
       this.imagebg.nativeElement.style.backgroundSize = 'cover';
       this.imagebg.nativeElement.style.backgroundPosition = 'center';
+	  // this.newview();
+	  this.nombredevue = this.abonne.nombreVue;
   }
 
   getPhotoSrc(): string {
@@ -57,4 +60,39 @@ export class AbonneComponent implements OnInit {
         	data: {idPersonne: this.abonne.membre.id, nomPersonne: this.abonne.membre.nomComplet}
       	});
   	}
+	
+	gethrf(){
+
+	}
+	newview(){
+			// let CheminComplet = document.location.href;
+			// const uriln = CheminComplet.split('/');
+			// const rival = uriln[uriln.length - 1];
+			// alert(rival);
+			let u = this;
+			const data: any = {
+								idPersonne: this.abonne.membre.id,
+								idBlock: this.abonne.block.id
+							};
+							
+					console.log(data);
+			$.ajax({
+			url:'http://wegetback:8080/nombreVue',
+			type:'put',
+			contentType: 'application/json',
+			data:JSON.stringify(data),
+			dataType:'json',
+			success: (valeur)=>{
+			if(valeur.body != null){
+				u.nombredevue = parseInt(valeur.body.nombreVue);
+				console.log(valeur);
+			}
+			},
+			error: (err)=>{
+					console.log(err);
+			}
+	
+			});
+		
+		}
 }

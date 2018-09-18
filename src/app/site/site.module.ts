@@ -40,6 +40,12 @@ import {
 } from "angular-6-social-login";
 import { PanierViewComponent } from './panier-view/panier-view.component';
 import { AbonneComponent } from './abonnes/abonne/abonne.component';
+import { BioProfilComponent } from './abonnes/profil/bio-profil/bio-profil.component';
+import { FormationProfilComponent } from './abonnes/profil/formation-profil/formation-profil.component';
+import { ExperienceProfilComponent } from './abonnes/profil/experience-profil/experience-profil.component';
+import { DocumentsProfilComponent } from './abonnes/profil/documents-profil/documents-profil.component';
+import { PhotosProfilComponent } from './abonnes/profil/photos-profil/photos-profil.component';
+import { ChatCliComponent } from './chat-cli/chat-cli.component';
 
 
 // Configs 
@@ -91,7 +97,13 @@ export function getAuthServiceConfigs() {
     PrixComponent,
     SingleBlockComponent,
     PanierViewComponent,
-    AbonneComponent
+    AbonneComponent,
+    BioProfilComponent,
+    FormationProfilComponent,
+    ExperienceProfilComponent,
+    DocumentsProfilComponent,
+    PhotosProfilComponent,
+    ChatCliComponent
   ],
   exports: [LayoutComponent],
   schemas: [NO_ERRORS_SCHEMA]

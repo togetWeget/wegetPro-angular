@@ -1,0 +1,12 @@
+<li style="margin-bottom: 24px;" *ngFor="let cursus of cursus">
+    <div class="header">        
+        <span class="year">{{cursus.date}}</span>                
+        &nbsp;<span class="graduation">{{cursus.diplome}}</span>
+        &nbsp;<span class="domaine">{{cursus.formation}}</span>
+        &nbsp;<span class="school pull-right">{{cursus.etablissement}}</span>
+    </div>        
+    <p class="description">
+      {{cursus.description}}
+  	</p>
+    <hr style="width:70%; margin: auto;">
+</li>

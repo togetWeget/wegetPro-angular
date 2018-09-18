@@ -8,7 +8,6 @@ export class CursusScolaire {
     public etablissement?: string,
     public diplome?: string,
     public formation?: string,
-    public  membre?: Membre,
     public  description?: string
   ) {
   }
