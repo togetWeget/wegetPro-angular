@@ -8,7 +8,8 @@
 	<div class="col-12">
 <app-footer></app-footer> 
 	</div>
-	<app-chat-cli></app-chat-cli>
-<button mat-fab color="accent" class="chatbar" (click)="loadchat();" *ngIf="changechat === false"><i class="fa fa-comments"></i></button>
-<button mat-fab color="accent" class="chatbar" (click)="closechat();" *ngIf="changechat === true"><i class="fa fa-remove"></i></button>
+	<app-chat-cli #chat></app-chat-cli>
+<button mat-fab color="accent" class="chatbar" (click)="loadchat();" *ngIf="chatl.chatactivate === false"><i class="fa fa-comments"></i></button>
+
+<button mat-fab color="accent" class="chatbar" (click)="closechat();" *ngIf="chatl.chatactivate === true"><i class="fa fa-remove"></i></button>
 </div>

@@ -19,6 +19,7 @@ export class ProfilAbonneComponent implements OnInit {
   experience: Experience[]=[];
   abonnes: Detailblock[] = [];
   defaultPhoto: any = '/assets/profile-cover.jpg';
+  photCouverture: string;
 
   constructor(private abonnesService: AbonnesService,
               private route: ActivatedRoute,
@@ -33,6 +34,8 @@ export class ProfilAbonneComponent implements OnInit {
     ).subscribe(res => {
       this.abonne = res.body;
       this.cursus = this.abonne.membre.cvPersonne.cursus;
+      this.experience = this.abonne.membre.cvPersonne.experience;
+      this.photCouverture=this.getPhotoSrc();
     });
   }
 fethcAllAbonnes() {

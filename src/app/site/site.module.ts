@@ -46,6 +46,9 @@ import { ExperienceProfilComponent } from './abonnes/profil/experience-profil/ex
 import { DocumentsProfilComponent } from './abonnes/profil/documents-profil/documents-profil.component';
 import { PhotosProfilComponent } from './abonnes/profil/photos-profil/photos-profil.component';
 import { ChatCliComponent } from './chat-cli/chat-cli.component';
+import { CategorieEcoleComponent } from './ecole/categorie-ecole/categorie-ecole.component';
+import { ListeEcoleComponent } from './ecole/liste-ecole/liste-ecole.component';
+import { PageEcoleComponent } from './ecole/page-ecole/page-ecole.component';
 
 
 // Configs 
@@ -103,7 +106,10 @@ export function getAuthServiceConfigs() {
     ExperienceProfilComponent,
     DocumentsProfilComponent,
     PhotosProfilComponent,
-    ChatCliComponent
+    ChatCliComponent,
+    CategorieEcoleComponent,
+    ListeEcoleComponent,
+    PageEcoleComponent
   ],
   exports: [LayoutComponent],
   schemas: [NO_ERRORS_SCHEMA]

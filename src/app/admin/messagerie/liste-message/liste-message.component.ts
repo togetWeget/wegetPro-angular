@@ -70,7 +70,7 @@ export class ListeMessageComponent implements OnInit {
 				),
 			msg.expediteur
 			)
-		this.messagerieService.changeStatusMessage(ms)
+		this.messagerieService.changeStatusMessage(msg)
 		.subscribe(res => {
 		    this.messagerieService.getAllMessagesByAbonneId(+this.idPersonne)
 				.subscribe(res => {
@@ -88,7 +88,7 @@ export class ListeMessageComponent implements OnInit {
 	getNonLus(msgs: Messagerie[]){
 		let nonLus = 0;
 		for(let m of msgs){
-			if(m.message.statutMessage){
+			if(m.message.statut){
 				nonLus++;
 			}
 		}

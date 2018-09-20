@@ -64,7 +64,7 @@
               <mat-expansion-panel [disabled]="true">
                   <mat-expansion-panel-header>                  
                     <mat-panel-title>                  
-                      <i class="fa fa-envelope"></i> Messagerie
+                      <i class="fa fa-envelope"></i> Messagerie&nbsp;<span class="badge badge-info float-right">{{nonLu$ | async}}</span>
                     </mat-panel-title>                  
                   </mat-expansion-panel-header>                  
               </mat-expansion-panel>
@@ -76,6 +76,17 @@
                   <mat-expansion-panel-header>                  
                     <mat-panel-title>                  
                       <i class="fa fa-comments"></i> Chat
+                    </mat-panel-title>                  
+                  </mat-expansion-panel-header>                  
+              </mat-expansion-panel>
+                </a>
+                
+				
+				<a mat-list-item="" [routerLinkActiveOptions]="{ exact: false }" class="nav-li" routerLinkActive="active" routerLink="/admin/gallery">
+              <mat-expansion-panel [disabled]="true">
+                  <mat-expansion-panel-header>                  
+                    <mat-panel-title>                  
+                      <i class="fa fa-comments"></i> gallery
                     </mat-panel-title>                  
                   </mat-expansion-panel-header>                  
               </mat-expansion-panel>

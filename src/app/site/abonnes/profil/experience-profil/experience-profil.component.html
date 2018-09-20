@@ -1,3 +1,12 @@
-<p>
-  experience-profil works!
-</p>
+<li style="margin-bottom: 24px;" *ngFor="let exp of experience">
+    <div class="header">        
+        <span class="year">{{exp.dateDebut}}</span>-<span class="year">{{exp.dateFin}}</span>                 
+        &nbsp;<span class="job">{{exp.postOccupe}}</span>
+        &nbsp;<span class="domaine">{{exp.lieu}}</span>
+        &nbsp;<span class="compagny pull-right">{{exp.entreprise}}</span>
+    </div>        
+    <p class="description">
+      {{exp.tache}}
+  	</p>
+    <hr style="width:70%; margin: auto;">
+</li>

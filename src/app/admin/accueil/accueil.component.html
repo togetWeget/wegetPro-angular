@@ -2,10 +2,10 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-3">
-      <app-widget-info [widget]="widget1" ></app-widget-info>
+      <app-widget-info [widget]="widget1" [w_number]="(nbVues$ | async)" ></app-widget-info>
     </div>
     <div class="col-md-3">
-      <app-widget-info [widget]="widget2" ></app-widget-info>
+      <app-widget-info [widget]="widget2" [w_number]="(nonLu$ | async)" ></app-widget-info>
     </div>
   </div>
 </div>

@@ -13,6 +13,7 @@ import {NotFoundComponent} from '../core/not-found/not-found.component';
 import {FormulaireComponent} from './abonnements/formulaire/formulaire.component';
 import {PrixComponent} from './abonnements/prix/prix.component';
 import {PanierViewComponent} from './panier-view/panier-view.component';
+import {CategorieEcoleComponent} from './ecole/categorie-ecole/categorie-ecole.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,7 @@ const routes: Routes = [
       },
       {path: 'blocks', component: ListeBlocComponent},
       {path: 'blocks/:id', component: ListAbonnesBlockComponent},
+      {path: 'espace/ecole/:id', component: CategorieEcoleComponent},
       {path: 'abonnes/profile/:id', component: ProfilAbonneComponent},
       {path: 'abonnes/conctater/:id', component: ContactAbonneComponent},     
       {path: 'abonnement/prix/:id', component: PrixComponent},

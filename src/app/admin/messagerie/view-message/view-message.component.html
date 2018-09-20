@@ -3,7 +3,7 @@
     <div class="mail-single-header">
       <h2>{{message.message.sujet}}</h2>
       <div class="mail-single-header-options"> 
-        <a href="#" class="btn btn-gray btn-icon"> 
+        <a [routerLink]="'/admin/messagerie/repondre_message/'+message.message.id" class="btn btn-gray btn-icon"> 
           <span>Répondre </span> 
           <i class="fa fa-reply-all"></i> 
         </a> 

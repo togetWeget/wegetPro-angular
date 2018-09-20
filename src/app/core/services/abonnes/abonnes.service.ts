@@ -17,6 +17,8 @@ export class AbonnesService {
   private profilByIdUrl = 'http://wegetback:8080/detailBlock/';
   private abonneByLogUrl = 'http://wegetback:8080/profilAbonneLogin/';
   private abonnesUrl = 'http://wegetback:8080/abonnes/';
+   private abonnesComptence = 'http://wegetback:8080/rechercheParComptence/';
+  
   
   private jwtToken = null;
   constructor(private httpClient: HttpClient, private messageService: MessageService) {
@@ -72,6 +74,15 @@ export class AbonnesService {
         this.log(`L'abonné a été récupéré !`);
       }),
       catchError(this.handleError<Resultat<Detailblock>>('getAbonnesByLog'))
+    );
+  }
+   getAbonnesByCompetence(competence: string): Observable<Resultat<Detailblock>> {
+    return this.httpClient.get<Resultat<Detailblock>>(this.abonnesComptence + competence)
+      .pipe(
+      tap(res => {
+        this.log(`L'abonné a été récupéré !`);
+      }),
+      catchError(this.handleError<Resultat<Detailblock>>('getAbonnesByCompetence'))
     );
   }
 

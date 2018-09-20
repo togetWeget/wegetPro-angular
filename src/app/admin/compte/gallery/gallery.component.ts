@@ -6,7 +6,7 @@ import {MatdiologComponent} from './matdiolog/matdiolog.component';
 import {ImgloardComponent} from './matdiolog/imgloard/imgloard.component';
 import {VideoloardComponent} from './matdiolog/videoloard/videoloard.component';
 import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browser';
-
+import {InfoMembreService} from '../../../core/services/Info-membre/info-membre.service';
 @Component({
   selector: 'app-gallery',
   templateUrl: './gallery.component.html',
@@ -17,7 +17,7 @@ public uri: any;
   name: string;
   ativ: string;
   ImgVar : any = [];
-  constructor(public dialog: MatDialog, private _sanitizer: DomSanitizer) { }
+  constructor(public dialog: MatDialog, private _sanitizer: DomSanitizer, public infoM: InfoMembreService) { }
 
   
   

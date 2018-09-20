@@ -9,7 +9,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr class="unread" [ngClass]="{'nonlu':msg.message.statutMessage}" *ngFor="let msg of messages">
+			<tr class="unread" [ngClass]="{'nonlu':msg.message.statut}" *ngFor="let msg of messages">
 				<td class="col-cb"><mat-checkbox></mat-checkbox></td>
 				<td (click)="lireMessage(msg)" class="col-subject">
 					<!-- <a routerLink="/admin/messagerie/read/{{msg.message.id}}" class="star"> -->

@@ -33,6 +33,7 @@ import {PanierService} from './services/panier.service';
 import { SigninComponent } from './clients/signin/signin.component';
 import {LoginsocialService} from './services/personne/membre/loginsocial.service';
 import {InfoMembreService} from './services/Info-membre/info-membre.service';
+import {ChatLiasonService} from './services/chat-liason/chat-liason.service';
 @NgModule({
   imports: [
     CommonModule,
@@ -97,7 +98,8 @@ import {InfoMembreService} from './services/Info-membre/info-membre.service';
     RegisterService,
 	PanierService,
 	LoginsocialService,
-	InfoMembreService
+	InfoMembreService,
+	ChatLiasonService
   ],
   schemas: [NO_ERRORS_SCHEMA]
 })

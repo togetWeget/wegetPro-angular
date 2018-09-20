@@ -62,7 +62,9 @@ export class MonEcoleComponent implements OnInit {
   constructor(private outils: OutilsService, private fb: FormBuilder,
   	private router: Router, private route: ActivatedRoute, 
   	private sousBlocksS: SousBlockService, private blockS: BlockService,
-    private abonnesS: AbonnesService) { }
+    private abonnesS: AbonnesService) { 
+    // this.sousBlock = new SousBlock();
+  }
 
   ngOnInit() {
   	// this.initForm();
@@ -176,25 +178,32 @@ export class MonEcoleComponent implements OnInit {
     this.sousBlock$.subscribe(d => {
           // console.log('CONV Av', d);
           this.sousBlock = d.body[0];
+          if(d.body[0] === null || d.body[0] === undefined){
+             this.sousBlock = new SousBlock(); 
+          }
           let adresse_const: any = null;
           const telephonesInit = new FormArray([]);
-          let soub: SousBlock;
 
-          soub = this.sousBlock;
-          if (soub.telephones.length !== 0) {
-            for (const tel of soub.telephones) {
-              telephonesInit.push(
-                this.fb.group({
-                  type: tel.type,
-                  numero: tel.numero,
-                  version: tel.version,
-                  id: tel.id
-                })
-              );
+          try{
+            let soub: SousBlock;
+            soub = this.sousBlock;
+            if (soub.telephones.length !== 0) {
+              for (const tel of soub.telephones) {
+                telephonesInit.push(
+                  this.fb.group({
+                    type: tel.type,
+                    numero: tel.numero,
+                    version: tel.version,
+                    id: tel.id
+                  })
+                );
+              }
             }
+          }catch(e){
+            console.error('no sous block', e);
           }
 
-          if(this.sousBlock && this.sousBlock.adresse){
+            try{
             adresse_const = this.fb.group({
               boitePostal: [this.sousBlock.adresse.boitePostal],
               email: [this.sousBlock.adresse.email],
@@ -204,18 +213,11 @@ export class MonEcoleComponent implements OnInit {
               adresseGeographique: [this.sousBlock.adresse.adresseGeographique],
               siteWeb: [this.sousBlock.adresse.siteWeb]
             });
-          }else{
-            adresse_const = this.fb.group({
-              boitePostal: [''],
-              email: [''],
-              pays: [''],
-              ville: [''],
-              quartier: [''],
-              adresseGeographique: [''],
-              siteWeb: ['']
-            });
+            }catch(e){
+            console.error('no adresse',e);
           }
           // this.ecoleForm = null;
+          try{
           this.ecoleForm = this.fb.group({
             id: [this.sousBlock.id],
             version: [this.sousBlock.version],
@@ -233,6 +235,9 @@ export class MonEcoleComponent implements OnInit {
             detailBlock: [this.detailBlock]
           });
           // console.log('CONV Av',this.ecoleForm.value);
+        }catch(e){
+          console.error('error form',e);
+        }
         });
   }
 

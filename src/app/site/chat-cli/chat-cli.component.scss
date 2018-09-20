@@ -140,14 +140,13 @@
 }
 .chat-header-button {
     background: transparent none repeat scroll 0 0;
-    border: 1px solid #636364;
-    border-radius: 50%;
+    border: 0px;
     font-size: 14px;
     height: 30px;
     width: 30px;
 	color:#fff;
-	border:1px solid #fefefe;
 	cursor:pointer;
+	margin:5px;
 }
 .popup-head-right .btn-group .dropdown-menu {
     border: medium none;

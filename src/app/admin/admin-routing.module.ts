@@ -59,7 +59,7 @@ const routes: Routes = [
            {path:'message', component: MessageComponent}, 
            {path:'read/:id', component: ViewMessageComponent}, 
            {path:'supprime_message', component: SupprimeMessageComponent}, 
-           {path:'repondre_message', component: RepondreMessageComponent}, 
+           {path:'repondre_message/:id', component: RepondreMessageComponent}, 
            {path: '**', component: NotFoundComponent}, 
         ]
       },

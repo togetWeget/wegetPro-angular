@@ -16,6 +16,7 @@ export class SingleBlockComponent implements OnInit {
   @Output() butonClick = new EventEmitter<Resultat<Block>>();
   defaultPhoto: any = '/assets/placeholder-image.jpg';
   @ViewChild('imagebg') imagebg: ElementRef;
+  type_block:string='';
 
   constructor(private router: Router, private dialog: MatDialog, 
     private domSanitizer: DomSanitizer) {
@@ -45,8 +46,16 @@ export class SingleBlockComponent implements OnInit {
   }
 
 	onViewBlock() {
-	    this.router.navigate(['/site/blocks', this.block.id]);
-	  }
+    this.type_block= this.block.typeBlock;
+    switch(this.type_block){
+      case "ecole":
+      this.router.navigate(['/site/espace/ecole', this.block.id]);
+      break
+      default:
+      this.router.navigate(['/site/blocks', this.block.id]);
+      break
+    }
+  }
    onSabonner() {
     this.router.navigate(['/site/abonnement', 'prix', this.block.id ]);
   }

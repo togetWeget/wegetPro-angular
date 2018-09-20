@@ -134,7 +134,7 @@ export class ImgloardComponent implements OnInit {
 
 				const dataload : any = {membre: this.infoM.InfoMembres, libelle : this.titre, description : this.description};				
 				
-				console.log("chargement...");
+				console.log(this.infoM.InfoMembres);
 				$.ajax({
 					url:'http://wegetback:8080/gallery',
 					type:'post',

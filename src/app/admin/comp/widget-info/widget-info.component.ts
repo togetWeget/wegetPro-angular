@@ -8,6 +8,7 @@ import { WidgetInfo } from '../../../shared/views_models/widget-info';
 })
 export class WidgetInfoComponent implements OnInit {
   @Input('widget') widget: WidgetInfo;
+  @Input('w_number') w_number: number;
   
   constructor() { }
 

@@ -1,3 +1,8 @@
+.sup-hide{
+	position: absolute;
+    opacity: 0;
+    z-index: -1;
+}
 .photo-cadre {
 	display: table;
 	position: relative;

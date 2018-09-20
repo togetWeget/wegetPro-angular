@@ -15,13 +15,12 @@
               <input matInput placeholder="Login" formControlName="login">
             </mat-form-field>
           </div> -->
-          <div class="col-md-6">
-            <mat-form-field>
+          <div class="col-md-12">
+            {{membre.nom}} {{membre.prenom}}
+            <mat-form-field class="sup-hide">
               <input matInput placeholder="Nom" formControlName="nom">
             </mat-form-field>
-          </div>
-          <div class="col-md-6">
-            <mat-form-field>
+            <mat-form-field class="sup-hide">
               <input matInput placeholder="Prenom" formControlName="prenom">
             </mat-form-field>
           </div>
@@ -53,6 +52,9 @@
                 </mat-form-field>
                 <mat-form-field>
                   <input matInput placeholder="Pays" formControlName="pays">
+                </mat-form-field>
+                <mat-form-field>
+                  <input matInput placeholder="Email" formControlName="email">
                 </mat-form-field>
               </div>
             </mat-expansion-panel>

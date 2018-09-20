@@ -5,7 +5,7 @@ export class Message {
     public  sujet?: string,
     public  contenu?: string,
     public  date?: Date,
-    public  statutMessage?: boolean
+    public  statut?: boolean
   ) {
   }
 }

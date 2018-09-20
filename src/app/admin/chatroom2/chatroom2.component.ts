@@ -43,27 +43,7 @@ export class Chatroom2Component implements OnInit {
   public compteurLu: any = [];
   public bool: Boolean;
   public checkmsg: any;
-  public tabCouleur = [
-							"#007bff",
-							"#6610f2",
-							"#6f42c1",
-							"#e83e8c",
-							"#dc3545",
-							"#fd7e14",
-							"#ffc107",
-							"#28a745",
-							"#20c997",
-							"#17a2b8",
-							"#6c757d",
-							"#343a40",
-							"#6c757d",
-							"#28a745",
-							"#17a2b8",
-							"#ffc107",
-							"#dc3545",
-							"#f8f9fa",
-							"#343a40"
-						];
+  public tabCouleur = ["#007bff","#6610f2","#6f42c1","#e83e8c","#dc3545","#fd7e14","#ffc107","#28a745","#20c997","#17a2b8","#6c757d","#343a40","#6c757d","#28a745","#17a2b8","#ffc107","#dc3545","#f8f9fa","#343a40"];
 	public colortab: any = [];
   constructor(public layoutComponent: LayoutComponent, public  http: HttpClient, public fb: FormBuilder, public regist: RegisterService, public firbaseRequest: RequestChatroomService, private _sanitizer: DomSanitizer) {
     this.changeVarUser(null, null, null, '#ff6d05');
@@ -146,18 +126,6 @@ export class Chatroom2Component implements OnInit {
 	  
 	  // Recuperer le tab d'emoji
 	getEmoti(){
-				
-			// let i = 0;
-			// const compteur = Object.keys(emoji.emoji).length;
-			// console.log(emoji.get(Object.keys(emoji.emoji)[2]));
-			// for(i==0; i<compteur; i++){
-						// this.Emoticones[i] = emoji.get(Object.keys(emoji.emoji)[i]);
-				// }
-				// console.log(this.Emoticones[0]);
-				// console.log(emoji.emoji);
-				
-				
-			
 
 			for(let i in emoji.emoji)
 						this.Emoticones.push(emoji.emoji[i])
@@ -182,26 +150,23 @@ export class Chatroom2Component implements OnInit {
 	// Envoi d'une discussion
   SEndDiscusion() {
 	if(this.message_ss){	
-    console.log(this.regist.InfoMembres);
     const libelle = 'Discussion';
     const code_disc = this.layoutComponent.InfoMembres.id + '_' + this.uid_receiv;
+	
     const code_disc_rec = this.uid_receiv + '_' + this.layoutComponent.InfoMembres.id;
+	
     const timerDisc = new Date().getTime();
+	
     const datesender = new Date(timerDisc).toLocaleString();
     const urlData = libelle + '/' + code_disc + '/' + timerDisc;
     const urlData_rec = libelle + '/' + code_disc_rec + '/' + timerDisc;
 	
-    const data: any = {message: this.message_ss, fichier: ' ', Date_s: datesender, codeSender: this.layoutComponent.InfoMembres.id , images: '', status : 0, idsender: this.uid_receiv};
-	
-    const data2: any = {message: this.message_ss, fichier: ' ', Date_s: datesender, codeSender: this.layoutComponent.InfoMembres.id , images: '', status : 0, idsender: this.uid_receiv};
+    const data: any = {message: this.message_ss, fichier: ' ', Date_s: datesender, codeSender: this.layoutComponent.InfoMembres.id , images: '', status : 0, idreceiver: this.uid_receiv};
 	
     this.firbaseRequest.CreateSendData( urlData, data);
     this.firbaseRequest.CreateSendData( urlData_rec, data);
-	// this.SendFile(code_disc, timerDisc, urlData);
-	// this.SendFile(code_disc_rec, timerDisc, urlData_rec);
 	this.message_ss = null;
 	$('#textMessage').focus();
-	// $(".band-droite-bas").scrollTop($(".band-droite-bas").offset().top + $(".band-droite-bas").outerHeight(true));
 	this.scrollF();
 	}
   }
@@ -224,35 +189,26 @@ export class Chatroom2Component implements OnInit {
   enterSend(param: KeyboardEvent){
 	  if(param.which === 13){
 			this.SEndDiscusion();
-			$('#textMessage').val('dsgssf');
-			// $('.sendMMM').click();
+			// $('#textMessage').val('dsgssf');
 		  } 
   }
   
   // recuperation des image a envoyé
   recuptImgs(file){
-  
-  let compt = file.target.files.length;
-  for(let i=0; i< compt; i++){
-  // alert(i);
+			let compt = file.target.files.length;
+			for(let i=0; i< compt; i++){
 				this.ImgVar[i] = this._sanitizer.bypassSecurityTrustResourceUrl(URL.createObjectURL(file.target.files[i]));  
-                // $('#blah').attr('src', URL.createObjectURL(file.target.files[i]));
-				// alert(URL.createObjectURL(file.target.files[i]));
-	  }     
-			    
-	  }
+			}     
+	}
 	  
 	  // supprimer une image avant envoi
 	  
-		RemoveItemTab(removeItem){
-		  // alert(removeItem);
-			let i = $.inArray(removeItem,this.ImgVar)
-
-			if (i >= 0){
-				this.ImgVar.splice(i, 1);
-			}
-		  
-		  }
+	RemoveItemTab(removeItem){
+		let i = $.inArray(removeItem,this.ImgVar)
+		if (i >= 0){
+			this.ImgVar.splice(i, 1);
+		}
+	}
 	  
 	  
  
@@ -283,9 +239,9 @@ export class Chatroom2Component implements OnInit {
 			const urlData2 = libelle + '/' + code_disc + '/' + valeurData[i];
 			const urlData3 = libelle + '/' + code_disc_rec + '/' + valeurData[i];
 			this.firbaseRequest.getAll(urlData2).on("value", snapshot => {
-			// alert(' uidrecever   :  ' + uid_receiv+'senderid : ' + snapshot.val().idsender +'---- codesender :  ' +  snapshot.val().codeSender);
+			// alert(' uidrecever   :  ' + uid_receiv+'senderid : ' + snapshot.val().idreceiver +'---- codesender :  ' +  snapshot.val().codeSender);
 			// alert(uid_receiv);
-					if(snapshot.val().idsender === uidreg || snapshot.val().codeSender === uidreg){
+					if(snapshot.val().idreceiver === uidreg || snapshot.val().codeSender === uidreg){
 						
 				this.messageAll[i] = snapshot.val(); 
 				let dataUpdates = {status : 1};

@@ -7,22 +7,23 @@
     								  <button class="chat-header-button" data-toggle="dropdown" type="button" aria-expanded="false">
 									   <i class="fa fa-cog"></i> </button>
 									  <ul role="menu" class="dropdown-menu pull-right">
-										<li><a href="#">Media</a></li>
-										<li><a href="#">Block</a></li>
-										<li><a href="#">Supp Chat</a></li>
-										<li><a href="#">Email Chat</a></li>
+										<li><a href="#">rechercher</a></li>
+										<li><a href="#">vider message</a></li>
 									  </ul>
 						</div>
 						
-						<button data-widget="remove" id="removeClass" class="chat-header-button pull-right" type="button"><i class="fa fa-remove"></i></button>
+					  <button data-widget="remove" id="" class="chat-header-button pull-right" type="button" (click)="desactivatechat()"><i class="fa fa-remove"></i></button>
+					  
+					  <button data-widget="remove" id="" class="chat-header-button" type="button" (click)="desactivatechat()"><i class="fa fa-window-minimize"></i></button>
+					  
                       </div>
 			  </div>
-			<div class="popup-messages">
+			<div class="popup-messages" >
     		
 			
 			
 			
-			<div class="direct-chat-messages">
+			<div class="direct-chat-messages" *ngIf="ifactivechat() === true">
                     
 					
 					<div class="chat-box-single-line">
@@ -73,6 +74,10 @@
                     
 
                   </div>
+				  
+				  <div class="direct-chat-messages" style="display:flex;" *ngIf="ifactivechat() === false">
+					<div> WegetPro chat</div>
+				  </div>
 			
 			
 			
@@ -84,12 +89,12 @@
 			
 			</div>
 			<div class="popup-messages-footer">
-			<textarea id="status_message" placeholder="Type a message..." rows="10" cols="40" name="message"></textarea>
+			<textarea id="status_message" placeholder="Type a message..." [disabled]="ifactivechat() === false? 'disabled' : '' " rows="10" cols="40" name="message"></textarea>
 			<div class="btn-footer">
-			<button class="bg_none"><i class="fa fa-film"></i> </button>
-			<button class="bg_none"><i class="fa fa-camera"></i> </button>
-            <button class="bg_none"><i class="fa fa-paperclip"></i> </button>
-			<button class="bg_none pull-right"><i class="fa fa-thumbs-up"></i> </button>
+			<button class="bg_none" [disabled]="ifactivechat() === false? 'disabled' : '' "><i class="fa fa-film"></i> </button>
+			<button class="bg_none" [disabled]="ifactivechat() === false? 'disabled' : '' "><i class="fa fa-camera"></i> </button>
+            <button class="bg_none" [disabled]="ifactivechat() === false? 'disabled' : '' "><i class="fa fa-paperclip"></i> </button>
+			<button class="bg_none pull-right" [disabled]="ifactivechat() === false? 'disabled' : '' "><i class="fa fa-thumbs-up"></i> </button>
 			</div>
 			</div>
 	  </div>

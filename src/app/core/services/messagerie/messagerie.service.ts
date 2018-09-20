@@ -15,11 +15,12 @@ import {MessageService} from '../message.service';
 export class MessagerieService {
   private message: Messagerie [] = [];
   private urlMessagerie = 'http://wegetback:8080/messageries/';
+  private urlMessagerierep = 'http://wegetback:8080/envoiemessages/';
   private urlMessages = 'http://wegetback:8080/messages/';
   private urlMessage='http://wegetback:8080/message/';
 
   messageSubject = new Subject<Messagerie[]>();
-  nonLusSubject$ = new Subject<number>();
+  nonLusSubject$ = new Subject<number>(0);
   // nonLu$: Observable<number>;
 
   constructor(private httpClient: HttpClient, private router: Router, 
@@ -27,10 +28,8 @@ export class MessagerieService {
     this.nonLusSubject$.pipe(
       debounceTime(300),
       distinctUntilChanged(),
-      switchMap((d: number) => (d)? new Observable((observer)=>{
+      switchMap(d => new Observable((observer)=>{
         observer.next(d);
-      }) : new Observable((observer)=>{
-        observer.next(0);
       }))
     );
   }
@@ -44,6 +43,19 @@ export class MessagerieService {
   }
   ajoutMessage(msg: Messagerie): Observable<Resultat<Messagerie>> {
     return this.httpClient.post<Resultat<Messagerie>>(this.urlMessagerie, msg)
+      .pipe(
+        tap(res => {
+          this.log(`messagerie ajouter avec succes : message service=${res.body}`);
+          console.log('methode du service qui ajoute un message', msg);
+        }),
+        catchError(this.handleError<Resultat<Messagerie>>('ajoutMessage'))
+      );
+
+
+  }
+
+   repondreMessage(msg: Messagerie): Observable<Resultat<Messagerie>> {
+    return this.httpClient.post<Resultat<Messagerie>>(this.urlMessagerierep, msg)
       .pipe(
         tap(res => {
           this.log(`messagerie ajouter avec succes : message service=${res.body}`);

@@ -4,6 +4,10 @@ import {MediaMatcher} from '@angular/cdk/layout';
 import {Router} from '@angular/router';
 import {RegisterService} from '../../core/services/personne/membre/register.service';
 import {PanierService} from '../../core/services/panier.service';
+import { MessagerieService } from '../../core/services/messagerie/messagerie.service';
+import { Observable } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
+import {AbonnesService} from '../../core/services/abonnes/abonnes.service';
 import {InfoMembreService} from '../../core/services/Info-membre/info-membre.service';
 import * as $ from 'jquery';
 
@@ -23,18 +27,54 @@ OnInit {
 	public InfoMembres: any = {};
 	private urlgetbyLogin = 'http://wegetback:8080/membresLogin/';
 	public stor = localStorage.getItem('togetToken');
-public storlog = localStorage.getItem('log');
+  public storlog = localStorage.getItem('log');
+  nonLu$: Observable<number>;
+  dblk: Detailblock;
+  nonLus: number = 0;
+  idPersonne:number;
+  messages: Messagerie[] = [];
 
   constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private router: Router,
-   public regist: RegisterService, public panierService: PanierService, public infoM: InfoMembreService) {
+   public regist: RegisterService, public panierService: PanierService, public infoM: InfoMembreService,
+   private messagerieService:MessagerieService, private abonneService: AbonnesService) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
 	// this.getByLogin();
 	this.infoM.getbylogin();
 	console.log(this.panierService.countPanier);
-	
+	  this.nonLu$ = this.messagerieService.nonLusSubject$;
+    this.nonLu$.subscribe();
+
+    this.abonneService.getAbonnesByLog(localStorage.getItem('log'))
+      .subscribe((res:any)=> {
+          this.dblk = res.body;    
+        console.log(res.body);
+        this.idPersonne=this.dblk[0].membre.id;
+        this.fetchBlocks();
+      });
   }
+
+  getNonLus(msgs: Messagerie[]){
+    let nonLus = 0;
+    for(let m of msgs){
+      if(m.message.statut){
+        nonLus++;
+      }
+    }
+    this.nonLus = nonLus;
+    this.messagerieService.setNonLu(this.nonLus);
+  }
+
+  fetchBlocks() {
+     this.messagerieService.getAllMessagesByAbonneId(+this.idPersonne)
+    .subscribe(res => {
+      this.messages = res.body;
+       console.log('les messages recupérés', res.body);
+    this.getNonLus(this.messages);
+    });
+  }
+
 
   ngOnDestroy(): void {
     this.mobileQuery.removeListener(this._mobileQueryListener);
