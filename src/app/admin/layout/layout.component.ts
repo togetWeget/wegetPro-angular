@@ -8,6 +8,8 @@ import { MessagerieService } from '../../core/services/messagerie/messagerie.ser
 import { Observable } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import {AbonnesService} from '../../core/services/abonnes/abonnes.service';
+import {Detailblock} from '../../shared/models/detailblock';
+import {Messagerie} from '../../shared/models/messagerie/messagerie';
 import {InfoMembreService} from '../../core/services/Info-membre/info-membre.service';
 import * as $ from 'jquery';
 

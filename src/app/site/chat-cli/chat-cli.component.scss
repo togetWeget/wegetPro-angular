@@ -4,11 +4,14 @@
     border: 1px solid #b0b0b0;
     bottom: 0;
     display: none;
-    height: 415px;
+    height: 100%;
     position: fixed;
-    right: 70px;
-    width: 300px;
+    right: 0;
+	top:0;
+    width: 350px;
     font-family: 'Open Sans', sans-serif;
+	z-index:999999999999;
+	
 }
 .round.hollow {
     margin: 40px 0 0;
@@ -36,14 +39,16 @@
     display: block !important;
 }
 .popup-box .popup-head {
-    background-color: #3f51b5;
+    background-color:#fff /*#3f51b5*/;
     clear: both;
-    color: #7b7b7b;
+    color: #aaa;
     display: inline-table;
     font-size: 21px;
     padding: 7px 10px;
     width: 100%;
      font-family: Oswald;
+	 height:60px;
+	 border-bottom: 1px solid #bbb;
 }
 .bg_none i {
     border: 1px solid #ff6701;
@@ -144,7 +149,7 @@
     font-size: 14px;
     height: 30px;
     width: 30px;
-	color:#fff;
+	color:#aaa;
 	cursor:pointer;
 	margin:5px;
 }

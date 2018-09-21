@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Messagerie} from '../../../shared/models/messagerie/messagerie';
-import {Observable, of, Subject} from 'rxjs';
+import {Observable, of, Subject, BehaviorSubject} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {Router} from '@angular/router';
 import {catchError, debounceTime, distinctUntilChanged,
@@ -20,7 +20,8 @@ export class MessagerieService {
   private urlMessage='http://wegetback:8080/message/';
 
   messageSubject = new Subject<Messagerie[]>();
-  nonLusSubject$ = new Subject<number>(0);
+  nonLusSubject$ = new BehaviorSubject<number>(0);
+  nonlu: number = 0;
   // nonLu$: Observable<number>;
 
   constructor(private httpClient: HttpClient, private router: Router, 
@@ -28,13 +29,19 @@ export class MessagerieService {
     this.nonLusSubject$.pipe(
       debounceTime(300),
       distinctUntilChanged(),
-      switchMap(d => new Observable((observer)=>{
-        observer.next(d);
-      }))
+      switchMap(d => {
+        // return Observable.of(d)
+        return new Observable<number>((observer)=>{
+          observer.next(d);
+        })
+      })
     );
   }
 
+  // returnNonLu
+
   setNonLu(nl: number){
+    this.nonlu = nl;
     this.nonLusSubject$.next(nl);
   }
 

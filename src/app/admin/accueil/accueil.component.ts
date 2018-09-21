@@ -6,6 +6,7 @@ import { Observable, Subject } from 'rxjs';
 import { switchMap, debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { Messagerie } from '../../shared/models/messagerie/messagerie';
 import { MessagerieService } from '../../core/services/messagerie/messagerie.service';
+import { Detailblock } from '../../shared/models/detailblock';
 import {AbonnesService} from '../../core/services/abonnes/abonnes.service';
 
 @Component({
@@ -21,7 +22,7 @@ export class AccueilComponent implements OnInit {
   widget4: WidgetInfo = null;
   nonLu$: Observable<number>;
   nbVues$: Observable<number>;
-  nbVueSubject$ = new Subject<number>(0);
+  nbVueSubject$ = new Subject<number>();
   messages: Messagerie[] = [];
   dblk: Detailblock;
   idPersonne:number;
@@ -34,7 +35,7 @@ export class AccueilComponent implements OnInit {
     this.nbVues$ = this.nbVueSubject$.pipe(
       debounceTime(300),
       distinctUntilChanged(),
-      switchMap(d => new Observable((observer) => {
+      switchMap(d => new Observable<number>((observer) => {
         observer.next(d)
       }))
       );
