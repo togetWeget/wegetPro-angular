@@ -1,4 +1,4 @@
-<form [formGroup]="ecoleForm" *ngIf="ecoleForm" (submit)="update()" >
+<form [formGroup]="ecoleForm" *ngIf="ecoleForm" (submit)="onSubmit()" >
 <div class="row">
 	<div class="col-md-8">
 		<mat-expansion-panel>
@@ -8,7 +8,7 @@
 		    </mat-panel-title>
 		  </mat-expansion-panel-header>
 			<div class="row">
-				<div class="col-md-6">
+				<div class="col-md-6" formGroupName="ecoleInfos">
 					<mat-form-field>
 						<input matInput placeholder="Nom établissement" formControlName="nom" />
 					</mat-form-field>
@@ -20,27 +20,6 @@
 					    </mat-option>
 					  </mat-select>
 					</mat-form-field>
-					<div formArrayName="telephones">
-						<button mat-raised-button class="btn-blue" type="button" (click)="addTelephone()">Ajouter téléphone</button>
-						<div *ngFor="let tel of telephones?.controls; let i=index;">
-							<div [formGroupName]="i">
-								<label>
-									Telephone #{{i + 1}}
-									<mat-form-field class="example-full-width">
-										<mat-select placeholder="Type telephone" formControlName="type">
-										    <mat-option *ngFor="let typ of outils.typeTelephones" [value]="typ.name">
-										      {{typ.libelle}}
-										    </mat-option>
-										  </mat-select>
-									</mat-form-field>
-								<mat-form-field>
-									<input matInput placeholder="Téléphone" formControlName="numero"/>
-									<button matSuffix mat-fab type="button" (click)="deleteTelephone(i)" ><mat-icon>delete</mat-icon></button>
-								</mat-form-field>
-								</label>
-							</div>
-						</div>
-					</div>
 				</div>
 				<div class="col-md-6" formGroupName="adresse">
 					<mat-form-field>
@@ -69,8 +48,32 @@
 
 					<mat-form-field>
 						<input matInput formControlName="siteWeb" placeholder="Site web" />
-					</mat-form-field>
-					
+					</mat-form-field>	
+				</div>
+				<div class="col-md-12">
+					<div formArrayName="telephones" class="row">
+						<div class="col-md-12">
+							<button mat-raised-button class="btn-blue" type="button" (click)="addTelephone()">Ajouter téléphone</button>
+						</div>
+						<div class="col-md-6" *ngFor="let tel of telephones?.controls; let i=index;">
+							<div [formGroupName]="i">
+								<label>
+									Telephone #{{i + 1}}
+									<mat-form-field class="example-full-width">
+										<mat-select placeholder="Type telephone" formControlName="type">
+										    <mat-option *ngFor="let typ of outils.typeTelephones" [value]="typ.name">
+										      {{typ.libelle}}
+										    </mat-option>
+										  </mat-select>
+									</mat-form-field>
+								<mat-form-field>
+									<input matInput placeholder="Téléphone" formControlName="numero"/>
+									<button matSuffix mat-fab type="button" (click)="deleteTelephone(i)" ><mat-icon>delete</mat-icon></button>
+								</mat-form-field>
+								</label>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</mat-expansion-panel>
@@ -82,7 +85,7 @@
 		    </mat-panel-title>
 		  </mat-expansion-panel-header>
 			<div class="row">
-				<div class="col-md-12">
+				<div class="col-md-12" formGroupName="ecoleInfos">
 					<textarea [froalaEditor]="editor_options" formControlName="presentation" ></textarea>
 				</div>
 			</div>
@@ -94,8 +97,34 @@
 		        Chiffres
 		      </mat-panel-title>
 		    </mat-expansion-panel-header>
-	  	  	  <button mat-raised-button class="btn-blue">Ajouter</button>
-
+	  	  	  <button mat-raised-button class="btn-blue" (click)="addChiffre()">Ajouter</button>
+					<div formArrayName="chiffres" class="row">
+						<div class="col-md-12" *ngFor="let chif of chiffres?.controls; let i=index;">
+							<div [formGroupName]="i">
+								<label>
+									Chiffre #{{i + 1}}
+									<button matSuffix mat-fab type="button" (click)="deleteChiffre(i)" ><mat-icon>delete</mat-icon></button>									
+								</label>
+								<div class="row">
+									<div class="col-md-6">
+										<mat-form-field class="example-full-width">
+											<input matInput placeholder="Titre" formControlName="titre" value="">
+										</mat-form-field>
+									</div>
+									<div class="col-md-6">
+										<mat-form-field class="example-full-width">
+											<input matInput placeholder="Chiffre" formControlName="chiffre" value="">
+										</mat-form-field>
+									</div>
+									<div class="col-md-12">
+										<mat-form-field class="example-full-width">
+											<textarea matInput placeholder="Description" formControlName="description"></textarea>
+										</mat-form-field>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 		  </mat-expansion-panel>
 
 		<mat-expansion-panel>
@@ -104,8 +133,29 @@
 		        Partenaires
 		      </mat-panel-title>
 		    </mat-expansion-panel-header>
-	  	  	  <button mat-raised-button class="btn-blue">Ajouter</button>
-
+	  	  	  <button mat-raised-button class="btn-blue" (click)="addPartenaire()">Ajouter</button>
+					<div formArrayName="partenaires" class="row">
+						<div class="col-md-12" *ngFor="let part of partenaires?.controls; let i=index;">
+							<div [formGroupName]="i">
+								<label>
+									Partenaire #{{i + 1}}
+									<button matSuffix mat-fab type="button" (click)="deletePartenaire(i)" ><mat-icon>delete</mat-icon></button>									
+								</label>
+								<div class="row">
+									<div class="col-md-6">
+										<mat-form-field class="example-full-width">
+											<input matInput placeholder="Raison Sociale" formControlName="raisonSociale" value="">
+										</mat-form-field>
+									</div>
+									<div class="col-md-6">
+										<mat-form-field class="example-full-width">
+											<input matInput placeholder="Site Web Partenaire" formControlName="siteWebPartenaire" value="">
+										</mat-form-field>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 		  </mat-expansion-panel>
 
 		<mat-expansion-panel>
@@ -114,8 +164,34 @@
 		        Témoignages
 		      </mat-panel-title>
 		    </mat-expansion-panel-header>
-	  	  	  <button mat-raised-button class="btn-blue">Ajouter</button>
-
+	  	  	  <button mat-raised-button class="btn-blue" (click)="addTemoignage()">Ajouter</button>
+					<div formArrayName="temoignages" class="row">
+						<div class="col-md-12" *ngFor="let tem of temoignages?.controls; let i=index;">
+							<div [formGroupName]="i">
+								<label>
+									Temoignage #{{i + 1}}
+									<button matSuffix mat-fab type="button" (click)="deleteTemoignage(i)" ><mat-icon>delete</mat-icon></button>									
+								</label>
+								<div class="row">
+									<div class="col-md-12">
+										<mat-form-field class="example-full-width">
+											<input matInput placeholder="Titre" formControlName="titre" value="">
+										</mat-form-field>
+									</div>
+									<div class="col-md-6">
+										<mat-form-field class="example-full-width">
+											<input matInput placeholder="Contenu" formControlName="contenu" value="">
+										</mat-form-field>
+									</div>
+									<div class="col-md-6">
+										<mat-form-field class="example-full-width">
+											<input matInput placeholder="Autheur" formControlName="auteur" value="">
+										</mat-form-field>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 		  </mat-expansion-panel>
 
 		  <mat-expansion-panel>

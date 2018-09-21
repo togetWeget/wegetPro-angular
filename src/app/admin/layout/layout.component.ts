@@ -32,9 +32,6 @@ OnInit {
   public storlog = localStorage.getItem('log');
   nonLu$: Observable<number>;
   dblk: Detailblock;
-  nonLus: number = 0;
-  idPersonne:number;
-  messages: Messagerie[] = [];
 
   constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private router: Router,
    public regist: RegisterService, public panierService: PanierService, public infoM: InfoMembreService,
@@ -52,31 +49,9 @@ OnInit {
       .subscribe((res:any)=> {
           this.dblk = res.body;    
         console.log(res.body);
-        this.idPersonne=this.dblk[0].membre.id;
-        this.fetchBlocks();
+        this.messagerieService.findNonLus(this.dblk[0].membre.id);
       });
   }
-
-  getNonLus(msgs: Messagerie[]){
-    let nonLus = 0;
-    for(let m of msgs){
-      if(m.message.statut){
-        nonLus++;
-      }
-    }
-    this.nonLus = nonLus;
-    this.messagerieService.setNonLu(this.nonLus);
-  }
-
-  fetchBlocks() {
-     this.messagerieService.getAllMessagesByAbonneId(+this.idPersonne)
-    .subscribe(res => {
-      this.messages = res.body;
-       console.log('les messages recupérés', res.body);
-    this.getNonLus(this.messages);
-    });
-  }
-
 
   ngOnDestroy(): void {
     this.mobileQuery.removeListener(this._mobileQueryListener);
@@ -118,7 +93,6 @@ OnInit {
 			// alert(this.panierService.panierdata.status);
 				this.InfoMembres = this.infoM.InfoMembres;
 				clearInterval(lhtInterval);
-
 			}
 			
 			}, 1000);

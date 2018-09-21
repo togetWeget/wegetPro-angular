@@ -14,20 +14,31 @@
 						
 					  <button data-widget="remove" id="" class="chat-header-button pull-right" type="button" (click)="desactivatechat()"><i class="fa fa-remove"></i></button>
 					  
-					  <button data-widget="remove" id="" class="chat-header-button" type="button" (click)="desactivatechat()"><i class="fa fa-ellipsis-h"></i></button>
+					  <button data-widget="remove" id="" class="chat-header-button" type="button" (click)="change();"><i class="fa fa-ellipsis-h"></i></button>
+					  
+					  <button data-widget="remove" id="" class="chat-header-button" type="button" (click)="search()" *ngIf="ifactivechat() === false"><i class="fa fa-search"></i></button>
 					  
                       </div>
 			  </div>
-			<div class="popup-messages" >
+			<div class="popup-messages">
     		
+			<div class="search" *ngIf="ifactivechat() === false" style="background:#fefefe; z-index:99999999999;  width:100%; box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2); display:none;">
+				
+				<form class="example-form">
+				  <mat-form-field class="example-full-width">
+					<input matInput placeholder="Rechercher un membre ici" value="">
+				  </mat-form-field>
+				</form>
+			</div>
 			
 			
+			<div class="direct-chat-messages" *ngIf="ifactivechat() === true && chatact.checkchange === false">
 			
-			<div class="direct-chat-messages" *ngIf="ifactivechat() === true">
+				<div  *ngFor="let val of [1,2,3,4,5,6,7,8,9]; index as i">
                     
 					
 					<div class="chat-box-single-line">
-								<abbr class="timestamp">28 septembre 2018</abbr>
+					28 septembre 2018
 					</div>
 					
 					
@@ -47,33 +58,36 @@
                       <!-- /.direct-chat-text -->
                     </div>
                     <!-- /.direct-chat-msg -->
-					
-						
-					
-					
-					<!-- Message. Default to the left -->
-                    <div class="direct-chat-msg ">
-                      <div class="direct-chat-info clearfix">
-                        <span class="direct-chat-name pull-left">autre</span>
-                      </div>
-                      <!-- /.direct-chat-info -->
-                      <img alt="iamgurdeeposahan" src="http://bootsnipp.com/img/avatars/bcf1c0d13e5500875fdd5a7e8ad9752ee16e7462.jpg" class="direct-chat-img big-round"><!-- /.direct-chat-img -->
-                      <div class="direct-chat-text">
-                       lorem ipsum dolor questy para nuero
-                      </div>
-					  <div class="direct-chat-info clearfix">
-                        <span class="direct-chat-timestamp pull-right">3.36 PM</span>
-                      </div>
-                      <!-- /.direct-chat-text -->
-                    </div>
-                    <!-- /.direct-chat-msg -->
-					
-					
-                    
+				                
+                 </div>
+            </div>
+				  
+				  <div class="direct-chat-messages" style="" *ngIf="ifactivechat() === true && chatact.checkchange === true">
 
-                    
 
-                  </div>
+			
+			
+				  
+					<div class="" style="border-bottom: 1px solid #ddd; width:100%; height:60px; padding:4px; overflow:hidden; cursor:pointer" *ngFor="let pers of memebreall; index as i" (click)="change();">
+
+							 <img alt="image" style="float:left; line-height:2.5em; margin:0 !important;" src="http://bootsnipp.com/img/avatars/bcf1c0d13e5500875fdd5a7e8ad9752ee16e7462.jpg" class="direct-chat-img" />
+
+					<div class="" style="width:auto; margin-left:5px;">
+									<div style="line-height:2.5em;">
+									<div style="max-width:190px; float:left; text-overflow: ellipsis; white-space: nowrap;overflow: hidden;">{{pers.nomComplet}}</div>
+									<div class="fa fa-circle pull-right" style="color:green; line-height:2.5em;">&nbsp;
+									
+									<a href="." (click)="false;" style="color:#ccc; font-size:10px;">il y 2min {{i}}</a>
+									
+									</div>
+										
+									</div>
+
+					</div>
+					
+					</div>
+				  </div>
+				  
 				  
 				  <div class="direct-chat-messages" style="display:flex;" *ngIf="ifactivechat() === false">
 					<div> WegetPro chat</div>

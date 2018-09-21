@@ -21,7 +21,6 @@ export class MessagerieService {
 
   messageSubject = new Subject<Messagerie[]>();
   nonLusSubject$ = new BehaviorSubject<number>(0);
-  nonlu: number = 0;
   // nonLu$: Observable<number>;
 
   constructor(private httpClient: HttpClient, private router: Router, 
@@ -38,10 +37,25 @@ export class MessagerieService {
     );
   }
 
-  // returnNonLu
+  getNonLus(msgs: Messagerie[]){
+    let nonLus = 0;
+    for(let m of msgs){
+      if(m.message.statut){
+        nonLus++;
+      }
+    }
+    this.setNonLu(nonLus);
+  }
+
+  findNonLus(idPersonne: number) {
+     this.getAllMessagesByAbonneId(idPersonne)
+    .subscribe(res => {
+    this.getNonLus(res.body);
+    });
+  }
+
 
   setNonLu(nl: number){
-    this.nonlu = nl;
     this.nonLusSubject$.next(nl);
   }
 

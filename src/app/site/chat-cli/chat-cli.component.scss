@@ -47,8 +47,9 @@
     padding: 7px 10px;
     width: 100%;
      font-family: Oswald;
-	 height:60px;
-	 border-bottom: 1px solid #bbb;
+	 height:50px;
+	 box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
+	 z-index:123456;
 }
 .bg_none i {
     border: 1px solid #ff6701;
@@ -73,14 +74,16 @@
     border: medium none;
 }
 .popup-box .popup-head .popup-head-right {
-    margin: 11px 7px 0;
+
 }
 .popup-box .popup-messages {
+overflow:hidden;
 }
 .popup-head-left img {
     border: 1px solid #7b7b7b;
     border-radius: 50%;
     width: 44px;
+	
 }
 .popup-messages-footer > textarea {
     border-bottom: 1px solid #b2b2b2 !important;
@@ -95,6 +98,7 @@
     bottom: 0;
     position: absolute;
     width: 100%;
+	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
 }
 .popup-messages-footer .btn-footer {
     overflow: hidden;
@@ -116,8 +120,10 @@
 
 .popup-box .popup-messages {
     background: #fefefe none repeat scroll 0 0;
-    height: 275px;
-    overflow: auto;
+    height: -moz-calc(100% - 150px);
+    height: -webkit-calc(100% - 150px);
+    height: calc(100% - 150px);
+    overflow: hidden;
 }
 .direct-chat-messages {
     overflow: auto;
@@ -126,11 +132,11 @@
     
 }
 .popup-messages .chat-box-single-line {
-    border-bottom: 1px solid #a4c6b5;
     height: 12px;
     margin: 7px 0 20px;
     position: relative;
     text-align: center;
+	color:#bbb;
 }
 .popup-messages abbr.timestamp {
     background: #3f9684 none repeat scroll 0 0;
@@ -146,7 +152,7 @@
 .chat-header-button {
     background: transparent none repeat scroll 0 0;
     border: 0px;
-    font-size: 14px;
+    font-size: 20px;
     height: 30px;
     width: 30px;
 	color:#aaa;
@@ -170,14 +176,14 @@
     padding: 0 11px;
 }
 .popup-messages .chat-box-single-line {
-    border-bottom: 1px solid #a4c6b5;
     height: 12px;
     margin: 7px 0 20px;
     position: relative;
     text-align: center;
+	color:#bbb;
 }
 .popup-messages .direct-chat-messages {
-    height: auto;
+    height: 100%;
 }
 .popup-messages .direct-chat-text {
     background: #dfece7 none repeat scroll 0 0;
@@ -195,7 +201,7 @@
 	font-size: 15px;
 	font-weight: 600;
 	margin: 0 0 0 49px !important;
-	color: #fff;
+	color: #aaa;
 	opacity: 0.9;
 }
 .popup-messages .direct-chat-info {
@@ -294,7 +300,7 @@
 .popup-messages .direct-chat-text {
     background: #dfece7 none repeat scroll 0 0;
     border: 1px solid #dfece7;
-    border-radius: 2px;
+    border-radius: 20px;
     color: #1f2121;
 }
 .direct-chat-text {
@@ -314,4 +320,16 @@
 		left: 2px !important;
 		width: 100% !important;
 	}
+}
+
+
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
 }

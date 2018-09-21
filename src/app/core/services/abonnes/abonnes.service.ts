@@ -1,11 +1,13 @@
 import {Injectable} from '@angular/core';
-import {Observable, of} from 'rxjs';
+import {Observable, of, Subject} from 'rxjs';
+import { switchMap, debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import {HttpClient} from '@angular/common/http';
 import {catchError, tap} from 'rxjs/operators';
 import {MessageService} from '../message.service';
 import {Resultat} from '../../../shared/models/resultat';
 import {Detailblock} from '../../../shared/models/detailblock';
 import {Abonnes} from '../../../shared/models/abonnes';
+
 
 
 @Injectable({
@@ -18,10 +20,24 @@ export class AbonnesService {
   private abonneByLogUrl = 'http://wegetback:8080/profilAbonneLogin/';
   private abonnesUrl = 'http://wegetback:8080/abonnes/';
    private abonnesComptence = 'http://wegetback:8080/rechercheParComptence/';
+  public nbVueSubject$ = new Subject<number>();
   
   
   private jwtToken = null;
   constructor(private httpClient: HttpClient, private messageService: MessageService) {
+    this.nbVueSubject$.pipe(
+    debounceTime(300),
+    distinctUntilChanged(),
+    switchMap(d => new Observable<number>((observer) => {
+      observer.next(d)
+    }))
+    );
+  }
+
+  
+
+  setNbVues(nb: number){
+    this.nbVueSubject$.next(nb);
   }
 
   getAllAbonnes(): Observable<Resultat<Abonnes[]>> {

@@ -10,10 +10,30 @@ import {ChatLiasonService} from '../../core/services/chat-liason/chat-liason.ser
 
 export class ChatCliComponent implements OnInit {
 	public chatactive : boolean;
+	public memebreall : any = [];
   constructor(public chatact: ChatLiasonService) { }
 
   ngOnInit() {
+  this.memebrealls();
+	   if( this.chatact.checkchange){
+			this.chatact.checkchange = true;
+	   }else{
+			this.chatact.checkchange = false;
+	   }
+	   
+	   console.log('val : ' + this.chatact.checkchange);
   }
+  
+  change(){
+		  if( this.chatact.checkchange == true){
+			  
+				this.chatact.checkchange = false;
+		  }else{
+				this.chatact.checkchange = true;
+		  }
+		  
+		  console.log('val : ' + this.chatact.checkchange);
+	  }
 	ifactivechat(): boolean{
 			let token = localStorage.getItem('togetToken');
 			let tokenLog = localStorage.getItem('log');
@@ -38,7 +58,7 @@ export class ChatCliComponent implements OnInit {
 				}
 			},700);
 		if(this.chatact.chatactivate == true){
-				$("#qnimate").slideToggle('slow');
+				$("#qnimate").animate({width: 'toggle'});
 			}
 			
 	}
@@ -58,9 +78,28 @@ export class ChatCliComponent implements OnInit {
 					}
 				},500);
 				if(this.chatact.chatactivate == false){
-						$("#qnimate").slideToggle('slow');
+						$("#qnimate").animate({width: 'toggle'});
 					}
 		}
 	}
 	
+	
+	search(){
+		$(".search").slideToggle();
+		}
+	
+	memebrealls(){
+	let u = this;
+		let mem = this.chatact.getinfoMembre().done(function(data) {
+			u.memebreall = data.body;
+			console.log(data);
+		  })
+		  .fail(function() {
+			console.log( "error" );
+		  })
+		  .always(function() {
+			console.log( "complete" );
+		  });
+		
+		}
 }

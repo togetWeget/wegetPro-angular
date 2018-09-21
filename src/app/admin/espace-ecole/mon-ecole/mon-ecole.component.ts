@@ -12,6 +12,9 @@ import { SousBlock } from '../../../shared/models/sous-block';
 import { Telephone } from '../../../shared/models/personne/membres/telephone';
 import { Adresse } from '../../../shared/models/adresse/adresse';
 import { Resultat } from '../../../shared/models/Resultat';
+import { Partenaire } from '../../../shared/models/partenaire';
+import { Chiffre } from '../../../shared/models/chiffre';
+import { Temoignage } from '../../../shared/models/temoignage';
 import { SousBlockService } from '../../../core/services/sous-block.service';
 import { BlockService } from '../../../core/services/blocks/block.service';
 
@@ -54,6 +57,9 @@ export class MonEcoleComponent implements OnInit {
 	ecoleForm: FormGroup;
 	id_block: number = null;
   detailBlock: Detailblock = null;
+  partenaires_: Partenaire[];
+  chiffres_: Chiffre[];
+  temoignages_: Temoignage[];
 	// block: Block = null;
   sousBlock: SousBlock;
   sousBlock$: Observable<Resultat<SousBlock>>;
@@ -64,16 +70,15 @@ export class MonEcoleComponent implements OnInit {
   	private sousBlocksS: SousBlockService, private blockS: BlockService,
     private abonnesS: AbonnesService) { 
     // this.sousBlock = new SousBlock();
-  }
-
-  ngOnInit() {
-  	// this.initForm();
     this.sousBlock$ = this.sousBlockSubject$.pipe(
       debounceTime(300),
       distinctUntilChanged(),
-      switchMap(d => this.sousBlocksS.getSousBlockByBlock(this.id_block))
+      switchMap(d => this.sousBlocksS.getSousBlockByBlock(this.detailBlock.id))
       );
+  }
 
+  ngOnInit() {
+    // this.initForm();
   	this.route.paramMap.pipe(
   		switchMap((params: ParamMap) => {
   			this.id_block = +params.get('id');
@@ -81,11 +86,17 @@ export class MonEcoleComponent implements OnInit {
   		})
   		).subscribe(
   		(data) => {
-        this.detailBlock = data.body;    
-        // this.block = this.detailBlock.block;
-
-        // this.ecoleForm.get('block').setValue(this.block);
-        this.updateForm();
+        this.detailBlock = data.body;  
+        
+        this.sousBlock$.subscribe(
+          (data) => {
+            try{
+              this.sousBlock = data.body[0];  
+              this.initForm();
+              
+            }catch(e){console.error('sousBlock');}
+          }
+          );
       }
       );
   }
@@ -96,182 +107,276 @@ export class MonEcoleComponent implements OnInit {
 
   initForm(){
     const telephonesInit = new FormArray([]);
-    let soub: SousBlock;
+    const chiffresInit = new FormArray([]);
+    const partenairesInit = new FormArray([]);
+    const temoignagesInit = new FormArray([]);
 
-    soub = this.sousBlock;
-    if (soub.telephones.length !== 0) {
-      for (const tel of soub.telephones) {
-        telephonesInit.push(
-          this.fb.group({
-            type: tel.type,
-            numero: tel.numero,
-            version: tel.version,
-            id: tel.id
-          })
-        );
+    try{
+      const teleph = this.sousBlock.telephones;
+      if(teleph.length !== 0) {
+        for(const tel of teleph){
+          telephonesInit.push(this.fb.group({
+            id: [tel.id],
+            version: [tel.version],
+            type: [tel.type],
+            numero: [tel.numero]
+          }));
+        }
       }
+    }catch(e){
+      console.error('telephones');
+    }
+    try{
+      const chiffres = this.chiffres_;
+      if(chiffres.length !== 0) {
+        for(const chif of chiffres){
+          chiffresInit.push(this.fb.group({
+            id: [chif.id],
+            version: [chif.version],
+            titre: [chif.titre],
+            chiffre: [chif.chiffre],
+            description: [chif.description],
+            id_SousBlock: [chif.id_SousBlock]
+          }));
+        }
+      }
+    }catch(e){
+      console.error('chiffres');
+    }
+    try{
+      const partenaires = this.partenaires_;
+      if(partenaires.length !== 0) {
+        for(const part of partenaires){
+          partenairesInit.push(this.fb.group({
+            id: [part.id],
+            version: [part.version],
+            raisonSociale: [part.raisonSociale],
+            siteWebPartenaire: [part.siteWebPartenaire],
+            pathLogo: [part.pathLogo],
+            id_SousBlock: [part.id_SousBlock],
+          }));
+        }
+      }
+    }catch(e){
+      console.error('partenaires');
+    }
+    try{
+      const temoignages = this.temoignages_;
+      if(temoignages.length !== 0) {
+        for(const tem of temoignages){
+          temoignagesInit.push(this.fb.group({
+            id: [tem.id],
+            version: [tem.version],
+            titre: [tem.titre],
+            contenu: [tem.contenu],
+            auteur: [tem.auteur],
+            pathPhoto: [tem.pathPhoto],
+            id_SousBlock: [tem.id_SousBlock]
+          }));
+        }
+      }
+    }catch(e){
+      console.error('temoignages');
     }
 
-    this.ecoleForm = this.fb.group({
-      id: [null],
-      version: [null],
-      nom: [''],
-      typeEtablissement: [''],
-      refSousBlock: [''],
-      presentation: [''],
-      description: [''],
-      pathPhoto: this.fb.array([
-        this.fb.control('')
-      ]),
-      pathLogo: [''],
-      adresse: this.fb.group({
-        boitePostal: [''],
-        email: [''],
-        pays: [''],
-        ville: [''],
-        quartier: [''],
-        adresseGeographique: [''],
-        siteWeb: ['']
-      }),
-      telephones: this.fb.array([
-        this.fb.group({
-            type: [''],
-            numero: [''],
-            version: [0],
-            id: [null]
-          })
-        ]),
-      // telephones: telephonesInit,
-      detailBlock: [this.detailBlock]
-    });
+    try{
+      this.ecoleForm = this.fb.group({
+        ecoleInfos: this.fb.group({
+          nom: [this.sousBlock.nom],
+          typeEtablissement: [this.sousBlock.typeEtablissement],
+          refSousBlock: [this.sousBlock.refSousBlock],
+          presentation: [this.sousBlock.presentation],
+        }),
+        adresse: this.fb.group({
+          boitePostal: [this.sousBlock.adresse.boitePostal],
+          email: [this.sousBlock.adresse.email],
+          pays: [this.sousBlock.adresse.pays],
+          ville: [this.sousBlock.adresse.ville],
+          quartier: [this.sousBlock.adresse.quartier],
+          adresseGeographique: [this.sousBlock.adresse.adresseGeographique],
+          siteWeb: [this.sousBlock.adresse.siteWeb],
+        }),
+        telephones: telephonesInit,
+        chiffres: chiffresInit,
+        partenaires: partenairesInit,
+        temoignages: temoignagesInit,
+      });
+    }catch(e){
+      this.ecoleForm = this.fb.group({
+        ecoleInfos: this.fb.group({
+          nom: [''],
+          typeEtablissement: [''],
+          refSousBlock: [''],
+          presentation: [''],
+        }),
+        adresse: this.fb.group({
+          boitePostal: [''],
+          email: [''],
+          pays: [''],
+          ville: [''],
+          quartier: [''],
+          adresseGeographique: [''],
+          siteWeb: [''],
+        }),
+        telephones: telephonesInit,
+        chiffres: chiffresInit,
+        partenaires: partenairesInit,
+        temoignages: temoignagesInit,
+      });
+      console.error('form init error');
+    }
+  }
+  
+  get telephones(){
+    return this.ecoleForm.get('telephones') as FormArray;    
   }
 
-
-  telephoneBody(){
-    return this.fb.group({
-      id: [0],
+  addTelephone(){
+    this.telephones.push(this.fb.group({
+      id: [null],
       version: [0],
       type: [''],
       numero: ['']
-    });
+    }));  
   }
 
-  convertToSousBlock(){
-    const sousBloc = new SousBlock(
-      this.ecoleForm.value.id,
-      this.ecoleForm.value.version,
-      this.ecoleForm.value.nom,
-      this.ecoleForm.value.typeEtablissement,
-      this.ecoleForm.value.refSousBlock,
-      this.ecoleForm.value.presentation,
-      this.ecoleForm.value.description,
-      this.ecoleForm.value.pathPhoto,
-      this.ecoleForm.value.pathLogo,
-      this.ecoleForm.value.adresse,
-      this.ecoleForm.value.telephones,
-      this.ecoleForm.value.detailBlock
-      );
-    return sousBloc;
+  deleteTelephone(i){
+    this.telephones.removeAt(i);
   }
 
-  updateForm(){
-    this.sousBlock$.subscribe(d => {
-          // console.log('CONV Av', d);
-          this.sousBlock = d.body[0];
-          if(d.body[0] === null || d.body[0] === undefined){
-             this.sousBlock = new SousBlock(); 
-          }
-          let adresse_const: any = null;
-          const telephonesInit = new FormArray([]);
+  get chiffres(){
+    return this.ecoleForm.get('chiffres') as FormArray;    
+  }
 
-          try{
-            let soub: SousBlock;
-            soub = this.sousBlock;
-            if (soub.telephones.length !== 0) {
-              for (const tel of soub.telephones) {
-                telephonesInit.push(
-                  this.fb.group({
-                    type: tel.type,
-                    numero: tel.numero,
-                    version: tel.version,
-                    id: tel.id
-                  })
-                );
-              }
-            }
-          }catch(e){
-            console.error('no sous block', e);
-          }
+  addChiffre(){
+    this.chiffres.push(this.fb.group({
+      id: [null],
+      version: [0],
+      titre: [''],
+      chiffre: [''],
+      description: [''],
+      id_SousBlock: ['']
+    }));  
+  }
 
-            try{
-            adresse_const = this.fb.group({
-              boitePostal: [this.sousBlock.adresse.boitePostal],
-              email: [this.sousBlock.adresse.email],
-              pays: [this.sousBlock.adresse.pays],
-              ville: [this.sousBlock.adresse.ville],
-              quartier: [this.sousBlock.adresse.quartier],
-              adresseGeographique: [this.sousBlock.adresse.adresseGeographique],
-              siteWeb: [this.sousBlock.adresse.siteWeb]
-            });
-            }catch(e){
-            console.error('no adresse',e);
-          }
-          // this.ecoleForm = null;
-          try{
-          this.ecoleForm = this.fb.group({
-            id: [this.sousBlock.id],
-            version: [this.sousBlock.version],
-            nom: [this.sousBlock.nom],
-            typeEtablissement: [this.sousBlock.typeEtablissement],
-            refSousBlock: [this.sousBlock.refSousBlock],
-            presentation: [this.sousBlock.presentation],
-            description: [this.sousBlock.description],
-            pathPhoto: this.fb.array([
-              this.fb.control('')
-            ]),
-            pathLogo: [this.sousBlock.pathLogo],
-            adresse: adresse_const,
-            telephones: telephonesInit,
-            detailBlock: [this.detailBlock]
-          });
-          // console.log('CONV Av',this.ecoleForm.value);
-        }catch(e){
-          console.error('error form',e);
+  deleteChiffre(i){
+    this.chiffres.removeAt(i);
+  }
+
+  get partenaires(){
+    return this.ecoleForm.get('partenaires') as FormArray;    
+  }
+
+  addPartenaire(){
+    this.partenaires.push(this.fb.group({
+      id: [null],
+      version: [0],
+      raisonSociale: [''],
+      siteWebPartenaire: [''],
+      pathLogo: [''],
+      id_SousBlock: ['']
+    }));  
+  }
+
+  deletePartenaire(i){
+    this.partenaires.removeAt(i);
+  }
+
+  get temoignages(){
+    return this.ecoleForm.get('temoignages') as FormArray;    
+  }
+
+  addTemoignage(){
+    this.temoignages.push(this.fb.group({
+      id: [null],
+      version: [0],
+      titre: [''],
+      contenu: [''],
+      auteur: [''],
+      pathPhoto: [''],
+      id_SousBlock: ['']
+    }));  
+  }
+
+  deleteTemoignage(i){
+    this.temoignages.removeAt(i);
+  }
+
+  onSubmit(){
+    try{
+      if(this.sousBlock === undefined){
+        this.sousBlocksS.ajoutSousBlock(this.convSousBlockNew(this.ecoleForm))
+      .subscribe(
+        (data) => {
+          this.sousBlock = data.body[0];
+          this.search();
+          
         }
-        });
+        );
+      }else{
+      this.sousBlocksS.modifierSosusBlock(this.convSousBlock(this.ecoleForm))
+      .subscribe(
+        (data) => {
+          this.sousBlock = data.body[0];
+          this.search();
+          
+        }
+      );
+      }
+    }catch(e){console.error('submit sous block');}
   }
 
-  update() {
-    this.sousBlocksS.modifierSosusBlock(this.convertToSousBlock())
-    .subscribe((data)=> {
-      this.search();
-      this.updateForm();
-    })
+  convSousBlockNew (fg: FormGroup): SousBlock{
+    return new SousBlock(
+      null,
+      0,
+      fg.value['ecoleInfos'].nom,
+      fg.value['ecoleInfos'].typeEtablissement,
+      '',
+      fg.value['ecoleInfos'].presentation,
+      '',
+      [],
+      '',
+      fg.value['adresse'],
+      fg.value['telephones'],
+      this.detailBlock
+      );
   }
-
-  get telephones(){
-    if(this.ecoleForm !== undefined || this.ecoleForm !== null){
-      return this.ecoleForm.get('telephones') as FormArray;
-    } else {
-      return null;
+  convSousBlock (fg: FormGroup): SousBlock{
+    return new SousBlock(
+      this.sousBlock.id,
+      this.sousBlock.version,
+      fg.value['ecoleInfos'].nom,
+      fg.value['ecoleInfos'].typeEtablissement,
+      this.sousBlock.refSousBlock,
+      fg.value['ecoleInfos'].presentation,
+      this.sousBlock.description,
+      this.sousBlock.pathPhoto,
+      this.sousBlock.pathLogo,
+      fg.value['adresse'],
+      fg.value['telephones'],
+      this.sousBlock.detailBlock
+      );
+  }
+  convChiffre (fg: FormGroup): Chiffre[]{
+    let chiffres: Chiffre[] = [];
+    for(const elt of fg.value['chiffres']){
+      chiffres.push(elt);
     }
+    return chiffres;
   }
-
-  addTelephone() {   
-    (<FormArray>this.ecoleForm.get('telephones')).push(
-      this.fb.group({
-        id: [null],
-        version: [0],
-        type: [''],
-        numero: ['']
-
-      })
-    );
+  convPartenaire (fg: FormGroup): Partenaire[]{
+    let partenaires: Partenaire[] = [];
+    for(const elt of fg.value['partenaires']){
+      partenaires.push(elt);
+    }
+    return partenaires;
   }
-
-  deleteTelephone(id: any){
-    this.telephones.removeAt(id);
+  convTemoignage (fg: FormGroup): Temoignage[]{
+    let temoignages: Temoignage[] = [];
+    for(const elt of fg.value['temoignages']){
+      temoignages.push(elt);
+    }
+    return temoignages;
   }
-
-
 }

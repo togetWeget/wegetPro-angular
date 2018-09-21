@@ -46,7 +46,7 @@ export class ListeMessageComponent implements OnInit {
 	    this.messages = res.body;
 	     console.log('les messages recupérés', res.body);
 	    this.maxMsg = this.messages.length;
-		this.getNonLus(this.messages);
+		this.messagerieService.getNonLus(this.messages);
 	  });
 	}
 
@@ -72,27 +72,17 @@ export class ListeMessageComponent implements OnInit {
 			)
 		this.messagerieService.changeStatusMessage(msg)
 		.subscribe(res => {
-		    this.messagerieService.getAllMessagesByAbonneId(+this.idPersonne)
-				.subscribe(res => {
-			    this.messages = res.body;
-			     console.log('les messages recupérés', res.body);
-			    this.maxMsg = this.messages.length;
-				this.getNonLus(this.messages);
+		    this.messagerieService.findNonLus(+this.idPersonne);
+				// .subscribe(res => {
+			 //    this.messages = res.body;
+			 //     console.log('les messages recupérés', res.body);
+			 //    this.maxMsg = this.messages.length;
+				// this.getNonLus(this.messages);
+			 //  });
 		    	this.router.navigate([`/admin/messagerie/read/${msg.message.id}`]);
-			  });
       // this.message = res.body;
       console.log(res);
     });
 	}
 
-	getNonLus(msgs: Messagerie[]){
-		let nonLus = 0;
-		for(let m of msgs){
-			if(m.message.statut){
-				nonLus++;
-			}
-		}
-		this.nonLus = nonLus;
-		this.messagerieService.setNonLu(this.nonLus);
-	}
 }

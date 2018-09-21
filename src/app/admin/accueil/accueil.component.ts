@@ -22,23 +22,13 @@ export class AccueilComponent implements OnInit {
   widget4: WidgetInfo = null;
   nonLu$: Observable<number>;
   nbVues$: Observable<number>;
-  nbVueSubject$ = new Subject<number>();
-  messages: Messagerie[] = [];
   dblk: Detailblock;
-  idPersonne:number;
-  nonLus: number = 0;
   nbVues: number = 0;
 
   constructor(private messagerieService:MessagerieService,
     private abonneService: AbonnesService) {
     this.nonLu$ = this.messagerieService.nonLusSubject$;
-    this.nbVues$ = this.nbVueSubject$.pipe(
-      debounceTime(300),
-      distinctUntilChanged(),
-      switchMap(d => new Observable<number>((observer) => {
-        observer.next(d)
-      }))
-      );
+    this.nbVues$ = this.abonneService.nbVueSubject$;
     this.nonLu$.subscribe();
     this.nbVues$.subscribe();
   	this.top_zone = new AdminTopZone (
@@ -70,34 +60,10 @@ export class AccueilComponent implements OnInit {
       .subscribe((res:any)=> {
           this.dblk = res.body;    
           this.nbVues = this.dblk[0].nombreVue;
-          this.setNbVues(this.nbVues);
-        this.idPersonne=this.dblk[0].membre.id;
-        this.fetchBlocks();
+          this.abonneService.setNbVues(this.nbVues);
+        this.messagerieService.findNonLus(this.dblk[0].membre.id);
       });
       
-  }
-
-  setNbVues(nb: number){
-    this.nbVueSubject$.next(nb);
-  }
-
-  fetchBlocks() {
-     this.messagerieService.getAllMessagesByAbonneId(+this.idPersonne)
-    .subscribe(res => {
-      this.messages = res.body;
-    this.getNonLus(this.messages);
-    });
-  }
-
-  getNonLus(msgs: Messagerie[]){
-    let nonLus = 0;
-    for(let m of msgs){
-      if(m.message.statut){
-        nonLus++;
-      }
-    }
-    this.nonLus = nonLus;
-    this.messagerieService.setNonLu(this.nonLus);
   }
 
   ngOnInit() {
