@@ -7,11 +7,17 @@ export class ChatLiasonService {
 	public chatactivate : boolean;
 	public chatinfo : any = {};
 	public checkchange: boolean;
-	
+	public miximaze : boolean;
 	public photo: any;
 	public nom: any;
 	public id: any;
-  constructor() {}
+  constructor() {
+	  // this.photo= null;
+	  // this.nom= null;
+	  // this.id= null;
+	  // this.checkchange= false;
+	  
+	  }
   
 	getboolean(){
 	  this.chatactivate = false

@@ -17,6 +17,7 @@ import { NgHttpLoaderModule } from 'ng-http-loader';
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 import { ToastrModule } from 'ngx-toastr';
 import {NgxMaskModule} from 'ngx-mask';
+import { OwlModule } from 'ngx-owl-carousel';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material';
 // import { TinymceModule } from 'angular2-tinymce';
@@ -44,6 +45,7 @@ import {MatInputModule} from '@angular/material';
     FroalaViewModule.forRoot(),
     ToastrModule.forRoot(),
     NgxMaskModule.forRoot(),
+    OwlModule,
     BrowserAnimationsModule
   ],
   entryComponents: [

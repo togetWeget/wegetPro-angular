@@ -1,6 +1,15 @@
 <div class="carousel js-carousel">
 	<div class="carousel__container js-carousel-container">
 		<div class="carousel__list js-carousel-list">
+			<!--div *ngFor="let abonne of abonneFlash" class="carousel__item js-carousel-item">
+				<mat-card (click)="onViewProfileAbonne(abonne)" style="cursor: pointer;">
+	                <img src="{{abonne.membre.pathPhoto}}" alt="1 slide" mat-card-image style="height: 200px;">
+	                <mat-card-content>
+	                  <mat-card-title>{{abonne.membre?.nomComplet}}</mat-card-title>
+	                  {{abonne.membre?.cvPersonne?.specialite}}
+	                </mat-card-content>
+	            </mat-card>
+			</div-->
 			<div *ngFor="let az of [0,1,2,3,4,5,6,7,8,9]; let i=index;" class="carousel__item js-carousel-item">
 				<mat-card>
                 <img src="assets/photo/11-700x467.jpg" alt="1 slide" mat-card-image>

@@ -1,7 +1,20 @@
 
-<div class="popup-box chat-popup " id="qnimate">
+<div class="popup-box chat-popup popup-box-max" id="qnimate">
     		  <div class="popup-head">
-				<div class="popup-head-left pull-left" style="color:#aaa; border-color:#fefefe;"><img src="" alt="D"> Djouekan</div>
+				<div class="popup-head-left pull-left" *ngIf="chatact.checkchange === false" style="color:#aaa; border-color:#fefefe;"> 
+				
+				<div [ngStyle]="{'background-image': 'url(' + chatact.photo ? chatact.photo : 'assets/photo/avatar.jpg'  + ')'}" class="img-r"></div>
+				
+					<div class="break" style="line-height:2.5em;" title="">{{chatact.nom}}</div>
+					
+				</div>
+				
+				
+				<div class="popup-head-left pull-left" *ngIf="chatact.checkchange === true" style="color:#aaa; border-color:#fefefe;"> 
+
+					<div class="break" style="line-height:2.5em;" title="">WegetPro Chat live</div>
+					
+				</div>
 					  <div class="popup-head-right pull-right">
 						<!-- <div class="btn-group"> -->
     								  <!-- <button class="chat-header-button" data-toggle="dropdown" type="button" aria-expanded="false"> -->
@@ -14,15 +27,19 @@
 						
 					  <button data-widget="remove" id="" class="chat-header-button pull-right" type="button" (click)="desactivatechat()"><i class="fa fa-remove"></i></button>
 					  
-					  <button data-widget="remove" id="" class="chat-header-button" type="button" (click)="change();"><i class="fa fa-ellipsis-h"></i></button>
+					  <button data-widget="" id="" class="chat-header-button pull-right" *ngIf="chatact.miximaze === true" type="button" (click)="maximin()"><i class="fa fa-window-minimize"></i></button>
 					  
-					  <button data-widget="remove" id="" class="chat-header-button" type="button" (click)="search()" *ngIf="ifactivechat() === false"><i class="fa fa-search"></i></button>
+					  <button data-widget="" id="" class="chat-header-button pull-right" *ngIf="chatact.miximaze === false" type="button" (click)="maximin()"><i class="fa fa-window-maximize"></i></button>
+					  
+					  <button data-widget="remove" id="" class="chat-header-button" type="button" *ngIf="chatact.checkchange === false" (click)="change();"><i class="fa fa-ellipsis-h"></i></button>
+					  
+					  <button data-widget="" id="" class="chat-header-button" type="button" (click)="search()" *ngIf="ifactivechat() === true && chatact.checkchange === true"><i class="fa fa-search"></i></button>
 					  
                       </div>
 			  </div>
 			<div class="popup-messages">
     		
-			<div class="search" *ngIf="ifactivechat() === false" style="background:#fefefe; z-index:99999999999;  width:100%; box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2); display:none;">
+			<div class="search" *ngIf="ifactivechat() === true" style="background:#fefefe; z-index:99999999999;  width:100%; box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2); display:none;">
 				
 				<form class="example-form">
 				  <mat-form-field class="example-full-width">
@@ -32,7 +49,7 @@
 			</div>
 			
 			
-			<div class="direct-chat-messages" *ngIf="ifactivechat() === true && chatact.checkchange === false">
+			<div class="direct-chat-messages" *ngIf="ifactivechat() === true && chatact.checkchange === false && chatact.id !== null">
 			
 				<div  *ngFor="let val of [1,2,3,4,5,6,7,8,9]; index as i">
                     
@@ -68,9 +85,9 @@
 			
 			
 				  
-					<div class="" style="border-bottom: 1px solid #ddd; width:100%; height:60px; padding:4px; overflow:hidden; cursor:pointer" *ngFor="let pers of memebreall; index as i" (click)="change();">
+					<div class="" style="border-bottom: 1px solid #ddd; width:100%; height:60px; padding:4px; overflow:hidden; cursor:pointer" *ngFor="let pers of memebreall; index as i" (click)="changeval(pers.pathPhoto, pers.nomComplet, pers.id);">
 
-							 <img alt="image" style="float:left; line-height:2.5em; margin:0 !important;" src="http://bootsnipp.com/img/avatars/bcf1c0d13e5500875fdd5a7e8ad9752ee16e7462.jpg" class="direct-chat-img" />
+							 <img alt="image" style="float:left; line-height:2.5em; margin:0 !important;" src="{{pers.pathPhoto}}" class="direct-chat-img" />
 
 					<div class="" style="width:auto; margin-left:5px;">
 									<div style="line-height:2.5em;">
@@ -102,7 +119,7 @@
 			
 			
 			</div>
-			<div class="popup-messages-footer">
+			<div class="popup-messages-footer" *ngIf="chatact.checkchange === false">
 			<textarea id="status_message" placeholder="Type a message..." [disabled]="ifactivechat() === false? 'disabled' : '' " rows="10" cols="40" name="message"></textarea>
 			<div class="btn-footer">
 			<button class="bg_none" [disabled]="ifactivechat() === false? 'disabled' : '' "><i class="fa fa-film"></i> </button>

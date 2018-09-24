@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute, ParamMap, Router} from '@angular/router';
+import { AbonnesService } from '../../core/services/abonnes/abonnes.service';
+import { Detailblock } from '../../shared/models/detailblock';
 import * as $ from 'jquery';
 
 
@@ -8,10 +11,12 @@ import * as $ from 'jquery';
   styleUrls: ['./carousel-site.component.scss']
 })
 export class CarouselSiteComponent implements OnInit {
-
-  constructor() { }
+  
+  abonneFlash: Detailblock[]=[];
+  constructor(private abonnesService: AbonnesService, private router: Router) { }
 
   ngOnInit() {
+  	//this.fetchAbonneFlash();
   	$(document).ready(() => {
 	  	$(".js-carousel").each(function(){
 		var $carousel = $(this),
@@ -53,5 +58,13 @@ export class CarouselSiteComponent implements OnInit {
 	});
   	});
   }
-
+  fetchAbonneFlash(){
+  	this.abonnesService.getAllAbonnes()
+      .subscribe(data => {
+        this.abonneFlash = data.body;
+      });
+  }
+  onViewProfileAbonne(ab: any) {
+	this.router.navigate(['/site/abonnes', 'profile', ab.id]);
+  }
 }

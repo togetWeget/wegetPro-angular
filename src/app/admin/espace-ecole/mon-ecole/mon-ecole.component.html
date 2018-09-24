@@ -1,3 +1,5 @@
+<!-- {{ecoleForm | json}} -->
+
 <form [formGroup]="ecoleForm" *ngIf="ecoleForm" (submit)="onSubmit()" >
 <div class="row">
 	<div class="col-md-8">
@@ -53,7 +55,7 @@
 				<div class="col-md-12">
 					<div formArrayName="telephones" class="row">
 						<div class="col-md-12">
-							<button mat-raised-button class="btn-blue" type="button" (click)="addTelephone()">Ajouter téléphone</button>
+							<button mat-raised-button type="button" class="btn-blue" type="button" (click)="addTelephone()">Ajouter téléphone</button>
 						</div>
 						<div class="col-md-6" *ngFor="let tel of telephones?.controls; let i=index;">
 							<div [formGroupName]="i">
@@ -97,7 +99,7 @@
 		        Chiffres
 		      </mat-panel-title>
 		    </mat-expansion-panel-header>
-	  	  	  <button mat-raised-button class="btn-blue" (click)="addChiffre()">Ajouter</button>
+	  	  	  <button mat-raised-button type="button" class="btn-blue" (click)="addChiffre()">Ajouter</button>
 					<div formArrayName="chiffres" class="row">
 						<div class="col-md-12" *ngFor="let chif of chiffres?.controls; let i=index;">
 							<div [formGroupName]="i">
@@ -133,7 +135,7 @@
 		        Partenaires
 		      </mat-panel-title>
 		    </mat-expansion-panel-header>
-	  	  	  <button mat-raised-button class="btn-blue" (click)="addPartenaire()">Ajouter</button>
+	  	  	  <button mat-raised-button type="button" class="btn-blue" (click)="addPartenaire()">Ajouter</button>
 					<div formArrayName="partenaires" class="row">
 						<div class="col-md-12" *ngFor="let part of partenaires?.controls; let i=index;">
 							<div [formGroupName]="i">
@@ -164,7 +166,7 @@
 		        Témoignages
 		      </mat-panel-title>
 		    </mat-expansion-panel-header>
-	  	  	  <button mat-raised-button class="btn-blue" (click)="addTemoignage()">Ajouter</button>
+	  	  	  <button mat-raised-button type="button" class="btn-blue" (click)="addTemoignage()">Ajouter</button>
 					<div formArrayName="temoignages" class="row">
 						<div class="col-md-12" *ngFor="let tem of temoignages?.controls; let i=index;">
 							<div [formGroupName]="i">

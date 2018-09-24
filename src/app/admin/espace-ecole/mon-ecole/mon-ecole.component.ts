@@ -17,6 +17,7 @@ import { Chiffre } from '../../../shared/models/chiffre';
 import { Temoignage } from '../../../shared/models/temoignage';
 import { SousBlockService } from '../../../core/services/sous-block.service';
 import { BlockService } from '../../../core/services/blocks/block.service';
+import { ChiffreService } from '../../../core/services/chiffre.service';
 
 import * as $ from 'jquery';
 window["$"] =$;
@@ -68,7 +69,7 @@ export class MonEcoleComponent implements OnInit {
   constructor(private outils: OutilsService, private fb: FormBuilder,
   	private router: Router, private route: ActivatedRoute, 
   	private sousBlocksS: SousBlockService, private blockS: BlockService,
-    private abonnesS: AbonnesService) { 
+    private abonnesS: AbonnesService, private chiffresS: ChiffreService) { 
     // this.sousBlock = new SousBlock();
     this.sousBlock$ = this.sousBlockSubject$.pipe(
       debounceTime(300),
@@ -127,7 +128,7 @@ export class MonEcoleComponent implements OnInit {
       console.error('telephones');
     }
     try{
-      const chiffres = this.chiffres_;
+      const chiffres = this.sousBlock.chiffre;
       if(chiffres.length !== 0) {
         for(const chif of chiffres){
           chiffresInit.push(this.fb.group({
@@ -144,7 +145,7 @@ export class MonEcoleComponent implements OnInit {
       console.error('chiffres');
     }
     try{
-      const partenaires = this.partenaires_;
+      const partenaires = this.sousBlock.partenaire;
       if(partenaires.length !== 0) {
         for(const part of partenaires){
           partenairesInit.push(this.fb.group({
@@ -161,7 +162,7 @@ export class MonEcoleComponent implements OnInit {
       console.error('partenaires');
     }
     try{
-      const temoignages = this.temoignages_;
+      const temoignages = this.sousBlock.temoignage;
       if(temoignages.length !== 0) {
         for(const tem of temoignages){
           temoignagesInit.push(this.fb.group({
@@ -255,7 +256,7 @@ export class MonEcoleComponent implements OnInit {
       titre: [''],
       chiffre: [''],
       description: [''],
-      id_SousBlock: ['']
+      sousBlock: [this.sousBlock]
     }));  
   }
 
@@ -274,7 +275,7 @@ export class MonEcoleComponent implements OnInit {
       raisonSociale: [''],
       siteWebPartenaire: [''],
       pathLogo: [''],
-      id_SousBlock: ['']
+      id_SousBlock: [this.sousBlock.id]
     }));  
   }
 
@@ -294,7 +295,7 @@ export class MonEcoleComponent implements OnInit {
       contenu: [''],
       auteur: [''],
       pathPhoto: [''],
-      id_SousBlock: ['']
+      id_SousBlock: [this.sousBlock.id]
     }));  
   }
 
@@ -317,7 +318,14 @@ export class MonEcoleComponent implements OnInit {
       this.sousBlocksS.modifierSosusBlock(this.convSousBlock(this.ecoleForm))
       .subscribe(
         (data) => {
-          this.sousBlock = data.body[0];
+          // this.sousBlock = data.body[0];
+          // let chiffres = this.convChiffre(this.ecoleForm);
+          // for(let chiffre of chiffres){
+          //   // chiffre.setSousBlock(this.sousBlock);
+          //   this.chiffresS.ajoutChiffre(chiffre).subscribe();
+          // }
+          // 
+          console.log("SOUS BLOCK", this.sousBlock);
           this.search();
           
         }
@@ -339,7 +347,10 @@ export class MonEcoleComponent implements OnInit {
       '',
       fg.value['adresse'],
       fg.value['telephones'],
-      this.detailBlock
+      this.detailBlock,
+      [],
+      [],
+      []
       );
   }
   convSousBlock (fg: FormGroup): SousBlock{
@@ -355,7 +366,10 @@ export class MonEcoleComponent implements OnInit {
       this.sousBlock.pathLogo,
       fg.value['adresse'],
       fg.value['telephones'],
-      this.sousBlock.detailBlock
+      this.sousBlock.detailBlock,
+      fg.value['chiffres'],
+      fg.value['partenaires'],
+      fg.value['temoignages']
       );
   }
   convChiffre (fg: FormGroup): Chiffre[]{

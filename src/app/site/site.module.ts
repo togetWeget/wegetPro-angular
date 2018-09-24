@@ -49,6 +49,7 @@ import { ChatCliComponent } from './chat-cli/chat-cli.component';
 import { CategorieEcoleComponent } from './ecole/categorie-ecole/categorie-ecole.component';
 import { ListeEcoleComponent } from './ecole/liste-ecole/liste-ecole.component';
 import { PageEcoleComponent } from './ecole/page-ecole/page-ecole.component';
+import { OwlCarouselComponent } from './owl-carousel/owl-carousel.component';
 
 
 // Configs 
@@ -109,7 +110,8 @@ export function getAuthServiceConfigs() {
     ChatCliComponent,
     CategorieEcoleComponent,
     ListeEcoleComponent,
-    PageEcoleComponent
+    PageEcoleComponent,
+    OwlCarouselComponent
   ],
   exports: [LayoutComponent],
   schemas: [NO_ERRORS_SCHEMA]

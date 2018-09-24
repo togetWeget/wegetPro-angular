@@ -21,7 +21,12 @@ export class ChatCliComponent implements OnInit {
 			this.chatact.checkchange = false;
 	   }
 	   
-	   console.log('val : ' + this.chatact.checkchange);
+	   
+
+			this.chatact.miximaze = true;
+	  
+	   
+	   // console.log('val : ' + this.chatact.checkchange);
   }
   
   change(){
@@ -32,7 +37,7 @@ export class ChatCliComponent implements OnInit {
 				this.chatact.checkchange = true;
 		  }
 		  
-		  console.log('val : ' + this.chatact.checkchange);
+		  // console.log('val : ' + this.chatact.checkchange);
 	  }
 	ifactivechat(): boolean{
 			let token = localStorage.getItem('togetToken');
@@ -102,4 +107,28 @@ export class ChatCliComponent implements OnInit {
 		  });
 		
 		}
+		
+		changeval(photo, nom, id){
+				this.chatact.photo = photo;
+				this.chatact.nom = nom;
+				this.chatact.id = id;
+				console.log(this.chatact.photo);
+				console.log(this.chatact.nom);
+				console.log(this.chatact.id);
+				this.chatact.checkchange = false;
+			}
+			
+		maximin(){
+						
+			if(this.chatact.miximaze == true){
+				this.chatact.miximaze = false;
+			  $('#qnimate').removeClass('popup-box-max');
+			  $('#qnimate').addClass('popup-box-min');
+		  }else{
+				
+				this.chatact.miximaze = true;
+			  $('#qnimate').removeClass('popup-box-min');
+			  $('#qnimate').addClass('popup-box-max');
+		  }
+			}
 }
