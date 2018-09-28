@@ -90,6 +90,8 @@ width:70%;
   margin-right:5px;
   float:left;
   background-size: cover !important;
+border:1px solid #f2f2f2;
+background-position:top center;
 }
 
 .img-g-rond{
@@ -98,6 +100,8 @@ width:70%;
   border-radius: 100%;
   margin-right:5px;
   float:left;
+  border:1px solid #f2f2f2;
+background-position:top center;
 }
 .break_word {
   text-overflow: ellipsis;
@@ -172,6 +176,7 @@ width:70%;
   background:#09c;
   border-radius: 10px;
   padding:5px;
+  color:#fff;
   word-wrap: break-word;
 }
 
@@ -180,6 +185,9 @@ width:70%;
   height:50px;
   border-radius: 100%;
   margin-right:5px;
+  background-size:cover;
+  border:1px solid #f2f2f2;
+  background-position:top center;
 }
 
 .default-frm p{

@@ -1,6 +1,6 @@
 import {NgModule, NO_ERRORS_SCHEMA} from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import {FilterPipe} from './chat-cli/Filtermembre.pipe';
 import { SiteRoutingModule } from './site-routing.module';
 import { AccueilComponent } from './accueil/accueil.component';
 import { LayoutComponent } from './layout/layout.component';
@@ -50,7 +50,8 @@ import { CategorieEcoleComponent } from './ecole/categorie-ecole/categorie-ecole
 import { ListeEcoleComponent } from './ecole/liste-ecole/liste-ecole.component';
 import { PageEcoleComponent } from './ecole/page-ecole/page-ecole.component';
 import { OwlCarouselComponent } from './owl-carousel/owl-carousel.component';
-
+import { FilterPipeModule} from 'ngx-filter-pipe';
+import { SingleEcoleComponent } from './ecole/single-ecole/single-ecole.component';
 
 // Configs 
 export function getAuthServiceConfigs() {
@@ -79,6 +80,7 @@ export function getAuthServiceConfigs() {
     SiteRoutingModule,
 	SocialLoginModule,
 	FormsModule,
+	FilterPipeModule,
     ReactiveFormsModule
   ],
   providers: [{provide: AuthServiceConfig, useFactory: getAuthServiceConfigs}],
@@ -111,7 +113,9 @@ export function getAuthServiceConfigs() {
     CategorieEcoleComponent,
     ListeEcoleComponent,
     PageEcoleComponent,
-    OwlCarouselComponent
+    OwlCarouselComponent,
+	FilterPipe,
+	SingleEcoleComponent
   ],
   exports: [LayoutComponent],
   schemas: [NO_ERRORS_SCHEMA]

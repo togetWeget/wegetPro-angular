@@ -151,8 +151,8 @@ export class MonEcoleComponent implements OnInit {
           partenairesInit.push(this.fb.group({
             id: [part.id],
             version: [part.version],
-            raisonSociale: [part.raisonSociale],
-            siteWebPartenaire: [part.siteWebPartenaire],
+            raisonSocial: [part.raisonSocial],
+            sieWebPatenaire: [part.sieWebPatenaire],
             pathLogo: [part.pathLogo],
             id_SousBlock: [part.id_SousBlock],
           }));
@@ -272,8 +272,8 @@ export class MonEcoleComponent implements OnInit {
     this.partenaires.push(this.fb.group({
       id: [null],
       version: [0],
-      raisonSociale: [''],
-      siteWebPartenaire: [''],
+      raisonSocial: [''],
+      sieWebPatenaire: [''],
       pathLogo: [''],
       id_SousBlock: [this.sousBlock.id]
     }));  

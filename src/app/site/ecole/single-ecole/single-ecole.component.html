@@ -1,0 +1,27 @@
+<mat-card class="ecole-card">
+	<div class="ecole-card-image">
+	  	<div class="ecole-meta-holder">
+	    	<div class="ecole-status" title="discuter avec le ecole"></div>          
+	  	</div>    
+	  	<a href="#" rel="bookmark"> 
+	    	<img src="" alt="user-image" class="ecole_photo">
+	  	</a> 
+	</div>
+	<mat-card-content class="ecole-card-content">
+	  	<div class="meta" style="background-color: #efefef;"> 
+	        <span class="ecole-profile-views"><i class="fa fa-eye"></i>&nbsp;&nbsp;{{ecole.nbView}}</span> 
+	        <span class="ecole-pays pull-right"><i class="fa fa-map-marker"></i>&nbsp;&nbsp;{{ecole.pays}}</span> 
+	  	</div>      
+	  	<div class="name">{{ecole.name}}</div>
+	  	<div class="contact">
+	  		<span><i class="fa fa-phone"></i>&nbsp;{{ecole.tel}}</span>
+	  		&nbsp;/&nbsp;
+	  		<span><i class="fa fa-mobile"></i>&nbsp;{{ecole.mobile}}</span> 
+	  	</div>            
+	</mat-card-content>
+	<mat-card-actions>
+	  	<button mat-raised-button color="warn" class="mat-button" (click)="onViewEcole();">Profile</button>
+            <span class="space-card"></span>
+        <button mat-raised-button color="primary" class="mat-button" (click)="onContactEcole();">Contacter</button>
+	</mat-card-actions>
+</mat-card>

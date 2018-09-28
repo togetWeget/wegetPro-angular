@@ -1,102 +1,61 @@
-.container {
+.container{
+    margin-top: 15px;
+}
+.cat-item{
+	margin-bottom: 25px;
+}
+.img-survol{
+  height: 100%;
+  opacity: 2;
+  display: block;
+  width: 100%;
+  transition: .5s ease;
+  backface-visibility: hidden;
+  color: black;
+}
+.col-md-3{
+  background-color: rgb(127, 255, 255);
+
     
- 
-
+}
+.text-image{
+  transition: .5s ease;
+  opacity: 0.5;
+  position: absolute;
+  text-align: center;	
+  }
+.cat-item:hover .img-survol{
+  opacity: 0.5;
   
-
-
-* {
-    box-sizing: border-box;
+    
 }
+.cat-item:hover .text-image{
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    opacity:30;
+    display:inline-block;
+    color:black;
+    padding: 0em;
+    border-radius:2px;
+    transition:.2s;
+  }
 
-body {
-    margin: 20%;
-    font-family: Arial;
-}
+.text {
+  position:absolute;
+  left:0;
+  right:0;
+  padding:0%;
+  font-size:18px;
+  }
 
-/* The grid: Four equal columns that floats next to each other */
-.column {
-    float: left;
-    width: 25%;
-    padding: 10px;
-}
-
-/* Style the images inside the grid */
-.column img {
-    opacity: 0.8; 
-    cursor: pointer;
-    width: 50%;
-    height: 100%; 
-}
-
-.column img:hover {
-    opacity: 1;
-}
-
-/* Clear floats after the columns */
-.row:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-/* The expanding image container */
-.container {
-    position: relative;
-    display: none;
-}
-
-/* Expanding image text */
-#imgtext {
-    position: absolute;
-    bottom: 15px;
-    left: 15px;
-    color: blueviolet;
-    font-size: 20px;
-}
-
-/* Closable button inside the expanded image */
-.closebtn {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    color: white;
-    font-size: 35px;
-    cursor: pointer;
-}
-
-/* Right column */
-.rightcolumn {
-    float: left;
-    width: 25%;
-    padding-left: 20px;
-}
-/* Add a card effect for articles */
-.card {
-    background-color: white;
-    padding: 20px;
-    margin-top: 20px;
-}
-
-@media screen and (max-width: 800px) {
-    .leftcolumn, .rightcolumn {   
-        width: 100%;
-        padding: 0;
-    }
-}
-/* Fake image */
-.fakeimg {
-    background-color: #aaa;
-    width: 100%;
-    padding: 20px;
-}
-
-/* Left column */
-.leftcolumn {   
-    float: left;
-    width: 75%;
+a{
+ color:white;
+  opacity:0.5;
+  text-align: center;
+  font-size: 16px;
+  opacity:6;
 
 }
 
-
-}

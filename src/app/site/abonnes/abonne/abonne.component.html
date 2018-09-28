@@ -1,7 +1,7 @@
 <mat-card class="abonnes-items">
     <!--img mat-card-image src="{{abonne.personne.pathPhoto}}" alt="Image de couverture " class="img-fluid"-->
     <div class="imagebg" #imagebg></div>
-    <mat-card-header style="width: 100%;">
+    <div style="width: 100%;">
         <div class="abonne-holder">
             <div class="abonne-exp">{{abonne?.membre?.cvPersonne?.anneExperience}} d'expérience</div>
             <div [ngClass]="{'abonne-statut': true,
@@ -11,7 +11,7 @@
               	<i class="fa fa-comment"></i>
            	</div>
         </div>
-    </mat-card-header>
+    </div>
     <mat-card-content>
         <div class="abonne-meta">
             <div class="abonne-profil-view"><i class="fa fa-eye"></i> {{nombredevue}}</div>

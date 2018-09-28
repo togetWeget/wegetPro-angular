@@ -1,71 +1,48 @@
-
-
-
 <div class="container">
-   <div class="leftcolumn">
-      <div class="row">
-          <div class="column">
+  <div class="row">
+    <div class="col-md-12 col-lg-9 ">
+      <div class="container-fluid">
+        <div class="row">
+
+          <div class="col-sm-6 col-md-6 col-lg-4 col-12 cat-item" *ngFor="let cat of categorie">
               <a target="_blank" href="">
-            <img src="http://toget.ibemscreative.com/images/blocks/block7/cat1.jpg" alt="100%x200" style="width:100%">
-                    Garderie, Maternel  
-              </a>
-          </div>
-          <br>
-          <div class="column">
-              <a target="_blank" href="">
-            <img src="http://toget.ibemscreative.com/images/blocks/block7/cat2.jpg" alt="100%x200" style="width:100%">
-                    Lycée 
-                </a>
-          </div>
-          <br>
-          <div class="column">
-              <a target="_blank" href="">
-            <img src="http://toget.ibemscreative.com/images/blocks/block7/cat3.jpg" alt="100%x200" style="width:100%">
-                    Universitée et grande école
-              </a>
-          </div>
-          <br>
-          <div class="column">
-              <a target="_blank" href="">
-            <img src="http://toget.ibemscreative.com/images/blocks/block7/cat1.jpg" alt="100%x200" style="width:100%">
-                    Primaire
-              </a>
+              <img src="{{cat.img}}" alt="100%x200" class="img-survol">
+             
+              <div class="text">
+                <div class="text-image">
+                  {{cat.libelle}}
+                </div>
+              </div>
+            </a>
           </div>
 
-          <div class="column">
-              <a target="_blank" href="">
-            <img src="http://toget.ibemscreative.com/images/blocks/block7/cat2.jpg" alt="100%x200" style="width:100%">
-                          collège
-              </a>
-          </div>
-
-          <div class="column">
-              <a target="_blank" href="">
-            <img src="http://toget.ibemscreative.com/images/blocks/block7/cat4.jpg" alt="100%x200" style="width:100%">
-                    Cabinet et centre de formation
-              </a>
-          </div>
         </div>
-        </div>
-       
-
-
-        <div class="rightcolumn">
-            <div class="card">
-              <h2>About Me</h2>
-              <div class="fakeimg" style="height:100px;">Image</div>
-              <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
-            </div>
-            <div class="card">
-              <h3>Popular Post</h3>
-              <div class="fakeimg">Image</div><br>
-              <div class="fakeimg">Image</div><br>
-              <div class="fakeimg">Image</div>
-            </div>
-            <div class="card">
-              <h3>Follow Me</h3>
-              <p>Some text..</p>
-            </div>
-          </div>
       </div>
-              
+    </div>
+
+    <div class="col-md-3 sidenav">
+        <div class="well">
+           <a target="_blank" href=""></a>
+        </div>
+        <hr>
+        <div class="well">
+          <p>Publicité 2</p>
+        </div>
+        <hr>
+        <div class="well">
+          <p>Publicité 3</p>
+        </div>
+        <hr>
+        <div class="well">
+          <p>Publicité 4</p>
+        </div>
+        <hr>
+        <div class="well">
+          
+          <p>Publicité 5</p>
+        </div>
+    </div>
+  </div>
+</div>
+    
+

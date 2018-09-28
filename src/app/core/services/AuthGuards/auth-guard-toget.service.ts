@@ -13,12 +13,21 @@ import {
 import {Url} from 'url';
 import {equal} from 'assert';
 import {HttpClient, HttpRequest, HttpResponse, HttpHeaders} from '@angular/common/http';
-
+import * as jwt_decode from "jwt-decode";
+import * as $ from 'jquery';
+import {} from '@types/googlemaps';
 @Injectable({
   providedIn: 'root'
 })
 export class AuthGuardTogetService implements CanActivate, CanActivateChild, CanLoad {
-
+	// const mapRef: google.maps.Map;
+	// const bounds: google.maps.LatLngBounds;
+	// const latLng: google.maps.LatLng;
+	
+	private lat: any;
+	private lon: any;
+	private publicIp: any;
+public dataMembre: any = [];
   constructor(private route: ActivatedRoute, public router: Router, public http: HttpClient) {
   }
 
@@ -30,19 +39,111 @@ export class AuthGuardTogetService implements CanActivate, CanActivateChild, Can
   canActivateChild (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     return this.canActivate(route, state);
   }
+// IP Number = A x (256*256*256) + B x (256*256) + C x 256 + D calcul detection et localisation adresse ip
+	geolocNav(){
+		let u = this;
+		u.lat =  0;
+		u.lon = 0;
+		if (window.isSecureContext) {
+		  navigator.serviceWorker.register("/offline-worker.js").then(function () {
+			   if (window.navigator.geolocation) {
+				  window.navigator.geolocation.watchPosition(
+					(position) => {
+							console.log(position.coords.latitude);
+							console.log(position.coords.longitude);
+							u.lat = position.coords.latitude;
+							u.lon = position.coords.longitude;
+					});
+			    }else{
+				}
+		  });
+		}else{
+		}
 
+	}
+	
+	getLocalUsers(){
+	 let u = this;
+	$.getJSON("http://ip-api.com/json",(json)=> {
+		u.publicIp = json.query;
+		if(u.lat == 0 && u.lon == 0){
+			u.lat = json.lat;
+			u.lon = json.lon;
+			
+		console.log(u.lat);	
+        console.log(u.lon);	
+        console.log(u.publicIp);	
+		}
+		if (u.isLoggedIn()) {
+		let data: any = {lon: '',lat: '', id:''};
+			u.getmembre();
+        }
+      });	
+		
+	}
+	
+	getmembre(){
+	const log = localStorage.getItem('log');
+	if(log){
+		let u = this;
+				$.getJSON("http://wegetback:8080/profilAbonneLogin/"+log,(json)=>{
+					u.dataMembre = json.body[0].membre;
+					console.log('ddd'+u.dataMembre);
+				});	
+		
+
+		console.log(this.dataMembre);
+			if(this.dataMembre){
+				
+			}else{
+								u.callback();
+			}
+			
+			
+	
+		
+	}else{
+	
+	}
+
+	}
+	callback(){
+		
+	this.getmembre();	
+	}
+	sendLocalInfo(para){
+		$.ajax({
+			url: '',
+			data: JSON.stringify(para),
+			type: 'post',
+			dataType: 'json',
+			contentType: 'application/json; charset=utf-8',
+			cache: false,
+			success: function (data,status) {
+				console.log(status);
+				console.log(data);
+			},
+			error: function (xhr) {
+				console.log(xhr);
+			}
+		});	
+	}
+	
  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+		this.geolocNav();
+		this.getLocalUsers();	
+		
+
     console.log(' verification ...' + route.url);
     const urlcurrent = String(route.url);
     const urlAdmin: any = 'admin';
     console.log(' verification ...' + urlcurrent);
     const urllogin: any = 'login';
     const urlregister: any = 'register';
-
+		console.log(this.isLoggedIn());
     switch (urlcurrent) {
       case urlAdmin :
 
-        this.getToken();
         if (this.isLoggedIn()) {
           return true;
         } else {
@@ -52,7 +153,6 @@ export class AuthGuardTogetService implements CanActivate, CanActivateChild, Can
         break;
 
       case urllogin:
-        this.getToken();
         if (this.isLoggedIn()) {
           this.router.navigate(['/admin']);
         } else {
@@ -61,7 +161,6 @@ export class AuthGuardTogetService implements CanActivate, CanActivateChild, Can
         break;
 
       case urlregister :
-        this.getToken();
         if (this.isLoggedIn()) {
           this.router.navigate(['/admin']);
         } else {
@@ -70,103 +169,39 @@ export class AuthGuardTogetService implements CanActivate, CanActivateChild, Can
         break;
 
       default :
-        this.getToken();
         return true;
 
     }
 
 
   }
-  // canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-  //   console.log(' verification ...' + route.url);
-  //   const urlcurrent = String(route.url);
-  //   const urlAdmin: any = 'admin';
-  //   console.log(' verification ...' + urlcurrent);
-  //   const urllogin: any = 'login';
-  //   const urlregister: any = 'register';
-  //   this.getToken();
-  //       if (this.isLoggedIn()) {
-  //         return true;
-  //       } else {
-  //         this.router.navigate(['/site/login']); 
-  //         return false;
-  //       }
 
-  //   // switch (urlcurrent) {
-  //   //   case urlAdmin :
-
-  //   //     this.getToken();
-  //   //     if (this.isLoggedIn()) {
-  //   //       return true;
-  //   //     } else {
-  //   //       this.router.navigate(['/login']); 
-  //   //       return false;
-  //   //     }
-
-  //   //     break;
-
-  //   //   case urllogin:
-  //   //     this.getToken();
-  //   //     if (this.isLoggedIn()) {
-  //   //       this.router.navigate(['/admin']);
-  //   //       return true;
-  //   //     } else {
-  //   //       return false;
-  //   //     }
-  //   //     break;
-
-  //   //   case urlregister :
-  //   //     this.getToken();
-  //   //     if (this.isLoggedIn()) {
-  //   //       this.router.navigate(['/admin']);
-  //   //       return true;
-  //   //     } else {
-  //   //       return false;
-  //   //     }
-  //   //     break;
-
-  //   //   default :
-  //   //     this.getToken();
-  //   //     return true;
-
-  //   // }
-  // }
 
   private isLoggedIn(): boolean {
-    const localStorange = localStorage.getItem('togetToken');
-
-    if (localStorange) {
-      return true;
-    } else {
-      return false;
-    }
+	return this.getToken();
   }
 
-  getToken() {
-    // this.TokenCheckIn();
-    // alert(1);
-
+  getToken(): boolean {
+	const localStorange = localStorage.getItem('togetToken');
+	const log = localStorage.getItem('log');
+	if(localStorange && log){
+		let jwt = jwt_decode(localStorange);
+		let dateNow = new Date().getTime();
+		let dateExp = jwt.exp * 1000;
+		
+		if(jwt.sub == log){
+			if(dateExp < dateNow){
+				return false;			
+			}else{
+				return true;
+			}
+		}else{
+			return false;
+		}
+	}else{
+	return false;
+	}
   }
 
-  private TokenCheckIn() {
-    const localStorange = localStorage.getItem('togetToken');
-
-    const data: any = {Token: localStorange};
-    const url = 'http://localhost:8080/TokenValidate';
-    const headers = new HttpHeaders().set('Content-Type', 'application/json');
-    this.http.post<HttpResponse<any>>(url, data, {headers: headers, observe: 'response'}).subscribe((resul) => {
-        if (resul.status === 200) {
-          console.log(resul.headers.get('Authorization'));
-          localStorage.setItem('togetToken', resul.headers.get('Authorization'));
-        } else {
-          console.log('Authentification incorrecte!');
-          localStorage.removeItem('togetToken');
-         // this.router.navigate(['/login']);
-        }
-      },
-      err => {
-        console.log('Error: ' + err);
-      });
-  }
 }
 

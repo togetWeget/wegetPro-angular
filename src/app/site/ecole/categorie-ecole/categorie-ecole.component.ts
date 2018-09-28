@@ -8,22 +8,32 @@ import { Component, OnInit } from '@angular/core';
 export class CategorieEcoleComponent implements OnInit {
 categorie=[
   {
-    id:1,libelle:"Garderie, Maternel à Primaires",
+    id:1,libelle:" Garderie,Maternel",
     img:"http://toget.ibemscreative.com/images/blocks/block7/cat1.jpg"
         
   },
   {
-    id:2,libelle:"Lycée et collège",
+    id:2,libelle:"Primaire",
+    img:"http://toget.ibemscreative.com/images/blocks/block7/cat1.jpg"
+        
+  },
+  {
+    id:3,libelle:"Lycée",
     img:"http://toget.ibemscreative.com/images/blocks/block7/cat2.jpg"
         
   },
   {
-    id:3,libelle:"Universitée et grande école",
+    id:4,libelle:"Collège",
+    img:"http://toget.ibemscreative.com/images/blocks/block7/cat2.jpg"
+        
+  },
+  {
+    id:5,libelle:"Universitée et Grande Ecole",
     img:"http://toget.ibemscreative.com/images/blocks/block7/cat3.jpg"
         
   },
   {
-    id:4,libelle:"Cabinet et centre de formation",
+    id:6,libelle:"Cabinet et centre de formation",
     img:"http://toget.ibemscreative.com/images/blocks/block7/cat4.jpg"
         
   },

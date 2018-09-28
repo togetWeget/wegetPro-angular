@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 import { AbonnesService } from '../../core/services/abonnes/abonnes.service';
+import { Abonnes } from '../../shared/models/abonnes';
 import { Detailblock } from '../../shared/models/detailblock';
 import * as $ from 'jquery';
 
@@ -61,7 +62,9 @@ export class CarouselSiteComponent implements OnInit {
   fetchAbonneFlash(){
   	this.abonnesService.getAllAbonnes()
       .subscribe(data => {
-        this.abonneFlash = data.body;
+      	// const detailblock: Detailblock[] = data.body;
+       //  this.abonneFlash = detailblock;
+        // this.abonneFlash = data.body;
       });
   }
   onViewProfileAbonne(ab: any) {

@@ -1,12 +1,22 @@
 <app-admin-card [adminCard]="admin_card" >
 	<div class="admin-card-content">
-		<form>
-			<mat-form-field class="example-full-width">
-				<input matInput placeholder="choisir un fichier" type="file" value="">
-				<button mat-raised-button matSuffix>Ajouter</button>
-			</mat-form-field>
-			<button mat-raised-button>Modifier</button>
-		</form>
+		<table class="table table-hover table-bordered">
+			<thead>
+				<tr>
+					<th>Image</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><img src="../../../../assets/default.jpg" alt="" class="img-thumbnail"></td>
+					<td>
+					    <button mat-raised-button class="bt-x btn-green"><i class="fa fa-edit"></i></button>
+    					<button mat-raised-button class="bt-x btn-red"><i class="fa fa-trash"></i></button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
 	</div>
 	<div class="admin-card-footer">
 

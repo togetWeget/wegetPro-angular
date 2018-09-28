@@ -88,6 +88,8 @@ import { ListContactComponent } from './messagerie/list-contact/list-contact.com
 import { ImgloardComponent } from './compte/gallery/matdiolog/imgloard/imgloard.component';
 import { VideoloardComponent } from './compte/gallery/matdiolog/videoloard/videoloard.component';
 import { UploadDocComponent } from './comp/upload-doc/upload-doc.component';
+import { CardFormationEcoleComponent } from './comp/card-formation-ecole/card-formation-ecole.component';
+import { FormationEcoleAddComponent } from './espace-ecole/formation-ecole-add/formation-ecole-add.component';
 // import { NgxEditorModule } from 'ngx-editor';
 // import { TooltipModule } from 'ngx-bootstrap/tooltip';
 
@@ -137,9 +139,13 @@ import { UploadDocComponent } from './comp/upload-doc/upload-doc.component';
    PhotoCompetenceComponent, FormationCompetenceComponent, ExperienceCompetenceComponent, 
    DocumentsCompetenceComponent, CvCompetenceComponent,
    MonEcoleComponent, EnteteEcoleComponent, FlashInfoEcoleComponent, FormationsEcoleComponent,
-   DocumentsEcoleComponent, PhotosEcoleComponent, ModifPhotoComponent, GalleryComponent, ModifPhotoEcoleComponent, MatdiologComponent, AllGalleryComponent, VideoComponent, PhotosComponent, ContactComponent, ListContactComponent, ImgloardComponent, VideoloardComponent, UploadDocComponent
+   DocumentsEcoleComponent, PhotosEcoleComponent, ModifPhotoComponent, GalleryComponent, ModifPhotoEcoleComponent, 
+   MatdiologComponent, AllGalleryComponent, VideoComponent, PhotosComponent, ContactComponent,
+    ListContactComponent, ImgloardComponent, VideoloardComponent, UploadDocComponent, CardFormationEcoleComponent,
+     FormationEcoleAddComponent
   ],
-  entryComponents: [BlockComponent,CoverSelectComponent, MatdiologComponent, ImgloardComponent, VideoloardComponent ],
+  entryComponents: [BlockComponent,CoverSelectComponent, MatdiologComponent, ImgloardComponent, 
+  VideoloardComponent, FormationEcoleAddComponent ],
   exports: [LayoutComponent]
 })
 export class AdminModule {

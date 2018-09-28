@@ -46,6 +46,23 @@ export class OutilsService {
     {libelle: 'Espagnol', name: 'Espagnol'},
     {libelle: 'Italien', name: 'Italien'}
   ];
+
+  niveauEtude = [
+    {name: 'Licence 1'},
+    {name: 'Licence 2'},
+    {name: 'Licence 3'},
+    {name: 'master 1'},
+    {name: 'master 2'}
+  ];
+  diplomes = [
+    {name: 'Bts'},
+    {name: 'DUT'},
+    {name: 'Master'},
+    {name: 'Doctorat'},
+    {name: 'Licence'},
+    {name: 'Bac'},
+    {name: 'BEPC'}
+  ];
   constructor() { }
 
 }

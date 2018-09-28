@@ -43,7 +43,7 @@ export class Chatroom2Component implements OnInit {
   public compteurLu: any = [];
   public bool: Boolean;
   public checkmsg: any;
-  public tabCouleur = ["#007bff","#6610f2","#6f42c1","#e83e8c","#dc3545","#fd7e14","#ffc107","#28a745","#20c997","#17a2b8","#6c757d","#343a40","#6c757d","#28a745","#17a2b8","#ffc107","#dc3545","#f8f9fa","#343a40"];
+  public tabCouleur = ["#007bff","#6610f2","#6f42c1","#e83e8c","#dc3545","#fd7e14","#ffc107","#28a745","#20c997","#17a2b8","#6c757d","#343a40","#6c757d","#28a745","#17a2b8","#ffc107","#dc3545","#343a40"];
 	public colortab: any = [];
   constructor(public layoutComponent: LayoutComponent, public  http: HttpClient, public fb: FormBuilder, public regist: RegisterService, public firbaseRequest: RequestChatroomService, private _sanitizer: DomSanitizer) {
     this.changeVarUser(null, null, null, '#ff6d05');
@@ -68,7 +68,7 @@ export class Chatroom2Component implements OnInit {
 					// this.retourAff = true;
 					// clearInterval(int);
 				// }
-			// }, 1000);
+				// }, 1000);
 	// }
 	
 	
@@ -313,7 +313,7 @@ export class Chatroom2Component implements OnInit {
 		  }
 	//{{fonction 2}}
 	  receivStatus(uid_receiv){
-		
+		let vr = 0;
 	  const libelle = 'Discussion';
 	  const code_disc = this.layoutComponent.InfoMembres.id + '_' + uid_receiv;
 	  const urlData = libelle + '/' + code_disc ;
@@ -336,8 +336,8 @@ export class Chatroom2Component implements OnInit {
 							// alert(snapshot.val().codeSender + ' ------ ' + this.layoutComponent.InfoMembres.id);
 							if(snapshot.val().codeSender != u.layoutComponent.InfoMembres.id && u.compteurMsg[uid_receiv] > 0){
 								
-							u.playaudio();
 							
+									vr++;
 								}
 						}else{
 						
@@ -346,6 +346,10 @@ export class Chatroom2Component implements OnInit {
 						 
 						});
 				}
+				
+				if(vr > 0){
+					u.playaudio();
+					}
 				this.bool = true;
 				// alert(this.compteurMsg.uid_receiv);
 		

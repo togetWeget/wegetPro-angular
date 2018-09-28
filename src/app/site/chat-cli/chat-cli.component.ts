@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
 import {ChatLiasonService} from '../../core/services/chat-liason/chat-liason.service';
-
+import {FilterPipe} from './Filtermembre.pipe';
 @Component({
   selector: 'app-chat-cli',
   templateUrl: './chat-cli.component.html',
@@ -11,18 +11,19 @@ import {ChatLiasonService} from '../../core/services/chat-liason/chat-liason.ser
 export class ChatCliComponent implements OnInit {
 	public chatactive : boolean;
 	public memebreall : any = [];
+	userFilter : any = {nomComplet : ''};
   constructor(public chatact: ChatLiasonService) { }
 
   ngOnInit() {
   this.memebrealls();
-	   if( this.chatact.checkchange){
+	   // if( this.chatact.checkchange){
+			// this.chatact.checkchange = true;
+	   // }else{
+			// this.chatact.checkchange = false;
+	   // }
+	   
+	   
 			this.chatact.checkchange = true;
-	   }else{
-			this.chatact.checkchange = false;
-	   }
-	   
-	   
-
 			this.chatact.miximaze = true;
 	  
 	   
@@ -97,7 +98,8 @@ export class ChatCliComponent implements OnInit {
 	let u = this;
 		let mem = this.chatact.getinfoMembre().done(function(data) {
 			u.memebreall = data.body;
-			console.log(data);
+			u.memebreall.sort((a,b)=>{return a.nomComplet > b.nomComplet;});
+			console.log(u.memebreall);
 		  })
 		  .fail(function() {
 			console.log( "error" );

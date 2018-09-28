@@ -28,9 +28,13 @@
                [value]="a.pathPhoto? '' : a.login[0] " disabled/>
 	   -->
 			   
-			   <img src="{{a.pathPhoto}}" class="img-g-rond-s " #imgphoto [ngStyle]="{'background-repeat' : 'no-repeat',  'background-size' :'cover',  'border':'0px',  'font-size': '30px', 'color':'#fff',  'text-align':'center', 'text-transform' : 'uppercase', 'background-color' : colortab[i]}" 
+			   <!-- <img src="{{a.pathPhoto}}" class="img-g-rond-s " #imgphoto [ngStyle]="{'background-repeat' : 'no-repeat',  'background-size' :'cover',  'border':'0px',  'font-size': '30px', 'color':'#fff',  'text-align':'center', 'text-transform' : 'uppercase', 'background-color' : colortab[i]}"  -->
              
-               [alt]="a.nomComplet[0] " title="{{a.login}}" />
+               <!-- [alt]="a.nomComplet[0] " title="{{a.login}}" /> -->
+			   
+			   
+			   <div #imgphoto [ngStyle]="{'background-image': 'url(' + a.pathPhoto + ')'}" *ngIf="a.pathPhoto !== null && a.pathPhoto !== ''" class="img-g-rond-s"></div>
+				<div #imgphoto [ngStyle]="{'background-image': 'url(assets/photo/avatar.jpg)'}" *ngIf="a.pathPhoto === null || a.pathPhoto === '' " class="img-g-rond-s"></div>
           <!-- <div *ngIf="a.pathPhoto === null" class="img-g-rond"
                 style="background: #ff6d05; background-size: 100%"><p
              style="font-size:25px; color:#fff; padding:5px 5px 5px 15px; text-align:center;"
@@ -64,7 +68,10 @@
       <div class="band-droite">
         <i class="fa fa-hand-o-left retourmembre" style="float:left;line-height: 1.8em; margin-right:5px; cursor:pointer; display:none;" (click)="retourMembre()" *ngIf="retourAff === true"></i>
         
-		<img src="{{pathPhoto_rec}}" class="img-g-rond-s " [ngStyle]="{'background-repeat' : 'no-repeat',  'background-size' :'cover',  'border':'0px',  'font-size': '30px', 'color':'#fff',  'text-align':'center', 'text-transform' : 'uppercase', 'background-color' : colorinf}" alt="{{named ? named[0] : 'T'}} " />
+		<!-- <img src="{{pathPhoto_rec}}" class="img-g-rond-s " [ngStyle]="{'background-repeat' : 'no-repeat',  'background-size' :'cover',  'border':'0px',  'font-size': '30px', 'color':'#fff',  'text-align':'center', 'text-transform' : 'uppercase', 'background-color' : colorinf}" alt="{{named ? named[0] : 'T'}} " /> -->
+		
+		 <div [ngStyle]="{'background-image': 'url(' + pathPhoto_rec + ')'}" *ngIf="pathPhoto_rec !== null && pathPhoto_rec !== ''" class="img-g-rond-s"></div>
+				<div  [ngStyle]="{'background-image': 'url(assets/photo/avatar.jpg)'}" *ngIf="pathPhoto_rec === null || pathPhoto_rec === '' " class="img-g-rond-s"></div>
 		
         <div class="col-sm-12" style="width:500px;height:10px;">{{named}}
           <span class="fa fa-angle-down"></span><br/>
@@ -95,7 +102,13 @@
             <div class="col-sm-12 row" style="margin-bottom:5px; margin-top:5px;" *ngIf="a.codeSender != layoutComponent.InfoMembres.id">
               <div class="col-sm-12">
                 
-				<img src="{{pathPhoto_rec}}" class="img-g-rond-r pull-left" [ngStyle]="{'background-repeat' : 'no-repeat',  'background-size' :'cover',  'border':'0px',  'font-size': '30px', 'color':'#fff',  'text-align':'center', 'text-transform' : 'uppercase', 'background-color' : colorinf}" alt="{{named ? named[0] : 'T'}} " />
+				<!-- <img src="{{pathPhoto_rec}}" class="img-g-rond-r pull-left" [ngStyle]="{'background-repeat' : 'no-repeat',  'background-size' :'cover',  'border':'0px',  'font-size': '30px', 'color':'#fff',  'text-align':'center', 'text-transform' : 'uppercase', 'background-color' : colorinf}" alt="{{named ? named[0] : 'T'}} " /> -->
+				
+				
+				<div [ngStyle]="{'background-image': 'url(' + pathPhoto_rec + ')'}" *ngIf="pathPhoto_rec !== null && pathPhoto_rec !== ''" class="img-g-rond-r pull-left"></div>
+				<div  [ngStyle]="{'background-image': 'url(assets/photo/avatar.jpg)'}" *ngIf="pathPhoto_rec === null || pathPhoto_rec === '' " class="img-g-rond-r pull-left"></div>
+				
+				
               </div>
               <div class="col-sm-12">
                 <div class="receiver pull-left">{{a.message}}
@@ -113,7 +126,11 @@
 
             <div class="col-sm-12 row" style="margin-bottom:5px; margin-top:5px;" *ngIf="a.codeSender == layoutComponent.InfoMembres.id">
               <div class="col-sm-12" style="">
-                <img src="{{layoutComponent.InfoMembres.pathPhoto}}" class="img-g-rond-r pull-right" [ngStyle]="{'background-repeat' : 'no-repeat',  'background-size' :'cover',  'border':'0px',  'font-size': '30px', 'color':'#fff',  'text-align':'center', 'text-transform' : 'uppercase', 'background-color' : '#ff6d05'}" alt="{{layoutComponent.InfoMembres.nomComplet ? layoutComponent.InfoMembres.nomComplet[0] : 'moi'}} " />
+                <!-- <img src="{{layoutComponent.InfoMembres.pathPhoto}}" class="img-g-rond-r pull-right" [ngStyle]="{'background-repeat' : 'no-repeat',  'background-size' :'cover',  'border':'0px',  'font-size': '30px', 'color':'#fff',  'text-align':'center', 'text-transform' : 'uppercase', 'background-color' : '#ff6d05'}" alt="{{layoutComponent.InfoMembres.nomComplet ? layoutComponent.InfoMembres.nomComplet[0] : 'moi'}} " /> -->
+				
+				<div [ngStyle]="{'background-image': 'url(' + layoutComponent.InfoMembres.pathPhoto + ')'}" *ngIf="layoutComponent.InfoMembres.pathPhoto !== null && layoutComponent.InfoMembres.pathPhoto !== ''" class="img-g-rond-r pull-right"></div>
+				<div  [ngStyle]="{'background-image': 'url(assets/photo/avatar.jpg)'}" *ngIf="layoutComponent.InfoMembres.pathPhoto === null || layoutComponent.InfoMembres.pathPhoto === '' " class="img-g-rond-r pull-right"></div>
+				
               </div>
               <div class="col-sm-12" style="">
                 <div class="sender pull-right">
