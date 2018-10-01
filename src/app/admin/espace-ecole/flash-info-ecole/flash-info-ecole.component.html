@@ -1,4 +1,4 @@
-<app-admin-card [adminCard]="admin_card" >
+<app-admin-card [adminCard]="admin_card" (clickOcur)="handleClick($event)" >
 	<div class="admin-card-content">
 		<table class="table table-hover table-bordered">
 			<thead>
@@ -10,16 +10,17 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
+				<tr *ngFor="let flash of (flash$ | async); let i=index;">
 					<td>
-						info
+						{{flash.contenu}}
 					</td>
 					<td>
-						<span><i class="fa fa-eye"></i></span>
+						<span *ngIf="flash.etat"><i class="fa fa-eye"></i></span>
+						<span *ngIf="!flash.etat"><i class="fa fa-eye-slash"></i></span>
 					</td>
-					<td>01 - 01 - 2018</td>
+					<td>{{flash.date}}</td>
 					<td>
-						<button mat-raised-button class="green">Modifier</button>
+						<button mat-raised-button (click)="modifierFlash(flash.id)" class="green">Modifier</button>
 						<button mat-raised-button class="btn-danger">supprimer</button>
 					</td>
 				</tr>

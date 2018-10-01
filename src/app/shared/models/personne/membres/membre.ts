@@ -38,6 +38,7 @@ export class Membre extends Personne {
     public couleur?: string,
      public cvPersonne ?: CvPersonne,
     public description?: string,
+   
   ) {
     super(
         id ,

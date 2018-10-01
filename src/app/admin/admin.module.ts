@@ -90,6 +90,8 @@ import { VideoloardComponent } from './compte/gallery/matdiolog/videoloard/video
 import { UploadDocComponent } from './comp/upload-doc/upload-doc.component';
 import { CardFormationEcoleComponent } from './comp/card-formation-ecole/card-formation-ecole.component';
 import { FormationEcoleAddComponent } from './espace-ecole/formation-ecole-add/formation-ecole-add.component';
+import { FlashInfoAddComponent } from './espace-ecole/flash-info-add/flash-info-add.component';
+import { FlashInfoUpdateComponent } from './espace-ecole/flash-info-update/flash-info-update.component';
 // import { NgxEditorModule } from 'ngx-editor';
 // import { TooltipModule } from 'ngx-bootstrap/tooltip';
 
@@ -142,10 +144,14 @@ import { FormationEcoleAddComponent } from './espace-ecole/formation-ecole-add/f
    DocumentsEcoleComponent, PhotosEcoleComponent, ModifPhotoComponent, GalleryComponent, ModifPhotoEcoleComponent, 
    MatdiologComponent, AllGalleryComponent, VideoComponent, PhotosComponent, ContactComponent,
     ListContactComponent, ImgloardComponent, VideoloardComponent, UploadDocComponent, CardFormationEcoleComponent,
-     FormationEcoleAddComponent
+     FormationEcoleAddComponent,
+     FlashInfoAddComponent,
+     FlashInfoUpdateComponent
   ],
   entryComponents: [BlockComponent,CoverSelectComponent, MatdiologComponent, ImgloardComponent, 
-  VideoloardComponent, FormationEcoleAddComponent ],
+  VideoloardComponent, FormationEcoleAddComponent,
+     FlashInfoAddComponent,
+     FlashInfoUpdateComponent ],
   exports: [LayoutComponent]
 })
 export class AdminModule {

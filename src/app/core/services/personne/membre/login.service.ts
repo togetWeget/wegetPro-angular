@@ -7,6 +7,7 @@ import {Block} from '../../../../shared/models/block';
 import {Tarif} from '../../../../shared/models/tarif/tarif';
 import {Observable} from 'rxjs';
 import {catchError, tap} from 'rxjs/operators';
+import {InfoMembreService} from '../../info-membre/info-membre.service';
 
 @Injectable({
   providedIn: 'root'
@@ -25,9 +26,9 @@ export class LoginService {
   ///////////////// constructeur de login service/////////////////////////////////////////
 
   constructor(public  http: HttpClient, private router: Router,
-    private firebaseDir: AuthFirebaseService) {
+    private firebaseDir: AuthFirebaseService, private InfoM: InfoMembreService) {
 
-  }
+    }
   ////////////////les differente methodes///////////////////////////////////
   Authentification(url: any, data: any, modal?: any): any {
 
@@ -38,12 +39,11 @@ export class LoginService {
           console.log(resul.headers.get('Authorization'));
           localStorage.setItem('togetToken', resul.headers.get('Authorization'));
 		   localStorage.setItem('log', data.login);
+		   this.InfoM.localstor();
           this.router.navigate(['/admin']);
-         // let strValue: string = localStorage.getItem('togetToken');
          modal.close();
-          alert('Authentification correcte!');
         } else {
-          alert('Authentification incorrecte!');
+          console.log('Authentification incorrecte!');
         }
       },
       err => {
@@ -57,8 +57,7 @@ export class LoginService {
 
 
   DestroyLocal() {
-      localStorage.removeItem('togetToken');
-      localStorage.removeItem('log');
+	  localStorage.clear();
       this.firebaseDir.signOutUser();
   }
 

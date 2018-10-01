@@ -1,4 +1,5 @@
 import {Injectable} from '@angular/core';
+import {InfoMembreService} from '../info-membre/info-membre.service';
 import {
   ActivatedRoute,
   CanActivate,
@@ -24,11 +25,12 @@ export class AuthGuardTogetService implements CanActivate, CanActivateChild, Can
 	// const bounds: google.maps.LatLngBounds;
 	// const latLng: google.maps.LatLng;
 	
-	private lat: any;
-	private lon: any;
+	private lat: number;
+	private lon: number;
 	private publicIp: any;
 public dataMembre: any = [];
-  constructor(private route: ActivatedRoute, public router: Router, public http: HttpClient) {
+  constructor(private route: ActivatedRoute, public router: Router, public http: HttpClient, private InfoM: InfoMembreService) {
+	  this.InfoM.getbylogin();
   }
 
   canLoad (route: Route) {
@@ -49,8 +51,6 @@ public dataMembre: any = [];
 			   if (window.navigator.geolocation) {
 				  window.navigator.geolocation.watchPosition(
 					(position) => {
-							console.log(position.coords.latitude);
-							console.log(position.coords.longitude);
 							u.lat = position.coords.latitude;
 							u.lon = position.coords.longitude;
 					});
@@ -69,53 +69,21 @@ public dataMembre: any = [];
 		if(u.lat == 0 && u.lon == 0){
 			u.lat = json.lat;
 			u.lon = json.lon;
-			
-		console.log(u.lat);	
-        console.log(u.lon);	
-        console.log(u.publicIp);	
 		}
 		if (u.isLoggedIn()) {
-		let data: any = {lon: '',lat: '', id:''};
-			u.getmembre();
+		let data: any = {longitude: u.lon,latitude: u.lat, membre: u.InfoM.InfoMembres.id};
+			u.sendLocalInfo(data);
         }
       });	
 		
 	}
 	
-	getmembre(){
-	const log = localStorage.getItem('log');
-	if(log){
-		let u = this;
-				$.getJSON("http://wegetback:8080/profilAbonneLogin/"+log,(json)=>{
-					u.dataMembre = json.body[0].membre;
-					console.log('ddd'+u.dataMembre);
-				});	
-		
 
-		console.log(this.dataMembre);
-			if(this.dataMembre){
-				
-			}else{
-								u.callback();
-			}
-			
-			
-	
-		
-	}else{
-	
-	}
-
-	}
-	callback(){
-		
-	this.getmembre();	
-	}
 	sendLocalInfo(para){
 		$.ajax({
-			url: '',
+			url: 'http://wegetback:8080/membres',
 			data: JSON.stringify(para),
-			type: 'post',
+			type: 'put',
 			dataType: 'json',
 			contentType: 'application/json; charset=utf-8',
 			cache: false,

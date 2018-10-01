@@ -3,16 +3,16 @@
 }
 
 .imagebg {
-    position: relative;
     width: 100%;
     height: 150px;
+    
   }
   .titre-block {
     padding-top: 5px;
     display: table;
     align-items: center;
     font-size: small;
-    height: 55px;
+    height: 10px;
     overflow: hidden;
   }
 .blocks-items a:hover{
@@ -35,6 +35,22 @@ mat-card-actions{
   flex-direction: row;
 }
 .container{
-  display: grid;
+  display: flex;
+  background: oldlace;
+  flex-wrap: wrap;
+  flex-direction:ltr;
+  margin: 10 px;
+  justify-content: center;
+}
+
+.pub{
+  background-color:lightblue;
+  width: 200px;
+  margin-left: 100px;
+  text-align: center;
+  line-height: 150px;
+  font-size: 30px;
+  flex-direction: column;
+  
 }
 

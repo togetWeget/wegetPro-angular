@@ -1,10 +1,12 @@
 import {Injectable} from '@angular/core';
+import { Router } from '@angular/router';
 import {catchError, map, observeOn, tap, timeout} from 'rxjs/operators';
 import {Observable, of, Subject, interval, isObservable} from 'rxjs';
 import {HttpClient, HttpHeaders, HttpRequest, HttpResponse} from '@angular/common/http';
 import {NotifierService} from 'angular-notifier';
 import {isObject} from 'rxjs/internal/util/isObject';
 import * as $ from 'jquery';
+import {InfoMembreService} from '../../info-membre/info-membre.service';
 
 @Injectable()
 export class RegisterService {
@@ -23,7 +25,7 @@ export class RegisterService {
   public InfoMembres: any={};
   private readonly notifier: NotifierService;
 
-  constructor(public  http: HttpClient, public notifierService: NotifierService) {
+  constructor(public  http: HttpClient, public notifierService: NotifierService, private InfoM: InfoMembreService, private router: Router) {
     this.notifier = notifierService;
     this.notifierService.notify('success', 'You are awesome! I mean it!');
   }
@@ -67,9 +69,10 @@ export class RegisterService {
             if (res.statut === 0) {
               localStorage.setItem('togetToken', 'azerty');
               localStorage.setItem('log', dataBody.login);
-              const strValue: string = localStorage.getItem('togetToken');
+			  this.InfoM.localstor();
+              this.router.navigate(['/admin']);
             }
-            alert(res.messages[0]);
+            // alert(res.messages[0]);
           }
         },
         err => {
@@ -84,27 +87,7 @@ export class RegisterService {
   }
 
 
-  // getByLogin(dataBody: any): any {
-    // const strValue: string = localStorage.getItem('togetToken');
-    // alert(dataBody);
-    // const headers = new HttpHeaders().set('Content-Type', 'application/json');
-    // this.http.get<HttpResponse<any>>(this.urlgetbyLogin + dataBody, {
-      // headers: headers,
-      // observe: 'response'
-    // }).subscribe((resul) => {
-        // if (resul.status === 200) {
-          // this.InfoMembres = resul.body.body;
-          // alert(Object.keys(this.InfoMembres));
-        // } else {
-          // console.log('erreur aucun element trouvé');
-        // }
-      // },
-      // err => {
-        // console.log('Error: ' + err);
 
-      // });
-  // }
-  
 
   alerted_one(cont: any) {
 

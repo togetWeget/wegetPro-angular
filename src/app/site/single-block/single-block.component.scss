@@ -7,20 +7,23 @@ a{
 }
 
 mat-card{
-  margin: 20px auto;
+
+  margin: 2px;
   padding:0px;
   overflow: hidden;
   .imagebg {
-    position: relative;
-    width: 100%;
-    height: 150px;
+    width: 0px;
+    height: 5px;
+    
   }
   .titre-block {
     padding-top: 5px;
-    display: table;
+    display: flex;
     align-items: center;
     font-size: small;
-    height: 55px;
+    height: 100px;
+    width: 200px;
+    flex-direction: ltr;
     overflow: hidden;
   }
   mat-card-footer, 
@@ -35,12 +38,11 @@ mat-card{
   }
   .action-container {
     display: flex;
-    justify-content: space-around;
-    right: 5px;
-    top: -100px;
+    justify-content:space-around;
+   
     transition: 0.1s all ease;
     .tooltipclass {
-      font-size: 0.7rem;
+      font-size: 10rem;
     }
     .apercu{
       background: #970ae0;
@@ -65,13 +67,16 @@ mat-card{
   }
 }
 mat-card-content{
-  padding: 0px 15px;
-  margin-bottom: 50px;
+  padding:  15px;
+  margin-bottom: 10px;
 }
 mat-card-actions{
   display: flex;
   padding: 0;
   margin: 0;
-  flex-direction: row;
+  flex-direction: ltr;
+}
+.col-lg-4 .col-12 .col-md-6{
+  background: #CBB500;
 }
 

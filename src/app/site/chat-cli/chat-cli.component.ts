@@ -43,9 +43,9 @@ export class ChatCliComponent implements OnInit {
 	ifactivechat(): boolean{
 			let token = localStorage.getItem('togetToken');
 			let tokenLog = localStorage.getItem('log');
-			let tokenfirebase = localStorage.getItem('firebase:host:toget-2b431.firebaseio.com');
+			// let tokenfirebase = localStorage.getItem('firebase:host:toget-2b431.firebaseio.com');
 			
-			if(token && tokenLog && tokenfirebase){
+			if(token && tokenLog){
 					return true;
 				}else{
 					return false;

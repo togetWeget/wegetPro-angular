@@ -11,19 +11,32 @@ export class InfoMembreService {
 	  // this.getByLogin();
 	  // alert(this.InfoMembres);
 	  }
-  
-  
+  // base64_encode( str ): any {
+		// let chr =  window.btoa(unescape(encodeURIComponent( str )));
+		// console.log(chr);
+	// }
+
+	// base64_decode( str ): any {
+	  // let chr = decodeURIComponent(escape(window.atob( str )));
+	  // console.log(chr);
+	// }
   
     getbylogin(){
+		this.localstor();
+		let chr = decodeURIComponent(escape(window.atob( localStorage.getItem("membre") )));
+		this.InfoMembres = JSON.parse(chr);
+	}  
+  	
+	localstor(): any{
 		const strValue: string = localStorage.getItem('log');
           
 	    if(strValue){
 	        let u = this;
 	        let url = u.regist.urlgetLogin;	        
-	    $.getJSON( u.urlgetbyLogin + strValue, function( data ) {	 
-	        u.InfoMembres = data.body;
-			  // console.log(u.InfoMembres);
+	    $.getJSON( u.urlgetbyLogin + strValue, function( data ) {
+		let chr =  window.btoa(unescape(encodeURIComponent( JSON.stringify(data.body) )));
+			localStorage.setItem("membre",chr );
 			});
-		}	
+		}
 	}
 }
