@@ -40,12 +40,12 @@ export class FlashInfoEcoleComponent implements OnInit {
   	this.flash$ = this.flashSubject$.pipe(
       debounceTime(300),
       distinctUntilChanged(),
-      switchMap(d => this.flashInfoS.getFlashInfoById(d))
+      switchMap(d => this.flashInfoS.getFlashInfoById(this.id_sous_block))
       );
   }
 
   search(id){
-    this.flashSubject$.next(id);
+    this.flashSubject$.next(Date.now()+'');
   }
 
   ngOnInit() {
@@ -56,7 +56,7 @@ export class FlashInfoEcoleComponent implements OnInit {
   		})
   		).subscribe(d => {
         console.log('ngOnInit', d);
-        this.id_sous_block = d.body[0].id;
+        this.id_sous_block = d.body.id;
         this.search(this.id_sous_block);
   		});
   }

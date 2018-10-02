@@ -51,8 +51,8 @@ export class FlashInfoService {
     return this.http.post<Resultat<FlashInfo>>(this.urlFlashInfos, blk,{headers: new  HttpHeaders({'Authorization': this.jwtToken})})
       .pipe(
         tap(res => {
-          this.log(`flashInfo ajouter avec succes : message service=${res.body.nom}`);
-          this.toastr.success('flashInfo ajouter avec succes : message service= '+ res.body.nom,
+          this.log(`flashInfo ajouter avec succes : message service=${res.body.contenu}`);
+          this.toastr.success('flashInfo ajouter avec succes : message service= '+ res.body.contenu,
             'Opération réussie');
           // this.flashInfoCreer(res);
           // this.filtreflashInfo(res.body.nom);
@@ -79,8 +79,8 @@ export class FlashInfoService {
     return this.http.put<Resultat<FlashInfo>>(this.urlFlashInfos, blkModif,{headers: new  HttpHeaders({'Authorization': this.jwtToken})})
       .pipe(
         tap(res => {
-          this.log(`bloc de nom  =${res.body.nom}`);
-          this.toastr.success('bloc de nom  = '+ res.body.nom,
+          this.log(`bloc de nom  =${res.body.contenu}`);
+          this.toastr.success('bloc de nom  = '+ res.body.contenu,
             'Opération réussie');
           //this.flashInfotModif(res);
           // this.filtreflashInfo(res.body.nom);

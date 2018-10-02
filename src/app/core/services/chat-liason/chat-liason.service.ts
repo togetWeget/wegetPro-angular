@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import * as $ from 'jquery';
+import {InfoMembreService} from '../info-membre/info-membre.service';
 @Injectable({
   providedIn: 'root'
 })
@@ -11,12 +12,12 @@ export class ChatLiasonService {
 	public photo: any;
 	public nom: any;
 	public id: any;
-  constructor() {
+	public InfoMe: any;
+  constructor(private InfoM: InfoMembreService) {
 	  // this.photo= null;
 	  // this.nom= null;
 	  // this.id= null;
-	  // this.checkchange= false;
-	  
+	  this.InfoMe = this.InfoM.InfoMembres;
 	  }
   
 	getboolean(){
@@ -24,21 +25,7 @@ export class ChatLiasonService {
 	}
 	  
 	getinfoMembre(){
-		// $.ajax({
-			// url:'http://wegetback:8080/typePersonnes/ME',
-			// contentType: 'application/json',
-			// type:'get',
-			// dataType:'json',
-			// success: (data, status)=>{
-				// alert(status);
-				// }
 			
-			// ,error: (err)=>{
-				
-				
-				// }
-			// });
-		
 		return $.getJSON("http://wegetback:8080/typePersonnes/ME", function( data ){});
 		
 		

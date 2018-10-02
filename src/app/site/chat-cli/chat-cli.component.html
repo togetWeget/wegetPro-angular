@@ -52,18 +52,18 @@
 			
 			<div class="direct-chat-messages" *ngIf="ifactivechat() === true && chatact.checkchange === false && chatact.id !== null">
 			
-				<div  *ngFor="let val of [1,2,3,4,5,6,7,8,9]; index as i">
+				<div  *ngFor="let val of messageAll; index as i">
                     
 					
 					<div class="chat-box-single-line">
-					28 septembre 2018
+					{{val.Date_s}}
 					</div>
 					
 					
 					<!-- Message. Default to the left -->
-                    <div class="direct-chat-msg">
+                    <div class="direct-chat-msg" *ngIf="val.codeSender != chatact.InfoMe">
                       <div class="direct-chat-info clearfix">
-                        <span class="direct-chat-name pull-left">Djoue</span>
+                        <span class="direct-chat-name pull-left">{{chatact.nom}}</span>
                       </div>
                       <!-- /.direct-chat-info -->
 				<div [ngStyle]="{'background-image': 'url(' + chatact.photo + ')'}" *ngIf="chatact.photo !== null && chatact.photo !== ''" class="img-r"></div>
@@ -72,15 +72,39 @@
 					  
 					  <!-- /.direct-chat-img -->
                       <div class="direct-chat-text">
-                        loremp ipsum
+                        {{val.message}}
                       </div>
 					  <div class="direct-chat-info clearfix">
-                        <span class="direct-chat-timestamp pull-right">3.36 PM</span>
+                        <span class="direct-chat-timestamp pull-right">{{val.Date_s}}</span>
                       </div>
                       <!-- /.direct-chat-text -->
                     </div>
                     <!-- /.direct-chat-msg -->
-				                
+				     
+					<div class="direct-chat-msg" *ngIf="val.codeSender == chatact.InfoMe.id">
+                      <div class="direct-chat-info clearfix">
+                        <span class="direct-chat-name pull-right">{{chatact.InfoMe.nomComplet}}</span>
+                      </div>
+                      <!-- /.direct-chat-info -->
+
+					  
+					  <!-- /.direct-chat-img -->
+                      <div class="direct-chat-text-right" style="float:left !important;">
+                        {{val.message}}
+                      </div>
+					  
+				<div [ngStyle]="{'background-image': 'url(' + chatact.InfoMe.pathPhoto + ')'}" *ngIf="chatact.InfoMe.pathPhoto !== null && chatact.InfoMe.pathPhoto !== ''" class="img-rs"></div>
+				<div [ngStyle]="{'background-image': 'url(assets/photo/avatar.jpg)'}" *ngIf="chatact.InfoMe.pathPhoto === null || chatact.InfoMe.pathPhoto === '' " class="img-rs"></div>
+					  
+					  
+					  <div class="direct-chat-info clearfix">
+                        <span class="direct-chat-timestamp pull-right">{{val.Date_s}}</span>
+                      </div>
+                      <!-- /.direct-chat-text -->
+					  
+                    </div>
+					
+					
                  </div>
             </div>
 				  

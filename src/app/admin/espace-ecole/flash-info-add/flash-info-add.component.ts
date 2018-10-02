@@ -24,6 +24,7 @@ export class FlashInfoAddComponent implements OnInit {
 	  	this.initForm();
   	this.sousBlockS.getSousBlockByBlock(this.data.id)
   	.subscribe(response => {
+      console.log('response', response);
   		this.sousBlock = response.body;
 	  	this.initForm();
   	});
@@ -57,8 +58,8 @@ export class FlashInfoAddComponent implements OnInit {
   		fg.value['version'],
   		fg.value['contenu'],
   		fg.value['etat'],
-  		fg.value['date'],
-  		fg.value['sousBlock']
+  		null,
+  		this.sousBlock
   		);
   }
 
