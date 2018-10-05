@@ -1,0 +1,90 @@
+:host {
+	margin-bottom: 10px; 
+}
+
+mat-card.head-line {
+	padding: 10px;
+}
+.titre_{
+	font-weight: 600;
+    font-size: 1.2em;
+}
+mat-card.couverture {
+	position: relative;
+	padding: 0px;
+	.img_cover {
+		position: relative;
+		width: 100%;
+		height: 150px;		
+		.cover-btn-modif {
+			position: absolute;
+			right: 10px;
+			top: 10px;
+		}
+	}
+	.img_profil_container {
+		position: relative;
+		.img_profil {
+			display: table;
+			// border-radius: 100%;
+			position: absolute;
+			top: -6em;
+			left: 30px;
+			padding: 5px;
+			// background: #ffffff;
+			// box-shadow: 0px 0px 6px rgba(0,0,0,0.8);
+			// div {				
+			// 	width: 8em;
+			// 	height: 8em;
+			// 	border-radius: 100%;
+			// }
+		}		
+	}
+	.bottom_cover{
+		position: relative;
+		.vues {
+			display: inline-block;
+			position: absolute;
+			bottom: 0;
+			left: 10px;
+		}
+		.voir_profil {
+			display: inline-block;
+			position: relative;
+			border-right: 1px solid #cccccc;
+			min-height: 65px;
+			left: 11em;
+			i.fa{
+				font-size: 3em;
+			}
+			button {
+				color: #aaaaaa;
+				padding: 10px;	
+				&:hover {
+					color: #444444;
+				}
+			}
+		}
+	}
+}
+
+@media screen and (min-width: 576px) {
+	mat-card.couverture {
+		.img_cover {
+			height: 300px;		
+		}
+	}	
+}
+@media screen and (min-width: 768px) {
+	mat-card.couverture {
+		.img_cover {
+			height: 400px;		
+		}
+	}
+}
+@media screen and (min-width: 992px) {
+
+}
+@media screen and (min-width: 1200px) {
+
+}

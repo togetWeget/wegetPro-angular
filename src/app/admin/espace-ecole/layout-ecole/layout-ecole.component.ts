@@ -7,6 +7,8 @@ import { AdminCover } from '../../../shared/views_models/admin-cover';
 import { Detailblock } from '../../../shared/models/detailblock';
 import { Resultat } from '../../../shared/models/resultat';
 import { AbonnesService } from '../../../core/services/abonnes/abonnes.service';
+import { SaveFilesComponent } from '../../../core/comp/save-files/save-files.component';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';  
 
 @Component({
   selector: 'app-layout-ecole',
@@ -23,7 +25,7 @@ export class LayoutEcoleComponent implements OnInit {
   constructor(
     private abonneService: AbonnesService,
     private route: ActivatedRoute,
-    private router: Router,) {
+    private router: Router,public dialog: MatDialog) {
   this.getDetailBlock(); 
   	this.top_zone = new AdminTopZone (
   		'', 
@@ -51,5 +53,45 @@ export class LayoutEcoleComponent implements OnInit {
         this.top_zone.titre = this.detailBlock.block.libelle;
       this.top_zone.sous_titre=this.detailBlock.block.libelle;
     });
+  }
+
+  saveCover() {
+    const dialogRef = this.dialog.open(SaveFilesComponent, {
+      maxWidth: '768px',
+      maxHeight: '500px',
+      data: {name: 'image_photo', multiple: true, filename: '', url: ``}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      // this.search(Date.now()+'');
+      // this.search(localStorage.getItem('log'));
+    });
+  }
+  saveProfil() {
+    const dialogRef = this.dialog.open(SaveFilesComponent, {
+      maxWidth: '768px',
+      maxHeight: '500px',
+      data: {name: 'image_photo', multiple: false, filename: '', url: ``}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      // this.search(Date.now()+'');
+      // this.search(localStorage.getItem('log'));
+    });
+  }
+
+  handleClick(event) {
+    switch (event) {
+      case "img_cover":
+        this.saveCover();
+        break;
+      case "img_profil":
+        this.saveProfil();
+        break;
+      
+      default:
+        // code...
+        break;
+    }
   }
 }

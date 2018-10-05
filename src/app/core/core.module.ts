@@ -34,6 +34,9 @@ import { SigninComponent } from './clients/signin/signin.component';
 import {LoginsocialService} from './services/personne/membre/loginsocial.service';
 import {InfoMembreService} from './services/Info-membre/info-membre.service';
 import {ChatLiasonService} from './services/chat-liason/chat-liason.service';
+import { ProfilCoverComponent } from './comp/profil-cover/profil-cover.component';
+import { ProfilAvatarComponent } from './comp/profil-avatar/profil-avatar.component';
+import { SaveFilesComponent } from './comp/save-files/save-files.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -66,7 +69,10 @@ import {ChatLiasonService} from './services/chat-liason/chat-liason.service';
     PanelContentDirective,
     ChatComponent,
     NotFoundComponent,
-    SigninComponent
+    SigninComponent,
+    ProfilCoverComponent,
+    ProfilAvatarComponent,
+    SaveFilesComponent
   ],
   exports: [
     BlocTitleDirective,
@@ -86,10 +92,14 @@ import {ChatLiasonService} from './services/chat-liason/chat-liason.service';
     ChatComponent,
     NgxPaginationModule,
     NotFoundComponent,
-    SigninComponent
+    SigninComponent,
+    ProfilCoverComponent,
+    ProfilAvatarComponent,
+    SaveFilesComponent
   ],
   entryComponents: [
-  LoginComponent
+  LoginComponent,
+  SaveFilesComponent
   ],
   providers: [
     MessageService,

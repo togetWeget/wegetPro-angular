@@ -1,8 +1,8 @@
 <app-admin-card [adminCard]="admin_card" (clickOcur)="handleClick($event)" >
 	<div class="admin-card-content">
 		<div class="row">
-			<div class="col-md-4" *ngFor="let az of [0,1,2,3]">
-				<app-card-formation-ecole></app-card-formation-ecole>
+			<div class="col-md-4" *ngFor="let f of (formation$ | async)?.body">
+				<app-card-formation-ecole (clickOcur)="id_edit = f?.id;handleEcoleClick($event);" [titre]="f?.titre" [niveau]="f?.formation_niveau" [periode]="f?.dureeFormation" [description]="f?.description" [prix]="f?.formation_prix" ></app-card-formation-ecole>
 			</div>
 		</div>
 	</div>

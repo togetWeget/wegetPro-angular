@@ -2,7 +2,7 @@
 
 <form [formGroup]="ecoleForm" *ngIf="ecoleForm" (submit)="onSubmit()" >
 <div class="row">
-	<div class="col-md-8">
+	<div class="col-md-12">
 		<mat-expansion-panel>
 		  <mat-expansion-panel-header>
 		    <mat-panel-title>
@@ -204,9 +204,6 @@
 		    </mat-expansion-panel-header>
 
 		  </mat-expansion-panel>
-	</div>
-	<div class="col-md-4">
-		<app-modif-photo-ecole></app-modif-photo-ecole>
 	</div>
 	<div class="col-md-12">
 		<button class="btn-blue" type="submit" mat-raised-button>Enregistrer</button>

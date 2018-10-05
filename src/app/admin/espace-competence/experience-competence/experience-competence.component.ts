@@ -62,14 +62,14 @@ export class ExperienceCompetenceComponent implements OnInit {
   			for (const exp of this.membre.cvPersonne.experience) {
   				experienceInit.push(
 	  				this.fb.group({
-	  					id: exp.id,
-	        			version: exp.version,
-	        			entreprise: exp.entreprise,
-	        			postOccupe: exp.postOccupe,
-	        			dateDebut: exp.dateDebut,
-	        			dateFin: exp.dateFin,
-	        			tache: exp.tache,
-	        			lieu: exp.lieu
+	  					id: [exp.id],
+	        			version: [exp.version],
+	        			entreprise: [exp.entreprise],
+	        			postOccupe: [exp.postOccupe],
+	        			dateDebut: [exp.dateDebut],
+	        			dateFin: [exp.dateFin],
+	        			tache: [exp.tache],
+	        			lieu: [exp.lieu]
 	        		})
         		);
   			}

@@ -12,7 +12,8 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class FlashInfoService {
 	public jwtToken: string;
-	private urlFlashInfos = 'http://wegetback:8080/flashInfo';
+  private urlFlashInfos = 'http://wegetback:8080/flashInfo';
+	private urlFlashInfosParSousBlock = 'http://wegetback:8080/flashInfoSousBlock';
 
 	 // observables sources
   private flashInfoCreerSource = new Subject<Resultat<FlashInfo>>();
@@ -74,8 +75,19 @@ export class FlashInfoService {
       );
   }
 
+  getFlashInfoBySousBlock(id: number): Observable<Resultat<FlashInfo>> {
+
+    return this.http.get<Resultat<FlashInfo>>(`${this.urlFlashInfosParSousBlock}/${id}`)
+      .pipe(
+        tap(res => {
+          this.log(`flashInfo trouve  id=${id}`);
+        }),
+        catchError(this.handleError<Resultat<FlashInfo>>('getFlashInfoById'))
+      );
+  }
+
   modifierFlashInfo(blkModif: FlashInfo): Observable<Resultat<FlashInfo>> {
-    if (this.jwtToken==null) this.loadToken()
+    if (this.jwtToken==null) this.loadToken();
     return this.http.put<Resultat<FlashInfo>>(this.urlFlashInfos, blkModif,{headers: new  HttpHeaders({'Authorization': this.jwtToken})})
       .pipe(
         tap(res => {

@@ -1,0 +1,24 @@
+.img_profil {
+	display: table;
+	border-radius: 100%;
+	// position: absolute;
+	// top: -6em;
+	// left: 30px;
+	padding: 5px;
+	background: #ffffff;
+	box-shadow: 0px 0px 6px rgba(0,0,0,0.8);
+	div {				
+		width: 8em;
+		height: 8em;
+		border-radius: 100%;
+	}
+}		
+
+.for_admin{
+	position: absolute;
+	top: 0;
+	right: 0;
+	button{
+	position: relative;
+	}
+}

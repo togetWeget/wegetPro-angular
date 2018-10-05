@@ -17,27 +17,31 @@ export class LayoutComponent implements  OnDestroy {
   fillerNav = Array.from({length: 50}, (_, i) => `Nav Item ${i + 1}`);
 	public changechat: boolean;
   private _mobileQueryListener: () => void;
-
+	public msgbool = false;
   constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, public chatl: ChatLiasonService) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
 	// this.changechat = false;
 	this.chatl.chatactivate = false;
+	// console.log(this.chatl.globalCompt);
+	// this.chat.getallStat();
   }
 
   ngOnDestroy(): void {
     this.mobileQuery.removeListener(this._mobileQueryListener);
   }
   loadchat(){
+  this.chatl.globalCompt = 0;
   // this.changechat = true;
   this.chatl.chatactivate = true;
   if(this.chatl.chatactivate == true){
 	  this.chat.activatechat();
 	  }
   }
-  
+
   closechat(){
+  this.chatl.globalCompt = 0;
   // this.changechat = false;
   this.chatl.chatactivate = false;
   if(this.chatl.chatactivate == false){

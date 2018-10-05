@@ -1,0 +1,32 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>{{(formation$ | async)?.body.titre}}</mat-card-title>
+    <mat-card-title>
+    	<span class="badge badge-info"><i class="fa fa-graduation-cap"></i> {{(formation$ | async)?.body.formation_niveau}}</span>&nbsp;
+    	<span class="badge badge-info"><i class="fa fa-clock-o"></i> {{(formation$ | async)?.body.dureeFormation}}</span>&nbsp;
+    	<span class="badge badge-info"><i class="fa fa-money"></i> {{(formation$ | async)?.body.formation_prix}}</span>&nbsp;
+    </mat-card-title>
+  </mat-card-header>
+  <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+  <mat-card-content>
+  	<h4 class="title">Description</h4>
+    <p>
+      {{(formation$ | async)?.body.description}}
+    </p>
+
+  	<h4 class="title">Liste des cours</h4>
+  	<mat-accordion>
+  	  <mat-expansion-panel *ngFor="let co of (formation$ | async)?.body.cour; let i = index;">
+  	    <mat-expansion-panel-header>
+  	      <mat-panel-title>
+  	        {{co?.titre}}
+  	      </mat-panel-title>
+  	    </mat-expansion-panel-header>
+  	  	  <!-- content here -->
+  	  	  {{co?.description}}
+  	  	  <!-- end content -->
+  	  </mat-expansion-panel>
+  	</mat-accordion>
+
+  </mat-card-content>
+</mat-card>

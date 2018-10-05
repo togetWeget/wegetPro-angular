@@ -2,46 +2,20 @@
   <div class="row">
     <div class="col-md-12 col-lg-12 col-12">
       <div id="profile-abonne" style="min-height: 200px;">
-        <div class="profile-cover">
-          <div class="wrapper">
-            <div class="cover-image">
-              <div class="block-title">
-                <a class="absolute" title="Revenir sur la liste des abonnés">
-                  <span [innerHtml]="abonne?.block?.libelle"></span>
-                </a>
-                <div class="absolute at-right"><a title="afficher la liste" class="btn btn-primary" style="border-radius: 0px;"><i class="fa fa-th"></i> </a></div>
-              </div>
-              <a routerLink="." class="btn btn-primary">Modifier mon profile</a>
-              <img src="{{photCouverture}}" alt="">
+          <br>
+          <app-profil-cover [titre]="abonne?.block?.libelle" id="img_cover" [vues]="abonne?.nombreVue" [image]="abonne?.membre?.pathPhotoCouveture" (clickOcur)="handleClick($event)" >
+            <app-profil-avatar  id="img_profil" [image]="abonne?.membre?.pathPhoto" (clickOcur)="handleClick($event)" ></app-profil-avatar>
+            <div class="footer">
+              <button mat-raised-button color="primary" (click)="onContactAbonne()"><i class="fa fa-envelope"></i><span class="d-none d-sm-inline" style="display: none"> Contacter</span></button>&nbsp;&nbsp;
+              <button mat-raised-button color="warn"><i class="fa fa-comments"></i><span class="d-none d-sm-inline"> Discuter</span></button>
             </div>
-          </div>
-          <div class="profile-info">
-            <div class="profile-avatar">
-              <img src="{{abonne?.membre?.pathPhoto}}" alt="user-image" class="candidate_photo" />
-              <div class="profile-view"><i class="fa fa-eye"></i> 5</div>
-            </div>
-            <ul class="profile-action">
-              <li>
-                <a routerLink=".">
-                  <button mat-raised-button color="primary" (click)="onContactAbonne()">
-                    <i class="fa fa-envelope"></i><span class="d-none d-sm-inline" style="display: none"> Contacter</span>
-                  </button>
-                </a>
-              </li>
-              <li>
-                <a routerLink=".">
-                  <button mat-raised-button color="warn">
-                    <i class="fa fa-comments"></i><span class="d-none d-sm-inline"> Discuter</span>
-                  </button>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
+          </app-profil-cover>
+          <br>
         <div class="profile-content" style="min-height: 500px;">
+          <app-page-ecole *ngIf="abonne?.block?.typeBlock==='ecole'"></app-page-ecole>  
           <div class="row">
             <div class="col-lg-9 col-md-6 col-12">
-              <div class="abonne-info">
+              <mat-card class="abonne-info" *ngIf="abonne?.block.typeBlock==='competence'">
                 <div class="abonne-meta-info">
                   <div class="abonne-name">
                     {{abonne?.membre?.nomComplet |uppercase}}
@@ -50,57 +24,63 @@
                     {{abonne?.membre?.cvPersonne?.specialite}} {{abonne?.membre?.cvPersonne?.anneExperience}} d'espériences
                   </div>
                 </div>
-              </div>
-              <mat-tab-group class="col-md-12 col-sm-12">
-                <mat-tab>
-                  <span *mat-tab-label>
-                    <i class="fa fa-address-card"></i>
-                    <span class="d-none d-lg-inline"> Bio</span>
-                  </span>
-                  <div class="tab-content">
-                    <h3 class="tab-content-title">Biographie</h3>
-                    <app-bio-profil [abonne]="abonne"></app-bio-profil>
-                  </div>
-                </mat-tab>
-                <mat-tab>
-                  <span *mat-tab-label>
-                    <i class="fa fa-trophy"></i>
-                    <span class="d-none d-lg-inline"> Expérience</span>
-                  </span>
-                  <div class="tab-content">
-                    <h3 class="tab-content-title">expérince</h3>
-                    <app-experience-profil [experience]="experience"></app-experience-profil>
-                  </div>
-                </mat-tab>
-                <mat-tab>
-                  <span *mat-tab-label>
-                    <i class="fa fa-graduation-cap"></i>
-                    <span class="d-none d-lg-inline"> Formation</span>
-                  </span>
-                  <div class="tab-content">
-                    <h3 class="tab-content-title">Formations</h3>
-                    <ul style="margin-left: -35px;">
-                      <app-formation-profil [cursus]="cursus"></app-formation-profil>
-                    </ul>
-                  </div>
-                </mat-tab>
-                <mat-tab>
-                  <span *mat-tab-label>
-                    <i class="fa fa-file"></i>
-                    <span class="d-none d-lg-inline"> Documents</span>
-                  </span>
-                  <div class="tab-content">
-                    <h3 class="tab-content-title">documents</h3>
-                    <app-documents-profil></app-documents-profil>
-                  </div>
-                </mat-tab>
-              </mat-tab-group>
-              <div style="padding: 15px; margin-top:50px;">
-                <h3 class="tab-content-title">Dans ce réseau</h3>
-              </div>
+              </mat-card>
+              <mat-card>
+                <mat-tab-group class="col-md-12 col-sm-12">
+                  <mat-tab>
+                    <span *mat-tab-label>
+                      <i class="fa fa-address-card"></i>
+                      <span class="d-none d-lg-inline"> Bio</span>
+                    </span>
+                    <div class="tab-content">
+                      <h3 class="tab-content-title">Biographie</h3>
+                      <app-bio-profil [abonne]="abonne"></app-bio-profil>
+                    </div>
+                  </mat-tab>
+                  <mat-tab>
+                    <span *mat-tab-label>
+                      <i class="fa fa-trophy"></i>
+                      <span class="d-none d-lg-inline"> Expérience</span>
+                    </span>
+                    <div class="tab-content">
+                      <h3 class="tab-content-title">expérince</h3>
+                      <app-experience-profil [experience]="experience"></app-experience-profil>
+                    </div>
+                  </mat-tab>
+                  <mat-tab>
+                    <span *mat-tab-label>
+                      <i class="fa fa-graduation-cap"></i>
+                      <span class="d-none d-lg-inline"> Formation</span>
+                    </span>
+                    <div class="tab-content">
+                      <h3 class="tab-content-title">Formations</h3>
+                      <ul style="margin-left: -35px;">
+                        <app-formation-profil [cursus]="cursus"></app-formation-profil>
+                      </ul>
+                    </div>
+                  </mat-tab>
+                  <mat-tab>
+                    <span *mat-tab-label>
+                      <i class="fa fa-file"></i>
+                      <span class="d-none d-lg-inline"> Documents</span>
+                    </span>
+                    <div class="tab-content">
+                      <h3 class="tab-content-title">documents</h3>
+                      <app-documents-profil></app-documents-profil>
+                    </div>
+                  </mat-tab>
+                </mat-tab-group>
+              </mat-card>
+              <mat-card>
+                <div>
+                  <h3 class="tab-content-title">Dans ce réseau</h3>0
+                </div>
+              </mat-card>
             </div>
-            <div class="d-none d-lg-block col-lg-3">
-              <div style="height: 200px; border: 1px solid black;"></div>
+            <div class="d-none d-lg-block col-lg-3" >
+              <mat-card style="padding: 5px;">
+                <div style="height: 200px; border: 1px solid black;"></div>
+              </mat-card>
             </div>
           </div>
         </div>

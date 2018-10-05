@@ -92,7 +92,7 @@ export class MonEcoleComponent implements OnInit {
         this.sousBlock$.subscribe(
           (data) => {
             try{
-              this.sousBlock = data.body[0];  
+              this.sousBlock = data.body;  
               this.initForm();
               
             }catch(e){console.error('sousBlock');}
@@ -309,7 +309,7 @@ export class MonEcoleComponent implements OnInit {
         this.sousBlocksS.ajoutSousBlock(this.convSousBlockNew(this.ecoleForm))
       .subscribe(
         (data) => {
-          this.sousBlock = data.body[0];
+          this.sousBlock = data.body;
           this.search();
           
         }
@@ -318,7 +318,7 @@ export class MonEcoleComponent implements OnInit {
       this.sousBlocksS.modifierSosusBlock(this.convSousBlock(this.ecoleForm))
       .subscribe(
         (data) => {
-          // this.sousBlock = data.body[0];
+          // this.sousBlock = data.body;
           // let chiffres = this.convChiffre(this.ecoleForm);
           // for(let chiffre of chiffres){
           //   // chiffre.setSousBlock(this.sousBlock);

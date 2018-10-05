@@ -17,7 +17,13 @@ export class ChatCliComponent implements OnInit {
 	public memebreall : any = [];
 	public messageAll : any = [];
 	userFilter : any = {nomComplet : ''};
-  constructor(public chatact: ChatLiasonService, public firbaseRequest: RequestChatroomService, private _sanitizer: DomSanitizer) { }
+	public cnpt: any = 0;
+	public message_ss: any;
+	public compteurMsg: any = [];
+	public bool: boolean;
+  constructor(public chatact: ChatLiasonService, public firbaseRequest: RequestChatroomService, private _sanitizer: DomSanitizer) { 
+	  this.getallStat();
+	  }
 
   ngOnInit() {
   this.memebrealls();
@@ -71,7 +77,10 @@ export class ChatCliComponent implements OnInit {
 		if(this.chatact.chatactivate == true){
 				$("#qnimate").animate({width: 'toggle'});
 			}
-			
+				this.chatact.photo = null;
+				this.chatact.nom = null;
+				this.chatact.id = null;	
+				this.chatact.checkchange = true;
 	}
 	}
 	
@@ -91,6 +100,11 @@ export class ChatCliComponent implements OnInit {
 				if(this.chatact.chatactivate == false){
 						$("#qnimate").animate({width: 'toggle'});
 					}
+				this.chatact.photo = null;
+				this.chatact.nom = null;
+				this.chatact.id = null;
+				this.chatact.checkchange = true;
+				this.chatact.globalCompt = 0;
 		}
 	}
 	
@@ -104,18 +118,23 @@ export class ChatCliComponent implements OnInit {
 		let mem = this.chatact.getinfoMembre().done(function(data) {
 			u.memebreall = data.body;
 			u.memebreall.sort((a,b)=>{return a.nomComplet > b.nomComplet;});
-			console.log(u.memebreall);
+			// console.log(u.memebreall);
 		  })
 		  .fail(function() {
 			console.log( "error" );
 		  })
 		  .always(function() {
-			console.log( "complete" );
+			// console.log( "complete" );
 		  });
 		
 		}
 		
 		changeval(photo, nom, id){
+				this.chatact.photo = null;
+				this.chatact.nom = null;
+				this.chatact.id = null;
+				
+				
 				this.chatact.photo = photo;
 				let dsp = nom.split(' ');
 				this.chatact.nom = dsp[0];
@@ -130,6 +149,7 @@ export class ChatCliComponent implements OnInit {
 				this.chatact.miximaze = false;
 			  $('#qnimate').removeClass('popup-box-max');
 			  $('#qnimate').addClass('popup-box-min');
+			  this.scrollF();
 		  }else{
 				
 				this.chatact.miximaze = true;
@@ -142,14 +162,16 @@ export class ChatCliComponent implements OnInit {
 			return this.chatact.id;
 		}
 		getchatinf(uid_receiv){
-
-	let verif = 0;
-  const libelle = 'Discussion';
-  const getuid = this.chatact.InfoMe.id;
-  const code_disc = getuid+ '_' + uid_receiv;
-  const code_disc_rec = uid_receiv + '_' + getuid;
-  const urlData = libelle + '/' + code_disc ;
+			this.messageAll = [];
+			this.cnpt = 0;
+			let verif = 0;
+		  const libelle = 'Discussion';
+		  const getuid = this.chatact.InfoMe.id;
+		  const code_disc = getuid+ '_' + uid_receiv;
+		  const code_disc_rec = uid_receiv + '_' + getuid;
+		  const urlData = libelle + '/' + code_disc_rec ;
 		this.firbaseRequest.getAll(urlData).on("value", snapshot => {
+		if(snapshot.val()){
 		let uidreg = this.getud();
 		if(uidreg){
 		// alert(uidreg);
@@ -157,29 +179,38 @@ export class ChatCliComponent implements OnInit {
 		let valeurData = Object.keys(snapshot.val());
 		let i=0;
 		let w = compr;
+		this.messageAll = [];
 		for(i==0; i < compr; i++){
-			const urlData2 = libelle + '/' + code_disc + '/' + valeurData[i];
-			const urlData3 = libelle + '/' + code_disc_rec + '/' + valeurData[i];
+			const urlData2 = urlData + '/' + valeurData[i];
+			const urlData3 = libelle + '/' + code_disc + '/' + valeurData[i];
 			this.firbaseRequest.getAll(urlData2).on("value", snapshot => {
 
-					if(snapshot.val().idreceiver === uidreg || snapshot.val().codeSender === uidreg){
-						
-				this.messageAll[i] = snapshot.val(); 
-				let dataUpdates = {status : 1};
-				this.firbaseRequest.UpdateData(urlData2, dataUpdates);
-				verif++;
-						}
+					if(snapshot.val().idreceiver === uidreg || snapshot.val().codeSender === uidreg){	
+						this.messageAll[i] = snapshot.val(); 
+						verif++;
+						let dataUpdates = {status : 1};
+						this.firbaseRequest.UpdateData(urlData3, dataUpdates);
+					}
 
 				});
 		}
-			console.log(this.messageAll);
+			// console.log(this.messageAll);
 		// this.messageAllFinished[uidreg] = this.messageAll;
-		
+		  if(verif > 0){
+		this.cnpt = 1; 
+			  }
+		  if(verif == 0){
+				this.cnpt = 2; 
+			  }
 		
 		this.scrollF();
 		}
+		
+		}else{
+		this.cnpt = 2; 
+		}
   });
-  
+
 
 			
 	  		
@@ -190,19 +221,107 @@ export class ChatCliComponent implements OnInit {
   const interv = setInterval( ()=> {
 
   const tailleT = Math.round($('.direct-chat-messages').outerHeight(true) + $('.direct-chat-messages').scrollTop());
- 
 	  $('.direct-chat-messages').animate({'scrollTop': $('.direct-chat-messages')[0].scrollHeight});
 	  	$('#status_message').focus();
-	  if(tailleT == $('.direct-chat-messages')[0].scrollHeight){
+	// alert(tailleT+" / "+$('.direct-chat-messages')[0].scrollHeight);
+	  if(tailleT >= $('.direct-chat-messages')[0].scrollHeight){
 		  clearInterval(interv);
 		  }
   },1000);
 	  }
 	 
 	 // taper entrer pour envoyer le mesage
-  // enterSend(param: KeyboardEvent){
-	  // if(param.which === 13){
-			// this.SEndDiscusion();
-		  // } 
-  // }
+  enterSend(param: KeyboardEvent){
+	  if(param.which === 13){
+			this.sendchatmsg();
+		  } 
+  }
+  
+  sendchatmsg(){
+	if(this.message_ss){	
+    const libelle = 'Discussion';
+    const code_disc = this.chatact.InfoMe.id + '_' + this.chatact.id ;
+	
+    const code_disc_rec = this.chatact.id  + '_' + this.chatact.InfoMe.id;
+	
+    const timerDisc = new Date().getTime();
+	
+    const datesender = new Date(timerDisc).toLocaleString();
+    const urlData = libelle + '/' + code_disc + '/' + timerDisc;
+    const urlData_rec = libelle + '/' + code_disc_rec + '/' + timerDisc;
+	
+    const data: any = {message: this.message_ss, fichier: ' ', Date_s: datesender, codeSender: this.chatact.InfoMe.id , images: '', status : 0, idreceiver: this.chatact.id };
+	
+    this.firbaseRequest.CreateSendData( urlData, data);
+    this.firbaseRequest.CreateSendData( urlData_rec, data);
+	this.message_ss = null;
+	$('#status_message').focus();
+	this.scrollF();
+	}	  
+	   
+  }
+  
+  getstatus(id){
+		  // this.compteurMsg = [];
+		  let ur = 0;
+		  const libelle = 'Discussion';
+		  const getuid = this.chatact.InfoMe.id;
+		  const code_disc = getuid+ '_' + id;
+		  const code_disc_rec = id + '_' + getuid;
+		  const urlData = libelle + '/' + code_disc ;
+		this.firbaseRequest.getAll(urlData).on("value", snapshot => {
+		if(snapshot.val()){
+		  this.chatact.globalCompt = 0;
+			let uidreg = this.getud();
+				// alert(uidreg);
+				let compr = Object.keys(snapshot.val()).length;
+				let valeurData = Object.keys(snapshot.val());
+				let i=0;
+				this.compteurMsg[id] = 0;
+					for(i==0; i < compr; i++){
+						const urlData2 = urlData + '/' + valeurData[i];
+						this.firbaseRequest.getAll(urlData2).on("value", snapshot => {
+
+								if(snapshot.val().status === 0){
+									this.compteurMsg[id] = this.compteurMsg[id] + 1; 
+									this.chatact.globalCompt = this.chatact.globalCompt + this.compteurMsg[id];
+									if(getuid != snapshot.val().codeSender){
+										ur = 1;
+									}
+								}
+
+							});
+					}
+				if(ur == 1){
+						this.playaudio();
+					}
+					ur = 0;
+		this.bool = true;
+		}
+  });
+  }
+  
+  	playaudio(){  
+		let flush = new Audio('/assets/audio/1.mp3');
+		flush.volume = 0.2;
+		flush.play();
+		  }
+		  
+	getallStat(){
+		if(this.memebreall){
+		let iterval = setInterval( ()=>{
+			let h = this.memebreall.length;
+	
+			for(let i=0; i< h; i++){
+				let id = this.memebreall[i].id;
+				this.getstatus(id);
+			}
+			
+			if(this.bool){
+				clearInterval(iterval);
+				}
+		},1000)
+		}
+	}	  
+		  
 }

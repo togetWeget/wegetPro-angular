@@ -9,6 +9,7 @@ import { FlashInfoService } from '../../../core/services/flash-info.service';
 import {Resultat} from '../../../shared/models/resultat';
 import {PersonalButton} from '../../../shared/views_models/personal-button';
 import {FlashInfoAddComponent} from '../flash-info-add/flash-info-add.component';
+import {FlashInfoUpdateComponent} from '../flash-info-update/flash-info-update.component';
 import { SousBlockService } from '../../../core/services/sous-block.service';
 
 @Component({
@@ -40,7 +41,7 @@ export class FlashInfoEcoleComponent implements OnInit {
   	this.flash$ = this.flashSubject$.pipe(
       debounceTime(300),
       distinctUntilChanged(),
-      switchMap(d => this.flashInfoS.getFlashInfoById(this.id_sous_block))
+      switchMap(d => this.flashInfoS.getFlashInfoBySousBlock(this.id_sous_block))
       );
   }
 
@@ -88,7 +89,25 @@ export class FlashInfoEcoleComponent implements OnInit {
   }
 
   modifierFlash(id){
+    const dialogRef = this.dialog.open(FlashInfoUpdateComponent, {
+      maxWidth: '768px',
+      maxHeight: '500px',
+      data: {id: this.id_block, fid: id}
+    });
 
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was[0] closed');
+      this.search(this.id_sous_block);
+      // this.animal = result;
+    });
+  }
+  
+  supprimerFlash(id){
+    this.flashInfoS.supprimerFlashInfo(id)
+    .subscribe(response => {
+      this.search(this.id_sous_block);
+      // this.dialogRef.close();
+    });
   }
 
 

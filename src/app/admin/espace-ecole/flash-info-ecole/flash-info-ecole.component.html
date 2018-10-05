@@ -10,7 +10,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr *ngFor="let flash of (flash$ | async); let i=index;">
+				<tr *ngFor="let flash of (flash$ | async)?.body; let i=index;" [ngClass]="{'desactive': !flash.etat}">
 					<td>
 						{{flash.contenu}}
 					</td>
@@ -20,8 +20,8 @@
 					</td>
 					<td>{{flash.date}}</td>
 					<td>
-						<button mat-raised-button (click)="modifierFlash(flash.id)" class="green">Modifier</button>
-						<button mat-raised-button class="btn-danger">supprimer</button>
+						<button mat-raised-button (click)="modifierFlash(flash.id)" class="green"><i class="fa fa-edit"></i></button>
+						<button mat-raised-button (click)="supprimerFlash(flash.id)" class="btn-danger"><i class="fa fa-trash"></i></button>
 					</td>
 				</tr>
 			</tbody>

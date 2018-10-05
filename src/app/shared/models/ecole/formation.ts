@@ -1,3 +1,6 @@
+import {SousBlock} from '../sous-block';
+import {Cours} from './cours';
+
 export class  Formation{
 	
 	constructor(
@@ -9,6 +12,8 @@ export class  Formation{
 		public contenu?:string,
 		public dureeFormation?:string,
 		public diplome?:string,
-		public formation_prix?:string
+		public formation_prix?:string,
+		public cour?: Cours[],
+		public sousBlock?: SousBlock
 	) {}
 }

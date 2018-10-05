@@ -10,6 +10,7 @@ import { AbonnesService } from '../../../core/services/abonnes/abonnes.service';
 import {MembreService} from '../../../core/services/personne/membre/membre.service';
 import { CoverSelectComponent } from '../cover-select/cover-select.component';
 import { CoverProfilComponent } from '../../comp/cover-profil/cover-profil.component';
+import { SaveFilesComponent } from '../../../core/comp/save-files/save-files.component';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';  
 import { Observable, throwError, interval,
 Subject, BehaviorSubject } from 'rxjs';
@@ -91,23 +92,38 @@ top_zone: AdminTopZone = null;
   }
 
   openModif() {
-    const dialogRef = this.dialog.open(CoverSelectComponent, {
-      maxWidth: '700px',
-      data: {membre: this.membre}
+    const dialogRef = this.dialog.open(SaveFilesComponent, {
+      maxWidth: '768px',
+      maxHeight: '500px',
+      data: {name: 'image_photo', multiple: false, filename: this.membre.login, url: `http://wegetback:8080/photoCouvertureMembre`}
     });
 
     dialogRef.afterClosed().subscribe(result => {
+      this.search(Date.now()+'');
+      this.search(localStorage.getItem('log'));
+    });
+  }
+
+  saveProfil() {
+    const dialogRef = this.dialog.open(SaveFilesComponent, {
+      maxWidth: '768px',
+      maxHeight: '500px',
+      data: {name: 'image_photo', multiple: false, filename: this.membre.login, url: `http://wegetback:8080/photoMembre`}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.search(Date.now()+'');
       this.search(localStorage.getItem('log'));
     });
   }
 
   handleClick(event) {
     switch (event) {
-      case "modif":
+      case "img_cover":
         this.openModif();
         break;
-      case "voirProfil":
-        // code...
+      case "img_profil":
+        this.saveProfil();
         break;
       
       default:

@@ -26,6 +26,7 @@ import { GalleryComponent } from './compte/gallery/gallery.component';
 import { PhotosComponent } from './compte/gallery/photos/photos.component';
 import { VideoComponent } from './compte/gallery/video/video.component';
 import { AllGalleryComponent } from './compte/gallery/all-gallery/all-gallery.component';
+import { FormationEcoleViewComponent } from './espace-ecole/formation-ecole-view/formation-ecole-view.component';
 
 const routes: Routes = [
   {

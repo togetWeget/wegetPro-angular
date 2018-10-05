@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Observable, of, Subject} from 'rxjs';
+import {Observable, of, Subject, BehaviorSubject} from 'rxjs';
 import { switchMap, debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import {HttpClient} from '@angular/common/http';
 import {catchError, tap} from 'rxjs/operators';
@@ -20,7 +20,7 @@ export class AbonnesService {
   private abonneByLogUrl = 'http://wegetback:8080/profilAbonneLogin/';
   private abonnesUrl = 'http://wegetback:8080/abonnes/';
    private abonnesComptence = 'http://wegetback:8080/rechercheParComptence/';
-  public nbVueSubject$ = new Subject<number>();
+  public nbVueSubject$ = new BehaviorSubject<number>(0);
   
   
   private jwtToken = null;

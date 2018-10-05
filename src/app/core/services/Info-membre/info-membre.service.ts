@@ -22,9 +22,13 @@ export class InfoMembreService {
 	// }
   
     getbylogin(){
-		this.localstor();
-		let chr = decodeURIComponent(escape(window.atob( localStorage.getItem("membre") )));
-		this.InfoMembres = JSON.parse(chr);
+    	try{
+			this.localstor();
+			let chr = decodeURIComponent(escape(window.atob( localStorage.getItem("membre") )));
+			this.InfoMembres = JSON.parse(chr);
+		}catch(e){
+			console.error('getbylogin error', e);
+		}
 	}  
   	
 	localstor(): any{

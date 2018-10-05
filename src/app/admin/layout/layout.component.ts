@@ -49,7 +49,7 @@ OnInit {
       .subscribe((res:any)=> {
           this.dblk = res.body;    
         console.log(res.body);
-        this.messagerieService.findNonLus(this.dblk[0].membre.id);
+        this.messagerieService.findNonLus(this.dblk.membre.id);
       });
   }
 

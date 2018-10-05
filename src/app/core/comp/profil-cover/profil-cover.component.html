@@ -1,0 +1,22 @@
+<mat-card class="head-line">
+	<mat-card-content>
+		<span class="titre_" *ngIf="titre !== null && titre !== ''" [innerHtml]="titre"></span>
+	</mat-card-content>
+</mat-card>
+<mat-card class="couverture">	
+	<mat-card-content>
+		<div class="img_cover" #img_cover>
+			<button chass="cover-btn-modif" *ngIf="isAdmin" (click)="modifAction()" style="position: absolute;right: 10px;top: 10px;" mat-raised-button><i class="fa fa-photo"></i> Modifier couverture</button>
+		</div>
+		<div class="img_profil_container">
+			<div class="img_profil">
+				<ng-content select="app-profil-avatar"></ng-content>
+			</div>
+		</div>
+		<div class="bottom_cover">
+			<div class="vues" *ngIf="vues !== '-1'"><i class="fa fa-eye"></i> <span [innerHtml]="vues"></span></div>
+			<div class="voir_profil"><ng-content select=".footer"></ng-content></div>
+		</div>
+	</mat-card-content>
+</mat-card>
+<!-- {{membre | json}} -->

@@ -1,17 +1,17 @@
 
 <div class="popup-box chat-popup popup-box-max" id="qnimate">
     		  <div class="popup-head">
-				<div class="popup-head-left pull-left" *ngIf="chatact.checkchange === false" style="color:#aaa; border-color:#fefefe;"> 
+				<div class="popup-head-left pull-left" *ngIf="chatact?.checkchange === false" style="color:#aaa; border-color:#fefefe;"> 
 				
-				<div [ngStyle]="{'background-image': 'url(' + chatact.photo + ')'}" *ngIf="chatact.photo !== null && chatact.photo !== ''" class="img-r"></div>
-				<div [ngStyle]="{'background-image': 'url(assets/photo/avatar.jpg)'}" *ngIf="chatact.photo === null || chatact.photo === '' " class="img-r"></div>
+				<div [ngStyle]="{'background-image': 'url(' + chatact?.photo + ')'}" *ngIf="chatact?.photo !== null && chatact?.photo !== ''" class="img-r"></div>
+				<div [ngStyle]="{'background-image': 'url(assets/photo/avatar.jpg)'}" *ngIf="chatact?.photo === null || chatact?.photo === '' " class="img-r"></div>
 				
-					<div class="break" style="line-height:2.5em;" title="">{{chatact.nom}}</div>
+					<div class="break" style="line-height:2.5em;" title="">{{chatact?.nom}}</div>
 					
 				</div>
 				
 				
-				<div class="popup-head-left pull-left" *ngIf="chatact.checkchange === true" style="color:#aaa; border-color:#fefefe;"> 
+				<div class="popup-head-left pull-left" *ngIf="chatact?.checkchange === true" style="color:#aaa; border-color:#fefefe;"> 
 
 					<div class="break" style="line-height:2.5em;" title="">WegetPro Chat live</div>
 					
@@ -28,13 +28,13 @@
 						
 					  <button data-widget="remove" id="" class="chat-header-button pull-right" type="button" (click)="desactivatechat()"><i class="fa fa-remove"></i></button>
 					  
-					  <button data-widget="" id="" class="chat-header-button pull-right" *ngIf="chatact.miximaze === true" type="button" (click)="maximin()"><i class="fa fa-window-minimize"></i></button>
+					  <button data-widget="" id="" class="chat-header-button pull-right" *ngIf="chatact?.miximaze === true" type="button" (click)="maximin()"><i class="fa fa-window-minimize"></i></button>
 					  
-					  <button data-widget="" id="" class="chat-header-button pull-right" *ngIf="chatact.miximaze === false" type="button" (click)="maximin()"><i class="fa fa-window-maximize"></i></button>
+					  <button data-widget="" id="" class="chat-header-button pull-right" *ngIf="chatact?.miximaze === false" type="button" (click)="maximin()"><i class="fa fa-window-maximize"></i></button>
 					  
-					  <button data-widget="remove" id="" class="chat-header-button" type="button" *ngIf="chatact.checkchange === false" (click)="change();"><i class="fa fa-ellipsis-h"></i></button>
+					  <button data-widget="remove" id="" class="chat-header-button" type="button" *ngIf="chatact?.checkchange === false" (click)="change();"><i class="fa fa-ellipsis-h"></i></button>
 					  
-					  <button data-widget="" id="" class="chat-header-button" type="button" (click)="search()" *ngIf="ifactivechat() === true && chatact.checkchange === true"><i class="fa fa-search"></i></button>
+					  <button data-widget="" id="" class="chat-header-button" type="button" (click)="search()" *ngIf="ifactivechat() === true && chatact?.checkchange === true"><i class="fa fa-search"></i></button>
 					  
                       </div>
 			  </div>
@@ -49,57 +49,64 @@
 				</form>
 			</div>
 			
+			<div class="direct-chat-messages text-center" *ngIf="ifactivechat() === true && chatact?.checkchange === false && chatact?.id !== null && messageAll.length == 0 && cnpt == 0"><p>Chargement des Meta Data en cours...</p></div>
 			
-			<div class="direct-chat-messages" *ngIf="ifactivechat() === true && chatact.checkchange === false && chatact.id !== null">
+			<div class="direct-chat-messages text-center" style="" *ngIf="ifactivechat() === true && chatact?.checkchange === false && chatact?.id !== null && messageAll.length == 0 && cnpt == 2"><p>Auncun message trouvé dans cette discussion...</p></div>
+			
+			<div class="direct-chat-messages" *ngIf="ifactivechat() === true && chatact?.checkchange === false && chatact?.id !== null && messageAll.length != 0 && cnpt == 1">
 			
 				<div  *ngFor="let val of messageAll; index as i">
                     
 					
-					<div class="chat-box-single-line">
-					{{val.Date_s}}
-					</div>
+					<!-- <div class="chat-box-single-line"> -->
+					<!-- {{val.Date_s}} -->
+					<!-- </div> -->
 					
 					
 					<!-- Message. Default to the left -->
-                    <div class="direct-chat-msg" *ngIf="val.codeSender != chatact.InfoMe">
-                      <div class="direct-chat-info clearfix">
-                        <span class="direct-chat-name pull-left">{{chatact.nom}}</span>
+                    <div class="row direct-chat-msg pull-right" *ngIf="val?.codeSender == chatact?.InfoMe.id">
+                      <div class="direct-chat-info col-sm-12">
+                        <span class="direct-chat-name pull-right">Vous</span>
                       </div>
                       <!-- /.direct-chat-info -->
-				<div [ngStyle]="{'background-image': 'url(' + chatact.photo + ')'}" *ngIf="chatact.photo !== null && chatact.photo !== ''" class="img-r"></div>
-				<div [ngStyle]="{'background-image': 'url(assets/photo/avatar.jpg)'}" *ngIf="chatact.photo === null || chatact.photo === '' " class="img-r"></div>
-					  
+					<div class="col-sm-12">
+					<div class="" style="width:auto; float:right;">
+				<div [ngStyle]="{'background-image': 'url(' + chatact?.InfoMe.pathPhoto + ')'}" *ngIf="chatact?.InfoMe.pathPhoto !== null && chatact?.InfoMe.pathPhoto !== ''" class="img-rs"></div>
+				<div [ngStyle]="{'background-image': 'url(assets/photo/avatar.jpg)'}" *ngIf="chatact?.InfoMe.pathPhoto === null || chatact?.InfoMe.pathPhoto === '' " class="img-rs"></div>					  
 					  
 					  <!-- /.direct-chat-img -->
-                      <div class="direct-chat-text">
-                        {{val.message}}
+                      <div class="direct-chat-text" style="display:table; background:#ddd;">
+                        {{val?.message}}
                       </div>
-					  <div class="direct-chat-info clearfix">
-                        <span class="direct-chat-timestamp pull-right">{{val.Date_s}}</span>
+                      </div>
+                      </div>
+					  <div class="direct-chat-info  col-sm-12">
+							<i class="fa fa-check pull-right" style="color:#ddd; font-size:8px;" *ngIf="val?.status === 0"></i>
+							<i class="fa fa-check-circle pull-right" style="color:green; font-size:8px;" *ngIf="val?.status === 1"></i>
+							<span class="direct-chat-timestamp pull-right">{{val?.Date_s}}</span>&nbsp;
                       </div>
                       <!-- /.direct-chat-text -->
                     </div>
                     <!-- /.direct-chat-msg -->
 				     
-					<div class="direct-chat-msg" *ngIf="val.codeSender == chatact.InfoMe.id">
-                      <div class="direct-chat-info clearfix">
-                        <span class="direct-chat-name pull-right">{{chatact.InfoMe.nomComplet}}</span>
-                      </div>
-                      <!-- /.direct-chat-info -->
-
-					  
-					  <!-- /.direct-chat-img -->
-                      <div class="direct-chat-text-right" style="float:left !important;">
-                        {{val.message}}
+					<div class="col-sm-12 direct-chat-msg pull-left" style="" *ngIf="val?.codeSender != chatact?.InfoMe.id">
+                      <div class="direct-chat-info ">
+                        <span class="direct-chat-name">{{chatact?.nom}}</span>
                       </div>
 					  
-				<div [ngStyle]="{'background-image': 'url(' + chatact.InfoMe.pathPhoto + ')'}" *ngIf="chatact.InfoMe.pathPhoto !== null && chatact.InfoMe.pathPhoto !== ''" class="img-rs"></div>
-				<div [ngStyle]="{'background-image': 'url(assets/photo/avatar.jpg)'}" *ngIf="chatact.InfoMe.pathPhoto === null || chatact.InfoMe.pathPhoto === '' " class="img-rs"></div>
-					  
-					  
-					  <div class="direct-chat-info clearfix">
-                        <span class="direct-chat-timestamp pull-right">{{val.Date_s}}</span>
+				<div [ngStyle]="{'background-image': 'url(' + chatact?.photo + ')'}" *ngIf="chatact?.photo !== null && chatact?.photo !== ''" class="img-r"></div>
+				<div [ngStyle]="{'background-image': 'url(assets/photo/avatar.jpg)'}" *ngIf="chatact?.photo === null || chatact?.photo === '' " class="img-r"></div>
+				
+				
+                      <div class="direct-chat-text-right pull-left">
+                        {{val?.message}}
                       </div>
+					  
+					  
+							<div class="direct-chat-info col-sm-12 row pull-left" style="">
+							<span class="direct-chat-timestamp">{{val?.Date_s}}</span>
+							</div>					  
+	
                       <!-- /.direct-chat-text -->
 					  
                     </div>
@@ -108,22 +115,22 @@
                  </div>
             </div>
 				  
-				  <div class="direct-chat-messages" style="" *ngIf="ifactivechat() === true && chatact.checkchange === true">
+				  <div class="direct-chat-messages" style="" *ngIf="ifactivechat() === true && chatact?.checkchange === true">
 
 
 			
 			
 				  
-					<div class="" style="border-bottom: 1px solid #ddd; width:100%; height:60px; padding:4px; overflow:hidden; cursor:pointer" *ngFor="let pers of memebreall | filterBy: userFilter; index as i;" (click)="changeval(pers.pathPhoto, pers.nomComplet, pers.id);">
-
-							 <div [ngStyle]="{'background-image': 'url(' + pers.pathPhoto + ')'}" *ngIf="pers.pathPhoto !== null && pers.pathPhoto !== ''" class="img-r"></div>
-				<div [ngStyle]="{'background-image': 'url(assets/photo/avatar.jpg)'}" *ngIf="pers.pathPhoto === null || pers.pathPhoto === '' " class="img-r"></div>
+					<div  *ngFor="let pers of memebreall | filterBy: userFilter; index as i;" >
+						<div *ngIf="pers?.id != chatact?.InfoMe.id" class="" style="border-bottom: 1px solid #ddd; width:100%; height:60px; padding:4px; overflow:hidden; cursor:pointer" (click)="changeval(pers?.pathPhoto, pers?.nomComplet, pers?.id);">
+							 <div [ngStyle]="{'background-image': 'url(' + pers?.pathPhoto + ')'}" *ngIf="pers?.pathPhoto !== null && pers?.pathPhoto !== ''" class="img-r"></div>
+				<div [ngStyle]="{'background-image': 'url(assets/photo/avatar.jpg)'}" *ngIf="pers?.pathPhoto === null || pers?.pathPhoto === '' " class="img-r"></div>
 
 					<div class="" style="width:auto; margin-left:5px;">
 									<div style="line-height:2.5em;">
-									<div style="max-width:150px; float:left; text-overflow: ellipsis; white-space: nowrap;overflow: hidden;">{{pers.nomComplet}}</div>
+									<div style="max-width:125px; float:left; text-overflow: ellipsis; white-space: nowrap;overflow: hidden;">{{pers?.nomComplet}}</div>
+									<span class="badge badge-info" *ngIf="compteurMsg[pers?.id] > 0 ">{{compteurMsg[pers?.id]}}</span>
 									<div class="fa fa-circle pull-right" style="color:green; line-height:2.5em;">&nbsp;
-									
 									<a href="." (click)="false;" style="color:#ccc; font-size:10px;">il y 2min {{i}}</a>
 									
 									</div>
@@ -133,11 +140,12 @@
 					</div>
 					
 					</div>
+					</div>
 					
 					
-					<div class="" style="border-bottom: 1px solid #ddd; width:100%; height:60px; padding:4px; overflow:hidden; cursor:pointer"  *ngIf="(memebreall | filterBy: userFilter).length === 0">
+					<div class="" style="border-bottom: 1px solid #ddd; width:100%; height:60px; padding:4px; overflow:hidden; cursor:pointer; text-align:center;"  *ngIf="(memebreall | filterBy: userFilter).length === 0">
 
-					<p>Aucun élément trouvé pour : {{userFilter.nomComplet}}</p> 	
+					<p>Aucun élément trouvé ! </p> 	
 				
 					</div>
 				  
@@ -156,7 +164,7 @@
 			
 			</div>
 			<div class="popup-messages-footer" *ngIf="chatact.checkchange === false">
-			<textarea id="status_message" placeholder="Type a message..." [disabled]="ifactivechat() === false? 'disabled' : '' " rows="10" cols="40" name="message"></textarea>
+			<textarea id="status_message" placeholder="Type a message..."  rows="10" cols="40" name="message_ss" [(ngModel)]="message_ss" (keyup)="enterSend($event);"  [disabled]="!ifactivechat()" ></textarea>
 			<div class="btn-footer">
 			<button class="bg_none" [disabled]="ifactivechat() === false? 'disabled' : '' "><i class="fa fa-film"></i> </button>
 			<button class="bg_none" [disabled]="ifactivechat() === false? 'disabled' : '' "><i class="fa fa-camera"></i> </button>

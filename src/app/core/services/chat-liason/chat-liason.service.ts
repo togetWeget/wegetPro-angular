@@ -13,10 +13,11 @@ export class ChatLiasonService {
 	public nom: any;
 	public id: any;
 	public InfoMe: any;
+	public globalCompt: any = 0;
   constructor(private InfoM: InfoMembreService) {
-	  // this.photo= null;
-	  // this.nom= null;
-	  // this.id= null;
+	  this.photo= null;
+	  this.nom= null;
+	  this.id= null;
 	  this.InfoMe = this.InfoM.InfoMembres;
 	  }
   
