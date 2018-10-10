@@ -17,6 +17,9 @@ import {HttpClient, HttpRequest, HttpResponse, HttpHeaders} from '@angular/commo
 import * as jwt_decode from "jwt-decode";
 import * as $ from 'jquery';
 import {} from '@types/googlemaps';
+import * as firebase from 'firebase';
+import DataSnapshot = firebase.database.DataSnapshot;
+import {RequestChatroomService} from "../Request-Chatroom/request-chatroom.service";
 @Injectable({
   providedIn: 'root'
 })
@@ -25,11 +28,11 @@ export class AuthGuardTogetService implements CanActivate, CanActivateChild, Can
 	// const bounds: google.maps.LatLngBounds;
 	// const latLng: google.maps.LatLng;
 	
-	private lat: number;
-	private lon: number;
+	private lat: any;
+	private lon: any;
 	private publicIp: any;
 public dataMembre: any = [];
-  constructor(private route: ActivatedRoute, public router: Router, public http: HttpClient, private InfoM: InfoMembreService) {
+  constructor(private route: ActivatedRoute, public router: Router, public http: HttpClient, private InfoM: InfoMembreService, public chatrequest: RequestChatroomService) {
 	  this.InfoM.getbylogin();
   }
 
@@ -64,51 +67,54 @@ public dataMembre: any = [];
 	
 	getLocalUsers(){
 	 let u = this;
+		u.InfoM.getbylogin();
 	$.getJSON("http://ip-api.com/json",(json)=> {
 		u.publicIp = json.query;
 		if(u.lat == 0 && u.lon == 0){
 			u.lat = json.lat;
 			u.lon = json.lon;
 		}
-		if (u.isLoggedIn()) {
-		let data: any = {longitude: u.lon,latitude: u.lat, membre: u.InfoM.InfoMembres.id};
-			u.sendLocalInfo(data);
+		if (u.isLoggedIn() && u.InfoM.InfoMembres) {
+		let data: any = {longitude: u.lon,latitude: u.lat, membre: u.InfoM.InfoMembres.id, ipConnexion: u.publicIp, dateupd: new Date().toLocaleString()};
+			u.sendLocalInfo(data, u.InfoM.InfoMembres.id);
         }
       });	
 		
 	}
 	
-
-	sendLocalInfo(para){
-		$.ajax({
-			url: 'http://wegetback:8080/membres',
-			data: JSON.stringify(para),
-			type: 'put',
-			dataType: 'json',
-			contentType: 'application/json; charset=utf-8',
-			cache: false,
-			success: function (data,status) {
-				console.log(status);
-				console.log(data);
-			},
-			error: function (xhr) {
-				console.log(xhr);
-			}
-		});	
+	splitF(param: any): any{
+		let reg = /./gi
+		let sp = param.replace(reg, '-');
+		return sp;		
+		}
+		
+	sendLocalInfo(para,idMembre){
+	let u = this;
+	u.InfoM.getbylogin();
+	let urlgeo = "Geolocalisation/" + idMembre;
+		let reg = /./gi
+	let curLon =u.lon.toString().split('.');
+	let curLat =u.lat.toString().split('.');
+	let urizFormat = curLon[0] + curLon[1] + curLat[0] + curLat[1];
+	let urlgeoDeplacement = "Deplacement/" + idMembre + "/" + urizFormat;
+	let donnee : any = {latitude: u.lat, longitude: u.lon};
+	this.chatrequest.CreateSendData(urlgeo, para);
+	this.chatrequest.CreateSendData(urlgeoDeplacement, para);
 	}
 	
  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+		this.InfoM.getbylogin();
 		this.geolocNav();
 		this.getLocalUsers();	
 		
-
-    console.log(' verification ...' + route.url);
+	// console.log(this.InfoM.InfoMembres.id);
+    // console.log(' verification ...' + route.url);
     const urlcurrent = String(route.url);
     const urlAdmin: any = 'admin';
-    console.log(' verification ...' + urlcurrent);
+    // console.log(' verification ...' + urlcurrent);
     const urllogin: any = 'login';
     const urlregister: any = 'register';
-		console.log(this.isLoggedIn());
+		// console.log(this.isLoggedIn());
     switch (urlcurrent) {
       case urlAdmin :
 

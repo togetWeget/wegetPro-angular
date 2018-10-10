@@ -6,6 +6,21 @@ import {RequestChatroomService} from '../../core/services/Request-Chatroom/reque
 import DataSnapshot = firebase.database.DataSnapshot;
 import * as firebase from 'firebase';
 import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browser';
+import { OutilsService } from '../../core/services/outils.service';
+import {FormBuilder, FormGroup, FormControl,Validators,FormArray } from '@angular/forms';
+import { MatDialog } from '@angular/material';
+import { SaveFilesComponent } from '../../core/comp/save-files/save-files.component';
+import {
+  ActivatedRoute,
+  CanActivate,
+  CanLoad,
+  CanActivateChild,
+  Router,
+  Route,
+  ActivatedRouteSnapshot,
+  RouterStateSnapshot,
+  UrlSegment, UrlTree
+} from '@angular/router';
 @Component({
   selector: 'app-chat-cli',
   templateUrl: './chat-cli.component.html',
@@ -21,10 +36,74 @@ export class ChatCliComponent implements OnInit {
 	public message_ss: any;
 	public compteurMsg: any = [];
 	public bool: boolean;
-  constructor(public chatact: ChatLiasonService, public firbaseRequest: RequestChatroomService, private _sanitizer: DomSanitizer) { 
+  constructor(public chatact: ChatLiasonService, public firbaseRequest: RequestChatroomService, private _sanitizer: DomSanitizer,private fb: FormBuilder, public outils: OutilsService, private dialog: MatDialog, public router: Router) { 
 	  this.getallStat();
+	 
 	  }
+	
+	
+choseFile(){
+   const dialogRef = this.dialog.open(SaveFilesComponent, {
+      maxWidth: '768px',
+      maxHeight: '500px',
+      data: {name: 'file_chat', multiple: true, type: '.pdf, .doc, .docx, .ppt, .zip, .rar', filename: this.chatact.InfoMe.id, url: `${this.outils.getBaseUrl()}/ph`}
+    });
 
+    dialogRef.afterClosed().subscribe(result => {
+      // this.search(Date.now()+'');
+      // this.search(localStorage.getItem('log'));
+    }); 
+ }
+
+ choseFilephoto(){
+   const dialogRef = this.dialog.open(SaveFilesComponent, {
+      maxWidth: '768px',
+      maxHeight: '500px',
+      data: {name: 'image_chat', multiple: true, type: '.png, .PNG, .jpg, .JPG, .jpeg, .JPEG, .GIF, .gif', filename: this.chatact.InfoMe.id, url: `${this.outils.getBaseUrl()}/ph`}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      // this.search(Date.now()+'');
+      // this.search(localStorage.getItem('log'));
+    }); 
+ }
+ 
+ 
+ choseFilevideo(){
+   const dialogRef = this.dialog.open(SaveFilesComponent, {
+      maxWidth: '768px',
+      maxHeight: '500px',
+      data: {name: 'video_chat', multiple: true, type: '.mp4, .MP4, .3gp, .avi, .mov, .mkv', filename: this.chatact.InfoMe.id, url: `${this.outils.getBaseUrl()}/ph`}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      // this.search(Date.now()+'');
+      // this.search(localStorage.getItem('log'));
+    }); 
+ }
+ 
+ 
+ choseFileAudio(){
+   const dialogRef = this.dialog.open(SaveFilesComponent, {
+      maxWidth: '768px',
+      maxHeight: '500px',
+      data: {name: 'video_chat', multiple: true, type: '.mp3,.wav, .flac, .FLAC, .MP3, .WAV, .AAC, .Ogg, .WMA, .DSD,.AIFF, .ALAC', filename: this.chatact.InfoMe.id, url: `${this.outils.getBaseUrl()}/ph`}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      // this.search(Date.now()+'');
+      // this.search(localStorage.getItem('log'));
+    }); 
+ }
+  
+  connexion(){
+	 this.router.navigate(['/site/login']); 
+	 }
+
+  inscription(){
+	 this.router.navigate(['/site/register']); 
+	 }
+  
   ngOnInit() {
   this.memebrealls();
 	   // if( this.chatact.checkchange){
@@ -38,7 +117,9 @@ export class ChatCliComponent implements OnInit {
 			this.chatact.miximaze = true;
 	  
 	   
-	   // console.log('val : ' + this.chatact.checkchange);
+	   // console.log('val checkchange: ' + this.chatact.checkchange);
+	   // console.log('val : ' + this.chatact.chatactivate);
+	   // console.log('val ifactivechat: ' + this.ifactivechat());
   }
   
   change(){
@@ -162,10 +243,13 @@ export class ChatCliComponent implements OnInit {
 			return this.chatact.id;
 		}
 		getchatinf(uid_receiv){
+		 this.chatact.geting();
+		 // console.log("2: "+ this.chatact.InfoMe.id);
 			this.messageAll = [];
 			this.cnpt = 0;
 			let verif = 0;
 		  const libelle = 'Discussion';
+		  if(this.chatact.InfoMe){
 		  const getuid = this.chatact.InfoMe.id;
 		  const code_disc = getuid+ '_' + uid_receiv;
 		  const code_disc_rec = uid_receiv + '_' + getuid;
@@ -173,13 +257,15 @@ export class ChatCliComponent implements OnInit {
 		this.firbaseRequest.getAll(urlData).on("value", snapshot => {
 		if(snapshot.val()){
 		let uidreg = this.getud();
-		if(uidreg){
+		if(uidreg == uid_receiv){
+		 this.chatact.geting();
 		// alert(uidreg);
 		let compr = Object.keys(snapshot.val()).length;
 		let valeurData = Object.keys(snapshot.val());
 		let i=0;
 		let w = compr;
 		this.messageAll = [];
+		// console.log("3: "+ this.chatact.InfoMe.id);
 		for(i==0; i < compr; i++){
 			const urlData2 = urlData + '/' + valeurData[i];
 			const urlData3 = libelle + '/' + code_disc + '/' + valeurData[i];
@@ -212,7 +298,7 @@ export class ChatCliComponent implements OnInit {
   });
 
 
-			
+		}	
 	  		
 			
 		}

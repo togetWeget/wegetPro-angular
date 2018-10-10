@@ -63,4 +63,7 @@ getPhotoSrc(): string {
       console.log(result);
     });
   }
+  handleClick(event){
+    
+  }
 }

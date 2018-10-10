@@ -8,20 +8,20 @@
                  'status-offline': abonne.membre.actived ==false,
                  'status-online' : abonne.membre.actived ==true}"
                  title="Discuter avec cet abonné">
-              	<i class="fa fa-comment"></i>
-           	</div>
+                <i class="fa fa-comment"></i>
+            </div>
         </div>
     </div>
     <mat-card-content>
         <div class="abonne-meta">
             <div class="abonne-profil-view"><i class="fa fa-eye"></i> {{nombredevue}}</div>
-            <div class="abonne-pays"><i class="fa fa-map-marker"></i> {{abonne?.membre?.adresse?.pays}}</div>
+            <div class="abonne-pays pull-right"><i class="fa fa-map-marker"></i> {{abonne?.membre?.adresse?.pays}}</div>
         </div>
         <div class="abonne-name" >{{abonne?.membre?.nomComplet}}</div>
         <div class="abonne-fonction">{{abonne.membre?.cvPersonne?.specialite}}</div>
         <div class="abonne-langue">Français</div>
     </mat-card-content>
-   	<mat-card-actions>
+    <mat-card-actions>
         <button mat-raised-button color="warn" class="mat-button" (click)="onViewProfileAbonne(abonne); newview()">Profile</button>
             <span class="space-card"></span>
         <button mat-raised-button color="primary" class="mat-button" (click)="onContactAbonne(abonne); newview()">Contacter</button>

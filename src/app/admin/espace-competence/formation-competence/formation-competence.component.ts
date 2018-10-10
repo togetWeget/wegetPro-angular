@@ -114,21 +114,25 @@ export class FormationCompetenceComponent implements OnInit {
 
   	initForm(){
   		const formationInit = new FormArray([]);
-  		if (this.membre.cvPersonne.cursus.length !== 0) {
-  			for (const format of this.membre.cvPersonne.cursus) {
-  				formationInit.push(
-	  				this.fb.group({
-	  					id: format.id,
-        			version: format.version,
-        			date: format.date,
-        			etablissement: format.etablissement,
-        			diplome: format.diplome,
-              formation: format.formation,
-        			description: format.description,
-        		})
-      		);
-  			}
-  		}
+      try{
+    		if (this.membre.cvPersonne.cursus.length !== 0) {
+    			for (const format of this.membre.cvPersonne.cursus) {
+    				formationInit.push(
+  	  				this.fb.group({
+  	  					id: format.id,
+          			version: format.version,
+          			date: format.date,
+          			etablissement: format.etablissement,
+          			diplome: format.diplome,
+                formation: format.formation,
+          			description: format.description,
+          		})
+        		);
+    			}
+    		}
+      }catch(e){
+        console.error('initForm', e);
+      }
   		this.formationForm = this.fb.group({
   				formations:formationInit,
   			}

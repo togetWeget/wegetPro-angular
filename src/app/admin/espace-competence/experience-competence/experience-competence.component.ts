@@ -58,22 +58,26 @@ export class ExperienceCompetenceComponent implements OnInit {
   initForm(){
 
   		const experienceInit = new FormArray([]);
-      if (this.membre.cvPersonne.experience.length !== 0) {
-  			for (const exp of this.membre.cvPersonne.experience) {
-  				experienceInit.push(
-	  				this.fb.group({
-	  					id: [exp.id],
-	        			version: [exp.version],
-	        			entreprise: [exp.entreprise],
-	        			postOccupe: [exp.postOccupe],
-	        			dateDebut: [exp.dateDebut],
-	        			dateFin: [exp.dateFin],
-	        			tache: [exp.tache],
-	        			lieu: [exp.lieu]
-	        		})
-        		);
-  			}
-  		}
+      try{
+        if (this.membre.cvPersonne.experience.length !== 0) {
+    			for (const exp of this.membre.cvPersonne.experience) {
+    				experienceInit.push(
+  	  				this.fb.group({
+  	  					id: [exp.id],
+  	        			version: [exp.version],
+  	        			entreprise: [exp.entreprise],
+  	        			postOccupe: [exp.postOccupe],
+  	        			dateDebut: [exp.dateDebut],
+  	        			dateFin: [exp.dateFin],
+  	        			tache: [exp.tache],
+  	        			lieu: [exp.lieu]
+  	        		})
+          		);
+    			}
+    		}
+      }catch(e){
+        console.error('initForm', e);
+      }
   		this.experienceForm = this.fb.group({
   				experiences:experienceInit,
   			}

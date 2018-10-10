@@ -94,6 +94,7 @@ import { FlashInfoAddComponent } from './espace-ecole/flash-info-add/flash-info-
 import { FlashInfoUpdateComponent } from './espace-ecole/flash-info-update/flash-info-update.component';
 import { FormationEcoleViewComponent } from './espace-ecole/formation-ecole-view/formation-ecole-view.component';
 import { FormationEcoleUpdateComponent } from './espace-ecole/formation-ecole-update/formation-ecole-update.component';
+import { DocumentAddComponent } from './espace-competence/document-add/document-add.component';
 // import { NgxEditorModule } from 'ngx-editor';
 // import { TooltipModule } from 'ngx-bootstrap/tooltip';
 
@@ -150,12 +151,14 @@ import { FormationEcoleUpdateComponent } from './espace-ecole/formation-ecole-up
      FlashInfoAddComponent,
      FlashInfoUpdateComponent,
      FormationEcoleViewComponent,
-     FormationEcoleUpdateComponent
+     FormationEcoleUpdateComponent,
+     DocumentAddComponent
   ],
   entryComponents: [BlockComponent,CoverSelectComponent, MatdiologComponent, ImgloardComponent, 
   VideoloardComponent, FormationEcoleAddComponent,
      FlashInfoAddComponent,
-     FlashInfoUpdateComponent, FormationEcoleViewComponent, FormationEcoleUpdateComponent ],
+     FlashInfoUpdateComponent, FormationEcoleViewComponent, FormationEcoleUpdateComponent,
+     DocumentAddComponent ],
   exports: [LayoutComponent]
 })
 export class AdminModule {

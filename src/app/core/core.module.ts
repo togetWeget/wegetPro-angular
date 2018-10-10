@@ -32,7 +32,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import {PanierService} from './services/panier.service';
 import { SigninComponent } from './clients/signin/signin.component';
 import {LoginsocialService} from './services/personne/membre/loginsocial.service';
-import {InfoMembreService} from './services/Info-membre/info-membre.service';
+import {InfoMembreService} from './services/info-membre/info-membre.service';
 import {ChatLiasonService} from './services/chat-liason/chat-liason.service';
 import { ProfilCoverComponent } from './comp/profil-cover/profil-cover.component';
 import { ProfilAvatarComponent } from './comp/profil-avatar/profil-avatar.component';

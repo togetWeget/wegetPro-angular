@@ -7,14 +7,15 @@ import { Resultat } from '../../shared/models/resultat';
 import { CategorieBlock } from '../../shared/models/categorie-block';
 import { MessageService } from './message.service';
 import { Block } from '../../shared/models/block';
+import { OutilsService } from './outils.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CategorieBlockService {
 public jwtToken: string;
-  private urlCategoryBlocks = 'http://wegetback:8080/categoryBlocks';
-  private urlCategoryPhotoBlocks = 'http://wegetback:8080/photoCategoryBlock'
+  private urlCategoryBlocks = `${this.outils.getBaseUrl()}/categoryBlocks`;
+  private urlCategoryPhotoBlocks = `${this.outils.getBaseUrl()}/photoCategoryBlock`;
   
   
 
@@ -31,7 +32,7 @@ public jwtToken: string;
   blockSupprime$ = this.catBlockSupprimeSource.asObservable();
 
   constructor(private http: HttpClient, private messageService: MessageService,
-    private toastr: ToastrService) {
+    private toastr: ToastrService, private outils: OutilsService) {
   }
 
   loadToken () {

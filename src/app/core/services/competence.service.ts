@@ -4,18 +4,19 @@ import {HttpClient, HttpHeaders, HttpRequest} from '@angular/common/http';
 import {catchError, tap} from 'rxjs/operators';
 import {MessageService} from './message.service';
 import {Resultat} from '../../shared/models/resultat';
+import {OutilsService} from './outils.service';
 import {CursusScolaire} from '../../shared/models/personne/cv-personne/cursusScolaire';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CompetenceService {
-	private abonneCvFormationUrl ='http://wegetback:8080/cursus/';
-  private abonneCvExperienceUrl ='http://wegetback:8080/experience/';
+	private abonneCvFormationUrl =`${this.outils.getBaseUrl()}/cursus/`;
+  private abonneCvExperienceUrl = `${this.outils.getBaseUrl()}/experience/`;
   private jwtToken: string = null;
 
   constructor(private httpClient:HttpClient,
-              private messageService:MessageService) { }
+              private messageService:MessageService, private outils: OutilsService) { }
 
   ajouterFormation(cursus: CursusScolaire): Observable<Resultat<CursusScolaire>> {
     console.log('methode du service qui ajoute un enseignant', cursus);

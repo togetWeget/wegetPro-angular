@@ -1,4 +1,4 @@
-<div class="details-container">
+<!-- <div class="details-container">
 	<div class="col-md-12" style="margin-bottom: 30px;">
       <button mat-raised-button class="btn btn-blue btn-icon btn-icon-standalone pull-right" (click)="ajouterDocument()" matTooltip="Ajouter un document" style="margin-right:-15px;"> 
       	<i class="fa fa-plus"></i> <span>Ajouter</span> 
@@ -13,4 +13,31 @@
         </div>
         <div class="caption"><i class="fa fa-file-pdf-o"></i>&nbsp;Cv...</div>
       </div>
-</div>
+</div> -->
+
+<app-admin-card [adminCard]="admin_card" (clickOcur)="handleCardClick($event)">
+  <div class="admin-card-content">
+    <table class="table table-hover table-bordered">
+      <thead>
+        <tr>
+          <th>Documment</th>
+          <th>Titre</th>
+          <th>Description</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><img src="../../../../assets/icon/icon_pdf.png" class="img_doc"></td>
+          <td>Totre de mon document</td>
+          <td><div class="desc">Description de mon document</div></td>
+          <td>
+            <button mat-raised-button (click)="choseFile()" class="btn-blue"><i class="fa fa-photo"></i></button>
+            <button mat-raised-button class="btn-green"><i class="fa fa-edit"></i></button>
+            <button mat-raised-button color="warn"><i class="fa fa-trash"></i></button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</app-admin-card>

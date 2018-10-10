@@ -5,6 +5,7 @@ import {Observable, of} from 'rxjs';
 import {Resultat} from '../../../shared/models/resultat';
 import {Tarif} from '../../../shared/models/tarif/tarif';
 import {Detailblock} from '../../../shared/models/detailblock';
+import {OutilsService} from '../outils.service';
 import {catchError, tap} from 'rxjs/operators';
 
 @Injectable({
@@ -12,10 +13,10 @@ import {catchError, tap} from 'rxjs/operators';
 })
 export class AbonnementService {
 
-  private urlTarifs = 'http://wegetback:8080/tarifs';
-  private urlTarifsParBlockId = 'http://wegetback:8080/tarifsBlocksId/';
-  private urlBlockParAbonne = 'http://wegetback:8080/tousLesBlockParAbonne/';
-  constructor(private httpClient: HttpClient, private messageService: MessageService) {
+  private urlTarifs = `${this.outils.getBaseUrl()}/tarifs`;
+  private urlTarifsParBlockId = `${this.outils.getBaseUrl()}/tarifsBlocksId/`;
+  private urlBlockParAbonne = `${this.outils.getBaseUrl()}/tousLesBlockParAbonne/`;
+  constructor(private httpClient: HttpClient, private messageService: MessageService, private outils: OutilsService) {
   }
   getAlltarifsByBlocksId(id: number): Observable<Resultat<Tarif[]>> {
     return this.httpClient.get<Resultat<Tarif[]>>(this.urlTarifsParBlockId + id)

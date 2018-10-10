@@ -3,7 +3,7 @@ import * as $ from 'jquery';
 import { Router } from '@angular/router';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import {MatdiologComponent} from '../matdiolog/matdiolog.component';
-import {InfoMembreService} from '../../../../core/services/Info-membre/info-membre.service';
+import {InfoMembreService} from '../../../../core/services/info-membre/info-membre.service';
 @Component({
   selector: 'app-photos',
   templateUrl: './photos.component.html',

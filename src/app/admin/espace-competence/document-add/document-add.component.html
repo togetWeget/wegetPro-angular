@@ -1,0 +1,13 @@
+<form (submit)="enregistrer()" >
+	<legend>Enregistrer les informations de votre fichier</legend>
+
+	<mat-form-field class="example-full-width">
+		<input matInput placeholder="Titre" [value]="">
+	</mat-form-field>
+	
+	<mat-form-field class="example-full-width">
+		<textarea matInput placeholder="Description" rows="5"></textarea>
+	</mat-form-field>
+
+	<button type="submit" class="btn btn-primary">Enregistrer</button>
+</form>

@@ -6,6 +6,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Resultat } from '../../shared/models/resultat';
 import { MessageService } from './message.service';
 import { Chiffre } from '../../shared/models/chiffre';
+import { OutilsService } from './outils.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ import { Chiffre } from '../../shared/models/chiffre';
 export class ChiffreService {
 
   public jwtToken: string;
-  private urlChiffres = 'http://wegetback:8080/chiffre';
+  private urlChiffres = `${this.outils.getBaseUrl()}/chiffre`;
   
   
 
@@ -30,7 +31,7 @@ export class ChiffreService {
   ChiffreSupprime$ = this.chiffreSupprimeSource.asObservable();
 
   constructor(private http: HttpClient, private messageService: MessageService,
-    private toastr: ToastrService) {
+    private toastr: ToastrService, private outils: OutilsService) {
   }
 
   loadToken () {

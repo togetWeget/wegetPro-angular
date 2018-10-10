@@ -1,17 +1,17 @@
 
 <div class="popup-box chat-popup popup-box-max" id="qnimate">
-    		  <div class="popup-head">
-				<div class="popup-head-left pull-left" *ngIf="chatact?.checkchange === false" style="color:#aaa; border-color:#fefefe;"> 
+    		  <div class="popup-head " style="background: -webkit-linear-gradient(left, #ff6d05, #00c6ff); background: linear-gradient(left, #ff6d05, #00c6ff); color:#fff !important;">
+				<div class="popup-head-left pull-left" *ngIf="chatact?.checkchange === false" style="color:#fff; border-color:#fefefe;"> 
 				
 				<div [ngStyle]="{'background-image': 'url(' + chatact?.photo + ')'}" *ngIf="chatact?.photo !== null && chatact?.photo !== ''" class="img-r"></div>
 				<div [ngStyle]="{'background-image': 'url(assets/photo/avatar.jpg)'}" *ngIf="chatact?.photo === null || chatact?.photo === '' " class="img-r"></div>
 				
-					<div class="break" style="line-height:2.5em;" title="">{{chatact?.nom}}</div>
+					<div class="break" style="line-height:2.5em;" title="">&nbsp; &nbsp; {{chatact?.nom}}</div>
 					
 				</div>
 				
 				
-				<div class="popup-head-left pull-left" *ngIf="chatact?.checkchange === true" style="color:#aaa; border-color:#fefefe;"> 
+				<div class="popup-head-left pull-left" *ngIf="chatact?.checkchange === true" style="color:#fff; border-color:#fefefe;"> 
 
 					<div class="break" style="line-height:2.5em;" title="">WegetPro Chat live</div>
 					
@@ -115,7 +115,7 @@
                  </div>
             </div>
 				  
-				  <div class="direct-chat-messages" style="" *ngIf="ifactivechat() === true && chatact?.checkchange === true">
+				  <div class="direct-chat-messages" style="" *ngIf="ifactivechat() && chatact?.checkchange === true">
 
 
 			
@@ -147,29 +147,34 @@
 
 					<p>Aucun élément trouvé ! </p> 	
 				
-					</div>
-				  
-				  
-				  <div class="direct-chat-messages" style="display:flex;" *ngIf="ifactivechat() === false">
-					<div> WegetPro chat</div>
-				  </div>
-			
-			
-			
-			
-			
-			
-			
-			
+					</div>	
 			
 			</div>
-			<div class="popup-messages-footer" *ngIf="chatact.checkchange === false">
+			
+			<div class="direct-chat-messages" style="display:flex; justify-content:center; align-items:center" *ngIf="!ifactivechat();">
+					<div class="col-sm-12 text-center">
+						<h3> Bienvenue sur le chat instantané de WEGET</h3>
+					<div style="background:#ff6d05;"> <img src="assets/photo/logo-h.png" style="width:50%;" /> </div>
+					
+					<div class="col-sm-12">
+					<div class="button-row" style="margin:10px;">
+					  <button mat-raised-button color="primary" class="btno" (click)="connexion()">Connexion</button>
+					  <button mat-raised-button color="warn" class="btno" (click)="inscription()">Inscription</button>
+					</div>	
+					</div>
+					</div>
+					
+			</div>
+				  
+				  
+			<div class="popup-messages-footer" *ngIf="chatact.checkchange === false && ifactivechat()">
 			<textarea id="status_message" placeholder="Type a message..."  rows="10" cols="40" name="message_ss" [(ngModel)]="message_ss" (keyup)="enterSend($event);"  [disabled]="!ifactivechat()" ></textarea>
 			<div class="btn-footer">
-			<button class="bg_none" [disabled]="ifactivechat() === false? 'disabled' : '' "><i class="fa fa-film"></i> </button>
-			<button class="bg_none" [disabled]="ifactivechat() === false? 'disabled' : '' "><i class="fa fa-camera"></i> </button>
-            <button class="bg_none" [disabled]="ifactivechat() === false? 'disabled' : '' "><i class="fa fa-paperclip"></i> </button>
-			<button class="bg_none pull-right" [disabled]="ifactivechat() === false? 'disabled' : '' "><i class="fa fa-thumbs-up"></i> </button>
+			<button class="bg_none" (click)="choseFilevideo()" ><i class="fa fa-film"></i> </button>
+			<button class="bg_none" (click)="choseFilephoto()" ><i class="fa fa-camera"></i> </button>
+            <button class="bg_none" (click)="choseFile()" ><i class="fa fa-paperclip"></i> </button>
+            <button class="bg_none" (click)="choseFileAudio()" ><i class="fa fa-microphone"></i> </button>
+			<button class="bg_none pull-right"  ><i class="fa fa-thumbs-up"></i> </button>
 			</div>
 			</div>
 	  </div>

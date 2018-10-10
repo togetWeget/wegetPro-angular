@@ -25,7 +25,7 @@ export class FormationsEcoleComponent implements OnInit {
   id_sous_block: number = 0;
   id_edit: number = 0;
   formation$: Observable<Resultat<Formation>>;
-  formationSubject$ = new BehaviorSubject<string>();
+  formationSubject$ = new BehaviorSubject<string>('');
   
   constructor(public dialog: MatDialog, private route: ActivatedRoute,
    private router: Router, private formationS: FormationEcoleService,
@@ -64,7 +64,7 @@ export class FormationsEcoleComponent implements OnInit {
   }
 
   search(){
-    this.formationSubject$.next(Date.now());
+    this.formationSubject$.next(Date.now()+'');
   }
 
   handleClick(ev){
