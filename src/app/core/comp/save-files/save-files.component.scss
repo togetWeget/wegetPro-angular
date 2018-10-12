@@ -84,11 +84,11 @@
 		}
 		.img_divs{
 			display: flex;
-			height: 320px;
+			// height: 320px;
 			position: relative;
 		}
 		span{
-			width: 320px;		    
+			width: 200px;		    
 			height: 20px;
 		    overflow: hidden;
 		    text-overflow: ellipsis;
@@ -106,7 +106,7 @@
 		}
 		.img_divs{
 			display: flex;
-			height: 200px;
+			// height: 200px;
 			position: relative;
 		}
 		span{

@@ -20,6 +20,7 @@ export class AbonneComponent implements OnInit {
   	defaultPhoto: any = '/assets/placeholder-image.jpg';
   	@ViewChild('imagebg') imagebg: ElementRef;
   	status: number;
+  	typeblock:string;
 	public nombredevue = 0;
   	constructor(private router: Router,
                 private abonnesService: AbonnesService,
@@ -32,6 +33,7 @@ export class AbonneComponent implements OnInit {
       this.imagebg.nativeElement.style.backgroundPosition = 'center';
 	  // this.newview();
 	  this.nombredevue = this.abonne.nombreVue;
+	  this.typeblock='';
   }
 
   getPhotoSrc(): string {

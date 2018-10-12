@@ -36,6 +36,9 @@ export class ChatCliComponent implements OnInit {
 	public message_ss: any;
 	public compteurMsg: any = [];
 	public bool: boolean;
+	public dataidmsg : any = [];
+	public tiOut;
+	public socket;
   constructor(public chatact: ChatLiasonService, public firbaseRequest: RequestChatroomService, private _sanitizer: DomSanitizer,private fb: FormBuilder, public outils: OutilsService, private dialog: MatDialog, public router: Router) { 
 	  this.getallStat();
 	 
@@ -73,7 +76,7 @@ choseFile(){
    const dialogRef = this.dialog.open(SaveFilesComponent, {
       maxWidth: '768px',
       maxHeight: '500px',
-      data: {name: 'video_chat', multiple: true, type: '.mp4, .MP4, .3gp, .avi, .mov, .mkv', filename: this.chatact.InfoMe.id, url: `${this.outils.getBaseUrl()}/ph`}
+      data: {name: 'video_chat', multiple: false, type: '.mp4, .MP4, .3gp, .avi, .mov, .mkv', filename: this.chatact.InfoMe.id, url: `${this.outils.getBaseUrl()}/ph`}
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -87,7 +90,7 @@ choseFile(){
    const dialogRef = this.dialog.open(SaveFilesComponent, {
       maxWidth: '768px',
       maxHeight: '500px',
-      data: {name: 'video_chat', multiple: true, type: '.mp3,.wav, .flac, .FLAC, .MP3, .WAV, .AAC, .Ogg, .WMA, .DSD,.AIFF, .ALAC', filename: this.chatact.InfoMe.id, url: `${this.outils.getBaseUrl()}/ph`}
+      data: {name: 'video_chat', multiple: false, type: '.mp3,.wav, .flac, .FLAC, .MP3, .WAV, .AAC, .Ogg, .WMA, .DSD,.AIFF, .ALAC', filename: this.chatact.InfoMe.id, url: `${this.outils.getBaseUrl()}/ph`}
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -246,6 +249,7 @@ choseFile(){
 		 this.chatact.geting();
 		 // console.log("2: "+ this.chatact.InfoMe.id);
 			this.messageAll = [];
+			this.dataidmsg = [];
 			this.cnpt = 0;
 			let verif = 0;
 		  const libelle = 'Discussion';
@@ -265,18 +269,26 @@ choseFile(){
 		let i=0;
 		let w = compr;
 		this.messageAll = [];
+		this.dataidmsg = [];
+		this.socket = snapshot.val().keyup;
+		console.log(this.socket);
 		// console.log("3: "+ this.chatact.InfoMe.id);
 		for(i==0; i < compr; i++){
 			const urlData2 = urlData + '/' + valeurData[i];
 			const urlData3 = libelle + '/' + code_disc + '/' + valeurData[i];
 			this.firbaseRequest.getAll(urlData2).on("value", snapshot => {
-
+				if(snapshot.val()){
+					
+					
 					if(snapshot.val().idreceiver === uidreg || snapshot.val().codeSender === uidreg){	
 						this.messageAll[i] = snapshot.val(); 
+						this.dataidmsg[i] = valeurData[i]; 
 						verif++;
 						let dataUpdates = {status : 1};
 						this.firbaseRequest.UpdateData(urlData3, dataUpdates);
 					}
+					
+				}
 
 				});
 		}
@@ -337,7 +349,7 @@ choseFile(){
     const urlData_rec = libelle + '/' + code_disc_rec + '/' + timerDisc;
 	
     const data: any = {message: this.message_ss, fichier: ' ', Date_s: datesender, codeSender: this.chatact.InfoMe.id , images: '', status : 0, idreceiver: this.chatact.id };
-	
+	this.autoUpdate();
     this.firbaseRequest.CreateSendData( urlData, data);
     this.firbaseRequest.CreateSendData( urlData_rec, data);
 	this.message_ss = null;
@@ -367,7 +379,7 @@ choseFile(){
 					for(i==0; i < compr; i++){
 						const urlData2 = urlData + '/' + valeurData[i];
 						this.firbaseRequest.getAll(urlData2).on("value", snapshot => {
-
+							if(snapshot.val()){
 								if(snapshot.val().status === 0){
 									this.compteurMsg[id] = this.compteurMsg[id] + 1; 
 									this.chatact.globalCompt = this.chatact.globalCompt + this.compteurMsg[id];
@@ -375,6 +387,7 @@ choseFile(){
 										ur = 1;
 									}
 								}
+							}
 
 							});
 					}
@@ -408,6 +421,102 @@ choseFile(){
 				}
 		},1000)
 		}
-	}	  
-		  
+	}	
+	
+	optionone(param){
+			$(".option"+param).fadeIn(200);
+	}
+	optionoff(param){
+			$(".option"+param).fadeOut(200);
+	}
+		
+	delmsgReverse(param){
+    const libelle = 'Discussion';
+    const code_disc = this.chatact.InfoMe.id + '_' + this.chatact.id;
+    const code_disc_rec = this.chatact.id +"_"+ this.chatact.InfoMe.id;
+	const url = libelle + "/" + code_disc +"/"+ param;
+	const url2 = libelle + "/" + code_disc_rec +"/"+ param;
+
+			this.firbaseRequest.RemoveData(url2).then(function() {
+				console.log("Remove succeeded.")
+			})
+			.catch(function(error) {
+			console.log("Remove failed: " + error.message)
+			});
+			this.getchatinf(this.chatact.id);
+
+	}
+	
+	
+	delmsg(param){
+    const libelle = 'Discussion';
+    const code_disc = this.chatact.InfoMe.id + '_' + this.chatact.id;
+    const code_disc_rec = this.chatact.id +"_"+ this.chatact.InfoMe.id;
+	const url = libelle + "/" + code_disc +"/"+ param;
+	const url2 = libelle + "/" + code_disc_rec +"/"+ param;
+			this.firbaseRequest.RemoveData(url).then(function() {
+				console.log("Remove succeeded.")
+			})
+			.catch(function(error) {
+			console.log("Remove failed: " + error.message)
+			});
+			
+			
+			this.firbaseRequest.RemoveData(url2).then(function() {
+				console.log("Remove succeeded.")
+			})
+			.catch(function(error) {
+			console.log("Remove failed: " + error.message)
+			});
+			this.getchatinf(this.chatact.id);
+			// this.firbaseRequest.RemoveData(url2);
+	}
+	
+	  keyupchange(param){
+	  clearTimeout(this.tiOut);
+			const libelle = 'Discussion';
+			const code_disc_rec = this.chatact.InfoMe.id + '_' + this.chatact.id;
+			// const code_disc_rec = this.chatact.id +"_"+ this.chatact.InfoMe.id;
+			const url2 = libelle + "/" + code_disc_rec;
+		if(param){
+		if(param.length > 0){
+			const data: any = {
+								keyup: 1
+							  };
+			this.firbaseRequest.UpdateData( url2, data);
+			
+			// console.log("send : " + param);
+	    }
+	    }
+		
+
+		this.timo(param,url2);
+		
+	  }
+	  
+	  
+	  timo(param,uri){
+		this.tiOut = setTimeout(()=>{
+
+			const url2 = uri;
+			const data: any = {
+								keyup: 0
+							  };
+			this.firbaseRequest.UpdateData( url2, data);	
+				
+			
+						},5000);
+		}
+		
+		autoUpdate(){
+			const libelle = 'Discussion';
+			const code_disc_rec = this.chatact.InfoMe.id + '_' + this.chatact.id;
+			const url2 = libelle + "/" + code_disc_rec;
+			const data: any = {
+								keyup: 0
+							  };
+			this.firbaseRequest.UpdateData( url2, data);		
+			
+			
+		}
 }

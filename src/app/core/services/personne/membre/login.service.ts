@@ -33,22 +33,7 @@ export class LoginService {
   Authentification(url: any, data: any, modal?: any): any {
 
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
-    this.http.post<HttpResponse<any>>(url, data, { headers: headers, observe: 'response' })
-    .subscribe((resul) => {
-        if (resul.status === 200) {
-          console.log(resul.headers.get('Authorization'));
-          localStorage.setItem('togetToken', resul.headers.get('Authorization'));
-		   localStorage.setItem('log', data.login);
-		   this.InfoM.localstor();
-          this.router.navigate(['/admin']);
-         modal.close();
-        } else {
-          console.log('Authentification incorrecte!');
-        }
-      },
-      err => {
-            console.log('Error: ' + err);
-      });
+   return  this.http.post<HttpResponse<any>>(url, data, { headers: headers, observe: 'response' });
   }
 
   loadToken () {

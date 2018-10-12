@@ -25,7 +25,7 @@ export class FormationEcoleAddComponent implements OnInit {
 
   ngOnInit() {
     this.initForm();
-    this.sousBlockS.getSousBlockByBlock(this.data.id_block)
+    this.sousBlockS.getSousBlockByIdDetailBlock(this.data.id_block)
     .subscribe(response => {
       this.sousBlock = response.body;
       this.initForm();

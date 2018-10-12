@@ -14,7 +14,8 @@ import { OutilsService } from './outils.service';
 export class SousBlockService {
   public jwtToken: string;
   private urlSousBlocks = `${this.outils.getBaseUrl()}/sousBlocks`;
-  private urlSousBlocksParBlock = `${this.outils.getBaseUrl()}/SousBlocksParBlock`;
+  private urlSousBlocksParBlock = `${this.outils.getBaseUrl()}/SousBlocksParIdBlock`;
+  private urlSousBlocksParIdDetailBlock = `${this.outils.getBaseUrl()}/SousBlocksParIdDetailBlock`;
   private urlDetailBlocksParBlock = `${this.outils.getBaseUrl()}/SousBlocksParIdBlock`;
   private urlPhoto = `${this.outils.getBaseUrl()}/photoBlock`;
   private urlPhoto1 = `${this.outils.getBaseUrl()}/getPhoto`;
@@ -87,6 +88,17 @@ export class SousBlockService {
           this.log(`block trouve  id=${id}`);
         }),
         catchError(this.handleError<Resultat<SousBlock>>('getSousBlockByBlock'))
+      );
+  }
+
+  getSousBlockByIdDetailBlock(id: number): Observable<Resultat<SousBlock>> {
+
+    return this.http.get<Resultat<SousBlock>>(`${this.urlSousBlocksParIdDetailBlock}/${id}`)
+      .pipe(
+        tap(res => {
+          this.log(`block trouve  id=${id}`);
+        }),
+        catchError(this.handleError<Resultat<SousBlock>>('getSousBlockByIdDetailBlock'))
       );
   }
 

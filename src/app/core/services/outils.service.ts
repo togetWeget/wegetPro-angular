@@ -90,6 +90,14 @@ export class OutilsService {
     return result;
   }
 
+  public stringContain(chaine: string, search: string): boolean{
+    let result: boolean = false;
+    if(chaine.match(search)){
+      result = true;
+    }
+    return result;
+  }
+
   public arrayContainLessOne(tableau: any[], elements: any[]): boolean{
     let result: boolean = false;
     for(let tab of tableau){

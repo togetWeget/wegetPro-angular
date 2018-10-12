@@ -4,8 +4,8 @@ import {RegisterService} from '../../core/services/personne/membre/register.serv
 import {LoginsocialService} from '../../core/services/personne/membre/loginsocial.service';
 import {AuthFirebaseService} from '../../firebaseDir/auth-firebase.service';
 import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
-
-
+import {InfoMembreService} from '../../core/services/info-membre/info-membre.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
   public password: any;
 
   constructor(public loginS: LoginService, public reg: RegisterService,
-   public authFirebaseService: AuthFirebaseService, public loginsocialService : LoginsocialService) {
+   public authFirebaseService: AuthFirebaseService, public loginsocialService : LoginsocialService, private InfoM: InfoMembreService, private router: Router) {
 		// alert(new Date());
   }
 
@@ -24,25 +24,39 @@ export class LoginComponent implements OnInit {
   }
 
   AuthS() {
+  let u = this;
     const data: any = {login: this.login, password: this.password, repassword: this.password, type: 'ME'};
     const url = this.reg.urlLogins();
-    this.loginS.Authentification(url, data);
-    this.authFirebaseService.signInUser(this.login, this.password).then(
+    this.loginS.Authentification(url, data)    .subscribe((resul) => {
+        if (resul.status === 200) {
+		u.firbaselogin().then(() => {
 
-      () => {
-
-        alert('OK Authentification firebase');
-
+        // console.log(resul.headers.get('Authorization'));
+		localStorage.setItem('togetToken', resul.headers.get('Authorization'));
+		   localStorage.setItem('log', data.login);
+		   this.InfoM.localstor();
+        this.router.navigate(['/admin']);
       },
 
       (error) => {
 
-        alert('error Authentification firebase');
+        console.log('error Authentification firebase');
 
       }
 
-    );
+    );  
+        } else {
+          console.log('Authentification incorrecte!');
+        }
+      },
+      err => {
+            console.log('Error: ' + err);
+      });
   }
+  
+  firbaselogin(): any{
+   return  this.authFirebaseService.signInUser(this.login, this.password); 
+	}
 		SocialLogin(data){
 			
 			this.loginsocialService.socialsignin(data);

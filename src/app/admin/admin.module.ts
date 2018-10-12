@@ -58,7 +58,6 @@ import { LayoutEcoleComponent } from './espace-ecole/layout-ecole/layout-ecole.c
 import { LayoutCompetenceComponent } from './espace-competence/layout-competence/layout-competence.component';
 import { LayoutImmobilierComponent } from './espace-immobilier/layout-immobilier/layout-immobilier.component';
 import { LayoutAnnonceComponent } from './espace-annonce/layout-annonce/layout-annonce.component';
-import { CoverSelectComponent } from './compte/cover-select/cover-select.component';
 import { PhotoCompetenceComponent } from './espace-competence/photo-competence/photo-competence.component';
 import { FormationCompetenceComponent } from './espace-competence/formation-competence/formation-competence.component';
 import { ExperienceCompetenceComponent } from './espace-competence/experience-competence/experience-competence.component';
@@ -139,7 +138,7 @@ import { DocumentAddComponent } from './espace-competence/document-add/document-
    SupprimeMessageComponent, RepondreMessageComponent, LayoutMessageComponent,
    ListeMessageEnvoyeComponent, LayoutCompteComponent, EspaceComponent,
    DetailsCompteComponent, FormationCompteComponent, ExperienceCompteComponent,
-   AuthCompteComponent, CoverSelectComponent, InfoPersoComponent, InfoProComponent, SocialComponent, CvComponent, 
+   AuthCompteComponent, InfoPersoComponent, InfoProComponent, SocialComponent, CvComponent, 
    LayoutEcoleComponent, LayoutCompetenceComponent, LayoutImmobilierComponent, LayoutAnnonceComponent, 
    PhotoCompetenceComponent, FormationCompetenceComponent, ExperienceCompetenceComponent, 
    DocumentsCompetenceComponent, CvCompetenceComponent,
@@ -154,7 +153,7 @@ import { DocumentAddComponent } from './espace-competence/document-add/document-
      FormationEcoleUpdateComponent,
      DocumentAddComponent
   ],
-  entryComponents: [BlockComponent,CoverSelectComponent, MatdiologComponent, ImgloardComponent, 
+  entryComponents: [BlockComponent, MatdiologComponent, ImgloardComponent, 
   VideoloardComponent, FormationEcoleAddComponent,
      FlashInfoAddComponent,
      FlashInfoUpdateComponent, FormationEcoleViewComponent, FormationEcoleUpdateComponent,

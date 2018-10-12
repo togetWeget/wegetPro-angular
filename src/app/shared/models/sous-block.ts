@@ -23,7 +23,8 @@ export class SousBlock {
 		public detailBlock?: Detailblock,
 		public chiffre?: Chiffre[],
 		public partenaire?: Partenaire[],
-		public temoignage?: Temoignage[]
+		public temoignage?: Temoignage[],
+		public idBlock?: number
 		// public detailBlock?: number
 		) {}
 }

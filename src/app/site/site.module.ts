@@ -52,6 +52,7 @@ import { PageEcoleComponent } from './ecole/page-ecole/page-ecole.component';
 import { OwlCarouselComponent } from './owl-carousel/owl-carousel.component';
 import { FilterPipeModule} from 'ngx-filter-pipe';
 import { SingleEcoleComponent } from './ecole/single-ecole/single-ecole.component';
+import { LayoutProfilComponent } from './abonnes/layout-profil/layout-profil.component';
 
 // Configs 
 export function getAuthServiceConfigs() {
@@ -115,7 +116,8 @@ export function getAuthServiceConfigs() {
     PageEcoleComponent,
     OwlCarouselComponent,
 	FilterPipe,
-	SingleEcoleComponent
+	SingleEcoleComponent,
+	LayoutProfilComponent
   ],
   exports: [LayoutComponent],
   schemas: [NO_ERRORS_SCHEMA]

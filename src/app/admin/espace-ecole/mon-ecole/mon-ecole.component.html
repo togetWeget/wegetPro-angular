@@ -17,8 +17,8 @@
 
 					<mat-form-field>
 					  <mat-select placeholder="Type établissement" formControlName="typeEtablissement">
-					    <mat-option *ngFor="let typ of outils.typeEtablissement" [value]="typ.name">
-					      {{typ.libelle}}
+					    <mat-option *ngFor="let typ of outils.typeEtablissement" [value]="typ?.name">
+					      {{typ?.libelle}}
 					    </mat-option>
 					  </mat-select>
 					</mat-form-field>
@@ -26,16 +26,16 @@
 				<div class="col-md-6" formGroupName="adresse">
 					<mat-form-field>
 					  <mat-select placeholder="Pays" formControlName="pays">
-					    <mat-option *ngFor="let pays of outils.pays" [value]="pays.name">
-					      {{pays.name}}
+					    <mat-option *ngFor="let pays of outils.pays" [value]="pays?.name">
+					      {{pays?.name}}
 					    </mat-option>
 					  </mat-select>
 					</mat-form-field>
 
 					<mat-form-field>
 					  <mat-select placeholder="Ville" formControlName="ville">
-					    <mat-option *ngFor="let ville of outils.villes" [value]="ville.name">
-					      {{ville.name}}
+					    <mat-option *ngFor="let ville of outils.villes" [value]="ville?.name">
+					      {{ville?.name}}
 					    </mat-option>
 					  </mat-select>
 					</mat-form-field>
@@ -63,8 +63,8 @@
 									Telephone #{{i + 1}}
 									<mat-form-field class="example-full-width">
 										<mat-select placeholder="Type telephone" formControlName="type">
-										    <mat-option *ngFor="let typ of outils.typeTelephones" [value]="typ.name">
-										      {{typ.libelle}}
+										    <mat-option *ngFor="let typ of outils.typeTelephones" [value]="typ?.name">
+										      {{typ?.libelle}}
 										    </mat-option>
 										  </mat-select>
 									</mat-form-field>

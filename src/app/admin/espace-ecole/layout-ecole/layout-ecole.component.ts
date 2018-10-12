@@ -71,13 +71,17 @@ export class LayoutEcoleComponent implements OnInit {
     const dialogRef = this.dialog.open(SaveFilesComponent, {
       maxWidth: '768px',
       maxHeight: '500px',
-      data: {name: 'image_photo', multiple: false, filename: '', url: ``}
+      data: {name: 'image_photo', multiple: false, type: '.mp4, .txt, .pdf, .docx, .doc, .png, .jpg', filename: '', callback_submit: this.test}
     });
 
     dialogRef.afterClosed().subscribe(result => {
       // this.search(Date.now()+'');
       // this.search(localStorage.getItem('log'));
     });
+  }
+
+  test(files: File[]){
+    console.log('MES FICHIERS', files);
   }
 
   handleClick(event) {

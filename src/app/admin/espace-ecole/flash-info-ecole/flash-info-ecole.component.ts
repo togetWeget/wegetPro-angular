@@ -53,7 +53,7 @@ export class FlashInfoEcoleComponent implements OnInit {
   	this.route.paramMap.pipe(
   		switchMap((params: ParamMap) => {
   			this.id_block = +params.get('id');
-  			return this.sousBlockS.getSousBlockByBlock(this.id_block);
+  			return this.sousBlockS.getSousBlockByIdDetailBlock(this.id_block);
   		})
   		).subscribe(d => {
         console.log('ngOnInit', d);

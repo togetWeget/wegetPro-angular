@@ -55,7 +55,7 @@ export class FormationsEcoleComponent implements OnInit {
     this.route.paramMap.pipe(
       switchMap((params: ParamMap) => {
         this.id_block = +params.get('id');
-        return this.sousBlockS.getSousBlockByBlock(this.id_block);
+        return this.sousBlockS.getSousBlockByIdDetailBlock(this.id_block);
       })
       ).subscribe(resp => {
         this.id_sous_block = resp.body.id;

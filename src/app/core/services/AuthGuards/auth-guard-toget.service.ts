@@ -20,6 +20,7 @@ import {} from '@types/googlemaps';
 import * as firebase from 'firebase';
 import DataSnapshot = firebase.database.DataSnapshot;
 import {RequestChatroomService} from "../Request-Chatroom/request-chatroom.service";
+import { AuthFirebaseService} from '../../../firebaseDir/auth-firebase.service';
 @Injectable({
   providedIn: 'root'
 })
@@ -32,7 +33,7 @@ export class AuthGuardTogetService implements CanActivate, CanActivateChild, Can
 	private lon: any;
 	private publicIp: any;
 public dataMembre: any = [];
-  constructor(private route: ActivatedRoute, public router: Router, public http: HttpClient, private InfoM: InfoMembreService, public chatrequest: RequestChatroomService) {
+  constructor(private route: ActivatedRoute, public router: Router, public http: HttpClient, private InfoM: InfoMembreService, public chatrequest: RequestChatroomService, private firebaseDir: AuthFirebaseService) {
 	  this.InfoM.getbylogin();
   }
 
@@ -162,20 +163,31 @@ public dataMembre: any = [];
 		let jwt = jwt_decode(localStorange);
 		let dateNow = new Date().getTime();
 		let dateExp = jwt.exp * 1000;
-		
+		let ddd=  new Date(dateExp).toLocaleString();
+		// console.log(ddd);
 		if(jwt.sub == log){
 			if(dateExp < dateNow){
-				return false;			
+				this.claering();
+				return false;	
 			}else{
 				return true;
 			}
 		}else{
+			this.claering();
 			return false;
 		}
 	}else{
+	this.claering();
 	return false;
+	
 	}
   }
+  
+  
+  claering(){
+	  localStorage.clear();
+      this.firebaseDir.signOutUser();	  
+	  }
 
 }
 

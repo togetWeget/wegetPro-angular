@@ -22,7 +22,7 @@ export class FlashInfoAddComponent implements OnInit {
 
   ngOnInit() {
 	  	this.initForm();
-  	this.sousBlockS.getSousBlockByBlock(this.data.id)
+  	this.sousBlockS.getSousBlockByIdDetailBlock(this.data.id)
   	.subscribe(response => {
       console.log('response', response);
   		this.sousBlock = response.body;
