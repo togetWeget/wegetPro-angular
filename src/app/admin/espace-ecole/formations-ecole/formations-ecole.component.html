@@ -1,6 +1,11 @@
 <app-admin-card [adminCard]="admin_card" (clickOcur)="handleClick($event)" >
 	<div class="admin-card-content">
 		<div class="row">
+			<div class="col-12" *ngIf="!(formation$ | async)?.body">
+				<div class="alert alert-info">
+					Dézolé. Aucune formation trouvée.
+				</div>
+			</div>
 			<div class="col-md-4" *ngFor="let f of (formation$ | async)?.body">
 				<app-card-formation-ecole (clickOcur)="id_edit = f?.id;handleEcoleClick($event);" [titre]="f?.titre" [niveau]="f?.formation_niveau" [periode]="f?.dureeFormation" [description]="f?.description" [prix]="f?.formation_prix" ></app-card-formation-ecole>
 			</div>

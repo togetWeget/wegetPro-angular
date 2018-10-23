@@ -7,6 +7,7 @@ import {MessageService} from '../message.service';
 import {Resultat} from '../../../shared/models/resultat';
 import {Detailblock} from '../../../shared/models/detailblock';
 import {Abonnes} from '../../../shared/models/abonnes';
+import {OutilsService} from '../outils.service';
 
 
 
@@ -14,17 +15,17 @@ import {Abonnes} from '../../../shared/models/abonnes';
   providedIn: 'root'
 })
 export class AbonnesService {
-  private allAbonnesByBlockIdUrl = 'http://wegetback:8080/tousLesAbonnesParBlock/';
-  private abonneByIdUrl = 'http://wegetback:8080/profil/';
-  private profilByIdUrl = 'http://wegetback:8080/detailBlock/';
-  private abonneByLogUrl = 'http://wegetback:8080/profilAbonneLogin/';
-  private abonnesUrl = 'http://wegetback:8080/abonnes/';
-   private abonnesComptence = 'http://wegetback:8080/rechercheParComptence/';
+  private allAbonnesByBlockIdUrl = `${this.outils.getBaseUrl()}/tousLesAbonnesParBlock/`;
+  private abonneByIdUrl = `${this.outils.getBaseUrl()}/profil/`;
+  private profilByIdUrl = `${this.outils.getBaseUrl()}/detailBlock/`;
+  private abonneByLogUrl = `${this.outils.getBaseUrl()}/profilAbonneLogin/`;
+  private abonnesUrl = `${this.outils.getBaseUrl()}/abonnes/`;
+  private abonnesComptence = `${this.outils.getBaseUrl()}/rechercheParComptence/`;
   public nbVueSubject$ = new BehaviorSubject<number>(0);
   
   
   private jwtToken = null;
-  constructor(private httpClient: HttpClient, private messageService: MessageService) {
+  constructor(private httpClient: HttpClient, private messageService: MessageService, public outils: OutilsService) {
     this.nbVueSubject$.pipe(
     debounceTime(300),
     distinctUntilChanged(),

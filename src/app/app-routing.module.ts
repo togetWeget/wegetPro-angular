@@ -3,13 +3,14 @@ import { Routes, RouterModule } from '@angular/router';
 import {AccueilComponent} from './site/accueil/accueil.component';
 import {NotFoundComponent} from './core/not-found/not-found.component';
 import {AuthGuardTogetService} from './core/services/AuthGuards/auth-guard-toget.service';
+import {AuthGuardSiteService} from './core/services/AuthGuardSite/auth-guard-site.service';
 
 const routes: Routes = [
   {
     path: '', redirectTo: '/site', pathMatch: 'full'
   },
   {
-    path: 'site', canActivate: [AuthGuardTogetService], loadChildren: './site/site.module#SiteModule'
+    path: 'site', canActivate: [AuthGuardSiteService], loadChildren: './site/site.module#SiteModule'
   },
   {
     path: 'super/admin', loadChildren: './super-admin/super-admin.module#SuperAdminModule'

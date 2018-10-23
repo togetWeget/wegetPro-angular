@@ -68,7 +68,7 @@ export class ListEspaceComponent  implements OnInit {
         width: '600px'
       });
     dialogRef.afterClosed().subscribe(result => {
-    	console.log(result);
+    	// console.log(result);
   	    this.router.navigate(['/admin/paiement','prix', result]);
     });
   }
@@ -76,7 +76,7 @@ export class ListEspaceComponent  implements OnInit {
       this.abonneService.getAbonnesByLog(localStorage.getItem('log'))
       .subscribe((data: any)=> {
   	  this.detailBlock = data.body;    
-  	  console.log(this.detailBlock) ;
+  	  // console.log(this.detailBlock) ;
     });
   }
 }

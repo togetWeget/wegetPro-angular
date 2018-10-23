@@ -89,9 +89,9 @@ export class FormationCompetenceComponent implements OnInit {
         mb.titre,
         mb.nom,
         mb.prenom,
-        null,
-        null,
-        false,
+        mb.password,
+        mb.repassword,
+        mb.actived,
         mb.nomComplet,
         mb.pathPhoto,
         mb.pathPhotoCouveture,
@@ -114,21 +114,25 @@ export class FormationCompetenceComponent implements OnInit {
 
   	initForm(){
   		const formationInit = new FormArray([]);
-  		if (this.membre.cvPersonne.cursus.length !== 0) {
-  			for (const format of this.membre.cvPersonne.cursus) {
-  				formationInit.push(
-	  				this.fb.group({
-	  					id: format.id,
-        			version: format.version,
-        			date: format.date,
-        			etablissement: format.etablissement,
-        			diplome: format.diplome,
-              formation: format.formation,
-        			description: format.description,
-        		})
-      		);
-  			}
-  		}
+      try{
+    		if (this.membre.cvPersonne.cursus.length !== 0) {
+    			for (const format of this.membre.cvPersonne.cursus) {
+    				formationInit.push(
+  	  				this.fb.group({
+  	  					id: format.id,
+          			version: format.version,
+          			date: format.date,
+          			etablissement: format.etablissement,
+          			diplome: format.diplome,
+                formation: format.formation,
+          			description: format.description,
+          		})
+        		);
+    			}
+    		}
+      }catch(e){
+        console.error('initForm', e);
+      }
   		this.formationForm = this.fb.group({
   				formations:formationInit,
   			}
@@ -177,9 +181,9 @@ export class FormationCompetenceComponent implements OnInit {
         this.membre.titre,
         this.membre.nom,
         this.membre.prenom,
-        null,
-        null,
-        false,
+        this.membre.password,
+        this.membre.repassword,
+        this.membre.actived,
         this.membre.nomComplet,
         this.membre.pathPhoto,
         this.membre.pathPhotoCouveture,

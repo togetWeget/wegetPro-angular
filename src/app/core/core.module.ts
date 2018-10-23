@@ -29,14 +29,17 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { NgHttpLoaderModule } from 'ng-http-loader';
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 import {NgxPaginationModule} from 'ngx-pagination';
+import {LnlFilesManagerModule} from 'lnl-files-manager';
 import {PanierService} from './services/panier.service';
 import { SigninComponent } from './clients/signin/signin.component';
 import {LoginsocialService} from './services/personne/membre/loginsocial.service';
-import {InfoMembreService} from './services/Info-membre/info-membre.service';
+import {InfoMembreService} from './services/info-membre/info-membre.service';
 import {ChatLiasonService} from './services/chat-liason/chat-liason.service';
+import {ConnexionUpService} from './services/connexionUp/connexion-up.service';
 import { ProfilCoverComponent } from './comp/profil-cover/profil-cover.component';
 import { ProfilAvatarComponent } from './comp/profil-avatar/profil-avatar.component';
 import { SaveFilesComponent } from './comp/save-files/save-files.component';
+import { SaveFile2Component } from './comp/save-file2/save-file2.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -49,6 +52,7 @@ import { SaveFilesComponent } from './comp/save-files/save-files.component';
     NotifierModule,
     CustomDirectivesModule,
     NgxPaginationModule,
+    LnlFilesManagerModule,
     FroalaEditorModule.forRoot(), 
     FroalaViewModule.forRoot()
   ],
@@ -72,7 +76,8 @@ import { SaveFilesComponent } from './comp/save-files/save-files.component';
     SigninComponent,
     ProfilCoverComponent,
     ProfilAvatarComponent,
-    SaveFilesComponent
+    SaveFilesComponent,
+    SaveFile2Component
   ],
   exports: [
     BlocTitleDirective,
@@ -99,7 +104,8 @@ import { SaveFilesComponent } from './comp/save-files/save-files.component';
   ],
   entryComponents: [
   LoginComponent,
-  SaveFilesComponent
+  SaveFilesComponent,
+  SaveFile2Component,
   ],
   providers: [
     MessageService,
@@ -109,7 +115,8 @@ import { SaveFilesComponent } from './comp/save-files/save-files.component';
 	PanierService,
 	LoginsocialService,
 	InfoMembreService,
-	ChatLiasonService
+	ChatLiasonService,
+	ConnexionUpService
   ],
   schemas: [NO_ERRORS_SCHEMA]
 })

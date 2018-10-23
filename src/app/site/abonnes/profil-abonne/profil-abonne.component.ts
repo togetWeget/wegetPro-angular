@@ -2,6 +2,7 @@ import {Component, OnInit, Input} from '@angular/core';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 import {switchMap} from 'rxjs/operators';
 import {AbonnesService} from '../../../core/services/abonnes/abonnes.service';
+import {ChatLiasonService} from '../../../core/services/chat-liason/chat-liason.service';
 import {MatDialog} from '@angular/material';
 import {ContactAbonneComponent} from '../contact-abonne/contact-abonne.component';
 import {Detailblock} from '../../../shared/models/detailblock';
@@ -24,7 +25,8 @@ export class ProfilAbonneComponent implements OnInit {
   constructor(private abonnesService: AbonnesService,
               private route: ActivatedRoute,
               private router: Router,
-              private contactDialog: MatDialog) {
+              private contactDialog: MatDialog,
+			  public chatact: ChatLiasonService) {
   }
 
   ngOnInit() {
@@ -63,4 +65,12 @@ getPhotoSrc(): string {
       console.log(result);
     });
   }
+  handleClick(event){
+    
+  }
+  
+  activatchat(){
+	this.chatact.chatload(this.abonne.membre.id, this.abonne.membre.nomComplet, this.abonne.membre.pathPhoto);
+  }
+  
 }

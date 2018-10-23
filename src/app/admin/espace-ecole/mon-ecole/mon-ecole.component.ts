@@ -74,7 +74,7 @@ export class MonEcoleComponent implements OnInit {
     this.sousBlock$ = this.sousBlockSubject$.pipe(
       debounceTime(300),
       distinctUntilChanged(),
-      switchMap(d => this.sousBlocksS.getSousBlockByBlock(this.detailBlock.id))
+      switchMap(d => this.sousBlocksS.getSousBlockByIdDetailBlock(this.detailBlock.id))
       );
   }
 
@@ -294,7 +294,7 @@ export class MonEcoleComponent implements OnInit {
       titre: [''],
       contenu: [''],
       auteur: [''],
-      pathPhoto: [''],
+      pathPhotoCouverture: [''],
       id_SousBlock: [this.sousBlock.id]
     }));  
   }
@@ -305,7 +305,7 @@ export class MonEcoleComponent implements OnInit {
 
   onSubmit(){
     try{
-      if(this.sousBlock === undefined){
+      if((this.sousBlock === undefined) || (this.sousBlock === null)){
         this.sousBlocksS.ajoutSousBlock(this.convSousBlockNew(this.ecoleForm))
       .subscribe(
         (data) => {
@@ -331,7 +331,7 @@ export class MonEcoleComponent implements OnInit {
         }
       );
       }
-    }catch(e){console.error('submit sous block');}
+    }catch(e){console.error('submit sous block', e);}
   }
 
   convSousBlockNew (fg: FormGroup): SousBlock{
@@ -350,7 +350,8 @@ export class MonEcoleComponent implements OnInit {
       this.detailBlock,
       [],
       [],
-      []
+      [],
+      this.detailBlock.block.id,
       );
   }
   convSousBlock (fg: FormGroup): SousBlock{
@@ -362,14 +363,15 @@ export class MonEcoleComponent implements OnInit {
       this.sousBlock.refSousBlock,
       fg.value['ecoleInfos'].presentation,
       this.sousBlock.description,
-      this.sousBlock.pathPhoto,
+      this.sousBlock.pathPhotoCouverture,
       this.sousBlock.pathLogo,
       fg.value['adresse'],
       fg.value['telephones'],
       this.sousBlock.detailBlock,
       fg.value['chiffres'],
       fg.value['partenaires'],
-      fg.value['temoignages']
+      fg.value['temoignages'],
+      this.sousBlock.detailBlock.block.id,
       );
   }
   convChiffre (fg: FormGroup): Chiffre[]{

@@ -2,29 +2,180 @@
 <div class="select-container">
 	<div class="row">
 		<div class="col-12">
-			<h3>{{titre}}</h3>
+			<h4>{{titre}}</h4>
 		  <form (ngSubmit)="onSubmit()">
-		    <div class="form-group image_photo_cl" *ngIf="multiple">
-		      <label for="image_photos" class="-align-center">Selectionnez les fichiers</label>
-		      <input type="file" class="form-control" multiple="" (change)="loadImages()" id="image_photos" #blockImages name="image_photos">
-		    </div>
-		    <div class="form-group image_photo_cl" *ngIf="!multiple">
-		      <label for="image_photo" class="-align-center">Selectionnez le fichier</label>
-		      <input type="file" class="form-control" (change)="loadImages()" id="image_photo" #blockImage name="image_photo">
-		    </div>
+		  	<div class="actions">
+			    <div class="form-group image_photo_cl image_photo_cl_vert" *ngIf="multiple && !hasFiles()">
+			      <input type="file" class="form-control" accept="{{type}}" multiple="" (change)="loadFiles()" id="image_photos" #blockImages name="image_photos">
+			    </div>
+			    <div class="form-group image_photo_cl image_photo_cl_violet" *ngIf="multiple && hasFiles()">
+			      <input type="file" class="form-control" accept="{{type}}" multiple="" (change)="addFiles()" id="image_photos_add" #blockImagesAdd name="image_photos_add">
+			    </div>
+			    
+		  		<button onclick="$('#image_photo').click();return false;" *ngIf="!multiple" class="btn_vert" type="button" mat-raised-button>Selectionnez un fichier</button>
+		  		<button onclick="$('#image_photos').click();return false;" *ngIf="multiple && !hasFiles()" class="btn_vert" type="button" mat-raised-button>Selectionnez les fichiers</button>
+		  		<button onclick="$('#image_photos_add').click();return false;" *ngIf="multiple && hasFiles()" class="btn_violet" type="button" mat-raised-button>Ajoutez d'autres fichiers</button>&nbsp;&nbsp;
+			    <button mat-raised-button color="warn" (click)="removeAll()" *ngIf="multiple && hasFiles()">Tous supprimer</button>
+
+			    <div class="form-group image_photo_cl" *ngIf="!multiple">
+			      <input type="file" class="form-control" accept="{{type}}" (change)="loadFiles()" id="image_photo" #blockImage name="image_photo">
+			    </div>
+		  	</div>
 			
 			<div class="row">
-				<div class="col-12 img_cont_co">
-					<div class="img_cont" *ngFor="let f of (images$ | async); let i = index;">
-						<!-- <div (click)="delfichier(i)" class="close-f"><i class="fa fa-close"></i></div> -->
-						<img src="{{f}}" class="img-responsive" alt="Image">
+				<div class="col-12">
+					<!-- <div class="img_cont" *ngFor="let f of (saveFiles$ | async); let i = index;">
+						<div (click)="delfichier(f)" class="close-f"><i class="fa fa-close"></i></div>
+						<div class="img_divs">
+							<img [src]="f?.file_content" *ngIf="outils.arrayContain(['.jpg', '.png'], f?.extension)" class="img-responsive" alt="Image">
+							<img src="../../../../assets/icon/icon_docx.png" *ngIf="outils.arrayContain(['.doc', '.docx'], f?.extension)" class="img-responsive" alt="Image">
+							<img src="../../../../assets/icon/icon_pdf.png" *ngIf="outils.arrayContain(['.pdf'], f?.extension)" class="img-responsive" alt="Image">
+						</div>
+						<span>{{f?.filename}}</span>
+					</div> -->
+					<div class="row" *ngIf="outils.arrayContainLessOne(getAllFilesExtensions((saveFiles$ | async)), tab_ext_images)">
+						<div class="col-12">
+							<h5 class="title_show">Images</h5>
+							<div class="img_cont_co">
+								<div class="img_cont" *ngFor="let f of (saveFiles$ | async); let i = index;">
+									<div *ngIf="outils.arrayContain(tab_ext_images, f?.extension)" (click)="delfichier(f)" class="close-f"><i class="fa fa-close"></i></div>
+									<div class="img_divs">
+									<img [src]="f?.file_content" *ngIf="outils.arrayContain(tab_ext_images, f?.extension)" class="img-responsive" alt="Image">
+								</div>
+								<span *ngIf="outils.arrayContain(tab_ext_images, f?.extension)">{{f?.filename}}</span>
+							</div>
+							</div>
+						</div>
+					<br>
+					</div> 
+
+					<div class="row" *ngIf="outils.arrayContainLessOne(getAllFilesExtensions((saveFiles$ | async)), tab_ext_pdf)">
+						<div class="col-12">
+							<h5 class="title_show">Pdfs</h5>
+							<div class="img_cont_co">
+								<div class="img_cont" *ngFor="let f of (saveFiles$ | async); let i = index;">
+									<div *ngIf="outils.arrayContain(tab_ext_pdf, f?.extension)" (click)="delfichier(f)" class="close-f"><i class="fa fa-close"></i></div>
+									<div class="img_divs">
+									<img src="../../../../assets/icon/files_icon_pdf.png" *ngIf="outils.arrayContain(tab_ext_pdf, f?.extension)" class="img-responsive" alt="Image">
+								</div>
+								<span *ngIf="outils.arrayContain(tab_ext_pdf, f?.extension)">{{f?.filename}}</span>
+							</div>
+							</div>
+						</div>
+					<br>
+					</div>
+
+					<div class="row" *ngIf="outils.arrayContainLessOne(getAllFilesExtensions((saveFiles$ | async)), tab_ext_docs_office)">
+						<div class="col-12">
+							<h5 class="title_show">Documents suite office</h5>
+							<div class="img_cont_co">
+								<div class="img_cont" *ngFor="let f of (saveFiles$ | async); let i = index;">
+									<div *ngIf="outils.arrayContain(tab_ext_docs_office, f?.extension)" (click)="delfichier(f)" class="close-f"><i class="fa fa-close"></i></div>
+									<div class="img_divs">
+									<img src="../../../../assets/icon/files_icon_doc.png" *ngIf="outils.arrayContain(['.doc'], f?.extension)" class="img-responsive" alt="Image">
+									<img src="../../../../assets/icon/files_icon_docx.png" *ngIf="outils.arrayContain(['.docx'], f?.extension)" class="img-responsive" alt="Image">
+									<img src="../../../../assets/icon/files_icon_xls.png" *ngIf="outils.arrayContain(['.xls'], f?.extension)" class="img-responsive" alt="Image">
+									<img src="../../../../assets/icon/files_icon_ppt.png" *ngIf="outils.arrayContain(['.ppt'], f?.extension)" class="img-responsive" alt="Image">
+								</div>
+								<span *ngIf="outils.arrayContain(tab_ext_docs_office, f?.extension)">{{f?.filename}}</span>
+							</div>
+							</div>
+						</div>
+					<br>
+					</div>
+
+					<div class="row" *ngIf="((saveFiles$ | async)?.length > 0) && 
+						(outils.arrayContainLessOne(getAllFilesExtensions((saveFiles$ | async)), tab_ext_docs_other) || 
+						(!outils.arrayContainLessOne(getAllFilesExtensions((saveFiles$ | async)), tab_ext_images) && 
+						!outils.arrayContainLessOne(getAllFilesExtensions((saveFiles$ | async)), tab_ext_pdf) && 
+						!outils.arrayContainLessOne(getAllFilesExtensions((saveFiles$ | async)), tab_ext_docs_office) && 
+						!outils.arrayContainLessOne(getAllFilesExtensions((saveFiles$ | async)), tab_ext_videos) && 
+						!outils.arrayContainLessOne(getAllFilesExtensions((saveFiles$ | async)), tab_ext_audios)))
+						">
+						<div class="col-12">
+							<h5 class="title_show">Autres type de documents</h5>
+							<div class="img_cont_co">
+								<div class="img_cont" *ngFor="let f of (saveFiles$ | async); let i = index;">
+									<div *ngIf="outils.arrayContain(tab_ext_docs_other, f?.extension) || (
+								!outils.arrayContain(tab_ext_images, f?.extension) && 
+								!outils.arrayContain(tab_ext_pdf, f?.extension) && 
+								!outils.arrayContain(tab_ext_docs_office, f?.extension) && 
+								!outils.arrayContain(tab_ext_videos, f?.extension) && 
+								!outils.arrayContain(tab_ext_audios, f?.extension)
+								)" (click)="delfichier(f)" class="close-f"><i class="fa fa-close"></i></div>
+									<div class="img_divs">
+									<img src="../../../../assets/icon/files_icon_zip.png" *ngIf="outils.arrayContain(['.zip'], f?.extension)" class="img-responsive" alt="Image">
+									<img src="../../../../assets/icon/files_icon_rar.png" *ngIf="outils.arrayContain(['.rar'], f?.extension)" class="img-responsive" alt="Image">
+									<img src="../../../../assets/icon/files_icon_txt.png" *ngIf="outils.arrayContain(['.txt'], f?.extension)" class="img-responsive" alt="Image">
+									<img src="../../../../assets/icon/files_icon_default.png" *ngIf="!outils.arrayContain(tab_ext_docs_other, f?.extension) && (
+								!outils.arrayContain(tab_ext_images, f?.extension) && 
+								!outils.arrayContain(tab_ext_pdf, f?.extension) && 
+								!outils.arrayContain(tab_ext_docs_office, f?.extension) && 
+								!outils.arrayContain(tab_ext_videos, f?.extension) && 
+								!outils.arrayContain(tab_ext_audios, f?.extension)
+								)" class="img-responsive" alt="Image">
+								</div>
+								<span *ngIf="outils.arrayContain(tab_ext_docs_other, f?.extension) || (
+								!outils.arrayContain(tab_ext_images, f?.extension) && 
+								!outils.arrayContain(tab_ext_pdf, f?.extension) && 
+								!outils.arrayContain(tab_ext_docs_office, f?.extension) && 
+								!outils.arrayContain(tab_ext_videos, f?.extension) && 
+								!outils.arrayContain(tab_ext_audios, f?.extension)
+								)"
+								>{{f?.filename}}</span>
+							</div>
+							</div>
+						</div>
+					<br>
+					</div>
+
+					<div class="row" *ngIf="outils.arrayContainLessOne(getAllFilesExtensions((saveFiles$ | async)), tab_ext_videos)">
+						<div class="col-12">
+							<h5 class="title_show">Fichiers videos</h5>
+							<div class="img_cont_co">
+								<div class="video_cont" *ngFor="let f of (saveFiles$ | async); let i = index;">
+									<div *ngIf="outils.arrayContain(tab_ext_videos, f?.extension)" (click)="delfichier(f)" class="close-f"><i class="fa fa-close"></i></div>
+									<div class="img_divs">
+										<video *ngIf="outils.arrayContain(tab_ext_videos, f?.extension)" width="200"height="150" controls [src]="f?.file_content"></video>
+								</div>
+								<span *ngIf="outils.arrayContain(tab_ext_videos, f?.extension)">{{f?.filename}}</span>
+							</div>
+							</div>
+						</div>
+					<br>
+					</div>
+
+					<div class="row" *ngIf="outils.arrayContainLessOne(getAllFilesExtensions((saveFiles$ | async)), tab_ext_audios)">
+						<div class="col-12">
+							<h5 class="title_show">Fichiers Audios</h5>
+							<div class="img_cont_co">
+								<div class="audio_cont" *ngFor="let f of (saveFiles$ | async); let i = index;">
+									<div *ngIf="outils.arrayContain(tab_ext_audios, f?.extension)" (click)="delfichier(f)" class="close-f"><i class="fa fa-close"></i></div>
+									<div class="img_divs">
+										<audio *ngIf="outils.arrayContain(tab_ext_audios, f?.extension)" controls width="200" [src]="f?.file_content"></audio>
+								</div>
+								<span *ngIf="outils.arrayContain(tab_ext_audios, f?.extension)">{{f?.filename}}</span>
+							</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
 
-		    <button type="submit" mat-raised-button color="primary" class="green">Enregister</button>
-		    <button mat-raised-button color="warn" (click)="annuler()">Annuler</button>
+			<div class="row" *ngIf="!((saveFiles$ | async)?.length > 0)">
+				<div class="col-12">
+					<br>
+					<div class="alert alert-info">
+						Selectionnez le(s) fichier(s) que vous désirez enregistrer
+					</div>
+					<br>
+				</div>
+			</div>
 
+		    <button type="submit" mat-raised-button type="submit" color="primary" class="green">Enregister</button>&nbsp;&nbsp;
+		    <button mat-raised-button color="warn" type="button" (click)="annuler()">Annuler</button>
+			<br>
+			<br>
 		  </form>
 		</div>
 	</div>

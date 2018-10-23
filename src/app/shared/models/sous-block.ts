@@ -16,14 +16,15 @@ export class SousBlock {
 		public refSousBlock?: string,
 		public presentation?: string,
 		public description?: string,
-		public pathPhoto?: string[],
+		public pathPhotoCouverture?: string[],
 		public pathLogo?: string,
 		public adresse?: Adresse,
 		public telephones?: Telephone[],
 		public detailBlock?: Detailblock,
 		public chiffre?: Chiffre[],
 		public partenaire?: Partenaire[],
-		public temoignage?: Temoignage[]
+		public temoignage?: Temoignage[],
+		public idBlock?: number
 		// public detailBlock?: number
 		) {}
 }

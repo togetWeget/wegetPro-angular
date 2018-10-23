@@ -6,14 +6,15 @@ import {MessageService} from './message.service';
 import {Resultat} from '../../shared/models/resultat';
 import {Formation} from '../../shared/models/ecole/formation';
 import { ToastrService } from 'ngx-toastr';
+import { OutilsService } from './outils.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FormationEcoleService {
 	public jwtToken: string;
-	private urlFormations = 'http://wegetback:8080/formations';
-	private urlFormationsParSousBlock = 'http://wegetback:8080/formationSousBlock';
+	private urlFormations = `${this.outils.getBaseUrl()}/formations`;
+	private urlFormationsParSousBlock = `${this.outils.getBaseUrl()}/formationSousBlock`;
 
 	 // observables sources
 	// private FormationCreerSource = new Subject<Resultat<Formation>>();
@@ -22,7 +23,7 @@ export class FormationEcoleService {
 	// private FormationSupprimeSource = new Subject<Resultat<boolean>>();
 
   constructor(private http: HttpClient, private messageService: MessageService,
-    private toastr: ToastrService) { }
+    private toastr: ToastrService, private outils: OutilsService) { }
 
   loadToken () {
     this.jwtToken = localStorage.getItem('togetToken');

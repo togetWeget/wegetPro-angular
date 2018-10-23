@@ -10,7 +10,8 @@ import { switchMap } from 'rxjs/operators';
 import {AbonnesService} from '../../core/services/abonnes/abonnes.service';
 import {Detailblock} from '../../shared/models/detailblock';
 import {Messagerie} from '../../shared/models/messagerie/messagerie';
-import {InfoMembreService} from '../../core/services/Info-membre/info-membre.service';
+import {InfoMembreService} from '../../core/services/info-membre/info-membre.service';
+import {OutilsService} from '../../core/services/outils.service';
 import * as $ from 'jquery';
 
 @Component({
@@ -27,7 +28,7 @@ OnInit {
 
   private _mobileQueryListener: () => void;
 	public InfoMembres: any = {};
-	private urlgetbyLogin = 'http://wegetback:8080/membresLogin/';
+	private urlgetbyLogin = `${this.outils.getBaseUrl()}/membresLogin/`;
 	public stor = localStorage.getItem('togetToken');
   public storlog = localStorage.getItem('log');
   nonLu$: Observable<number>;
@@ -35,7 +36,8 @@ OnInit {
 
   constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private router: Router,
    public regist: RegisterService, public panierService: PanierService, public infoM: InfoMembreService,
-   private messagerieService:MessagerieService, private abonneService: AbonnesService) {
+   private messagerieService:MessagerieService, private abonneService: AbonnesService,
+   public outils: OutilsService) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
@@ -49,7 +51,9 @@ OnInit {
       .subscribe((res:any)=> {
           this.dblk = res.body;    
         console.log(res.body);
-        this.messagerieService.findNonLus(this.dblk.membre.id);
+        try{
+          this.messagerieService.findNonLus(this.dblk.membre.id);
+        }catch(e){}
       });
   }
 

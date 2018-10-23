@@ -8,14 +8,16 @@ import { Personne } from '../../../shared/models/personne/membres/personne';
 import { Membre } from '../../../shared/models/personne/membres/membre';
 import { AbonnesService } from '../../../core/services/abonnes/abonnes.service';
 import {MembreService} from '../../../core/services/personne/membre/membre.service';
-import { CoverSelectComponent } from '../cover-select/cover-select.component';
 import { CoverProfilComponent } from '../../comp/cover-profil/cover-profil.component';
 import { SaveFilesComponent } from '../../../core/comp/save-files/save-files.component';
+import { SaveFile2Component } from '../../../core/comp/save-file2/save-file2.component';
+import { OutilsService } from '../../../core/services/outils.service';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';  
 import { Observable, throwError, interval,
 Subject, BehaviorSubject } from 'rxjs';
 import { catchError, retry, tap, map,
 debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
+import { LnlFilesManagerService, ParamsModel, FileManagerModel } from 'lnl-files-manager';
 
 @Component({
   selector: 'app-layout-compte',
@@ -23,16 +25,18 @@ debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
   styleUrls: ['./layout-compte.component.scss']
 })
 export class LayoutCompteComponent implements OnInit {
-top_zone: AdminTopZone = null;
+  top_zone: AdminTopZone = null;
   detailblock: Detailblock;
   coverModel: AdminCover;
+  params: ParamsModel[] = [];
   membre: Membre;
   membre$ : Observable<Resultat<Membre>>;
   membreSubject$ = new BehaviorSubject<string>('');
-  @ViewChild(CoverProfilComponent) cover: CoverProfilComponent;
 
   constructor(private abonneService: AbonnesService,
-    private membreService: MembreService,public dialog: MatDialog) {
+    private membreService: MembreService,public dialog: MatDialog,
+    public outils: OutilsService) {
+    
     // this.membre$ = this.membreService.getMembreByLogin(localStorage.getItem('log'));
     // this.membre$ = this.membreSubject$
     //   .debounceTime(500)
@@ -91,11 +95,21 @@ top_zone: AdminTopZone = null;
     );
   }
 
+  setParams(){
+    this.params = [];
+    this.params = [
+      new ParamsModel('membre_login', <string> this.membre.login)
+    ];
+  }
+
   openModif() {
-    const dialogRef = this.dialog.open(SaveFilesComponent, {
+    this.setParams();
+    const dialogRef = this.dialog.open(SaveFile2Component, {
       maxWidth: '768px',
       maxHeight: '500px',
-      data: {name: 'image_photo', multiple: false, filename: this.membre.login, url: `http://wegetback:8080/photoCouvertureMembre`}
+      data: {name: 'image_photo', multiple: false, accept: 'image/*', 
+      filename: this.membre.login, params: this.params,
+       url: `${this.outils.getBaseUrl()}/photoCouvertureMembre`}
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -104,11 +118,19 @@ top_zone: AdminTopZone = null;
     });
   }
 
+  onContactAbonne(){
+    
+  }
+
   saveProfil() {
-    const dialogRef = this.dialog.open(SaveFilesComponent, {
+    this.setParams();
+    const dialogRef = this.dialog.open(SaveFile2Component, {
       maxWidth: '768px',
       maxHeight: '500px',
-      data: {name: 'image_photo', multiple: false, filename: this.membre.login, url: `http://wegetback:8080/photoMembre`}
+      // data: {name: 'image_photo', multiple: true, filename: 'this.membre.login', accept: '', url: `${this.outils.getBaseUrl()}/photoMembre`}
+      data: {name: 'image_photo', multiple: false, accept: 'image/*', 
+      filename: this.membre.login, params: this.params,
+      url: `${this.outils.getBaseUrl()}/photoMembre`}
     });
 
     dialogRef.afterClosed().subscribe(result => {

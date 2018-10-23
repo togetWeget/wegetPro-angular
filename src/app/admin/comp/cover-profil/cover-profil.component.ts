@@ -4,7 +4,7 @@ SimpleChange } from '@angular/core';
 import {Router} from '@angular/router';
 import { AdminCover } from '../../../shared/views_models/admin-cover';
 import { Membre} from '../../../shared/models/personne/membres/membre';
-import { Resultat} from '../../../shared/models/Resultat';
+import { Resultat} from '../../../shared/models/resultat';
 
 
 @Component({

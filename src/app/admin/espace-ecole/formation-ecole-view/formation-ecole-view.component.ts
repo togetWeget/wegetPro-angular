@@ -36,7 +36,7 @@ export class FormationEcoleViewComponent implements OnInit {
   }
 
   search(){
-    this.formationSubject$.next(Date.now());
+    this.formationSubject$.next(Date.now()+'');
   }
 
 }

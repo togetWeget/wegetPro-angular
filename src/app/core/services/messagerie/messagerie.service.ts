@@ -8,23 +8,24 @@ switchMap, tap} from 'rxjs/operators';
 import {Resultat} from '../../../shared/models/resultat';
 import {Block} from '../../../shared/models/block';
 import {MessageService} from '../message.service';
+import {OutilsService} from '../outils.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MessagerieService {
   private message: Messagerie [] = [];
-  private urlMessagerie = 'http://wegetback:8080/messageries/';
-  private urlMessagerierep = 'http://wegetback:8080/envoiemessages/';
-  private urlMessages = 'http://wegetback:8080/messages/';
-  private urlMessage='http://wegetback:8080/message/';
+  private urlMessagerie = `${this.outils.getBaseUrl()}/messageries/`;
+  private urlMessagerierep = `${this.outils.getBaseUrl()}/envoiemessages/`;
+  private urlMessages = `${this.outils.getBaseUrl()}/messages/`;
+  private urlMessage=`${this.outils.getBaseUrl()}/message/`;
 
   messageSubject = new Subject<Messagerie[]>();
   nonLusSubject$ = new BehaviorSubject<number>(0);
   // nonLu$: Observable<number>;
 
   constructor(private httpClient: HttpClient, private router: Router, 
-    private messageService: MessageService) {
+    private messageService: MessageService, private outils: OutilsService) {
     this.nonLusSubject$.pipe(
       debounceTime(300),
       distinctUntilChanged(),

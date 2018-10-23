@@ -26,6 +26,11 @@
 				</tr>
 			</tbody>
 		</table>
+		<div class="col-12" *ngIf="!(flash$ | async)?.body">
+				<div class="alert alert-info">
+					Dézolé. Aucune information trouvée.
+				</div>
+			</div>
 	</div>
 	<div class="admin-card-footer">
 

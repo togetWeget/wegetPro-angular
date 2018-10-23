@@ -7,8 +7,12 @@ import { AdminCover } from '../../../shared/views_models/admin-cover';
 import { Detailblock } from '../../../shared/models/detailblock';
 import { Resultat } from '../../../shared/models/resultat';
 import { AbonnesService } from '../../../core/services/abonnes/abonnes.service';
+import {OutilsService} from '../../../core/services/outils.service';
 import { SaveFilesComponent } from '../../../core/comp/save-files/save-files.component';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';  
+
+import {SousBlock} from '../../../shared/models/sous-block';
+import {SousBlockService} from '../../../core/services/sous-block.service';
 
 @Component({
   selector: 'app-layout-ecole',
@@ -21,11 +25,14 @@ export class LayoutEcoleComponent implements OnInit {
   detailBlocks: Detailblock[];
   coverModel: AdminCover;
   type_espace: string;
+  sousBlock: SousBlock;
+  id_block: number = 0;
 
   constructor(
     private abonneService: AbonnesService,
     private route: ActivatedRoute,
-    private router: Router,public dialog: MatDialog) {
+    private router: Router,public dialog: MatDialog,
+    public outils: OutilsService, private sousBlockS: SousBlockService) {
   this.getDetailBlock(); 
   	this.top_zone = new AdminTopZone (
   		'', 
@@ -42,7 +49,14 @@ export class LayoutEcoleComponent implements OnInit {
    }
 
   ngOnInit() {
-
+    this.route.paramMap.pipe(
+      switchMap((params: ParamMap) => {
+        this.id_block = +params.get('id');
+        return this.sousBlockS.getSousBlockByIdDetailBlock(this.id_block);
+      })
+      ).subscribe(resp => {
+        this.sousBlock = resp.body;
+      });
   }
   getDetailBlock(){
   	this.route.paramMap.pipe(
@@ -71,13 +85,18 @@ export class LayoutEcoleComponent implements OnInit {
     const dialogRef = this.dialog.open(SaveFilesComponent, {
       maxWidth: '768px',
       maxHeight: '500px',
-      data: {name: 'image_photo', multiple: false, filename: '', url: ``}
+      data: {name: 'image_photo', multiple: false, type: 'image/*', filename: this.sousBlock.nom, 
+      url: `${this.outils.getBaseUrl()}/sousBlockLogo`}
     });
 
     dialogRef.afterClosed().subscribe(result => {
       // this.search(Date.now()+'');
       // this.search(localStorage.getItem('log'));
     });
+  }
+
+  test(files: File[]){
+    console.log('MES FICHIERS', files);
   }
 
   handleClick(event) {

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {PanierService} from '../../core/services/panier.service';
-import {InfoMembreService} from '../../core/services/Info-membre/info-membre.service';
+import {InfoMembreService} from '../../core/services/info-membre/info-membre.service';
 import {isObject} from 'rxjs/internal/util/isObject';
 import * as $ from 'jquery';
 import { Router } from '@angular/router';

@@ -6,17 +6,20 @@ import {MessageService} from './message.service';
 import {Resultat} from '../../shared/models/resultat';
 import {SousBlock} from '../../shared/models/sous-block';
 import { ToastrService } from 'ngx-toastr';
+import { OutilsService } from './outils.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SousBlockService {
   public jwtToken: string;
-  private urlSousBlocks = 'http://wegetback:8080/sousBlocks';
-  private urlSousBlocksParBlock = 'http://wegetback:8080/SousBlocksParBlock';
-  private urlPhoto = 'http://wegetback:8080/photoBlock';
-  private urlPhoto1 = 'http://wegetback:8080/getPhoto';
-  private urlRechercheBlk = 'http://wegetback:8080/rechercheBlock?mc=';
+  private urlSousBlocks = `${this.outils.getBaseUrl()}/sousBlocks`;
+  private urlSousBlocksParBlock = `${this.outils.getBaseUrl()}/SousBlocksParIdBlock`;
+  private urlSousBlocksParIdDetailBlock = `${this.outils.getBaseUrl()}/SousBlocksParIdDetailBlock`;
+  private urlDetailBlocksParBlock = `${this.outils.getBaseUrl()}/SousBlocksParIdBlock`;
+  private urlPhoto = `${this.outils.getBaseUrl()}/photoBlock`;
+  private urlPhoto1 = `${this.outils.getBaseUrl()}/getPhoto`;
+  private urlRechercheBlk = `${this.outils.getBaseUrl()}/rechercheBlock?mc=`;
 
   // observables sources
   private blockCreerSource = new Subject<Resultat<SousBlock>>();
@@ -31,7 +34,7 @@ export class SousBlockService {
   blockSupprime$ = this.blockSupprimeSource.asObservable();
 
   constructor(private http: HttpClient, private messageService: MessageService,
-    private toastr: ToastrService) {
+    private toastr: ToastrService, private outils: OutilsService) {
   }
 
   loadToken () {
@@ -85,6 +88,29 @@ export class SousBlockService {
           this.log(`block trouve  id=${id}`);
         }),
         catchError(this.handleError<Resultat<SousBlock>>('getSousBlockByBlock'))
+      );
+  }
+
+  getSousBlockByIdDetailBlock(id: number): Observable<Resultat<SousBlock>> {
+
+    return this.http.get<Resultat<SousBlock>>(`${this.urlSousBlocksParIdDetailBlock}/${id}`)
+      .pipe(
+        tap(res => {
+          this.log(`block trouve  id=${id}`);
+        }),
+        catchError(this.handleError<Resultat<SousBlock>>('getSousBlockByIdDetailBlock'))
+      );
+  }
+
+ getDetailBlockByBlock(id: number): Observable<Resultat<SousBlock[]>> {
+
+    return this.http.get<Resultat<SousBlock[]>>(`${this.urlDetailBlocksParBlock}/${id}`)
+      .pipe(
+        tap(res => {
+          this.log(`tableau de sousblock trouve  id=${id}`);
+        }),
+        catchError(this.handleError<Resultat<SousBlock[]>>('getDetailBlockByBlock',
+        new Resultat<SousBlock[]>(null, [], [])))
       );
   }
 

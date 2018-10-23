@@ -1,5 +1,25 @@
+  <div class="flip-flop">
+	  <div class="front">
+	  	<mat-card class="example-card">
+	  	  <mat-card-content>
+	  	    <h1>Big tittle</h1>
+	  	  </mat-card-content>
+	  	</mat-card>
+	  </div>
+	  <div class="back">
+	  	<mat-card class="example-card">
+	  	  <mat-card-content>
+	  	    <p>
+	  	      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+	  	      A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+	  	      bred for hunting.
+	  	    </p>
+	  	  </mat-card-content>
+	  	</mat-card>
+	  </div>
+  </div>
 <mat-card class="blocks-items">
-	<a routerLink="/site/blocks/{{block.id}}" routerLinkActive="active" (click)="onViewBlock()">
+	<a routerLink="/site/blocks/{{block.id}}" routerLinkActive="active" class="" (click)="onViewBlock()">
     <div class="imagebg" #imagebg></div>
     <mat-card-content>
       <h5 class="titre-block" [innerHtml]="block.libelle"></h5>            

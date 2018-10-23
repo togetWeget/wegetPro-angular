@@ -18,10 +18,13 @@ export class ProfilCoverComponent implements OnInit, OnChanges {
   cover: string = this.defaultCover;
   @Input('id') id: string;
   @Input('titre') titre: string;
+  @Input('height') height: string;
   @Input('vues') vues: string;
   @Input('isAdmin') isAdmin: boolean;
   @Input('image') set _cover(cover){
   	this.cover = cover;
+    (this.height !== undefined && this.height !== null && this.height !== '')? 
+    this.img_cover.nativeElement.style.height = this.height : null;
   	this.img_cover.nativeElement.style.backgroundImage = 'url(' + this.getCoverSrc() + ')';
     this.img_cover.nativeElement.style.backgroundSize = 'cover';
     this.img_cover.nativeElement.style.backgroundPosition = 'center';
@@ -35,6 +38,8 @@ export class ProfilCoverComponent implements OnInit, OnChanges {
   }
 
   ngOnInit() {
+    (this.height !== undefined && this.height !== null && this.height !== '')? 
+    this.img_cover.nativeElement.style.height = this.height : null;
     this.img_cover.nativeElement.style.backgroundImage = 'url(' + this.getCoverSrc() + ')';
     this.img_cover.nativeElement.style.backgroundSize = 'cover';
     this.img_cover.nativeElement.style.backgroundPosition = 'center';

@@ -1,7 +1,10 @@
-<div class="container">
+
+	<div class="container">
   <div class="row">
     <div class="col-12">
-      <div class="login-container">        
+      <div class="login-container">   
+	  <div class="col-sm-12 row  text-center text-success" *ngIf="text_succ != null">{{text_succ}}</div>
+	  <div class="col-sm-12 row  text-center text-white" *ngIf="text_red != null"><code>{{text_red}}</code></div>
         <h1 class="well">Connexion / Login </h1> 
         <div class="col-lg-12 well"> 
             <div class="row"> 
@@ -37,8 +40,7 @@
     </div>
   </div>
 </div>
- 
- 
- 
+
+
  
  

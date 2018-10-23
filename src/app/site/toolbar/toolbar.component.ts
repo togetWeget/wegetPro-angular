@@ -4,7 +4,7 @@ import {MatDialog} from '@angular/material';
 import {LoginComponent} from '../../core/clients/login/login.component';
 import {LoginService} from '../../core/services/personne/membre/login.service';
 import {PanierService} from '../../core/services/panier.service';
-import {InfoMembreService} from '../../core/services/Info-membre/info-membre.service';
+import {InfoMembreService} from '../../core/services/info-membre/info-membre.service';
 import {
   trigger,
   state,

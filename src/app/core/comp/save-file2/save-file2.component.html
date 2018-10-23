@@ -1,0 +1,19 @@
+<form (submit)="send()">
+	<label>{{titre}}</label>
+	<div *ngIf="!multiple">
+		<button mat-raised-button type="button" lnlFmTrigger="#input1" color="primary">Selectionnez le fichier</button>
+		<input type="file" lnlFmInput class="form-control" accept="{{accept}}" id="input1" placeholder="Input field">
+		<lnl-fm-output (files)="handleFiles($event)" [accept]="accept" [name]="name" (errors)="handleErrors($event)" [multiple]="false" selector="#input1"></lnl-fm-output>
+	</div>
+
+	<div *ngIf="multiple">
+		<button mat-raised-button type="button" lnlFmTrigger="#input2" color="primary">Selectionnez les fichiers</button>
+		<input type="file" lnlFmInput class="form-control" accept="{{accept}}" id="input2" multiple="" placeholder="Input field">
+		<lnl-fm-output (files)="handleFiles($event)" [accept]="accept" [name]="name" (errors)="handleErrors($event)" [multiple]="true" selector="#input2"></lnl-fm-output>
+	</div>
+
+	
+
+	<button type="submit" mat-raised-button color="primary">Enregistrer</button>&nbsp;
+	<button type="button" (click)="closeModal()" mat-raised-button color="warn">Annuler</button>
+</form>

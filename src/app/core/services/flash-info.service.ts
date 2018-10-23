@@ -6,14 +6,15 @@ import {MessageService} from './message.service';
 import {Resultat} from '../../shared/models/resultat';
 import {FlashInfo} from '../../shared/models/flash-info';
 import { ToastrService } from 'ngx-toastr';
+import { OutilsService } from './outils.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FlashInfoService {
 	public jwtToken: string;
-  private urlFlashInfos = 'http://wegetback:8080/flashInfo';
-	private urlFlashInfosParSousBlock = 'http://wegetback:8080/flashInfoSousBlock';
+  private urlFlashInfos = `${this.outils.getBaseUrl()}/flashInfo`;
+	private urlFlashInfosParSousBlock = `${this.outils.getBaseUrl()}/flashInfoSousBlock`;
 
 	 // observables sources
   private flashInfoCreerSource = new Subject<Resultat<FlashInfo>>();
@@ -29,7 +30,7 @@ export class FlashInfoService {
 
 
   constructor(private http: HttpClient, private messageService: MessageService,
-    private toastr: ToastrService) { }
+    private toastr: ToastrService, private outils: OutilsService) { }
 
   loadToken () {
     this.jwtToken = localStorage.getItem('togetToken');

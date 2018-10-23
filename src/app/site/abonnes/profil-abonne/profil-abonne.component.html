@@ -7,7 +7,7 @@
             <app-profil-avatar  id="img_profil" [image]="abonne?.membre?.pathPhoto" (clickOcur)="handleClick($event)" ></app-profil-avatar>
             <div class="footer">
               <button mat-raised-button color="primary" (click)="onContactAbonne()"><i class="fa fa-envelope"></i><span class="d-none d-sm-inline" style="display: none"> Contacter</span></button>&nbsp;&nbsp;
-              <button mat-raised-button color="warn"><i class="fa fa-comments"></i><span class="d-none d-sm-inline"> Discuter</span></button>
+			<button mat-raised-button color="warn" (click)="activatchat()"><i class="fa fa-comments"></i><span class="d-none d-sm-inline"> Discuter</span></button>
             </div>
           </app-profil-cover>
           <br>

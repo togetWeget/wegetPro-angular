@@ -17,6 +17,10 @@ import {HttpClient, HttpRequest, HttpResponse, HttpHeaders} from '@angular/commo
 import * as jwt_decode from "jwt-decode";
 import * as $ from 'jquery';
 import {} from '@types/googlemaps';
+import * as firebase from 'firebase';
+import DataSnapshot = firebase.database.DataSnapshot;
+import {RequestChatroomService} from "../Request-Chatroom/request-chatroom.service";
+import { AuthFirebaseService} from '../../../firebaseDir/auth-firebase.service';
 @Injectable({
   providedIn: 'root'
 })
@@ -25,11 +29,11 @@ export class AuthGuardTogetService implements CanActivate, CanActivateChild, Can
 	// const bounds: google.maps.LatLngBounds;
 	// const latLng: google.maps.LatLng;
 	
-	private lat: number;
-	private lon: number;
+	private lat: any;
+	private lon: any;
 	private publicIp: any;
 public dataMembre: any = [];
-  constructor(private route: ActivatedRoute, public router: Router, public http: HttpClient, private InfoM: InfoMembreService) {
+  constructor(private route: ActivatedRoute, public router: Router, public http: HttpClient, private InfoM: InfoMembreService, public chatrequest: RequestChatroomService, private firebaseDir: AuthFirebaseService) {
 	  this.InfoM.getbylogin();
   }
 
@@ -39,9 +43,9 @@ public dataMembre: any = [];
   }
 
   canActivateChild (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    return this.canActivate(route, state);
+	return this.adminGuardChild();
   }
-// IP Number = A x (256*256*256) + B x (256*256) + C x 256 + D calcul detection et localisation adresse ip
+
 	geolocNav(){
 		let u = this;
 		u.lat =  0;
@@ -58,68 +62,55 @@ public dataMembre: any = [];
 				}
 		  });
 		}else{
+		console.log("!issecurecontext");
 		}
 
 	}
 	
 	getLocalUsers(){
 	 let u = this;
+		u.InfoM.getbylogin();
 	$.getJSON("http://ip-api.com/json",(json)=> {
 		u.publicIp = json.query;
 		if(u.lat == 0 && u.lon == 0){
 			u.lat = json.lat;
 			u.lon = json.lon;
 		}
-		if (u.isLoggedIn()) {
-		let data: any = {longitude: u.lon,latitude: u.lat, membre: u.InfoM.InfoMembres.id};
-			u.sendLocalInfo(data);
+		if (u.isLoggedIn() && u.InfoM.InfoMembres) {
+		let data: any = {longitude: u.lon,latitude: u.lat, membre: u.InfoM.InfoMembres.id, ipConnexion: u.publicIp, dateupd: new Date().toLocaleString()};
+			u.sendLocalInfo(data, u.InfoM.InfoMembres.id);
         }
       });	
 		
 	}
 	
-
-	sendLocalInfo(para){
-		$.ajax({
-			url: 'http://wegetback:8080/membres',
-			data: JSON.stringify(para),
-			type: 'put',
-			dataType: 'json',
-			contentType: 'application/json; charset=utf-8',
-			cache: false,
-			success: function (data,status) {
-				console.log(status);
-				console.log(data);
-			},
-			error: function (xhr) {
-				console.log(xhr);
-			}
-		});	
+		
+	sendLocalInfo(para,idMembre){
+	let u = this;
+	u.InfoM.getbylogin();
+	let urlgeo = "Geolocalisation/" + idMembre;
+		let reg = /./gi
+	let curLon =u.lon.toString().split('.');
+	let curLat =u.lat.toString().split('.');
+	let urizFormat = curLon[0] + curLon[1] + curLat[0] + curLat[1];
+	let urlgeoDeplacement = "Deplacement/" + idMembre + "/" + urizFormat;
+	let donnee : any = {latitude: u.lat, longitude: u.lon};
+	this.chatrequest.CreateSendData(urlgeo, para);
+	this.chatrequest.CreateSendData(urlgeoDeplacement, para);
 	}
 	
  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+		this.InfoM.getbylogin();
 		this.geolocNav();
 		this.getLocalUsers();	
 		
-
-    console.log(' verification ...' + route.url);
     const urlcurrent = String(route.url);
-    const urlAdmin: any = 'admin';
-    console.log(' verification ...' + urlcurrent);
+	console.log(urlcurrent);
     const urllogin: any = 'login';
     const urlregister: any = 'register';
-		console.log(this.isLoggedIn());
+
     switch (urlcurrent) {
-      case urlAdmin :
-
-        if (this.isLoggedIn()) {
-          return true;
-        } else {
-          this.router.navigate(['/site/login']);
-        }
-
-        break;
-
+	
       case urllogin:
         if (this.isLoggedIn()) {
           this.router.navigate(['/admin']);
@@ -136,7 +127,7 @@ public dataMembre: any = [];
         }
         break;
 
-      default :
+      default:
         return true;
 
     }
@@ -148,7 +139,7 @@ public dataMembre: any = [];
   private isLoggedIn(): boolean {
 	return this.getToken();
   }
-
+	
   getToken(): boolean {
 	const localStorange = localStorage.getItem('togetToken');
 	const log = localStorage.getItem('log');
@@ -156,20 +147,44 @@ public dataMembre: any = [];
 		let jwt = jwt_decode(localStorange);
 		let dateNow = new Date().getTime();
 		let dateExp = jwt.exp * 1000;
-		
+		let ddd=  new Date(dateExp).toLocaleString();
+		// console.log(ddd);
 		if(jwt.sub == log){
 			if(dateExp < dateNow){
-				return false;			
+				this.claering();
+				return false;	
 			}else{
 				return true;
 			}
 		}else{
+			this.claering();
 			return false;
 		}
 	}else{
+	this.claering();
 	return false;
+	
 	}
   }
-
+  
+  
+  claering(){
+	  localStorage.clear();
+      this.firebaseDir.signOutUser();	  
+	  }
+	  
+	 
+	adminGuardChild(): boolean{
+	
+		this.InfoM.getbylogin();
+		this.geolocNav();
+		this.getLocalUsers();	
+		
+		if(!this.getToken()){
+		this.router.navigate(['/site/login']);
+		}else{
+				return true;
+		}
+	}
 }
 

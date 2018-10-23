@@ -1,19 +1,19 @@
-<app-admin-card [adminCard]="admin_card" >
+<app-admin-card [adminCard]="admin_card" (clickOcur)="handleClick($event)" >
 	<div class="admin-card-content">
 		<table class="table table-hover table-bordered">
 			<thead>
 				<tr>
-					<th>Image</th>
-					<th>Actions</th>
+					<th width="70%">Image</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td><img src="../../../../assets/default.jpg" alt="" class="img-thumbnail"></td>
+				<tr *ngFor="let cov of (sousBlocks$ | async)?.body.pathPhotoCouverture; let i=index;">
 					<td>
-					    <button mat-raised-button class="bt-x btn-green"><i class="fa fa-edit"></i></button>
     					<button mat-raised-button class="bt-x btn-red"><i class="fa fa-trash"></i></button>
-					</td>
+						<app-profil-cover [isAdmin]="false" id="img_cover" [vues]="'-1'" [image]="'../../../../assets/default.jpg'">
+						<app-profil-avatar [isAdmin]="false" id="img_profil" [image]=""></app-profil-avatar>
+			    	</app-profil-cover>
+			    </td>
 				</tr>
 			</tbody>
 		</table>

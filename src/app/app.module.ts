@@ -20,6 +20,7 @@ import {NgxMaskModule} from 'ngx-mask';
 import { OwlModule } from 'ngx-owl-carousel';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material';
+// import { QuillModule } from 'ngx-quill';
 // import { TinymceModule } from 'angular2-tinymce';
 
 @NgModule({
@@ -31,6 +32,7 @@ import {MatInputModule} from '@angular/material';
     BrowserModule,
     AppRoutingModule,
     SiteModule,
+    // QuillModule,
     // TinymceModule.withConfig({}),
     // ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
     SuperAdminModule,

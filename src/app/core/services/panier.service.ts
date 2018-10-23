@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import {catchError, map, observeOn, tap, timeout} from 'rxjs/operators';
 import {Observable, of, Subject, interval, isObservable} from 'rxjs';
 import {HttpClient, HttpHeaders, HttpRequest, HttpResponse} from '@angular/common/http';
-import {NotifierService} from 'angular-notifier'
+import {NotifierService} from 'angular-notifier';
+import {OutilsService} from './outils.service';
 import * as $ from 'jquery';
 
 @Injectable({
@@ -12,10 +13,10 @@ export class PanierService {
 public panierAll: any = {};
 public panierId: any = {};
 public panierdata: any = {};
-public urlglobal = 'http://wegetback:8080/panier';
-public urlAll = 'http://wegetback:8080/panierParPersonne';
+public urlglobal = `${this.outils.getBaseUrl()}/panier`;
+public urlAll = `${this.outils.getBaseUrl()}/panierParPersonne`;
 public countPanier = 0;
-  constructor(public  http: HttpClient) {}
+  constructor(public  http: HttpClient, private outils: OutilsService) {}
   
   
 	setpanier(data){

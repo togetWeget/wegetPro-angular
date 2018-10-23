@@ -31,9 +31,10 @@ $lg: 1200px;
 		font-size: 1.5em;
 	}
 }
-
 .chatbar{
-position:fixed;
-bottom:3px;
-right:3px;
-}
+	position: fixed;
+	bottom: 2px;
+	right: 17px;
+	background:#00adff;
+	z-index: 99;
+	}

@@ -6,6 +6,21 @@ import {RequestChatroomService} from '../../core/services/Request-Chatroom/reque
 import DataSnapshot = firebase.database.DataSnapshot;
 import * as firebase from 'firebase';
 import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browser';
+import { OutilsService } from '../../core/services/outils.service';
+import {FormBuilder, FormGroup, FormControl,Validators,FormArray } from '@angular/forms';
+import { MatDialog } from '@angular/material';
+import { SaveFilesComponent } from '../../core/comp/save-files/save-files.component';
+import {
+  ActivatedRoute,
+  CanActivate,
+  CanLoad,
+  CanActivateChild,
+  Router,
+  Route,
+  ActivatedRouteSnapshot,
+  RouterStateSnapshot,
+  UrlSegment, UrlTree
+} from '@angular/router';
 @Component({
   selector: 'app-chat-cli',
   templateUrl: './chat-cli.component.html',
@@ -16,38 +31,140 @@ export class ChatCliComponent implements OnInit {
 	public chatactive : boolean;
 	public memebreall : any = [];
 	public messageAll : any = [];
+	public testcheck: any;
 	userFilter : any = {nomComplet : ''};
 	public cnpt: any = 0;
 	public message_ss: any;
 	public compteurMsg: any = [];
 	public bool: boolean;
-  constructor(public chatact: ChatLiasonService, public firbaseRequest: RequestChatroomService, private _sanitizer: DomSanitizer) { 
+	public dataidmsg : any = [];
+	public tiOut;
+	public timest;
+	public socket: any = [];
+	public checkMembre: boolean;
+	public dataconnexion: any = [];
+	public aucun: any = 0;
+	public checkgreen: any = 1;
+	public checkorange: any = 0;
+	public all: any = "";
+  constructor(public chatact: ChatLiasonService, public firbaseRequest: RequestChatroomService, private _sanitizer: DomSanitizer,private fb: FormBuilder, public outils: OutilsService, private dialog: MatDialog, public router: Router) { 
 	  this.getallStat();
+	 this.getserveurtime();
+	 this.checkMembre = true;
 	  }
+	checksearch(param){
+		if(param == "checkgreen"){
+			if ( $( "."+param ).is( ":checked" ) ){
+				this.checkgreen = 1;
+				this.checkorange = 1;
+			}				
+		}
 
+		if(param == "checkorange"){
+			
+			if ( $( "."+param ).is( ":checked" ) ){
+				this.checkgreen = 0;
+				this.checkorange = 0;
+			}			
+			
+		}
+
+		if(param == "all"){
+			
+			if ( $( "."+param ).is( ":checked" ) ){
+				this.checkgreen = 1;
+				this.checkorange = 0;
+			}			
+			
+		}
+		
+		
+	}
+	
+choseFile(){
+   const dialogRef = this.dialog.open(SaveFilesComponent, {
+      maxWidth: '768px',
+      maxHeight: '500px',
+      data: {name: 'file_chat', multiple: true, type: '.pdf, .doc, .docx, .ppt, .zip, .rar', filename: this.chatact.InfoMe.id, url: `${this.outils.getBaseUrl()}/ph`}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      // this.search(Date.now()+'');
+      // this.search(localStorage.getItem('log'));
+    }); 
+ }
+
+ choseFilephoto(){
+   const dialogRef = this.dialog.open(SaveFilesComponent, {
+      maxWidth: '768px',
+      maxHeight: '500px',
+      data: {name: 'image_chat', multiple: true, type: '.png, .PNG, .jpg, .JPG, .jpeg, .JPEG, .GIF, .gif', filename: this.chatact.InfoMe.id, url: `${this.outils.getBaseUrl()}/ph`}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      // this.search(Date.now()+'');
+      // this.search(localStorage.getItem('log'));
+    }); 
+ }
+ 
+ 
+ choseFilevideo(){
+   const dialogRef = this.dialog.open(SaveFilesComponent, {
+      maxWidth: '768px',
+      maxHeight: '500px',
+      data: {name: 'video_chat', multiple: false, type: '.mp4, .MP4, .3gp, .avi, .mov, .mkv', filename: this.chatact.InfoMe.id, url: `${this.outils.getBaseUrl()}/ph`}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      // this.search(Date.now()+'');
+      // this.search(localStorage.getItem('log'));
+    }); 
+ }
+ 
+ 
+ choseFileAudio(){
+   const dialogRef = this.dialog.open(SaveFilesComponent, {
+      maxWidth: '768px',
+      maxHeight: '500px',
+      data: {name: 'video_chat', multiple: false, type: '.mp3,.wav, .flac, .FLAC, .MP3, .WAV, .AAC, .Ogg, .WMA, .DSD,.AIFF, .ALAC', filename: this.chatact.InfoMe.id, url: `${this.outils.getBaseUrl()}/ph`}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      // this.search(Date.now()+'');
+      // this.search(localStorage.getItem('log'));
+    }); 
+ }
+  
+  connexion(){
+  this.desactivatechat();
+	 this.router.navigate(['/site/login']); 
+	 
+	 }
+
+  inscription(){
+  this.desactivatechat();
+	 this.router.navigate(['/site/register']); 
+	 }
+  
   ngOnInit() {
   this.memebrealls();
-	   // if( this.chatact.checkchange){
-			// this.chatact.checkchange = true;
-	   // }else{
-			// this.chatact.checkchange = false;
-	   // }
-	   
+
 	   
 			this.chatact.checkchange = true;
 			this.chatact.miximaze = true;
 	  
-	   
-	   // console.log('val : ' + this.chatact.checkchange);
+			this.checkMembre = true;
+			
+			this.checksearch("all");
   }
   
   change(){
-		  if( this.chatact.checkchange == true){
+		  // if( this.chatact.checkchange == true){
 			  
-				this.chatact.checkchange = false;
-		  }else{
+				// this.chatact.checkchange = false;
+		  // }else{
 				this.chatact.checkchange = true;
-		  }
+		  // }
 		  
 		  // console.log('val : ' + this.chatact.checkchange);
 	  }
@@ -114,22 +231,25 @@ export class ChatCliComponent implements OnInit {
 		}
 	
 	memebrealls(){
+	this.checkMembre = true;
 	let u = this;
 		let mem = this.chatact.getinfoMembre().done(function(data) {
 			u.memebreall = data.body;
 			u.memebreall.sort((a,b)=>{return a.nomComplet > b.nomComplet;});
 			// console.log(u.memebreall);
+			u.checkMembre = false;
 		  })
 		  .fail(function() {
 			console.log( "error" );
+			u.checkMembre = false;
 		  })
 		  .always(function() {
-			// console.log( "complete" );
 		  });
 		
 		}
 		
 		changeval(photo, nom, id){
+				this.chatact.checkchange = true;
 				this.chatact.photo = null;
 				this.chatact.nom = null;
 				this.chatact.id = null;
@@ -162,10 +282,14 @@ export class ChatCliComponent implements OnInit {
 			return this.chatact.id;
 		}
 		getchatinf(uid_receiv){
+		 this.chatact.geting();
+		 // console.log("2: "+ this.chatact.InfoMe.id);
 			this.messageAll = [];
+			this.dataidmsg = [];
 			this.cnpt = 0;
 			let verif = 0;
 		  const libelle = 'Discussion';
+		  if(this.chatact.InfoMe){
 		  const getuid = this.chatact.InfoMe.id;
 		  const code_disc = getuid+ '_' + uid_receiv;
 		  const code_disc_rec = uid_receiv + '_' + getuid;
@@ -173,24 +297,33 @@ export class ChatCliComponent implements OnInit {
 		this.firbaseRequest.getAll(urlData).on("value", snapshot => {
 		if(snapshot.val()){
 		let uidreg = this.getud();
-		if(uidreg){
+		if(uidreg == uid_receiv){
+		 this.chatact.geting();
 		// alert(uidreg);
 		let compr = Object.keys(snapshot.val()).length;
 		let valeurData = Object.keys(snapshot.val());
 		let i=0;
 		let w = compr;
 		this.messageAll = [];
+		this.dataidmsg = [];
+		this.socket[uid_receiv] = snapshot.val().keyup;
+		// console.log("3: "+ this.chatact.InfoMe.id);
 		for(i==0; i < compr; i++){
 			const urlData2 = urlData + '/' + valeurData[i];
 			const urlData3 = libelle + '/' + code_disc + '/' + valeurData[i];
 			this.firbaseRequest.getAll(urlData2).on("value", snapshot => {
-
+				if(snapshot.val()){
+					
+					
 					if(snapshot.val().idreceiver === uidreg || snapshot.val().codeSender === uidreg){	
 						this.messageAll[i] = snapshot.val(); 
+						this.dataidmsg[i] = valeurData[i]; 
 						verif++;
 						let dataUpdates = {status : 1};
 						this.firbaseRequest.UpdateData(urlData3, dataUpdates);
 					}
+					
+				}
 
 				});
 		}
@@ -212,22 +345,29 @@ export class ChatCliComponent implements OnInit {
   });
 
 
-			
+		}	
 	  		
 			
 		}
 		
 		 scrollF(){
+		try{
   const interv = setInterval( ()=> {
-
-  const tailleT = Math.round($('.direct-chat-messages').outerHeight(true) + $('.direct-chat-messages').scrollTop());
-	  $('.direct-chat-messages').animate({'scrollTop': $('.direct-chat-messages')[0].scrollHeight});
-	  	$('#status_message').focus();
-	// alert(tailleT+" / "+$('.direct-chat-messages')[0].scrollHeight);
-	  if(tailleT >= $('.direct-chat-messages')[0].scrollHeight){
-		  clearInterval(interv);
+		  const tailleT = Math.round($('.direct-chat-messages').outerHeight(true) + $('.direct-chat-messages').scrollTop());
+			  $('.direct-chat-messages').animate({'scrollTop': $('.direct-chat-messages')[0].scrollHeight});
+				$('#status_message').focus();
+			// alert(tailleT+" / "+$('.direct-chat-messages')[0].scrollHeight);
+			if($('.direct-chat-messages')[0]){
+				
+			  if(tailleT >= $('.direct-chat-messages')[0].scrollHeight){
+				  clearInterval(interv);
+				  }
+				
+			}
+		  },1000);
+		  }catch(err){
+			  console.error("erreu scroll", err.message);  
 		  }
-  },1000);
 	  }
 	 
 	 // taper entrer pour envoyer le mesage
@@ -251,7 +391,7 @@ export class ChatCliComponent implements OnInit {
     const urlData_rec = libelle + '/' + code_disc_rec + '/' + timerDisc;
 	
     const data: any = {message: this.message_ss, fichier: ' ', Date_s: datesender, codeSender: this.chatact.InfoMe.id , images: '', status : 0, idreceiver: this.chatact.id };
-	
+	this.autoUpdate();
     this.firbaseRequest.CreateSendData( urlData, data);
     this.firbaseRequest.CreateSendData( urlData_rec, data);
 	this.message_ss = null;
@@ -281,7 +421,7 @@ export class ChatCliComponent implements OnInit {
 					for(i==0; i < compr; i++){
 						const urlData2 = urlData + '/' + valeurData[i];
 						this.firbaseRequest.getAll(urlData2).on("value", snapshot => {
-
+							if(snapshot.val()){
 								if(snapshot.val().status === 0){
 									this.compteurMsg[id] = this.compteurMsg[id] + 1; 
 									this.chatact.globalCompt = this.chatact.globalCompt + this.compteurMsg[id];
@@ -289,11 +429,12 @@ export class ChatCliComponent implements OnInit {
 										ur = 1;
 									}
 								}
+							}
 
 							});
 					}
 				if(ur == 1){
-						this.playaudio();
+						// this.playaudio();
 					}
 					ur = 0;
 		this.bool = true;
@@ -315,13 +456,158 @@ export class ChatCliComponent implements OnInit {
 			for(let i=0; i< h; i++){
 				let id = this.memebreall[i].id;
 				this.getstatus(id);
+				this.getconnexion(id,i);
 			}
 			
-			if(this.bool){
-				clearInterval(iterval);
-				}
+			// if(this.bool){
+				// clearInterval(iterval);
+				// }
 		},1000)
+		console.log(this.memebreall);
 		}
-	}	  
-		  
+	}	
+	
+	optionone(param){
+			$(".option"+param).fadeIn(200);
+	}
+	optionoff(param){
+			$(".option"+param).fadeOut(200);
+	}
+		
+	delmsgReverse(param){
+    const libelle = 'Discussion';
+    const code_disc = this.chatact.InfoMe.id + '_' + this.chatact.id;
+    const code_disc_rec = this.chatact.id +"_"+ this.chatact.InfoMe.id;
+	const url = libelle + "/" + code_disc +"/"+ param;
+	const url2 = libelle + "/" + code_disc_rec +"/"+ param;
+
+			this.firbaseRequest.RemoveData(url2).then(function() {
+				console.log("Remove succeeded.")
+			})
+			.catch(function(error) {
+			console.log("Remove failed: " + error.message)
+			});
+			this.getchatinf(this.chatact.id);
+
+	}
+	
+	
+	delmsg(param){
+    const libelle = 'Discussion';
+    const code_disc = this.chatact.InfoMe.id + '_' + this.chatact.id;
+    const code_disc_rec = this.chatact.id +"_"+ this.chatact.InfoMe.id;
+	const url = libelle + "/" + code_disc +"/"+ param;
+	const url2 = libelle + "/" + code_disc_rec +"/"+ param;
+			this.firbaseRequest.RemoveData(url).then(function() {
+				console.log("Remove succeeded.")
+			})
+			.catch(function(error) {
+			console.log("Remove failed: " + error.message)
+			});
+			
+			
+			this.firbaseRequest.RemoveData(url2).then(function() {
+				console.log("Remove succeeded.")
+			})
+			.catch(function(error) {
+			console.log("Remove failed: " + error.message)
+			});
+			this.getchatinf(this.chatact.id);
+			// this.firbaseRequest.RemoveData(url2);
+	}
+	
+	  keyupchange(param){
+	  clearTimeout(this.tiOut);
+			const libelle = 'Discussion';
+			const code_disc_rec = this.chatact.InfoMe.id + '_' + this.chatact.id;
+			// const code_disc_rec = this.chatact.id +"_"+ this.chatact.InfoMe.id;
+			const url2 = libelle + "/" + code_disc_rec;
+		if(param){
+		if(param.length > 0){
+			const data: any = {
+								keyup: 1
+							  };
+			this.firbaseRequest.UpdateData( url2, data);
+			
+			// console.log("send : " + param);
+	    }
+	    }
+		
+
+		this.timo(param,url2);
+		
+	  }
+	  
+	  
+	  timo(param,uri){
+		this.tiOut = setTimeout(()=>{
+
+			const url2 = uri;
+			const data: any = {
+								keyup: 0
+							  };
+			this.firbaseRequest.UpdateData( url2, data);	
+				
+			
+						},5000);
+		}
+		
+		autoUpdate(){
+			const libelle = 'Discussion';
+			const code_disc_rec = this.chatact.InfoMe.id + '_' + this.chatact.id;
+			const url2 = libelle + "/" + code_disc_rec;
+			const data: any = {
+								keyup: 0
+							  };
+			this.firbaseRequest.UpdateData( url2, data);		
+			
+			
+		}
+		
+	getconnexion(urldata,dt){
+	  let u =this;
+	  this.firbaseRequest.getAll("connexionUp/" + urldata).on("value", snapshot => {
+			u.getserveurtime();
+			if(urldata != u.chatact.InfoMe.id){
+				if(snapshot.val()){
+					firebase.database().ref("/.info/serverTimeOffset").on('value', function(offset) {
+								u.aucun = 0;
+								let offsetVal = offset.val() || 0;
+								let timest = Date.now() + offsetVal;
+								
+							let d = new Date(snapshot.val().timestamp);
+							d.setMinutes(d.getMinutes() + 5);
+							let dateFinale = d.getTime();
+							
+						if(dateFinale < timest){
+							if(snapshot.val().statusconnexion == 0){
+								let h = u.chatact.gettimeconnexionup(dateFinale, timest);
+								u.dataconnexion[urldata] = {status : parseInt(snapshot.val().statusconnexion), time: "il y a "+h};
+								u.memebreall[dt].stconnexion = parseInt(snapshot.val().statusconnexion);
+								u.memebreall[dt].time = "il y a "+h;
+								}
+						}
+						if(snapshot.val().statusconnexion == 1){
+							u.aucun = u.aucun + 1;
+							u.dataconnexion[urldata] = {status : parseInt(snapshot.val().statusconnexion), time: "maintenant"};
+							u.memebreall[dt].stconnexion = parseInt(snapshot.val().statusconnexion);
+							u.memebreall[dt].time = "maintenant";
+						}		
+			
+					}); 		
+				}else{
+					// u.dataconnexion[urldata] = {status : 0, time: "Absent"};
+				}
+			}
+		});
+	
+	}
+	
+	getserveurtime(){
+		let u = this;
+		firebase.database().ref("/.info/serverTimeOffset").on('value', function(offset) {
+		let offsetVal = offset.val() || 0;
+		u.timest = Date.now() + offsetVal;
+		});  
+	}
 }

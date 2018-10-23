@@ -24,7 +24,7 @@ export class FlashInfoUpdateComponent implements OnInit {
 
   ngOnInit() {
 	  	this.initForm();
-  	this.sousBlockS.getSousBlockByBlock(this.data.id)
+  	this.sousBlockS.getSousBlockByIdDetailBlock(this.data.id)
   	.subscribe(response => {
   		this.sousBlock = response.body;
   		this.flashInfoS.getFlashInfoById(this.data.fid)

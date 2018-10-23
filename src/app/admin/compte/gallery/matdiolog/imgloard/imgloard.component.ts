@@ -10,7 +10,8 @@ export interface DialogData {
 import { HttpClient, HttpHeaders , HttpEvent, HttpInterceptor, HttpHandler, HttpRequest} from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry, map } from 'rxjs/operators';
-import {InfoMembreService} from '../../../../../core/services/Info-membre/info-membre.service';
+import {InfoMembreService} from '../../../../../core/services/info-membre/info-membre.service';
+import {OutilsService} from '../../../../../core/services/outils.service';
 
 
 
@@ -28,7 +29,8 @@ export class ImgloardComponent implements OnInit {
 	public extensionValid = ["jpeg","JPEG","jpg","JPG","png","PNG","ico","ICO","icon","ICON","icone","ICONE","gif","GIF"];
   constructor(
     public dialogRef: MatDialogRef<ImgloardComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData, private _sanitizer: DomSanitizer, private http: HttpClient, private handleError: HttpHandler, public infoM: InfoMembreService) {
+    @Inject(MAT_DIALOG_DATA) public data: DialogData, private _sanitizer: DomSanitizer, private http: HttpClient,
+     private handleError: HttpHandler, public infoM: InfoMembreService, public outils: OutilsService) {
 		
 	this.onloarded();
 	}
@@ -136,7 +138,7 @@ export class ImgloardComponent implements OnInit {
 				
 				console.log(this.infoM.InfoMembres);
 				$.ajax({
-					url:'http://wegetback:8080/gallery',
+					url:`${this.outils.getBaseUrl()}/gallery`,
 					type:'post',
 					contentType: 'application/json',
 					dataType: 'json',

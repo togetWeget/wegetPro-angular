@@ -3,7 +3,7 @@
     <div class="container">
 	<div class="row">
 		<div class="col-md-4 login-sec">
-		    <h2 class="text-center">Login Dashboard<sup></sup></h2>
+		    <h2 class="text-center">Login Dashboard</h2>
 <form class="login-form">
   <div class="form-group">
     <label for="exampleInputEmail1" class="text-uppercase">login</label>
@@ -17,8 +17,7 @@
   
     <div class="form-check">
     <label class="form-check-label">
-      <input type="checkbox" class="form-check-input">
-      <small>se souvenir de moi</small>
+      <small style="cursor:pointer; text-decoration:underline;">Mot de passe oublié ?</small>
     </label>
     <button type="button" class="btn btn-login float-right foc" (click)="AuthS()">connexion</button>
   </div>
@@ -32,9 +31,20 @@
 	 
 	
 </div>
-<div class="copy-text">designed & developped <i class="fa fa-heart"></i> by <a href="#">Togetop.com</a></div>
+<div class="copy-text">designed & developped <i class="fa fa-heart"></i> by <a href="#" (click)="false;">Togetop.com</a></div>
 		</div>
 		<div class="col-md-8 banner-sec">
+		
+		
+
+				<div class="banner-text logup">
+				<h2>Pas de compte ?</h2>
+				<p> pas de panique, cliquez <a href="#" (click)="false;">ici(s'inscrire)</a> pour créer un compte. C'est rapide gratuit et fiable!</p>
+				</div>	
+		
+		
+		
+		
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                  <ol class="carousel-indicators">
                     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -55,7 +65,7 @@
       <img class="d-block img-fluid" src="https://images.pexels.com/photos/7097/people-coffee-tea-meeting.jpg" alt="WegetPro">
       <div class="carousel-caption d-none d-md-block">
         <div class="banner-text">
-            <h2>Nous ouvert 24h/7</h2>
+            <h2>Nous somme ouvert 24h/7</h2>
             <p>connectez vous, rejoignez un espace et faite votre promotion ou  celle de vos produit à moindre coût.</p>
         </div>	
     </div>

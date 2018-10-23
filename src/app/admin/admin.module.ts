@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-
+// import { QuillModule } from 'ngx-quill';
 import {AdminRoutingModule} from './admin-routing.module';
 import {LayoutComponent} from './layout/layout.component';
 import {AccueilComponent} from './accueil/accueil.component';
@@ -58,7 +58,6 @@ import { LayoutEcoleComponent } from './espace-ecole/layout-ecole/layout-ecole.c
 import { LayoutCompetenceComponent } from './espace-competence/layout-competence/layout-competence.component';
 import { LayoutImmobilierComponent } from './espace-immobilier/layout-immobilier/layout-immobilier.component';
 import { LayoutAnnonceComponent } from './espace-annonce/layout-annonce/layout-annonce.component';
-import { CoverSelectComponent } from './compte/cover-select/cover-select.component';
 import { PhotoCompetenceComponent } from './espace-competence/photo-competence/photo-competence.component';
 import { FormationCompetenceComponent } from './espace-competence/formation-competence/formation-competence.component';
 import { ExperienceCompetenceComponent } from './espace-competence/experience-competence/experience-competence.component';
@@ -94,6 +93,8 @@ import { FlashInfoAddComponent } from './espace-ecole/flash-info-add/flash-info-
 import { FlashInfoUpdateComponent } from './espace-ecole/flash-info-update/flash-info-update.component';
 import { FormationEcoleViewComponent } from './espace-ecole/formation-ecole-view/formation-ecole-view.component';
 import { FormationEcoleUpdateComponent } from './espace-ecole/formation-ecole-update/formation-ecole-update.component';
+import { DocumentAddComponent } from './espace-competence/document-add/document-add.component';
+import {LnlFilesManagerModule} from "lnl-files-manager";
 // import { NgxEditorModule } from 'ngx-editor';
 // import { TooltipModule } from 'ngx-bootstrap/tooltip';
 
@@ -114,8 +115,10 @@ import { FormationEcoleUpdateComponent } from './espace-ecole/formation-ecole-up
     MatFormFieldModule,
     MatExpansionModule,
     MatButtonModule,
+    LnlFilesManagerModule,
+    // QuillModule,
     // NgxEditorModule,
-    FroalaEditorModule.forRoot(), 
+    FroalaEditorModule.forRoot(),
     FroalaViewModule.forRoot(),
     NgxMaskModule.forRoot()
   ],
@@ -138,24 +141,26 @@ import { FormationEcoleUpdateComponent } from './espace-ecole/formation-ecole-up
    SupprimeMessageComponent, RepondreMessageComponent, LayoutMessageComponent,
    ListeMessageEnvoyeComponent, LayoutCompteComponent, EspaceComponent,
    DetailsCompteComponent, FormationCompteComponent, ExperienceCompteComponent,
-   AuthCompteComponent, CoverSelectComponent, InfoPersoComponent, InfoProComponent, SocialComponent, CvComponent, 
-   LayoutEcoleComponent, LayoutCompetenceComponent, LayoutImmobilierComponent, LayoutAnnonceComponent, 
-   PhotoCompetenceComponent, FormationCompetenceComponent, ExperienceCompetenceComponent, 
+   AuthCompteComponent, InfoPersoComponent, InfoProComponent, SocialComponent, CvComponent,
+   LayoutEcoleComponent, LayoutCompetenceComponent, LayoutImmobilierComponent, LayoutAnnonceComponent,
+   PhotoCompetenceComponent, FormationCompetenceComponent, ExperienceCompetenceComponent,
    DocumentsCompetenceComponent, CvCompetenceComponent,
    MonEcoleComponent, EnteteEcoleComponent, FlashInfoEcoleComponent, FormationsEcoleComponent,
-   DocumentsEcoleComponent, PhotosEcoleComponent, ModifPhotoComponent, GalleryComponent, ModifPhotoEcoleComponent, 
+   DocumentsEcoleComponent, PhotosEcoleComponent, ModifPhotoComponent, GalleryComponent, ModifPhotoEcoleComponent,
    MatdiologComponent, AllGalleryComponent, VideoComponent, PhotosComponent, ContactComponent,
     ListContactComponent, ImgloardComponent, VideoloardComponent, UploadDocComponent, CardFormationEcoleComponent,
      FormationEcoleAddComponent,
      FlashInfoAddComponent,
      FlashInfoUpdateComponent,
      FormationEcoleViewComponent,
-     FormationEcoleUpdateComponent
+     FormationEcoleUpdateComponent,
+     DocumentAddComponent
   ],
-  entryComponents: [BlockComponent,CoverSelectComponent, MatdiologComponent, ImgloardComponent, 
+  entryComponents: [BlockComponent, MatdiologComponent, ImgloardComponent,
   VideoloardComponent, FormationEcoleAddComponent,
      FlashInfoAddComponent,
-     FlashInfoUpdateComponent, FormationEcoleViewComponent, FormationEcoleUpdateComponent ],
+     FlashInfoUpdateComponent, FormationEcoleViewComponent, FormationEcoleUpdateComponent,
+     DocumentAddComponent ],
   exports: [LayoutComponent]
 })
 export class AdminModule {

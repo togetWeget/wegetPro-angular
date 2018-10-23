@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
-import {RegisterService} from '../personne/membre/register.service';
+import { OutilsService } from '../outils.service';
+// import {RegisterService} from '../personne/membre/register.service';
 import * as $ from 'jquery';
 @Injectable({
   providedIn: 'root'
 })
 export class InfoMembreService {
-	private urlgetbyLogin = 'http://wegetback:8080/membresLogin/';
+	private urlgetbyLogin = `${this.outils.getBaseUrl()}/membresLogin/`;
 	public InfoMembres: any = {};
-  constructor( public regist: RegisterService) { 
+	constructor(private outils: OutilsService) { 
 	  // this.getByLogin();
 	  // alert(this.InfoMembres);
 	  }
@@ -24,8 +25,10 @@ export class InfoMembreService {
     getbylogin(){
     	try{
 			this.localstor();
+			if(localStorage.getItem("membre")){
 			let chr = decodeURIComponent(escape(window.atob( localStorage.getItem("membre") )));
 			this.InfoMembres = JSON.parse(chr);
+				}
 		}catch(e){
 			console.error('getbylogin error', e);
 		}
@@ -35,8 +38,7 @@ export class InfoMembreService {
 		const strValue: string = localStorage.getItem('log');
           
 	    if(strValue){
-	        let u = this;
-	        let url = u.regist.urlgetLogin;	        
+	        let u = this;       
 	    $.getJSON( u.urlgetbyLogin + strValue, function( data ) {
 		let chr =  window.btoa(unescape(encodeURIComponent( JSON.stringify(data.body) )));
 			localStorage.setItem("membre",chr );

@@ -13,9 +13,14 @@
           <div class="panel-search">
             <app-search-abonnes></app-search-abonnes>
           </div>
-          <div class="row">
-            <div *ngFor="let abonne of abonnes" class="col-md-6 col-sm-6 col-lg-4 col-12">
-              <app-abonne [abonne]="abonne"></app-abonne>	
+          <div class="row" *ngIf="typeblock==='ecole'">
+            <div *ngFor="let ecole of sousblock" class="col-md-6 col-sm-6 col-12 col-lg-6">
+              <app-single-ecole [ecole]="ecole"></app-single-ecole> 
+            </div>
+          </div>
+          <div class="row" *ngIf="typeblock==='competence'">
+            <div *ngFor="let abonne of abonnes" class="{'col-md-6 col-sm-6 col-12 col-lg-4">
+              <app-abonne [abonne]="abonne"></app-abonne> 
             </div>
           </div>
           <div></div>

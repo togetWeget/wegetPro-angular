@@ -63,6 +63,53 @@ export class OutilsService {
     {name: 'Bac'},
     {name: 'BEPC'}
   ];
+
+  private baseUrl: string = "http://wegetback:8080";
   constructor() { }
+
+  public getBaseUrl(): string{
+    return this.baseUrl;
+  }
+
+  public arrayRemoveAt(tableau: any[], element: any): any[]{
+    const index = tableau.indexOf(element, 0);
+    if(index > -1) {
+      tableau.splice(index, 1);
+    }
+    return tableau;
+  }
+  public arrayContain(tableau: any[], element: any): boolean{
+    let result: boolean = false;
+    for(let tab of tableau){
+      try{
+        if(tab === element){
+          result = true;
+        }
+      }catch(e){}
+    }
+    return result;
+  }
+
+  public stringContain(chaine: string, search: string): boolean{
+    let result: boolean = false;
+    if(chaine.match(search)){
+      result = true;
+    }
+    return result;
+  }
+
+  public arrayContainLessOne(tableau: any[], elements: any[]): boolean{
+    let result: boolean = false;
+    for(let tab of tableau){
+      for(let elt of elements){
+        try{
+          if(tab === elt){
+            result = true;
+          }
+        }catch(e){}
+      }
+    }
+    return result;
+  }
 
 }

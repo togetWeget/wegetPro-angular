@@ -187,7 +187,8 @@ border:1px solid #09c;
 
 :host {
   background: #929244;
-    background: url(/assets/login_bg.png);
+    /*background: url(/assets/login_bg.png);*/
+    background: url(/assets/bg.jpg);
     display: flex;
   .login-container {
     padding: 25px;

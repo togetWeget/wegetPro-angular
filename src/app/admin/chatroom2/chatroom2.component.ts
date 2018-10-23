@@ -10,6 +10,7 @@ import {RequestChatroomService} from '../../core/services/Request-Chatroom/reque
 import DataSnapshot = firebase.database.DataSnapshot;
 import * as firebase from 'firebase';
 import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browser';
+import { OutilsService } from '../../core/services/outils.service';
 
 
 @Component({
@@ -43,9 +44,12 @@ export class Chatroom2Component implements OnInit {
   public compteurLu: any = [];
   public bool: Boolean;
   public checkmsg: any;
+  public dataconnexion: any = [];
   public tabCouleur = ["#007bff","#6610f2","#6f42c1","#e83e8c","#dc3545","#fd7e14","#ffc107","#28a745","#20c997","#17a2b8","#6c757d","#343a40","#6c757d","#28a745","#17a2b8","#ffc107","#dc3545","#343a40"];
 	public colortab: any = [];
-  constructor(public layoutComponent: LayoutComponent, public  http: HttpClient, public fb: FormBuilder, public regist: RegisterService, public firbaseRequest: RequestChatroomService, private _sanitizer: DomSanitizer) {
+  constructor(public layoutComponent: LayoutComponent, public  http: HttpClient, 
+  	public fb: FormBuilder, public regist: RegisterService, public firbaseRequest: RequestChatroomService, 
+  	private _sanitizer: DomSanitizer, public outils: OutilsService) {
     this.changeVarUser(null, null, null, '#ff6d05');
     //  this.sidnavClose();
     this.resulloard = true;
@@ -291,7 +295,7 @@ export class Chatroom2Component implements OnInit {
 	
 			for(let i=0; i< h; i++){
 				let id = this.dataRec[i].id;
-				// alert(id);
+				this.getconnexion(id);
 				this.receivStatus(id);
 				this.receivStatuslu(id);
 	  const code_disc = this.layoutComponent.InfoMembres.id + '_' + id;				
@@ -476,7 +480,7 @@ export class Chatroom2Component implements OnInit {
   recupAllUser() {
 		this.ResultText = '';
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
-    this.http.get<HttpResponse<any>>('http://wegetback:8080/typePersonnes/ME', {
+    this.http.get<HttpResponse<any>>(`${this.outils.getBaseUrl()}/typePersonnes/ME`, {
       headers: headers,
       observe: 'response'
     }).subscribe((resul) => {
@@ -500,7 +504,18 @@ export class Chatroom2Component implements OnInit {
       });
 	  
   }
-  
+  getconnexion(urldata){
+	  let u =this;
+	  this.firbaseRequest.getAll("connexionUp/" + urldata).on("value", snapshot => {
+			if(snapshot.val()){
+				u.dataconnexion[urldata] = snapshot.val().statusconnexion;
+			}else{
+				u.dataconnexion[urldata] = 0;
+			}
+			// console.log(u.dataconnexion[urldata]);
+		});
+	
+	}
   UrlExists(url) {
     let http = new XMLHttpRequest();
     http.open('HEAD', url, false);

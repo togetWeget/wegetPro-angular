@@ -8,6 +8,7 @@ import {ListeBlocComponent} from './liste-bloc/liste-bloc.component';
 import {RegisterComponent} from './register/register.component';
 import {LoginComponent} from './login/login.component';
 import {ContactAbonneComponent} from './abonnes/contact-abonne/contact-abonne.component';
+import {AuthGuardSiteService} from '../core/services/AuthGuardSite/auth-guard-site.service';
 import {AuthGuardTogetService} from '../core/services/AuthGuards/auth-guard-toget.service';
 import {NotFoundComponent} from '../core/not-found/not-found.component';
 import {FormulaireComponent} from './abonnements/formulaire/formulaire.component';
@@ -18,7 +19,7 @@ import {CategorieEcoleComponent} from './ecole/categorie-ecole/categorie-ecole.c
 const routes: Routes = [
   {
     path: '',  component: LayoutComponent, 
-    canActivateChild: [AuthGuardTogetService], children: [
+    canActivateChild: [AuthGuardSiteService], children: [
       {
         path: '',  component: AccueilComponent
       },

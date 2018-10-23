@@ -4,6 +4,7 @@ import {Observable, of} from 'rxjs';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {MessageService} from '../message.service';
 import {Resultat} from '../../../shared/models/resultat';
+import {OutilsService} from '../outils.service';
 import {Tarif} from '../../../shared/models/tarif/tarif';
 
 @Injectable({
@@ -11,9 +12,10 @@ import {Tarif} from '../../../shared/models/tarif/tarif';
 })
 export class TarifService {
   public jwtToken: string;
-  private urlTarifs = 'http://wegetback:8080/tarifs';
-  private urlTarifsParBlockId = 'http://wegetback:8080/tarifsBlocksId';
-  constructor(private http: HttpClient, private messageService: MessageService) {
+  private urlTarifs = `${this.outils.getBaseUrl()}/tarifs`;
+  private urlTarifsParBlockId = `${this.outils.getBaseUrl()}/tarifsBlocksId`;
+  constructor(private http: HttpClient, private messageService: MessageService,
+    private outils: OutilsService) {
   }
   loadToken () {
     this.jwtToken = localStorage.getItem('togetToken');

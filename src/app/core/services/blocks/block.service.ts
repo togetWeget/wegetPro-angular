@@ -6,14 +6,15 @@ import {MessageService} from '../message.service';
 import {Resultat} from '../../../shared/models/resultat';
 import {Block} from '../../../shared/models/block';
 import { ToastrService } from 'ngx-toastr';
+import { OutilsService } from '../outils.service';
 
 @Injectable()
 export class BlockService {
   public jwtToken: string;
-  private urlBlocks = 'http://wegetback:8080/blocks';
-  private urlPhoto = 'http://wegetback:8080/photoBlock';
-  private urlPhoto1 = 'http://wegetback:8080/getPhoto';
-  private urlRechercheBlk = 'http://wegetback:8080/rechercheBlock?mc=';
+  private urlBlocks = `${this.outils.getBaseUrl()}/blocks`;
+  private urlPhoto = `${this.outils.getBaseUrl()}/photoBlock`;
+  private urlPhoto1 = `${this.outils.getBaseUrl()}/getPhoto`;
+  private urlRechercheBlk = `${this.outils.getBaseUrl()}/rechercheBlock?mc=`;
 
   // observables sources
   private blockCreerSource = new Subject<Resultat<Block>>();
@@ -28,7 +29,7 @@ export class BlockService {
   blockSupprime$ = this.blockSupprimeSource.asObservable();
 
   constructor(private http: HttpClient, private messageService: MessageService,
-    private toastr: ToastrService) {
+    private toastr: ToastrService, private outils: OutilsService) {
   }
 
   loadToken () {
