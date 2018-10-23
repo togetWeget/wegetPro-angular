@@ -36,16 +36,24 @@ export class ChatLiasonService {
 	}
 	
 	chatload(id, nom, photo){
-	this.checkchange = true;
-	console.log(this.checkchange);
-	  this.photo= photo;
-	  this.nom= nom;
-	  this.id= id;	
-	  console.log(this.checkchange);
-	this.loard(id);
-	this.maximin();
-	
-	  
+		
+		console.log("me : "+this.InfoMe.id +" older : "+id);
+		if(this.InfoMe.id == id){
+			this.checkchange = true;
+		}else{
+			this.checkchange = true;
+			// console.log(this.checkchange);
+			if(this.id == id){
+				this.loard(id);
+				this.maximin();		
+			}else{
+				  this.photo= photo;
+				  this.nom= nom;
+				  this.id= id;	
+					this.loard(id);
+					this.maximin();
+			}
+		}
 	}	
 		maximin(){
 			if(this.checkchange == false){
@@ -86,24 +94,32 @@ export class ChatLiasonService {
 			let setinterv = setInterval(()=>{
 				if(this.chatactivate == false){
 					this.chatactivate = true;
+					this.checkchange = true;
 					}else{
-					// this.checkchange = true;
+					this.chatactivate = true;
 					clearInterval(setinterv);
 					}
 				},700);
-			if(this.chatactivate == true){
-					// this.checkchange = true;
+			if(this.chatactivate == true && this.checkchange == true){
 					$("#qnimate").animate({width: 'toggle'});
 					$("#ch_" + id).click();
+					this.checkchange = false;
 				}
 				
 			
 		}else{
 			
-			if(this.chatactivate == true){
-					// this.checkchange = true;
-					$("#ch_" + id).click();
-			}
+				let setinterv = setInterval(()=>{
+				if(this.checkchange == false){
+					this.checkchange = true;
+					}else{
+					clearInterval(setinterv);
+						if(this.checkchange == true){
+							$("#ch_" + id).click();
+							this.checkchange = false;
+						}
+					}
+				},700);
 			
 		}
 		

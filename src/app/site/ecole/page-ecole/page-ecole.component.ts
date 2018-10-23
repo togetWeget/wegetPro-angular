@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { SousBlock } from '../../../shared/models/sous-block';
 
 @Component({
   selector: 'app-page-ecole',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./page-ecole.component.scss']
 })
 export class PageEcoleComponent implements OnInit {
+@Input('ecole') ecole:SousBlock;
 
   constructor() { }
 

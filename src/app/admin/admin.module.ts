@@ -17,6 +17,7 @@ import {
   MatToolbarModule,
   MatTooltipModule
 } from '@angular/material';
+import { LnlFilesManagerModule } from 'lnl-files-manager';
 import {FooterComponent} from './footer/footer.component';
 import {CoreModule} from '../core/core.module';
 import {CustomMeterialModule} from '../custom-meterial/custom-meterial.module';
@@ -94,7 +95,6 @@ import { FlashInfoUpdateComponent } from './espace-ecole/flash-info-update/flash
 import { FormationEcoleViewComponent } from './espace-ecole/formation-ecole-view/formation-ecole-view.component';
 import { FormationEcoleUpdateComponent } from './espace-ecole/formation-ecole-update/formation-ecole-update.component';
 import { DocumentAddComponent } from './espace-competence/document-add/document-add.component';
-import {LnlFilesManagerModule} from "lnl-files-manager";
 // import { NgxEditorModule } from 'ngx-editor';
 // import { TooltipModule } from 'ngx-bootstrap/tooltip';
 
@@ -118,7 +118,7 @@ import {LnlFilesManagerModule} from "lnl-files-manager";
     LnlFilesManagerModule,
     // QuillModule,
     // NgxEditorModule,
-    FroalaEditorModule.forRoot(),
+    FroalaEditorModule.forRoot(), 
     FroalaViewModule.forRoot(),
     NgxMaskModule.forRoot()
   ],
@@ -141,12 +141,12 @@ import {LnlFilesManagerModule} from "lnl-files-manager";
    SupprimeMessageComponent, RepondreMessageComponent, LayoutMessageComponent,
    ListeMessageEnvoyeComponent, LayoutCompteComponent, EspaceComponent,
    DetailsCompteComponent, FormationCompteComponent, ExperienceCompteComponent,
-   AuthCompteComponent, InfoPersoComponent, InfoProComponent, SocialComponent, CvComponent,
-   LayoutEcoleComponent, LayoutCompetenceComponent, LayoutImmobilierComponent, LayoutAnnonceComponent,
-   PhotoCompetenceComponent, FormationCompetenceComponent, ExperienceCompetenceComponent,
+   AuthCompteComponent, InfoPersoComponent, InfoProComponent, SocialComponent, CvComponent, 
+   LayoutEcoleComponent, LayoutCompetenceComponent, LayoutImmobilierComponent, LayoutAnnonceComponent, 
+   PhotoCompetenceComponent, FormationCompetenceComponent, ExperienceCompetenceComponent, 
    DocumentsCompetenceComponent, CvCompetenceComponent,
    MonEcoleComponent, EnteteEcoleComponent, FlashInfoEcoleComponent, FormationsEcoleComponent,
-   DocumentsEcoleComponent, PhotosEcoleComponent, ModifPhotoComponent, GalleryComponent, ModifPhotoEcoleComponent,
+   DocumentsEcoleComponent, PhotosEcoleComponent, ModifPhotoComponent, GalleryComponent, ModifPhotoEcoleComponent, 
    MatdiologComponent, AllGalleryComponent, VideoComponent, PhotosComponent, ContactComponent,
     ListContactComponent, ImgloardComponent, VideoloardComponent, UploadDocComponent, CardFormationEcoleComponent,
      FormationEcoleAddComponent,
@@ -156,7 +156,7 @@ import {LnlFilesManagerModule} from "lnl-files-manager";
      FormationEcoleUpdateComponent,
      DocumentAddComponent
   ],
-  entryComponents: [BlockComponent, MatdiologComponent, ImgloardComponent,
+  entryComponents: [BlockComponent, MatdiologComponent, ImgloardComponent, 
   VideoloardComponent, FormationEcoleAddComponent,
      FlashInfoAddComponent,
      FlashInfoUpdateComponent, FormationEcoleViewComponent, FormationEcoleUpdateComponent,

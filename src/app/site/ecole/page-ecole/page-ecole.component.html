@@ -3,7 +3,7 @@
 		<div class="abonne-info">
 		    <div class="abonne-meta-info">
 		        <div class="abonne-name">
-		            {{"Ecole université |uppercase"}}
+		            {{ecole?.nom |uppercase}}
 		        </div>
 		    </div>
 		</div>
@@ -12,8 +12,8 @@
 	    <ul class="contact" style="margin-bottom: 4px;">
 	      <li><i class="fa fa-phone"></i> <span>+22507147134</span></li>      
 	      <li><i class="fa fa-mobile"></i> <span>+22507147134</span></li>      
-	      <li><i class="fa fa-envelope-o"></i> <span>pooda.aubin@gmail.com</span></li>      
-	      <li><i class="fa fa-globe"></i> <span>www.iea-abidjan.com</span></li>      
+	      <li><i class="fa fa-envelope-o"></i> <span>{{ecole?.adresse?.email}}</span></li>      
+	      <li><i class="fa fa-globe"></i> <span>{{ecole?.adresse?.siteWeb}}</span></li>      
 	  	</ul>
 	    <ul class="inline-contact social">
 	    </ul>      

@@ -47,6 +47,12 @@ public intervalset;
 			this.intervalset = setInterval(()=>{
 					this.InfoMe = this.InfoM.InfoMembres;
 				if(this.InfoM.InfoMembres.id){
+				let data: any ={
+								statusconnexion: 1,
+								timestamp: firebase.database.ServerValue.TIMESTAMP
+								};
+				let url = "connexionUp/" + this.InfoM.InfoMembres.id;
+					 this.createsenddata(url, data); 
 					 this.updatedataconnexion(); 
 				}
 					this.getserveurtime(); 
