@@ -3,7 +3,7 @@
     <div class="col-md-12 col-lg-12 col-12">
       <div id="profile-abonne" style="min-height: 200px;">
           <br>
-          <app-profil-cover [titre]="abonne?.block?.libelle" id="img_cover" [vues]="abonne?.nombreVue" [image]="abonne?.membre?.pathPhotoCouveture" (clickOcur)="handleClick($event)" >
+          <app-profil-cover [titre]="titre" id="img_cover" [vues]="vues" [image]="image" (clickOcur)="handleClick($event)" >
             <app-profil-avatar  id="img_profil" [image]="abonne?.membre?.pathPhoto" (clickOcur)="handleClick($event)" ></app-profil-avatar>
             <div class="footer">
               <button mat-raised-button color="primary" (click)="onContactAbonne()"><i class="fa fa-envelope"></i><span class="d-none d-sm-inline" style="display: none"> Contacter</span></button>&nbsp;&nbsp;
@@ -29,7 +29,7 @@
                 </div>
               </mat-card>
               <mat-card>
-                <mat-tab-group class="col-md-12 col-sm-12">
+                <mat-tab-group class="col-md-12 col-sm-12" *ngIf="typeblock==='competence'">
                   <mat-tab>
                     <span *mat-tab-label>
                       <i class="fa fa-address-card"></i>
@@ -73,12 +73,48 @@
                     </div>
                   </mat-tab>
                 </mat-tab-group>
+                <mat-tab-group class="col-md-12 col-sm-12" *ngIf="typeblock==='ecole'">
+                  <mat-tab>
+                    <span *mat-tab-label>
+                      <i class="fa fa-address-card"></i>
+                      <span class="d-none d-lg-inline"> Présentation</span>
+                    </span>
+                    <div class="tab-content">
+                      <h3 class="tab-content-title">Présentation</h3>
+                      <br>
+                      <h3 class="tab-content-title">Chiffres</h3>
+                      <br>
+                      <h3 class="tab-content-title">Parténaires</h3>
+                      <br>
+                    </div>
+                  </mat-tab>
+                  <mat-tab>
+                    <span *mat-tab-label>
+                      <i class="fa fa-graduation-cap"></i>
+                      <span class="d-none d-lg-inline"> Formations</span>
+                    </span>
+                    <div class="tab-content">
+                      <h3 class="tab-content-title">Formations</h3>
+                    </div>
+                  </mat-tab>
+                  <mat-tab>
+                    <span *mat-tab-label>
+                      <i class="fa fa-file"></i>
+                      <span class="d-none d-lg-inline"> Documents</span>
+                    </span>
+                    <div class="tab-content">
+                      <h3 class="tab-content-title">Document</h3>
+                    </div>
+                  </mat-tab>
+                </mat-tab-group>
               </mat-card>
+              <br>
               <mat-card>
                 <div>
                   <h3 class="tab-content-title">Dans ce réseau</h3>0
                 </div>
               </mat-card>
+              <br>
             </div>
             <div class="d-none d-lg-block col-lg-3" >
               <mat-card style="padding: 5px;">

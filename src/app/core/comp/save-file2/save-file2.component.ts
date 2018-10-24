@@ -34,6 +34,7 @@ export class SaveFile2Component implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any, public outils: OutilsService,
     private http: HttpClient) {
     this.must_return = false;
+    this.multiple = false;
   	(this.data.titre)? this.titre = this.data.titre : null;
   	(this.data.name)? this.name = this.data.name : null;
     (this.data.multiple)? this.multiple = this.data.multiple : false;
@@ -57,7 +58,7 @@ export class SaveFile2Component implements OnInit {
   	// let allFiles: FileManagerModel[] = this.fmService.concatArrays(files, files2);
     if(!this.must_return){
       this.fmService.submit(this.url, 
-        this.fmService.buildFormData(this.files, this.params))
+        this.fmService.buildFormData(this.files, this.params, this.multiple))
       .subscribe(data => {
         this.dialogRef.close(data);
       });

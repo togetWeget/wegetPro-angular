@@ -21,6 +21,10 @@ export class ProfilAbonneComponent implements OnInit {
   abonne: Detailblock;
   block: Block;
   typeblock: string;
+  titre:string;
+  image:string;
+  vues:number;
+  photo:string;
   sousBlock: SousBlock;
   cursus: CursusScolaire[]=[];
   experience: Experience[]=[];
@@ -63,6 +67,10 @@ export class ProfilAbonneComponent implements OnInit {
       this.identifiant=this.abonne.membre.id;
       this.nomMembre=this.abonne.membre.nomComplet;
       this.typeblock =this.abonne.block.typeBlock;
+      this.titre=this.abonne.block.libelle;
+      this.image=this.abonne.membre.pathPhotoCouveture;
+      this.vues=this.abonne.nombreVue;
+      this.photo=this.abonne.membre.pathPhoto;
     });
   }
   fetchSousBlock(){
@@ -75,6 +83,10 @@ export class ProfilAbonneComponent implements OnInit {
       this.identifiant = this.sousBlock.detailBlock.membre.id;
       this.nomMembre = this.sousBlock.detailBlock.membre.nomComplet;
       this.typeblock = this.sousBlock.detailBlock.block.typeBlock;
+      this.titre=this.sousBlock.detailBlock.block.libelle;
+      this.image="";
+      this.vues=this.sousBlock.detailBlock.nombreVue;
+      this.photo=this.sousBlock.pathLogo;
     });
   }
   fethcAllAbonnes() {

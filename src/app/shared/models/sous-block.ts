@@ -7,7 +7,7 @@ import {Chiffre} from './chiffre';
 import {Telephone} from './personne/membres/telephone';
 
 
-export class SousBlock {
+export class SousBlock {0
 	constructor (
 		public id?: number,
 		public version?: number,

@@ -1,8 +1,8 @@
 a{
-  color: #333333;
+  color: hsla(0, 0%, 20%, 1);
   &:hover{
     text-decoration: none;
-    color: #333333;
+    color: hsla(0, 0%, 20%, 1);
   }
 }
 
@@ -12,8 +12,8 @@ mat-card{
   padding:0px;
   overflow: hidden;
   .imagebg {
-    width: 0px;
-    height: 5px;
+   width: 100%;
+    height: 170px;
     
   }
   .titre-block {
@@ -45,24 +45,24 @@ mat-card{
       font-size: 10rem;
     }
     .apercu{
-      background: #970ae0;
-      color: #ffffff;
+      background: hsla(280, 91%, 46%, 1);
+      color: hsla(0, 0%, 100%, 1);
     }
     .update{
-      background: #02aa2e;
-      color: #ffffff;
+      background: hsla(136, 98%, 34%, 1);
+      color: hsla(0, 0%, 100%, 1);
     }
     .tarif{
-      background: #0094ea;
-      color: #ffffff;
+      background: hsla(202, 100%, 46%, 1);
+      color: hsla(0, 0%, 100%, 1);
     }
     .image{
-      background: #CBB500;
-      color: #ffffff;
+      background: hsla(53, 100%, 40%, 1);
+      color: hsla(0, 0%, 100%, 1);
     }
     .delete{
-      background: #EA0600;
-      color: #ffffff;
+      background: hsla(2, 100%, 46%, 1);
+      color: hsla(0, 0%, 100%, 1);
     }
   }
 }
@@ -77,23 +77,47 @@ mat-card-actions{
   flex-direction: ltr;
 }
 .col-lg-4 .col-12 .col-md-6{
-  background: #CBB500;
+  background: hsla(53, 100%, 40%, 1);
 }
 
 
-.flip-flop{
-  transition: all 0.5s ease;
-  &:hover{
-    transform: rotateY(180deg);
-  }
-  .front{
-    position: absolute;
-    backface-visibility: hidden;
-    transform: rotateY(0deg);
-  }
-  .back{
-    position: absolute;
-    backface-visibility: hidden;
-    transform: rotateY(180deg);
-  }
-}
+.card-container{
+      position: relative;
+        width: 100%;
+        min-height: 100px;
+        perspective: 600;
+        border: 1px solid #ccc;
+    }
+    .card-image{
+      background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1200px-Image_created_with_a_mobile_phone.png);
+        background-position: center;
+        background-size: cover;
+        width: 100%;
+        height: 180px;
+    }
+    .card{
+        position: relative;
+        height: 100%;
+        width: 100%;
+        display: block;
+    }
+    .card-no-flip-zone{
+    }
+    .card-flip-zone{
+      height: 180px;
+        transform-style: preserve-3d;
+        transition: all 0.5s ease;
+    }
+    .card-flip-zone .card-flip{
+      backface-visibility: hidden;
+      height: 100%;
+        width: 100%;
+        position: absolute;
+        overflow: hidden;
+    }
+    .card-flip-zone .card-flip.back{
+      transform: rotateY(180deg);
+    }
+    .card-container:hover .card-flip-zone{
+      transform: rotateY(180deg);
+    }

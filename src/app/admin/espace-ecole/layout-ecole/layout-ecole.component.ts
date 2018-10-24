@@ -9,6 +9,7 @@ import { Resultat } from '../../../shared/models/resultat';
 import { AbonnesService } from '../../../core/services/abonnes/abonnes.service';
 import {OutilsService} from '../../../core/services/outils.service';
 import { SaveFilesComponent } from '../../../core/comp/save-files/save-files.component';
+import { SaveFile2Component } from '../../../core/comp/save-file2/save-file2.component';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';  
 
 import {SousBlock} from '../../../shared/models/sous-block';
@@ -70,7 +71,7 @@ export class LayoutEcoleComponent implements OnInit {
   }
 
   saveCover() {
-    const dialogRef = this.dialog.open(SaveFilesComponent, {
+    const dialogRef = this.dialog.open(SaveFile2Component, {
       maxWidth: '768px',
       maxHeight: '500px',
       data: {name: 'image_photo', multiple: true, filename: '', url: ``}
@@ -82,10 +83,10 @@ export class LayoutEcoleComponent implements OnInit {
     });
   }
   saveProfil() {
-    const dialogRef = this.dialog.open(SaveFilesComponent, {
+    const dialogRef = this.dialog.open(SaveFile2Component, {
       maxWidth: '768px',
       maxHeight: '500px',
-      data: {name: 'image_photo', multiple: false, type: 'image/*', filename: this.sousBlock.nom, 
+      data: {name: 'image_photo', multiple: false, accept: 'image/*', filename: this.sousBlock.nom, 
       url: `${this.outils.getBaseUrl()}/sousBlockLogo`}
     });
 

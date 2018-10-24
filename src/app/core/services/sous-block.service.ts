@@ -16,7 +16,7 @@ export class SousBlockService {
   private urlSousBlocks = `${this.outils.getBaseUrl()}/sousBlocks`;
   private urlSousBlocksParBlock = `${this.outils.getBaseUrl()}/SousBlocksParIdBlock`;
   private urlSousBlocksParIdDetailBlock = `${this.outils.getBaseUrl()}/SousBlocksParIdDetailBlock`;
-  private urlDetailBlocksParBlock = `${this.outils.getBaseUrl()}/SousBlocksParIdBlock`;
+  private urlDetailBlocksParBlock = `${this.outils.getBaseUrl()}/SousBlocksParIdBlock`;0
   private urlPhoto = `${this.outils.getBaseUrl()}/photoBlock`;
   private urlPhoto1 = `${this.outils.getBaseUrl()}/getPhoto`;
   private urlRechercheBlk = `${this.outils.getBaseUrl()}/rechercheBlock?mc=`;

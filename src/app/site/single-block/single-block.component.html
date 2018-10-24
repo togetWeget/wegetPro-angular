@@ -1,24 +1,5 @@
-  <div class="flip-flop">
-	  <div class="front">
-	  	<mat-card class="example-card">
-	  	  <mat-card-content>
-	  	    <h1>Big tittle</h1>
-	  	  </mat-card-content>
-	  	</mat-card>
-	  </div>
-	  <div class="back">
-	  	<mat-card class="example-card">
-	  	  <mat-card-content>
-	  	    <p>
-	  	      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-	  	      A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-	  	      bred for hunting.
-	  	    </p>
-	  	  </mat-card-content>
-	  	</mat-card>
-	  </div>
-  </div>
-<mat-card class="blocks-items">
+<!-- 
+<mat-card class="blocks-items rounded-circle">
 	<a routerLink="/site/blocks/{{block.id}}" routerLinkActive="active" class="" (click)="onViewBlock()">
     <div class="imagebg" #imagebg></div>
     <mat-card-content>
@@ -26,6 +7,34 @@
     </mat-card-content>
   </a>
   <mat-card-actions>
-    <button mat-raised-button color="warn" class="btn btn-block mat-button" (click)="onSabonner()">S'abonner</button>
+    <button mat-raised-button color="primary" class="btn btn-block mat-button" (click)="onSabonner()">S'abonner</button>
   </mat-card-actions>
 </mat-card>
+ -->
+	<!-- <div class="card-container">
+	  <div class="card">
+	    <div class="side">
+	    	<div class="imagebg" #imagebg></div>
+	    	<h5 class="titre-block" [innerHtml]="block.libelle"></h5>
+	    	<button mat-raised-button color="primary" class="btn btn-block mat-button" (click)="onSabonner()">S'abonner</button>
+	    </div>
+	    <div class="side back">
+	    	<p class="" [innerHtml]="block.libelle"></p>
+	    </div>
+	  </div>
+	</div> -->
+
+	<div class="card-container">
+	<div class="card card-flip-zone">
+    	<div class="card-flip">
+        	<div class="card-image" #imagebg></div>
+        </div>
+        <div class="card-flip back">
+        	<p class="description">lorem ipsum back dolor. lorem ipsum back dolor. lorem ipsum back dolor. lorem ipsum back dolor. lorem ipsum back dolor.</p>
+        	<button mat-raised-button color="primary" class="btn btn-block mat-button" (click)="onSabonner()">S'abonner</button>
+        </div>
+    </div>
+    <div class="card card-no-flip-zone">
+    	<a routerLink="/site/blocks/{{block.id}}" routerLinkActive="active" class="" (click)="onViewBlock()"><h3 class="card-titre" [innerHtml]="block.libelle"></h3></a>
+    </div>
+</div>
