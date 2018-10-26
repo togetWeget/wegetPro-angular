@@ -41,14 +41,14 @@ export class AbonnesService {
     this.nbVueSubject$.next(nb);
   }
 
-  getAllAbonnes(): Observable<Resultat<Abonnes[]>> {
-    return this.httpClient.get<Resultat<Abonnes[]>>(this.abonnesUrl).pipe(
+  getAllAbonnes(): Observable<Resultat<Detailblock[]>> {
+    return this.httpClient.get<Resultat<Detailblock[]>>(this.abonnesUrl).pipe(
       tap(res => {
         this.log(`Les Abonnés ont été recupérés !`);
         console.log('vrifier le retour du service', res.body);
       }),
-      catchError(this.handleError<Resultat<Abonnes[]>>('getAllAbonnes', 
-        new Resultat<Abonnes[]>(null, [], [])))
+      catchError(this.handleError<Resultat<Detailblock[]>>('getAllAbonnes', 
+        new Resultat<Detailblock[]>(null, [], [])))
     );
   }
 

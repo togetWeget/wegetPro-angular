@@ -8,7 +8,7 @@
 			<!-- /photo -->
 			<!-- informations personnelles -->
 			<div class="col-md-12">
-				<legend>Informations personnelles</legend>
+				<legend i18n>Informations personnelles</legend>
 				<div class="row">
           <!-- <div class="col-md-6">
             <mat-form-field>
@@ -33,7 +33,7 @@
             <mat-expansion-panel matTooltip="les adresses" matTooltipPosition="above">
               <mat-expansion-panel-header>
                 <mat-panel-title></mat-panel-title>
-                <mat-panel-description>Entrer les Adresses</mat-panel-description>
+                <mat-panel-description i18n>Entrer les Adresses</mat-panel-description>
               </mat-expansion-panel-header>
               <div>
                 <mat-form-field>
@@ -58,13 +58,13 @@
           <div class="col-md-12">
             <mat-expansion-panel matTooltip="Contacts telephoniques" matTooltipPosition="before">
               <mat-expansion-panel-header>
-                <mat-panel-title>Les contacts</mat-panel-title>
-                <mat-panel-description>Saisir les contacts</mat-panel-description>
+                <mat-panel-title i18n>Les contacts</mat-panel-title>
+                <mat-panel-description i18n>Saisir les contacts</mat-panel-description>
               </mat-expansion-panel-header>
               <div formArrayName="telephones">
                 <div *ngFor="let tel of telephones.controls; let i = index;">
                   <mat-panel-title>
-                    <mat-action-row>
+                    <mat-action-row i18n>
                       Telephone #{{i+1}}
                     </mat-action-row>
                     <mat-action-row>
@@ -99,13 +99,13 @@
           <div class="col-md-12">
             <mat-expansion-panel matTooltip="Langues pratiquées" matTooltipPosition="before">
               <mat-expansion-panel-header>
-                <mat-panel-title>Les langues</mat-panel-title>
-                <mat-panel-description>Saisir vos langues</mat-panel-description>
+                <mat-panel-title i18n>Les langues</mat-panel-title>
+                <mat-panel-description i18n>Saisir vos langues</mat-panel-description>
               </mat-expansion-panel-header>
               <div formArrayName="langues">
                 <div *ngFor="let tel of langues.controls; let i = index;">
                   <mat-panel-title>
-                    <mat-action-row>
+                    <mat-action-row i18n>
                       Langue #{{i+1}}
                     </mat-action-row>
                     <mat-action-row>
@@ -131,7 +131,7 @@
                 </div>
                 <mat-action-row>
                   <button mat-raised-button color="warn" type="button" (click)="ajoutLangue()"
-                          matTooltip="ajout langue" matTooltipPosition="above">Ajout Langue
+                          matTooltip="ajout langue" matTooltipPosition="above" i18n>Ajout Langue
                   </button>
                 </mat-action-row>
               </div>
@@ -142,6 +142,6 @@
 			</div>
 			<!-- /informations personnelles -->
 		</div>
-		<button type="submit" class="btn btn-blue"><i class="fa fa-refresh"></i>&nbsp;&nbsp;Mettre à jours le compte</button>
+		<button type="submit" class="btn btn-blue" i18n><i class="fa fa-refresh"></i>&nbsp;&nbsp;Mettre à jours le compte</button>
 	</form>
 </div>

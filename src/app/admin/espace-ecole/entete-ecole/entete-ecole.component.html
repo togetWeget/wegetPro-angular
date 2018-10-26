@@ -3,14 +3,14 @@
 		<table class="table table-hover table-bordered">
 			<thead>
 				<tr>
-					<th width="70%">Image</th>
+					<th width="70%" i18n>Image</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr *ngFor="let cov of (sousBlocks$ | async)?.body.pathPhotoCouverture; let i=index;">
 					<td>
     					<button mat-raised-button class="bt-x btn-red"><i class="fa fa-trash"></i></button>
-						<app-profil-cover [isAdmin]="false" id="img_cover" [vues]="'-1'" [image]="'../../../../assets/default.jpg'">
+						<app-profil-cover [isAdmin]="false" id="img_cover" [vues]="'-1'" [image]="cov">
 						<app-profil-avatar [isAdmin]="false" id="img_profil" [image]=""></app-profil-avatar>
 			    	</app-profil-cover>
 			    </td>

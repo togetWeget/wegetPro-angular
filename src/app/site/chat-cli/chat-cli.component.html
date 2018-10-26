@@ -17,7 +17,7 @@
 				
 				<div class="popup-head-left pull-left" *ngIf="chatact?.checkchange === true" style="color:#fff; border-color:#fefefe;"> 
 
-					<div class="break" style="line-height:2.5em;" title="">WegetPro Chat live</div>
+					<div class="break" style="line-height:2.5em;" title="" i18n>WegetPro Chat live</div>
 					
 				</div>
 					  <div class="popup-head-right pull-right">
@@ -63,7 +63,7 @@
 
 				<div class="custom-control custom-checkbox checkbox-rounded" style="float:right; margin-right:10px;">
 					<input type="radio" class="custom-control-input filled-in all" name="rad" id="all" style="margin:0; padding:0;" (change)="checksearch('all')" checked>
-					<label class="custom-control-label" for="all"><i class="fa fa-circle pull-right" style="color:#333; font-size:10px; margin:0; padding:0;">All</i></label>
+					<label class="custom-control-label" for="all"><i class="fa fa-circle pull-right" style="color:#333; font-size:10px; margin:0; padding:0;" i18n>All</i></label>
 				</div>
 				
 				
@@ -71,9 +71,9 @@
 				</form>{{testcheck}}
 			</div>
 			
-			<div class="direct-chat-messages text-center" *ngIf="ifactivechat() === true && chatact?.checkchange === false && chatact?.id !== null && messageAll.length == 0 && cnpt == 0"><p>Chargement des Meta Data en cours...</p></div>
+			<div class="direct-chat-messages text-center" *ngIf="ifactivechat() === true && chatact?.checkchange === false && chatact?.id !== null && messageAll.length == 0 && cnpt == 0"><p i18n>Chargement des Meta Data en cours...</p></div>
 			
-			<div class="direct-chat-messages text-center" style="" *ngIf="ifactivechat() === true && chatact?.checkchange === false && chatact?.id !== null && messageAll.length == 0 && cnpt == 2"><p>Auncun message trouvé dans cette discussion...</p></div>
+			<div class="direct-chat-messages text-center" style="" *ngIf="ifactivechat() === true && chatact?.checkchange === false && chatact?.id !== null && messageAll.length == 0 && cnpt == 2"><p i18n>Auncun message trouvé dans cette discussion...</p></div>
 			
 			<div class="direct-chat-messages" *ngIf="ifactivechat() === true && chatact?.checkchange === false && chatact?.id !== null && messageAll.length != 0 && cnpt == 1">
 			
@@ -88,7 +88,7 @@
 					<!-- Message. Default to the left -->
                     <div class="row direct-chat-msg pull-right" *ngIf="val?.codeSender == chatact?.InfoMe.id">
                       <div class="direct-chat-info col-sm-12">
-                        <span class="direct-chat-name pull-right">Vous 
+                        <span class="direct-chat-name pull-right" i18n>Vous 
 						</span>
 						
 						&nbsp;
@@ -96,7 +96,7 @@
 						<div class="dropdown pull-right" style="">
 							<i class="fa fa-trash option"  id="dropdownMenuButton" style="line-height: 2em; margin-right: 12px;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
 					  <div class="dropdown-menu coll" aria-labelledby="dropdownMenuButton" style="background:#000;">
-						<a class="dropdown-item" href="#" style="color:#fff; background:#333;" (click)="delmsg(dataidmsg[i]); false;">Supprimer</a>
+						<a class="dropdown-item" href="#" style="color:#fff; background:#333;" (click)="delmsg(dataidmsg[i]); false;" i18n>Supprimer</a>
 					  </div>
 					</div>	
 							
@@ -139,7 +139,7 @@
 						<div class="dropdown" style="float:left;">
 							<i class="fa fa-trash option"  id="dropdownMenuButton" style="line-height: 2em; margin-right: 12px;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
 					  <div class="dropdown-menu coll" aria-labelledby="dropdownMenuButton" style="background:#000;">
-						<a class="dropdown-item" href="#" style="color:#fff; background:#333;" (click)="delmsgReverse(dataidmsg[i]); false;">Supprimer</a>
+						<a class="dropdown-item" href="#" style="color:#fff; background:#333;" (click)="delmsgReverse(dataidmsg[i]); false;" i18n>Supprimer</a>
 					  </div>
 					</div>	
 							
@@ -194,7 +194,7 @@
 									</div>
 										
 									</div>
-									<p style="color:#09c; font-size:10px;" >Administrateur</p>
+									<p style="color:#09c; font-size:10px;" i18n>Administrateur</p>
 
 					</div>
 					
@@ -204,20 +204,20 @@
 					
 					<div class="" style="border-bottom: 1px solid #ddd; width:100%; height:60px; padding:4px; overflow:hidden; text-align:center;"  *ngIf="checkMembre === true">
 
-					<p>Chargement en cours... </p> 	
+					<p i18n>Chargement en cours... </p> 	
 				
 					</div>	
 					
 					
 					<div class="" style="border-bottom: 1px solid #ddd; width:100%; height:60px; padding:4px; overflow:hidden; text-align:center;"  *ngIf="1 === 0">
 
-					<p>Aucun connecté trouvé ! {{aucun}}</p> 	
+					<p i18n>Aucun connecté trouvé ! {{aucun}}</p> 	
 				
 					</div>	
 
 					<div class="" style="border-bottom: 1px solid #ddd; width:100%; height:60px; padding:4px; overflow:hidden; text-align:center;"  *ngIf="(memebreall | filterBy: userFilter).length === 0 && checkMembre === false">
 
-					<p>Aucun élément trouvé ! </p> 	
+					<p i18n>Aucun élément trouvé ! </p> 	
 				
 					</div>	
 			
@@ -225,13 +225,13 @@
 			
 			<div class="direct-chat-messages" style="display:flex; justify-content:center; align-items:center" *ngIf="!ifactivechat();">
 					<div class="col-sm-12 text-center">
-						<h3> Bienvenue sur le chat instantané de WEGET</h3>
+						<h3 i18n> Bienvenue sur le chat instantané de WEGET</h3>
 					<div style="background:#ff6d05;"> <img src="assets/photo/logo-h.png" style="width:50%;" /> </div>
 					
 					<div class="col-sm-12">
 					<div class="button-row" style="margin:10px;">
-					  <button mat-raised-button color="primary" class="btno" (click)="connexion()">Connexion</button>
-					  <button mat-raised-button color="warn" class="btno" (click)="inscription()">Inscription</button>
+					  <button mat-raised-button color="primary" class="btno" (click)="connexion()" i18n>Connexion</button>
+					  <button mat-raised-button color="warn" class="btno" (click)="inscription()" i18n>Inscription</button>
 					</div>	
 					</div>
 					</div>
@@ -241,12 +241,12 @@
 
 			<div class="popup-messages-footer text-center"  *ngIf="chatact.checkchange === true">	
 			
-				<p style="font-size:10px;">Salut, je suis <strong>WeBot</strong>. Pour toutes question ou depot de pleinte laisser un message à un administrateur de la liste ci-dessus! </p>
+				<p style="font-size:10px;"><span i18n>Salut, je suis</span> <strong i18n>WeBot</strong>. <span i18n>Pour toutes question ou depot de pleinte laisser un message à un administrateur de la liste ci-dessus!</span> </p>
 			</div>
 
 			<div class="popup-messages-footer"  *ngIf="chatact.checkchange === false && ifactivechat()">	
 				 	<div class="col-sm-12 direct-chat-name text-center" style="position:absolute; top:-17px;" *ngIf="socket[chatact?.id] === 1">
-						<p style=" border-radius:10px; border:1px solid #f2f2f2; color:#09c;">{{chatact?.nom}}  est entrain d'ecrire...</p>
+						<p style=" border-radius:10px; border:1px solid #f2f2f2; color:#09c;" i18n>{{chatact?.nom}}  est entrain d'ecrire...</p>
                     </div>
 			<textarea id="status_message" placeholder="Type a message..."  rows="10" cols="40" name="message_ss" [(ngModel)]="message_ss" (keyup)="enterSend($event); keyupchange(message_ss);"  [disabled]="!ifactivechat()" ></textarea>
 			<div class="btn-footer">

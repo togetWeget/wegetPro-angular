@@ -13,7 +13,7 @@
       </div>
       <!-- bande gauche bas -->
 
-      <div class="" style="background:#f2f2f2; font-size:12px; text-align:center; padding:0;">Liste
+      <div i18n class="" style="background:#f2f2f2; font-size:12px; text-align:center; padding:0;">Liste
         Membres  {{userFilter.nomComplet}}
       </div>
       <div class="band-user">
@@ -43,7 +43,7 @@
 
 
           <span><h5 class="break_word"> {{a.nomComplet}} </h5> <span class="badge badge-pill badge-danger" *ngIf="compteurMsg[a.id]  > 0 "   >{{compteurMsg[a.id]}}</span><i class="fa fa-circle" style="color:darkgreen; float:right;"></i></span>
-          <h6 class="break_word">{{a.description}} <i *ngIf="a.description === null || a.description.length === 0">Aucune description Pour ce
+          <h6 class="break_word">{{a.description}} <i *ngIf="a.description === null || a.description.length === 0" i18n>Aucune description Pour ce
             membre</i></h6>
         </div>
         </div>
@@ -51,7 +51,7 @@
 
         <div class="users" *ngIf="(dataRec | filterBy: userFilter).length === 0 && resulloard === false" style="text-align:center;">
           <img src="http://oupscity.fr/wp-content/uploads/2018/04/bulle.jpg" class="card-img">
-          <p>Aucun Elements trouvé!</p>
+          <p i18n>Aucun Elements trouvé!</p>
         </div>
 
         <div style="text-align: center; width:100%;" *ngIf="resulloard == true">{{ResultText}}</div>
@@ -73,7 +73,7 @@
 		 <div [ngStyle]="{'background-image': 'url(' + pathPhoto_rec + ')'}" *ngIf="pathPhoto_rec !== null && pathPhoto_rec !== ''" class="img-g-rond-s"></div>
 				<div  [ngStyle]="{'background-image': 'url(assets/photo/avatar.jpg)'}" *ngIf="pathPhoto_rec === null || pathPhoto_rec === '' " class="img-g-rond-s"></div>
 		
-        <div class="col-sm-12" style="width:500px;height:10px;">{{named}}
+        <div class="col-sm-12" style="width:500px;height:10px;" i18n>{{named}}
           <span class="fa fa-angle-down"></span><br/>
           <i class="fa fa-circle" style="color:darkgreen;"></i> Connecté
         </div> &nbsp;
@@ -84,7 +84,7 @@
 		
 		
 		<div class=" col-sm-12 row default-frm" style="" >
-          <p> Salut, {{named}}</p>
+          <p i18n> Salut, {{named}}</p>
 		<!-- <audio src="/assets/audio/1.mp3" controls id="player" style="display:block;"></audio> -->
           <img class="default-img"
                src="https://fotomelia.com/wp-content/uploads/edd/2015/11/bonhomme-blanc-3d-images-gratuites-libres-de-droits-creative-commons58-1560x1114.jpg"/>
@@ -113,7 +113,7 @@
               <div class="col-sm-12">
                 <div class="receiver pull-left">{{a.message}}
 				    <div class="col-sm-12 ">
-                <i style="font-size:10px;" class="pull-right">
+                <i style="font-size:10px;" class="pull-right" i18n>
 				le {{a.Date_s}}
                   <span class="fa fa-send" style="color:green"></span>
                   <span class="fa fa-send" style="color:green"></span>
@@ -137,7 +137,7 @@
                   {{a.message}}
 				    
 				  <div class="col-sm-12 ">
-                <i style="font-size:10px;" class="pull-right">
+                <i style="font-size:10px;" class="pull-right" i18n>
 				le {{a.Date_s}}
                   <span class="fa fa-send" style="color:green"></span>
                   <span class="fa fa-send" style="color:green" *ngIf="a.status > 0"></span>
@@ -184,7 +184,7 @@
         </div>
 		
 		<div class=" col-sm-12 row default-frm" style="" *ngIf="named === null">
-          <p> Salut, Vous êtes sur la platforme de messagerie de toget.</p>
+          <p i18n> Salut, Vous êtes sur la platforme de messagerie de toget.</p>
           <img class="default-img"
                src="https://fotomelia.com/wp-content/uploads/edd/2015/11/bonhomme-blanc-3d-images-gratuites-libres-de-droits-creative-commons58-1560x1114.jpg"/>
 

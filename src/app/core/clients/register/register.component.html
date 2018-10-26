@@ -1,4 +1,4 @@
-      <div class="text text-center  pull-left border_bot" > CREER VOTRE COMPTE GRATUITEMENT</div>
+      <div class="text text-center  pull-left border_bot" i18n> CREER VOTRE COMPTE GRATUITEMENT</div>
       <br/>
       <br/>
       <br/>
@@ -45,7 +45,7 @@
 
         <div class="col-sm-12 form-group">
           <p>
-            <em class="formLogin__infoLabel">
+            <em class="formLogin__infoLabel" i18n>
               Vous recevrez un Email de confirmation sur cette adresse email.
             </em>
           </p>
@@ -53,11 +53,11 @@
 
         <div class="col-sm-12 form-group">
 
-          <label for="checkbox_id"><b class="error1">*</b><input type="checkbox" (click)="toggleSend()" name="chk" id="checkbox_id" value="1"/> &nbsp;J'ai lu et j'accepte les <a href="">Conditions Générales d'Utilisation et la <br/>Politique de Protection des Données Personnelles. </a></label>
+          <label for="checkbox_id"><b class="error1">*</b><input type="checkbox" (click)="toggleSend()" name="chk" id="checkbox_id" value="1"/> &nbsp;<span i18n>J'ai lu et j'accepte les</span> <a href=""><span i18n>Conditions Générales d'Utilisation et la</span> <br/><span i18n>Politique de Protection des Données Personnelles.</span> </a></label>
         </div>
 
           <div class="col-12 text-center" style="">
-            <button type="button" (click)="sending()" class="btn btn-block btn-info text-center">S'inscrire <img src="{{regist.ajax_loader}}" class="loader-img" /></button>
+            <button type="button" (click)="sending()" class="btn btn-block btn-info text-center"><span i18n>S'inscrire</span> <img src="{{regist.ajax_loader}}" class="loader-img" /></button>
 
           </div>
         </div>

@@ -45,13 +45,12 @@
 }
 */
 
-.col-md-4{
+.col-md-4, .col-sm-6, .col-lg-2, .col-12{
 	display: inline-block;
-	margin-left:-10px;
+	//margin-left:-10px;
   }
-  .col-md-4 img{
-	width:100%;
-	height:auto;
+  img{
+  background-size: cover;
   }
 	
   body .carousel-control-prev-icon,
@@ -61,13 +60,14 @@
   }
   
   span.carousel-control-prev-icon {
-   position: relative;
-   bottom: 40px;
-   right: 40px;
+   //position: relative;
+   /*bottom: 40px;
+   right: 10px;*/
   }
   
   span.carousel-control-next-icon {
-   position: relative;
-   bottom: 40px;
+  // position: relative;
+  /* bottom: 40px;
+   left: 10px;*/
   }
   

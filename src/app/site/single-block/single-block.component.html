@@ -30,11 +30,11 @@
         	<div class="card-image" #imagebg></div>
         </div>
         <div class="card-flip back">
-        	<p class="description">lorem ipsum back dolor. lorem ipsum back dolor. lorem ipsum back dolor. lorem ipsum back dolor. lorem ipsum back dolor.</p>
-        	<button mat-raised-button color="primary" class="btn btn-block mat-button" (click)="onSabonner()">S'abonner</button>
+        	<p class="description" i18n>lorem ipsum back dolor. lorem ipsum back dolor. lorem ipsum back dolor. lorem ipsum back dolor. lorem ipsum back dolor.</p>
+        	<button mat-raised-button color="primary" class="btn btn-block mat-button" (click)="onSabonner()" i18n>S'abonner</button>
         </div>
     </div>
     <div class="card card-no-flip-zone">
-    	<a routerLink="/site/blocks/{{block.id}}" routerLinkActive="active" class="" (click)="onViewBlock()"><h3 class="card-titre" [innerHtml]="block.libelle"></h3></a>
+    	<a routerLink="/site/blocks/{{block.id}}" routerLinkActive="active" class="" (click)="onViewBlock()"><h4 class="card-titre" [innerHtml]="block.libelle"></h4></a>
     </div>
 </div>

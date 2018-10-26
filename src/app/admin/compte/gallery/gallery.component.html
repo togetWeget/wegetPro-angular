@@ -5,7 +5,7 @@
 <section>
   <div class="container">
 	<div class="col-sm-12" style="font-size:30px; border-bottom:4px solid #343a40; margin-bottom:10px; margin-top:10px;">
-		<div class="col-sm-8"><button mat-button color="primary">Galerie Photos / videos</button></div>
+		<div class="col-sm-8"><button mat-button color="primary" i18n>Galerie Photos / videos</button></div>
 	<div class="col-sm-4"><i class="fa fa-bars pull-right" mat-fab (click)="affichecache()" style="color:#ff4081; cursor:pointer;"></i></div>	
 	</div>
 <div class="button-row sscach">
@@ -14,16 +14,16 @@
 	<!-- <input type="file" style="display:none;" accept="video/*" #videos> -->
 	
 <div class="pull-left" style="line-height:4.5em;">
-<button mat-raised-button  routerLink="photo" class="routing" [disabled]="ativ === 'photo'? true : false" (click)="actived('photo')">Mes photos (10)</button>
-<button mat-raised-button routerLink="video" class="routing" [disabled]="ativ === 'video'? true : false" (click)="actived('video')"> Mes videos (02)</button>
-  <a mat-raised-button routerLink="allgallery" class="routing" [disabled]="ativ === 'allgallery'? true : false" (click)="actived('allgallery')">Albums</a>
+<button mat-raised-button  routerLink="photo" class="routing" [disabled]="ativ === 'photo'? true : false" (click)="actived('photo')" i18n>Mes photos (10)</button>
+<button mat-raised-button routerLink="video" class="routing" [disabled]="ativ === 'video'? true : false" (click)="actived('video')" i18n> Mes videos (02)</button>
+  <a mat-raised-button routerLink="allgallery" class="routing" [disabled]="ativ === 'allgallery'? true : false" (click)="actived('allgallery')" i18n>Albums</a>
 </div>
 	
 	<div class="pull-right">
   <!-- <button mat-fab>Basic</button> -->
 	<button mat-fab color="primary" (click)="recuptImgs();"><i class="fa fa-camera"></i></button>
   <button mat-fab color="accent" (click)="openDialogVideo();"><i class="fa fa-video-camera"></i></button>
-  <button mat-fab color="warn">Warn</button>
+  <button mat-fab color="warn" i18n>Warn</button>
   <!-- <button mat-fab disabled>Disabled</button> -->
   <!-- <button mat-fab> -->
     <!-- <mat-icon aria-label="Example icon-button with a heart icon">favorite</mat-icon> -->

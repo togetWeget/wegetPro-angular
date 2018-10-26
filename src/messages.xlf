@@ -1,0 +1,2640 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="2a45febcab0a6208f616f5f2464792262dfecad5" datatype="html">
+        <source>WegetPro Chat live</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/chat-cli/chat-cli.component.ts</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dfc3c34e182ea73c5d784ff7c8135f087992dac1" datatype="html">
+        <source>All</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/chat-cli/chat-cli.component.ts</context>
+          <context context-type="linenumber">66</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="626dd67eda77458346315729b3acb6bc7154afb3" datatype="html">
+        <source>Chargement des Meta Data en cours...</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/chat-cli/chat-cli.component.ts</context>
+          <context context-type="linenumber">74</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9de3c6c186729a81dd1b804e3dac0b5dc8e0d4e3" datatype="html">
+        <source>Auncun message trouvé dans cette discussion...</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/chat-cli/chat-cli.component.ts</context>
+          <context context-type="linenumber">76</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5fe79b70c0d6b80e2ff972d09c2583df409ac0da" datatype="html">
+        <source>Vous 
+						</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/chat-cli/chat-cli.component.ts</context>
+          <context context-type="linenumber">91</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="e32da846622c2c2eb7a59b745110dbbdb05407b7" datatype="html">
+        <source>Supprimer</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/chat-cli/chat-cli.component.ts</context>
+          <context context-type="linenumber">99</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/chat-cli/chat-cli.component.ts</context>
+          <context context-type="linenumber">142</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="e94c822b167d933da3a0a92c7acde3ce527e74df" datatype="html">
+        <source>Administrateur</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/chat-cli/chat-cli.component.ts</context>
+          <context context-type="linenumber">197</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="466acb37e9f180d86754ffc95857b3ab265533b8" datatype="html">
+        <source>Chargement en cours... </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/chat-cli/chat-cli.component.ts</context>
+          <context context-type="linenumber">207</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3cf2288dd7287fda53954c2c1b878f429fbed0de" datatype="html">
+        <source>Aucun connecté trouvé ! <x id="INTERPOLATION" equiv-text="{{aucun}}"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/chat-cli/chat-cli.component.ts</context>
+          <context context-type="linenumber">214</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="151a749280e57622c8c4ec5e676fcd92d8afebc3" datatype="html">
+        <source>Aucun élément trouvé ! </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/chat-cli/chat-cli.component.ts</context>
+          <context context-type="linenumber">220</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="031ee448e701c12e4357514d5d1f874d6759b091" datatype="html">
+        <source> Bienvenue sur le chat instantané de WEGET</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/chat-cli/chat-cli.component.ts</context>
+          <context context-type="linenumber">228</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="55a57e6165759f4c48fd86a29d674304066044e9" datatype="html">
+        <source>Connexion</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/chat-cli/chat-cli.component.ts</context>
+          <context context-type="linenumber">233</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="81f138da4f955badade9fb60e0e2248627fc647f" datatype="html">
+        <source>Inscription</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/chat-cli/chat-cli.component.ts</context>
+          <context context-type="linenumber">234</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="f622b50102be42d0cdf9651b80ca7f456c808c47" datatype="html">
+        <source>Salut, je suis</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/chat-cli/chat-cli.component.ts</context>
+          <context context-type="linenumber">244</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5a255616b14880851f67c08768988cecd6dfa246" datatype="html">
+        <source>WeBot</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/chat-cli/chat-cli.component.ts</context>
+          <context context-type="linenumber">244</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="e9ea31bfd5cb9e23798ed173e985c481c9be7ff8" datatype="html">
+        <source>Pour toutes question ou depot de pleinte laisser un message à un administrateur de la liste ci-dessus!</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/chat-cli/chat-cli.component.ts</context>
+          <context context-type="linenumber">244</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="634f48b81d3046eed85c4d60db8d3911d2bc1bd0" datatype="html">
+        <source><x id="INTERPOLATION" equiv-text="{{chatact?.nom}}"/>  est entrain d&apos;ecrire...</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/chat-cli/chat-cli.component.ts</context>
+          <context context-type="linenumber">249</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="91b6087ed5a34ddf5b3ffd2a7dba7adcccad02c8" datatype="html">
+        <source>
+       Dashbord
+       </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/layout/layout.component.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="46608279de19631152f2fce4bd6708b58e3e442b" datatype="html">
+        <source>                  
+                      <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> Tableau de bord
+                    </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/layout/layout.component.ts</context>
+          <context context-type="linenumber">44</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ae12afeae004b2c32138d6300511eabab980e974" datatype="html">
+        <source>                  
+                      <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> Compte
+                    </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/layout/layout.component.ts</context>
+          <context context-type="linenumber">55</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="65c51349c0beb90b44d76d8911452802c851e22c" datatype="html">
+        <source>                  
+                      <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> Messagerie <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/><x id="INTERPOLATION" equiv-text="{{nonLu$ | async}}"/><x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/>
+                    </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/layout/layout.component.ts</context>
+          <context context-type="linenumber">66</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2337158bfcaabf607f3992dae48550983ec55cc2" datatype="html">
+        <source>                  
+                      <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> Chat
+                    </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/layout/layout.component.ts</context>
+          <context context-type="linenumber">77</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8398a360526fe64ed21c67cd879546cd8d71f711" datatype="html">
+        <source>                  
+                      <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> gallery
+                    </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/layout/layout.component.ts</context>
+          <context context-type="linenumber">88</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="498376116566ab4533950c32c13aa8b69e1cb1f3" datatype="html">
+        <source>                  
+                      <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> Espaces
+                    </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/layout/layout.component.ts</context>
+          <context context-type="linenumber">99</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2b093f5ea3f36fbcbe3c8702e86f41f4e7628841" datatype="html">
+        <source>                  
+                      <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> Historique
+                    </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/layout/layout.component.ts</context>
+          <context context-type="linenumber">110</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="e7cce61463964da5941ed9dbbc1171daced9260a" datatype="html">
+        <source> CREER VOTRE COMPTE GRATUITEMENT</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/core/clients/register/register.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8cc85f58b53ce98ca0d9262181d6d9bd0f38d0f2" datatype="html">
+        <source>
+              Vous recevrez un Email de confirmation sur cette adresse email.
+            </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/core/clients/register/register.component.ts</context>
+          <context context-type="linenumber">48</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8dd0bf19779099c9a929a315dff9737cbc44994a" datatype="html">
+        <source>J&apos;ai lu et j&apos;accepte les</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/core/clients/register/register.component.ts</context>
+          <context context-type="linenumber">56</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="adfd635ac2c54b597d3c807a7ca9fef9938aba3a" datatype="html">
+        <source>Conditions Générales d&apos;Utilisation et la</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/core/clients/register/register.component.ts</context>
+          <context context-type="linenumber">56</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cf54016df155a422626a29cc2040475c8f86cf1b" datatype="html">
+        <source>Politique de Protection des Données Personnelles.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/core/clients/register/register.component.ts</context>
+          <context context-type="linenumber">56</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ae26fc7677cdbe7d0ad97f061bfc1dd1ed6e62aa" datatype="html">
+        <source>S&apos;inscrire</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/core/clients/register/register.component.ts</context>
+          <context context-type="linenumber">60</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/toolbar/toolbar.component.ts</context>
+          <context context-type="linenumber">47</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="836cc5eb1a46624364b88313c18439af4dbbdaa3" datatype="html">
+        <source>Oops!</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/core/not-found/not-found.component.ts</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="0e69b6f7ab69e3522fc1563a7910a385c5ed4660" datatype="html">
+        <source>Page introuvable</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/core/not-found/not-found.component.ts</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="49329cced8b2d1dc6ed5140da67b22fdd81135da" datatype="html">
+        <source>Désolé, Une erreure est survenue. Il se trouve que la page que vous recherchez est introuvable.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/core/not-found/not-found.component.ts</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3659902fc9537fce35f35ce0b24fb5b4e08d34a8" datatype="html">
+        <source>Allez à l&apos;accueil</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/core/not-found/not-found.component.ts</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="54cd9896d457438f87031a9d65cd8d74f4738525" datatype="html">
+        <source>Contactez le support technique</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/core/not-found/not-found.component.ts</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1caee9f5e8471e5b3e4aa78bf58770fa87dd9b9b" datatype="html">
+        <source>
+      Un monde Rempli de Compétence !!!!
+    </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/accueil/accueil.component.ts</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5a47942eb785a9b5b2812b8e839ba6502e8dcf1c" datatype="html">
+        <source>Chercher</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/accueil/accueil.component.ts</context>
+          <context context-type="linenumber">68</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="c6b059ce0d96f4dc971dbeb0c6ad35a02e918038" datatype="html">
+        <source>inscrivez vous gratuitement</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/accueil/accueil.component.ts</context>
+          <context context-type="linenumber">75</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="d843a2fe987412ee925006e4f8172b13ca2146ae" datatype="html">
+        <source> Pour bénéficier de la réduction d&apos;une compétance au titre des frais de scolarité, vos enfants doivent  suivre un enseignement dans un collège ou un lycée, ou encore poursuivre des études supérieures débouchant sur un diplôme. 
+  Peu importe que ce soit dans un établissement public ou privé </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/accueil/accueil.component.ts</context>
+          <context context-type="linenumber">85</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dcd9d3f3adc14191ed1ab45de1488bf329e9b700" datatype="html">
+        <source>Nos abonnés</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/accueil/accueil.component.ts</context>
+          <context context-type="linenumber">94</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7a0f4c68ac2c23527e01465a3d36089d20ea43ce" datatype="html">
+        <source>Nos espaces</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/accueil/accueil.component.ts</context>
+          <context context-type="linenumber">104</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/liste-bloc/liste-bloc.component.ts</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2a427583225f6db9fe129b0e983a65aa813e916f" datatype="html">
+        <source>
+      Trouvez les meilleurs Compétence grace à notre géolocalisation
+    </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/accueil/accueil.component.ts</context>
+          <context context-type="linenumber">113</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="50ef76bce8b61e55fdb2cbf87ae41e7a423b4350" datatype="html">
+        <source>Nos Espaces</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/accueil/accueil.component.ts</context>
+          <context context-type="linenumber">121</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/toolbar/toolbar.component.ts</context>
+          <context context-type="linenumber">44</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="03d2f7f665abb56c8fc4fa8cd1cad25c398387f6" datatype="html">
+        <source>
+    Nos Partenaires
+    </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/accueil/accueil.component.ts</context>
+          <context context-type="linenumber">153</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="f311721e8955723886fa8a690d7593e9a572a6a7" datatype="html">
+        <source>Nos Services aux Entreprises</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/accueil/accueil.component.ts</context>
+          <context context-type="linenumber">180</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="e3de2c551487eed6759f08d2c876f3a6e9447afe" datatype="html">
+        <source>Card title</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/accueil/accueil.component.ts</context>
+          <context context-type="linenumber">185</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/accueil/accueil.component.ts</context>
+          <context context-type="linenumber">195</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/accueil/accueil.component.ts</context>
+          <context context-type="linenumber">205</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="d2061697170cdd3d7ae9b978ada0c5e840e72bce" datatype="html">
+        <source>This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/accueil/accueil.component.ts</context>
+          <context context-type="linenumber">186</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="b3a66c5ca366df05be0b427b1f5e84ac8aa86552" datatype="html">
+        <source>Go somewhere</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/accueil/accueil.component.ts</context>
+          <context context-type="linenumber">189</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/accueil/accueil.component.ts</context>
+          <context context-type="linenumber">199</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/accueil/accueil.component.ts</context>
+          <context context-type="linenumber">209</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/accueil/accueil.component.ts</context>
+          <context context-type="linenumber">236</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="d463d989a956f373d30e4cef3927accdfd209d26" datatype="html">
+        <source>This card has supporting text below as a natural lead-in to additional content.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/accueil/accueil.component.ts</context>
+          <context context-type="linenumber">196</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9f0036082680f2eae5cac6644e757402fe2ee168" datatype="html">
+        <source>This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/accueil/accueil.component.ts</context>
+          <context context-type="linenumber">206</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9d5d5ccd97e336d38fb1f5276a34600796c3d947" datatype="html">
+        <source>Qui nous Somme ?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/accueil/accueil.component.ts</context>
+          <context context-type="linenumber">215</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9f9d9b836701e0a8068e29c45d5682eeb13afc4b" datatype="html">
+        <source>Special title treatment</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/accueil/accueil.component.ts</context>
+          <context context-type="linenumber">234</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5804e3dd4eeaa6d583ea259212003c8d0a329384" datatype="html">
+        <source>With supporting text below as a natural lead-in to additional content.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/accueil/accueil.component.ts</context>
+          <context context-type="linenumber">235</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1b51e4b9fbbb9e34115a9f028b537babac0a8eb2" datatype="html">
+        <source>Follow Me</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/accueil/accueil.component.ts</context>
+          <context context-type="linenumber">250</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="a264b41aa12a8e74eb52a93abf45cc0d957c89bd" datatype="html">
+        <source>Some text..</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/accueil/accueil.component.ts</context>
+          <context context-type="linenumber">251</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="e6cdadc8bb9c1b6dc68cbecf5cc9f23ea01c6b08" datatype="html">
+        <source>
+      Qu&apos;attendez-vous pour vous lancer ?
+    </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/accueil/accueil.component.ts</context>
+          <context context-type="linenumber">260</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ed1341869cf9cb7017821057cb99854bb6ac9130" datatype="html">
+        <source>Company name</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/footer/footer.component.ts</context>
+          <context context-type="linenumber">86</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="0d3f8ec5644fa7485b6ad6a711e4e36e8049ae3b" datatype="html">
+        <source>Here you can use rows and columns here to organize your footer content. Lorem ipsum dolor sit amet, consectetur
+      adipisicing elit.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/footer/footer.component.ts</context>
+          <context context-type="linenumber">87</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="48dfb134cb8d324bb45f2f9f3bd7d7afc49bc3f8" datatype="html">
+        <source>Products</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/footer/footer.component.ts</context>
+          <context context-type="linenumber">96</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6b705cdf0d567cf608b9891a1d912daebac3523e" datatype="html">
+        <source>Useful links</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/footer/footer.component.ts</context>
+          <context context-type="linenumber">116</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="aa06e7c63e7a651d0bb6276a329af63ec6a86978" datatype="html">
+        <source>Your Account</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/footer/footer.component.ts</context>
+          <context context-type="linenumber">118</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="d55868649ead45fcfde95869949bedde0b317878" datatype="html">
+        <source>Become an Affiliate</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/footer/footer.component.ts</context>
+          <context context-type="linenumber">121</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dcccd7449e6ad538e074fd1d31b334b85ab2a777" datatype="html">
+        <source>Shipping Rates</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/footer/footer.component.ts</context>
+          <context context-type="linenumber">124</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="85b79c9064aed1ead31ace985f31aa1363f6bdaf" datatype="html">
+        <source>Help</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/footer/footer.component.ts</context>
+          <context context-type="linenumber">127</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="34746fb1c7f3d2194d99652bdff89e6e14c9c4f4" datatype="html">
+        <source>Contact</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/footer/footer.component.ts</context>
+          <context context-type="linenumber">136</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4dc6b04b836e9f92b732017d232651498088fde9" datatype="html">
+        <source>Angrée 7 ième Tranche</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/footer/footer.component.ts</context>
+          <context context-type="linenumber">138</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cc4918e13120b71461f398eae8774f42eef5ff03" datatype="html">
+        <source>info@toget.pro</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/footer/footer.component.ts</context>
+          <context context-type="linenumber">140</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="e4f869e75c618c3305a0e90c7129aa1f45aa26c2" datatype="html">
+        <source>22 422 937 / 77 950 437</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/footer/footer.component.ts</context>
+          <context context-type="linenumber">142</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="de1b90e30da5494b3bfb41c16d88dbc054c7cede" datatype="html">
+        <source>01 BP 13662 ABIDJAN 01</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/footer/footer.component.ts</context>
+          <context context-type="linenumber">144</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3b62fe809cd1b55ab85fab2225b84f1431046452" datatype="html">
+        <source>© 2018 Copyright:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/footer/footer.component.ts</context>
+          <context context-type="linenumber">160</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="a5c7a99a0193da15e709232d8940588dae9f01ea" datatype="html">
+        <source> wegetpro.com </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/footer/footer.component.ts</context>
+          <context context-type="linenumber">162</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="b01fccb65ca7971416deb95d1bda82ae7d475ed7" datatype="html">
+        <source>Connexion / Login </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/core/clients/login/login.component.ts</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2f49678a8309490924fe173a4bb7e5dad77ca00d" datatype="html">
+        <source>Nom utilisateur</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/core/clients/login/login.component.ts</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="df9d935c95f3e8eda64cfd0967fbb9cb358409e4" datatype="html">
+        <source>Mot de passe</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/core/clients/login/login.component.ts</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6765b4c916060f6bc42d9bb69e80377dbcb5e4e9" datatype="html">
+        <source>Login</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/core/clients/login/login.component.ts</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="053e81597467a642e04109eebe934c84e6a1f467" datatype="html">
+        <source>or</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/core/clients/login/login.component.ts</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8d8481bd4a0167d5a1afd9d4c9d01a1439bb73bd" datatype="html">
+        <source>Sign in with Facebook</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/core/clients/login/login.component.ts</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="fbb184a1958247c01ed24afd73a04810eaf766fd" datatype="html">
+        <source>Sign in with GooglePlus</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/core/clients/login/login.component.ts</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="198546388c1cf5314057a2cdb62f6da845c1bc36" datatype="html">
+        <source><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/>Accueil</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/toolbar/toolbar.component.ts</context>
+          <context context-type="linenumber">43</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7a5b80bdfff39603e595a2a61d5032115874e412" datatype="html">
+        <source>Se connecter</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/toolbar/toolbar.component.ts</context>
+          <context context-type="linenumber">46</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="408cb6073e60c5d966296a3207fc596adca75e01" datatype="html">
+        <source>Admin</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/toolbar/toolbar.component.ts</context>
+          <context context-type="linenumber">48</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5c7040a244810fff2f2c3d23ba8a1735525523ca" datatype="html">
+        <source>Déconnexion</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/toolbar/toolbar.component.ts</context>
+          <context context-type="linenumber">49</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="49ffbddd1dedd5e61d8d163dfaec40ac4d9eed2a" datatype="html">
+        <source>Formulaire d&apos;inscription</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/register/register.component.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5beb0aabc26eaca417d3185aadcf03059836e140" datatype="html">
+        <source>Pourquoi TogetPro ?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/register/register.component.ts</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dea9debad5c314d72bd387395d2858104cbddc5c" datatype="html">
+        <source>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/register/register.component.ts</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="992464697618c51caa330b616a34a640c24579c1" datatype="html">
+        <source>Login Dashboard</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/login/login.component.ts</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="801c464dfaabb8eb2c16f2cc0bf81435030174dd" datatype="html">
+        <source>login</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/login/login.component.ts</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="c32ef07f8803a223a83ed17024b38e8d82292407" datatype="html">
+        <source>Password</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/login/login.component.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="944e6f5b71d87d9395d61db706b3139f3b587162" datatype="html">
+        <source>Mot de passe oublié ?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/login/login.component.ts</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="63af86f156f2292de914b3324870bbb42ed09713" datatype="html">
+        <source>connexion</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/login/login.component.ts</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="47644f9bd7be53ed694972a9db333b0d10677649" datatype="html">
+        <source>ou se connecter avec :</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/login/login.component.ts</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="03453aee342585009f1bdee52c1232ac29a47e83" datatype="html">
+        <source>Sigin</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/login/login.component.ts</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/login/login.component.ts</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8fba7eee97634f2cdfb3a9937bb0dbff75061a3c" datatype="html">
+        <source>conçu et développé</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/login/login.component.ts</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7026bd1cbbf23864700f501e89df017d0b8d755d" datatype="html">
+        <source>by</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/login/login.component.ts</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="f4dc86b21358624862158671f430280192b64aac" datatype="html">
+        <source>Pas de compte ?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/login/login.component.ts</context>
+          <context context-type="linenumber">41</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="35a0fa56a7bdfee2f63a6f4b1a7bfeda61a4a689" datatype="html">
+        <source>pas de panique, cliquez</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/login/login.component.ts</context>
+          <context context-type="linenumber">42</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2c0f1a2c1cdb389836fe22ea93e7de709ec0e515" datatype="html">
+        <source>ici(s&apos;inscrire)</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/login/login.component.ts</context>
+          <context context-type="linenumber">42</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9ab481b3bad20be88b0a257aa264e11310ae272e" datatype="html">
+        <source>pour créer un compte. C&apos;est rapide gratuit et fiable!</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/login/login.component.ts</context>
+          <context context-type="linenumber">42</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="01de21f554cf32e7fec27d811d70e6202def67b1" datatype="html">
+        <source>Qu&apos;est ceque WegetPro</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/login/login.component.ts</context>
+          <context context-type="linenumber">59</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="71de7f01c884ca44fdeb6b77e8b3ab060ffb88a0" datatype="html">
+        <source>Toget est un réseau professionnel, de recrutement, d&apos;affaires et de recherche de partenariats, de spécialités et de dépanneurs. Selons vos besoins, trouvez des personnes qualifiées.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/login/login.component.ts</context>
+          <context context-type="linenumber">60</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="521a4136eb15eac889fd6a476f2b662c940e2e58" datatype="html">
+        <source>Nous somme ouvert 24h/7</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/login/login.component.ts</context>
+          <context context-type="linenumber">68</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2f953743e378fc3eed33348b6e027f836c7614d4" datatype="html">
+        <source>connectez vous, rejoignez un espace et faite votre promotion ou  celle de vos produit à moindre coût.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/login/login.component.ts</context>
+          <context context-type="linenumber">69</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cd067ac8f2bfcc75635231490c4dd92d1e1f556d" datatype="html">
+        <source>WegetPro, </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/login/login.component.ts</context>
+          <context context-type="linenumber">77</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ebd74c864e37598c0382cc2bf58626a0ef7467cc" datatype="html">
+        <source>un monde vaste pour tout type de recherche conçu spécialement pour vous et votre entourage. Connectez et vous et profitez en pleinement.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/login/login.component.ts</context>
+          <context context-type="linenumber">78</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="fd1d462f42ab4cf94c347b0c586810782a13fc7d" datatype="html">
+        <source>Contacter <x id="INTERPOLATION" equiv-text="{{data.nomPersonne}}"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/abonnes/contact-abonne/contact-abonne.component.ts</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1a7391c494239efe2ad440cff51f17e9a03bc6b0" datatype="html">
+        <source>Fermer</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/abonnes/contact-abonne/contact-abonne.component.ts</context>
+          <context context-type="linenumber">42</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dee4f8a57a983f799be11db23fe7b71e8db16c20" datatype="html">
+        <source>Envoyer</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/abonnes/contact-abonne/contact-abonne.component.ts</context>
+          <context context-type="linenumber">43</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/messagerie/repondre-message/repondre-message.component.ts</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="08e41467147f86eaa34f4fb628ddddf554f441b8" datatype="html">
+        <source>Recherchez un abonné </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/abonnes/search-abonnes/search-abonnes.component.ts</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="85e639f2c60f18744e149afc1ee47035f057298d" datatype="html">
+        <source>Actuaire</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/abonnes/search-abonnes/search-abonnes.component.ts</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7b14099d96f62583bf5387a8ba7ba349bc8d7f46" datatype="html">
+        <source>Informaticien</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/abonnes/search-abonnes/search-abonnes.component.ts</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="a29ee6a7f0eaaeced778322586d851965854ab17" datatype="html">
+        <source>Developpeur</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/abonnes/search-abonnes/search-abonnes.component.ts</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="e3fb7010365f27ac1b588a67c171c1dde30f4dd6" datatype="html">
+        <source>Cote d&apos;Ivoire</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/abonnes/search-abonnes/search-abonnes.component.ts</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="faca010a480d07901097b2e4f776b7fa4f973c20" datatype="html">
+        <source>France</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/abonnes/search-abonnes/search-abonnes.component.ts</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="af6f5079d73f89d7e50ca11d04e7c5a3d1299eb4" datatype="html">
+        <source>Etats Unis d&apos;Amérique</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/abonnes/search-abonnes/search-abonnes.component.ts</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="a74db487f1577ddd1bb97940a9f18b8bbe2a1742" datatype="html">
+        <source>Rechercher</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/abonnes/search-abonnes/search-abonnes.component.ts</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="b97ecb3d1f44497cdcd765e8159a1e7b543cdae2" datatype="html">
+        <source> Contacter</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/abonnes/profil-abonne/profil-abonne.component.ts</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/layout-compte/layout-compte.component.ts</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="bd8d636e7a3416b46ba745666818de52884d99d6" datatype="html">
+        <source> Discuter</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/abonnes/profil-abonne/profil-abonne.component.ts</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/layout-compte/layout-compte.component.ts</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="551ea091ed0050e23af403d443f06ddab80b30d9" datatype="html">
+        <source>
+                    <x id="INTERPOLATION" equiv-text="{{abonne?.membre?.cvPersonne?.specialite}}"/> <x id="INTERPOLATION_1" equiv-text="{{abonne?.membre?.cvPersonne?.anneExperience}}"/> d&apos;espériences
+                  </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/abonnes/profil-abonne/profil-abonne.component.ts</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9e62c46c5e9592f2a13cc4243f4e8428a79aca81" datatype="html">
+        <source> Bio</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/abonnes/profil-abonne/profil-abonne.component.ts</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8b6224e89e3e3a2fa2fe6efdb581071690659756" datatype="html">
+        <source>Biographie</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/abonnes/profil-abonne/profil-abonne.component.ts</context>
+          <context context-type="linenumber">39</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="96b677e870d5500c975c032ae711d47ee51e7dc4" datatype="html">
+        <source> Expérience</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/abonnes/profil-abonne/profil-abonne.component.ts</context>
+          <context context-type="linenumber">46</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ec54498bd161e7fb9e999415ec0a8494e676e064" datatype="html">
+        <source>expérince</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/abonnes/profil-abonne/profil-abonne.component.ts</context>
+          <context context-type="linenumber">49</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="f994a913628c77ae8850a70900e2fc569d755b66" datatype="html">
+        <source> Formation</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/abonnes/profil-abonne/profil-abonne.component.ts</context>
+          <context context-type="linenumber">56</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="206ee6bdf57aa68081e592fa8303bd7b20579a90" datatype="html">
+        <source>Formations</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/abonnes/profil-abonne/profil-abonne.component.ts</context>
+          <context context-type="linenumber">59</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/abonnes/profil-abonne/profil-abonne.component.ts</context>
+          <context context-type="linenumber">97</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="013b5c36aa7d946c1bc7ea993e9f0ec6934eee10" datatype="html">
+        <source> Documents</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/abonnes/profil-abonne/profil-abonne.component.ts</context>
+          <context context-type="linenumber">68</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/abonnes/profil-abonne/profil-abonne.component.ts</context>
+          <context context-type="linenumber">103</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="014c4924402bc5ca8e7c5276862e7d4ceacdd1a1" datatype="html">
+        <source>documents</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/abonnes/profil-abonne/profil-abonne.component.ts</context>
+          <context context-type="linenumber">71</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="88d542c0cac62789baa446ac586dafc3b58faae4" datatype="html">
+        <source> Présentation</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/abonnes/profil-abonne/profil-abonne.component.ts</context>
+          <context context-type="linenumber">80</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="b97bc0089c2a145bac9837d1eb0b04b9ebcc6fce" datatype="html">
+        <source>Présentation</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/abonnes/profil-abonne/profil-abonne.component.ts</context>
+          <context context-type="linenumber">83</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="f994175a532d3fedf96e4ffb30dd023afcea219f" datatype="html">
+        <source>Chiffres</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/abonnes/profil-abonne/profil-abonne.component.ts</context>
+          <context context-type="linenumber">85</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9f9bfa4a3980b094a7cc8b071e1369e2a44bac48" datatype="html">
+        <source>Parténaires</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/abonnes/profil-abonne/profil-abonne.component.ts</context>
+          <context context-type="linenumber">87</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="61249a5c8717ebacfe550bb21f1c67f07cb89f59" datatype="html">
+        <source> Formations</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/abonnes/profil-abonne/profil-abonne.component.ts</context>
+          <context context-type="linenumber">94</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="374fa86a4b3f1afa8e652b516dd7fecb4f4a207d" datatype="html">
+        <source>Document</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/abonnes/profil-abonne/profil-abonne.component.ts</context>
+          <context context-type="linenumber">106</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cec82413a3ccbdad5b2d0e3a88b255dfb11e38b5" datatype="html">
+        <source>Dans ce réseau</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/abonnes/profil-abonne/profil-abonne.component.ts</context>
+          <context context-type="linenumber">114</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="b26958ae42fb2e58f34850ef1d6891f7123e4717" datatype="html">
+        <source>Une offre parfaite pour votre activité</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/abonnements/prix/prix.component.ts</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="516012bdd9569512f4d0fa9fbeb9f0d3089efb2e" datatype="html">
+        <source>Choisissez le type compte que vous voulez</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/abonnements/prix/prix.component.ts</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="349487704e8dd54d1fc97c43f735d8809aa2fdde" datatype="html">
+        <source>Payer</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/abonnements/prix/prix.component.ts</context>
+          <context context-type="linenumber">45</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/paiement/formules/formule.component.ts</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="63dca5ef9cfe8792753f65900211746ba64eca13" datatype="html">
+        <source>lorem ipsum back dolor. lorem ipsum back dolor. lorem ipsum back dolor. lorem ipsum back dolor. lorem ipsum back dolor.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/single-block/single-block.component.ts</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="0055ddf7b4755e297dcb4591b515f0aae2594734" datatype="html">
+        <source>S&apos;abonner</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/single-block/single-block.component.ts</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/comp/admin-block/admin-block.component.ts</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="c3f8c8be1c058cba6d768a702a627a09068b19f7" datatype="html">
+        <source><x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/>+<x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"/>LISTE DES ELEMENTS DU PANIER (<x id="INTERPOLATION" equiv-text="{{this.panier.countPanier}}"/> espace.s)</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/panier-view/panier-view.component.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3ec56f958cd385637ad21cbd0f6551739f903f40" datatype="html">
+        <source> Continuez vos achats</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/panier-view/panier-view.component.ts</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/panier-view/panier-view.component.ts</context>
+          <context context-type="linenumber">56</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="34ae5dd160c0ec66cee55cc6e5fb8b905e0ff612" datatype="html">
+        <source> Finalisez</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/panier-view/panier-view.component.ts</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/panier-view/panier-view.component.ts</context>
+          <context context-type="linenumber">57</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="45cc8ca94b5a50842a9a8ef804a5ab089a38ae5c" datatype="html">
+        <source>ID</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/panier-view/panier-view.component.ts</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="e811b6a2c65a70571235f9378fce9f9395675b41" datatype="html">
+        <source>Libellé</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/panier-view/panier-view.component.ts</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="a5f9ba9bb9faa8284bcadb1cdbc6aaf969e9c4bb" datatype="html">
+        <source>Image</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/panier-view/panier-view.component.ts</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/espace-ecole/entete-ecole/entete-ecole.component.ts</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ac0d6812963be073dd69ed4976e8f61da7354f14" datatype="html">
+        <source>Quantité</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/panier-view/panier-view.component.ts</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="21fded46b491c78ba3517620dccc07ea6bb4054e" datatype="html">
+        <source>Prix</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/panier-view/panier-view.component.ts</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2f933b826a570836cab04f683970a2d22068458c" datatype="html">
+        <source>Date</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/panier-view/panier-view.component.ts</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/messagerie/liste-message/liste-message.component.ts</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/espace-ecole/flash-info-ecole/flash-info-ecole.component.ts</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1bd5e17c9582661e20763a7634ef07881e33bbd7" datatype="html">
+        <source>Action</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/panier-view/panier-view.component.ts</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4e4c08223335a3b26e1da0fe4685c6f66c926a33" datatype="html">
+        <source>chargement en cours...</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/panier-view/panier-view.component.ts</context>
+          <context context-type="linenumber">42</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="af0a88ddd95585e79e7d443e4affa306f3362d31" datatype="html">
+        <source>Aucun element trouvé dans votre panier <x id="START_LINK" ctype="x-a" equiv-text="&lt;a&gt;"/> cliquer ici pour effectuer un ajout.<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/panier-view/panier-view.component.ts</context>
+          <context context-type="linenumber">46</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7a31c8e6e8c21f25412332dc786ce562c37aeb4a" datatype="html">
+        <source>Total : <x id="INTERPOLATION" equiv-text="{{prix}}"/> F cfa</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/panier-view/panier-view.component.ts</context>
+          <context context-type="linenumber">51</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="982fd779c5b2f5e8bb9f7fd8813cc01bbb4070c9" datatype="html">
+        <source>Voir d&apos;autre block similaire </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/panier-view/panier-view.component.ts</context>
+          <context context-type="linenumber">65</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="54fcc27a24176df03909f6ff1b86b5e83292fc4c" datatype="html">
+        <source><x id="INTERPOLATION" equiv-text="{{abonne?.membre?.cvPersonne?.anneExperience}}"/> d&apos;expérience</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/abonnes/abonne/abonne.component.ts</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="19abb683d505ad4f5e0959c18e9310b8f7c55290" datatype="html">
+        <source>Français</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/abonnes/abonne/abonne.component.ts</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="994363f08f9fbfa3b3994ff7b35c6904fdff18d8" datatype="html">
+        <source>Profile</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/abonnes/abonne/abonne.component.ts</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/ecole/single-ecole/single-ecole.component.ts</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="fd22bf1eeaa80bb13b861bf6346378700e2274b8" datatype="html">
+        <source>Contacter</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/abonnes/abonne/abonne.component.ts</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/ecole/single-ecole/single-ecole.component.ts</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6f7aa972c010a350799c5950aa43cfbc4cac1d3b" datatype="html">
+        <source>A propos de vous</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/abonnes/profil/bio-profil/bio-profil.component.ts</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="79409027481ca1c189e7b1a0f97d8c7fedafad3c" datatype="html">
+        <source>Spécialités</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/abonnes/profil/bio-profil/bio-profil.component.ts</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ab4e57c9d30cbaed9e2a83f5e493f289e021b6c4" datatype="html">
+        <source>Dernier diplôme</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/abonnes/profil/bio-profil/bio-profil.component.ts</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="e1591373fb5bede7f78bef6502244367de03a9da" datatype="html">
+        <source>Lieu de résidence</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/abonnes/profil/bio-profil/bio-profil.component.ts</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3e55a7eb29c4f5d695f0d8a6715dfded660c97a7" datatype="html">
+        <source>Langues</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/abonnes/profil/bio-profil/bio-profil.component.ts</context>
+          <context context-type="linenumber">40</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="07b4ea05ce3d89216ed5c0a9a698df2906d95292" datatype="html">
+        <source>Type de contrat souhaité</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/abonnes/profil/bio-profil/bio-profil.component.ts</context>
+          <context context-type="linenumber">48</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="a7a36b700d617bb7ca3b2617767fecd5275bae3b" datatype="html">
+        <source>Période de contrat souhaité</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/abonnes/profil/bio-profil/bio-profil.component.ts</context>
+          <context context-type="linenumber">52</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="b2c3bfecee3be3f03181c7ac6f980346611aead6" datatype="html">
+        <source>Disponibilité</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/abonnes/profil/bio-profil/bio-profil.component.ts</context>
+          <context context-type="linenumber">56</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="97ebf816b0534c6dc9df372c05607ab62294c557" datatype="html">
+        <source>Publicité 2</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/ecole/categorie-ecole/categorie-ecole.component.ts</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="78f1f64c69d6b1b1afe5be3ee095ea36f58c669f" datatype="html">
+        <source>Publicité 3</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/ecole/categorie-ecole/categorie-ecole.component.ts</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6b7582366c9aefb0bf47dbb66756ca97f7f538cf" datatype="html">
+        <source>Publicité 4</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/ecole/categorie-ecole/categorie-ecole.component.ts</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3ff0d8cf51f404f3bd0ade358eb34dd0f92943d7" datatype="html">
+        <source>Publicité 5</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/ecole/categorie-ecole/categorie-ecole.component.ts</context>
+          <context context-type="linenumber">42</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="91f3f640b8042896fc638c2525636a7af264cca4" datatype="html">
+        <source>Flash Info</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/ecole/page-ecole/page-ecole.component.ts</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="a0a48a915b204fffee36ca94b3ce2946ba8f22c5" datatype="html">
+        <source><x id="INTERPOLATION" equiv-text="{{abn?.membre?.cvPersonne?.anneExperience}}"/> d&apos;expérience </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/site/abonnes/abonne-special/abonne-special.component.ts</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="57d8aeac6637ad38ed7ce0c645ebc651ae88e1c0" datatype="html">
+        <source>Liste
+        Membres  <x id="INTERPOLATION" equiv-text="{{userFilter.nomComplet}}"/>
+      </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/chatroom2/chatroom2.component.ts</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="20b01da5ea380d8c0b144b3767607a7feba1ee1e" datatype="html">
+        <source>Aucune description Pour ce
+            membre</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/chatroom2/chatroom2.component.ts</context>
+          <context context-type="linenumber">46</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dbc902bd61c11c19f875c8a3aa8bfc42b9eebd95" datatype="html">
+        <source>Aucun Elements trouvé!</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/chatroom2/chatroom2.component.ts</context>
+          <context context-type="linenumber">54</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="62eca38965e229ffb346ff492a097414287ee30a" datatype="html">
+        <source><x id="INTERPOLATION" equiv-text="{{named}}"/>
+          <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/><x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/><x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;"/>
+          <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> Connecté
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/chatroom2/chatroom2.component.ts</context>
+          <context context-type="linenumber">76</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="d3bd7dbec5b341a138be9b5032faa10b72d9da66" datatype="html">
+        <source> Salut, <x id="INTERPOLATION" equiv-text="{{named}}"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/chatroom2/chatroom2.component.ts</context>
+          <context context-type="linenumber">87</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="0b02131736a2c915f91fa0af8a7f6340e1d50ed6" datatype="html">
+        <source>
+				le <x id="INTERPOLATION" equiv-text="{{a.Date_s}}"/>
+                  <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/><x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/>
+                  <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/><x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/>
+                </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/chatroom2/chatroom2.component.ts</context>
+          <context context-type="linenumber">116</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="03938429aaee93247ad63449348b891f59df38ff" datatype="html">
+        <source>
+				le <x id="INTERPOLATION" equiv-text="{{a.Date_s}}"/>
+                  <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/><x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/>
+                  <x id="START_TAG_SPAN_1" ctype="x-span" equiv-text="&lt;span&gt;"/><x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/>
+                </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/chatroom2/chatroom2.component.ts</context>
+          <context context-type="linenumber">140</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2f1748268e779623f6963a3045cd01552984445c" datatype="html">
+        <source> Salut, Vous êtes sur la platforme de messagerie de toget.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/chatroom2/chatroom2.component.ts</context>
+          <context context-type="linenumber">187</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="27ac617cfa97a50c86857cc56601920856e41b75" datatype="html">
+        <source>
+				Voir détails
+			</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/comp/widget-info/widget-info.component.ts</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6bec7734cb3740b324966b003c0f45f0148a70e8" datatype="html">
+        <source>search</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/comp/admin-table/admin-table.component.ts</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="f383d438b8446c422d07038f2c3fd61cbd46125a" datatype="html">
+        <source>copier</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/comp/admin-table/admin-table.component.ts</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="475f1f4f099c50ccc75c48924e1b4ddef6545753" datatype="html">
+        <source>excel</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/comp/admin-table/admin-table.component.ts</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="79cf1fea631d82b100edc05ad1c61a7acd950fba" datatype="html">
+        <source>pdf</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/comp/admin-table/admin-table.component.ts</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="f217fae457781f1346742baf738a372d579154b2" datatype="html">
+        <source>imprimer</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/comp/admin-table/admin-table.component.ts</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="164205827fc085ee392bcd80e71059b0cb79c1f6" datatype="html">
+        <source>Nouvelle formule</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/comp/admin-tarifs/admin-tarifs.component.ts</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="040988d2f474361d181163fff9da9d1098ac2da3" datatype="html">
+        <source>Choisir un espace</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/paiement/block/block.component.ts</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2b0ba036e06b5ebb25b628ad978afa3365c9a463" datatype="html">
+        <source>Suivant</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/paiement/block/block.component.ts</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="28f22b53b57abdf60f7571f4626c295112a25c57" datatype="html">
+        <source><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> Modifier la photo de couverture</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/comp/cover-profil/cover-profil.component.ts</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="53632064178af3b9c550dc21c5314402a7ba0cc5" datatype="html">
+        <source><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> Voir votre profil</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/comp/cover-profil/cover-profil.component.ts</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8db72542e978f4bdbd47016a3e79ec9f084b368f" datatype="html">
+        <source>Tous</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/messagerie/liste-message/liste-message.component.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4bd32e0c5d00d47ec01f9d3a2fe03d234f53d33e" datatype="html">
+        <source>Objet</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/messagerie/liste-message/liste-message.component.ts</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="59e2cce5bf230437c69524967f3f4a72d3965dd7" datatype="html">
+        <source>Expediteur</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/messagerie/liste-message/liste-message.component.ts</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="22365abd43c2ff2a66c71ec47d198d144da198b1" datatype="html">
+        <source>Répondre </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/messagerie/view-message/view-message.component.ts</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="996b72346b0a163729da942b55f7ecebadea29dd" datatype="html">
+        <source>Supprimer </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/messagerie/view-message/view-message.component.ts</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="89db9df38bb8f0d19eff7b58ddb8be551e0e48ad" datatype="html">
+        <source>
+          <x id="TAG_IMG" ctype="image" equiv-text="&lt;img/&gt;"/> 
+          <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/><x id="INTERPOLATION" equiv-text="{{message.expediteur.nom}}"/><x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/> (<x id="INTERPOLATION_1" equiv-text="{{message.expediteur.email}}"/>) to <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/>me<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/> 
+          <x id="START_EMPHASISED_TEXT" ctype="x-em" equiv-text="&lt;em&gt;"/><x id="INTERPOLATION_2" equiv-text="{{message.message.date|date:&apos;dd-MM-y&apos;}}"/> à <x id="INTERPOLATION_3" equiv-text="{{message.message.date|date:&apos;HH:mm:ss&apos;}}"/><x id="CLOSE_EMPHASISED_TEXT" ctype="x-em" equiv-text="&lt;/em&gt;"/> 
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/messagerie/view-message/view-message.component.ts</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1571097c46b9097347a57619216e8f05a8ea61d4" datatype="html">
+        <source>Répondre</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/messagerie/repondre-message/repondre-message.component.ts</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="84bfc121882e1866b0ca24270104a4e17a9a776c" datatype="html">
+        <source>Boite de réception</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/messagerie/layout-message/layout-message.component.ts</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="a647ba5004a3a0801ad787cd39b6a448def7bcc2" datatype="html">
+        <source>Messages Envoyées</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/messagerie/layout-message/layout-message.component.ts</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2d3121b7e4cfa1a0689d61e9a3bab7f98abc33be" datatype="html">
+        <source>Mes Contacts</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/messagerie/layout-message/layout-message.component.ts</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ccbf55c667b561bbb8b5d4de973da6d5f1c6f33a" datatype="html">
+        <source>
+			Editer mon espace
+		</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/paiement/espace/espace.component.ts</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8e0bd8d6fdc8bdf7908311e003053b904f942c3c" datatype="html">
+        <source>
+			Se réabonner
+		</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/paiement/espace/espace.component.ts</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="a4179dfcd78cace8b98cdeb5a74ef60ea2360163" datatype="html">
+        <source>Photo</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/details-compte/details-compte.component.ts</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/modif-photo/modif-photo.component.ts</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7b4bac28c667da22883b78bdccc157f60550b740" datatype="html">
+        <source><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/>  Changer photo</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/details-compte/details-compte.component.ts</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="c94173de4171d3ef9ec657b243574e389c89a391" datatype="html">
+        <source>Informations personnelles</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/details-compte/details-compte.component.ts</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/info-perso/info-perso.component.ts</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="01afa66a69c6cf5671972200a4e4e2720815b344" datatype="html">
+        <source>Nom</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/details-compte/details-compte.component.ts</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4d32ef249bf7d06b6d634ff56994125d6164d06e" datatype="html">
+        <source>Prénom(s)</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/details-compte/details-compte.component.ts</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="b2bb7b4de36c523a655fb05046016f20432eeefe" datatype="html">
+        <source>Date de naissance <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/>(*)<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/details-compte/details-compte.component.ts</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3ceab05def79b67b92d1ac986f20ccfb0f4d633b" datatype="html">
+        <source>Genre <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/>(*)<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/details-compte/details-compte.component.ts</context>
+          <context context-type="linenumber">42</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="fcc8094faf826434c55b225c6d17d5b6e35729ce" datatype="html">
+        <source>Langue(s) parlée(s) <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/>(*)<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/details-compte/details-compte.component.ts</context>
+          <context context-type="linenumber">46</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3653c073b4d13e4dd2102157ff8a9d0908938ef1" datatype="html">
+        <source>Pays <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/>(*)<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/details-compte/details-compte.component.ts</context>
+          <context context-type="linenumber">52</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="b55c73c9a72989148ce4b995834ff07c999bd717" datatype="html">
+        <source>Ville</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/details-compte/details-compte.component.ts</context>
+          <context context-type="linenumber">56</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="71134e1f8e386768460814d4d54b826ea9e1790a" datatype="html">
+        <source>Adresse</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/details-compte/details-compte.component.ts</context>
+          <context context-type="linenumber">60</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="f4753d99682179b036b9704d4c3b758103e25db2" datatype="html">
+        <source>Telephone</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/details-compte/details-compte.component.ts</context>
+          <context context-type="linenumber">64</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="06db86bb38629e887a925dad4deceff2df584f46" datatype="html">
+        <source>Réseaux Sociaux</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/details-compte/details-compte.component.ts</context>
+          <context context-type="linenumber">75</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/social/social.component.ts</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="838a46816b130c73fe73b96e69176da9eb3b1190" datatype="html">
+        <source>Facebook</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/details-compte/details-compte.component.ts</context>
+          <context context-type="linenumber">77</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/social/social.component.ts</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="99cb827741e93125476a0f5b676372d85d15b5fc" datatype="html">
+        <source>Twitter</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/details-compte/details-compte.component.ts</context>
+          <context context-type="linenumber">88</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/social/social.component.ts</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6ff575335272d7e0a6843ba597216f8201b57991" datatype="html">
+        <source>Google+</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/details-compte/details-compte.component.ts</context>
+          <context context-type="linenumber">99</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/social/social.component.ts</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ebfbfc7a12926b50cc536753cf03fd1471b89e07" datatype="html">
+        <source>Linkedin</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/details-compte/details-compte.component.ts</context>
+          <context context-type="linenumber">110</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/social/social.component.ts</context>
+          <context context-type="linenumber">41</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="95eafdc4ec7e3f3e3e4a307f2a8f6dd062967964" datatype="html">
+        <source>Dribbble</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/details-compte/details-compte.component.ts</context>
+          <context context-type="linenumber">121</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/social/social.component.ts</context>
+          <context context-type="linenumber">52</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4708ddc46c263ad595cd4711e2e7467a917dcd13" datatype="html">
+        <source>Skype</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/details-compte/details-compte.component.ts</context>
+          <context context-type="linenumber">132</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/social/social.component.ts</context>
+          <context context-type="linenumber">63</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ba576f10f1678c06b1c4e2e9693d9f99360d82e6" datatype="html">
+        <source>Informations Professionnelles</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/details-compte/details-compte.component.ts</context>
+          <context context-type="linenumber">144</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/info-pro/info-pro.component.ts</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/espace-competence/cv-competence/cv-competence.component.ts</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="05cebb19d780371b1f30bd817774d9bd3ebc64dd" datatype="html">
+        <source>Vous êtes <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/>(*)<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/details-compte/details-compte.component.ts</context>
+          <context context-type="linenumber">148</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/info-pro/info-pro.component.ts</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="e05b75359488b6339381ffbbb5ff42dd91e636c9" datatype="html">
+        <source>Fonction Actuelle <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/>(*)<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/details-compte/details-compte.component.ts</context>
+          <context context-type="linenumber">152</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/info-pro/info-pro.component.ts</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9124a9458980fc08df55b9b8a20c1468cd7714dd" datatype="html">
+        <source>Année d&apos;expérience <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/>(*)<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/details-compte/details-compte.component.ts</context>
+          <context context-type="linenumber">156</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/info-pro/info-pro.component.ts</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ba76fec9c402e357c2371d28ef9151a190a26b84" datatype="html">
+        <source>Domaine <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/>(*)<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/details-compte/details-compte.component.ts</context>
+          <context context-type="linenumber">160</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/info-pro/info-pro.component.ts</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cdb336dafc11cc4ff38b9b4ab3f9f470e2a71ee0" datatype="html">
+        <source>Spécialité <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/>(*)<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/details-compte/details-compte.component.ts</context>
+          <context context-type="linenumber">164</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/info-pro/info-pro.component.ts</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="f5717a3a64dd0323a51ed006b339ab8fc182c641" datatype="html">
+        <source>Autre(s) Spécialité(s)</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/details-compte/details-compte.component.ts</context>
+          <context context-type="linenumber">168</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/info-pro/info-pro.component.ts</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="a3ba2b37e26501c3d0c3c4afbf495cd293310234" datatype="html">
+        <source>Dernier diplôme <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/>(*)<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/details-compte/details-compte.component.ts</context>
+          <context context-type="linenumber">174</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/info-pro/info-pro.component.ts</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9794d7aac02eba41462b895bc9f6010f5ffee181" datatype="html">
+        <source>Type de contrat <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/>(*)<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/details-compte/details-compte.component.ts</context>
+          <context context-type="linenumber">178</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/info-pro/info-pro.component.ts</context>
+          <context context-type="linenumber">40</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2eb2a0aaaca7ea1fd650c8e21195cbc9030702cb" datatype="html">
+        <source>Durée du contrat <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/>(*)<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/details-compte/details-compte.component.ts</context>
+          <context context-type="linenumber">182</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/info-pro/info-pro.component.ts</context>
+          <context context-type="linenumber">44</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="61b6813cc2c1da64f9f54484aac977d39868f55c" datatype="html">
+        <source>CV</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/details-compte/details-compte.component.ts</context>
+          <context context-type="linenumber">187</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/cv/cv.component.ts</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8000107ed811947faeb0d0767a12380608c5c743" datatype="html">
+        <source>Telecharger CV</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/details-compte/details-compte.component.ts</context>
+          <context context-type="linenumber">189</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/cv/cv.component.ts</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7146f4f968ec922c64929db0d785277ada26c02e" datatype="html">
+        <source>Motivations</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/details-compte/details-compte.component.ts</context>
+          <context context-type="linenumber">193</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/cv/cv.component.ts</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="b0addc99b418d0da0628da492bcd0c9ab88c32c4" datatype="html">
+        <source><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/>  Mettre à jours</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/details-compte/details-compte.component.ts</context>
+          <context context-type="linenumber">200</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/info-pro/info-pro.component.ts</context>
+          <context context-type="linenumber">53</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/social/social.component.ts</context>
+          <context context-type="linenumber">78</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/espace-competence/cv-competence/cv-competence.component.ts</context>
+          <context context-type="linenumber">150</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="88d66334e91cf47969d5edf9977b8ec776659d35" datatype="html">
+        <source>Accès au compte</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/auth-compte/auth-compte.component.ts</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6e8f749446653367bbee34475062f8edf703c3b8" datatype="html">
+        <source>Adresse electronique</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/auth-compte/auth-compte.component.ts</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7e53308554a4dd536132ff233f0af5f227192a16" datatype="html">
+        <source>Nouveau mot de passe</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/auth-compte/auth-compte.component.ts</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="d7f3ba7ce44ecc25e37d1d55a5d7f6bbf5e750fd" datatype="html">
+        <source>Confirmer le mot de passe</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/auth-compte/auth-compte.component.ts</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9b51452baa55c758e377f734ee562e44ae67b317" datatype="html">
+        <source>Entrer les Adresses</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/info-perso/info-perso.component.ts</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="74ca7ef523cbc2a2de9f1077dece645b5626158d" datatype="html">
+        <source>Les contacts</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/info-perso/info-perso.component.ts</context>
+          <context context-type="linenumber">61</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="33f1209c051170af3cbf745094c38685dc512615" datatype="html">
+        <source>Saisir les contacts</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/info-perso/info-perso.component.ts</context>
+          <context context-type="linenumber">62</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="a1e68ffbfca1579b7956268d20fb2b94976ecc4b" datatype="html">
+        <source>
+                      Telephone #<x id="INTERPOLATION" equiv-text="{{i+1}}"/>
+                    </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/info-perso/info-perso.component.ts</context>
+          <context context-type="linenumber">67</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="85adc12593a5b655316936ea895dd0bc58b79f00" datatype="html">
+        <source>Les langues</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/info-perso/info-perso.component.ts</context>
+          <context context-type="linenumber">102</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="634068810da928aead3a2ddf2692b753089c4446" datatype="html">
+        <source>Saisir vos langues</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/info-perso/info-perso.component.ts</context>
+          <context context-type="linenumber">103</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="e0f32855bebf052e3141cab666048e31e8edaa1c" datatype="html">
+        <source>
+                      Langue #<x id="INTERPOLATION" equiv-text="{{i+1}}"/>
+                    </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/info-perso/info-perso.component.ts</context>
+          <context context-type="linenumber">108</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8ca4257addac5dc119684ea4ed521fb8e68fcbf8" datatype="html">
+        <source>Ajout Langue
+                  </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/info-perso/info-perso.component.ts</context>
+          <context context-type="linenumber">134</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="b945a6976c4bb9c00cdd5507e0f4f6a5c479402d" datatype="html">
+        <source><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/>  Mettre à jours le compte</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/info-perso/info-perso.component.ts</context>
+          <context context-type="linenumber">145</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="bc4fbe494059e7fcd10b8be7eb8f69ae97325ca5" datatype="html">
+        <source>
+		      <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/>  
+		      Mon ecole
+		    </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/espace-ecole/layout-ecole/layout-ecole.component.ts</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3e4a027f93a8929e69e0261606eeff28d479efe1" datatype="html">
+        <source>
+		      <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/>  
+		      Entête de page
+		    </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/espace-ecole/layout-ecole/layout-ecole.component.ts</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9b9e85afa32647f52b43a1856b9e99dd6d5c359f" datatype="html">
+        <source>
+		      <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/>  
+		      Flash info
+		    </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/espace-ecole/layout-ecole/layout-ecole.component.ts</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="45d52462002bedceef6fdeffd0eb0715e5398d8f" datatype="html">
+        <source>
+		      <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/>  
+		      Mes formations
+		    </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/espace-ecole/layout-ecole/layout-ecole.component.ts</context>
+          <context context-type="linenumber">44</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2260bcd33ff0f6cc3055d4ca31e6be39cedc2905" datatype="html">
+        <source>
+		      <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/>  
+		      Mes documents
+		    </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/espace-ecole/layout-ecole/layout-ecole.component.ts</context>
+          <context context-type="linenumber">54</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="b8fbb40703a6057ea0cbaf589e4b5e41ec7e7e30" datatype="html">
+        <source>
+		      <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/>  
+		      Mes photos
+		    </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/espace-ecole/layout-ecole/layout-ecole.component.ts</context>
+          <context context-type="linenumber">64</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="592b0496a0302134bd34225f550f892843734466" datatype="html">
+        <source>
+				      <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/>  
+				      Curriculum vitae
+				    </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/espace-competence/layout-competence/layout-competence.component.ts</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="a31e57d3ecb9a3efdd6a5884c5fa134e99a0608f" datatype="html">
+        <source>
+				      <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/>  
+				      Formations
+				    </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/espace-competence/layout-competence/layout-competence.component.ts</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1dd41380f4b9f30a99fdc70c6f77afeb9657d510" datatype="html">
+        <source>
+				      <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/>  
+				      Expériences
+				    </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/espace-competence/layout-competence/layout-competence.component.ts</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="918af2cca615ca33f9818527a525e878f6260c58" datatype="html">
+        <source>
+				      <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/>  
+				      Documents
+				    </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/espace-competence/layout-competence/layout-competence.component.ts</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8aa969e69241c7c5838b40348f913519d6349371" datatype="html">
+        <source>Ajouter</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/espace-competence/formation-competence/formation-competence.component.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/espace-competence/experience-competence/experience-competence.component.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/espace-ecole/mon-ecole/mon-ecole.component.ts</context>
+          <context context-type="linenumber">102</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/espace-ecole/mon-ecole/mon-ecole.component.ts</context>
+          <context context-type="linenumber">138</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/espace-ecole/mon-ecole/mon-ecole.component.ts</context>
+          <context context-type="linenumber">169</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/espace-ecole/formation-ecole-add/formation-ecole-add.component.ts</context>
+          <context context-type="linenumber">116</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/espace-ecole/formation-ecole-update/formation-ecole-update.component.ts</context>
+          <context context-type="linenumber">116</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5bce6d5a3e7038f2725fc79802f9a6d4c63a6a40" datatype="html">
+        <source>Formation</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/espace-competence/formation-competence/formation-competence.component.ts</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="790ef0c5010aa50342bc07d715dd1a96ffe2df1e" datatype="html">
+        <source><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/>  Mettre à jour</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/espace-competence/formation-competence/formation-competence.component.ts</context>
+          <context context-type="linenumber">80</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/espace-competence/experience-competence/experience-competence.component.ts</context>
+          <context context-type="linenumber">83</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="53c791780896b392cbd52949c5a2846ad45e5182" datatype="html">
+        <source>Expériences</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/espace-competence/experience-competence/experience-competence.component.ts</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="fb1dbbc7a12da3089f6d4b9845f3bedf1e629517" datatype="html">
+        <source>Enregistrer les informations de votre fichier</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/espace-competence/document-add/document-add.component.ts</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="bdf772ecd30327d09cb9bb8006b2ec5ee6b529aa" datatype="html">
+        <source>Selectionnez le fichier</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/espace-competence/document-add/document-add.component.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ed4e9803a21e1ebd2da72379252b471d64eda506" datatype="html">
+        <source>Enregistrer</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/espace-competence/document-add/document-add.component.ts</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/espace-ecole/mon-ecole/mon-ecole.component.ts</context>
+          <context context-type="linenumber">209</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/espace-ecole/flash-info-add/flash-info-add.component.ts</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/espace-ecole/flash-info-update/flash-info-update.component.ts</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="622c8cdb03ed166e3e1b652021cf0992cb26bc18" datatype="html">
+        <source>Titre</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/espace-competence/documents-competence/documents-competence.component.ts</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="eec715de352a6b114713b30b640d319fa78207a0" datatype="html">
+        <source>Description</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/espace-competence/documents-competence/documents-competence.component.ts</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/espace-ecole/formation-ecole-view/formation-ecole-view.component.ts</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="030b4423b92167200e39519599f9b863b4f7c62c" datatype="html">
+        <source>Actions</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/espace-competence/documents-competence/documents-competence.component.ts</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/espace-ecole/flash-info-ecole/flash-info-ecole.component.ts</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="e546b57cc4bdce5984fd59981cc7ee94077446a5" datatype="html">
+        <source>
+		      Informations Personnelles
+		    </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/espace-ecole/mon-ecole/mon-ecole.component.ts</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5392149aadf7d73c6427b6f4b905e9a9fb6b6768" datatype="html">
+        <source>Ajouter téléphone</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/espace-ecole/mon-ecole/mon-ecole.component.ts</context>
+          <context context-type="linenumber">58</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2fa049f54199f7828956bc336005ae401cb67855" datatype="html">
+        <source>
+									Telephone #<x id="INTERPOLATION" equiv-text="{{i + 1}}"/>
+									<x id="START_TAG_MAT-FORM-FIELD" ctype="x-mat-form-field" equiv-text="&lt;mat-form-field&gt;"/>
+										<x id="START_TAG_MAT-SELECT" ctype="x-mat-select" equiv-text="&lt;mat-select&gt;"/>
+										    <x id="START_TAG_MAT-OPTION" ctype="x-mat-option" equiv-text="&lt;mat-option&gt;"/>
+										      <x id="INTERPOLATION_1" equiv-text="{{typ?.libelle}}"/>
+										    <x id="CLOSE_TAG_MAT-OPTION" ctype="x-mat-option" equiv-text="&lt;/mat-option&gt;"/>
+										  <x id="CLOSE_TAG_MAT-SELECT" ctype="x-mat-select" equiv-text="&lt;/mat-select&gt;"/>
+									<x id="CLOSE_TAG_MAT-FORM-FIELD" ctype="x-mat-form-field" equiv-text="&lt;/mat-form-field&gt;"/>
+								<x id="START_TAG_MAT-FORM-FIELD_1" ctype="x-mat-form-field" equiv-text="&lt;mat-form-field&gt;"/>
+									<x id="TAG_INPUT" ctype="x-input" equiv-text="&lt;input/&gt;"/>
+									<x id="START_TAG_BUTTON" ctype="x-button" equiv-text="&lt;button&gt;"/><x id="START_TAG_MAT-ICON" ctype="x-mat-icon" equiv-text="&lt;mat-icon&gt;"/>delete<x id="CLOSE_TAG_MAT-ICON" ctype="x-mat-icon" equiv-text="&lt;/mat-icon&gt;"/><x id="CLOSE_TAG_BUTTON" ctype="x-button" equiv-text="&lt;/button&gt;"/>
+								<x id="CLOSE_TAG_MAT-FORM-FIELD" ctype="x-mat-form-field" equiv-text="&lt;/mat-form-field&gt;"/>
+								</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/espace-ecole/mon-ecole/mon-ecole.component.ts</context>
+          <context context-type="linenumber">62</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4bf281d9e0c1836991acaf0f2ddd2bd5dafea4c7" datatype="html">
+        <source>
+		      Présentation
+		    </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/espace-ecole/mon-ecole/mon-ecole.component.ts</context>
+          <context context-type="linenumber">85</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="10cba9197889a8e735853ada8c99a147d2b437b4" datatype="html">
+        <source>
+		        Chiffres
+		      </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/espace-ecole/mon-ecole/mon-ecole.component.ts</context>
+          <context context-type="linenumber">98</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cf8bc71255f80ba5a46c2ce61025c0b4ec6f2be3" datatype="html">
+        <source>
+									Chiffre #<x id="INTERPOLATION" equiv-text="{{i + 1}}"/>
+									<x id="START_TAG_BUTTON" ctype="x-button" equiv-text="&lt;button&gt;"/><x id="START_TAG_MAT-ICON" ctype="x-mat-icon" equiv-text="&lt;mat-icon&gt;"/>delete<x id="CLOSE_TAG_MAT-ICON" ctype="x-mat-icon" equiv-text="&lt;/mat-icon&gt;"/><x id="CLOSE_TAG_BUTTON" ctype="x-button" equiv-text="&lt;/button&gt;"/>									
+								</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/espace-ecole/mon-ecole/mon-ecole.component.ts</context>
+          <context context-type="linenumber">106</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="fdfbf248a9dcb907dabc992f8db3cf939c511c94" datatype="html">
+        <source>
+		        Partenaires
+		      </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/espace-ecole/mon-ecole/mon-ecole.component.ts</context>
+          <context context-type="linenumber">134</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="332cbed853e3b46390ebcf1b4f1e1e436c7f73a4" datatype="html">
+        <source>
+									Partenaire #<x id="INTERPOLATION" equiv-text="{{i + 1}}"/>
+									<x id="START_TAG_BUTTON" ctype="x-button" equiv-text="&lt;button&gt;"/><x id="START_TAG_MAT-ICON" ctype="x-mat-icon" equiv-text="&lt;mat-icon&gt;"/>delete<x id="CLOSE_TAG_MAT-ICON" ctype="x-mat-icon" equiv-text="&lt;/mat-icon&gt;"/><x id="CLOSE_TAG_BUTTON" ctype="x-button" equiv-text="&lt;/button&gt;"/>									
+								</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/espace-ecole/mon-ecole/mon-ecole.component.ts</context>
+          <context context-type="linenumber">142</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="64a21e0fe8e459f840e8618535f0cd79de116147" datatype="html">
+        <source>
+		        Témoignages
+		      </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/espace-ecole/mon-ecole/mon-ecole.component.ts</context>
+          <context context-type="linenumber">165</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="fbf5b1d2ecbdb04f1a6a0c488200bbfc0bd8e1df" datatype="html">
+        <source>
+									Temoignage #<x id="INTERPOLATION" equiv-text="{{i + 1}}"/>
+									<x id="START_TAG_BUTTON" ctype="x-button" equiv-text="&lt;button&gt;"/><x id="START_TAG_MAT-ICON" ctype="x-mat-icon" equiv-text="&lt;mat-icon&gt;"/>delete<x id="CLOSE_TAG_MAT-ICON" ctype="x-mat-icon" equiv-text="&lt;/mat-icon&gt;"/><x id="CLOSE_TAG_BUTTON" ctype="x-button" equiv-text="&lt;/button&gt;"/>									
+								</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/espace-ecole/mon-ecole/mon-ecole.component.ts</context>
+          <context context-type="linenumber">173</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="77a7f75121071d009d20dee321f374a024b58c4b" datatype="html">
+        <source>
+		        Adresse géographique
+		      </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/espace-ecole/mon-ecole/mon-ecole.component.ts</context>
+          <context context-type="linenumber">201</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1e97cea30006fd18e97abcf4271554e000aab238" datatype="html">
+        <source>Contenu</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/espace-ecole/flash-info-ecole/flash-info-ecole.component.ts</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="f35380bc8427f3bae4cbf0f066a7e022ad305168" datatype="html">
+        <source>Etat</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/espace-ecole/flash-info-ecole/flash-info-ecole.component.ts</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="42cf4a4b02e9e44e770d5e2a50050b788bfd55ed" datatype="html">
+        <source>
+					Dézolé. Aucune information trouvée.
+				</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/espace-ecole/flash-info-ecole/flash-info-ecole.component.ts</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="f54311e0217d996b9fbb81f4472a49ed47c6b48e" datatype="html">
+        <source>Ajouter un programme</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/espace-ecole/formation-ecole-add/formation-ecole-add.component.ts</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2a632c220df7563ecd691fb29bf91d9b60b46853" datatype="html">
+        <source>
+	        Informations sur la formation
+	      </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/espace-ecole/formation-ecole-add/formation-ecole-add.component.ts</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/espace-ecole/formation-ecole-update/formation-ecole-update.component.ts</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="fedd55ab2e309eeb28b8e91b6eb80546430b51e2" datatype="html">
+        <source>
+	        Cours dispensés
+	      </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/espace-ecole/formation-ecole-add/formation-ecole-add.component.ts</context>
+          <context context-type="linenumber">81</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/espace-ecole/formation-ecole-update/formation-ecole-update.component.ts</context>
+          <context context-type="linenumber">81</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="236bbc92dd8b51a20d41afe422cfce5d9d4668da" datatype="html">
+        <source>Ajouter un cours</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/espace-ecole/formation-ecole-add/formation-ecole-add.component.ts</context>
+          <context context-type="linenumber">88</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/espace-ecole/formation-ecole-update/formation-ecole-update.component.ts</context>
+          <context context-type="linenumber">88</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="669fdc6dcf729e517b1b99bb3d9b1f00b31e450e" datatype="html">
+        <source>Cours <x id="INTERPOLATION" equiv-text="{{i}}"/> <x id="START_TAG_BUTTON" ctype="x-button" equiv-text="&lt;button&gt;"/><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/><x id="CLOSE_TAG_BUTTON" ctype="x-button" equiv-text="&lt;/button&gt;"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/espace-ecole/formation-ecole-add/formation-ecole-add.component.ts</context>
+          <context context-type="linenumber">92</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/espace-ecole/formation-ecole-update/formation-ecole-update.component.ts</context>
+          <context context-type="linenumber">92</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7cd627c3c44d298da77c526a9371a0037b84f8f4" datatype="html">
+        <source>Titre du cours</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/espace-ecole/formation-ecole-add/formation-ecole-add.component.ts</context>
+          <context context-type="linenumber">98</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="411541e4831ff1250681bde7efc77494b8d22e64" datatype="html">
+        <source>Liste des cours</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/espace-ecole/formation-ecole-view/formation-ecole-view.component.ts</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2c765023f77351295cfc50d1de460f01f3c7204f" datatype="html">
+        <source>Modifier le programme</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/espace-ecole/formation-ecole-update/formation-ecole-update.component.ts</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="20feacc7e35ddeea64f2c9acdd8bd41da8cc5cd0" datatype="html">
+        <source>
+					Dézolé. Aucune formation trouvée.
+				</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/espace-ecole/formations-ecole/formations-ecole.component.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="a861a6f4f625699197283e051edc3c5f62f3af13" datatype="html">
+        <source><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/>  Choisir photo</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/modif-photo/modif-photo.component.ts</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/espace-ecole/modif-photo-ecole/modif-photo-ecole.component.ts</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5377f8956c553db6ff8fad6cfd1579cdeda6a251" datatype="html">
+        <source><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> Enregistrer photo</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/modif-photo/modif-photo.component.ts</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/espace-ecole/modif-photo-ecole/modif-photo-ecole.component.ts</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="d67a2dd95f2ad8c439263a739b302470a1cb891f" datatype="html">
+        <source><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> Annuler</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/modif-photo/modif-photo.component.ts</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/espace-ecole/modif-photo-ecole/modif-photo-ecole.component.ts</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="fbe643e184fd32deac15fb0d8b4e864ac457cf74" datatype="html">
+        <source><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>Charger vos images<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> <x id="START_SMALL_TEXT" ctype="x-small" equiv-text="&lt;small&gt;"/>WegetPro<x id="CLOSE_SMALL_TEXT" ctype="x-small" equiv-text="&lt;/small&gt;"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/gallery/matdiolog/imgloard/imgloard.component.ts</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="fbc05a6ef86e9a948c1a52b5b06298c838e2e51c" datatype="html">
+        <source>Aperçus des images </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/gallery/matdiolog/imgloard/imgloard.component.ts</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="590df13dfd8db070559c129bd586b866be8639e3" datatype="html">
+        <source> AVERTISSEMENT ! (WARNING)</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/gallery/matdiolog/imgloard/imgloard.component.ts</context>
+          <context context-type="linenumber">44</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/gallery/matdiolog/videoloard/videoloard.component.ts</context>
+          <context context-type="linenumber">52</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="11a2c3ee067f6e90b44321f1cfd9756d5a7f9dfe" datatype="html">
+        <source>
+				Si tout comportement ou post d&apos;un créateur Weget (en ligne et/ou en dehors de la plate-forme) nuit à nos utilisateurs, notre communauté ou notre écosystème, nous pouvons adopter un certain nombre de mesures, basées notamment sur le caractère flagrant des infractions et leur fréquence.
+				Les sanctions prévues vont de la suspension des privilèges du créateur à la fermeture de son compte.	
+				
+			</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/gallery/matdiolog/imgloard/imgloard.component.ts</context>
+          <context context-type="linenumber">45</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/gallery/matdiolog/videoloard/videoloard.component.ts</context>
+          <context context-type="linenumber">53</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="d607aba96b4e05f8f7bfa5d8e68929825a45cfcf" datatype="html">
+        <source>Annulé</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/gallery/matdiolog/imgloard/imgloard.component.ts</context>
+          <context context-type="linenumber">55</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/gallery/matdiolog/videoloard/videoloard.component.ts</context>
+          <context context-type="linenumber">63</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5203fc83f0b6e5dfdc228bda03753a2b8d0e828a" datatype="html">
+        <source> Uploader</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/gallery/matdiolog/imgloard/imgloard.component.ts</context>
+          <context context-type="linenumber">56</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/gallery/matdiolog/videoloard/videoloard.component.ts</context>
+          <context context-type="linenumber">64</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="eb7108e7b7e711835b87a15a7105324323040956" datatype="html">
+        <source><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>Charger votre Video<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> <x id="START_SMALL_TEXT" ctype="x-small" equiv-text="&lt;small&gt;"/>WegetPro<x id="CLOSE_SMALL_TEXT" ctype="x-small" equiv-text="&lt;/small&gt;"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/gallery/matdiolog/videoloard/videoloard.component.ts</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7106bfcc1e8a762ef57cc9ef26519d1024dede3a" datatype="html">
+        <source>Aperçus de la Video </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/gallery/matdiolog/videoloard/videoloard.component.ts</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cf3da87bd055f70b452680a4d9455c168f56fd40" datatype="html">
+        <source>Galerie Photos / videos</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/gallery/gallery.component.ts</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="247a9c80d4fbaec1ef10c64f49b2729efc0d8760" datatype="html">
+        <source>Mes photos (10)</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/gallery/gallery.component.ts</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="296b76a0097f3acfe33aa2326daf9e3c0e12579f" datatype="html">
+        <source> Mes videos (02)</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/gallery/gallery.component.ts</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="c8fde66a0022d09a6ec0d3844568e486381d797f" datatype="html">
+        <source>Albums</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/gallery/gallery.component.ts</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="bb3fbbf0984a452de4f8482863cb05ddc84f1278" datatype="html">
+        <source>Warn</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/gallery/gallery.component.ts</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="e1ec9749196346b5a9bd8047e3bcc60ada632666" datatype="html">
+        <source>Logo</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/espace-ecole/modif-photo-ecole/modif-photo-ecole.component.ts</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9ec731fd93786d7c7c1e2dc41116786132e01ad0" datatype="html">
+        <source>Group <x id="INTERPOLATION" equiv-text="{{is}}"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/gallery/all-gallery/all-gallery.component.ts</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="b41eb15af26aed715d353bc0b3811fee5a96663e" datatype="html">
+        <source>Titre de la photo <x id="INTERPOLATION" equiv-text="{{i + 1}}"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/compte/gallery/photos/photos.component.ts</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8ad68f623339374452dd68b49a9c9eb9a7888e2c" datatype="html">
+        <source>
+					Nouveau document
+					<x id="START_TAG_DIV" ctype="x-div" equiv-text="&lt;div&gt;"/>
+						<x id="START_TAG_MAT-ICON" ctype="x-mat-icon" equiv-text="&lt;mat-icon&gt;"/>clear<x id="CLOSE_TAG_MAT-ICON" ctype="x-mat-icon" equiv-text="&lt;/mat-icon&gt;"/>
+					<x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text="&lt;/div&gt;"/>
+				</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/comp/upload-doc/upload-doc.component.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6b41c331a4f99548b96aa352e5a13edc047584f4" datatype="html">
+        <source>Telecharger le document</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/comp/upload-doc/upload-doc.component.ts</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7ae8798e88d59a1e931d5b6c9e708a9efed827a5" datatype="html">
+        <source>
+						<x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/>  Envoyer
+					</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/admin/comp/upload-doc/upload-doc.component.ts</context>
+          <context context-type="linenumber">42</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

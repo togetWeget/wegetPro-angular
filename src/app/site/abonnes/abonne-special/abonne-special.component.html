@@ -1,0 +1,22 @@
+<mat-card class="ecole-card">
+	<a routerLink="." rel="bookmark" (click)="onViewProfileAbonne(abn);newview()"> 
+		<div class="imagebg" #imagebg></div>
+	</a>
+	<div class="ecole-card-image">
+	  	<div class="ecole-meta-holder">
+	    	<div class="ecole-status" title="Nombre de vue">
+	    		<span class="ecole-profile-views"><i class="fa fa-eye"></i>&nbsp;&nbsp;{{abn?.nombreVue}}</span> 
+	    	</div>          
+	  	</div>    
+	</div>
+	<mat-card-content class="ecole-card-content">
+	  	<div class="meta" > 
+	        
+	        <span class="ecole-pays" i18n>{{abn?.membre?.cvPersonne?.anneExperience}} d'expérience </span> 
+	  	</div>      
+	  	<div class="abonne-name">{{nomAffiche}}</div>
+	  	<div class="specialite">
+	  		{{abn?.membre?.cvPersonne?.specialite}}
+	  	</div>            
+	</mat-card-content>
+	</mat-card>

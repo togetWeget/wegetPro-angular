@@ -2,7 +2,7 @@
 	<mat-card class="details-container" style="margin-bottom: 15px;">
 		<div class="form-header">
 			<div class="row">
-				<div class="col-md-12">
+				<div class="col-md-12" i18n>
 					Nouveau document
 					<div class="action">
 						<mat-icon (click)="removeDocument()" >clear</mat-icon>
@@ -14,7 +14,7 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div class="form-group">
-						<label for="">Telecharger le document</label>
+						<label for="" i18n>Telecharger le document</label>
 						<input type="file" autocomplete="off" class="form-control" id="doc" formControlName="docPath">
 					</div>
 				</div>
@@ -39,7 +39,7 @@
 			</div>
 			<div class="row">
 				<div class="col-md-12">
-					<button type="submit" class="btn btn-success btn-icon btn pull-right">
+					<button type="submit" i18n class="btn btn-success btn-icon btn pull-right">
 						<i class="fa fa-save"></i>&nbsp;&nbsp;Envoyer
 					</button>
 				</div>

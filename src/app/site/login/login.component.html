@@ -3,43 +3,43 @@
     <div class="container">
 	<div class="row">
 		<div class="col-md-4 login-sec">
-		    <h2 class="text-center">Login Dashboard</h2>
+		    <h2 class="text-center" i18n>Login Dashboard</h2>
 <form class="login-form">
   <div class="form-group">
-    <label for="exampleInputEmail1" class="text-uppercase">login</label>
+    <label for="exampleInputEmail1" class="text-uppercase" i18n>login</label>
     <input type="text" class="form-control foc" placeholder="email ou telephone" name="login" [(ngModel)]="login">
   </div>
   <div class="form-group">
-    <label for="exampleInputPassword1" class="text-uppercase">Password</label>
+    <label for="exampleInputPassword1" class="text-uppercase" i18n>Password</label>
     <input type="password" class="form-control foc" placeholder="mot de passe" [(ngModel)]="password" name="password">
   </div>
   
   
     <div class="form-check">
     <label class="form-check-label">
-      <small style="cursor:pointer; text-decoration:underline;">Mot de passe oublié ?</small>
+      <small style="cursor:pointer; text-decoration:underline;" i18n>Mot de passe oublié ?</small>
     </label>
-    <button type="button" class="btn btn-login float-right foc" (click)="AuthS()">connexion</button>
+    <button type="button" class="btn btn-login float-right foc" (click)="AuthS()" i18n>connexion</button>
   </div>
   
 </form>
 <hr/>
 <div class="col-sm-12 row text-center">
-<div class="col-sm-12 text-center"> <p>ou se connecter avec :</p> </div>
-<div class="col-sm-6"> <button class="facebook-btn btn foc" (click)="SocialLogin('facebook')"> Sigin <i class="fa fa-facebook"></i> </button> </div>
-    <div class="col-sm-6"><button class="google-btn btn foc" (click)="SocialLogin('google')"> Sigin <i class="fa fa-google"></i> </button></div>
+<div class="col-sm-12 text-center"> <p i18n>ou se connecter avec :</p> </div>
+<div class="col-sm-6"> <button class="facebook-btn btn foc" (click)="SocialLogin('facebook')"> <span i18n>Sigin</span> <i class="fa fa-facebook"></i> </button> </div>
+    <div class="col-sm-6"><button class="google-btn btn foc" (click)="SocialLogin('google')"> <span i18n>Sigin</span> <i class="fa fa-google"></i> </button></div>
 	 
 	
 </div>
-<div class="copy-text">designed & developped <i class="fa fa-heart"></i> by <a href="#" (click)="false;">Togetop.com</a></div>
+<div class="copy-text"><span i18n>conçu et développé</span> <i class="fa fa-heart"></i> <span i18n>by</span> <a href="#" (click)="false;" >Togetop.com</a></div>
 		</div>
 		<div class="col-md-8 banner-sec">
 		
 		
 
 				<div class="banner-text logup">
-				<h2>Pas de compte ?</h2>
-				<p> pas de panique, cliquez <a href="#" (click)="false;">ici(s'inscrire)</a> pour créer un compte. C'est rapide gratuit et fiable!</p>
+				<h2 i18n>Pas de compte ?</h2>
+				<p> <span i18n>pas de panique, cliquez</span> <a href="#" (click)="false;" i18n>ici(s'inscrire)</a> <span i18n>pour créer un compte. C'est rapide gratuit et fiable!</span></p>
 				</div>	
 		
 		
@@ -56,8 +56,8 @@
       <img class="d-block img-fluid" src="https://static.pexels.com/photos/33972/pexels-photo.jpg" alt="WegetPro">
       <div class="carousel-caption d-none d-md-block">
         <div class="banner-text">
-            <h2>Qu'est ceque WegetPro</h2>
-            <p>Toget est un réseau professionnel, de recrutement, d'affaires et de recherche de partenariats, de spécialités et de dépanneurs. Selons vos besoins, trouvez des personnes qualifiées.</p>
+            <h2 i18n>Qu'est ceque WegetPro</h2>
+            <p i18n>Toget est un réseau professionnel, de recrutement, d'affaires et de recherche de partenariats, de spécialités et de dépanneurs. Selons vos besoins, trouvez des personnes qualifiées.</p>
         </div>	
   </div>
     </div>
@@ -65,8 +65,8 @@
       <img class="d-block img-fluid" src="https://images.pexels.com/photos/7097/people-coffee-tea-meeting.jpg" alt="WegetPro">
       <div class="carousel-caption d-none d-md-block">
         <div class="banner-text">
-            <h2>Nous somme ouvert 24h/7</h2>
-            <p>connectez vous, rejoignez un espace et faite votre promotion ou  celle de vos produit à moindre coût.</p>
+            <h2 i18n>Nous somme ouvert 24h/7</h2>
+            <p i18n>connectez vous, rejoignez un espace et faite votre promotion ou  celle de vos produit à moindre coût.</p>
         </div>	
     </div>
     </div>
@@ -74,8 +74,8 @@
       <img class="d-block img-fluid" src="https://images.pexels.com/photos/872957/pexels-photo-872957.jpeg" alt="WegetPro">
       <div class="carousel-caption d-none d-md-block">
         <div class="banner-text">
-            <h2>WegetPro, </h2>
-            <p>un monde vaste pour tout type de recherche conçu spécialement pour vous et votre entourage. Connectez et vous et profitez en pleinement.</p>
+            <h2 i18n>WegetPro, </h2>
+            <p i18n>un monde vaste pour tout type de recherche conçu spécialement pour vous et votre entourage. Connectez et vous et profitez en pleinement.</p>
         </div>	
     </div>
   </div>

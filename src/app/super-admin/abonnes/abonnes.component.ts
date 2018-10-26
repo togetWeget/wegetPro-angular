@@ -4,6 +4,7 @@ import { Navs } from '../../shared/views_models/navs';
 import { AdminCard } from '../../shared/views_models/admin-card';
 import { AdminTable } from '../../shared/views_models/admin-table';
 import { Abonnes } from '../../shared/models/abonnes';
+import { Detailblock } from '../../shared/models/detailblock';
 import { AbonnesService } from '../../core/services/abonnes/abonnes.service';
 import { Personne } from '../../shared/models/personne/membres/personne';
 import { Block } from '../../shared/models/block';
@@ -16,7 +17,7 @@ import { Block } from '../../shared/models/block';
 export class AbonnesComponent implements OnInit {
   top_zone: AdminTopZone = null;
   admin_card: AdminCard = null;
-  abonnes: Abonnes[] = [];
+  abonnes: Detailblock[] = [];
   p: number = 1;
   per_page: number;
 

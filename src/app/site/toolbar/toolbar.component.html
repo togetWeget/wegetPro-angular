@@ -40,13 +40,13 @@
 
 <div class="topnav">
   <a mat-button routerLink="."></a>
-  <a mat-button routerLink="."><i class="fa fa-fw fa-home"></i>Accueil</a>
-  <a mat-button routerLink="." >Nos Espaces</a>
+  <a mat-button routerLink="." i18n><i class="fa fa-fw fa-home"></i>Accueil</a>
+  <a mat-button routerLink="." i18n>Nos Espaces</a>
 <div class="btn-toolbar float-right">
-  <a mat-button  *ngIf="!isAuthenticated()" (click)="openModal()"><i class="fa fa-user"></i>Se connecter</a>
-  <a mat-button class="app-btn-bg-primary" *ngIf="!isAuthenticated()" (click)="inscription()" ><i class="fa fa-sign-in"></i>S'inscrire</a>
-  <a mat-button class="app-btn-bg-primary" *ngIf="isAuthenticated()" (click)="gotoAdmin()" >Admin</a>
-  <a mat-button class="" *ngIf="isAuthenticated()" (click)="logout()" >Deconnexion</a> 
+  <a mat-button  *ngIf="!isAuthenticated()" (click)="openModal()"><i class="fa fa-user"></i> <span i18n>Se connecter</span></a>
+  <a mat-button class="app-btn-bg-primary" *ngIf="!isAuthenticated()" (click)="inscription()"><i class="fa fa-sign-in"></i> <span i18n>S'inscrire</span></a>
+  <a mat-button class="app-btn-bg-primary" *ngIf="isAuthenticated()" (click)="gotoAdmin()" i18n>Admin</a>
+  <a mat-button class="" *ngIf="isAuthenticated()" (click)="logout()" i18n>Déconnexion</a> 
 </div> 
   <a mat-button routerLink="."style="float:right"><img src="assets/logos/fr.png"></a>
   <a mat-button routerLink="."style="float:right"><img src="assets/logos/gb.png"></a>

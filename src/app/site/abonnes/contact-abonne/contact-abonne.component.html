@@ -1,5 +1,5 @@
 <div class="abonne-mailer">
-  <h4 mat-dialog-title>Contacter {{data.nomPersonne}}</h4>
+  <h4 mat-dialog-title i18n>Contacter {{data.nomPersonne}}</h4>
 
   <mat-dialog-content>
     <form [formGroup]="messageForm" (ngSubmit)="onEnvoyerMessage()">
@@ -39,7 +39,7 @@
     </form>
   </mat-dialog-content>
   <mat-dialog-actions>
-    <button mat-raised-button color="warn" (click)="onNoClick()">Fermer</button>
-    <button mat-raised-button color="primary" type="submit" (click)="onEnvoyerMessage()" [mat-dialog-close]="true">Envoyer</button>
+    <button mat-raised-button color="warn" (click)="onNoClick()" i18n>Fermer</button>
+    <button mat-raised-button color="primary" type="submit" (click)="onEnvoyerMessage()" [mat-dialog-close]="true" i18n>Envoyer</button>
   </mat-dialog-actions>
 </div>

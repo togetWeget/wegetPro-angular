@@ -2,7 +2,7 @@
 	<div class="col-md-12" style="margin-bottom: 30px; margin-left: -15px;">
       <button mat-raised-button class="btn btn-success btn-icon btn-icon-standalone pull-left" matTooltip="Ajouter une formation"
       (click)="ajouterFormation()"> 
-      	<i class="fa fa-plus"></i> <span>Ajouter</span> 
+      	<i class="fa fa-plus"></i> <span i18n>Ajouter</span> 
       </button>
     </div>
     <br>
@@ -12,7 +12,7 @@
 				<div class="form-header">
 					<div class="row">
 						<div class="col-md-12">
-							<div class="title"><span>Formation</span></div>
+							<div class="title"><span i18n>Formation</span></div>
 							<div class="action pull-right">
 								<button class="btn btn-icon btn-red" (click)="removeFormation(i)"><i class="fa fa-trash"></i></button>
 								&nbsp;
@@ -77,6 +77,6 @@
 			</mat-card>
 			<br>
 		</div>
-		<button mat-raised-button type="submit" class="btn pull-right"><i class="fa fa-refresh"></i>&nbsp;&nbsp;Mettre à jour</button>
+		<button mat-raised-button type="submit" i18n class="btn pull-right"><i class="fa fa-refresh"></i>&nbsp;&nbsp;Mettre à jour</button>
 	</form>
 </div>

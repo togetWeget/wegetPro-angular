@@ -1,6 +1,6 @@
 <div>
     <div>
-        <h4 class="hr">A propos de vous</h4>
+        <h4 class="hr" i18n>A propos de vous</h4>
         <p></p>
     </div>
     <div>
@@ -23,21 +23,21 @@
         <div class="col-lg-6">
             <ul class="list list-unstyled tags">
                 <li class="tags-item">
-                    <h4 class="hr">Spécialités</h4>
+                    <h4 class="hr" i18n>Spécialités</h4>
                     <span class="tag">{{abonne?.membre?.cvPersonne?.specialite}}</span>
                 </li>
                 <li class="tags-item">
-                    <h4 class="hr">Dernier diplôme</h4>
+                    <h4 class="hr" i18n>Dernier diplôme</h4>
                     <span class="tag">{{abonne?.membre?.cvPersonne?.diplome}}</span>
                 </li>
                 <li class="tags-item">
-                    <h4 class="hr">Lieu de résidence</h4>
+                    <h4 class="hr" i18n>Lieu de résidence</h4>
                     <span class="tag">
                         {{abonne?.membre?.adresse?.ville}}, {{abonne?.membre?.adresse?.pays}}
                     </span>
                 </li>
                 <li class="tags-item">
-                    <h4 class="hr">Langues</h4>
+                    <h4 class="hr" i18n>Langues</h4>
                     <span class="tag" *ngFor="let langue of abonne?.membre?.langues">{{langue.libelle}}, </span>
                 </li>
             </ul>
@@ -45,15 +45,15 @@
         <div class="col-lg-6">
             <ul class="list list-unstyled tags">
                 <li class="tags-item">
-                    <h4 class="hr">Type de contrat souhaité</h4>
+                    <h4 class="hr" i18n>Type de contrat souhaité</h4>
                     <span class="tag" *ngFor="let type of abonne?.membre?.cvPersonne?.periodeContrat">{{type}}&nbsp;</span>
                 </li>
                 <li class="tags-item">
-                    <h4 class="hr">Période de contrat souhaité</h4>
+                    <h4 class="hr" i18n>Période de contrat souhaité</h4>
                     <span class="tag" *ngFor="let periode of abonne?.membre?.cvPersonne?.dureeContrat">{{periode}}&nbsp;</span>
                 </li>
                 <li class="tags-item">
-                    <h4 class="hr">Disponibilité</h4>
+                    <h4 class="hr" i18n>Disponibilité</h4>
                     <span class="tag" *ngFor="let dispo of abonne?.membre?.cvPersonne?.disponibilite">{{dispo}}&nbsp;</span>
                 </li>
             </ul>

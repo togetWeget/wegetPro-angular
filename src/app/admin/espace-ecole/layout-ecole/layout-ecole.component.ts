@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router,ParamMap,ActivatedRoute } from '@angular/router';
-import {switchMap} from 'rxjs/operators';
+import {switchMap, debounceTime, distinctUntilChanged} from 'rxjs/operators';
+import {Observable, BehaviorSubject} from 'rxjs';
 import { AdminTopZone } from '../../../shared/views_models/admin-top-zone';
 import { Navs } from '../../../shared/views_models/navs';
 import { AdminCover } from '../../../shared/views_models/admin-cover';
@@ -28,6 +29,8 @@ export class LayoutEcoleComponent implements OnInit {
   type_espace: string;
   sousBlock: SousBlock;
   id_block: number = 0;
+  sousBlocks$: Observable<Resultat<SousBlock>>;
+  sousBlocksSubject$ = new BehaviorSubject<string>('');
 
   constructor(
     private abonneService: AbonnesService,
@@ -35,6 +38,11 @@ export class LayoutEcoleComponent implements OnInit {
     private router: Router,public dialog: MatDialog,
     public outils: OutilsService, private sousBlockS: SousBlockService) {
   this.getDetailBlock(); 
+    this.sousBlocks$ = this.sousBlocksSubject$.pipe(
+      debounceTime(300),
+      distinctUntilChanged(),
+      switchMap(data => this.sousBlockS.getSousBlockByIdDetailBlock(this.id_block))
+      );
   	this.top_zone = new AdminTopZone (
   		'', 
   		'',
@@ -57,6 +65,7 @@ export class LayoutEcoleComponent implements OnInit {
       })
       ).subscribe(resp => {
         this.sousBlock = resp.body;
+        this.search();
       });
   }
   getDetailBlock(){
@@ -70,6 +79,10 @@ export class LayoutEcoleComponent implements OnInit {
     });
   }
 
+  search(){
+    this.sousBlocksSubject$.next(Date.now()+'');
+  }
+
   saveCover() {
     const dialogRef = this.dialog.open(SaveFile2Component, {
       maxWidth: '768px',
@@ -78,6 +91,7 @@ export class LayoutEcoleComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
+      this.search();
       // this.search(Date.now()+'');
       // this.search(localStorage.getItem('log'));
     });
@@ -91,6 +105,7 @@ export class LayoutEcoleComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
+      this.search();
       // this.search(Date.now()+'');
       // this.search(localStorage.getItem('log'));
     });

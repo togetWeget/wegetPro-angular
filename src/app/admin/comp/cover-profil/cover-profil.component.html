@@ -6,7 +6,7 @@
 <mat-card class="couverture">	
 	<mat-card-content>
 		<div class="img_cover" #img_cover>
-			<button chass="cover-btn-modif" (click)="modifAction()" style="position: absolute;right: 10px;top: 10px;" mat-raised-button><i class="fa fa-photo"></i> Modifier la photo de couverture</button>
+			<button chass="cover-btn-modif" (click)="modifAction()" style="position: absolute;right: 10px;top: 10px;" mat-raised-button i18n><i class="fa fa-photo"></i> Modifier la photo de couverture</button>
 		</div>
 		<div class="img_profil_container">
 			<div class="img_profil">
@@ -15,7 +15,7 @@
 		</div>
 		<div class="bottom_cover">
 			<div class="vues" *ngIf="cover.vues !== '-1'"><i class="fa fa-eye"></i> <span [innerHtml]="cover.vues"></span></div>
-			<div class="voir_profil"><button (click)="voirProfilAction()" mat-button><i class="fa fa-user"></i> Voir votre profil</button></div>
+			<div class="voir_profil"><button (click)="voirProfilAction()" mat-button i18n><i class="fa fa-user"></i> Voir votre profil</button></div>
 		</div>
 	</mat-card-content>
 </mat-card>
