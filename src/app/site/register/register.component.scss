@@ -5,7 +5,8 @@ $lg: 1200px;
 
 @media screen {
 	.body-register {
-		background: url(/assets/images/bg.png) fixed;
+		/*background: url(/assets/images/bg.png) fixed;*/
+		background-size:cover;
 		padding: 40px 20px;
 		.first-title {
 			color: white;

@@ -1,270 +1,126 @@
-<!--div class="container-accueil">
-  <div>
-    <div class="jumbotron text-center" style="background-image: url('assets/images/cover.jpg'); background-attachment: fixed; height: 300px">
 
-      <h2 style="color: orange" align="center">
-        {{title}}
-      </h2>
-    </div>
-  </div>
+<app-owl-carousel></app-owl-carousel>
 
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-          <h3 class="first-title">Nos abonnés</h3>
-          <app-carousel-site></app-carousel-site>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="container"> 
-  <div class="row">
-    <div class="col-12">
-      <h3 class="first-title">Nos espaces</h3>
-      <app-list-blocks></app-list-blocks>      
-    </div>
-  </div>
-</div-->
-
-
-<div class="header">
-  <div class="jumbotron text-center" style="background-image: url('assets/images/ia.jpg'); background-attachment: fixed; height: 400px; width: 100%;background-size: cover;margin-top: -30px">
-    <h1 style="color:white" align="center" i18n>
-      Un monde Rempli de Compétence !!!!
-    </h1>
-    <br>  
-      <div class="container">
-        <form>
-          <div class="form-field">
-         
-          <mat-form-field class="field">
-              <input matInput placeholder="Compétance?" aria-label="Competence" [matAutocomplete]="autoComp" [formControl]="compCtlr">
-
-              <mat-autocomplete #autoComp="matAutocomplete">
-                  <mat-option *ngFor="let comp of filteredComp | async" [value]="comp.name">
-                      <span>{{comp.name}}</span>
-                  </mat-option>
-                  
-              </mat-autocomplete>
-
-          </mat-form-field>
-
-          <mat-form-field class="field">
-              <input matInput placeholder="Ou?" aria-label="Localité" [matAutocomplete]="auto" [formControl]="locaCtlr">
-
-              <mat-autocomplete #auto="matAutocomplete">
-                  <mat-option *ngFor="let loca of filteredLoca | async" [value]="loca.name">
-                      <span>{{loca.name}}</span>
-                  </mat-option>
-                  
-              </mat-autocomplete>
-
-          </mat-form-field>
-          
-            <span class="field-span">
-              <input type="checkbox" name="" i18n>
-              À proximité
-            </span>
-            <a class="btn btn-info loading"><i class="fa fa-search"></i><span i18n>Chercher</span></a>
-          </div>
-        </form>
-
-   
-
-        <br><br>
-        <button type="button" class="btn btn-default active" i18n>inscrivez vous gratuitement</button>
-      </div>  
-  </div>
-</div>
-
-<i class="fa fa-shopping-cart" style="color:#00FFFF"></i>
-<marquee width="950" scrolldelay="150" onmouseover="this.stop();" onmouseout="this.start();" style="border:0px outset #00FFFF; text-align: center; color:#ff9900; font-weight:bold; 
- font-size:16px;" direction="left">
-<span style="color:#F00">
-<a href="#" target="_blank">
-<span class="etoile"><strong i18n> Pour bénéficier de la réduction d'une compétance au titre des frais de scolarité, vos enfants doivent  suivre un enseignement dans un collège ou un lycée, ou encore poursuivre des études supérieures débouchant sur un diplôme. 
-  Peu importe que ce soit dans un établissement public ou privé </strong></span></a>
-</span>
-</marquee>
 
 
 <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-          <h3 class="first-title" i18n>Nos abonnés</h3>
-          <app-carousel-site></app-carousel-site>
-      </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="info">
+      <marquee scrolldelay="150" onmouseover="this.stop();" onmouseout="this.start();" style="border:0px outset #00FFFF; text-align: center; font-weight:bold; font-size:16px;" direction="left">
+              <strong i18n> Pour bénéficier de la réduction d'une compétance au titre des frais de scolarité, vos enfants doivent  suivre un enseignement dans un collège ou un lycée, ou encore poursuivre des études supérieures débouchant sur un diplôme. 
+              Peu importe que ce soit dans un établissement public ou privé 
+              </strong>
+      </marquee>
     </div>
-    
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h6 class="first-title" i18n>Nos abonnés</h6>
+      <app-carousel-site></app-carousel-site>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+        <a href="#" title="">
+        <div class="img-carte" style="background-image: url('/assets/images/loca3.gif');height:290px;width:1110px; background-size: cover">
+        
+      
+        </div>
+      </a>
+    </div>
+  </div>
 </div>
 
 <div class="container"> 
   <div class="row">
-    <div class="col-12">
-      <h3 class="first-title" i18n>Nos espaces</h3>
-      <app-list-blocks></app-list-blocks>      
-    </div>
-  </div>
-  
- <br>
-
-    <a href="#" title="">
-    <div class="jumbotron text-center" style="background-image: url('assets/images/map.jpg');height:200px; background-size: cover">
-    <h1 style="color:white" align="center" i18n>
-      Trouvez les meilleurs Compétence grace à notre géolocalisation
-    </h1>
-    </div>
-    </a>
-    
-    
-    <div class="card">
-      <span i18n>Nos Espaces</span>
-    <div class="car">
-    
-    <div class="fakeimg"><i class="icon fa fa-user"></i>Image</div>
-    <div class="fakeimg"><i class="icon fa fa-comments"></i>Image</div>
-    <div class="fakeimg"><i class="icon fa fa-book"></i>Image</div>
-    <div class="fakeimg"><i class="icon fa fa-bank"></i>Image</div>
-    <div class="fakeimg"><i class="icon fa fa-suitcase"></i>Image</div>
-    <div class="fakeimg"><i class="icon fa fa-building"></i>Image</div>
-  
-    <div class="fakeimg"><i class="icon fa fa-medkit"></i>Image</div>
-    <div class="fakeimg"><i class="icon fa fa-money"></i>Image</div>
-    <div class="fakeimg"><i class="icon fa fa-home"></i>Image</div>
-    <div class="fakeimg"><i class="icon fa fa-mobile"></i>Image</div>
-    <div class="fakeimg"><i class="icon fa fa-edit"></i>Image</div>
-    <div class="fakeimg"><i class="icon fa fa-building"></i>Image</div>
-
-    <div class="fakeimg"><i class="icon fa fa-user"></i>Image</div>
-    <div class="fakeimg"><i class="icon fa fa-comments"></i>Image</div>
-    <div class="fakeimg"><i class="icon fa fa-book"></i>Image</div>
-    <div class="fakeimg"><i class="icon fa fa-bank"></i>Image</div>
-    <div class="fakeimg"><i class="icon fa fa-suitcase"></i>Image</div>
-    <div class="fakeimg"><i class="icon fa fa-building"></i>Image</div>
-
-    <div class="fakeimg"><i class="icon fa fa-medkit"></i>Image</div>
-    <div class="fakeimg"><i class="icon fa fa-money"></i>Image</div>
-    <div class="fakeimg"><i class="icon fa fa-home"></i>Image</div>
-    <div class="fakeimg"><i class="icon fa fa-mobile"></i>Image</div>
-    <div class="fakeimg"><i class="icon fa fa-edit"></i>Image</div>
-    <div class="fakeimg"><i class="icon fa fa-building"></i>Image</div>
-    </div>
-    
-    <div i18n>
-    Nos Partenaires
-    </div>
-    
-    <!--
-    <div class="row">
-      <div class="column">
-        <img src="assets/images/6.png" style="width:100%;height: 80%">
+    <!-- Zone principale d'affichage de la page d'accueil -->
+    <div class="col-md-9">
+      <div class="espace-wrapper">
+        
+        
+        <app-list-blocks></app-list-blocks> 
       </div>
-      
-      <div class="column">
-        <img src="assets/images/4.png" style="width:100%" >
-      </div>
-    
-      
-      <div class="column">
-        <img src="assets/images/5.png" style="width:100%" >
-      </div>
-  
-      <div class="column">
-        <img src="assets/images/2.png" style="width:100%">
-      </div>
-    </div>
-  -->
 
-<br>
-      
-        <h2 i18n>Nos Services aux Entreprises</h2>
-        <div class="card-deck">
-            <div class="card">
-              <img class="card-img-top" src="assets/images/mo.jpg" alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title" i18n>Card title</h5>
-                <p class="card-text" i18n>This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              </div>
-              <div class="card-footer">
-                  <a href="#" class="btn btn-warning" i18n>Go somewhere</a>
-              </div>
+      <div class="service-wrapper">
+        <h6 i18n>Nos Services aux Entreprises</h6>
+        <div class="container-fluid">
+          <div class="row">
+          <div class="card col-md-4">
+            <img class="card-img-top" src="assets/images/mo.jpg" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title" i18n>Card title</h5>
+              <p class="card-text" i18n>This is a wider card with supporting text below as a natural.</p>
             </div>
-            <div class="card">
-              <img class="card-img-top" src="assets/images/v.jpg" alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title" i18n>Card title</h5>
-                <p class="card-text" i18n>This card has supporting text below as a natural lead-in to additional content.</p>
-              </div>
-              <div class="card-footer">
-                  <a href="#" class="btn btn-warning" i18n>Go somewhere</a>
-              </div>
+                <!--<a href="#" class="btn btn-warning" i18n>Go somewhere</a>-->
+          </div>
+          <div class="card col-md-4">
+            <img class="card-img-top" src="assets/images/v.jpg" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title" i18n>Card title</h5>
+              <p class="card-text" i18n>This card has supporting text below as a natural.</p>
             </div>
-            <div class="card">
-              <img class="card-img-top" src="assets/images/ma.png" alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title" i18n>Card title</h5>
-                <p class="card-text" i18n>This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-              </div>
-              <div class="card-footer">
-                  <a href="#" class="btn btn-warning" i18n>Go somewhere</a>
-              </div>
+              <!--<a href="#" class="btn btn-warning" i18n>Go somewhere</a>-->
+            </div>
+          <div class="card col-md-4">
+            <img class="card-img-top" src="assets/images/ma.png" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title" i18n>Card title</h5>
+              <p class="card-text" i18n>This is a wider card with supporting text below as a natural.</p>
+            </div>
+             <!--<a href="#" class="btn btn-warning" i18n>Go somewhere</a>-->
             </div>
           </div>
-      
+        </div>
+      </div>
+
+    </div>
+    <!-- Fin zone d'affichage -->
+
+  
+    <!-- Zone de publicité de la page d'accueil -->
+    <div class="col-md-3">
+      <div class="rightcolumn">     
         <div class="card">
-          <h2 i18n>Qui nous Somme ?</h2>
-          
-
-          <video autoplay muted loop id="myVideo">
-            <source src="assets/audio/time.mp4" type="video/mp4">
-          
-            </video>
-            
-            
+          <div class="card-body">
+            <h5 class="card-title" i18n>Special title treatment</h5>
+            <p class="card-text" i18n>With supporting text below as a natural lead-in to additional content.</p>
+            <a href="#" class="btn btn-primary" i18n>Go somewhere</a>
           </div>
+        </div>
 
+        <div class="card">
+          <div class="fakeimg"><p>Image</p></div>
+          <div class="fakeimg"><p>Image</p></div>
+          <div class="fakeimg"><p>Image</p></div>
+        </div>
 
-    </div>
-    </div>
-<br>
-  <div class="rightcolumn" style="width: 19rem">
-             
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title" i18n>Special title treatment</h5>
-        <p class="card-text" i18n>With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary" i18n>Go somewhere</a>
+        <div class="card">
+          <h3 i18n>Follow Me</h3>
+          <p i18n>Some text..</p>
+        </div>
       </div>
-      </div>
-
-   
-    <div class="card">
-    
-    <div class="fakeimg"><p>Image</p></div>
-    <div class="fakeimg"><p>Image</p></div>
-    <div class="fakeimg"><p>Image</p></div>
     </div>
-
-
-    <div class="card">
-    <h3 i18n>Follow Me</h3>
-    <p i18n>Some text..</p>
-    </div>
-
-  
+    <!-- Fin zone de la publicité -->
   </div>
   
-  
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="jumbotron text-center" style="background-image: url('assets/images/vin.jpg'); background-attachment: fixed ;height:400px;width: 100%;background-size: cover">
+          <h1 style="color:white" align="center" i18n>
+            Qu'attendez-vous pour vous lancer ?
+          </h1>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<div class="jumbotron text-center" style="background-image: url('assets/images/vin.jpg'); background-attachment: fixed ;height:400px;width: 100%;background-size: cover">
-    <h1 style="color:white" align="center" i18n>
-      Qu'attendez-vous pour vous lancer ?
-    </h1>
-</div>
-
-    
-  
-<!-- Footer -->
-
-<!-- Footer -->
 

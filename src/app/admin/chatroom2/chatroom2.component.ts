@@ -61,19 +61,7 @@ export class Chatroom2Component implements OnInit {
 	// this.loadTabcolor();
   }
   
- 
-  
-  // loaderint(){
-		  // alert();
-		  	// let int = setInterval(()=>{
-				// if ($(window).width() > 820) {
-					// $('.gauche-h').removeClass('cacher');
-					// $('.droite-h').removeClass('afficher');
-					// this.retourAff = true;
-					// clearInterval(int);
-				// }
-				// }, 1000);
-	// }
+
 	
 	
 	

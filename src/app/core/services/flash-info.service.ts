@@ -76,14 +76,14 @@ export class FlashInfoService {
       );
   }
 
-  getFlashInfoBySousBlock(id: number): Observable<Resultat<FlashInfo>> {
+  getFlashInfoBySousBlock(id: number): Observable<Resultat<FlashInfo[]>> {
 
-    return this.http.get<Resultat<FlashInfo>>(`${this.urlFlashInfosParSousBlock}/${id}`)
+    return this.http.get<Resultat<FlashInfo[]>>(`${this.urlFlashInfosParSousBlock}/${id}`)
       .pipe(
         tap(res => {
           this.log(`flashInfo trouve  id=${id}`);
         }),
-        catchError(this.handleError<Resultat<FlashInfo>>('getFlashInfoById'))
+        catchError(this.handleError<Resultat<FlashInfo[]>>('getFlashInfoById'))
       );
   }
 
@@ -129,7 +129,7 @@ export class FlashInfoService {
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 
-      this.toastr.error(operation + ' a rencontre un probleme: ' + error.message, 'Erreur');
+      // this.toastr.error(operation + ' a rencontre un probleme: ' + error.message, 'Erreur');
       console.error(error);
 
 

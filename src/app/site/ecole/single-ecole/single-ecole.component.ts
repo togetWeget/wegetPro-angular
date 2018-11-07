@@ -32,7 +32,7 @@ export class SingleEcoleComponent implements OnInit {
    }
 
   onViewEcole(){
-    this.router.navigate(['/site/abonnes', 'profile', this.ecole.detailBlock.id]);
+    this.router.navigate(['/site/abonnes', 'profile', this.ecole.detailBlock.id]); 
   }
   onContactEcole(){
   	const dialogRef = this.contactDialog.open(ContactAbonneComponent,

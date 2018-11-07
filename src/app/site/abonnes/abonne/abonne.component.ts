@@ -16,13 +16,13 @@ import * as $ from 'jquery';
 })
 export class AbonneComponent implements OnInit {
 	@Input('abonne') abonne: Detailblock;
-  	@Output() butonClick = new EventEmitter<Resultat<Detailblock>>();
-  	defaultPhoto: any = '/assets/placeholder-image.jpg';
-  	@ViewChild('imagebg') imagebg: ElementRef;
-  	status: number;
-  	typeblock:string;
-  	tableNom:string[]=[];
-  	nomAffiche:string;
+  @Output() butonClick = new EventEmitter<Resultat<Detailblock>>();
+  defaultPhoto: any = '/assets/placeholder-image.jpg';
+  @ViewChild('imagebg') imagebg: ElementRef;
+  status: number;
+  typeblock:string;
+  tableNom:string[]=[];
+  nomAffiche:string;
 
 	public nombredevue = 0;
   	constructor(private router: Router,
@@ -61,11 +61,11 @@ splitNom(){
       }
     }
 
-  	onViewProfileAbonne(ab: any) {
+  	onViewProfileAbonne() {
 	    this.router.navigate(['/site/abonnes', 'profile', this.abonne.id]);
 	}
 
-  	onContactAbonne(ab: any): void {
+  	onContactAbonne(): void {
     	const dialogRef = this.contactDialog.open(ContactAbonneComponent,
       	{
         	width: '600px',

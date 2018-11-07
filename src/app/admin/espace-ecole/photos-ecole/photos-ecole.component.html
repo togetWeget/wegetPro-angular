@@ -1,3 +1,31 @@
-<p>
-  photos-ecole works!
-</p>
+<app-admin-card [adminCard]="admin_card" (clickOcur)="handleCardClick($event)">
+  <div class="admin-card-content">
+  </div>
+</app-admin-card>
+
+<div class="alert alert-info" *ngIf="!(((photos$ | async)?.body)?.length>0)">
+	Désolé il n'y a aucun album disponible
+</div>
+<div class="row" *ngIf="((photos$ | async)?.body)?.length>0">
+	<div class="col-md-3">
+		<mat-card>
+			<mat-card-content>
+				<ul class="list-group">
+				  <li class="list-group-item" (click)="active=i" [ngClass]="{'active': active === i}" *ngFor="let ph of (photos$ | async)?.body; let i=index">{{ph?.libelle}}</li>
+				</ul>
+			</mat-card-content>
+		</mat-card>
+	</div>
+	<div class="col-md-9">
+		<lnl-gallery>
+			<lnl-image-gallery [isAdmin]="true" [image]="ph" *ngFor="let ph of (photos$ | async)?.body[active]?.pathPhoto; let i=index">
+				<div class="actions">
+					<button mat-raised-button color="warn"><i class="fa fa-trash"></i></button>
+				</div>
+				<div class="alert alert-info" *ngIf="!(((photos$ | async)?.body[active]?.pathPhoto)?.length>0)">
+					Désolé! Cet album n'a aucun contenu.
+				</div>
+			</lnl-image-gallery>
+		</lnl-gallery>		
+	</div>
+</div>

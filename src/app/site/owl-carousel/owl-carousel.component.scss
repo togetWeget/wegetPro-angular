@@ -1,0 +1,58 @@
+
+
+.header {
+	
+	text-align: center;
+	background: white;
+	margin: 20px;
+	margin-left: 0%;
+	margin-right: 0%;
+	margin-top: 0px;
+	
+	
+}
+
+.header h2 {
+	font-size: 14px;
+}
+
+.form-field{
+    display:flex;
+    
+	
+}
+
+.field{
+width: 100%;
+flex-wrap:wrap;
+margin-right: 8px;
+border-radius: 10px;
+/*background-color:  #f3da35;*/
+
+}
+.field:last-child {
+	margin-right: 0;
+}
+@media(max-width:767px){
+	.form-field{
+		display: flex;
+		flex-wrap: wrap;
+	}
+}
+.form-field a,.field-span{
+	height:40px;
+	margin-top: 8px;
+	line-height: 25px;
+    color:white;
+    
+}
+.field-span{
+	background: #d6d1c9;
+    border-radius: 4px;
+    padding: 10px 5px;
+    text-align: center;
+    margin-right: 2px;
+	width: 25%;
+	
+    
+}

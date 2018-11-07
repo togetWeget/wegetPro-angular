@@ -26,7 +26,9 @@ import { PanelContentDirective } from './directives/panel-content.directive';
 import { CustomDirectivesModule } from '../custom-directives/custom-directives.module';
 import { ChatComponent } from './chat/chat.component';
 import { NotFoundComponent } from './not-found/not-found.component'; 
-import { NgHttpLoaderModule } from 'ng-http-loader';
+// import { NgHttpLoaderModule } from 'ng-http-loader';
+import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
+import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 import {NgxPaginationModule} from 'ngx-pagination';
 import {LnlFilesManagerModule} from 'lnl-files-manager';
@@ -44,7 +46,7 @@ import { SaveFile2Component } from './comp/save-file2/save-file2.component';
   imports: [
     CommonModule,
     HttpClientModule,
-    NgHttpLoaderModule,
+    // NgHttpLoaderModule,
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
@@ -52,6 +54,8 @@ import { SaveFile2Component } from './comp/save-file2/save-file2.component';
     NotifierModule,
     CustomDirectivesModule,
     NgxPaginationModule,
+    LoadingBarHttpClientModule,
+    LoadingBarRouterModule,
     LnlFilesManagerModule,
     FroalaEditorModule.forRoot(), 
     FroalaViewModule.forRoot()
@@ -95,6 +99,8 @@ import { SaveFile2Component } from './comp/save-file2/save-file2.component';
     PanelContainerDirective,
     PanelContentDirective,
     ChatComponent,
+    // LoadingBarHttpClientModule,
+    // LoadingBarRouterModule,
     NgxPaginationModule,
     NotFoundComponent,
     SigninComponent,

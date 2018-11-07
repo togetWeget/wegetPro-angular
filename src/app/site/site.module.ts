@@ -54,6 +54,14 @@ import { FilterPipeModule} from 'ngx-filter-pipe';
 import { SingleEcoleComponent } from './ecole/single-ecole/single-ecole.component';
 import { LayoutProfilComponent } from './abonnes/layout-profil/layout-profil.component';
 import { AbonneSpecialComponent } from './abonnes/abonne-special/abonne-special.component';
+import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
+import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
+import { VerificationComponent } from './verification/verification.component';
+import { PasswordUpdatedComponent } from './password-updated/password-updated.component';
+import { DocEcoleComponent } from './ecole/doc-ecole/doc-ecole.component';
+import { FormsEcoleComponent } from './ecole/forms-ecole/forms-ecole.component';
+import { DetailEcoleComponent } from './ecole/detail-ecole/detail-ecole.component';
+import { InfosEcoleComponent } from './ecole/infos-ecole/infos-ecole.component';
 
 // Configs 
 export function getAuthServiceConfigs() {
@@ -83,6 +91,8 @@ export function getAuthServiceConfigs() {
 	SocialLoginModule,
 	FormsModule,
 	FilterPipeModule,
+  LoadingBarHttpClientModule,
+    LoadingBarRouterModule,
     ReactiveFormsModule
   ],
   providers: [{provide: AuthServiceConfig, useFactory: getAuthServiceConfigs}],
@@ -119,7 +129,16 @@ export function getAuthServiceConfigs() {
 	FilterPipe,
 	SingleEcoleComponent,
 	LayoutProfilComponent,
-	AbonneSpecialComponent
+	AbonneSpecialComponent,
+	VerificationComponent,
+	PasswordUpdatedComponent,
+	DocEcoleComponent,
+	FormsEcoleComponent,
+	DetailEcoleComponent,
+	InfosEcoleComponent
+  ],
+  entryComponents: [
+    InfosEcoleComponent
   ],
   exports: [LayoutComponent],
   schemas: [NO_ERRORS_SCHEMA]

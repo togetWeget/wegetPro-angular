@@ -15,6 +15,7 @@ import {FormulaireComponent} from './abonnements/formulaire/formulaire.component
 import {PrixComponent} from './abonnements/prix/prix.component';
 import {PanierViewComponent} from './panier-view/panier-view.component';
 import {CategorieEcoleComponent} from './ecole/categorie-ecole/categorie-ecole.component';
+import {UrlGuardService} from '../core/services/url-guard.service';
 
 const routes: Routes = [
   {
@@ -26,19 +27,17 @@ const routes: Routes = [
       {path: 'blocks', component: ListeBlocComponent},
       {path: 'blocks/:id', component: ListAbonnesBlockComponent},
       {path: 'espace/ecole/:id', component: CategorieEcoleComponent},
-      {path: 'abonnes/profile/:id', component: ProfilAbonneComponent},
+      {path: 'abonnes/profile/:id',component: ProfilAbonneComponent},
       {path: 'abonnes/conctater/:id', component: ContactAbonneComponent},     
       {path: 'abonnement/prix/:id', component: PrixComponent},
       {path: 'abonnement/form/:id', component: FormulaireComponent},
       {path: 'profile', component: ProfilAbonneComponent},
-      {path: 'register', component: RegisterComponent},
-      {path: 'login', component: LoginComponent},
       {path: 'panier/:id', component: PanierViewComponent},
       {
         path: '**', component: NotFoundComponent
       }
     ]
-  }  
+  }
 ];
 
 @NgModule({

@@ -21,41 +21,27 @@ body {
 }
 
 /* Header/Blog Title */
-.header {
-	
-	text-align: center;
-	background: white;
-	margin: 20px;
-	margin-left: 0%;
-	margin-right: 0%;
-	margin-top: 0px;
-	
-	
-}
 
-.header h2 {
-	font-size: 14px;
-	}
 
 /* Style the top navigation bar */
 
 
 /* Create two unequal columns that floats next to each other */
 /* Left column */
-.leftcolumn {   
+/*.leftcolumn {   
 	float: left;
 	width: 75%;
 	text-align: center;
 }
-
+*/
 /* Right column */
-.rightcolumn {
+/*.rightcolumn {
 	float: left;
 	width: 25%;
 	background-color: white;
 	padding-left: 20px;
 }
-
+*/
 /* Fake image */
 .fakeimg {
 	background-color:#fefdfe;
@@ -66,21 +52,20 @@ body {
 /* Add a card effect for articles */
 .card {
 	background-color: white;
-	padding: 20px;
-	margin-top: 10px;
 	z-index: 0;
+	height: 250px;
 }
 
 .row > .column {
 	padding: 0 8px;
   }
   
-  .row:after {
+/*  .row:after {
 	content: "";
 	display: table;
 	clear: both;
   }
-  
+  */
   .column {
 	float: left;
 	width: 25%;
@@ -92,7 +77,7 @@ img{
 
 
 
-
+/*
 
 .car {
 	display: flex;
@@ -118,7 +103,7 @@ img{
 	display: block;
 	margin-bottom: 5px;
 }
-
+*/
 
 /* Clear floats after the columns */
 .row:after {
@@ -211,9 +196,7 @@ background-image: linear-gradient(45deg, rgba(235, 235, 235, 0.15) 25%, rgba(0, 
 
 
 #myVideo {
-    
-   
-	width:70%; 
+	width:100%; 
     height:50%;
 }
 
@@ -256,6 +239,100 @@ color:white;
 }
 
 
+
+.cardes {
+	overflow: hidden;
+	position: relative;
+	border: 1px solid #CCC;
+	border-radius: 8px;
+	text-align: center;
+	padding: 0;
+	background-color: #e4f80900;
+	color: rgb(0, 0, 0);
+  }
+  
+  .cardes .header-bg {
+	/* This stretches the canvas across the entire hero unit */
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 70px;
+	border-bottom: 1px #FFF solid;
+	/* This positions the canvas under the text */
+	z-index: 1;
+  }
+  .cardes .avatar {
+	position: relative;
+	margin-top: 15px;
+	z-index: 90;
+  }
+  
+  .cardes .avatar img {
+	width: 90px;
+	height: 100px;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	border-radius: 50%;
+	border: 5px solid rgba(0,0,30,0.8);
+  }
+  
+
+
+  .group {
+	border-radius: 9999px;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, .3);
+	height: 150px;
+	margin: 0 20px;
+	overflow: hidden;
+	width: 150px;
+  }
+  
+  .group > div {
+	background-color: #333;
+	background-position: 50% 50%;
+	background-size: cover;
+	float: left;
+	height: 100%;
+	width: 50%;
+  }
+  
+  .group > div:first-child:last-child {
+	width: 100%;
+  }
+  
+  .group > div:last-child:nth-child(3),
+  .group > div:nth-child(2):nth-last-child(2)
+  {
+	height: 50%;
+  }
+
+
+  .info {
+  
+    position: relative;
+    animation: myfirst 5s linear 2s infinite alternate; 
+    text-align:center;
+	color:white;
+	border-radius: 3px;
+
+}
+
+@-webkit-keyframes myfirst {
+    0%   {color:red; left:0px; }
+    25%  {color:yellow; left:200px; }
+    50%  {color:blue; left:0px; }
+    75%  {color:green; left:0px; }
+    100% {color:red; left:0px;}
+}
+
+@keyframes myfirst {
+    0%   {color:red; left:0px;}
+    25%  {color:yellow; left:0px;}
+    50%  {color:blue; left:0px; }
+    75%  {color:green; left:0px; }
+    100% {color:red; left:0px;}
+}
 
 
 /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */

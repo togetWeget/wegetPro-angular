@@ -4,7 +4,10 @@ import {AccueilComponent} from './site/accueil/accueil.component';
 import {NotFoundComponent} from './core/not-found/not-found.component';
 import {AuthGuardTogetService} from './core/services/AuthGuards/auth-guard-toget.service';
 import {AuthGuardSiteService} from './core/services/AuthGuardSite/auth-guard-site.service';
-
+import {VerificationComponent} from './site/verification/verification.component';
+import {PasswordUpdatedComponent} from './site/password-updated/password-updated.component';
+import {RegisterComponent} from './site/register/register.component';
+import {LoginComponent} from './site/login/login.component';
 const routes: Routes = [
   {
     path: '', redirectTo: '/site', pathMatch: 'full'
@@ -18,6 +21,20 @@ const routes: Routes = [
   {
     path: 'admin', canActivate: [AuthGuardTogetService], loadChildren: './admin/admin.module#AdminModule'
   },
+  {
+	  path: 'control', component: VerificationComponent
+  },   
+  {
+	  path: 'checking', component: PasswordUpdatedComponent
+  },
+  {
+	   path: 'register', component: RegisterComponent
+  },
+  {
+	  
+	  path: 'login', component: LoginComponent
+  
+  },  
   {
     path: '**', canActivate: [AuthGuardTogetService], component: NotFoundComponent
   }

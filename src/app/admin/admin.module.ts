@@ -3,6 +3,7 @@ import {CommonModule} from '@angular/common';
 // import { QuillModule } from 'ngx-quill';
 import {AdminRoutingModule} from './admin-routing.module';
 import {LayoutComponent} from './layout/layout.component';
+import { LnlGalleryModule } from 'lnl-gallery';
 import {AccueilComponent} from './accueil/accueil.component';
 import {
   MatButtonModule,
@@ -97,6 +98,10 @@ import { FormationEcoleUpdateComponent } from './espace-ecole/formation-ecole-up
 import { DocumentAddComponent } from './espace-competence/document-add/document-add.component';
 // import { NgxEditorModule } from 'ngx-editor';
 // import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
+import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
+import { DocumentEcoleAddComponent } from './espace-ecole/document-ecole-add/document-ecole-add.component';
+import { PhotoEcoleAddComponent } from './espace-ecole/photo-ecole-add/photo-ecole-add.component';
 
 
 @NgModule({
@@ -114,7 +119,10 @@ import { DocumentAddComponent } from './espace-competence/document-add/document-
     MatTooltipModule,
     MatFormFieldModule,
     MatExpansionModule,
+    LoadingBarHttpClientModule,
+    LoadingBarRouterModule,
     MatButtonModule,
+    LnlGalleryModule,
     LnlFilesManagerModule,
     // QuillModule,
     // NgxEditorModule,
@@ -154,13 +162,15 @@ import { DocumentAddComponent } from './espace-competence/document-add/document-
      FlashInfoUpdateComponent,
      FormationEcoleViewComponent,
      FormationEcoleUpdateComponent,
-     DocumentAddComponent
+     DocumentAddComponent,
+     DocumentEcoleAddComponent,
+     PhotoEcoleAddComponent
   ],
   entryComponents: [BlockComponent, MatdiologComponent, ImgloardComponent, 
   VideoloardComponent, FormationEcoleAddComponent,
-     FlashInfoAddComponent,
+     FlashInfoAddComponent, PhotoEcoleAddComponent,
      FlashInfoUpdateComponent, FormationEcoleViewComponent, FormationEcoleUpdateComponent,
-     DocumentAddComponent ],
+     DocumentAddComponent, DocumentEcoleAddComponent ],
   exports: [LayoutComponent]
 })
 export class AdminModule {

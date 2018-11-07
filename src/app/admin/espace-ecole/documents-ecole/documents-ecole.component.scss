@@ -1,0 +1,64 @@
+.btn-icon {
+    line-height: 1;
+}
+
+.btn {
+    outline: none;
+    border: 1px solid transparent;
+    margin-bottom: 10px;
+    border-radius: none;
+}
+.btn-icon i {
+    vertical-align: middle;
+    display: inline-block;
+    padding: 5px 0;
+}
+.btn-icon-standalone {
+    padding: 0;
+    border: 0;
+    line-height: 1;
+}
+.btn-icon-standalone i {
+    border-right: 1px solid transparent;
+    float: left;
+}
+.btn-icon-standalone i, .btn-icon-standalone span {
+    display: block;
+    padding: 12px 12px;
+}
+.btn-icon-standalone span {
+    padding-left: 55px;
+    padding-right: 13px;
+}
+.btn-blue {
+    background-color:hsla(200, 50%, 50%, 1);
+    color: hsla(0, 0%, 100%, 1);
+}
+.btn-green {
+    background-color:hsla(130, 50%, 50%, 1);
+    color: hsla(0, 0%, 100%, 1);
+}
+.col-md-2 {
+    padding: 0px 10px 0px 10px;
+}
+.col-md-2 .doc {
+    position: relative;
+    background-color: hsla(0, 75%, 50%, 1);
+    height: 157px;
+    border: 1px solid hsla(0, 0%, 87%, 1);
+    overflow: hidden;
+}
+.col-md-2 .doc img {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+}
+.col-md-2 .delete-document {
+    position: absolute;
+    top: 2px;
+    right: 1px;
+}
+.col-md-2 .caption {
+    padding: 12px 12px;
+}

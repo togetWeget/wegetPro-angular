@@ -1,0 +1,99 @@
+		<div class="inputv text-center" style="padding:15px;">
+		<i class="fa fa-cogs"></i>
+		<h2><strong style="color:#ffa500;">Weget</strong><span style="color:#3931af;">Pro</span> </h2>
+			<br>
+			<div class="col-sm-12 text-center" style="width: 100%; margin: 0 auto;">
+			 <p>Verification d'Email.</p>
+		   <p><span class="normal">Entrer Votre </span> code de confirmation recu par mail pour valider votre inscription : </p>
+			</div>
+			<div class="confirmation_code split_input large_bottom_margin col-sm-6 row text-center eq" style="width: 50%; margin: 0 auto;" data-multi-input-code="true">
+    			<div class="confirmation_code_group">
+					<div class="split_input_item input_wrapper"><input type="text" class="inline_input" name="1" (keyup)="checktrue(0, $event)" value="" maxlength="1" ></div>
+					<div class="split_input_item input_wrapper"><input type="text" class="inline_input" name="2" (keyup)="checktrue(1, $event)" disabled="true" value="" maxlength="1"></div>
+					<div class="split_input_item input_wrapper"><input type="text" class="inline_input" name="3" (keyup)="checktrue(2, $event)" disabled="true" value="" maxlength="1"></div>
+				</div>
+
+				<div class="confirmation_code_span_cell">—</div>
+
+				<div class="confirmation_code_group">
+					<div class="split_input_item input_wrapper"><input type="text" class="inline_input" name="4" (keyup)="checktrue(3, $event)" disabled="true" value="" maxlength="1"></div>
+					<div class="split_input_item input_wrapper"><input type="text" class="inline_input" name="5" (keyup)="checktrue(4, $event)" disabled="true" value="" maxlength="1"></div>
+					<div class="split_input_item input_wrapper"><input type="text" class="inline_input" name="6" (keyup)="checktrue(5, $event)" disabled="false" value="" maxlength="1"></div>
+				</div>
+			</div>
+		</div>
+<div class="swal2-icon swal2-success swal2-animate-success-icon" style="display: flex;" *ngIf="bool === true">
+ <div class="swal2-success-circular-line-left" style="background-color: rgb(255, 255, 255);"></div>
+   <span class="swal2-success-line-tip"></span>
+   <span class="swal2-success-line-long"></span>
+   <div class="swal2-success-ring"></div> 
+   <div class="swal2-success-fix" style="background-color: rgb(255, 255, 255);"></div>
+   <div class="swal2-success-circular-line-right" style="background-color: rgb(255, 255, 255);"></div>
+  </div>
+  <div class="text-center" *ngIf="bool === true">
+  <p> Vérififcation de l'adresse Email effectuée avec succès. Vous pouvez dès a présent acceder a votre plateforme pour mener toute vos actions. </p>
+  <p>WegetPro vous remercie pour votre confiance: <strong>Redirection dans ...{{dcmp}}</strong></p>
+  <p class="bg-info">Si la redirection ne demarre pas apres le decompte veuillez cliquer <a href="#" id="admin" routerLink="/admin" [target]="_blank" class="text-primary bg-white">ici</a></p>
+</div>
+
+
+  <div class="swal2-icon swal2-error swal2-animate-error-icon" style="display: flex;" *ngIf="bool === false">
+  <span class="swal2-x-mark">
+  <span class="swal2-x-mark-line-left"></span>
+  <span class="swal2-x-mark-line-right"></span>
+  </span>
+  </div>
+  <div class="text-center" *ngIf="bool === false">
+  <p> Erreur, Ce code de verification d'adresse Email est déja utilisé ou son temps d'activité depassé.Veuillez vous connectez pour envoyer un autre code ou créer un compte en cliquant <a href="#" routerLink="/site/register">ici</a> </p>
+  <p>WegetPro vous remercie pour votre fidelité</p>
+  <p class="bg-warning">connexion : <a href="#" routerLink="/site/login" class="text-primary bg-white">ici</a></p>
+</div>
+<div class="how-section1">
+                    <div class="row">
+                        <div class="col-md-6 how-img">
+                            <img src="assets/images/Work_Section2_freelance_img1.png" class="rounded-circle img-fluid" alt=""/>
+                        </div>
+                        <div class="col-md-6">
+                            <h4>Trouvez des emplois de qualité</h4>
+                                        <h4 class="subheading">WegetPro est un excellent endroit pour trouver plus de clients et pour gérer et développer votre propre entreprise indépendante.</h4>
+                        <p class="text-muted">Liberté de publier sur des espaces. Sur WegetPro, vous dirigez votre propre entreprise et choisissez vos propres blocks et sousblocks. Complétez simplement votre profil et nous mettrons en évidence les emplois idéaux. Recherchez également des projets, clients et répondez aux invitations des clients.
+                                            Grande variété. Les clients affichent maintenant des emplois dans des centaines de catégories de compétences, et paient le prix fort pour un excellent travail.
+                                            De plus en plus de succès. Plus vos publications sont performantes, plus vous êtes susceptible d'être embauché par des clients qui utilisent WegetPro.</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h4>Être embauché rapidement</h4>
+                                        <h4 class="subheading">WegetPro facilite la connexion avec les clients et commence à faire un excellent travail.</h4>
+                                        <p class="text-muted">Embauche simplifiée. Les algorithmes sophistiqués de WegetPro mettent en évidence les projets pour lesquels vous vous trouvez.
+                                            Programmes de talents les plus populaires et les plus prometteurs. Profitez d'une visibilité accrue grâce au statut de programmes prestigieux.
+                                            Faites un travail substantiel avec les meilleurs clients. La tarification WegetPro encourage les pigistes à utiliser WegetPro pour les relations répétées avec leurs clients.</p>
+                        </div>
+                        <div class="col-md-6 how-img">
+                            <img src="assets/images/Work_Section2_freelance_img2.png" class="rounded-circle img-fluid" alt=""/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 how-img">
+                             <img src="assets/images/Work_Section2_freelance_img3.png" class="rounded-circle img-fluid" alt=""/>
+                        </div>
+                        <div class="col-md-6">
+                            <h4>Travailler efficacement</h4>
+                                        <h4 class="subheading">Avec WegetPro, vous disposez de la liberté et de la flexibilité nécessaires pour contrôler quand, où et comment vous travaillez. Chaque projet comprend un espace de travail en ligne partagé par vous et votre client, vous permettant de:</h4>
+                                        <p class="text-muted">Envoyer et recevoir des fichiers. 
+										Fournissez des ressources numériques dans un environnement sécurisé.
+                                            Partagez vos commentaires en temps réel. Utilisez les messages WegetPro Solution's pour communiquer par texte, chat ou vidéo.
+                                            Utilisez notre application mobile. De nombreuses fonctions sont accessibles sur votre téléphone mobile lors de vos déplacements.</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h4>Booster vos affaires et entreprises</h4>
+                                        <h4 class="subheading">Tous les blocks ou espaces incluent la protection d'information et de plus WegetPro vous aide à gérer toutes vos publications effectuées avec succès via votre espace Web indépendant.</h4>
+                                        <p class="text-muted"> Vous avez une école, une université etc... plus d'inquietude, WegetPro vous aide a faire votre publicité et vous permet de gagner en chiffre d'affaire... </p>
+                        </div>
+                        <div class="col-md-6 how-img">
+                            <img src="assets/images/Work_Section2_freelance_img4.png" class="rounded-circle img-fluid" alt=""/>
+                        </div>
+                    </div>
+                </div>

@@ -42,12 +42,12 @@ export class EnteteEcoleComponent implements OnInit {
         'blue'
       )]
       );
-
-    this.sousBlocks$ = this.sousBlocksSubject$.pipe(
-      debounceTime(300),
-      distinctUntilChanged(),
-      switchMap(data => this.sousBlockS.getSousBlockByIdDetailBlock(this.id_block))
-      );
+    this.sousBlocks$ = this.sousBlockS.streamSousBlockById(this.id_block);
+    // this.sousBlocks$ = this.sousBlocksSubject$.pipe(
+    //   debounceTime(300),
+    //   distinctUntilChanged(),
+    //   switchMap(data => this.sousBlockS.getSousBlockByIdDetailBlock(this.id_block))
+    //   );
   }
 
   search(){
@@ -64,7 +64,8 @@ export class EnteteEcoleComponent implements OnInit {
       ).subscribe(resp => {
         this.sousBlock = resp.body;
         this.setParams();
-        this.search();
+        // this.search();
+        this.sousBlocks$ = this.sousBlockS.streamSousBlockById(this.id_block);
       });
   }
 
@@ -102,7 +103,7 @@ export class EnteteEcoleComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.search();
+      this.sousBlockS.refreshStreamSousBlockById(this.id_block);
     });
   }
 }

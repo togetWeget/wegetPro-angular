@@ -11,6 +11,8 @@ import { SousBlock } from '../../../shared/models/sous-block';
 import { Block } from '../../../shared/models/block';
 import { CursusScolaire } from '../../../shared/models/personne/cv-personne/cursusScolaire';
 import { Experience } from '../../../shared/models/personne/cv-personne/experience';
+import { FormationEcoleService } from '../../../core/services/formation-ecole.service';
+import { Formation } from '../../../shared/models/ecole/formation';
 
 @Component({
   selector: 'app-profil-abonne',
@@ -33,13 +35,16 @@ export class ProfilAbonneComponent implements OnInit {
   photCouverture: string;
   identifiant:number;
   nomMembre:string;
+  isValid:boolean;
+  formation:Formation;
 
   constructor(private abonnesService: AbonnesService,
               private route: ActivatedRoute,
               private router: Router,
               private contactDialog: MatDialog,
 			        public chatact: ChatLiasonService,
-              public sbService: SousBlockService
+              public sbService: SousBlockService,
+              public formationEcoleService: FormationEcoleService
         ) {
   }
 
@@ -53,6 +58,7 @@ export class ProfilAbonneComponent implements OnInit {
       }else{
         this.fetchDetailblock();
       }
+      this.isValid=true;
     });
   }
   fetchDetailblock(){
@@ -87,6 +93,9 @@ export class ProfilAbonneComponent implements OnInit {
       this.image="";
       this.vues=this.sousBlock.detailBlock.nombreVue;
       this.photo=this.sousBlock.pathLogo;
+      let sousBId=this.sousBlock.id;
+      this.fetchAllFormationSB(sousBId);
+        console.log(this.formation);
     });
   }
   fethcAllAbonnes() {
@@ -96,6 +105,13 @@ export class ProfilAbonneComponent implements OnInit {
     ).subscribe(res => {
       this.abonnes = res.body;
       console.log('les abonnes de ListAbonnesBlockComponent', res.body);
+    });
+  }
+
+  fetchAllFormationSB(numSoub:number){
+    this.formationEcoleService.getFormationBySousBlock(numSoub).subscribe(res=>{
+      this.formation = res.body;
+      console.log(this.formation);
     });
   }
   getPhotoSrc(): string {
@@ -119,7 +135,7 @@ export class ProfilAbonneComponent implements OnInit {
   }
   
   activatchat(){
-	this.chatact.chatload(this.abonne.membre.id, this.abonne.membre.nomComplet, this.abonne.membre.pathPhoto);
+	this.chatact.chatload(this.identifiant, this.nomMembre, this.photo);
   }
   
 }

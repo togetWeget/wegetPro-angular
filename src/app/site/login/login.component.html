@@ -1,10 +1,10 @@
 
-<section class="login-block">
-    <div class="container">
-	<div class="row">
+<section class="login-block" style="position:fixed; bottom:0; left:0; right:0; top:0;">
+    <div class="container" style="overflow-y:auto; overflow-x:hidden;">
+	<div class="row" style="max-height:500px;">
 		<div class="col-md-4 login-sec">
 		    <h2 class="text-center" i18n>Login Dashboard</h2>
-<form class="login-form">
+<form class="login-form connex">
   <div class="form-group">
     <label for="exampleInputEmail1" class="text-uppercase" i18n>login</label>
     <input type="text" class="form-control foc" placeholder="email ou telephone" name="login" [(ngModel)]="login">
@@ -17,12 +17,27 @@
   
     <div class="form-check">
     <label class="form-check-label">
-      <small style="cursor:pointer; text-decoration:underline;" i18n>Mot de passe oublié ?</small>
+      <small style="cursor:pointer; text-decoration:underline;" (click)="showhide('connex', 'mdpForgot');" i18n>Mot de passe oublié ?</small>
     </label>
     <button type="button" class="btn btn-login float-right foc" (click)="AuthS()" i18n>connexion</button>
   </div>
   
 </form>
+<form class="login-form mdpForgot" style="display:none">
+  <div class="form-group">
+    <label for="exampleInputEmail1" class="text-uppercase" i18n>Email</label>
+	<p>Entrez l'email utilisé lors de votre inscription</p>
+    <input type="text" class="form-control foc" placeholder="email" name="forgot" [(ngModel)]="forgot">
+  </div>
+    <div class="form-check">
+	    <label class="form-check-label">
+      <small style="cursor:pointer; text-decoration:underline;" (click)="showhide('mdpForgot', 'connex');" i18n>Retour</small>
+    </label>
+    <button type="button" class="btn btn-login float-right foc" (click)="AuthS()" i18n>Envoyé</button>
+  </div>
+  
+</form>
+
 <hr/>
 <div class="col-sm-12 row text-center">
 <div class="col-sm-12 text-center"> <p i18n>ou se connecter avec :</p> </div>
@@ -31,7 +46,7 @@
 	 
 	
 </div>
-<div class="copy-text"><span i18n>conçu et développé</span> <i class="fa fa-heart"></i> <span i18n>by</span> <a href="#" (click)="false;" >Togetop.com</a></div>
+<div class="copy-text"><span i18n>conçu et développé</span> <i class="fa fa-heart"></i> <span i18n>par</span> <a href="#" (click)="false;" >Togetop.com</a></div>
 		</div>
 		<div class="col-md-8 banner-sec">
 		
@@ -39,7 +54,7 @@
 
 				<div class="banner-text logup">
 				<h2 i18n>Pas de compte ?</h2>
-				<p> <span i18n>pas de panique, cliquez</span> <a href="#" (click)="false;" i18n>ici(s'inscrire)</a> <span i18n>pour créer un compte. C'est rapide gratuit et fiable!</span></p>
+				<p> <span i18n>pas de panique, cliquez</span> <a href="#" (click)="inscript(); false;" i18n>ici(s'inscrire)</a> <span i18n>pour créer un compte. C'est rapide gratuit et fiable!</span></p>
 				</div>	
 		
 		

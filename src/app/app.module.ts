@@ -13,13 +13,15 @@ import { LoginComponent } from './core/clients/login/login.component';
 import { SharedModule } from './shared/shared.module';
 import {RouterModule} from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-import { NgHttpLoaderModule } from 'ng-http-loader';
+// import { NgHttpLoaderModule } from 'ng-http-loader';
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 import { ToastrModule } from 'ngx-toastr';
 import {NgxMaskModule} from 'ngx-mask';
 import { OwlModule } from 'ngx-owl-carousel';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material';
+import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
+import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
 // import { QuillModule } from 'ngx-quill';
 // import { TinymceModule } from 'angular2-tinymce';
 
@@ -40,9 +42,11 @@ import {MatInputModule} from '@angular/material';
     NoopAnimationsModule,
     CoreModule,
     HttpClientModule,
-    NgHttpLoaderModule,
+    // NgHttpLoaderModule,
     RouterModule,
     SharedModule,
+    LoadingBarHttpClientModule,
+    LoadingBarRouterModule,
     FroalaEditorModule.forRoot(),
     FroalaViewModule.forRoot(),
     ToastrModule.forRoot(),

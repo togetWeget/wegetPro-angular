@@ -10,6 +10,11 @@ import { OutilsService } from '../../core/services/outils.service';
 import {FormBuilder, FormGroup, FormControl,Validators,FormArray } from '@angular/forms';
 import { MatDialog } from '@angular/material';
 import { SaveFilesComponent } from '../../core/comp/save-files/save-files.component';
+import { SaveFile2Component } from '../../core/comp/save-file2/save-file2.component';
+import * as emoji from 'node-emoji';
+import * as fx from 'mkdir-recursive';
+import * as ts from "typescript";
+import { LnlFilesManagerService, ParamsModel, FileManagerModel } from 'lnl-files-manager';
 import {
   ActivatedRoute,
   CanActivate,
@@ -21,6 +26,9 @@ import {
   RouterStateSnapshot,
   UrlSegment, UrlTree
 } from '@angular/router';
+
+declare const ActiveXObject: (type: string) => void;
+
 @Component({
   selector: 'app-chat-cli',
   templateUrl: './chat-cli.component.html',
@@ -46,12 +54,60 @@ export class ChatCliComponent implements OnInit {
 	public aucun: any = 0;
 	public checkgreen: any = 1;
 	public checkorange: any = 0;
+	public totalTaille: any;
 	public all: any = "";
+	 public Emoticones: any = [];
+	 public emojihand: any = [];
+	 public fichier: FileManagerModel[]=[];
+	 public progressebar: any = [];
   constructor(public chatact: ChatLiasonService, public firbaseRequest: RequestChatroomService, private _sanitizer: DomSanitizer,private fb: FormBuilder, public outils: OutilsService, private dialog: MatDialog, public router: Router) { 
-	  this.getallStat();
-	 this.getserveurtime();
-	 this.checkMembre = true;
+	this.getallStat();
+	this.getserveurtime();
+	this.checkMembre = true;
+	this.getEmoti();
+	this.emojihand.push(emoji.emoji["+1"]);	
+	this.moveFile();
 	  }
+	  
+	moveFile(){
+        // let myObject;
+        // myObject = new ActiveXObject("Scripting.FileSystemObject");
+        // myObject.MoveFile("c:\\test.txt", "c:\\tmp\\test.txt");
+	}
+	  
+	  gethand(emo){		  
+		this.message_ss = emoji.emojify(' '+emo+ ' ');	
+		this.sendchatmsg();	  
+	  }
+	  
+  //afficher les emo au click en msg
+  teste(emo){
+  if(this.message_ss){
+	  this.message_ss += emoji.emojify(' '+emo+ ' ');
+	  $('#status_message').focus();
+	  }
+	  else{
+		  this.message_ss = emoji.emojify(' '+emo+ ' '); 
+		  $('#status_message').focus();
+		  
+		  }
+	  }
+	  
+	  
+	  // Recuperer le tab d'emoji
+	getEmoti(){
+
+			for(let i in emoji.emoji)
+						this.Emoticones.push(emoji.emoji[i])
+
+						this.Emoticones = this.Emoticones.sort();
+							this.Emoticones = this.Emoticones.slice(1156, 1236);
+				
+		// console.log(emoji.emoji["+1"]);
+		}
+		
+		
+		
 	checksearch(param){
 		if(param == "checkgreen"){
 			if ( $( "."+param ).is( ":checked" ) ){
@@ -95,15 +151,20 @@ choseFile(){
  }
 
  choseFilephoto(){
-   const dialogRef = this.dialog.open(SaveFilesComponent, {
+	 this.fichier = null;
+   const dialogRef = this.dialog.open(SaveFile2Component, {
       maxWidth: '768px',
       maxHeight: '500px',
-      data: {name: 'image_chat', multiple: true, type: '.png, .PNG, .jpg, .JPG, .jpeg, .JPEG, .GIF, .gif', filename: this.chatact.InfoMe.id, url: `${this.outils.getBaseUrl()}/ph`}
+      data: {name: 'image_chat', multiple: true, accept: '.png, .PNG, .jpg, .JPG, .jpeg, .JPEG, .GIF, .gif', must_return : true,  filename: this.chatact.InfoMe.id, url: `${this.outils.getBaseUrl()}/ph`}
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      // this.search(Date.now()+'');
-      // this.search(localStorage.getItem('log'));
+		if(result){
+			this.fichier = result;
+			this.message_ss = " ";
+			this.sendchatmsg();
+		}
+
     }); 
  }
  
@@ -233,17 +294,17 @@ choseFile(){
 	memebrealls(){
 	this.checkMembre = true;
 	let u = this;
-		let mem = this.chatact.getinfoMembre().done(function(data) {
+		let mem = this.chatact.getinfoMembre().done((data)=> {
 			u.memebreall = data.body;
 			u.memebreall.sort((a,b)=>{return a.nomComplet > b.nomComplet;});
 			// console.log(u.memebreall);
 			u.checkMembre = false;
 		  })
-		  .fail(function() {
+		  .fail(()=> {
 			console.log( "error" );
 			u.checkMembre = false;
 		  })
-		  .always(function() {
+		  .always(()=> {
 		  });
 		
 		}
@@ -378,25 +439,56 @@ choseFile(){
   }
   
   sendchatmsg(){
+	  this.progressebar[this.chatact.id] = 0;
+	  $(".chg").fadeIn(400);
+	  this.totalTaille = 0;
 	if(this.message_ss){	
     const libelle = 'Discussion';
     const code_disc = this.chatact.InfoMe.id + '_' + this.chatact.id ;
 	
     const code_disc_rec = this.chatact.id  + '_' + this.chatact.InfoMe.id;
 	
+
+	if(this.fichier){
+		
+			for(let i = 0; i < this.fichier.length; i++){
+				
+			const timerDisc = new Date().getTime();
+			
+			const datesender = new Date(timerDisc).toLocaleString();
+			const urlData = libelle + '/' + code_disc + '/' + timerDisc;
+			const urlData_rec = libelle + '/' + code_disc_rec + '/' + timerDisc;
+			
+			const data: any = {message: this.message_ss, fichier: ' ', Date_s: datesender, codeSender: this.chatact.InfoMe.id , images: '', status : 0, idreceiver: this.chatact.id };
+			this.autoUpdate();
+			this.firbaseRequest.CreateSendData( urlData, data);
+			this.firbaseRequest.CreateSendData( urlData_rec, data);
+
+			
+				this.fileSend(this.fichier[i].file, urlData, this.fichier.length);
+				this.fileSend(this.fichier[i].file, urlData_rec, this.fichier.length);
+			
+				
+			}
+
+	}else{
+		
     const timerDisc = new Date().getTime();
 	
-    const datesender = new Date(timerDisc).toLocaleString();
-    const urlData = libelle + '/' + code_disc + '/' + timerDisc;
-    const urlData_rec = libelle + '/' + code_disc_rec + '/' + timerDisc;
-	
-    const data: any = {message: this.message_ss, fichier: ' ', Date_s: datesender, codeSender: this.chatact.InfoMe.id , images: '', status : 0, idreceiver: this.chatact.id };
-	this.autoUpdate();
-    this.firbaseRequest.CreateSendData( urlData, data);
-    this.firbaseRequest.CreateSendData( urlData_rec, data);
+		const datesender = new Date(timerDisc).toLocaleString();
+		const urlData = libelle + '/' + code_disc + '/' + timerDisc;
+		const urlData_rec = libelle + '/' + code_disc_rec + '/' + timerDisc;
+		
+		const data: any = {message: this.message_ss, fichier: ' ', Date_s: datesender, codeSender: this.chatact.InfoMe.id , images: '', status : 0, idreceiver: this.chatact.id };
+		this.autoUpdate();
+		this.firbaseRequest.CreateSendData( urlData, data);
+		this.firbaseRequest.CreateSendData( urlData_rec, data);		
+			
+	}
 	this.message_ss = null;
 	$('#status_message').focus();
 	this.scrollF();
+	this.fichier = null;
 	}	  
 	   
   }
@@ -481,10 +573,10 @@ choseFile(){
 	const url = libelle + "/" + code_disc +"/"+ param;
 	const url2 = libelle + "/" + code_disc_rec +"/"+ param;
 
-			this.firbaseRequest.RemoveData(url2).then(function() {
+			this.firbaseRequest.RemoveData(url2).then(() => {
 				console.log("Remove succeeded.")
 			})
-			.catch(function(error) {
+			.catch((error)=> {
 			console.log("Remove failed: " + error.message)
 			});
 			this.getchatinf(this.chatact.id);
@@ -498,18 +590,18 @@ choseFile(){
     const code_disc_rec = this.chatact.id +"_"+ this.chatact.InfoMe.id;
 	const url = libelle + "/" + code_disc +"/"+ param;
 	const url2 = libelle + "/" + code_disc_rec +"/"+ param;
-			this.firbaseRequest.RemoveData(url).then(function() {
+			this.firbaseRequest.RemoveData(url).then(()=> {
 				console.log("Remove succeeded.")
 			})
-			.catch(function(error) {
+			.catch((error)=> {
 			console.log("Remove failed: " + error.message)
 			});
 			
 			
-			this.firbaseRequest.RemoveData(url2).then(function() {
+			this.firbaseRequest.RemoveData(url2).then(()=> {
 				console.log("Remove succeeded.")
 			})
-			.catch(function(error) {
+			.catch((error)=> {
 			console.log("Remove failed: " + error.message)
 			});
 			this.getchatinf(this.chatact.id);
@@ -570,7 +662,7 @@ choseFile(){
 			u.getserveurtime();
 			if(urldata != u.chatact.InfoMe.id){
 				if(snapshot.val()){
-					firebase.database().ref("/.info/serverTimeOffset").on('value', function(offset) {
+					firebase.database().ref("/.info/serverTimeOffset").on('value', (offset)=> {
 								u.aucun = 0;
 								let offsetVal = offset.val() || 0;
 								let timest = Date.now() + offsetVal;
@@ -605,9 +697,44 @@ choseFile(){
 	
 	getserveurtime(){
 		let u = this;
-		firebase.database().ref("/.info/serverTimeOffset").on('value', function(offset) {
+		firebase.database().ref("/.info/serverTimeOffset").on('value', (offset)=> {
 		let offsetVal = offset.val() || 0;
 		u.timest = Date.now() + offsetVal;
 		});  
+	}
+	
+	fileSend(file: File, url: any, taille: any = 1){
+
+		let u = this;
+		const request = this.firbaseRequest.uploadFile(file, url);
+		
+		request.on('state_changed', (snapshot: any)=>{
+			if(snapshot){
+		u.progressebar[u.chatact.id] = ((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
+		
+				if(u.progressebar[u.chatact.id] >= 100){
+					
+					$(".chg").fadeOut(2000);
+				}
+				
+			// switch (snapshot.state) {
+				// case firebase.storage.TaskState.PAUSED:
+					// console.log('Upload is paused');
+			  // break;
+				// case firebase.storage.TaskState.RUNNING:
+					// console.log('Upload is running');
+			  // break;
+			// }
+			}
+			}, (error)=> {
+			  // error code
+			}, ()=> {
+
+			  request.snapshot.ref.getDownloadURL().then((downloadURL)=> {
+				let data: any ={fichier: downloadURL}; 
+				u.firbaseRequest.UpdateData(url, data);
+			  });
+			});
+
 	}
 }

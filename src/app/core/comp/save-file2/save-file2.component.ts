@@ -69,12 +69,12 @@ export class SaveFile2Component implements OnInit {
 
   handleFiles(event){
     this.files = event;
-    console.log('FILES', event);
+    // console.log('FILES', event);
   }
  
   handleErrors(event){
   	this.toastr.error(event);
-    console.log('ERRORS', event);
+    // console.log('ERRORS', event);
   }
 
   closeModal(){

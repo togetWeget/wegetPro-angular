@@ -63,5 +63,12 @@ export class LoginComponent implements OnInit {
 			
 			}
 
-
+	showhide(param, param2){
+		$("."+param).hide();
+		$("."+param2).fadeIn();
+	}
+	
+	inscript(){
+		this.router.navigate(['/register']);
+	}
 }

@@ -12,6 +12,7 @@ import {OutilsService} from '../../../core/services/outils.service';
 import { SaveFilesComponent } from '../../../core/comp/save-files/save-files.component';
 import { SaveFile2Component } from '../../../core/comp/save-file2/save-file2.component';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';  
+import { LnlFilesManagerService, ParamsModel, FileManagerModel } from 'lnl-files-manager';
 
 import {SousBlock} from '../../../shared/models/sous-block';
 import {SousBlockService} from '../../../core/services/sous-block.service';
@@ -31,6 +32,7 @@ export class LayoutEcoleComponent implements OnInit {
   id_block: number = 0;
   sousBlocks$: Observable<Resultat<SousBlock>>;
   sousBlocksSubject$ = new BehaviorSubject<string>('');
+  params: ParamsModel[] = []; 
 
   constructor(
     private abonneService: AbonnesService,
@@ -38,11 +40,12 @@ export class LayoutEcoleComponent implements OnInit {
     private router: Router,public dialog: MatDialog,
     public outils: OutilsService, private sousBlockS: SousBlockService) {
   this.getDetailBlock(); 
-    this.sousBlocks$ = this.sousBlocksSubject$.pipe(
-      debounceTime(300),
-      distinctUntilChanged(),
-      switchMap(data => this.sousBlockS.getSousBlockByIdDetailBlock(this.id_block))
-      );
+    this.sousBlocks$ = this.sousBlockS.streamSousBlockById(this.id_block);
+    // this.sousBlocks$ = this.sousBlocksSubject$.pipe(
+    //   debounceTime(300),
+    //   distinctUntilChanged(),
+    //   switchMap(data => this.sousBlockS.getSousBlockByIdDetailBlock(this.id_block))
+    //   );
   	this.top_zone = new AdminTopZone (
   		'', 
   		'',
@@ -65,7 +68,12 @@ export class LayoutEcoleComponent implements OnInit {
       })
       ).subscribe(resp => {
         this.sousBlock = resp.body;
-        this.search();
+        this.params = [
+          new ParamsModel('nom_sousblock', this.sousBlock.nom)
+        ];
+        // this.search();
+        // this.sousBlockS.refreshStreamSousBlockById(this.id_block);
+        this.sousBlocks$ = this.sousBlockS.streamSousBlockById(this.id_block);
       });
   }
   getDetailBlock(){
@@ -91,7 +99,8 @@ export class LayoutEcoleComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.search();
+      // this.search();
+      this.sousBlockS.refreshStreamSousBlockById(this.id_block);
       // this.search(Date.now()+'');
       // this.search(localStorage.getItem('log'));
     });
@@ -100,12 +109,14 @@ export class LayoutEcoleComponent implements OnInit {
     const dialogRef = this.dialog.open(SaveFile2Component, {
       maxWidth: '768px',
       maxHeight: '500px',
-      data: {name: 'image_photo', multiple: false, accept: 'image/*', filename: this.sousBlock.nom, 
+      data: {name: 'image_photo', multiple: false, accept: 'image/*',
+      filename: this.sousBlock.nom, params: this.params,
       url: `${this.outils.getBaseUrl()}/sousBlockLogo`}
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.search();
+      // this.search();
+      this.sousBlockS.refreshStreamSousBlockById(this.id_block);
       // this.search(Date.now()+'');
       // this.search(localStorage.getItem('log'));
     });

@@ -1,0 +1,20 @@
+<!-- {{documentForm | json}} -->
+<form [formGroup]="documentForm" (submit)="enregistrer();" >
+	<legend i18n>Enregistrer les informations de votre fichier</legend>
+
+	<mat-form-field class="example-full-width">
+		<input matInput formControlName="titre" placeholder="Titre" [value]="">
+	</mat-form-field>
+	
+	<mat-form-field class="example-full-width">
+		<textarea matInput placeholder="Description" formControlName="description" rows="5"></textarea>
+	</mat-form-field>
+
+	<button mat-raised-button type="button" color="primary" lnlFmTrigger="#input1" i18n>Selectionnez les fichiers</button>
+ 
+	<input type="file" name="image_photo" accept=".pdf, .doc, .docx" multiple lnlFmInput class="form-control" id="input1" placeholder="Input field">
+	 
+	<lnl-fm-output (files)="handleFiles($event)" name="image_photo" [params]="params" [accept]="'.pdf, .doc, .docx'" (errors)="handleErrors($event)" [multiple]="true" selector="#input1"></lnl-fm-output>
+
+	<button mat-raised-button type="submit" color="primary" i18n>Enregistrer</button>
+</form>
