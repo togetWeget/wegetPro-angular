@@ -1,0 +1,8 @@
+.list-group{
+	.list-group-item{
+		cursor: pointer;
+		&:not(.active):hover{
+			background: hsla(0, 0%, 95%, 1);
+		}
+	}
+}

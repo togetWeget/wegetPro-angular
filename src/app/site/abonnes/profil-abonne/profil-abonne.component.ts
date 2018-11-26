@@ -32,8 +32,12 @@ export class ProfilAbonneComponent implements OnInit {
   experience: Experience[]=[];
   abonnes: Detailblock[] = [];
   defaultPhoto: any = '/assets/profile-cover.jpg';
+<<<<<<< HEAD
   photoCouverture: string;
   photoCouvertureArr: string[] = [];
+=======
+  photCouverture: string;
+>>>>>>> develop
   identifiant:number;
   nomMembre:string;
   isValid:boolean;
@@ -62,8 +66,11 @@ export class ProfilAbonneComponent implements OnInit {
       this.isValid=true;
     });
   }
+<<<<<<< HEAD
   /* La methode de recuperation d'un abonné */
 
+=======
+>>>>>>> develop
   fetchDetailblock(){
     this.route.paramMap.pipe(
       switchMap((params: ParamMap) =>
@@ -72,19 +79,30 @@ export class ProfilAbonneComponent implements OnInit {
       this.abonne = res.body;
       this.cursus = this.abonne.membre.cvPersonne.cursus;
       this.experience = this.abonne.membre.cvPersonne.experience;
+<<<<<<< HEAD
       this.photoCouverture=this.getPhotoSrc();
       this.photoCouvertureArr = [this.photoCouverture];
+=======
+      this.photCouverture=this.getPhotoSrc();
+>>>>>>> develop
       this.identifiant=this.abonne.membre.id;
       this.nomMembre=this.abonne.membre.nomComplet;
       this.typeblock =this.abonne.block.typeBlock;
       this.titre=this.abonne.block.libelle;
+<<<<<<< HEAD
       this.image=this.abonne.membre.pathPhoto;
+=======
+      this.image=this.abonne.membre.pathPhotoCouveture;
+>>>>>>> develop
       this.vues=this.abonne.nombreVue;
       this.photo=this.abonne.membre.pathPhoto;
     });
   }
+<<<<<<< HEAD
 
   /* La methode de recupération d'un sous block */
+=======
+>>>>>>> develop
   fetchSousBlock(){
     this.route.paramMap.pipe(
       switchMap((params:ParamMap) =>
@@ -96,6 +114,7 @@ export class ProfilAbonneComponent implements OnInit {
       this.nomMembre = this.sousBlock.detailBlock.membre.nomComplet;
       this.typeblock = this.sousBlock.detailBlock.block.typeBlock;
       this.titre=this.sousBlock.detailBlock.block.libelle;
+<<<<<<< HEAD
       this.image=this.sousBlock.pathLogo;
       this.vues=this.sousBlock.detailBlock.nombreVue;
       this.photo=this.sousBlock.pathLogo;
@@ -106,12 +125,23 @@ export class ProfilAbonneComponent implements OnInit {
   }
 
   /* Les autres abonnés du block*/
+=======
+      this.image="";
+      this.vues=this.sousBlock.detailBlock.nombreVue;
+      this.photo=this.sousBlock.pathLogo;
+      let sousBId=this.sousBlock.id;
+      this.fetchAllFormationSB(sousBId);
+        console.log(this.formation);
+    });
+  }
+>>>>>>> develop
   fethcAllAbonnes() {
     this.route.paramMap.pipe(
       switchMap((params: ParamMap) =>
         this.abonnesService.getAllAbonnesByBlock(+params.get('this.abonne.block.id')))
     ).subscribe(res => {
       this.abonnes = res.body;
+<<<<<<< HEAD
       //console.log('les abonnes de ListAbonnesBlockComponent', res.body);
     });
   }
@@ -121,6 +151,16 @@ export class ProfilAbonneComponent implements OnInit {
     this.formationEcoleService.getFormationBySousBlock(numSoub).subscribe(res=>{
       this.formation = res.body;
       //console.log(this.formation);
+=======
+      console.log('les abonnes de ListAbonnesBlockComponent', res.body);
+    });
+  }
+
+  fetchAllFormationSB(numSoub:number){
+    this.formationEcoleService.getFormationBySousBlock(numSoub).subscribe(res=>{
+      this.formation = res.body;
+      console.log(this.formation);
+>>>>>>> develop
     });
   }
   getPhotoSrc(): string {

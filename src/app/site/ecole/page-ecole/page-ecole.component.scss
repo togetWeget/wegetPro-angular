@@ -17,7 +17,11 @@
     height: 40px;
     display: inline-block;
     background: #2096cd;
+<<<<<<< HEAD
     //position: relative;
+=======
+    position: relative;
+>>>>>>> develop
 }
 .breakingNews>ul {
     padding: 0;
@@ -84,6 +88,7 @@ li{
     width: 28px;
     line-height: 28px;
     text-align: center;
+<<<<<<< HEAD
 }
 .bn-title h2::after{
     width: 0;
@@ -94,3 +99,6 @@ li{
     border-bottom: 18px solid transparent;
     background-color: white;
 }
+=======
+}
+>>>>>>> develop

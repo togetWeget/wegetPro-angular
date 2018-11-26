@@ -1,12 +1,21 @@
+<<<<<<< HEAD
  
   <div class="media">
     <a class="pull-left" href="#" target="_parent">
       <img alt="image" class="img-responsive" [src]="imageForm" width="200">
+=======
+<h3 class="tab-content-title" i18n>Formations</h3>
+<div class="col-sm-12 brdr pad-10 btm-mrg-20 box-shad property-listing" *ngFor="let format of formation"> 
+  <div class="media">
+    <a class="pull-left" href="#" target="_parent">
+      <img alt="image" class="img-responsive" src="/assets/images/formation.jpg">
+>>>>>>> develop
     </a>
     <div class="clearfix d-none d-sm-block d-md-none"></div>
     <div class="media-body fnt-smaller" style="margin-left:10px;">
       <a href="#" target="_parent"></a>
       <h4 class="media-heading">
+<<<<<<< HEAD
         <a href="#" target="_parent">{{formation.titre}}</a>
         <ul class="list-inline pull-right toolbar">
           <li class="list-inline-item">
@@ -34,9 +43,26 @@
       </ul>
       <p class="d-none d-sm-block">
         {{formation.contenu}}
+=======
+        <a href="#" target="_parent">{{format.titre}}</a>
+      </h4>
+      <ul class="list-inline mrg-0 btm-mrg-10 clr-535353">
+        <li class="list-inline-item"><i class="fa fa-clock-o"></i>&nbsp;{{format.dureeFormation}}</li>
+        <li class="list-inline-item" style="list-style: none">|</li>
+        <li class="list-inline-item"><i class="fa fa-money"></i>&nbsp;{{format.formation_prix}}</li>
+        <li class="list-inline-item" style="list-style: none">|</li>
+        <li class="list-inline-item"><i class="fa fa-graduation-cap"></i>&nbsp;{{format.diplome}}</li>
+      </ul>
+      <p class="d-none d-sm-block">
+        {{format.contenu}}
+>>>>>>> develop
         <button type="button" class="btn btn-info btn-sm" (click)="onVoirPlus()">Voir +</button>
       </p>
     </div>
   </div>
+<<<<<<< HEAD
 
 
+=======
+</div>
+>>>>>>> develop

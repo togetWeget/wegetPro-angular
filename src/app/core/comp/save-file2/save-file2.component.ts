@@ -56,7 +56,11 @@ export class SaveFile2Component implements OnInit {
  
   send(){
   	// let allFiles: FileManagerModel[] = this.fmService.concatArrays(files, files2);
+<<<<<<< HEAD
     if(!this.must_return && this.files.length > 0){
+=======
+    if(!this.must_return){
+>>>>>>> develop
       this.fmService.submit(this.url, 
         this.fmService.buildFormData(this.files, this.params, this.multiple))
       .subscribe(data => {

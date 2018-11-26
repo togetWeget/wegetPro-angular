@@ -1,8 +1,11 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Formation } from '../../../shared/models/ecole/formation';
 import { MatDialog } from '@angular/material';
+<<<<<<< HEAD
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
+=======
+>>>>>>> develop
 import { InfosEcoleComponent } from '../infos-ecole/infos-ecole.component';
 
 @Component({
@@ -12,6 +15,7 @@ import { InfosEcoleComponent } from '../infos-ecole/infos-ecole.component';
 })
 export class FormsEcoleComponent implements OnInit {
   @Input('formation') formation : Formation;
+<<<<<<< HEAD
   imageForm: string;
   cataloguePath:string;
   formulairePath:string;
@@ -20,6 +24,11 @@ export class FormsEcoleComponent implements OnInit {
   ngOnInit() {
     this.imageForm=this.formation.pathPhoto ? this.formation.pathPhoto : '/assets/images/formation.jpg';
     //this.cataloguePath = this.formation.
+=======
+  constructor(private infosDialog: MatDialog) { }
+
+  ngOnInit() {
+>>>>>>> develop
   }
 
   onVoirPlus(): void {
@@ -28,6 +37,7 @@ export class FormsEcoleComponent implements OnInit {
         width: '600px',
         data: {idFormation: this.formation.id, coursContenu: this.formation.contenu}
       });
+<<<<<<< HEAD
   }
   DownloadFileCatalogue():void
   {
@@ -60,6 +70,11 @@ export class FormsEcoleComponent implements OnInit {
     };
     return this.http.get(path,httpOptions);
   }
+=======
+      console.log(this.formation.contenu);
+  }
+
+>>>>>>> develop
 }
 
 

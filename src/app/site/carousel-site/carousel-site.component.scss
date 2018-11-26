@@ -44,6 +44,14 @@
 	border: 1px solid #fff;
 }
 */
+<<<<<<< HEAD
+=======
+.container-fluid{
+  padding-left: 0;
+  padding-right: 0;
+}
+
+>>>>>>> develop
 .col-md-4, .col-sm-6, .col-lg-2, .col-12{
 	display: inline-block;
 	//margin-left:-10px;
@@ -60,13 +68,23 @@
   
   span.carousel-control-prev-icon {
    //position: relative;
+<<<<<<< HEAD
    //bottom: 10px;
   //right: 5px;
+=======
+   /*bottom: 40px;
+   right: 10px;*/
+>>>>>>> develop
   }
   
   span.carousel-control-next-icon {
   // position: relative;
+<<<<<<< HEAD
    //bottom: 10px;
    //left: 5px;
+=======
+  /* bottom: 40px;
+   left: 10px;*/
+>>>>>>> develop
   }
   

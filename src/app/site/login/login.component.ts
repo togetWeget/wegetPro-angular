@@ -72,7 +72,10 @@ export class LoginComponent implements OnInit {
 	inscript(){
 		this.router.navigate(['/register']);
 	}
+<<<<<<< HEAD
 		Home(){
 		this.router.navigate(['/site']);
 	}
+=======
+>>>>>>> develop
 }

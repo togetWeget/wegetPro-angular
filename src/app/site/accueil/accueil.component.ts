@@ -5,6 +5,14 @@ import {FormControl} from '@angular/forms';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 
+export interface Competence {
+  name: string;
+}
+
+export interface Localite {
+  name: string;
+  
+}
 
 export interface Competence {
   name: string;
@@ -57,6 +65,7 @@ export class AccueilComponent implements OnInit {
         map(loca => loca? this._filterLoca(loca) : this.localite.slice())
       );
   }
+<<<<<<< HEAD
 
   ngOnInit() { 
     
@@ -67,6 +76,17 @@ export class AccueilComponent implements OnInit {
     return this.competence.filter(comp => comp.name.toLowerCase().indexOf(filterValue) === 0);
   }
 
+=======
+
+  ngOnInit() {
+  }
+  private _filterComp(value: string): Competence[] {
+    const filterValue = value.toLowerCase();
+
+    return this.competence.filter(comp => comp.name.toLowerCase().indexOf(filterValue) === 0);
+  }
+
+>>>>>>> develop
   private _filterLoca(value: string): Localite[] {
     const filterValue = value.toLowerCase();
 

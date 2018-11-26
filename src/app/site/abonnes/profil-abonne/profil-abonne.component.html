@@ -3,8 +3,13 @@
     <div class="col-md-12 col-lg-12 col-12">
       <div id="profile-abonne" style="min-height: 200px;">
           <br>
+<<<<<<< HEAD
           <app-profil-cover [titre]="titre" id="img_cover" [vues]="vues" [multiple_interval]="5000" [multiple]="photoCouvertureArr" [image]="" (clickOcur)="handleClick($event)" >
             <app-profil-avatar  id="img_profil" [image]="image" (clickOcur)="handleClick($event)" ></app-profil-avatar>
+=======
+          <app-profil-cover [titre]="titre" id="img_cover" [vues]="vues" [image]="image" (clickOcur)="handleClick($event)" >
+            <app-profil-avatar  id="img_profil" [image]="abonne?.membre?.pathPhoto" (clickOcur)="handleClick($event)" ></app-profil-avatar>
+>>>>>>> develop
             <div class="footer">
               <button mat-raised-button color="primary" (click)="onContactAbonne()"><i class="fa fa-envelope"></i><span class="d-none d-sm-inline" style="display: none" i18n> Contacter</span></button>&nbsp;&nbsp;
         			<button mat-raised-button color="warn" (click)="activatchat()">
@@ -30,7 +35,10 @@
                 </div>
               </mat-card>
               <mat-card>
+<<<<<<< HEAD
                 <!-- Tab group competence -->
+=======
+>>>>>>> develop
                 <mat-tab-group class="col-md-12 col-sm-12" *ngIf="typeblock==='competence'">
                   <mat-tab>
                     <span *mat-tab-label>
@@ -71,6 +79,7 @@
                     </span>
                     <div class="tab-content">
                       <h3 class="tab-content-title" i18n>documents</h3>
+<<<<<<< HEAD
                       <app-documents-profil></app-documents-profil>
                     </div>
                   </mat-tab>
@@ -145,11 +154,45 @@
                     </span>
                     <div class="tab-content">
                       <h3 class="tab-content-title" i18n>Vidéos</h3>
+=======
+>>>>>>> develop
                       <app-documents-profil></app-documents-profil>
                     </div>
                   </mat-tab>
                 </mat-tab-group>
+<<<<<<< HEAD
 
+=======
+                <mat-tab-group class="col-md-12 col-sm-12" *ngIf="typeblock==='ecole'">
+                  <mat-tab>
+                    <span *mat-tab-label>
+                      <i class="fa fa-address-card"></i>
+                      <span class="d-none d-lg-inline" i18n> Présentation</span>
+                    </span>
+                    <div class="tab-content">
+                      <app-detail-ecole [detail]="sousBlock"></app-detail-ecole>
+                    </div>
+                  </mat-tab>
+                  <mat-tab>
+                    <span *mat-tab-label>
+                      <i class="fa fa-graduation-cap"></i>
+                      <span class="d-none d-lg-inline" i18n> Formations</span>
+                    </span>
+                    <div class="tab-content">
+                      <app-forms-ecole [formation]="formation"></app-forms-ecole>
+                    </div>
+                  </mat-tab>
+                  <mat-tab>
+                    <span *mat-tab-label>
+                      <i class="fa fa-file"></i>
+                      <span class="d-none d-lg-inline" i18n> Documents</span>
+                    </span>
+                    <div class="tab-content">
+                      <h3 class="tab-content-title" i18n>Document</h3>
+                    </div>
+                  </mat-tab>
+                </mat-tab-group>
+>>>>>>> develop
               </mat-card>
               <br>
               <mat-card>

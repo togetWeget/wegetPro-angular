@@ -42,8 +42,11 @@ import { ProfilCoverComponent } from './comp/profil-cover/profil-cover.component
 import { ProfilAvatarComponent } from './comp/profil-avatar/profil-avatar.component';
 import { SaveFilesComponent } from './comp/save-files/save-files.component';
 import { SaveFile2Component } from './comp/save-file2/save-file2.component';
+<<<<<<< HEAD
 import { SuperModalComponent } from './comp/super-modal/super-modal.component';
 import { SuperModalDirDirective } from './comp/super-modal/super-modal-dir.directive';
+=======
+>>>>>>> develop
 @NgModule({
   imports: [
     CommonModule,
@@ -83,9 +86,13 @@ import { SuperModalDirDirective } from './comp/super-modal/super-modal-dir.direc
     ProfilCoverComponent,
     ProfilAvatarComponent,
     SaveFilesComponent,
+<<<<<<< HEAD
     SaveFile2Component,
     SuperModalComponent,
     SuperModalDirDirective
+=======
+    SaveFile2Component
+>>>>>>> develop
   ],
   exports: [
     BlocTitleDirective,
@@ -117,7 +124,10 @@ import { SuperModalDirDirective } from './comp/super-modal/super-modal-dir.direc
   LoginComponent,
   SaveFilesComponent,
   SaveFile2Component,
+<<<<<<< HEAD
   SuperModalComponent
+=======
+>>>>>>> develop
   ],
   providers: [
     MessageService,

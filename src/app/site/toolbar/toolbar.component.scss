@@ -130,7 +130,11 @@ border:1px dashed #ff6d05;
 
 */
 .topnav {
+<<<<<<< HEAD
 	/*overflow: hidden;*/
+=======
+	overflow: hidden;
+>>>>>>> develop
     background-color: rgb(119, 119, 228);
     position: fixed;
     top: 0;
@@ -150,7 +154,11 @@ border:1px dashed #ff6d05;
 
 /* Change color on hover */
 .topnav a:hover {
+<<<<<<< HEAD
 	
+=======
+	background-color:#f3da35;
+>>>>>>> develop
 	color: black;
 }
 /*
@@ -179,6 +187,7 @@ border:1px dashed #ff6d05;
     line-height: 1.8em;
     box-shadow: 0 4px 8px 0  #ff6d05, 0 6px 20px 0 rgb(245, 3, 3);
     cursor: pointer;
+<<<<<<< HEAD
 }
 
 ul.navbar 
@@ -536,4 +545,6 @@ width:200px;
 .img-block{
 	width:50px;
 	height:30px;
+=======
+>>>>>>> develop
 }

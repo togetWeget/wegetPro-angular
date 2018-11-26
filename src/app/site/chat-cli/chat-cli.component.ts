@@ -12,12 +12,18 @@ import {FormBuilder, FormGroup, FormControl,Validators,FormArray } from '@angula
 import { MatDialog } from '@angular/material';
 import { SaveFilesComponent } from '../../core/comp/save-files/save-files.component';
 import { SaveFile2Component } from '../../core/comp/save-file2/save-file2.component';
+<<<<<<< HEAD
 import {LoginComponent} from '../../core/clients/login/login.component';
+=======
+>>>>>>> develop
 import * as emoji from 'node-emoji';
 import * as fx from 'mkdir-recursive';
 import * as ts from "typescript";
 import { LnlFilesManagerService, ParamsModel, FileManagerModel } from 'lnl-files-manager';
+<<<<<<< HEAD
 import {InfoMembreService} from '../../core/services/info-membre/info-membre.service';
+=======
+>>>>>>> develop
 import {
   ActivatedRoute,
   CanActivate,
@@ -29,9 +35,15 @@ import {
   RouterStateSnapshot,
   UrlSegment, UrlTree
 } from '@angular/router';
+<<<<<<< HEAD
 // import {MatDialog} from '@angular/material';
 declare const ActiveXObject: (type: string) => void;
 declare const MediaRecorder: any;
+=======
+
+declare const ActiveXObject: (type: string) => void;
+
+>>>>>>> develop
 @Component({
   selector: 'app-chat-cli',
   templateUrl: './chat-cli.component.html',
@@ -59,6 +71,7 @@ export class ChatCliComponent implements OnInit {
 	public checkorange: any = 0;
 	public totalTaille: any;
 	public all: any = "";
+<<<<<<< HEAD
 	 public GEmoticones: any = [];
 	 public Emoticones: any = [];
 	 public Emoticones1: any = [];
@@ -99,12 +112,51 @@ export class ChatCliComponent implements OnInit {
 		  
 		 }
 	}
+=======
+	 public Emoticones: any = [];
+	 public emojihand: any = [];
+	 public fichier: FileManagerModel[]=[];
+	 public progressebar: any = [];
+  constructor(public chatact: ChatLiasonService, public firbaseRequest: RequestChatroomService, private _sanitizer: DomSanitizer,private fb: FormBuilder, public outils: OutilsService, private dialog: MatDialog, public router: Router) { 
+	this.getallStat();
+	this.getserveurtime();
+	this.checkMembre = true;
+	this.getEmoti();
+	this.emojihand.push(emoji.emoji["+1"]);	
+	this.moveFile();
+	  }
+	  
+	moveFile(){
+        // let myObject;
+        // myObject = new ActiveXObject("Scripting.FileSystemObject");
+        // myObject.MoveFile("c:\\test.txt", "c:\\tmp\\test.txt");
+	}
+	  
+	  gethand(emo){		  
+		this.message_ss = emoji.emojify(' '+emo+ ' ');	
+		this.sendchatmsg();	  
+	  }
+	  
+  //afficher les emo au click en msg
+  teste(emo){
+  if(this.message_ss){
+	  this.message_ss += emoji.emojify(' '+emo+ ' ');
+	  $('#status_message').focus();
+	  }
+	  else{
+		  this.message_ss = emoji.emojify(' '+emo+ ' '); 
+		  $('#status_message').focus();
+		  
+		  }
+	  }
+>>>>>>> develop
 	  
 	  
 	  // Recuperer le tab d'emoji
 	getEmoti(){
 
 			for(let i in emoji.emoji)
+<<<<<<< HEAD
 						this.GEmoticones.push(emoji.emoji[i])
 
 						this.GEmoticones = this.GEmoticones.sort();
@@ -144,6 +196,14 @@ export class ChatCliComponent implements OnInit {
 				
 				
 			}
+=======
+						this.Emoticones.push(emoji.emoji[i])
+
+						this.Emoticones = this.Emoticones.sort();
+							this.Emoticones = this.Emoticones.slice(1156, 1236);
+				
+		// console.log(emoji.emoji["+1"]);
+>>>>>>> develop
 		}
 		
 		
@@ -178,6 +238,7 @@ export class ChatCliComponent implements OnInit {
 	}
 	
 choseFile(){
+<<<<<<< HEAD
 	this.filesave = null;
    const dialogRef = this.dialog.open(SaveFile2Component, {
       maxWidth: '768px',
@@ -237,6 +298,65 @@ choseFile(){
       maxWidth: '768px',
       maxHeight: '500px',
       data: {name: 'video_chat', multiple: false, type: '.mp3,.wav, .flac, .FLAC, .MP3, .WAV, .AAC, .Ogg, .WMA, .DSD,.AIFF, .ALAC', filename: this.chatact.InfoMe.id, url: `${this.outils.getBaseUrl()}/ph`}
+=======
+   const dialogRef = this.dialog.open(SaveFilesComponent, {
+      maxWidth: '768px',
+      maxHeight: '500px',
+      data: {name: 'file_chat', multiple: true, type: '.pdf, .doc, .docx, .ppt, .zip, .rar', filename: this.chatact.InfoMe.id, url: `${this.outils.getBaseUrl()}/ph`}
+>>>>>>> develop
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      // this.search(Date.now()+'');
+      // this.search(localStorage.getItem('log'));
+    }); 
+ }
+<<<<<<< HEAD
+  
+  connexion(){
+  // this.desactivatechat();
+	 // this.router.navigate(['/login']); 
+	 this.openModal();
+=======
+
+ choseFilephoto(){
+	 this.fichier = null;
+   const dialogRef = this.dialog.open(SaveFile2Component, {
+      maxWidth: '768px',
+      maxHeight: '500px',
+      data: {name: 'image_chat', multiple: true, accept: '.png, .PNG, .jpg, .JPG, .jpeg, .JPEG, .GIF, .gif', must_return : true,  filename: this.chatact.InfoMe.id, url: `${this.outils.getBaseUrl()}/ph`}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+		if(result){
+			this.fichier = result;
+			this.message_ss = " ";
+			this.sendchatmsg();
+		}
+
+    }); 
+ }
+ 
+ 
+ choseFilevideo(){
+   const dialogRef = this.dialog.open(SaveFilesComponent, {
+      maxWidth: '768px',
+      maxHeight: '500px',
+      data: {name: 'video_chat', multiple: false, type: '.mp4, .MP4, .3gp, .avi, .mov, .mkv', filename: this.chatact.InfoMe.id, url: `${this.outils.getBaseUrl()}/ph`}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      // this.search(Date.now()+'');
+      // this.search(localStorage.getItem('log'));
+    }); 
+ }
+ 
+ 
+ choseFileAudio(){
+   const dialogRef = this.dialog.open(SaveFilesComponent, {
+      maxWidth: '768px',
+      maxHeight: '500px',
+      data: {name: 'video_chat', multiple: false, type: '.mp3,.wav, .flac, .FLAC, .MP3, .WAV, .AAC, .Ogg, .WMA, .DSD,.AIFF, .ALAC', filename: this.chatact.InfoMe.id, url: `${this.outils.getBaseUrl()}/ph`}
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -246,31 +366,42 @@ choseFile(){
  }
   
   connexion(){
-  // this.desactivatechat();
-	 // this.router.navigate(['/login']); 
-	 this.openModal();
+  this.desactivatechat();
+	 this.router.navigate(['/site/login']); 
+>>>>>>> develop
 	 
 	 }
 
   inscription(){
   this.desactivatechat();
+<<<<<<< HEAD
 	 this.router.navigate(['/register']); 
+=======
+	 this.router.navigate(['/site/register']); 
+>>>>>>> develop
 	 }
   
   ngOnInit() {
   this.memebrealls();
 
+<<<<<<< HEAD
 	 this.fichier = null;  
 	 this.filesave = null;  
 	 this.audiosave = null;  
+=======
+	   
+>>>>>>> develop
 			this.chatact.checkchange = true;
 			this.chatact.miximaze = true;
 	  
 			this.checkMembre = true;
 			
 			this.checksearch("all");
+<<<<<<< HEAD
 			
 			this.hideEmo();
+=======
+>>>>>>> develop
   }
   
   change(){
@@ -350,13 +481,20 @@ choseFile(){
 	let u = this;
 		let mem = this.chatact.getinfoMembre().done((data)=> {
 			u.memebreall = data.body;
+<<<<<<< HEAD
 			// u.memebreall.sort((a,b)=>{return a.nomComplet > b.nomComplet;});		
+=======
+			u.memebreall.sort((a,b)=>{return a.nomComplet > b.nomComplet;});
+			// console.log(u.memebreall);
+			u.checkMembre = false;
+>>>>>>> develop
 		  })
 		  .fail(()=> {
 			console.log( "error" );
 			u.checkMembre = false;
 		  })
 		  .always(()=> {
+<<<<<<< HEAD
 				u.checkMembre = true;
 				u.getallStat();
 				u.getserveurtime();
@@ -364,6 +502,8 @@ choseFile(){
 				u.emojihand.push(emoji.emoji["+1"]);	
 				u.checknavigate();
 				
+=======
+>>>>>>> develop
 		  });
 		
 		}
@@ -484,7 +624,11 @@ choseFile(){
 	});
 
 
+<<<<<<< HEAD
 	}	
+=======
+		}	
+>>>>>>> develop
 	  		
 			
 }
@@ -493,14 +637,21 @@ choseFile(){
 		try{
   const interv = setInterval( ()=> {
 		  const tailleT = Math.round($('.direct-chat-messages').outerHeight(true) + $('.direct-chat-messages').scrollTop());
+<<<<<<< HEAD
 			  $('.direct-chat-messages').scrollTop($('.direct-chat-messages')[0].scrollHeight);
+=======
+			  $('.direct-chat-messages').animate({'scrollTop': $('.direct-chat-messages')[0].scrollHeight});
+>>>>>>> develop
 				$('#status_message').focus();
 			// alert(tailleT+" / "+$('.direct-chat-messages')[0].scrollHeight);
 			if($('.direct-chat-messages')[0]){
 				
 			  if(tailleT >= $('.direct-chat-messages')[0].scrollHeight){
 				  clearInterval(interv);
+<<<<<<< HEAD
 				
+=======
+>>>>>>> develop
 				  }
 				
 			}
@@ -524,6 +675,10 @@ choseFile(){
   
   sendchatmsg(){
 	  this.progressebar[this.chatact.id] = 0;
+<<<<<<< HEAD
+=======
+	  $(".chg").fadeIn(400);
+>>>>>>> develop
 	  this.totalTaille = 0;
 	if(this.message_ss){	
     const libelle = 'Discussion';
@@ -532,6 +687,7 @@ choseFile(){
     const code_disc_rec = this.chatact.id  + '_' + this.chatact.InfoMe.id;
 	
 
+<<<<<<< HEAD
 	if(this.fichier != null || this.filesave != null || this.audiosave != null){
 		let fich = "";
 				$(".chg").fadeIn(400);
@@ -550,21 +706,36 @@ choseFile(){
 			let extend = this.fichier[i].file.name.split('.');
 			 ttttt = extend[extend.length - 1];
 			}
+=======
+	if(this.fichier){
+		
+			for(let i = 0; i < this.fichier.length; i++){
+				
+>>>>>>> develop
 			const timerDisc = new Date().getTime();
 			
 			const datesender = new Date(timerDisc).toLocaleString();
 			const urlData = libelle + '/' + code_disc + '/' + timerDisc;
 			const urlData_rec = libelle + '/' + code_disc_rec + '/' + timerDisc;
 			
+<<<<<<< HEAD
 			const data: any = {message: this.message_ss, fichier: ' ', Date_s: datesender, codeSender: this.chatact.InfoMe.id , filesave: '', audio : '', status : 0, idreceiver: this.chatact.id, extension: ttttt };
 			
 			this.fileSend(this.fichier[i].file, urlData, this.fichier.length,fich, i);
 			this.fileSend(this.fichier[i].file, urlData_rec, this.fichier.length, fich, i);
+=======
+			const data: any = {message: this.message_ss, fichier: ' ', Date_s: datesender, codeSender: this.chatact.InfoMe.id , images: '', status : 0, idreceiver: this.chatact.id };
+>>>>>>> develop
 			this.autoUpdate();
 			this.firbaseRequest.CreateSendData( urlData, data);
 			this.firbaseRequest.CreateSendData( urlData_rec, data);
 
 			
+<<<<<<< HEAD
+=======
+				this.fileSend(this.fichier[i].file, urlData, this.fichier.length);
+				this.fileSend(this.fichier[i].file, urlData_rec, this.fichier.length);
+>>>>>>> develop
 			
 				
 			}
@@ -577,7 +748,11 @@ choseFile(){
 		const urlData = libelle + '/' + code_disc + '/' + timerDisc;
 		const urlData_rec = libelle + '/' + code_disc_rec + '/' + timerDisc;
 		
+<<<<<<< HEAD
 		const data: any = {message: this.message_ss, fichier: ' ', Date_s: datesender, codeSender: this.chatact.InfoMe.id , filesave: '',audio: '', status : 0, idreceiver: this.chatact.id, extension: '' };
+=======
+		const data: any = {message: this.message_ss, fichier: ' ', Date_s: datesender, codeSender: this.chatact.InfoMe.id , images: '', status : 0, idreceiver: this.chatact.id };
+>>>>>>> develop
 		this.autoUpdate();
 		this.firbaseRequest.CreateSendData( urlData, data);
 		this.firbaseRequest.CreateSendData( urlData_rec, data);		
@@ -587,8 +762,11 @@ choseFile(){
 	$('#status_message').focus();
 	this.scrollF();
 	this.fichier = null;
+<<<<<<< HEAD
 	this.filesave = null;
 	this.audiosave = null;
+=======
+>>>>>>> develop
 	}	  
 	   
   }
@@ -652,6 +830,7 @@ choseFile(){
 			}
 			
 			// if(this.bool){
+<<<<<<< HEAD
 				clearInterval(iterval);
 			
 				this.checkMembre = false;
@@ -660,6 +839,12 @@ choseFile(){
 				// }
 		},1000)
 		
+=======
+				// clearInterval(iterval);
+				// }
+		},1000)
+		console.log(this.memebreall);
+>>>>>>> develop
 		}
 	}	
 	
@@ -669,12 +854,16 @@ choseFile(){
 	optionoff(param){
 			$(".option"+param).fadeOut(200);
 	}
+<<<<<<< HEAD
 	
 	deleteall(param){
 		this.delmsgReverse(param);
 		this.delmsg(param);
 	}	
 	
+=======
+		
+>>>>>>> develop
 	delmsgReverse(param){
     const libelle = 'Discussion';
     const code_disc = this.chatact.InfoMe.id + '_' + this.chatact.id;
@@ -812,19 +1001,33 @@ choseFile(){
 		});  
 	}
 	
+<<<<<<< HEAD
 	fileSend(file: File, url: any, taille: any = 1, fich, i){
 		// return new Promise((resolve, reject)=>{
 			let u = this;
 			const request = this.firbaseRequest.uploadFile(file, url);
+=======
+	fileSend(file: File, url: any, taille: any = 1){
+
+		let u = this;
+		const request = this.firbaseRequest.uploadFile(file, url);
+>>>>>>> develop
 		
 		request.on('state_changed', (snapshot: any)=>{
 			if(snapshot){
 		u.progressebar[u.chatact.id] = ((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
 		
+<<<<<<< HEAD
 			
 					
 					
 			
+=======
+				if(u.progressebar[u.chatact.id] >= 100){
+					
+					$(".chg").fadeOut(2000);
+				}
+>>>>>>> develop
 				
 			// switch (snapshot.state) {
 				// case firebase.storage.TaskState.PAUSED:
@@ -837,6 +1040,7 @@ choseFile(){
 			}
 			}, (error)=> {
 			  // error code
+<<<<<<< HEAD
 			  console.log(error);
 			}, ()=> {
 
@@ -949,4 +1153,15 @@ choseFile(){
 		
     });
   }
+=======
+			}, ()=> {
+
+			  request.snapshot.ref.getDownloadURL().then((downloadURL)=> {
+				let data: any ={fichier: downloadURL}; 
+				u.firbaseRequest.UpdateData(url, data);
+			  });
+			});
+
+	}
+>>>>>>> develop
 }

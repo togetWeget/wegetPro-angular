@@ -56,9 +56,15 @@ reject(error);
   uploadFile(file: File, almostUniqueFileName : any) {
 
  		  
+<<<<<<< HEAD
         const Name = Date.now().toString();
 
         return  firebase.storage().ref('doc/' + almostUniqueFileName+'/'+ Name).put(file);
+=======
+        // const almostUniqueFileName = Date.now().toString();
+
+        return  firebase.storage().ref().child('images/' + almostUniqueFileName).put(file);
+>>>>>>> develop
 
       // return  upload.on(firebase.storage.TaskEvent.STATE_CHANGED,
 

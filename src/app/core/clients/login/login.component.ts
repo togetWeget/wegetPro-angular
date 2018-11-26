@@ -45,7 +45,11 @@ export class LoginComponent implements OnInit {
 			   u.InfoM.localstor();
 			   u.text_succ = " succès. Redirecting...";
 			   u.text_red = null;
+<<<<<<< HEAD
 			   u.dialogRef.close(1);
+=======
+			   u.dialogRef.close();
+>>>>>>> develop
 			// this.router.navigate(['/admin']);
 		  },
 

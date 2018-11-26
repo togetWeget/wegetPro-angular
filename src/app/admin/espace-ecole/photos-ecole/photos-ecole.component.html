@@ -1,14 +1,3 @@
-
-<app-admin-card [adminCard]="admin_card" (clickOcur)="handleCardClick($event)">
-  <div class="admin-card-content">
-  </div>
-</app-admin-card>
-
-<div class="alert alert-info" *ngIf="!((albums$ | async)?.length>0)">
-	Désolé il n'y a aucun album disponible
-</div>
-<div class="row" *ngIf="(albums$ | async)?.length>0">
-	<div class="col-md-12">
-		<lnl-cool-gallery [albums]="(albums$ | async)"></lnl-cool-gallery>
-	</div>
-</div>
+<p>
+  photos-ecole works!
+</p>

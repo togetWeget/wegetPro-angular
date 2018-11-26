@@ -20,9 +20,13 @@ export class AbonnesService {
   private profilByIdUrl = `${this.outils.getBaseUrl()}/detailBlock/`;
   private abonneByLogUrl = `${this.outils.getBaseUrl()}/profilAbonneLogin/`;
   private abonnesUrl = `${this.outils.getBaseUrl()}/abonnes/`;
+<<<<<<< HEAD
   private rechercheParComptence = `${this.outils.getBaseUrl()}/rechercheParComptence/`;
   private rechercheParVille = `${this.outils.getBaseUrl()}/rechercheParVille/`;
   private rechercheParCompOuVille =`${this.outils.getBaseUrl()}/rechercheParComptenceOuVille/`;
+=======
+  private abonnesComptence = `${this.outils.getBaseUrl()}/rechercheParComptence/`;
+>>>>>>> develop
   public nbVueSubject$ = new BehaviorSubject<number>(0);
   
   

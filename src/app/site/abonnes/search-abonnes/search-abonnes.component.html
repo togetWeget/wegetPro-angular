@@ -7,26 +7,42 @@
       <div class="field-search">
         <mat-form-field>
           <mat-select placeholder="Recherchez par fonction !">
+<<<<<<< HEAD
             <div class="input-append">
               <input type="text" class="search-query mac-style" [formControl]="compCtlr" tabindex="1">
               <span class="btn"><i class="fa fa-search"></i></span>
             </div>
             <mat-option *ngFor="let comp of filteredComp | async" [value]="comp.name" i18n>{{comp.name}}</mat-option>
+=======
+            <mat-option value="1" i18n>Actuaire</mat-option>
+            <mat-option value="2" i18n>Informaticien</mat-option>
+            <mat-option value="3" i18n>Developpeur</mat-option>
+>>>>>>> develop
           </mat-select>
         </mat-form-field>
         <mat-form-field>
           <mat-select placeholder="Recherchez par pays !">
+<<<<<<< HEAD
             <div class="input-append">
               <input type="text" class="search-query mac-style" [formControl]="locaCtlr" tabindex="2">
               <span class="btn"><i class="fa fa-search"></i></span>
             </div>
             <mat-option *ngFor="let local of filteredLoca | async" [value]="local.name" i18n >{{local.name}}</mat-option>
+=======
+            <mat-option value="1" i18n>Cote d'Ivoire</mat-option>
+            <mat-option value="2" i18n>France</mat-option>
+            <mat-option value="3" i18n>Etats Unis d'Amérique</mat-option>
+>>>>>>> develop
           </mat-select>
         </mat-form-field>
         <mat-form-field>
           <input matInput placeholder="Recherchez par mot clé !" [formControl]="motCtlr" >
         </mat-form-field>
+<<<<<<< HEAD
         <button mat-icon-button mat-raised-button color="primary" style="border-radius: 0px;" (click)="onRecherche()">
+=======
+        <button mat-icon-button mat-raised-button color="primary" style="border-radius: 0px;" >
+>>>>>>> develop
           <mat-icon aria-label="Rechercher" i18n>Rechercher</mat-icon>
         </button>
       </div>

@@ -16,7 +16,10 @@ import {PrixComponent} from './abonnements/prix/prix.component';
 import {PanierViewComponent} from './panier-view/panier-view.component';
 import {CategorieEcoleComponent} from './ecole/categorie-ecole/categorie-ecole.component';
 import {UrlGuardService} from '../core/services/url-guard.service';
+<<<<<<< HEAD
 import { ListAbonnesComponent } from './abonnes/list-abonnes/list-abonnes.component';
+=======
+>>>>>>> develop
 
 const routes: Routes = [
   {

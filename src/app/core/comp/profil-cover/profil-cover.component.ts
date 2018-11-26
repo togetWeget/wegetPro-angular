@@ -26,7 +26,10 @@ export class ProfilCoverComponent implements OnInit, OnChanges {
   @Input('height') height: string;
   @Input('vues') vues: string;
   @Input('isAdmin') isAdmin: boolean;
+<<<<<<< HEAD
   @Input('flat') flat: boolean = null;
+=======
+>>>>>>> develop
   @Input('multiple') set _multiple(multiple: string[]){
     this.multiple_set = 1;
     this.multiple = multiple;

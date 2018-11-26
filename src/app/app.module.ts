@@ -20,6 +20,7 @@ import {NgxMaskModule} from 'ngx-mask';
 import { FilterPipeModule} from 'ngx-filter-pipe';
 import { OwlModule } from 'ngx-owl-carousel';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+<<<<<<< HEAD
 import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
 import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
 import {FilterPipe} from './site/chat-cli/Filtermembre.pipe';
@@ -39,6 +40,11 @@ import {
 } from '@angular/material';
 
 
+=======
+import {MatInputModule} from '@angular/material';
+import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
+import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
+>>>>>>> develop
 // import { QuillModule } from 'ngx-quill';
 // import { TinymceModule } from 'angular2-tinymce';
 
@@ -54,12 +60,15 @@ import {
     BrowserModule,
     AppRoutingModule,
     SiteModule,
+<<<<<<< HEAD
     FilterPipeModule,
 	FormsModule,
 	MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
     MatRippleModule,
+=======
+>>>>>>> develop
     // QuillModule,
     // TinymceModule.withConfig({}),
     // ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),

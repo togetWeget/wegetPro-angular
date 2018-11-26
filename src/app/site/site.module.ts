@@ -62,11 +62,14 @@ import { DocEcoleComponent } from './ecole/doc-ecole/doc-ecole.component';
 import { FormsEcoleComponent } from './ecole/forms-ecole/forms-ecole.component';
 import { DetailEcoleComponent } from './ecole/detail-ecole/detail-ecole.component';
 import { InfosEcoleComponent } from './ecole/infos-ecole/infos-ecole.component';
+<<<<<<< HEAD
 import { PubliciteComponent } from './publicite/publicite.component';
 import { PubHautComponent } from './pub-haut/pub-haut.component';
 import { ModalpubComponent } from './modalpub/modalpub.component';
 import { PartenairesComponent } from './partenaires/partenaires.component';
 import { PubProfilComponent } from './pub-profil/pub-profil.component';
+=======
+>>>>>>> develop
 
 // Configs 
 export function getAuthServiceConfigs() {
@@ -130,6 +133,10 @@ export function getAuthServiceConfigs() {
     ListeEcoleComponent,
     PageEcoleComponent,
     OwlCarouselComponent,
+<<<<<<< HEAD
+=======
+	FilterPipe,
+>>>>>>> develop
 	SingleEcoleComponent,
 	LayoutProfilComponent,
 	AbonneSpecialComponent,
@@ -138,12 +145,16 @@ export function getAuthServiceConfigs() {
 	DocEcoleComponent,
 	FormsEcoleComponent,
 	DetailEcoleComponent,
+<<<<<<< HEAD
 	InfosEcoleComponent,
 	PubliciteComponent,
 	PubHautComponent,
 	ModalpubComponent,
 	PartenairesComponent,
 	PubProfilComponent
+=======
+	InfosEcoleComponent
+>>>>>>> develop
   ],
   entryComponents: [
     InfosEcoleComponent

@@ -12,10 +12,14 @@ import {ChatLiasonService} from './core/services/chat-liason/chat-liason.service
 })
 export class AppComponent {
   title = 'app';
+<<<<<<< HEAD
   @ViewChild('chat') public chat: ChatCliComponent;
   public changechat: boolean;
   public msgbool = false;
   constructor (private router: Router, public connexionup: ConnexionUpService, public chatl: ChatLiasonService) {
+=======
+  constructor (private router: Router, public connexionup: ConnexionUpService) {
+>>>>>>> develop
   	const config = {
       apiKey: 'AIzaSyBcBo2iHpfSO3CzwTXdICgV2VX_erq_sKg',
       authDomain: 'toget-2b431.firebaseapp.com',
@@ -25,7 +29,11 @@ export class AppComponent {
       messagingSenderId: '311522038007'
     };
     firebase.initializeApp(config);
+<<<<<<< HEAD
 	this.chatl.chatactivate = false;
+=======
+	
+>>>>>>> develop
 	// this.connexionup.sendconnexion();
   }
   

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div id="demo" class="carousel slide" data-ride="carousel" *ngIf="ligneCarousel !== null && ligneCarousel !== undefined && ligneCarousel?.length > 0">
   <div class="carousel-inner no-padding my-0" style="width:100%;" style="padding:0;">
 	<div class="carousel-item " [ngClass]="i==0? 'active' : 'hidden' " *ngFor="let abn of ligneCarousel; index as i">
@@ -20,3 +21,34 @@
 	<div class="alert alert-info" *ngIf="ligneCarousel === null || ligneCarousel === undefined || ligneCarousel?.length <= 0">
     Désolé! Nous n'avons pu trouver d'abonnés
   </div>
+=======
+<div class="container-fluid">
+  	<div id="demo" class="carousel slide" data-ride="carousel">
+	
+		<!-- Indicators -->
+		<!--ul class="carousel-indicators mb-0 pb-0">
+			<li data-target="#demo" data-slide-to="0" class="active"></li>
+			<li data-target="#demo" data-slide-to="1"></li>
+			<li data-target="#demo" data-slide-to="2"></li>
+		</ul-->
+	
+		<!-- The slideshow -->
+		<div class="carousel-inner no-padding my-5">
+			<div class="carousel-item row" [ngClass]="i==0? 'active' : '' " *ngFor="let abn of ligneCarousel; index as i" style="margin-right: 0px;">
+				<div class="col-12 col-sm-6 col-md-4 col-lg-2" *ngFor="let abns of abn">
+                  <app-abonne-special [abn]="abns"></app-abonne-special>
+				</div>
+			</div>
+		</div>
+		<!-- Left and right controls -->
+		<a class="carousel-control-prev" href="#demo" data-slide="prev">
+			 <span class="carousel-control-prev-icon sp"></span>
+		</a>
+		<a class="carousel-control-next" href="#demo" data-slide="next">
+			<span class="carousel-control-next-icon sp"></span>
+		</a>
+	</div>
+</div>
+	
+	
+>>>>>>> develop

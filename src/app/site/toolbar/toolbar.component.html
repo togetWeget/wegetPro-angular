@@ -39,6 +39,7 @@
 -->
 
 <div class="topnav">
+<<<<<<< HEAD
 	
   <a mat-button routerLink="."><img src="assets/images/logow.png" style="width:50px;" /></a>
   <a mat-button routerLink="." class="menuPro1" i18n><i class="fa fa-fw fa-home"></i>Accueil</a>
@@ -143,11 +144,31 @@
   <a  routerLink="."style="float:right; padding-left: 15px;"><img src="assets/logos/fr.png" class="imgbox imgboxActive"></a>
   <a  routerLink="."style="float:right border-right: 1px solid #aaa; padding-right: 10px;"><img src="assets/logos/gb.png" class="imgbox"></a>
 </div>
+=======
+  <a mat-button routerLink="."></a>
+  <a mat-button routerLink="." i18n><i class="fa fa-fw fa-home"></i>Accueil</a>
+  <a mat-button routerLink="." i18n>Nos Espaces</a>
+<div class="btn-toolbar float-right">
+  <a mat-button  *ngIf="!isAuthenticated()" (click)="openModal()"><i class="fa fa-user"></i> <span i18n>Se connecter</span></a>
+  <a mat-button class="app-btn-bg-primary" *ngIf="!isAuthenticated()" (click)="inscription()"><i class="fa fa-sign-in"></i> <span i18n>S'inscrire</span></a>
+  <a mat-button class="app-btn-bg-primary" *ngIf="isAuthenticated()" (click)="gotoAdmin()" i18n>Admin</a>
+  <a mat-button class="" *ngIf="isAuthenticated()" (click)="logout()" i18n>Déconnexion</a> 
+</div> 
+  <a mat-button routerLink="."style="float:right"><img src="assets/logos/fr.png"></a>
+  <a mat-button routerLink="."style="float:right"><img src="assets/logos/gb.png"></a>
+>>>>>>> develop
 
   <span class="icon-shopping-bag-3s"></span>
 </div>
 
+<<<<<<< HEAD
 <!-- <div _ngcontent-c11="" class="shopping-cards ng-tns-c11-0 indexing" (click)="panier()"> -->
   <!-- <span _ngcontent-c11="" class="badge badge_shopping" >0</span> -->
   <!-- <span _ngcontent-c11="" class="fa fa-shopping-basket "></span> -->
 <!-- </div> -->
+=======
+<div _ngcontent-c11="" class="shopping-cards ng-tns-c11-0">
+  <span _ngcontent-c11="" class="badge badge_shopping" >0</span>
+  <span _ngcontent-c11="" class="fa fa-shopping-basket "></span>
+</div>
+>>>>>>> develop

@@ -181,7 +181,11 @@ public dataMembre: any = [];
 		this.getLocalUsers();	
 		
 		if(!this.getToken()){
+<<<<<<< HEAD
 		this.router.navigate(['/login']);
+=======
+		this.router.navigate(['/site/login']);
+>>>>>>> develop
 		}else{
 				return true;
 		}

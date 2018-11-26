@@ -17,11 +17,15 @@ public panierdata: any = {};
 public urlglobal = `${this.outils.getBaseUrl()}/panier`;
 public urlAll = `${this.outils.getBaseUrl()}/panierParPersonne`;
 public countPanier = 0;
+<<<<<<< HEAD
 public Total = 0;
 public tab: any = [];
 public rest: number;
   constructor(public  http: HttpClient, private outils: OutilsService, private toastr: ToastrService) {
   }
+=======
+  constructor(public  http: HttpClient, private outils: OutilsService) {}
+>>>>>>> develop
   
    showSuccess(text, title) {
     this.toastr.success(text, title, {

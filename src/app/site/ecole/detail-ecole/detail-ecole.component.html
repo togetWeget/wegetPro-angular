@@ -3,6 +3,7 @@
 </div>
 <br>
 <h3 class="tab-content-title" i18n>Chiffres</h3>
+<<<<<<< HEAD
 <div class="content">
   <div class="row">
     <div class="col-md-3" *ngFor="let chiffre of detail.chiffre">
@@ -13,6 +14,16 @@
     </div>
   </div>
 </div>
+=======
+<ul class="content">
+  <li *ngFor="let chiffre of detail.chiffre">
+    <div class="header">
+      <span class="chiffre">{{chiffre.chiffre}}</span>
+      <span class="descri">{{chiffre.description}}</span>
+    </div>
+  </li>
+</ul>
+>>>>>>> develop
 <br>
 <h3 class="tab-content-title" i18n>Parténaires</h3>
 <div class="content container-fluid">
@@ -24,7 +35,11 @@
         <div class="panel panel-default">
           <div class="panel-thumbnail">
             <a href="{{partenaire.sieWebPatenaire}}" class="thumb" target="_blank">
+<<<<<<< HEAD
               <img src="/assets/images/{{i+1}}.png" alt="{{partenaire.raisonSocial}}" class="img-fluid mx-auto d-block">
+=======
+              <img src="/assets/images/{{i}}.png" alt="{{partenaire.raisonSocial}}" class="img-fluid mx-auto d-block">
+>>>>>>> develop
             </a>
           </div>
         </div>

@@ -71,7 +71,7 @@
 				
 				
 				  </mat-form-field>
-				</form>
+				</form>{{testcheck}}
 			</div>
 			
 			<div class="direct-chat-messages text-center" *ngIf="ifactivechat() === true && chatact?.checkchange === false && chatact?.id !== null && messageAll.length == 0 && cnpt == 0"><p i18n>Chargement des Meta Data en cours...</p></div>
@@ -118,6 +118,7 @@
 					  
 					  <!-- /.direct-chat-img -->
 					  
+<<<<<<< HEAD
 					  		<!-- <i class="fa fa-download pull-right" (click)="convert(val?.fichier, i);" *ngIf=" val?.fichier !== null && val?.fichier !== ' ' " ></i> -->
 						
                       <div class="direct-chat-text" [ngStyle]="{'display': 'table', 'background': val?.message !== null && val?.message !== ' ' ? '#ddd' : '#fff','z-index':'1', 'border': '0px !important'}">
@@ -136,6 +137,13 @@
 							 </audio>
                     
 					  
+=======
+					  
+                      <div class="direct-chat-text" style="display:table; background:#ddd; z-index:-1;">
+                        {{val?.message}}
+						<br *ngIf=" val?.message !== null && val?.message !== ' ' " />
+						<img [src]="val?.fichier" style="max-width:90%" *ngIf=" val?.fichier !== null && val?.fichier !== ' ' "/>
+>>>>>>> develop
                       </div>
                       </div>
                       </div>
@@ -172,6 +180,7 @@
 				<div [ngStyle]="{'background-image': 'url(assets/photo/avatar.jpg)'}" *ngIf="chatact?.photo === null || chatact?.photo === '' " class="img-r"></div>
 				
 				
+<<<<<<< HEAD
                       <div class="direct-chat-text-right pull-left" [ngStyle]="{'background': val?.message !== null && val?.message !== ' ' ? '#ddd' : '#fff','z-index':'1', 'border': '0px !important', 'cursor': val?.message !== null && val?.message !== ' ' ? 'default' : 'pointer'}">
                         {{val?.message}}
 						<br *ngIf=" val?.message !== null && val?.message !== ' ' " />
@@ -187,6 +196,13 @@
 								Impossible de lire sur votre navigateur.
 							 </audio>
                       
+=======
+                      <div class="direct-chat-text-right pull-left" style=" z-index:-1;">
+                        {{val?.message}}
+						<br *ngIf=" val?.message !== null && val?.message !== ' ' " />
+						<span>{{progressebar}}</span>
+						<img [src]="val?.fichier" style="max-width:90%" *ngIf=" val?.fichier !== null && val?.fichier !== ' ' "/>
+>>>>>>> develop
                       </div>
 					  
 					  
@@ -199,7 +215,10 @@
                     </div>
 					
                  </div>
+<<<<<<< HEAD
                  </div>
+=======
+>>>>>>> develop
 				 
 
             </div>
@@ -211,7 +230,11 @@
 			
 				  
 					<div  *ngFor="let pers of memebreall | filterBy: userFilter; index as i;" >
+<<<<<<< HEAD
 						<div *ngIf="pers?.id !== chatact?.InfoMe.id && (pers?.stconnexion === checkgreen || pers?.stconnexion === checkorange)" class="" style="border-bottom: 1px solid #ddd; width:100%; height:60px; padding:4px; overflow:hidden; cursor:pointer" (click)="changeval(pers?.pathPhoto, pers?.nomComplet, pers?.id);" id="ch_{{pers?.id}}">
+=======
+						<div *ngIf="pers?.id != chatact?.InfoMe.id && (pers?.stconnexion === checkgreen || pers?.stconnexion === checkorange)" class="" style="border-bottom: 1px solid #ddd; width:100%; height:60px; padding:4px; overflow:hidden; cursor:pointer" (click)="changeval(pers?.pathPhoto, pers?.nomComplet, pers?.id);" id="ch_{{pers?.id}}">
+>>>>>>> develop
 							 <div [ngStyle]="{'background-image': 'url(' + pers?.pathPhoto + ')'}" *ngIf="pers?.pathPhoto !== null && pers?.pathPhoto !== ''" class="img-r"></div>
 				<div [ngStyle]="{'background-image': 'url(assets/photo/avatar.jpg)'}" *ngIf="pers?.pathPhoto === null || pers?.pathPhoto === '' " class="img-r"></div>
 
@@ -274,7 +297,10 @@
 
 			<div class="popup-messages-footer text-center"  *ngIf="chatact.checkchange === true">	
 			
+<<<<<<< HEAD
 				
+=======
+>>>>>>> develop
 				<p style="font-size:10px;"><span i18n>Salut, je suis</span> <strong i18n>WeBot</strong>. <span i18n>Pour toutes question ou depot de pleinte laisser un message à un administrateur de la liste ci-dessus!</span> </p>
 			</div>
 
@@ -284,6 +310,7 @@
                     </div>
 
 				 	<div class="col-sm-12 direct-chat-name text-center chg" style="position:absolute; top:-17px; display:none;">
+<<<<<<< HEAD
 						<p style=" border-radius:10px; border:1px solid #f2f2f2; color:#09c;" i18n><img src="assets/loarer/loarder.gif"/></p>
                     </div>
 
@@ -353,6 +380,16 @@
             <button class="bg_none" (click)="choseFile()" style="cursor:pointer;" ><i class="fa fa-paperclip"></i> </button>
             <button class="bg_none" id="startButton" style="cursor:pointer;" (click)="getaudioval()" ><i class="fa fa-microphone"></i> </button>
             <button class="bg_none " id="emo" style="cursor:pointer;" (click)="showEmo();" > {{Emoticones[4]}} </button>
+=======
+						<p style=" border-radius:10px; border:1px solid #f2f2f2; color:#09c;" i18n>chargement ... {{progressebar[chatact?.id]}}%</p>
+                    </div>
+			<textarea id="status_message" placeholder="Type a message..."  rows="10" cols="40" name="message_ss" [(ngModel)]="message_ss" (keyup)="enterSend($event); keyupchange(message_ss);"  [disabled]="!ifactivechat()" ></textarea>
+			<div class="btn-footer">
+			<button class="bg_none" (click)="choseFilevideo()" style="cursor:pointer;" ><i class="fa fa-film"></i> </button>
+			<button class="bg_none" (click)="choseFilephoto()" style="cursor:pointer;" ><i class="fa fa-camera"></i> </button>
+            <button class="bg_none" (click)="choseFile()" style="cursor:pointer;" ><i class="fa fa-paperclip"></i> </button>
+            <button class="bg_none" (click)="choseFileAudio()" style="cursor:pointer;" ><i class="fa fa-microphone"></i> </button>
+>>>>>>> develop
 			<button class="bg_none pull-right"  (click)="gethand(emojihand);" style="cursor:pointer;"><i class="fa fa-thumbs-up"></i> </button>
 			</div>
 			</div>
