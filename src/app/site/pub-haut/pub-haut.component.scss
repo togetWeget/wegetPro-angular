@@ -1,0 +1,45 @@
+.pubhaut {
+    display: flex;
+    flex-wrap: nowrap;
+   }
+  .pubhaut > div {
+    background-color: #f1f1f1;
+    width: 130px;
+    height: 105px;
+    margin: 1px;
+   // text-align: center;
+    //line-height: 75px;
+   // font-size: 30px;
+     //border: 2px solid black;
+  }
+  
+
+
+.btn-2::before, .btn-2::after{
+  transition-delay: 0s;
+}
+.btn-2 span::before, .btn-2 span::after{
+  transition-delay: 0.2s;
+}
+.btn-2::before{
+  right: 0;
+  top: 0;
+}
+.btn-2::after{
+  left: 0;
+  bottom: 0;
+}
+.btn-2 span::before{
+  left: 0;
+  top: 0;
+}
+.btn-2 span::after{
+  right: 0;
+  bottom: 0;
+}
+.btn-2:hover::before, .btn-2:hover::after{
+  transition-delay: 0.2s;
+}
+.btn-2:hover span::before, .btn-2:hover span::after{
+  transition-delay: 0s;
+}

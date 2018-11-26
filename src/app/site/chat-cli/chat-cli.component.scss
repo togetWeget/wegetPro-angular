@@ -9,6 +9,7 @@
     font-family: 'Open Sans', sans-serif;
 	z-index:999;
 	transition:0.5s;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .popup-box-max {
@@ -111,6 +112,9 @@ overflow:hidden;
     width: 100%;
 	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
 }
+.disp{
+display:none !important;
+}
 .popup-messages-footer .btn-footer {
     overflow: hidden;
     padding: 2px 5px 10px 6px;
@@ -137,6 +141,15 @@ overflow:hidden;
     overflow: hidden;
 }
 .direct-chat-messages {
+    overflow-x: hidden;
+    padding: 10px;
+    transform: translate(0px, 0px);
+	height: -moz-calc(95% - 150px);
+    height: -webkit-calc(95% - 150px);
+    height: calc(95% - 150px);
+}
+
+.direct-chat-messages-membre {
     overflow-x: hidden;
     padding: 10px;
     transform: translate(0px, 0px);
@@ -196,6 +209,10 @@ overflow:hidden;
 	color:#bbb;
 }
 .popup-messages .direct-chat-messages {
+    height: 95%;
+}
+
+.popup-messages .direct-chat-messages-membre {
     height: 95%;
 }
 .popup-messages .direct-chat-text {
@@ -372,4 +389,102 @@ font-weight:bold;
 
 .coll{
 background:#000;
+}
+.checkbox-rounded [type="radio"][class*='filled-in']+label:after {
+  border-radius: 50%;
+}
+
+.videodisabled{
+color: #ddd !important;
+border: 1px solid #ddd !important;
+cursor: default;
+}
+
+
+
+/* sonar css effect */
+
+
+
+
+
+.pinkBg {
+    background-color: #ed184f!important;
+    background-image: linear-gradient(90deg, #fd5581, #fd8b55);
+}
+.intro-banner-vdo-play-btn{
+    height:60px;
+    width:60px;
+    position:absolute;
+    top:50%;
+    left:50%;
+    text-align:center;
+    margin:-30px 0 0 -30px;
+    border-radius:100px;
+    z-index:1
+}
+.intro-banner-vdo-play-btn i{
+    line-height:56px;
+    font-size:30px
+}
+.intro-banner-vdo-play-btn .ripple{
+    position:absolute;
+    width:160px;
+    height:160px;
+    z-index:-1;
+    left:50%;
+    top:50%;
+    opacity:0;
+    margin:-80px 0 0 -80px;
+    border-radius:100px;
+    -webkit-animation:ripple 1.8s infinite;
+    animation:ripple 1.8s infinite
+}
+
+@-webkit-keyframes ripple{
+    0%{
+        opacity:1;
+        -webkit-transform:scale(0);
+        transform:scale(0)
+    }
+    100%{
+        opacity:0;
+        -webkit-transform:scale(1);
+        transform:scale(1)
+    }
+}
+@keyframes ripple{
+    0%{
+        opacity:1;
+        -webkit-transform:scale(0);
+        transform:scale(0)
+    }
+    100%{
+        opacity:0;
+        -webkit-transform:scale(1);
+        transform:scale(1)
+    }
+}
+.intro-banner-vdo-play-btn .ripple:nth-child(2){
+    animation-delay:.3s;
+    -webkit-animation-delay:.3s
+}
+.intro-banner-vdo-play-btn .ripple:nth-child(3){
+    animation-delay:.6s;
+    -webkit-animation-delay:.6s
+}
+.sendinbutton{
+color: #09c;
+
+width: 10%;
+
+font-size: 30px;
+
+cursor: pointer;
+
+-ms-transform: rotate(12deg);
+
+-webkit-transform: rotate(12deg);
+
+transform: rotate(12deg);
 }

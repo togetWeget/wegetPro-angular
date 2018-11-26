@@ -53,6 +53,20 @@ import { OwlCarouselComponent } from './owl-carousel/owl-carousel.component';
 import { FilterPipeModule} from 'ngx-filter-pipe';
 import { SingleEcoleComponent } from './ecole/single-ecole/single-ecole.component';
 import { LayoutProfilComponent } from './abonnes/layout-profil/layout-profil.component';
+import { AbonneSpecialComponent } from './abonnes/abonne-special/abonne-special.component';
+import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
+import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
+import { VerificationComponent } from './verification/verification.component';
+import { PasswordUpdatedComponent } from './password-updated/password-updated.component';
+import { DocEcoleComponent } from './ecole/doc-ecole/doc-ecole.component';
+import { FormsEcoleComponent } from './ecole/forms-ecole/forms-ecole.component';
+import { DetailEcoleComponent } from './ecole/detail-ecole/detail-ecole.component';
+import { InfosEcoleComponent } from './ecole/infos-ecole/infos-ecole.component';
+import { PubliciteComponent } from './publicite/publicite.component';
+import { PubHautComponent } from './pub-haut/pub-haut.component';
+import { ModalpubComponent } from './modalpub/modalpub.component';
+import { PartenairesComponent } from './partenaires/partenaires.component';
+import { PubProfilComponent } from './pub-profil/pub-profil.component';
 
 // Configs 
 export function getAuthServiceConfigs() {
@@ -82,6 +96,8 @@ export function getAuthServiceConfigs() {
 	SocialLoginModule,
 	FormsModule,
 	FilterPipeModule,
+  LoadingBarHttpClientModule,
+    LoadingBarRouterModule,
     ReactiveFormsModule
   ],
   providers: [{provide: AuthServiceConfig, useFactory: getAuthServiceConfigs}],
@@ -110,14 +126,27 @@ export function getAuthServiceConfigs() {
     ExperienceProfilComponent,
     DocumentsProfilComponent,
     PhotosProfilComponent,
-    ChatCliComponent,
     CategorieEcoleComponent,
     ListeEcoleComponent,
     PageEcoleComponent,
     OwlCarouselComponent,
-	FilterPipe,
 	SingleEcoleComponent,
-	LayoutProfilComponent
+	LayoutProfilComponent,
+	AbonneSpecialComponent,
+	VerificationComponent,
+	PasswordUpdatedComponent,
+	DocEcoleComponent,
+	FormsEcoleComponent,
+	DetailEcoleComponent,
+	InfosEcoleComponent,
+	PubliciteComponent,
+	PubHautComponent,
+	ModalpubComponent,
+	PartenairesComponent,
+	PubProfilComponent
+  ],
+  entryComponents: [
+    InfosEcoleComponent
   ],
   exports: [LayoutComponent],
   schemas: [NO_ERRORS_SCHEMA]

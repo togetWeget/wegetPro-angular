@@ -1,23 +1,28 @@
-<div class="body-register">
-<div class="container">
+<div class="body-register" style="background: url(/assets/registry/4.jpg); position:fixed; bottom:0; left:0; right:0; top:0; background-size:cover;">
+<i class="fa fa-home" style="color:#fff; font-size:30px; cursor:pointer; position:absolute; left:15px;" (click)="Home();">&nbsp; Home &nbsp; </i>
+<div class="container" style="overflow-y:auto; overflow-x:hidden;">
 <div class="row">
   <div class="col-12">
-    <div class="first-title text-center">Formulaire d'inscription</div>
+    <div class="first-title text-center" i18n>Formulaire d'inscription</div>
   </div>
   <div class="col-md-6" appIfMediaQuery="(min-width: 768px)">
     <mat-card>
       <mat-card-content>
-        <h3 class="text-center">Pourquoi TogetPro ?</h3>
-        <div class="text-justify">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        <h3 class="text-center" i18n>Pourquoi WegetPro ?</h3>
+        <div class="text-justify" i18n>
+            Nous sommes reconnus auprès des professionnels et nous en sommes fiers. 
+
+            Chaque jour, WegetPro met tout en œuvre pour la satisfaction de vos besoins : 
+            <br>- Savoir-faire, 
+            <br>- Innovation permanente,  
+            <br> - Respect de l'environnement. 
+            <br>Notre objectif est de faciliter votre recherche de formation 
+            et de vous accompagner dans le choix du programme le plus adapté à votre besoin
+            en développement des compétences.
         </div>
       </mat-card-content>  
     </mat-card>
+	<div class="copy-text" style="color:#fff;"><span i18n>conçu et développé</span> <i class="fa fa-heart"></i> <span i18n>par</span> <a href="http://www.togetop.com">Togetop Enterprise</a></div>
   </div>
   <div class="col-md-6">
     <mat-card>

@@ -7,6 +7,9 @@ import {Cours} from '../../../shared/models/ecole/cours';
 import {SousBlock} from '../../../shared/models/sous-block';
 import {SousBlockService} from '../../../core/services/sous-block.service';
 import {FormationEcoleService} from '../../../core/services/formation-ecole.service';
+import { LnlFilesManagerService, ParamsModel, FileManagerModel } from 'lnl-files-manager';
+import { Observable, BehaviorSubject } from 'rxjs';
+import { debounceTime, switchMap, distinctUntilChanged } from 'rxjs/operators';
 
 
 @Component({
@@ -19,13 +22,29 @@ export class FormationEcoleUpdateComponent implements OnInit {
   formationForm: FormGroup;
   sousBlock: SousBlock;
   formation: Formation;
+  params: ParamsModel[] = [];
+  files: FileManagerModel[] = [];
+  catalogueFiles: FileManagerModel[] = [];
+  formulaireFiles: FileManagerModel[] = [];
+  cp: number = 0;
+  cp$: Observable<number>;
+  cpS$ = new BehaviorSubject<number>(0);
 
   constructor(public dialogRef: MatDialogRef<FormationEcoleUpdateComponent>, 
-  	@Inject(MAT_DIALOG_DATA) public data, public outils: OutilsService,
+    @Inject(MAT_DIALOG_DATA) public data, public outils: OutilsService,
     private fb: FormBuilder, private sousBlockS: SousBlockService,
-    private formationS: FormationEcoleService) { }
+    private formationS: FormationEcoleService, private fmService: LnlFilesManagerService) {
+
+  }
 
   ngOnInit() {
+        this.cp$ = this.cpS$.asObservable();
+        this.cpS$.pipe(
+          debounceTime(300),
+          distinctUntilChanged(),
+          switchMap(d => new Observable<number>((observer)=>{
+            observer.next(d);
+          })));
     this.initForm();
     this.sousBlockS.getSousBlockByIdDetailBlock(this.data.id_block)
     .subscribe(response =>  {
@@ -36,6 +55,32 @@ export class FormationEcoleUpdateComponent implements OnInit {
       	this.initForm();
       });
     });
+  }
+
+   handleFiles(event){
+    this.files = event;
+    console.log('FILES', event);
+  }
+ 
+  handleErrors(event){
+    console.log('ERRORS', event);
+  }
+
+  handleCatalogueFiles(event){
+    this.catalogueFiles = event;
+    console.log('FILES', event);
+  }
+ 
+  handleCatalogueErrors(event){
+    console.log('ERRORS', event);
+  }
+  handleFormulaireFiles(event){
+    this.formulaireFiles = event;
+    console.log('FILES', event);
+  }
+ 
+  handleFormulaireErrors(event){
+    console.log('ERRORS', event);
   }
 
   initForm(){
@@ -67,6 +112,7 @@ export class FormationEcoleUpdateComponent implements OnInit {
         dureeFormation: [this.formation.dureeFormation],
         diplome: [this.formation.diplome],
         formation_prix: [this.formation.formation_prix],
+        pathPhoto: [this.formation.pathPhoto],
         cour: courInit,
         sousBlock: [this.sousBlock]
       });
@@ -81,6 +127,7 @@ export class FormationEcoleUpdateComponent implements OnInit {
         dureeFormation: [''],
         diplome: [''],
         formation_prix: [''],
+        pathPhoto: [''],
         cour: this.fb.array([
           this.courBody()]),
         sousBlock: [null]
@@ -113,7 +160,103 @@ export class FormationEcoleUpdateComponent implements OnInit {
   onSubmit(){
     this.formationS.ajoutFormation(this.convertisseur(this.formationForm))
     .subscribe(response => {
-  	  this.dialogRef.close();
+      this.params = [
+        new ParamsModel('id', response.body.id+'')
+      ];
+        this.cp = 0;
+        this.cpS$.next(this.cp);
+      if(this.files.length !== 0){
+        this.fmService.submit(`${this.outils.getBaseUrl()}/formationPhoto`, 
+        this.fmService.buildFormData(this.files, this.params))
+        .subscribe(data => {
+          // backend response
+          this.cp++; 
+          this.cpS$.next(this.cp);
+          this.cp$.subscribe(data => {
+            if(data >= 3){
+              this.dialogRef.close();
+            }
+          });
+        }, error => {
+          this.cp++; 
+          this.cpS$.next(this.cp);
+          this.cp$.subscribe(data => {
+            if(data >= 3){
+              this.dialogRef.close();
+            }
+          });
+        });
+      }else{
+        this.cp++; 
+        this.cpS$.next(this.cp);
+        this.cp$.subscribe(data => {
+            if(data >= 3){
+              this.dialogRef.close();
+            }
+          });
+      }
+
+      if(this.formulaireFiles.length !== 0) {
+        this.fmService.submit(`${this.outils.getBaseUrl()}/formationFormulaire`, 
+          this.fmService.buildFormData(this.formulaireFiles, this.params))
+          .subscribe(data => {
+            // backend response
+            this.cp++; 
+            this.cpS$.next(this.cp);
+            this.cp$.subscribe(data => {
+            if(data >= 3){
+              this.dialogRef.close();
+            }
+          });
+          }, error => {
+            this.cp++; 
+            this.cpS$.next(this.cp);
+            this.cp$.subscribe(data => {
+            if(data >= 3){
+              this.dialogRef.close();
+            }
+          });
+          });
+        }else{
+          this.cp++;
+          this.cpS$.next(this.cp);
+          this.cp$.subscribe(data => {
+            if(data >= 3){
+              this.dialogRef.close();
+            }
+          });
+      }
+
+        if(this.catalogueFiles.length !== 0){
+          this.fmService.submit(`${this.outils.getBaseUrl()}/formationCatalogue`, 
+          this.fmService.buildFormData(this.catalogueFiles, this.params))
+          .subscribe(data => {
+            // backend response     
+            this.cp++; 
+            this.cpS$.next(this.cp);
+            this.cp$.subscribe(data => {
+            if(data >= 3){
+              this.dialogRef.close();
+            }
+          });
+          }, error => {
+            this.cp++; 
+            this.cpS$.next(this.cp);
+            this.cp$.subscribe(data => {
+            if(data >= 3){
+              this.dialogRef.close();
+            }
+          });
+          });
+        } else{
+          this.cp++; 
+          this.cpS$.next(this.cp);
+          this.cp$.subscribe(data => {
+            if(data >= 3){
+              this.dialogRef.close();
+            }
+          });
+        }
     });
   }
 
@@ -128,6 +271,7 @@ export class FormationEcoleUpdateComponent implements OnInit {
       fg.value['dureeFormation'],
       fg.value['diplome'],
       fg.value['formation_prix'],
+      fg.value['pathPhoto'],
       fg.value['cour'],
       fg.value['sousBlock']
       );

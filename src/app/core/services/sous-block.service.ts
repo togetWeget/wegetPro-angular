@@ -1,7 +1,8 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders, HttpRequest} from '@angular/common/http';
-import {Observable, of, Subject} from 'rxjs';
-import {catchError, tap, map} from 'rxjs/operators';
+import {Observable, of, Subject, BehaviorSubject} from 'rxjs';
+import {catchError, tap, map, switchMap, debounceTime, 
+  distinctUntilChanged} from 'rxjs/operators';
 import {MessageService} from './message.service';
 import {Resultat} from '../../shared/models/resultat';
 import {SousBlock} from '../../shared/models/sous-block';
@@ -16,7 +17,7 @@ export class SousBlockService {
   private urlSousBlocks = `${this.outils.getBaseUrl()}/sousBlocks`;
   private urlSousBlocksParBlock = `${this.outils.getBaseUrl()}/SousBlocksParIdBlock`;
   private urlSousBlocksParIdDetailBlock = `${this.outils.getBaseUrl()}/SousBlocksParIdDetailBlock`;
-  private urlDetailBlocksParBlock = `${this.outils.getBaseUrl()}/SousBlocksParIdBlock`;
+  private urlDetailBlocksParBlock = `${this.outils.getBaseUrl()}/SousBlocksParIdBlock`;0
   private urlPhoto = `${this.outils.getBaseUrl()}/photoBlock`;
   private urlPhoto1 = `${this.outils.getBaseUrl()}/getPhoto`;
   private urlRechercheBlk = `${this.outils.getBaseUrl()}/rechercheBlock?mc=`;
@@ -26,6 +27,7 @@ export class SousBlockService {
   private blockModifSource = new Subject<Resultat<SousBlock>>();
   private blockFiltreSource = new Subject<string>();
   private blockSupprimeSource = new Subject<Resultat<boolean>>();
+  public sousBlocksSubject$ = new BehaviorSubject<string>('');
 
 // observables streams
   blockCreer$ = this.blockCreerSource.asObservable();
@@ -35,6 +37,19 @@ export class SousBlockService {
 
   constructor(private http: HttpClient, private messageService: MessageService,
     private toastr: ToastrService, private outils: OutilsService) {
+    
+  }
+
+  streamSousBlockById(id){
+    return this.sousBlocksSubject$.pipe(
+      debounceTime(300),
+      distinctUntilChanged(),
+      switchMap(data => this.getSousBlockByIdDetailBlock(id))
+    );
+  }
+
+  refreshStreamSousBlockById(id){
+   this.sousBlocksSubject$.next(id); 
   }
 
   loadToken () {
@@ -201,7 +216,7 @@ export class SousBlockService {
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 
-      this.toastr.error(operation + ' a rencontre un probleme: ' + error.message, 'Erreur');
+      // this.toastr.error(operation + ' a rencontre un probleme: ' + error.message, 'Erreur');
       console.error(error);
 
 

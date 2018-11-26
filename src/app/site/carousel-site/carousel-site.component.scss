@@ -1,4 +1,4 @@
-.carousel{
+/*.carousel{
 	padding: 0 30px;
 }
 .carousel__button--prev, .carousel__button--next{
@@ -43,3 +43,30 @@
 	text-align: center;
 	border: 1px solid #fff;
 }
+*/
+.col-md-4, .col-sm-6, .col-lg-2, .col-12{
+	display: inline-block;
+	//margin-left:-10px;
+  }
+  img{
+  background-size: cover;
+  }
+	
+  body .carousel-control-prev-icon,
+  body .carousel-indicators li,
+  body .carousel-control-next-icon{
+	background-color:#000;
+  }
+  
+  span.carousel-control-prev-icon {
+   //position: relative;
+   //bottom: 10px;
+  //right: 5px;
+  }
+  
+  span.carousel-control-next-icon {
+  // position: relative;
+   //bottom: 10px;
+   //left: 5px;
+  }
+  

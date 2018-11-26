@@ -16,6 +16,9 @@ import { Partenaire } from '../../../shared/models/partenaire';
 import { Chiffre } from '../../../shared/models/chiffre';
 import { Temoignage } from '../../../shared/models/temoignage';
 import { SousBlockService } from '../../../core/services/sous-block.service';
+import { SaveFile2Component } from '../../../core/comp/save-file2/save-file2.component';
+import { LnlFilesManagerService, ParamsModel, FileManagerModel } from 'lnl-files-manager';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';  
 import { BlockService } from '../../../core/services/blocks/block.service';
 import { ChiffreService } from '../../../core/services/chiffre.service';
 
@@ -69,7 +72,8 @@ export class MonEcoleComponent implements OnInit {
   constructor(private outils: OutilsService, private fb: FormBuilder,
   	private router: Router, private route: ActivatedRoute, 
   	private sousBlocksS: SousBlockService, private blockS: BlockService,
-    private abonnesS: AbonnesService, private chiffresS: ChiffreService) { 
+    private abonnesS: AbonnesService, private chiffresS: ChiffreService,
+    public dialog: MatDialog) { 
     // this.sousBlock = new SousBlock();
     this.sousBlock$ = this.sousBlockSubject$.pipe(
       debounceTime(300),
@@ -100,6 +104,47 @@ export class MonEcoleComponent implements OnInit {
           );
       }
       );
+  }
+
+  choiseImagePartenaire(part: Partenaire){
+    console.log('part', part);
+    let params = [
+          new ParamsModel('id', part.id+'')
+        ];
+    const dialogRef = this.dialog.open(SaveFile2Component, {
+      maxWidth: '768px',
+      maxHeight: '500px',
+      data: {name: 'image_photo', multiple: false, accept: 'image/*',
+      params: params,
+      url: `${this.outils.getBaseUrl()}/partenaireLogo`}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.search();
+      // this.sousBlockS.refreshStreamSousBlockById(this.id_block);
+      // this.search(Date.now()+'');
+      // this.search(localStorage.getItem('log'));
+    });
+  }
+
+  choiseImageTemoignage(tem: Temoignage){
+    let params = [
+          new ParamsModel('id', tem.id+'')
+        ];
+    const dialogRef = this.dialog.open(SaveFile2Component, {
+      maxWidth: '768px',
+      maxHeight: '500px',
+      data: {name: 'image_photo', multiple: false, accept: 'image/*',
+      params: params,
+      url: `${this.outils.getBaseUrl()}/temoignagePhoto`}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.search();
+      // this.sousBlockckS.refreshStreamSousBlockById(this.id_block);
+      // this.search(Date.now()+'');
+      // this.search(localStorage.getItem('log'));
+    }); 
   }
 
   search(){
@@ -226,6 +271,7 @@ export class MonEcoleComponent implements OnInit {
       });
       console.error('form init error');
     }
+    console.log('ecole', this.ecoleForm);
   }
   
   get telephones(){
@@ -294,7 +340,7 @@ export class MonEcoleComponent implements OnInit {
       titre: [''],
       contenu: [''],
       auteur: [''],
-      pathPhoto: [''],
+      pathPhotoCouverture: [''],
       id_SousBlock: [this.sousBlock.id]
     }));  
   }
@@ -363,7 +409,7 @@ export class MonEcoleComponent implements OnInit {
       this.sousBlock.refSousBlock,
       fg.value['ecoleInfos'].presentation,
       this.sousBlock.description,
-      this.sousBlock.pathPhoto,
+      this.sousBlock.pathPhotoCouverture,
       this.sousBlock.pathLogo,
       fg.value['adresse'],
       fg.value['telephones'],

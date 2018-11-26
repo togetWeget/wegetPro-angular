@@ -1,3 +1,33 @@
-<p>
-  list-abonnes works!
-</p>
+<div class="page-content">
+  <div class="container">
+    <div class="panel-search">
+      <app-search-abonnes></app-search-abonnes>
+    </div>
+  </div>
+  <div class="container"  style="padding-top: 24px;">
+    <div class="row">
+      <div class="col-md-9">
+        <div class="abonne-wrapper">
+          <div class="row">
+            <div class="col-md-12">
+                Votre recherche: {{total}}&nbsp;elements
+            </div>
+          </div>
+          <div class="row">
+            <div *ngFor="let abonne of abonnes" class="col-md-6 col-sm-6 col-12 col-lg-4">
+              <app-abonne [abonne]="abonne"></app-abonne> 
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+                <a (click)="goToNextPage()">Suivant</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <app-publicite></app-publicite>
+      </div>
+    </div>
+  </div>
+</div>

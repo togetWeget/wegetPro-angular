@@ -1,4 +1,4 @@
-<mat-card class="head-line">
+<mat-card class="head-line" *ngIf="!flat || !(titre !== null && titre !== '')">
 	<mat-card-content>
 		<span class="titre_" *ngIf="titre !== null && titre !== ''" [innerHtml]="titre"></span>
 	</mat-card-content>
@@ -13,7 +13,7 @@
 				<ng-content select="app-profil-avatar"></ng-content>
 			</div>
 		</div>
-		<div class="bottom_cover">
+		<div class="bottom_cover" *ngIf="!flat">
 			<div class="vues" *ngIf="vues !== '-1'"><i class="fa fa-eye"></i> <span [innerHtml]="vues"></span></div>
 			<div class="voir_profil"><ng-content select=".footer"></ng-content></div>
 		</div>

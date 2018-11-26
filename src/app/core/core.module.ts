@@ -26,22 +26,29 @@ import { PanelContentDirective } from './directives/panel-content.directive';
 import { CustomDirectivesModule } from '../custom-directives/custom-directives.module';
 import { ChatComponent } from './chat/chat.component';
 import { NotFoundComponent } from './not-found/not-found.component'; 
-import { NgHttpLoaderModule } from 'ng-http-loader';
+// import { NgHttpLoaderModule } from 'ng-http-loader';
+import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
+import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 import {NgxPaginationModule} from 'ngx-pagination';
+import {LnlFilesManagerModule} from 'lnl-files-manager';
 import {PanierService} from './services/panier.service';
 import { SigninComponent } from './clients/signin/signin.component';
 import {LoginsocialService} from './services/personne/membre/loginsocial.service';
 import {InfoMembreService} from './services/info-membre/info-membre.service';
 import {ChatLiasonService} from './services/chat-liason/chat-liason.service';
+import {ConnexionUpService} from './services/connexionUp/connexion-up.service';
 import { ProfilCoverComponent } from './comp/profil-cover/profil-cover.component';
 import { ProfilAvatarComponent } from './comp/profil-avatar/profil-avatar.component';
 import { SaveFilesComponent } from './comp/save-files/save-files.component';
+import { SaveFile2Component } from './comp/save-file2/save-file2.component';
+import { SuperModalComponent } from './comp/super-modal/super-modal.component';
+import { SuperModalDirDirective } from './comp/super-modal/super-modal-dir.directive';
 @NgModule({
   imports: [
     CommonModule,
     HttpClientModule,
-    NgHttpLoaderModule,
+    // NgHttpLoaderModule,
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
@@ -49,6 +56,9 @@ import { SaveFilesComponent } from './comp/save-files/save-files.component';
     NotifierModule,
     CustomDirectivesModule,
     NgxPaginationModule,
+    LoadingBarHttpClientModule,
+    LoadingBarRouterModule,
+    LnlFilesManagerModule,
     FroalaEditorModule.forRoot(), 
     FroalaViewModule.forRoot()
   ],
@@ -72,7 +82,10 @@ import { SaveFilesComponent } from './comp/save-files/save-files.component';
     SigninComponent,
     ProfilCoverComponent,
     ProfilAvatarComponent,
-    SaveFilesComponent
+    SaveFilesComponent,
+    SaveFile2Component,
+    SuperModalComponent,
+    SuperModalDirDirective
   ],
   exports: [
     BlocTitleDirective,
@@ -90,16 +103,21 @@ import { SaveFilesComponent } from './comp/save-files/save-files.component';
     PanelContainerDirective,
     PanelContentDirective,
     ChatComponent,
+    // LoadingBarHttpClientModule,
+    // LoadingBarRouterModule,
     NgxPaginationModule,
     NotFoundComponent,
     SigninComponent,
     ProfilCoverComponent,
     ProfilAvatarComponent,
-    SaveFilesComponent
+    SaveFilesComponent,
+    SuperModalComponent
   ],
   entryComponents: [
   LoginComponent,
-  SaveFilesComponent
+  SaveFilesComponent,
+  SaveFile2Component,
+  SuperModalComponent
   ],
   providers: [
     MessageService,
@@ -109,7 +127,8 @@ import { SaveFilesComponent } from './comp/save-files/save-files.component';
 	PanierService,
 	LoginsocialService,
 	InfoMembreService,
-	ChatLiasonService
+	ChatLiasonService,
+	ConnexionUpService
   ],
   schemas: [NO_ERRORS_SCHEMA]
 })

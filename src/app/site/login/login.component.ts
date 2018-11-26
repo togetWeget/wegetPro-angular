@@ -14,6 +14,7 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   public login: any;
   public password: any;
+  forgot: any;
 
   constructor(public loginS: LoginService, public reg: RegisterService,
    public authFirebaseService: AuthFirebaseService, public loginsocialService : LoginsocialService, private InfoM: InfoMembreService, private router: Router) {
@@ -63,5 +64,15 @@ export class LoginComponent implements OnInit {
 			
 			}
 
-
+	showhide(param, param2){
+		$("."+param).hide();
+		$("."+param2).fadeIn();
+	}
+	
+	inscript(){
+		this.router.navigate(['/register']);
+	}
+		Home(){
+		this.router.navigate(['/site']);
+	}
 }

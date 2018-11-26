@@ -31,7 +31,8 @@
               "node_modules/bootstrap/dist/css/bootstrap.css",
               "src/styles.scss",
 			  "node_modules/owl.carousel/dist/assets/owl.carousel.css",
-			  "node_modules/owl.carousel/dist/assets/owl.theme.default.css"
+			  "node_modules/owl.carousel/dist/assets/owl.theme.default.css",
+			  "node_modules/bootstrap-select/dist/css/bootstrap-select.min.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
@@ -39,7 +40,8 @@
               "node_modules/popper.js/dist/umd/popper.js",
               "node_modules/bootstrap/dist/js/bootstrap.js",
 			  "node_modules/tinymce/tinymce.min.js",
-			  "node_modules/owl.carousel/dist/owl.carousel.js"
+			  "node_modules/owl.carousel/dist/owl.carousel.js",
+			  "node_modules/bootstrap-select/dist/js/bootstrap-select.min.js"
             ]
           },
           "configurations": {

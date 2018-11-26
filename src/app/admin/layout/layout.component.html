@@ -1,8 +1,9 @@
+<!-- <app-super-modal [state]="true" [superClass]="'class-a'"> hfghgfhgf  fdg sd</app-super-modal> -->
 <div class="weget-conteneur">
   <div class="example-container">
     <div class="contenaire-toolbar">
       <mat-toolbar color="primary" class="weget-toolbar mat-elevation-z5">
-       <span class="logo">
+       <span class="logo" i18n>
        Dashbord
        </span>
         <button class="btn-toggle" mat-icon-button  (click)="sidenav.toggle()">
@@ -41,7 +42,7 @@
                 <a mat-list-item="" [routerLinkActiveOptions]="{ exact: true }" class="nav-li" routerLinkActive="active" routerLink="/admin">
               <mat-expansion-panel [disabled]="true">
                   <mat-expansion-panel-header>                  
-                    <mat-panel-title>                  
+                    <mat-panel-title i18n>                  
                       <i class="fa fa-dashboard"></i> Tableau de bord
                     </mat-panel-title>                  
                   </mat-expansion-panel-header>                  
@@ -52,7 +53,7 @@
                 <a mat-list-item="" [routerLinkActiveOptions]="{ exact: false }" class="nav-li" routerLinkActive="active" routerLink="/admin/compte">
               <mat-expansion-panel [disabled]="true">
                   <mat-expansion-panel-header>                  
-                    <mat-panel-title>                  
+                    <mat-panel-title i18n>                  
                       <i class="fa fa-user"></i> Compte
                     </mat-panel-title>                  
                   </mat-expansion-panel-header>                  
@@ -63,40 +64,30 @@
                 <a mat-list-item="" [routerLinkActiveOptions]="{ exact: false }" class="nav-li" routerLinkActive="active" routerLink="/admin/messagerie">
               <mat-expansion-panel [disabled]="true">
                   <mat-expansion-panel-header>                  
-                    <mat-panel-title>                  
+                    <mat-panel-title i18n>                  
                       <i class="fa fa-envelope"></i> Messagerie&nbsp;<span class="badge badge-info float-right">{{nonLu$ | async}}</span>
                     </mat-panel-title>                  
                   </mat-expansion-panel-header>                  
               </mat-expansion-panel>
                 </a>
               <!-- /mat-expansion-panel -->                            
-               <!-- mat-expansion-panel -->
-                <a mat-list-item="" [routerLinkActiveOptions]="{ exact: false }" class="nav-li" routerLinkActive="active" routerLink="/admin/chatroom2">
-              <mat-expansion-panel [disabled]="true">
-                  <mat-expansion-panel-header>                  
-                    <mat-panel-title>                  
-                      <i class="fa fa-comments"></i> Chat
-                    </mat-panel-title>                  
-                  </mat-expansion-panel-header>                  
-              </mat-expansion-panel>
-                </a>
-                
+               <!-- mat-expansion-panel -->              
 				
-				<a mat-list-item="" [routerLinkActiveOptions]="{ exact: false }" class="nav-li" routerLinkActive="active" routerLink="/admin/gallery">
+				<!-- <a mat-list-item="" [routerLinkActiveOptions]="{ exact: false }" class="nav-li" routerLinkActive="active" routerLink="/admin/gallery">
               <mat-expansion-panel [disabled]="true">
                   <mat-expansion-panel-header>                  
-                    <mat-panel-title>                  
+                    <mat-panel-title i18n>                  
                       <i class="fa fa-comments"></i> gallery
                     </mat-panel-title>                  
                   </mat-expansion-panel-header>                  
               </mat-expansion-panel>
-                </a>
+                </a> -->
               <!-- /mat-expansion-panel -->    
               <!-- mat-expansion-panel -->
                 <a mat-list-item="" [routerLinkActiveOptions]="{ exact: false }" class="nav-li" routerLinkActive="active" routerLink="/admin/paiement/espace">
               <mat-expansion-panel [disabled]="true">
                   <mat-expansion-panel-header>                  
-                    <mat-panel-title>                  
+                    <mat-panel-title i18n>                  
                       <i class="fa fa-credit-card"></i> Espaces
                     </mat-panel-title>                  
                   </mat-expansion-panel-header>                  
@@ -107,7 +98,7 @@
                 <a mat-list-item="" [routerLinkActiveOptions]="{ exact: false }" class="nav-li" routerLinkActive="active" routerLink="/admin/paiement/historique">
               <mat-expansion-panel [disabled]="true">
                   <mat-expansion-panel-header>                  
-                    <mat-panel-title>                  
+                    <mat-panel-title i18n>                  
                       <i class="fa fa-list"></i> Historique
                     </mat-panel-title>                  
                   </mat-expansion-panel-header>                  

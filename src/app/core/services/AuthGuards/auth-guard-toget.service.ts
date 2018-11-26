@@ -43,9 +43,9 @@ public dataMembre: any = [];
   }
 
   canActivateChild (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    return this.canActivate(route, state);
+	return this.adminGuardChild();
   }
-// IP Number = A x (256*256*256) + B x (256*256) + C x 256 + D calcul detection et localisation adresse ip
+
 	geolocNav(){
 		let u = this;
 		u.lat =  0;
@@ -62,6 +62,7 @@ public dataMembre: any = [];
 				}
 		  });
 		}else{
+		console.log("!issecurecontext");
 		}
 
 	}
@@ -83,11 +84,6 @@ public dataMembre: any = [];
 		
 	}
 	
-	splitF(param: any): any{
-		let reg = /./gi
-		let sp = param.replace(reg, '-');
-		return sp;		
-		}
 		
 	sendLocalInfo(para,idMembre){
 	let u = this;
@@ -108,25 +104,13 @@ public dataMembre: any = [];
 		this.geolocNav();
 		this.getLocalUsers();	
 		
-	// console.log(this.InfoM.InfoMembres.id);
-    // console.log(' verification ...' + route.url);
     const urlcurrent = String(route.url);
-    const urlAdmin: any = 'admin';
-    // console.log(' verification ...' + urlcurrent);
+	console.log(urlcurrent);
     const urllogin: any = 'login';
     const urlregister: any = 'register';
-		// console.log(this.isLoggedIn());
+
     switch (urlcurrent) {
-      case urlAdmin :
-
-        if (this.isLoggedIn()) {
-          return true;
-        } else {
-          this.router.navigate(['/site/login']);
-        }
-
-        break;
-
+	
       case urllogin:
         if (this.isLoggedIn()) {
           this.router.navigate(['/admin']);
@@ -143,7 +127,7 @@ public dataMembre: any = [];
         }
         break;
 
-      default :
+      default:
         return true;
 
     }
@@ -155,7 +139,7 @@ public dataMembre: any = [];
   private isLoggedIn(): boolean {
 	return this.getToken();
   }
-
+	
   getToken(): boolean {
 	const localStorange = localStorage.getItem('togetToken');
 	const log = localStorage.getItem('log');
@@ -188,6 +172,19 @@ public dataMembre: any = [];
 	  localStorage.clear();
       this.firebaseDir.signOutUser();	  
 	  }
-
+	  
+	 
+	adminGuardChild(): boolean{
+	
+		this.InfoM.getbylogin();
+		this.geolocNav();
+		this.getLocalUsers();	
+		
+		if(!this.getToken()){
+		this.router.navigate(['/login']);
+		}else{
+				return true;
+		}
+	}
 }
 

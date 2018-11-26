@@ -1,8 +1,10 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-
+// import { QuillModule } from 'ngx-quill';
 import {AdminRoutingModule} from './admin-routing.module';
 import {LayoutComponent} from './layout/layout.component';
+import { LnlCoolGalleryModule } from 'lnl-cool-gallery';
+import { LnlGalleryModule } from 'lnl-gallery';
 import {AccueilComponent} from './accueil/accueil.component';
 import {
   MatButtonModule,
@@ -17,6 +19,7 @@ import {
   MatToolbarModule,
   MatTooltipModule
 } from '@angular/material';
+import { LnlFilesManagerModule } from 'lnl-files-manager';
 import {FooterComponent} from './footer/footer.component';
 import {CoreModule} from '../core/core.module';
 import {CustomMeterialModule} from '../custom-meterial/custom-meterial.module';
@@ -96,6 +99,12 @@ import { FormationEcoleUpdateComponent } from './espace-ecole/formation-ecole-up
 import { DocumentAddComponent } from './espace-competence/document-add/document-add.component';
 // import { NgxEditorModule } from 'ngx-editor';
 // import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
+import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
+import { DocumentEcoleAddComponent } from './espace-ecole/document-ecole-add/document-ecole-add.component';
+import { PhotoEcoleAddComponent } from './espace-ecole/photo-ecole-add/photo-ecole-add.component';
+import { VideoEcoleComponent } from './espace-ecole/video-ecole/video-ecole.component';
+import { VideoEcoleAddComponent } from './espace-ecole/video-ecole-add/video-ecole-add.component';
 
 
 @NgModule({
@@ -113,7 +122,13 @@ import { DocumentAddComponent } from './espace-competence/document-add/document-
     MatTooltipModule,
     MatFormFieldModule,
     MatExpansionModule,
+    LoadingBarHttpClientModule,
+    LoadingBarRouterModule,
     MatButtonModule,
+    LnlCoolGalleryModule,
+    LnlGalleryModule,
+    LnlFilesManagerModule,
+    // QuillModule,
     // NgxEditorModule,
     FroalaEditorModule.forRoot(), 
     FroalaViewModule.forRoot(),
@@ -151,13 +166,17 @@ import { DocumentAddComponent } from './espace-competence/document-add/document-
      FlashInfoUpdateComponent,
      FormationEcoleViewComponent,
      FormationEcoleUpdateComponent,
-     DocumentAddComponent
+     DocumentAddComponent,
+     DocumentEcoleAddComponent,
+     PhotoEcoleAddComponent,
+     VideoEcoleComponent,
+     VideoEcoleAddComponent
   ],
   entryComponents: [BlockComponent, MatdiologComponent, ImgloardComponent, 
   VideoloardComponent, FormationEcoleAddComponent,
-     FlashInfoAddComponent,
+     FlashInfoAddComponent, PhotoEcoleAddComponent,
      FlashInfoUpdateComponent, FormationEcoleViewComponent, FormationEcoleUpdateComponent,
-     DocumentAddComponent ],
+     DocumentAddComponent, DocumentEcoleAddComponent, VideoEcoleAddComponent ],
   exports: [LayoutComponent]
 })
 export class AdminModule {

@@ -1,3 +1,4 @@
+<!--
 <span>
 <mat-toolbar class="toolbar mat-elevation-z3">
   <span class="toggle"><button (click)="toggleMenu()" mat-button><i class="fa fa-bars"></i></button></span>
@@ -35,3 +36,118 @@
     <app-login-content></app-login-content>
   </div>
 </div>
+-->
+
+<div class="topnav">
+	
+  <a mat-button routerLink="."><img src="assets/images/logow.png" style="width:50px;" /></a>
+  <a mat-button routerLink="." class="menuPro1" i18n><i class="fa fa-fw fa-home"></i>Accueil</a>
+  <a mat-button routerLink="." class="menuPro" i18n>Nos Espaces</a>
+  <a mat-button routerLink="." class="menuPro" i18n>Actualité</a>
+  <a mat-button routerLink="." class="menuPro" >A Propos</a>
+  <a mat-button routerLink="." class="menuPro" >Map</a>
+  <a mat-button routerLink="." class="menuPro" >FAQ</a>
+  <a mat-button routerLink="." class="menuPro" >Contact</a>
+<div class="btn-toolbar float-right">
+
+<!-- panier --> 
+  
+  	<div class="btn-group">
+ 
+ <div class="blk-tools" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+ <i class="fa fa-angle-down" style="color:#fff;"></i> <i class="fa fa-shopping-cart panier-i"> <small class="small">{{paniers.countPanier}}</small></i> 
+	</div>
+	
+  <div class="dropdown-menu" style="padding:10px;" (click)="false;">
+	<!-- <hr/> -->
+<table class="table">
+  <thead class="">
+    <tr>
+     
+      <th scope="col" style="border-bottom:2px solid #ff7200;">Espaces</th>
+      <th scope="col" style="border-bottom:2px solid #ff7200;">Qtité</th>
+
+
+    </tr>
+  </thead>
+  <tbody>
+	<tr *ngFor="let ng of paniers?.tab; index as i">
+
+      <td><img src="{{paniers?.panierId[ng]?.block.pathPhoto}}"  alt="{{paniers?.panierId[ng]?.block.libelle[0]}}" class="img-block"/></td>
+      <td>{{paniers?.panierId[ng]?.quantite}}</td>
+    </tr>
+	
+	<tr *ngIf="paniers.rest > 5">
+	<td> + {{paniers.rest}} </td>
+	<td>  Element(s)</td>
+	</tr>
+	<tr>
+	      <td *ngIf="load == 1">Chargement ...</td>
+		  <td *ngIf="load == 3">Vide</td>
+	</tr>
+
+	<tr style="background:#ddd;">
+      <td colspan="2">Total <div class="pull-right">{{paniers.Total}} F CFA</div> </td>
+    </tr>
+  </tbody>
+</table>
+    <div class="col-sm-12 row"> 
+		<button mat-raised-button color="primary" class="pull-left" (click)="panier();"> + Accedez au Panier</button>
+		<!-- <button mat-raised-button color="warn" class="pull-right">Accedez</button> -->
+		<!-- <a mat-flat-button routerLink=".">Accedez</a> -->
+	</div>
+
+  </div>
+</div>
+  <!-- fin panier-->
+  <!-- connexion inscription -->
+  
+    <a mat-button  *ngIf="!isAuthenticated()" (click)="login()"><i class="fa fa-user r"></i> <span i18n>Se connecter</span></a>
+  <a mat-button class="app-btn-bg-primary" *ngIf="!isAuthenticated()" (click)="inscription()"><i class="fa fa-sign-in r"></i> <span i18n>S'inscrire</span></a>
+  
+  <!-- Fin connexion inscription -->
+  <div class="blog-user" *ngIf="isAuthenticated()">
+    <!-- <a class="avator" (click)="onProfil()"><img src="{{photoProfil}}"></a> -->
+
+	<div class="btn-group">
+  
+  	<div class="blk-tools" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		<div class="tool-conn"> <i class="fa fa-angle-down"></i> &nbsp; {{infoM.nomComplet}} </div>
+		<div [ngStyle]="{'background-image': 'url(' + infoM.photoProfil + ')'}" *ngIf="infoM.photoProfil !== null && infoM.photoProfil !== ''" class="img-r-tools"></div>
+		<div [ngStyle]="{'background-image': 'url(assets/photo/avatar.jpg)'}" *ngIf="infoM.photoProfil === null || infoM.photoProfil === '' " class="img-r-tools" ></div>
+	</div>
+  <div class="dropdown-menu" style="color:#333 !important; text-align:left !important; padding:8px;">
+    <a class="dropdown-item" href="#" (click)="gotoAdmin()" style="color:#333 !important; text-align:left !important;" i18n> <i class="fa fa-table">&nbsp;</i>Mon Tableau de Bord</a>
+    <a class="dropdown-item" href="#" (click)="goProfil()" style="color:#333 !important; text-align:left !important;" i18n><i class="fa fa-user-circle">&nbsp;</i>Mon Profil</a>
+    <!-- <a class="dropdown-item" href="#">Something else here</a> -->
+    <div class="dropdown-divider"></div>
+    <a class="dropdown-item" href="#" (click)="logout()" style="color:#333 !important; text-align:left !important;" i18n><i class="fa fa-power-off">&nbsp;</i>Deconnexion</a>
+  </div>
+</div>
+       <!-- <ul [ngClass]="{'navbar-right':true, -->
+                    <!-- 'hidden':isVisible==false, -->
+                    <!-- 'visible':isVisible==true}"> -->
+      <!-- <li class="active"> -->
+        <!-- <a mat-button class="app-btn-bg-primary" (click)="gotoAdmin()" i18n>Tableau de bord</a> -->
+        <!-- </li> -->
+      <!-- <li> -->
+        <!-- <a mat-button class="" (click)="goProfil()" i18n>Mon Profil</a> -->
+      <!-- </li> -->
+      <!-- <li> -->
+          <!-- <a mat-button class="" (click)="logout()" i18n>Déconnexion</a> -->
+        <!-- </li> -->
+    <!-- </ul> -->
+  </div>
+</div> 
+<div style="" class="lang pull-right">
+  <a  routerLink="."style="float:right; padding-left: 15px;"><img src="assets/logos/fr.png" class="imgbox imgboxActive"></a>
+  <a  routerLink="."style="float:right border-right: 1px solid #aaa; padding-right: 10px;"><img src="assets/logos/gb.png" class="imgbox"></a>
+</div>
+
+  <span class="icon-shopping-bag-3s"></span>
+</div>
+
+<!-- <div _ngcontent-c11="" class="shopping-cards ng-tns-c11-0 indexing" (click)="panier()"> -->
+  <!-- <span _ngcontent-c11="" class="badge badge_shopping" >0</span> -->
+  <!-- <span _ngcontent-c11="" class="fa fa-shopping-basket "></span> -->
+<!-- </div> -->

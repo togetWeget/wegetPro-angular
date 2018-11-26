@@ -1,32 +1,31 @@
-
 <div class="container">
   <!-- <div class="" style="margin-top:25px; border-bottom:4px dashed #ff6d05; width:30%;"></div> -->
     <div class="row col-sm-12  custyle">
-	<button class="btn btn-lg btn-link" style="margin-top:25px;"><b>+</b>LISTE DES ELEMENTS DU PANIER ({{this.panier.countPanier}} espace.s)</button>
+	<button class="btn btn-lg btn-link" style="margin-top:25px;" i18n><b>+</b>LISTE DES ELEMENTS DU PANIER ({{panier.countPanier}} espace.s)</button>
     <table class="table table-striped custab">
     <thead>
 		<tr>
 
 			<td style="text-align:right; background:#1e90ff;" colspan="7">
-		<button class="btn btn-info" (click)="othercheck()"> Continuez vos achats</button>
-	<button class="btn btn-danger"> Finalisez</button>
+		<button class="btn btn-info" (click)="othercheck()" i18n> Continuez vos achats</button>
+	<button class="btn btn-danger" i18n> Finalisez</button>
 	</td>
 			</tr>
         <tr>
 
 
 
-            <th>ID</th>
-            <th>Libellé</th>
-            <th>Image</th>
-            <th>Quantité</th>
-            <th>Prix</th>
-            <th>Date</th>
-            <th class="text-center">Action</th>
+            <th i18n>ID</th>
+            <th i18n>Libellé</th>
+            <th i18n>Image</th>
+            <th i18n>Quantité</th>
+            <th i18n>Prix U</th>
+            <th i18n>Date</th>
+            <th class="text-center" i18n>Action</th>
         </tr>
     </thead>
 	<tbody>
-            <tr *ngFor="let ind of getAllPanier; index as i">
+            <tr *ngFor="let ind of panier?.panierId; index as i">
                 <td>{{i + 1}}</td>
                 <td>{{ind.block.libelle}}</td>
                 <td><img src="{{ind.block.pathPhoto}}"  alt="{{ind.block.libelle[0]}}" class="img-block"/></td>
@@ -35,26 +34,26 @@
 
                 <td>{{ind.tarif.prix}}</td>
                 <td>{{ind.date}}</td>
-			<td class="text-center"><span class="fa fa-remove btn btn-danger"></span>&nbsp; <span class="fa fa-eye  btn btn-info"></span></td>
+			<td class="text-center"><span class="fa fa-remove btn btn-danger" (click)="deletepanier(ind.id)"></span>&nbsp; <span class="fa fa-eye  btn btn-info" (click)="truemodal(ind,i);"></span></td>
             </tr>
 
 		<tr *ngIf="verif == true">
-				<td style="font-size:15px; text-align:center;"  colspan="7">chargement en cours...</td>
+				<td style="font-size:15px; text-align:center;"  colspan="7" i18n>chargement en cours Veuillez patienter svp...</td>
 		</tr>
 
-		<tr *ngIf="countPanier === 0 && verif === false">
-				<td style="font-size:15px; text-align:center;"  colspan="7">Aucun element trouvé dans votre panier <a href="/site"> cliquer ici pour effectuer un ajout.</a></td>
+		<tr *ngIf="panier.countPanier === 0 && verif === false">
+				<td style="font-size:15px; text-align:center;"  colspan="7" i18n>Aucun element trouvé dans votre panier <a href="/site"> cliquer ici pour effectuer un ajout.</a></td>
 		</tr>
 	</tbody>
 	<tfoot>
 		<tr>
-		<td style="font-size:25px; text-align:right;" class="pull-right;" colspan="7">Total : {{prix}} F cfa</td>
+		<td style="font-size:25px; text-align:right;" class="pull-right;" colspan="7" i18n>Total : {{panier.Total}} F cfa </td>
 		</tr>
 
 		<tr>
 		<td style="font-size:25px; text-align:right;" class="pull-right;" colspan="7">
-						<button class="btn btn-info" (click)="othercheck()"> Continuez vos achats</button>
-			<button class="btn btn-danger"> Finalisez</button>
+						<button class="btn btn-info" (click)="othercheck()" i18n> Continuez vos achats</button>
+			<button class="btn btn-danger" i18n> Finalisez</button>
 
 
 			</td>
@@ -62,7 +61,36 @@
 	</tfoot>
 
     </table>
-	<div class="col-sm-12"> <h2>Voir d'autre block similaire </h2></div>
+	<div class="col-sm-12"> <h2 i18n>Voir d'autre block similaire </h2></div>
 
     </div>
 </div>
+<app-super-modal [state]="truem" [superClass]="'class-a'" style=" width:55%;"> 
+<div class="row">
+                    <div class="col-md-6 product_img">
+                        <img src="{{gData?.block.pathPhoto}}" alt="{{gData?.block.pathPhoto[0]}}" class="img-responsive">
+                    </div>
+                    <div class="col-md-6 product_content">
+                        <h4>Product Id: <span>{{gData?.block.id}}</span></h4>
+                        <div class="rating">
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            {{gData?.block.libelle}}
+                        </div>
+                        <p>{{gData?.block.description}}</p>
+                        <h3 class="cost"><span class="glyphicon glyphicon-usd"></span> {{gData?.tarif.prix}}.00 F CFA<small class="pre-cost"><span class="glyphicon glyphicon-usd"></span> 6000.00 F CFA</small></h3>
+                        <div class="row">
+                        <i class="fa fa-angle-down btn btn-info" (click)="down(idMod)"></i> <input style="background:#fff; width:50px; border:0px; text-align:center;" disabled type="number" id="{{idMod + 1}}" value="{{gData?.quantite}}" ><i class="fa fa-angle-up btn btn-info " (click)="up(idMod)"></i>
+                            
+                        </div>
+                        <div class="space-ten"></div>
+                        <div class="btn-ground">
+                            <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-shopping-cart"></span> Continuez Mes Achats</button>
+                            <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-heart"></span> <i class="fa fa-trash" style="color:red;" ></i> Supprimer</button>
+                        </div>
+                    </div>
+                </div>
+</app-super-modal>

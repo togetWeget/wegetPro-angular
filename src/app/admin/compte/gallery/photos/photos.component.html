@@ -14,7 +14,7 @@
 	<li *ngFor="let ie of [1,2,3,4,5,6,7,8,9]; index as i">
 		<a href="#" (click)="geturi(i+1); false;"><img src="http://nabeel.co.in/files/bootsnipp/gallery/{{i+1}}.jpg">
 		<div class="box_data">
-			<p>Titre de la photo {{i + 1}}</p>
+			<p i18n>Titre de la photo {{i + 1}}</p>
 			<span class="fa fa-trash" color="warn" (click)="false;"></span>
 		</div>
 		</a>

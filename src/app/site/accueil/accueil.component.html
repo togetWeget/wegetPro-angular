@@ -1,27 +1,145 @@
-<div class="container-accueil">
-  <div>
-    <div class="jumbotron text-center" style="background-image: url('assets/images/cover.jpg'); background-attachment: fixed; height: 300px">
+<app-owl-carousel></app-owl-carousel>
 
-      <h2 style="color: orange" align="center">
-        {{title}}
-      </h2>
-    </div>
-  </div>
-
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-          <h3 class="first-title">Nos abonnés</h3>
-          <app-carousel-site></app-carousel-site>
-      </div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <!--<div class="info">
+      <marquee scrolldelay="150" onmouseover="this.stop();" onmouseout="this.start();" style="border:0px outset #00FFFF; text-align: center; font-weight:bold; font-size:16px;" direction="left">
+              <strong i18n> Pour bénéficier de la réduction d'une compétance au titre des frais de scolarité, vos enfants doivent  suivre un enseignement dans un collège ou un lycée, ou encore poursuivre des études supérieures débouchant sur un diplôme. 
+              Peu importe que ce soit dans un établissement public ou privé 
+              </strong>
+      </marquee>
+    </div>-->
+    <app-pub-haut></app-pub-haut>
     </div>
   </div>
 </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h2 i18n class="title">Nos abonnés spéciaux</h2>
+      <app-carousel-site></app-carousel-site>
+      <br>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+        <a href="#" title="">
+        <!-- <div class="img-carte" style="background-image: url('/assets/images/geo5.png');height:290px;width:100%; background-size: cover">
+        </div> -->
+        <img src="/assets/images/geo5.png" style="width: 100%;" alt="">
+      </a>
+    </div>
+    <hr>
+  </div>
+</div>
+
 <div class="container"> 
   <div class="row">
-    <div class="col-12">
-      <h3 class="first-title">Nos espaces</h3>
-      <app-list-blocks></app-list-blocks>      
+    <!-- Zone principale d'affichage de la page d'accueil -->
+    <div class="col-md-9">
+      <div class="espace-wrapper" style="width:100%; margin-top:3%;">
+        <h2 i18n class="title">Nos Espaces</h2>
+        <app-list-blocks></app-list-blocks> 
+      </div>
+
+      <div class="service-wrapper" style="width:100%;background-image: url(assets/images/service-wrapper-bg.png);">
+        <h2 i18n class="title">Nos Services aux Entreprises</h2>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="card-pub">
+                  <img class="card-img-top" src="assets/images/logo.png" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title" i18n>TOGETOP</h5>
+                    <p class="card-text" i18n>Ouvert a tous, dans un esprit de professionnalisme, un sérieux et une rigueur dans le travail, nous leurs avons fait confiance.</p>
+                  </div>
+                      <!--<a href="#" class="btn btn-warning" i18n>Go somewhere</a>-->
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card-pub">
+                <img class="card-img-top" src="assets/images/BAD.jpg" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title" i18n>BAD</h5>
+                  <h6 class="card-text" i18n>Ouvert a tous, dans un esprit de professionnalisme, un sérieux et une rigueur dans le travail, nous leurs avons fait confiance.</h6>
+                </div>
+                  <!--<a href="#" class="btn btn-warning" i18n>Go somewhere</a>-->
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card-pub">
+              <img class="card-img-top" src="assets/images/prepa.png" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title" i18n>Prépa</h5>
+                <p class="card-text" i18n>Ouvert a tous, dans un esprit de professionnalisme, un sérieux et une rigueur dans le travail, nous leurs avons fait confiance.</p>
+              </div>
+              <!--<a href="#" class="btn btn-warning" i18n>Go somewhere</a>-->
+              </div>
+            </div>
+          </div>
+        
+
+          <div class="row" style="margin-top:3%" >
+            <div class="col-md-4">
+              <div class="card-pub">
+                  <img class="card-img-top" src="assets/images/enf.png" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title" i18n> l’Hôpital Mère-Enfant</h5>
+                    <p class="card-text" i18n>Ouvert a tous, dans un esprit de professionnalisme, un sérieux et une rigueur dans le travail, nous leurs avons fait confiance.</p>
+                  </div>
+                      <!--<a href="#" class="btn btn-warning" i18n>Go somewhere</a>-->
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card-pub">
+                <img class="card-img-top" src="assets/images/yup.png" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title" i18n>YUP</h5>
+                  <h6 class="card-text" i18n>Ouvert a tous, dans un esprit de professionnalisme, un sérieux et une rigueur dans le travail, nous leurs avons fait confiance.</h6>
+                </div>
+                  <!--<a href="#" class="btn btn-warning" i18n>Go somewhere</a>-->
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card-pub">
+              <img class="card-img-top" src="assets/images/sah.jpg" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title" i18n>SAHAM</h5>
+                <p class="card-text" i18n>Ouvert a tous, dans un esprit de professionnalisme, un sérieux et une rigueur dans le travail, nous leurs avons fait confiance.</p>
+              </div>
+              <!--<a href="#" class="btn btn-warning" i18n>Go somewhere</a>-->
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+    <!-- Fin zone d'affichage -->
+  
+    <!-- Zone de publicité de la page d'accueil -->
+  
+    <div class="col-md-3">
+      <div class="rightcolumn" style="margin-top:10%;">
+          <app-publicite></app-publicite>
+     </div>
+    </div>
+  
+
+    <!-- Fin zone de la publicité -->
+  </div>
+</div>
+<br>
+<div class="container">
+  <div class="row" style="margin-bottom: 20px;">
+    <div class="col-md-12">
+      <img src="assets/images/vous-lancer.jpg" style="width: 100%;" alt="">
+      <!-- <div class="jumbotron text-center" style="background-image: url(''); background-attachment: fixed ;height:400px;width: 100%;background-size: cover">
+      </div> -->
     </div>
   </div>
 </div>
+<app-partenaires></app-partenaires>
+

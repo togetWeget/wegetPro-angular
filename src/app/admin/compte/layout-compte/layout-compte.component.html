@@ -5,8 +5,8 @@
     	<app-profil-cover [isAdmin]="true" id="img_cover" [vues]="(membre$ | async)?.body.nombreVue" [image]="(membre$ | async)?.body.pathPhotoCouveture" (clickOcur)="handleClick($event)" >
     		<app-profil-avatar [isAdmin]="true" id="img_profil" [image]="(membre$ | async)?.body.pathPhoto" (clickOcur)="handleClick($event)" ></app-profil-avatar>
     		<div class="footer">
-    			<button mat-raised-button color="primary" (click)="onContactAbonne()"><i class="fa fa-envelope"></i><span class="d-none d-sm-inline" style="display: none"> Contacter</span></button>&nbsp;&nbsp;
-    			<button mat-raised-button color="warn"><i class="fa fa-comments"></i><span class="d-none d-sm-inline"> Discuter</span></button>
+    			<button mat-raised-button color="primary" (click)="onContactAbonne()"><i class="fa fa-envelope"></i><span class="d-none d-sm-inline" style="display: none" i18n> Contacter</span></button>&nbsp;&nbsp;
+    			<button mat-raised-button color="warn"><i class="fa fa-comments"></i><span i18n class="d-none d-sm-inline"> Discuter</span></button>
     		</div>
     	</app-profil-cover>
     	<!-- <app-cover-profil-admin #cover (clickOcur)="handleClick($event)" [membre]="membre$ | async" [cover]="coverModel" ></app-cover-profil-admin> -->
@@ -17,7 +17,7 @@
     	<mat-tab-group>
 		  <mat-tab>
 		    <ng-template mat-tab-label>
-		      <i class="fa fa-gitter"></i>&nbsp;&nbsp;
+		      <i i18n class="fa fa-gitter"></i>&nbsp;&nbsp;
 		      Informations personnelles
 		    </ng-template>
 		    <div class="bien-contenir">
@@ -62,7 +62,7 @@
 		  
 		  <mat-tab>
 		    <ng-template mat-tab-label>
-		      <i class="fa fa-lock"></i>&nbsp;&nbsp;
+		      <i i18n class="fa fa-lock"></i>&nbsp;&nbsp;
 		      Authentification
 		    </ng-template>
 		    <div class="bien-contenir">

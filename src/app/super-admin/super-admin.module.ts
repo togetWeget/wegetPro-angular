@@ -28,6 +28,8 @@ import { ApercuBlockComponent } from './comp/apercu-block/apercu-block.component
 import { AdminTarifsComponent } from './comp/admin-tarifs/admin-tarifs.component';
 import { BlockPhotoComponent } from './block-photo/block-photo.component';
 import { AbonnesAddComponent } from './abonnes-add/abonnes-add.component';
+import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
+import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
 
 @NgModule({
   imports: [
@@ -40,6 +42,8 @@ import { AbonnesAddComponent } from './abonnes-add/abonnes-add.component';
     NgxPaginationModule,
     FormsModule, 
     ReactiveFormsModule,
+    LoadingBarHttpClientModule,
+    LoadingBarRouterModule,
     FroalaEditorModule.forRoot(), 
     FroalaViewModule.forRoot(),
     DragAndDropModule.forRoot()

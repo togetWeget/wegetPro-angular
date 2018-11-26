@@ -44,6 +44,7 @@ export class Chatroom2Component implements OnInit {
   public compteurLu: any = [];
   public bool: Boolean;
   public checkmsg: any;
+  public dataconnexion: any = [];
   public tabCouleur = ["#007bff","#6610f2","#6f42c1","#e83e8c","#dc3545","#fd7e14","#ffc107","#28a745","#20c997","#17a2b8","#6c757d","#343a40","#6c757d","#28a745","#17a2b8","#ffc107","#dc3545","#343a40"];
 	public colortab: any = [];
   constructor(public layoutComponent: LayoutComponent, public  http: HttpClient, 
@@ -60,19 +61,7 @@ export class Chatroom2Component implements OnInit {
 	// this.loadTabcolor();
   }
   
- 
-  
-  // loaderint(){
-		  // alert();
-		  	// let int = setInterval(()=>{
-				// if ($(window).width() > 820) {
-					// $('.gauche-h').removeClass('cacher');
-					// $('.droite-h').removeClass('afficher');
-					// this.retourAff = true;
-					// clearInterval(int);
-				// }
-				// }, 1000);
-	// }
+
 	
 	
 	
@@ -294,7 +283,7 @@ export class Chatroom2Component implements OnInit {
 	
 			for(let i=0; i< h; i++){
 				let id = this.dataRec[i].id;
-				// alert(id);
+				this.getconnexion(id);
 				this.receivStatus(id);
 				this.receivStatuslu(id);
 	  const code_disc = this.layoutComponent.InfoMembres.id + '_' + id;				
@@ -503,7 +492,18 @@ export class Chatroom2Component implements OnInit {
       });
 	  
   }
-  
+  getconnexion(urldata){
+	  let u =this;
+	  this.firbaseRequest.getAll("connexionUp/" + urldata).on("value", snapshot => {
+			if(snapshot.val()){
+				u.dataconnexion[urldata] = snapshot.val().statusconnexion;
+			}else{
+				u.dataconnexion[urldata] = 0;
+			}
+			// console.log(u.dataconnexion[urldata]);
+		});
+	
+	}
   UrlExists(url) {
     let http = new XMLHttpRequest();
     http.open('HEAD', url, false);

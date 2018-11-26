@@ -61,17 +61,16 @@ export class RegisterService {
     return this.http.post(urlsender, dataBody)
       .subscribe(
         (res: any) => {
-          console.log(res);
           u.ajax_loader = '';
           u.disabl = false;
           u.message_traitement = 1;
           if (res) {
-            if (res.statut === 0) {
-              localStorage.setItem('togetToken', 'azerty');
-              localStorage.setItem('log', dataBody.login);
-			  this.InfoM.localstor();
-              this.router.navigate(['/admin']);
-            }
+            // if (res.status === 0) {
+              // localStorage.setItem('togetToken', 'azerty');
+              // localStorage.setItem('log', dataBody.login);
+			  // this.InfoM.localstor();
+              // this.router.navigate(['/admin']);
+            // }
             // alert(res.messages[0]);
           }
         },

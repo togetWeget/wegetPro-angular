@@ -1,0 +1,42 @@
+.pub2{
+position: fixed;
+bottom: 0;
+margin-bottom: 20px;
+border-radius: 2px;
+box-shadow: 0 3px 9px rgba(0,0,0,.5);
+width: 115px;
+max-width: 115px;
+height: 70px;
+background: #000;
+left:-250px;
+}
+
+.pub2 img{
+width: 115px;
+max-width: 115px;
+height: 70px;
+max-height: 70px;
+}
+
+
+.pub3{
+position: fixed;
+bottom: -250px;
+margin-bottom: 0px;
+border-radius: 2px;
+box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+width: 253px;
+max-width: 253px;
+height: 165px;
+max-height: 165px;
+background: #000;
+right: 75px;
+}
+
+.pub3 img{
+width: 253px;
+max-width: 253px;
+height: 165px;
+max-height: 165px;
+
+}

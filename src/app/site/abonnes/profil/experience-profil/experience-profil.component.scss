@@ -26,3 +26,27 @@ li {
     margin-top: 12px;
     text-align: justify;
 }
+/**** BASE ****/
+a {
+    color: #03a1d1;
+    text-decoration: none!important;
+}
+
+/* Font changes */
+.fnt-smaller {
+    font-size: .9em;
+}
+.fnt-lighter {
+    color: #bbb;
+}
+.mrg-0 {
+    margin: 0!important;
+}
+.btm-mrg-10 {
+    margin-bottom: 10px!important;
+}
+
+/* Color  */
+.clr-535353 {
+    color: #535353;
+}

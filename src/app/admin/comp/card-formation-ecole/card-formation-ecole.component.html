@@ -1,15 +1,15 @@
 <mat-card class="example-card">
   <mat-card-header>
     <div mat-card-avatar class="example-header-image"></div>
-    <mat-card-title class="titre">{{titre}}</mat-card-title>
-    <mat-card-subtitle><span class="niveau">{{niveau}}</span> - <span class="periode">{{periode}}</span></mat-card-subtitle>
+    <mat-card-title class="titre">{{titre}} <span *ngIf="titre === '' || titre === null || titre === undefined">null</span></mat-card-title>
+    <mat-card-subtitle><span class="niveau">{{niveau}}</span> <span *ngIf="niveau === '' || niveau === null || niveau === undefined">null</span> - <span class="periode">{{periode}}</span> <span *ngIf="periode === '' || periode === null || periode === undefined">null</span></mat-card-subtitle>
   </mat-card-header>
-  <img mat-card-image src="../../../../assets/default.jpg" alt="Photo">
+  <img mat-card-image [src]="(image$ | async)" alt="Photo">
   <mat-card-content>
     <p class="description">
-      {{description}}
+      {{description}} <span *ngIf="description === '' || description === null || description === undefined">null</span>
     </p>
-    <div class="prix">{{prix}}</div>
+    <div class="prix">{{prix}} <span *ngIf="prix === '' || prix === null || prix === undefined">null</span></div>
   </mat-card-content>
   <mat-card-actions>
     <button mat-raised-button class="bt-x btn-blue" (click)="handleClick('view')" ><i class="fa fa-info"></i></button>

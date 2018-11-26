@@ -165,7 +165,7 @@ public jwtToken: string;
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 
-      this.toastr.error(operation + ' a rencontre un probleme: ' + error.message, 'Erreur');
+      // this.toastr.error(operation + ' a rencontre un probleme: ' + error.message, 'Erreur');
       console.error(error);
 
 

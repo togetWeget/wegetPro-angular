@@ -1,0 +1,6 @@
+<div class="modals-container" #modals>
+	<div class="overlays" (click)="closeModal()"></div>
+	<div class="modals" [ngClass]="superClass">
+		<ng-content></ng-content>
+	</div>
+</div>

@@ -1,18 +1,8 @@
-<app-toolbar></app-toolbar> 
-<div class="row body">	
-	<div class="col-12">
+<app-toolbar></app-toolbar>
+<div class="body">	
+	<div class="col-12" style="padding-left:0px !important; padding-right:0px !important;">
 		<router-outlet></router-outlet> 
 	</div>
-</div>	
-<div class="row footer">
-	<div class="col-12">
-<app-footer></app-footer> 
-	</div>
-	<app-chat-cli #chat></app-chat-cli>
-	<button mat-fab color="accent" class="chatbar" (click)="loadchat();" *ngIf="chatl.chatactivate === false">
-	<i class="fa fa-comments"></i>
-	<!-- <i class="badge badge-primary" *ngIf="chatl.globalCompt > 0" >{{chatl.globalCompt}}</i> -->
-	</button>
-
-<button mat-fab color="accent" class="chatbar" (click)="closechat();" *ngIf="chatl.chatactivate === true"><i class="fa fa-remove"></i></button>
 </div>
+<app-modalpub></app-modalpub>
+<app-footer></app-footer>

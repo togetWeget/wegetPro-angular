@@ -8,6 +8,8 @@ import * as $ from 'jquery';
 export class InfoMembreService {
 	private urlgetbyLogin = `${this.outils.getBaseUrl()}/membresLogin/`;
 	public InfoMembres: any = {};
+	public nomComplet: any;
+	public photoProfil: any;
 	constructor(private outils: OutilsService) { 
 	  // this.getByLogin();
 	  // alert(this.InfoMembres);

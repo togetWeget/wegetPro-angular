@@ -13,8 +13,8 @@
           <div class="row">
             <div class="col-lg-12">
               <div class="text-center">
-                <h2>Une offre parfaite pour votre activité</h2>
-                <p>Choisissez le type compte que vous voulez</p>
+                <h2 i18n>Une offre parfaite pour votre activité</h2>
+                <p i18n>Choisissez le type compte que vous voulez</p>
               </div>
             </div>
           </div>
@@ -42,7 +42,7 @@
                   </div>
                 </mat-card-content>
                 <mat-card-actions>
-                  <button mat-raised-button color="primary" (click)="onPayer(tarif)">Payer</button>
+                  <button mat-raised-button color="primary" (click)="onPayer(tarif.idBlock, tarif.id)" i18n>Ajouter au Panier</button>
                 </mat-card-actions>
               </mat-card>
             </div>
@@ -51,7 +51,11 @@
         </div>
       </div>
       <div class="d-none d-lg-block col-lg-3">
-        <div style="height: 200px; border: 1px solid black;"></div>
+        <div class="col-md-3">
+          <div class="rightcolumn" style="margin-top:28%;">
+              <app-pub-profil></app-pub-profil>
+         </div>
+        </div>
       </div>
     </div>
   </div>

@@ -1,2 +1,12 @@
 <router-outlet></router-outlet>
-<ng-http-loader></ng-http-loader>
+<ngx-loading-bar></ngx-loading-bar>
+<app-chat-cli #chat></app-chat-cli>
+  <button mat-fab color="accent" class="chatbar" (click)="loadchat();" *ngIf="chatl.chatactivate === false">
+  <i class="fa fa-comments"></i>
+  <!-- <i class="badge badge-primary" *ngIf="chatl.globalCompt > 0" >{{chatl.globalCompt}}</i> -->
+  </button>
+
+<button mat-fab color="accent" class="chatbar" (click)="closechat();" *ngIf="chatl.chatactivate === true">
+  <i class="fa fa-remove"></i>
+</button>
+<!-- <ng-http-loader></ng-http-loader> -->

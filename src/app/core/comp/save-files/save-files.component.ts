@@ -336,7 +336,7 @@ export class SaveFilesComponent implements OnInit {
 
   onSubmit() {
     if((this.url === "") || (this.url === null) || (this.url === undefined)){
-      this.callback_submit(this.getAllFiles(this.save_files));
+      this.callback_submit(this.getAllFiles(this.save_files), this.save_files);
     }else{
       this.posterFichiers(this.getAllFiles(this.save_files))
         .subscribe(event => {

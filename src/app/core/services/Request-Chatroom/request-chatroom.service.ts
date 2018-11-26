@@ -53,42 +53,36 @@ reject(error);
   }
 
 // Charger un fichier dans Firebase
-  uploadFile(file: File) {
+  uploadFile(file: File, almostUniqueFileName : any) {
 
-    return new Promise(
-      (resolve, reject) => {
-		  
-        const almostUniqueFileName = Date.now().toString();
+ 		  
+        const Name = Date.now().toString();
 
-        const upload = firebase.storage().ref()
+        return  firebase.storage().ref('doc/' + almostUniqueFileName+'/'+ Name).put(file);
 
-          .child('images/' + almostUniqueFileName + file.name).put(file);
+      // return  upload.on(firebase.storage.TaskEvent.STATE_CHANGED,
 
-        upload.on(firebase.storage.TaskEvent.STATE_CHANGED,
+          // (retour) => {
+			// console.log(retour);
+			// console.log(upload.snapshot.downloadURL);
+            // console.log('Chargement…');
 
-          () => {
+          // },
 
-            console.log('Chargement…');
+          // (error) => {
 
-          },
+            // console.log('Erreur de chargement ! : ' + error);
 
-          (error) => {
+          // },
 
-            console.log('Erreur de chargement ! : ' + error);
+          // () => {
+			 // console.log('ok'); 
+            // console.log(upload.snapshot.downloadURL);
 
-            reject();
+          // }
+        // );
 
-          },
-
-          () => {
-
-            resolve(upload.snapshot.downloadURL);
-
-          }
-        );
-
-      }
-    );
+    
 
   }
 

@@ -1,14 +1,35 @@
 <form (submit)="onSubmit()" [formGroup]="formationForm" >
-	<legend>Modifier le programme</legend>
+	<legend i18n>Modifier le programme</legend>
 	<mat-accordion>
 	  <mat-expansion-panel>
 	    <mat-expansion-panel-header>
-	      <mat-panel-title>
+	      <mat-panel-title i18n>
 	        Informations sur la formation
 	      </mat-panel-title>
 	    </mat-expansion-panel-header>
 	  	  <!-- content here -->
 	  	<div class="row">
+	  		<div class="col-md-4">
+	  	  		<button type="button" mat-raised-button lnlFmTrigger="#input1" color="primary">Choisissez une image</button>
+ 
+				<input type="file" lnlFmInput class="form-control" accept="image/*" id="input1" placeholder="Input field">
+				 
+				<lnl-fm-output (files)="handleFiles($event)" accept="image/*" name="image_photo" (errors)="handleErrors($event)" [multiple]="false" selector="#input1"></lnl-fm-output>
+	  	  	</div>
+	  	  	<div class="col-md-4">
+	  	  		<button type="button" mat-raised-button lnlFmTrigger="#input2" color="primary">Formulaire</button>
+ 
+				<input type="file" lnlFmInput class="form-control" id="input2" placeholder="Input field">
+				 
+				<lnl-fm-output (files)="handleFormulaireFiles($event)" name="image_photo" (errors)="handleFormulaireErrors($event)" [multiple]="false" selector="#input2"></lnl-fm-output>
+	  	  	</div>
+	  	  	<div class="col-md-4">
+	  	  		<button type="button" mat-raised-button lnlFmTrigger="#input3" color="primary">Catalogue</button>
+ 
+				<input type="file" lnlFmInput class="form-control" id="input3" placeholder="Input field">
+				 
+				<lnl-fm-output (files)="handleCatalogueFiles($event)" name="image_photo" (errors)="handleCatalogueErrors($event)" [multiple]="false" selector="#input3"></lnl-fm-output>
+	  	  	</div>
 	  	  	<div class="col-md-6">
 	  	  		<mat-form-field class="example-full-width">
 	  	  		  <mat-select placeholder="Niveau d'étude" formControlName="formation_niveau">
@@ -78,18 +99,18 @@
 	
 	  <mat-expansion-panel>
 	    <mat-expansion-panel-header>
-	      <mat-panel-title>
+	      <mat-panel-title i18n>
 	        Cours dispensés
 	      </mat-panel-title>
 	    </mat-expansion-panel-header>
 	      <!-- content here -->
 	  	  <div class="row" formArrayName="cour">
 	  	  	<div class="col-md-12">
-	  	  		<button mat-raised-button type="button" (click)="addCour()" class="btn-blue">Ajouter un cours</button>
+	  	  		<button mat-raised-button type="button" (click)="addCour()" class="btn-blue" i18n>Ajouter un cours</button>
 	  	  		<div *ngIf="cour">
 	  	  			<mat-card class="cours-card" *ngFor="let co of cour?.controls; let i = index;">
 	  	  				<mat-card-header>
-	  	  					<mat-card-title>Cours {{i}} <button (click)="removeCour(i)" mat-fab type="button" color="warn"><i class="fa fa-trash"></i></button></mat-card-title>
+	  	  					<mat-card-title i18n>Cours {{i}} <button (click)="removeCour(i)" mat-fab type="button" color="warn"><i class="fa fa-trash"></i></button></mat-card-title>
 	  	  				</mat-card-header>
 	  	  			  <mat-card-content>
 	  	  			  	<div class="row" [formGroupName]="i" >
@@ -113,5 +134,5 @@
 	  </mat-expansion-panel>
 	
 	</mat-accordion>
-	<button mat-raised-button type="submit" class="bt-x btn-blue" >Ajouter</button>
+	<button mat-raised-button type="submit" class="bt-x btn-blue" i18n>Ajouter</button>
 </form>

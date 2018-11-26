@@ -13,6 +13,7 @@ export class  Formation{
 		public dureeFormation?:string,
 		public diplome?:string,
 		public formation_prix?:string,
+		public pathPhoto?:string,
 		public cour?: Cours[],
 		public sousBlock?: SousBlock
 	) {}

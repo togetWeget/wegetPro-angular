@@ -2,8 +2,8 @@
 <div class="container-fluid">
   	<div class="row">
 	    <div class="col-12">
-	    	<app-profil-cover [isAdmin]="true" id="img_cover" [vues]="'-1'" [image]="" (clickOcur)="handleClick($event)" >
-    		<app-profil-avatar [isAdmin]="true" id="img_profil" [image]="" (clickOcur)="handleClick($event)" ></app-profil-avatar>
+	    	<app-profil-cover [multiple_interval]="5000" [multiple]="(sousBlocks$ | async)?.body?.pathPhotoCouverture" [isAdmin]="false" id="img_cover" [vues]="'-1'" [image]="" (clickOcur)="handleClick($event)" >
+    		<app-profil-avatar [isAdmin]="true" id="img_profil" [image]="(sousBlocks$ | async)?.body?.pathLogo" (clickOcur)="handleClick($event)" ></app-profil-avatar>
     		<div class="footer">
     		</div>
     	</app-profil-cover>
@@ -11,7 +11,7 @@
 			<br>
 	    	<mat-tab-group>
 		  <mat-tab>
-		    <ng-template mat-tab-label>
+		    <ng-template mat-tab-label i18n>
 		      <i class="fa fa-university"></i>&nbsp;&nbsp;
 		      Mon ecole
 		    </ng-template>
@@ -21,7 +21,7 @@
 		  </mat-tab>
 
 		  <mat-tab>
-		    <ng-template mat-tab-label>
+		    <ng-template mat-tab-label i18n>
 		      <i class="fa fa-graduation-cap"></i>&nbsp;&nbsp;
 		      Entête de page
 		    </ng-template>
@@ -31,7 +31,7 @@
 		  </mat-tab>
 
 		  <mat-tab>
-		    <ng-template mat-tab-label>
+		    <ng-template mat-tab-label i18n>
 		      <i class="fa fa-info"></i>&nbsp;&nbsp;
 		      Flash info
 		    </ng-template>
@@ -41,7 +41,7 @@
 		  </mat-tab>
 
 		  <mat-tab>
-		    <ng-template mat-tab-label>
+		    <ng-template mat-tab-label i18n>
 		      <i class="fa fa-book"></i>&nbsp;&nbsp;
 		      Mes formations
 		    </ng-template>
@@ -51,7 +51,7 @@
 		  </mat-tab>
 		  
 		  <mat-tab>
-		    <ng-template mat-tab-label>
+		    <ng-template mat-tab-label i18n>
 		      <i class="fa fa-folder"></i>&nbsp;&nbsp;
 		      Mes documents
 		    </ng-template>
@@ -61,12 +61,22 @@
 		  </mat-tab>
 
 		  <mat-tab>
-		    <ng-template mat-tab-label>
+		    <ng-template mat-tab-label i18n>
 		      <i class="fa fa-image"></i>&nbsp;&nbsp;
 		      Mes photos
 		    </ng-template>
 		    <div class="bien-contenir">
 				<app-photos-ecole></app-photos-ecole>
+			</div>
+		  </mat-tab>
+
+		  <mat-tab>
+		    <ng-template mat-tab-label i18n>
+		      <i class="fa fa-image"></i>&nbsp;&nbsp;
+		      Mes vidéos
+		    </ng-template>
+		    <div class="bien-contenir">
+				<app-video-ecole></app-video-ecole>
 			</div>
 		  </mat-tab>
 		</mat-tab-group>

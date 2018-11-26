@@ -20,7 +20,9 @@ export class AbonnesService {
   private profilByIdUrl = `${this.outils.getBaseUrl()}/detailBlock/`;
   private abonneByLogUrl = `${this.outils.getBaseUrl()}/profilAbonneLogin/`;
   private abonnesUrl = `${this.outils.getBaseUrl()}/abonnes/`;
-  private abonnesComptence = `${this.outils.getBaseUrl()}/rechercheParComptence/`;
+  private rechercheParComptence = `${this.outils.getBaseUrl()}/rechercheParComptence/`;
+  private rechercheParVille = `${this.outils.getBaseUrl()}/rechercheParVille/`;
+  private rechercheParCompOuVille =`${this.outils.getBaseUrl()}/rechercheParComptenceOuVille/`;
   public nbVueSubject$ = new BehaviorSubject<number>(0);
   
   
@@ -41,14 +43,14 @@ export class AbonnesService {
     this.nbVueSubject$.next(nb);
   }
 
-  getAllAbonnes(): Observable<Resultat<Abonnes[]>> {
-    return this.httpClient.get<Resultat<Abonnes[]>>(this.abonnesUrl).pipe(
+  getAllAbonnes(): Observable<Resultat<Detailblock[]>> {
+    return this.httpClient.get<Resultat<Detailblock[]>>(this.abonnesUrl).pipe(
       tap(res => {
         this.log(`Les Abonnés ont été recupérés !`);
         console.log('vrifier le retour du service', res.body);
       }),
-      catchError(this.handleError<Resultat<Abonnes[]>>('getAllAbonnes', 
-        new Resultat<Abonnes[]>(null, [], [])))
+      catchError(this.handleError<Resultat<Detailblock[]>>('getAllAbonnes', 
+        new Resultat<Detailblock[]>(null, [], [])))
     );
   }
 
@@ -93,15 +95,42 @@ export class AbonnesService {
       catchError(this.handleError<Resultat<Detailblock>>('getAbonnesByLog'))
     );
   }
-   getAbonnesByCompetence(competence: string): Observable<Resultat<Detailblock>> {
-    return this.httpClient.get<Resultat<Detailblock>>(this.abonnesComptence + competence)
+  /*
+    Rechercher des abonnés par la compétence
+  */
+   getAbonnesByCompetence(competence: string): Observable<Resultat<Detailblock[]>> {
+    return this.httpClient.get<Resultat<Detailblock[]>>(this.rechercheParComptence + competence)
       .pipe(
       tap(res => {
         this.log(`L'abonné a été récupéré !`);
       }),
-      catchError(this.handleError<Resultat<Detailblock>>('getAbonnesByCompetence'))
+      catchError(this.handleError<Resultat<Detailblock[]>>('getAbonnesByCompetence'))
     );
   }
+  /*
+    Rechercher des abonnés par la ville
+  */
+ getAbonnesByVille(ville: string): Observable<Resultat<Detailblock[]>> {
+  return this.httpClient.get<Resultat<Detailblock[]>>(this.rechercheParVille + ville)
+    .pipe(
+    tap(res => {
+      this.log(`L'abonné a été récupéré !`);
+    }),
+    catchError(this.handleError<Resultat<Detailblock[]>>('getAbonnesByVille'))
+  );
+}
+/*
+  Rechercher un abonné par sa competence et sa ville 
+*/
+ getAbonnesParRecherche(recherche:string, pays:string):Observable<Resultat<Detailblock[]>>{
+  return this.httpClient.get<Resultat<Detailblock[]>>(this.rechercheParCompOuVille + recherche + '/' + pays)
+      .pipe(
+      tap(res => {
+        this.log(`L'abonné a été récupéré !`);
+      }),
+      catchError(this.handleError<Resultat<Detailblock[]>>('getAbonnesParRecherche'))
+    );
+}
 
   loadToken() {
     this.jwtToken = localStorage.getItem('togetToken');

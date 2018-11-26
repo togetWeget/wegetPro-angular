@@ -1,35 +1,38 @@
-<div class="container">
+
+	<div class="container">
   <div class="row">
     <div class="col-12">
-      <div class="login-container">        
-        <h1 class="well">Connexion / Login </h1> 
+      <div class="login-container">   
+	  <div class="col-sm-12 row  text-center text-success" *ngIf="text_succ != null">{{text_succ}}</div>
+	  <div class="col-sm-12 row  text-center text-white" *ngIf="text_red != null"><code>{{text_red}}</code></div>
+        <h1 class="well" i18n>Connexion / Login </h1> 
         <div class="col-lg-12 well"> 
             <div class="row"> 
               <div class="col-sm-6 form-group"> 
-                <label>User Name</label> 
+                <label i18n>Nom utilisateur</label> 
                 <input type="text" placeholder="username.." name="login" class="form-control" [(ngModel)]="login" > 
               </div> 
               <div class="col-sm-6 form-group"> 
-                <label>Password</label> 
+                <label i18n>Mot de passe</label> 
                 <input type="password" placeholder="password.." class="form-control" [(ngModel)]="password"> 
               </div> 
               <div class="col-sm-12 text-center"> 
-              <button type="button" (click)="AuthS()" class="btn btn-block btn-info">Login</button> 
+              <button type="button" (click)="AuthS()" class="btn btn-block btn-info" i18n>Login</button> 
               </div> 
               <div class="col-12">
                 <div class="or-text"> 
                   <div class="or-text-row"> 
                     <div class="or-text-line"> 
-                      <button type="button"  class="btn btn-default btn-circle" disabled="disabled">or</button> 
+                      <button type="button"  class="btn btn-default btn-circle" disabled="disabled" i18n>or</button> 
                     </div> 
                   </div> 
                 </div> 
               </div>
 				<div class="col-sm-12 text-center"> 
-                  <button type="button" class="btn btn-primary sc_btn fac" (click)="SocialLogin('facebook')"><i class="fa fa-facebook"></i>Sign in with Facebook</button> 
+                  <button type="button" class="btn btn-primary sc_btn fac" (click)="SocialLogin('facebook')"><i class="fa fa-facebook"></i><span i18n>Sign in with Facebook</span></button> 
               </div> 
               <div class="col-sm-12 text-center"> 
-                  <button type="button" class="btn btn-danger sc_btn" (click)="SocialLogin('google')" ><i class="fa fa-google-plus"></i>Sign in with GooglePlus</button> 
+                  <button type="button" class="btn btn-danger sc_btn" (click)="SocialLogin('google')" ><i class="fa fa-google-plus"></i><span i18n>Sign in with GooglePlus</span></button> 
               </div>
             </div> 
         </div> 
@@ -37,8 +40,7 @@
     </div>
   </div>
 </div>
- 
- 
- 
+
+
  
  

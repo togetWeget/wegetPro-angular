@@ -1,19 +1,26 @@
-
+<app-super-modal [state]="rec.modal" [superClass]="'class-a'"> 
+<video id="mevideo" autoplay></video>
+<audio id="meaudio" autoplay></audio>
+</app-super-modal>
 <div class="popup-box chat-popup popup-box-max" id="qnimate">
-    		  <div class="popup-head " style="background: -webkit-linear-gradient(left, #ff6d05, #00c6ff); background: linear-gradient(left, #ff6d05, #00c6ff); color:#fff !important;">
+    		  <div class="popup-head " style="background: -webkit-linear-gradient(left, #ff6d05, #010a4f); background: linear-gradient(left, #ff6d05, #00c6ff); color:#fff !important;">
 				<div class="popup-head-left pull-left" *ngIf="chatact?.checkchange === false" style="color:#fff; border-color:#fefefe;"> 
 				
 				<div [ngStyle]="{'background-image': 'url(' + chatact?.photo + ')'}" *ngIf="chatact?.photo !== null && chatact?.photo !== ''" class="img-r"></div>
 				<div [ngStyle]="{'background-image': 'url(assets/photo/avatar.jpg)'}" *ngIf="chatact?.photo === null || chatact?.photo === '' " class="img-r"></div>
 				
-					<div class="break" style="line-height:2.5em;" title="">&nbsp; &nbsp; {{chatact?.nom}}</div>
+					<div class="break" style="line-height:2.5em;" title="">&nbsp;{{chatact?.nom}}
+				<span class="" style="color:#ccc; font-size:10px;">{{dataconnexion[chatact?.id]?.time}}</span>					
+					</div>
+					
+
 					
 				</div>
 				
 				
 				<div class="popup-head-left pull-left" *ngIf="chatact?.checkchange === true" style="color:#fff; border-color:#fefefe;"> 
 
-					<div class="break" style="line-height:2.5em;" title="">WegetPro Chat live</div>
+					<div class="break" style="line-height:2.5em;" title="" i18n>WegetPro Chat live</div>
 					
 				</div>
 					  <div class="popup-head-right pull-right">
@@ -44,18 +51,37 @@
 				
 				<form class="example-form">
 				  <mat-form-field class="example-full-width">
-					<input matInput placeholder="Rechercher un membre ici" style="border-bottom-color: transparent !important;" name="cherch" value="" [(ngModel)]="userFilter.nomComplet">
+					<input matInput placeholder="Rechercher un membre ici" style="border-bottom-color: transparent !important; width:50%;" name="cherch" value="" [(ngModel)]="userFilter.nomComplet">
+					
+					
+				  <div class="custom-control custom-checkbox checkbox-rounded" style="float:right; margin-right:10px;">
+					<input type="radio" class="custom-control-input filled-in checkgreen" name="rad" id="connecte" style="margin:0; padding:0;" (change)="checksearch('checkgreen')">
+					<label class="custom-control-label" for="connecte"><i class="fa fa-circle pull-right" style="color:green; font-size:10px; margin:0; padding:0;"></i></label>
+				</div>
+
+				<div class="custom-control custom-checkbox checkbox-rounded" style="float:right; margin-right:10px;">
+					<input type="radio" class="custom-control-input filled-in checkorange" name="rad" id="absent" style="margin:0; padding:0;"  (change)="checksearch('checkorange')">
+					<label class="custom-control-label" for="absent"><i class="fa fa-circle pull-right" style="color:#ff6d05; font-size:10px; margin:0; padding:0;"></i></label>
+				</div>
+
+				<div class="custom-control custom-checkbox checkbox-rounded" style="float:right; margin-right:10px;">
+					<input type="radio" class="custom-control-input filled-in all" name="rad" id="all" style="margin:0; padding:0;" (change)="checksearch('all')" checked>
+					<label class="custom-control-label" for="all"><i class="fa fa-circle pull-right" style="color:#333; font-size:10px; margin:0; padding:0;" i18n>All</i></label>
+				</div>
+				
+				
 				  </mat-form-field>
 				</form>
 			</div>
 			
-			<div class="direct-chat-messages text-center" *ngIf="ifactivechat() === true && chatact?.checkchange === false && chatact?.id !== null && messageAll.length == 0 && cnpt == 0"><p>Chargement des Meta Data en cours...</p></div>
+			<div class="direct-chat-messages text-center" *ngIf="ifactivechat() === true && chatact?.checkchange === false && chatact?.id !== null && messageAll.length == 0 && cnpt == 0"><p i18n>Chargement des Meta Data en cours...</p></div>
 			
-			<div class="direct-chat-messages text-center" style="" *ngIf="ifactivechat() === true && chatact?.checkchange === false && chatact?.id !== null && messageAll.length == 0 && cnpt == 2"><p>Auncun message trouvé dans cette discussion...</p></div>
+			<div class="direct-chat-messages text-center" style="" *ngIf="ifactivechat() === true && chatact?.checkchange === false && chatact?.id !== null && messageAll.length == 0 && cnpt == 2"><p i18n>Auncun message trouvé dans cette discussion...</p></div>
 			
 			<div class="direct-chat-messages" *ngIf="ifactivechat() === true && chatact?.checkchange === false && chatact?.id !== null && messageAll.length != 0 && cnpt == 1">
 			
-				<div  *ngFor="let val of messageAll; index as i">
+				<div   *ngFor="let val of messageAll; index as i">
+				<div>
                     
 					
 					<!-- <div class="chat-box-single-line"> -->
@@ -66,7 +92,7 @@
 					<!-- Message. Default to the left -->
                     <div class="row direct-chat-msg pull-right" *ngIf="val?.codeSender == chatact?.InfoMe.id">
                       <div class="direct-chat-info col-sm-12">
-                        <span class="direct-chat-name pull-right">Vous 
+                        <span class="direct-chat-name pull-right" i18n>Vous 
 						</span>
 						
 						&nbsp;
@@ -74,7 +100,7 @@
 						<div class="dropdown pull-right" style="">
 							<i class="fa fa-trash option"  id="dropdownMenuButton" style="line-height: 2em; margin-right: 12px;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
 					  <div class="dropdown-menu coll" aria-labelledby="dropdownMenuButton" style="background:#000;">
-						<a class="dropdown-item" href="#" style="color:#fff; background:#333;" (click)="delmsg(dataidmsg[i]); false;">Supprimer</a>
+						<a class="dropdown-item" href="#" style="color:#fff; background:#333;" (click)="delmsg(dataidmsg[i]); false;" i18n>Supprimer</a>
 					  </div>
 					</div>	
 							
@@ -86,15 +112,30 @@
                       </div>
                       <!-- /.direct-chat-info -->
 					<div class="col-sm-12">
-					<div class="" style="width:auto; float:right;">
+					<div class=""   [ngStyle]="{'width': 'auto', 'float': 'right', 'cursor': val?.message !== null && val?.message !== ' ' ? 'default' : 'pointer'}">
 				<div [ngStyle]="{'background-image': 'url(' + chatact?.InfoMe.pathPhoto + ')'}" *ngIf="chatact?.InfoMe.pathPhoto !== null && chatact?.InfoMe.pathPhoto !== ''" class="img-rs"></div>
 				<div [ngStyle]="{'background-image': 'url(assets/photo/avatar.jpg)'}" *ngIf="chatact?.InfoMe.pathPhoto === null || chatact?.InfoMe.pathPhoto === '' " class="img-rs"></div>					  
 					  
 					  <!-- /.direct-chat-img -->
 					  
-					  
-                      <div class="direct-chat-text" style="display:table; background:#ddd; z-index:-1;">
+					  		<!-- <i class="fa fa-download pull-right" (click)="convert(val?.fichier, i);" *ngIf=" val?.fichier !== null && val?.fichier !== ' ' " ></i> -->
+						
+                      <div class="direct-chat-text" [ngStyle]="{'display': 'table', 'background': val?.message !== null && val?.message !== ' ' ? '#ddd' : '#fff','z-index':'1', 'border': '0px !important'}">
                         {{val?.message}}
+						<br *ngIf=" val?.message !== null && val?.message !== ' ' " />
+						<img [src]="val?.fichier" style="max-width:100%;" id="id_{{i}}" *ngIf=" val?.fichier !== null && val?.fichier !== ' ' "/>
+							<a href="{{val?.filesave}}" style="max-width:100%;" id="doc_{{i}}"   *ngIf=" val?.filesave !== null && val?.filesave !== '' " download>
+								<i class="fa fa-download" style="color:#09c;" *ngIf=" val?.filesave !== null && val?.filesave !== '' "> Fichier {{val?.extension}}.  Télécharger</i>
+							</a>
+							
+							
+							<audio controls style="width:185px;  border-radius:50px;" *ngIf=" val?.audio !== null && val?.audio !== '' ">
+							  <source [src]="val?.audio" type="audio/ogg">
+							  <source [src]="val?.audio" type="audio/mpeg">
+								Impossible de lire sur votre navigateur.
+							 </audio>
+                    
+					  
                       </div>
                       </div>
                       </div>
@@ -117,7 +158,7 @@
 						<div class="dropdown" style="float:left;">
 							<i class="fa fa-trash option"  id="dropdownMenuButton" style="line-height: 2em; margin-right: 12px;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
 					  <div class="dropdown-menu coll" aria-labelledby="dropdownMenuButton" style="background:#000;">
-						<a class="dropdown-item" href="#" style="color:#fff; background:#333;" (click)="delmsgReverse(dataidmsg[i]); false;">Supprimer</a>
+						<a class="dropdown-item" href="#" style="color:#fff; background:#333;" (click)="delmsgReverse(dataidmsg[i]); false;" i18n>Supprimer</a>
 					  </div>
 					</div>	
 							
@@ -131,8 +172,21 @@
 				<div [ngStyle]="{'background-image': 'url(assets/photo/avatar.jpg)'}" *ngIf="chatact?.photo === null || chatact?.photo === '' " class="img-r"></div>
 				
 				
-                      <div class="direct-chat-text-right pull-left" style=" z-index:-1;">
+                      <div class="direct-chat-text-right pull-left" [ngStyle]="{'background': val?.message !== null && val?.message !== ' ' ? '#ddd' : '#fff','z-index':'1', 'border': '0px !important', 'cursor': val?.message !== null && val?.message !== ' ' ? 'default' : 'pointer'}">
                         {{val?.message}}
+						<br *ngIf=" val?.message !== null && val?.message !== ' ' " />
+						<img [src]="val?.fichier" style="max-width:100%;" id="id_{{i}}"  *ngIf=" val?.fichier !== null && val?.fichier !== ' ' "/>
+					<!--dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd -->
+							<a href="{{val?.filesave}}" style="max-width:100%;" id="doc_{{i}}"   *ngIf=" val?.filesave !== null && val?.filesave !== '' " download>
+								<i class="fa fa-download" style="color:#09c;" *ngIf=" val?.filesave !== null && val?.filesave !== '' "> Fichier {{val?.extension}}.  Télécharger</i>
+							</a>
+							
+							<audio controls style="width:185px; border-radius:50px;" *ngIf=" val?.audio !== null && val?.audio !== '' ">
+							  <source [src]="val?.audio" type="audio/ogg">
+							  <source [src]="val?.audio" type="audio/mpeg">
+								Impossible de lire sur votre navigateur.
+							 </audio>
+                      
                       </div>
 					  
 					  
@@ -145,31 +199,35 @@
                     </div>
 					
                  </div>
+                 </div>
 				 
 
             </div>
 				  
-				  <div class="direct-chat-messages" style="" *ngIf="ifactivechat() && chatact?.checkchange === true">
+				  <div class="direct-chat-messages-membre" style="" *ngIf="ifactivechat() && chatact?.checkchange === true">
 
 
 			
 			
 				  
 					<div  *ngFor="let pers of memebreall | filterBy: userFilter; index as i;" >
-						<div *ngIf="pers?.id != chatact?.InfoMe.id" class="" style="border-bottom: 1px solid #ddd; width:100%; height:60px; padding:4px; overflow:hidden; cursor:pointer" (click)="changeval(pers?.pathPhoto, pers?.nomComplet, pers?.id);">
+						<div *ngIf="pers?.id !== chatact?.InfoMe.id && (pers?.stconnexion === checkgreen || pers?.stconnexion === checkorange)" class="" style="border-bottom: 1px solid #ddd; width:100%; height:60px; padding:4px; overflow:hidden; cursor:pointer" (click)="changeval(pers?.pathPhoto, pers?.nomComplet, pers?.id);" id="ch_{{pers?.id}}">
 							 <div [ngStyle]="{'background-image': 'url(' + pers?.pathPhoto + ')'}" *ngIf="pers?.pathPhoto !== null && pers?.pathPhoto !== ''" class="img-r"></div>
 				<div [ngStyle]="{'background-image': 'url(assets/photo/avatar.jpg)'}" *ngIf="pers?.pathPhoto === null || pers?.pathPhoto === '' " class="img-r"></div>
 
 					<div class="" style="width:auto; margin-left:5px;">
 									<div style="line-height:2.5em;">
-									<div style="max-width:125px; float:left; text-overflow: ellipsis; white-space: nowrap;overflow: hidden;">{{pers?.nomComplet}}</div>
+									<div style="max-width:125px; float:left; text-overflow: ellipsis; white-space: nowrap;overflow: hidden;">{{pers?.nomComplet}}
+									</div>
 									<span class="badge badge-info" *ngIf="compteurMsg[pers?.id] > 0 ">{{compteurMsg[pers?.id]}}</span>
-									<div class="fa fa-circle pull-right" style="color:green; line-height:2.5em;">&nbsp;
-									<a href="." (click)="false;" style="color:#ccc; font-size:10px;">il y 2min {{i}}</a>
-									
+									<!-- <div class="fa fa-circle pull-right" style="color:green; line-height:2.5em;" *ngIf="dataconnexion[pers?.id] == 1"> -->
+									&nbsp;&nbsp;
+									<a href="." class="" (click)="false;" style="color:#ccc; font-size:10px;">{{pers?.time}}</a>
+									<div class="fa fa-circle pull-right" [ngStyle]="{'color': pers?.stconnexion===1? 'green' : '#ff6d05','line-height':'4.5em','font-size':'10px'}">&nbsp;
 									</div>
 										
 									</div>
+									<p style="color:#09c; font-size:10px;" i18n>Administrateur</p>
 
 					</div>
 					
@@ -177,9 +235,22 @@
 					</div>
 					
 					
-					<div class="" style="border-bottom: 1px solid #ddd; width:100%; height:60px; padding:4px; overflow:hidden; cursor:pointer; text-align:center;"  *ngIf="(memebreall | filterBy: userFilter).length === 0">
+					<div class="" style="border-bottom: 1px solid #ddd; width:100%; height:60px; padding:4px; overflow:hidden; text-align:center;"  *ngIf="checkMembre === true">
 
-					<p>Aucun élément trouvé ! </p> 	
+					<p i18n>Chargement en cours... </p> 	
+				
+					</div>	
+					
+					
+					<div class="" style="border-bottom: 1px solid #ddd; width:100%; height:60px; padding:4px; overflow:hidden; text-align:center;"  *ngIf="1 === 0">
+
+					<p i18n>Aucun connecté trouvé ! {{aucun}}</p> 	
+				
+					</div>	
+
+					<div class="" style="border-bottom: 1px solid #ddd; width:100%; height:60px; padding:4px; overflow:hidden; text-align:center;"  *ngIf="(memebreall | filterBy: userFilter).length === 0 && checkMembre === false">
+
+					<p i18n>Aucun élément trouvé ! </p> 	
 				
 					</div>	
 			
@@ -187,13 +258,13 @@
 			
 			<div class="direct-chat-messages" style="display:flex; justify-content:center; align-items:center" *ngIf="!ifactivechat();">
 					<div class="col-sm-12 text-center">
-						<h3> Bienvenue sur le chat instantané de WEGET</h3>
+						<h3 i18n> Bienvenue sur le chat instantané de WEGET</h3>
 					<div style="background:#ff6d05;"> <img src="assets/photo/logo-h.png" style="width:50%;" /> </div>
 					
 					<div class="col-sm-12">
 					<div class="button-row" style="margin:10px;">
-					  <button mat-raised-button color="primary" class="btno" (click)="connexion()">Connexion</button>
-					  <button mat-raised-button color="warn" class="btno" (click)="inscription()">Inscription</button>
+					  <button mat-raised-button color="primary" class="btno" (click)="connexion()" i18n>Connexion</button>
+					  <button mat-raised-button color="warn" class="btno" (click)="inscription()" i18n>Inscription</button>
 					</div>	
 					</div>
 					</div>
@@ -201,17 +272,90 @@
 			</div>
 				  
 
-			<div class="popup-messages-footer" *ngIf="chatact.checkchange === false && ifactivechat()">	
-				 	<div class="col-sm-12 direct-chat-name text-center" style="position:absolute; top:-17px;" *ngIf="socket === 1">
-						<p style=" border-radius:10px; border:1px solid #f2f2f2; color:#09c;">{{chatact?.nom}}  est entrain d'ecrire...</p>
+			<div class="popup-messages-footer text-center"  *ngIf="chatact.checkchange === true">	
+			
+				
+				<p style="font-size:10px;"><span i18n>Salut, je suis</span> <strong i18n>WeBot</strong>. <span i18n>Pour toutes question ou depot de pleinte laisser un message à un administrateur de la liste ci-dessus!</span> </p>
+			</div>
+
+			<div class="popup-messages-footer"  *ngIf="chatact.checkchange === false && ifactivechat()">	
+				 	<div class="col-sm-12 direct-chat-name text-center" style="position:absolute; top:-17px;" *ngIf="socket[chatact?.id] === 1">
+						<p style=" border-radius:10px; border:1px solid #f2f2f2; color:#09c;" i18n>{{chatact?.nom}}  est entrain d'ecrire...</p>
                     </div>
-			<textarea id="status_message" placeholder="Type a message..."  rows="10" cols="40" name="message_ss" [(ngModel)]="message_ss" (keyup)="enterSend($event); keyupchange(message_ss);"  [disabled]="!ifactivechat()" ></textarea>
+
+				 	<div class="col-sm-12 direct-chat-name text-center chg" style="position:absolute; top:-17px; display:none;">
+						<p style=" border-radius:10px; border:1px solid #f2f2f2; color:#09c;" i18n><img src="assets/loarer/loarder.gif"/></p>
+                    </div>
+
+					<div class="col-sm-12 direct-chat-name text-center stp arret" style="position:absolute; top:-17px; display:none;">
+						<div style=" border-radius:10px; border:1px solid #f2f2f2; color:#09c;" i18n>
+						
+							<div class="row" style="">
+						<div class="container">
+						<div class="row">
+						<a href="#" class="intro-banner-vdo-play-btn pinkBg" (click)="false;">
+						<i class="fa fa-stop bg_none" id="stopButton" style="cursor:pointer;color:red !important;"></i>
+								<span class="ripple pinkBg"></span>
+								<span class="ripple pinkBg"></span>
+								<span class="ripple pinkBg"></span>
+						</a>
+						</div>
+						</div>
+
+						</div>
+						
+						
+						</div>
+                    </div>
+					
+					<div class="col-sm-12 direct-chat-name text-center emoji" id="emoji" style="position:absolute; top:-120px; display:none; background:#fefefe; border:1px solid #aaa;">
+						<ul class="nav nav-tabs" id="myTab" role="tablist">
+						  <li class="nav-item">
+							<a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">{{Emoticones[4]}}</a>
+						  </li>
+						  <li class="nav-item">
+							<a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">{{Emoticones1[4]}}</a>
+						  </li>
+						  <li class="nav-item">
+							<a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">{{Emoticones2[4]}}</a>
+						  </li>
+						</ul>
+						<div class="tab-content" id="myTabContent">
+						  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+							<div class="" style="cursor:pointer; float:left; padding:2px;" *ngFor="let em of Emoticones; index as i">
+								<div (click)="teste(em);">
+								{{em}}
+								</div>
+							</div>
+						  
+						  </div>
+						  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+						  <div class="" style="cursor:pointer; float:left; padding:2px;" *ngFor="let em of Emoticones1; index as i">
+								<div (click)="teste(em);">
+								{{em}}
+								</div>
+							</div>
+						  </div>
+						  <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+						  <div class="" style="cursor:pointer; float:left; padding:2px;" *ngFor="let em of Emoticones2; index as i">
+								<div (click)="teste(em);">
+								{{em}}
+								</div>
+							</div>
+						  </div>
+						</div>
+                    </div>
+			<textarea id="status_message" style="width:85% !important;" placeholder="Type a message..."  rows="10" cols="40" name="message_ss" [(ngModel)]="message_ss" (keyup)="enterSend($event); keyupchange(message_ss);"  [disabled]="!ifactivechat()" ></textarea><i class="fa fa-paper-plane sendinbutton" (click)="envoyerMTN();"></i>
 			<div class="btn-footer">
-			<button class="bg_none" (click)="choseFilevideo()" ><i class="fa fa-film"></i> </button>
-			<button class="bg_none" (click)="choseFilephoto()" ><i class="fa fa-camera"></i> </button>
-            <button class="bg_none" (click)="choseFile()" ><i class="fa fa-paperclip"></i> </button>
-            <button class="bg_none" (click)="choseFileAudio()" ><i class="fa fa-microphone"></i> </button>
-			<button class="bg_none pull-right"  ><i class="fa fa-thumbs-up"></i> </button>
+			<!-- loadChatVideo(); -->
+			<button class="bg_none" (click)="false;" style="" ><i class="fa fa-film videodisabled"></i> </button>
+			<button class="bg_none" (click)="choseFilephoto()" style="cursor:pointer;" ><i class="fa fa-camera"></i> </button>
+            <button class="bg_none" (click)="choseFile()" style="cursor:pointer;" ><i class="fa fa-paperclip"></i> </button>
+            <button class="bg_none" id="startButton" style="cursor:pointer;" (click)="getaudioval()" ><i class="fa fa-microphone"></i> </button>
+            <button class="bg_none " id="emo" style="cursor:pointer;" (click)="showEmo();" > {{Emoticones[4]}} </button>
+			<button class="bg_none pull-right"  (click)="gethand(emojihand);" style="cursor:pointer;"><i class="fa fa-thumbs-up"></i> </button>
 			</div>
 			</div>
+	  </div>
+	  
 	  </div>

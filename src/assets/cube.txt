@@ -1,0 +1,177 @@
+<div class="container">
+  <div class="cube">
+  <div class="face" style="background-image: url(https://www.auvergnerhonealpes.fr/uploads/Image/5c/IMF_100/GAB_CRRAA/754_933_Paysage-du-Velay.jpg); background-size: cover;">1</div>
+  <div class="face" style="background-image: url(https://www.naturephotographie.com/wp-content/uploads/2017/05/Saksun-Vision-1349x900.jpg); background-size: cover;">2</div>
+  <div class="face" style="background-image: url(https://www.naturephotographie.com/wp-content/uploads/2016/10/Gimme-Some-Soul.jpg); background-size: cover;">3</div>
+  <div class="face" style="background-image: url(https://www.naturephotographie.com/wp-content/uploads/2018/05/Feel-the-Burn-1349x900.jpg); background-size: cover;">4</div>
+  <div class="face" style="background-image: url(https://www.naturephotographie.com/wp-content/uploads/2018/11/www.naturephotographie.com-garden-of-nature.jpg); background-size: cover;">5</div>
+  <div class="face" style="background-image: url(https://www.naturephotographie.com/wp-content/uploads/2017/06/Mystic-Fog-1349x900.jpg); background-size: cover;">6</div>
+</div>
+
+</div>
+
+
+
+
+
+$opacite-face: 0.7;
+$taille-face: 150px;
+
+.container{
+  margin: 100px auto;
+  display: table;
+  height: 100%;
+  border: 1px solid;
+}
+.cube{
+  position: relative;
+  width: $taille-face;
+  height: $taille-face;
+  margin: 0 auto;
+  animation: cubeanimPub 20s;
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(0, 0, 0, 0.98);
+  transform-style: preserve-3d;
+  perspective: 10000000px;
+  &:hover{
+    animation-play-state: paused;
+  }
+  .face{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    border: 1px solid #ddd;
+    width: $taille-face;
+    height: $taille-face;
+    backface-visibility: hidden;
+    &:nth-child(1){
+      background: hsla(0, 50%, 50%, $opacite-face);
+      transform: rotateY(180deg);
+    }
+    &:nth-child(2){
+      background: hsla(60, 50%, 50%, $opacite-face);
+      transform: translateZ($taille-face);
+    }
+    &:nth-child(3){
+      background: hsla(120, 50%, 50%, $opacite-face);
+      transform: rotateX(-90deg);
+      transform-origin: bottom;
+    }
+    &:nth-child(4){
+      background: hsla(180, 50%, 50%, $opacite-face);
+      transform: rotateX(90deg);
+      transform-origin: top;
+    }
+    &:nth-child(5){
+      background: hsla(240, 50%, 50%, $opacite-face);
+      transform: rotateY(-90deg);
+      transform-origin: left;
+    }
+    &:nth-child(6){
+      background: hsla(300, 50%, 50%, $opacite-face);
+      transform: rotateY(90deg);
+      transform-origin: right;
+    }
+  }
+}
+
+@keyframes cubeanim{
+  0%{
+    transform: rotateX(0deg) rotateY(180deg) rotateZ(0deg);
+    transform-origin: center;
+  }
+  14%{
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    transform-origin: center;
+  }
+  28%{
+    transform: rotateX(90deg) rotateY(0deg) rotateZ(0deg);
+    transform-origin: bottom;
+  }
+  42%{
+    transform: rotateX(270deg) rotateY(0deg) rotateZ(0deg);
+    transform-origin: top;
+  }
+  56%{
+    transform: rotateX(0deg) rotateY(90deg) rotateZ(0deg);
+    transform-origin: left;
+  }
+  85%{
+    transform: rotateX(0deg) rotateY(270deg) rotateZ(0deg);
+    transform-origin: right;
+  }
+  100%{
+    transform: rotateX(0deg) rotateY(180deg) rotateZ(0deg);
+    transform-origin: center;
+  }
+}
+
+@keyframes cubeanimX{
+  0%{
+    transform: rotateX(-360deg);
+    transform-origin: center;
+  }
+  100%{
+    transform: rotateX(360deg);
+    transform-origin: center;
+  }
+}
+@keyframes cubeanimY{
+  0%{
+    transform: rotateY(-360deg);
+    transform-origin: center;
+  }
+  100%{
+    transform: rotateY(360deg);
+    transform-origin: center;
+  }
+}
+@keyframes cubeanimZ{
+  0%{
+    transform: rotateZ(-360deg);
+    transform-origin: center;
+  }
+  100%{
+    transform: rotateZ(360deg);
+    transform-origin: center;
+  }
+}
+@keyframes cubeanimPub{
+  0%{
+    transform: rotateX(90deg);
+    transform-origin: bottom;
+  }
+  5%{
+    transform: rotateX(0deg);
+    transform-origin: center;
+  }
+  25%{
+    transform: rotateX(0deg);
+    transform-origin: center;
+  }
+  30%{
+    transform: rotateX(-90deg);
+    transform-origin: top;
+  }
+  50%{
+    transform: rotateX(-90deg);
+    transform-origin: top;
+  }
+  55%{
+    transform: rotateX(0deg);
+    transform-origin: center;
+  }
+  75%{
+    transform: rotateX(0deg);
+    transform-origin: center;
+  }
+  80%{
+    transform: rotateX(90deg);
+    transform-origin: bottom;
+  }
+  100%{
+    transform: rotateX(90deg);
+    transform-origin: bottom;
+  }
+}

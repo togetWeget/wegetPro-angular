@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {RegisterService} from '../../services/personne/membre/register.service';
 import {FormBuilder, FormArray} from '@angular/forms';
 import {AuthFirebaseService} from '../../../firebaseDir/auth-firebase.service';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-register-content',
   templateUrl: './register.component.html',
@@ -53,7 +53,7 @@ export class RegisterComponent implements OnInit {
     description: [''],
   });
   constructor(public regist: RegisterService, private fb: FormBuilder, 
-    public authFirebaseService: AuthFirebaseService) {
+    public authFirebaseService: AuthFirebaseService, private router: Router) {
     this.can_send = false;
   }
 
@@ -79,26 +79,29 @@ export class RegisterComponent implements OnInit {
   sending() {
     if (this.can_send) {
       const url = this.regist.urlPersonnes();
-      console.log('post', this.membreForm.value);
       this.reponse =  this.regist.registering(url, this.membreForm.value);
-      this.authFirebaseService.createNewUser(this.membreForm.value.login,
-       this.membreForm.value.password).then(
+      // this.authFirebaseService.createNewUser(this.membreForm.value.login,
+       // this.membreForm.value.password).then(
 
-        () => {
+        // () => {
 
-          alert('Ok firebase created ID');
+          // alert('Ok firebase created ID');
 
-        },
+        // },
 
-        (error) => {
+        // (error) => {
 
-          alert('Error not create firebase ID '+ error);
+          // alert('Error not create firebase ID '+ error);
 
-        }
+        // }
 
-      );
+      // );
     } else {
       alert('Vous devez accepter les conditions de confidentialité');
     }
     }
+	
+	connect(){
+		this.router.navigate(['/login']);
+	}
   }

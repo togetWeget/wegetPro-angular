@@ -14,7 +14,7 @@ import { Resultat } from '../../shared/models/resultat';
 export class SingleBlockComponent implements OnInit {
 @Input('block') block: Block;
   @Output() butonClick = new EventEmitter<Resultat<Block>>();
-  defaultPhoto: any = '/assets/placeholder-image.jpg';
+  defaultPhoto: any = '/assets/login_bg.jpg';
   @ViewChild('imagebg') imagebg: ElementRef;
   type_block:string='';
 

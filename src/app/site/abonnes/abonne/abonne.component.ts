@@ -16,11 +16,14 @@ import * as $ from 'jquery';
 })
 export class AbonneComponent implements OnInit {
 	@Input('abonne') abonne: Detailblock;
-  	@Output() butonClick = new EventEmitter<Resultat<Detailblock>>();
-  	defaultPhoto: any = '/assets/placeholder-image.jpg';
-  	@ViewChild('imagebg') imagebg: ElementRef;
-  	status: number;
-  	typeblock:string;
+  @Output() butonClick = new EventEmitter<Resultat<Detailblock>>();
+  defaultPhoto: any = '/assets/placeholder-image.jpg';
+  @ViewChild('imagebg') imagebg: ElementRef;
+  status: number;
+  typeblock:string;
+  tableNom:string[]=[];
+  nomAffiche:string;
+
 	public nombredevue = 0;
   	constructor(private router: Router,
                 private abonnesService: AbonnesService,
@@ -34,8 +37,15 @@ export class AbonneComponent implements OnInit {
 	  // this.newview();
 	  this.nombredevue = this.abonne.nombreVue;
 	  this.typeblock='';
+	  this.splitNom();
   }
 
+splitNom(){
+  if(this.abonne.membre.nomComplet){
+    this.tableNom=this.abonne.membre.nomComplet.split(" ");
+    this.nomAffiche= this.tableNom[0]+" " + this.tableNom[1];
+  }
+}
   getPhotoSrc(): string {
     return (this.abonne.membre.pathPhoto!== null && 
       this.abonne.membre.pathPhoto !== undefined && this.abonne.membre.pathPhoto!== '') ? 
@@ -51,11 +61,11 @@ export class AbonneComponent implements OnInit {
       }
     }
 
-  	onViewProfileAbonne(ab: any) {
+  	onViewProfileAbonne() {
 	    this.router.navigate(['/site/abonnes', 'profile', this.abonne.id]);
 	}
 
-  	onContactAbonne(ab: any): void {
+  	onContactAbonne(): void {
     	const dialogRef = this.contactDialog.open(ContactAbonneComponent,
       	{
         	width: '600px',

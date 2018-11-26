@@ -1,14 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { Router,ParamMap,ActivatedRoute } from '@angular/router';
-import {switchMap} from 'rxjs/operators';
+import {switchMap, debounceTime, distinctUntilChanged} from 'rxjs/operators';
+import {Observable, BehaviorSubject} from 'rxjs';
 import { AdminTopZone } from '../../../shared/views_models/admin-top-zone';
 import { Navs } from '../../../shared/views_models/navs';
 import { AdminCover } from '../../../shared/views_models/admin-cover';
 import { Detailblock } from '../../../shared/models/detailblock';
 import { Resultat } from '../../../shared/models/resultat';
 import { AbonnesService } from '../../../core/services/abonnes/abonnes.service';
+import {OutilsService} from '../../../core/services/outils.service';
 import { SaveFilesComponent } from '../../../core/comp/save-files/save-files.component';
+import { SaveFile2Component } from '../../../core/comp/save-file2/save-file2.component';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';  
+import { LnlFilesManagerService, ParamsModel, FileManagerModel } from 'lnl-files-manager';
+
+import {SousBlock} from '../../../shared/models/sous-block';
+import {SousBlockService} from '../../../core/services/sous-block.service';
 
 @Component({
   selector: 'app-layout-ecole',
@@ -21,12 +28,24 @@ export class LayoutEcoleComponent implements OnInit {
   detailBlocks: Detailblock[];
   coverModel: AdminCover;
   type_espace: string;
+  sousBlock: SousBlock;
+  id_block: number = 0;
+  sousBlocks$: Observable<Resultat<SousBlock>>;
+  sousBlocksSubject$ = new BehaviorSubject<string>('');
+  params: ParamsModel[] = []; 
 
   constructor(
     private abonneService: AbonnesService,
     private route: ActivatedRoute,
-    private router: Router,public dialog: MatDialog) {
+    private router: Router,public dialog: MatDialog,
+    public outils: OutilsService, private sousBlockS: SousBlockService) {
   this.getDetailBlock(); 
+    this.sousBlocks$ = this.sousBlockS.streamSousBlockById(this.id_block);
+    // this.sousBlocks$ = this.sousBlocksSubject$.pipe(
+    //   debounceTime(300),
+    //   distinctUntilChanged(),
+    //   switchMap(data => this.sousBlockS.getSousBlockByIdDetailBlock(this.id_block))
+    //   );
   	this.top_zone = new AdminTopZone (
   		'', 
   		'',
@@ -42,7 +61,20 @@ export class LayoutEcoleComponent implements OnInit {
    }
 
   ngOnInit() {
-
+    this.route.paramMap.pipe(
+      switchMap((params: ParamMap) => {
+        this.id_block = +params.get('id');
+        return this.sousBlockS.getSousBlockByIdDetailBlock(this.id_block);
+      })
+      ).subscribe(resp => {
+        this.sousBlock = resp.body;
+        this.params = [
+          new ParamsModel('nom_sousblock', this.sousBlock.nom)
+        ];
+        // this.search();
+        // this.sousBlockS.refreshStreamSousBlockById(this.id_block);
+        this.sousBlocks$ = this.sousBlockS.streamSousBlockById(this.id_block);
+      });
   }
   getDetailBlock(){
   	this.route.paramMap.pipe(
@@ -55,26 +87,36 @@ export class LayoutEcoleComponent implements OnInit {
     });
   }
 
+  search(){
+    this.sousBlocksSubject$.next(Date.now()+'');
+  }
+
   saveCover() {
-    const dialogRef = this.dialog.open(SaveFilesComponent, {
+    const dialogRef = this.dialog.open(SaveFile2Component, {
       maxWidth: '768px',
       maxHeight: '500px',
       data: {name: 'image_photo', multiple: true, filename: '', url: ``}
     });
 
     dialogRef.afterClosed().subscribe(result => {
+      // this.search();
+      this.sousBlockS.refreshStreamSousBlockById(this.id_block);
       // this.search(Date.now()+'');
       // this.search(localStorage.getItem('log'));
     });
   }
   saveProfil() {
-    const dialogRef = this.dialog.open(SaveFilesComponent, {
+    const dialogRef = this.dialog.open(SaveFile2Component, {
       maxWidth: '768px',
       maxHeight: '500px',
-      data: {name: 'image_photo', multiple: false, type: '.mp4, .txt, .pdf, .docx, .doc, .png, .jpg', filename: '', callback_submit: this.test}
+      data: {name: 'image_photo', multiple: false, accept: 'image/*',
+      filename: this.sousBlock.nom, params: this.params,
+      url: `${this.outils.getBaseUrl()}/sousBlockLogo`}
     });
 
     dialogRef.afterClosed().subscribe(result => {
+      // this.search();
+      this.sousBlockS.refreshStreamSousBlockById(this.id_block);
       // this.search(Date.now()+'');
       // this.search(localStorage.getItem('log'));
     });

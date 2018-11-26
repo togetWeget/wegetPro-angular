@@ -5,6 +5,7 @@ import {HttpClient, HttpHeaders, HttpRequest, HttpResponse} from '@angular/commo
 import {NotifierService} from 'angular-notifier';
 import {OutilsService} from './outils.service';
 import * as $ from 'jquery';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
@@ -16,25 +17,54 @@ public panierdata: any = {};
 public urlglobal = `${this.outils.getBaseUrl()}/panier`;
 public urlAll = `${this.outils.getBaseUrl()}/panierParPersonne`;
 public countPanier = 0;
-  constructor(public  http: HttpClient, private outils: OutilsService) {}
+public Total = 0;
+public tab: any = [];
+public rest: number;
+  constructor(public  http: HttpClient, private outils: OutilsService, private toastr: ToastrService) {
+  }
   
+   showSuccess(text, title) {
+    this.toastr.success(text, title, {
+		  timeOut: 5000
+		}); 
+  }
+  showerror(text, title){
+	  this.toastr.error(text, title, {
+		  timeOut: 5000
+		});  
+  }
+
   
-	setpanier(data){
+	setpanier(idBlock, idMembre, quantite, idTarif){
 		let u = this;
-			console.log(data);
+	
+			let data: any ={
+					idBlock: idBlock,
+					idMembre: idMembre,
+					quantite: quantite,
+					idTarif: idTarif
+				};
+				
 		$.ajax({
-			
 			url:u.urlglobal,
 			data: JSON.stringify(data),
             contentType: "application/json; charset=utf-8",
 			type:'post',
 			traditional: true,
 			dataType:'json',
-			success: function(query){
-				console.log(query);
+			success: (query)=>{
+				// console.log(query);
+				if(query.status === 0){
+					u.paniereload(idMembre);
+					u.showSuccess(query.messages[0],"Panier");
+				}else{
+					u.showerror(query.messages[0],"Attention!");
+					u.countPanier--;
+				}
 				},
-			error: function(erreur){
-				console.log(erreur.statusText + ', Veuillez verifier votre connexion internet et reessayer svp!');
+			error: (erreur)=>{
+				u.countPanier--;
+				u.showerror("Une erreur est survenue. Veuillez verifier votre connexion internet et réessayer","Erreur!");
 				}
 			
 			});
@@ -42,11 +72,64 @@ public countPanier = 0;
 	  
 	  }
 	  
+	calculprix(){
+		if(this.panierId){
+		let prix = 0;
+			for(let i=0; i<this.panierId.length; i++ ){
+					prix += parseInt(this.panierId[i].montant);
+					this.Total = prix;
+				}
+
+			}
+
+	}
+	
+	calculdate(){
+		
+		if(this.panierId){
+				for(let i=0; i<this.panierId.length; i++ ){
+					let dateLocal = this.panierId[i].date;
+					this.panierId[i].date = new Date(dateLocal).toLocaleString();
+				}
+
+		}
+	}
+	
+	
+	paniereload(id){
+				let u= this;
+				u.tab = [];
+				u.countPanier = 0;
+	  		  		u.getpaniercounter(id).done((data)=> {
+
+							u.countPanier = parseInt(data.body.length);
+							
+							if(data.body.length > 5){
+								u.tab = [];
+								for(let i =0; i<5; i++){
+									u.tab.push(i);
+								}
+									u.rest = data.body.length - 5;
+							}else{
+								u.tab = [];
+								for(let i =0; i<data.body.length; i++){
+									u.tab.push(i);
+								}
+							}
+							// console.log(data.body.length);
+				}).fail(function(data) {
+							
+							u.countPanier = 0;
+							
+				}).always(function(data) {
+					u.getPanierId(id);				
+				});	
+	}
 	  
 	getPanierAll(){
 		
 			let u = this;
-			$.getJSON( u.urlglobal, function( data ) {
+			$.getJSON( u.urlglobal, ( data )=> {
  
 					u.panierAll = data.body;
 					
@@ -55,7 +138,13 @@ public countPanier = 0;
 		
 		}
 		
-		
+	getpaniercounter(id): any{
+	
+					let u = this;
+					
+					return	$.getJSON( u.urlAll + '/' + id, ( data )=> {});
+
+	}	
 		
 		
 		
@@ -63,7 +152,7 @@ public countPanier = 0;
 		
 			let u = this;
 						this.countother(id);	
-				return	$.getJSON( u.urlAll + '/' + id, function( data ) {});
+				return	$.getJSON( u.urlAll + '/' + id, ( data )=> {});
 		
 	}
 	
@@ -84,11 +173,11 @@ public countPanier = 0;
 				
 				
 							
-					$.getJSON( u.urlAll + '/' + id, function( data ) {
+					$.getJSON( u.urlAll + '/' + id, ( data )=> {
 					
 					
 					
-					}).done(function(data) {
+					}).done((data)=> {
 			
 			
 					if(data.status == 0){
@@ -100,11 +189,11 @@ public countPanier = 0;
 								
 						}
 												
-					}).fail(function(data) {
+					}).fail((data)=> {
 					
 							u.countPanier = 0;
 							
-					}).always(function(data) {
+					}).always((data)=> {
 					
 										
 						if(data.status != 0 ){
@@ -127,12 +216,22 @@ public countPanier = 0;
 		getPanierId(id){
 		
 			let u = this;
-			$.getJSON( u.urlAll + '/' + id, function( data ) {
+			u.panierId = [];
+			$.getJSON( u.urlAll + '/' + id, ( data )=> {
  
 					u.panierId = data.body;
-					console.log(u.panierId);
+					u.calculprix();
+					u.calculdate();
 					
 			});
+			
+		
+		}
+
+		getPanierIdReturn(id): any{
+		
+			let u = this;
+			return $.getJSON( u.urlAll + '/' + id, ( data )=> {});
 			
 		
 		}
@@ -146,24 +245,26 @@ public countPanier = 0;
 			}
 		
 	deleteByIdPanier(id){
-	let u= this;
-		$.ajax({
-			
-			url:u.urlglobal + '/' + id,
-            contentType: "application/json; charset=utf-8",
-			type:'delete',
-			traditional: true,
-			success: function(){
-				
-				},
-			error: function(){
-				
-				
-				
-				}
-			
-			});
 		
+		return new Promise((resolve, reject)=>{
+				let u= this;
+					$.ajax({
+						
+						url:u.urlglobal + '/' + id,
+						contentType: "application/json; charset=utf-8",
+						type:'delete',
+						traditional: true,
+						success: ()=>{
+							resolve("ok");
+							},
+						error: ()=>{
+							
+							u.showerror("Une erreur est survenue. Veuillez verifier votre connexion internet et réessayer","Erreur!");
+							
+							}
+						
+						});
+		});
 		}
 		
 	deleteAllPanier(){
@@ -174,12 +275,12 @@ public countPanier = 0;
             contentType: "application/json; charset=utf-8",
 			type:'delete',
 			traditional: true,
-			success: function(){
-				
+			success: ()=>{
+				 u.showSuccess("Element supprimé avec succès","Suppression");
 				},
-			error: function(){
+			error: (error)=>{
 				
-				
+				u.showerror("Une erreur est survenue. Veuillez verifier votre connexion internet et réessayer","Erreur!");
 				
 				}
 			
@@ -188,9 +289,15 @@ public countPanier = 0;
 		
 		}
 		
-	updatePanier(data){
+	updatePanier(idBlock, idMembre, quantite, idTarif, id){
 		let u= this;
-		
+					let data: any ={
+					idBlock: idBlock,
+					idMembre: idMembre,
+					quantite: quantite,
+					idTarif: idTarif,
+					id: id
+					};
 		$.ajax({
 			
 			url:u.urlglobal,
@@ -198,11 +305,11 @@ public countPanier = 0;
             contentType: "application/json; charset=utf-8",
 			type:'put',
 			traditional: true,
-			success: function(dataobject){
-				console.log(dataobject);
+			success: (dataobject)=>{
+			
 				},
-			error: function(error){
-				console.log(error);
+			error: (error)=>{
+					u.showerror("Une erreur est survenue. Veuillez verifier votre connexion internet et réessayer","Erreur!");
 				}
 			
 			});

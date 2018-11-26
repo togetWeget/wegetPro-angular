@@ -1,3 +1,45 @@
-<p>
-  owl-carousel works!
-</p>
+
+  <div class="header">
+   <div class="jumbotron text-center bgimg" style="" [ngStyle]="{'background-image': 'url('+ back +')', 'background-attachment':'fixed', 'height':'400px', 'width' : '100%', 'background-size':'cover', 'margin-top': '-30px'}">
+    <h1 style="color:white; font-weight: 300;" align="center" i18n>
+      Un monde Rempli de Compétence !!!!
+    </h1>
+    <br>  
+      <div class="container">
+        <mat-card>
+          <mat-card-content>
+            <form>
+              <div class="form-field">
+                <mat-form-field class="field">
+                  <input matInput placeholder="Compétance?" aria-label="Competence" [matAutocomplete]="autoComp" [formControl]="compCtlr">
+                  <mat-autocomplete #autoComp="matAutocomplete">
+                    <mat-option *ngFor="let comp of filteredComp | async" [value]="comp.name">
+                      <span>{{comp.name}}</span>
+                    </mat-option>
+                  </mat-autocomplete>
+                </mat-form-field>
+                <mat-form-field class="field">
+                  <input matInput placeholder="Ou?" aria-label="Localité" [matAutocomplete]="auto" [formControl]="locaCtlr">
+                  <mat-autocomplete #auto="matAutocomplete">
+                    <mat-option *ngFor="let loca of filteredLoca | async" [value]="loca.name">
+                      <span>{{loca.name}}</span>
+                    </mat-option>  
+                  </mat-autocomplete>
+                </mat-form-field>
+                <mat-checkbox class="aproxi">À proximité</mat-checkbox>
+                <!-- <span class="field-span">
+                  <input type="checkbox" name="" i18n>
+                  À proximité
+                </span> -->
+                <!-- <a class="btn btn-info loading" (click)="onRecherche()"><i class="fa fa-search"></i><span i18n>Chercher</span></a> -->
+                <button mat-raised-button color="primary" class="btn-search" (click)="onRecherche()"><i class="fa fa-search"></i></button>
+              </div>
+            </form>
+          </mat-card-content>
+        </mat-card>
+        <br><br>
+        <button mat-raised-button class="btn-jaune" (click)="onRegisterNow()" i18n>Inscrivez vous gratuitement</button>
+        <!-- <button type="button" class="btn btn-default active" (click)="onRegisterNow()" i18n>inscrivez vous gratuitement</button> -->
+      </div>  
+  </div>
+ </div>

@@ -3,13 +3,13 @@
 		<div class="row">
 			<!-- photo -->
 			<div class="col-md-4">
-				<legend>Photo</legend>
+				<legend i18n>Photo</legend>
 				<div class="photo-cadre">
 					<div #photo class="photo"></div>
 				</div>
 				<div class="photo-actions">
 					<input type="file" autocomplete="off" class="form-control changer_photo" id="changer_photo" placeholder="changer">
-					<label for="changer_photo" mat-raised-button><i class="fa fa-photo"></i>&nbsp;&nbsp;Changer photo</label>
+					<label for="changer_photo" mat-raised-button i18n><i class="fa fa-photo"></i>&nbsp;&nbsp;Changer photo</label>
 				</div>
 				<div class="form-group">
 					<input type="file" style="visibility: hidden;" class="form-control" id="" placeholder="Input field">
@@ -18,19 +18,19 @@
 			<!-- /photo -->
 			<!-- informations personnelles -->
 			<div class="col-md-8">
-				<legend>Informations personnelles</legend>
+				<legend i18n>Informations personnelles</legend>
 				<div class="row">
 					<div class="col-md-6">
 						<div class="form-group">
-							<label for="">Nom</label>
+							<label for="" i18n>Nom</label>
 							<input type="text" autocomplete="family-name" formControlName="nom" class="form-control" id="nom" placeholder="Votre nom">
 						</div>
 						<div class="form-group">
-							<label for="">Prénom(s)</label>
+							<label for="" i18n>Prénom(s)</label>
 							<input type="text" autocomplete="given-name" formControlName="prenom" class="form-control" id="prenoms" placeholder="Vos prénoms">
 						</div>					
 						<div class="form-group">
-							<label for="">Date de naissance <span class="requi-asterix">(*)</span></label>
+							<label for="" i18n>Date de naissance <span class="requi-asterix">(*)</span></label>
 							<div class="input-group">
 								<input type="date" autocomplete="off" formControlName="dateNaissance" class="form-control" id="date_naiss" required="required" placeholder="Votre date de naissance">
 								<div class="input-group-append">
@@ -39,29 +39,29 @@
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="">Genre <span class="requi-asterix">(*)</span></label>
+							<label for="" i18n>Genre <span class="requi-asterix">(*)</span></label>
 							<ng-select class="custom" formControlName="genre" [items]="outils.genres"></ng-select>							
 						</div>					
 						<div class="form-group">
-							<label for="">Langue(s) parlée(s) <span class="requi-asterix">(*)</span></label>
+							<label for="" i18n>Langue(s) parlée(s) <span class="requi-asterix">(*)</span></label>
 							<ng-select class="custom" [items]="['français','anglais']" [multiple]="true" [hideSelected]="true"></ng-select>							
 						</div>										
 					</div>
 					<div class="col-md-6">
 						<div class="form-group">
-							<label for="">Pays <span class="requi-asterix">(*)</span></label>
+							<label for="" i18n>Pays <span class="requi-asterix">(*)</span></label>
 							<ng-select class="custom" [items]="['Côte d Ivoire','Burkina Faso', 'Mali', 'Bénin']" [hideSelected]="true"></ng-select>
 						</div>	
 						<div class="form-group">
-							<label for="">Ville</label>
+							<label for="" i18n>Ville</label>
 							<ng-select class="custom" [items]="['Yamoussoukro','Abidjan', 'Bouaké', 'Grand-Bassam']" [hideSelected]="true"></ng-select>							
 						</div>
 						<div class="form-group">
-							<label for="">Adresse</label>
+							<label for="" i18n>Adresse</label>
 							<input type="text" autocomplete="address-line1" class="form-control" id="adresse" placeholder="votre adresse">
 						</div>	
 						<div class="form-group">
-							<label for="">Telephone</label>
+							<label for="" i18n>Telephone</label>
 							<input type="text" class="form-control" autocomplete="tel" id="telephone" placeholder="votre telephone">
 						</div>	
 					</div>
@@ -72,9 +72,9 @@
 	
 		<div class="row">
 			<div class="col-md-4">
-				<legend>Réseaux Sociaux</legend>
+				<legend i18n>Réseaux Sociaux</legend>
 				<div class="form-group">
-					<label for="">Facebook</label>
+					<label for="" i18n>Facebook</label>
 					<div class="input-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text">
@@ -85,7 +85,7 @@
 					</div>
 				</div>
 				<div class="form-group">
-					<label for="">Twitter</label>
+					<label for="" i18n>Twitter</label>
 					<div class="input-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text">
@@ -96,7 +96,7 @@
 					</div>
 				</div>
 				<div class="form-group">
-					<label for="">Google+</label>
+					<label for="" i18n>Google+</label>
 					<div class="input-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text">
@@ -107,7 +107,7 @@
 					</div>
 				</div>
 				<div class="form-group">
-					<label for="">Linkedin</label>
+					<label for="" i18n>Linkedin</label>
 					<div class="input-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text">
@@ -118,7 +118,7 @@
 					</div>
 				</div>
 				<div class="form-group">
-					<label for="">Dribbble</label>
+					<label for="" i18n>Dribbble</label>
 					<div class="input-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text">
@@ -129,7 +129,7 @@
 					</div>
 				</div>
 				<div class="form-group">
-					<label for="">Skype</label>
+					<label for="" i18n>Skype</label>
 					<div class="input-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text">
@@ -141,62 +141,62 @@
 				</div>
 			</div>
 			<div class="col-md-8">
-				<legend>Informations Professionnelles</legend>
+				<legend i18n>Informations Professionnelles</legend>
 				<div class="row">
 					<div class="col-md-6">
 						<div class="form-group">
-							<label for="">Vous êtes <span class="requi-asterix">(*)</span></label>
+							<label for="" i18n>Vous êtes <span class="requi-asterix">(*)</span></label>
 							<ng-select class="custom" [items]="[]" [hideSelected]="true"></ng-select>
 						</div>
 						<div class="form-group">
-							<label for="">Fonction Actuelle <span class="requi-asterix">(*)</span></label>
+							<label for="" i18n>Fonction Actuelle <span class="requi-asterix">(*)</span></label>
 							<ng-select class="custom" [items]="[]" [hideSelected]="true"></ng-select>
 						</div>
 						<div class="form-group">
-							<label for="">Année d'expérience <span class="requi-asterix">(*)</span></label>
+							<label for="" i18n>Année d'expérience <span class="requi-asterix">(*)</span></label>
 							<input type="text" autocomplete="off" class="form-control" id="annee_exp" required="required" placeholder="Années d'expérience">
 						</div>
 						<div class="form-group">
-							<label for="">Domaine <span class="requi-asterix">(*)</span></label>
+							<label for="" i18n>Domaine <span class="requi-asterix">(*)</span></label>
 							<ng-select class="custom" [items]="[]" [hideSelected]="true"></ng-select>
 						</div>
 						<div class="form-group">
-							<label for="">Spécialité <span class="requi-asterix">(*)</span></label>
+							<label for="" i18n>Spécialité <span class="requi-asterix">(*)</span></label>
 							<ng-select class="custom" [items]="[]" [hideSelected]="true"></ng-select>
 						</div>
 						<div class="form-group">
-							<label for="">Autre(s) Spécialité(s)</label>
+							<label for="" i18n>Autre(s) Spécialité(s)</label>
 							<ng-select class="custom" [items]="[]" [hideSelected]="true" [multiple]="true"></ng-select>
 						</div>
 					</div>
 					<div class="col-md-6">
 						<div class="form-group">
-							<label for="">Dernier diplôme <span class="requi-asterix">(*)</span></label>
+							<label for="" i18n>Dernier diplôme <span class="requi-asterix">(*)</span></label>
 							<ng-select class="custom" [items]="[]" [hideSelected]="true" ></ng-select>
 						</div>
 						<div class="form-group">
-							<label for="">Type de contrat <span class="requi-asterix">(*)</span></label>
+							<label for="" i18n>Type de contrat <span class="requi-asterix">(*)</span></label>
 							<ng-select class="custom" [items]="[]" [hideSelected]="true" [multiple]="true"></ng-select>
 						</div>
 						<div class="form-group">
-							<label for="">Durée du contrat <span class="requi-asterix">(*)</span></label>
+							<label for="" i18n>Durée du contrat <span class="requi-asterix">(*)</span></label>
 							<ng-select class="custom" [items]="[]" [hideSelected]="true" [multiple]="true"></ng-select>
 						</div>
 					</div>
 				</div>
-				<legend>CV</legend>	
+				<legend i18n>CV</legend>	
 				<div class="form-group">
-					<label for="">Telecharger CV</label>
+					<label for="" i18n>Telecharger CV</label>
 					<input type="file" autocomplete="off" class="form-control" id="cv" placeholder="Votre cv">
 				</div>
 				<div class="form-group">
-					<label for="">Motivations</label>
+					<label for="" i18n>Motivations</label>
 					<textarea rows="8" class="form-control" name=""></textarea>
 				</div>
 			</div>
 		</div>
 		
 	
-		<button type="submit" class="btn btn-blue"><i class="fa fa-refresh"></i>&nbsp;&nbsp;Mettre à jours</button>
+		<button type="submit" class="btn btn-blue" i18n><i class="fa fa-refresh"></i>&nbsp;&nbsp;Mettre à jours</button>
 	</form>
 </div>

@@ -1,32 +1,39 @@
 <mat-card style="margin-bottom:12px;">
-	<div class="col-lg-9 col-md-12 col-12">
-		<div class="abonne-info">
-		    <div class="abonne-meta-info">
-		        <div class="abonne-name">
-		            {{"Ecole université |uppercase"}}
-		        </div>
-		    </div>
+	<div class="row">
+		<div class="col-lg-9 col-md-12 col-12">
+			<div class="info">
+				<div class="meta-info">
+					<div class="name text-center">
+						<span>{{ecole?.nom |uppercase}}</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-3 col-xs-12">
+			<ul class="contact" style="margin-bottom: 4px;">
+				<li *ngFor="let num of ecole.telephones" class="contact-item">
+					<i [ngClass]="{'fa':true,
+								'fa-phone':num.type==='bureau',
+								'fa-mobile':num.type==='mobile'}"></i>&nbsp;<span>{{num.numero}}</span>
+				</li>     
+				<li><i class="fa fa-envelope-o"></i>&nbsp;<span>{{ecole?.adresse?.email}}</span></li>      
+				<li><i class="fa fa-globe"></i>&nbsp;<span>{{ecole?.adresse?.siteWeb}}</span></li>      
+			</ul>
+			<ul class="inline-contact social">
+			</ul>      
 		</div>
 	</div>
-	<div class="col-md-3 col-sm-1 col-xs-12">
-	    <ul class="contact" style="margin-bottom: 4px;">
-	      <li><i class="fa fa-phone"></i> <span>+22507147134</span></li>      
-	      <li><i class="fa fa-mobile"></i> <span>+22507147134</span></li>      
-	      <li><i class="fa fa-envelope-o"></i> <span>pooda.aubin@gmail.com</span></li>      
-	      <li><i class="fa fa-globe"></i> <span>www.iea-abidjan.com</span></li>      
-	  	</ul>
-	    <ul class="inline-contact social">
-	    </ul>      
-    </div>
 </mat-card>
 <mat-card style="margin-bottom:12px; padding:0;">
 	<div class="breakingNews bn-bordernone bn-red" id="bn1" style="margin-bottom: 12px;">
   		<div class="bn-title" style="width: auto;">
-    		<h2 style="display: inline-block;">Flash Info</h2>
-    		<span></span>
+			<h2 style="display: inline-block;" i18n>Flash Info</h2>
     	</div>
-  		<ul style="left: 167px;">
-			<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+  		<ul style="left: 167px;" class="">
+			<div style="padding-left:20px;margin:0 0 10px 0;">
+				<marquee scrolldelay="150" onmouseover="this.stop();" onmouseout="this.start();">
+					<span *ngFor="let infos of flashInfos" style="color:#990000;">{{infos.contenu}}</span>
+				</marquee>
 			</div>  
 		</ul>
   		<div class="bn-navi"> <span></span> <span></span> </div>

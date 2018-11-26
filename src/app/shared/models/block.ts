@@ -4,7 +4,8 @@ export class  Block {
               public libelle?: string,
               public description?: string,
               public pathPhoto?: string,
-              public typeBlock?: string
+              public typeBlock?: string,
+              public position?:number
              ) {}
 }
 

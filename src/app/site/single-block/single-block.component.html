@@ -1,11 +1,39 @@
-<mat-card class="blocks-items">
-	<a routerLink="/site/blocks/{{block.id}}" routerLinkActive="active" (click)="onViewBlock()">
+<!-- 
+<mat-card class="blocks-items rounded-circle">
+	<a routerLink="/site/blocks/{{block.id}}" routerLinkActive="active" class="" (click)="onViewBlock()">
     <div class="imagebg" #imagebg></div>
     <mat-card-content>
       <h5 class="titre-block" [innerHtml]="block.libelle"></h5>            
     </mat-card-content>
   </a>
   <mat-card-actions>
-    <button mat-raised-button color="warn" class="btn btn-block mat-button" (click)="onSabonner()">S'abonner</button>
+    <button mat-raised-button color="primary" class="btn btn-block mat-button" (click)="onSabonner()">S'abonner</button>
   </mat-card-actions>
 </mat-card>
+ -->
+	<!-- <div class="card-container">
+	  <div class="card">
+	    <div class="side">
+	    	<div class="imagebg" #imagebg></div>
+	    	<h5 class="titre-block" [innerHtml]="block.libelle"></h5>
+	    	<button mat-raised-button color="primary" class="btn btn-block mat-button" (click)="onSabonner()">S'abonner</button>
+	    </div>
+	    <div class="side back">
+	    	<p class="" [innerHtml]="block.libelle"></p>
+	    </div>
+	  </div>
+	</div> -->
+
+	<div class="card-container">
+	<div class="card card-flip-zone">
+    	<div class="card-flip">
+        	<div class="card-image" #imagebg></div>
+        </div>
+        <div class="card-flip back">
+        	<p class="description" i18n>{{block.description}}</p>
+        	<button mat-raised-button color="primary" class="btn btn-block mat-button" (click)="onSabonner()" i18n>S'abonner</button>
+        </div>
+    </div>
+    <div class="card card-no-flip-zone" (click)="goto('/site/blocks/'+block.id); onViewBlock()" ><h6 class="card-titre" [innerHtml]="block.libelle"></h6>
+    </div>
+</div>

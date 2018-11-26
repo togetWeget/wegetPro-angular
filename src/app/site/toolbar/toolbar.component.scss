@@ -1,3 +1,4 @@
+/*
 $xs: 572px;
 $sm: 768px;
 $md: 992px;
@@ -127,3 +128,412 @@ border:1px dashed #ff6d05;
     }
 }
 
+*/
+.topnav {
+	/*overflow: hidden;*/
+    background-color: rgb(119, 119, 228);
+    position: fixed;
+    top: 0;
+	width: 100%;
+	z-index: 5;
+}
+
+/* Style the topnav links */
+.topnav a {
+	float: left;
+	display: block;
+	color: #f2f2f2;
+	text-align: center;
+	padding: 5px 0;
+	text-decoration: none;
+}
+
+/* Change color on hover */
+.topnav a:hover {
+	
+	color: black;
+}
+/*
+.btn-toolbar button{
+    color:white;
+}
+.btn-toolbar button:hover{
+    background-color:#f3da35;
+    color:black;
+}
+*/
+
+.shopping-cards[_ngcontent-c11]
+{
+    position: fixed;
+    right: 10px;
+    top: 70px;
+    z-index: 9999.99;
+    color: #ff6d05;
+    border-radius: 100%;
+    height: 50px;
+    width: 50px;
+   
+    font-size: large;
+    text-align: center;
+    line-height: 1.8em;
+    box-shadow: 0 4px 8px 0  #ff6d05, 0 6px 20px 0 rgb(245, 3, 3);
+    cursor: pointer;
+}
+
+ul.navbar 
+{
+    background:#4a7746;
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+
+}
+.navbar > li > a i
+{
+    margin-right: 10px;
+    width: 40px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+.navbar > li > a:hover,.navbar > li.active > a
+{
+    background: #335230;
+}
+.navbar > li > a
+{
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px;
+}
+.brand
+{
+    background: #3e523d;
+    color:#fff;
+    float: left;
+    width: 100%;
+    box-sizing: border-box;
+    padding:18px 10px; 
+    font-size: 25px;
+}
+
+.brand a:hover
+{
+    background: #444;
+}
+.brand a i
+{
+    
+}
+.brand a
+{
+    padding: 5px 10px;
+    float: right;
+    box-sizing: border-box;
+    color: #fff;
+    background: #4a7746;
+}
+.hideNav
+{
+   
+    visibility: hidden;
+}
+
+@media screen and (min-width: 768px) {
+   
+    ul.navbar {
+       height: 100vh;
+        width: 80px;
+    }
+    ul.navbar li span
+    {
+        visibility: hidden;
+    }
+    ul.navbar li a i
+    {
+        font-size: 30px;
+        padding-top: 22px;
+        
+        vertical-align: middle;
+    }
+    ul.navbar li
+    {
+        text-align: center;
+    }
+    .btn-bars
+    {
+        visibility: visible;
+    }
+}
+ @media screen and (min-width: 768px) {
+    .brand
+    {
+        padding-right: 10px;
+        background: #3e523d;
+        color:#fff;
+        width: 16.666%;
+     }
+    
+    ul.navbar {
+        width: 16.666%;
+    }
+       ul.navbar.hideNav
+     {
+        width: 100px;
+        visibility: visible;
+     }
+      ul.navbar.hideNav {
+       height: 100vh;
+        width: 80px;
+    }
+
+
+    ul.navbar.hideNav li span
+    {
+        visibility: hidden;
+    }
+    ul.navbar.hideNav li a i
+    {
+        font-size: 30px;
+        padding-top: 22px;
+        
+        vertical-align: middle;
+    }
+
+    ul.navbar.hideNav li
+    {
+        text-align: center;
+    }
+   
+    ul.navbar.hideNav li span
+    {
+        text-align: left;
+        visibility: visible;
+    }
+     ul.navbar li span
+    {
+        text-align: left;
+        visibility: visible;
+    }
+    
+
+      ul.navbar li a i
+    {
+        font-size: 18px;
+        padding-top: 0px;
+        vertical-align: baseline;
+    }
+    ul.navbar li a 
+    {
+        padding-top: 22px;
+        font-size: 18px;
+        
+    }
+    ul.navbar li
+    {
+        text-align: left;
+    }
+}
+
+
+.header
+{
+    height: 70.48px;
+    width: 100%;
+    background: #163c12;
+}
+ul
+{
+    list-style-type: none;
+    margin: 0px;padding:0px;
+}
+.header-right
+{
+    width: 83.3333%;
+    float: left;
+}
+.header-right input
+{
+    margin: 15px;
+    padding: 10px;
+    width: 400px;
+    border-radius:5px;
+    border:0px;
+    outline: none;
+}
+
+ul.navbar-right
+{
+    position: absolute;
+    right: 10px;
+    top: 45px;
+    margin-top:5px;
+    box-shadow: 0px 0px 3px 1px #ddd;
+    width:200px;
+    background: white;
+    border-radius: 7px;
+}
+ul.navbar-right li.active,
+ul.navbar-right li:hover
+{
+    background: #0f0f0f;
+}
+ul.navbar-right li a i
+{
+    box-sizing: border-box;
+    padding: 10px;
+}
+ul.navbar-right li a
+{
+    text-decoration: none;
+    padding: 10px 10px;
+    display: block;
+    color:rgb(2, 0, 0);
+    width: 100%;
+    text-align: left;
+}
+.blog-user
+{
+    float: right;
+}
+.blog-user a.avator img 
+{
+    float: right;
+}
+.avator 
+{   
+    height: 45px;
+    width: 45px;
+    margin-right: 15px;
+    float: right;
+    
+}
+.avator img
+{
+    border-radius: 100%;
+    height: 100%;
+    width: 100%;
+    border:1px solid #fff; 
+}
+
+ul.navbar-right li
+{
+    z-index: 9999;            
+    border-bottom: 1px solid #e1e1e1;
+    background: #fff;
+    
+}
+.hidden
+{
+    display: none
+}
+.visible{
+    display: block;
+}
+
+.indexing{
+z-index : 999;
+}
+
+.menuPro1{
+border-left:0px;
+border-right:1px solid #9a9aff;
+}
+.menuPro{
+border-right:1px solid #9a9aff;
+}
+.menuPro1:hover{
+border-bottom:2px solid #000934 !important;
+}
+.menuPro:hover{
+border-bottom:2px solid #000934 !important;
+}
+
+.lang{
+padding: 7px;
+margin: 0px;
+display: table;
+background: rgba(0, 0, 0, 0.3);
+}
+
+.lang:hover{
+background: rgba(0, 0, 0, 0.5);
+}
+
+.imgbox{
+/*box-shadow : 0 2px 4px 0 rgba(255, 255, 255, 0.2), 0 3px 10px 0 rgba(255, 255, 255, 0.11);*/
+}
+
+.imgbox:hover{
+box-shadow : 0 2px 4px 0 rgba(255, 255, 255, 0.2), 0 3px 10px 0 rgba(255, 255, 255, 0.11);
+}
+.imgboxActive{
+box-shadow : 1px 1px 5px 2px rgba(255, 255, 255, 0.8), 0 1px 20px 0 rgba(255, 255, 255, 0.19);
+}
+.r{
+margin-right: 5px;
+margin-left: 5px;
+}
+
+.img-r-tools{
+width:40px;
+height:40px;
+border-radius:100%;
+float:left;
+background-size:cover;
+border:1px solid #f2f2f2;
+background-position:top center;
+margin:4px;
+}
+
+.tool-conn{
+float: left;
+
+line-height: 2.9em;
+
+color: #fff;
+
+text-transform: uppercase;
+
+margin-right: 10px;
+}
+.blk-tools{
+cursor:pointer;
+display: table;
+padding-left: 5px;
+padding-right: 10px;
+border-left: 1px solid #9a9aff;
+float:left;
+}
+.blk-tools:hover{
+background: rgba(0, 0, 0, 0.3);
+}
+
+.panier-i{
+color: #fefefe;
+
+font-size: 15px;
+
+line-height: 3.1em;
+
+padding: 0px;
+
+margin-left: 10px;
+
+margin-right: 10px;
+}
+
+.small{
+color: #fff;
+margin-left: 5px;
+}
+
+.dropdown-menu{
+width:200px;
+}
+.img-block{
+	width:50px;
+	height:30px;
+}

@@ -1,0 +1,45 @@
+<h3 class="tab-content-title" i18n>Présentation</h3>
+<div class="content" [innerHtml]="detail.presentation">
+</div>
+<br>
+<h3 class="tab-content-title" i18n>Chiffres</h3>
+<div class="content">
+  <div class="row">
+    <div class="col-md-3" *ngFor="let chiffre of detail.chiffre">
+      <div class="header-col">
+        <p class="col-chiffre">{{chiffre.chiffre}}</p>
+        <p class="col-text">{{chiffre.titre}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<h3 class="tab-content-title" i18n>Parténaires</h3>
+<div class="content container-fluid">
+  <div id="carouselExample" class="carousel slide" data-ride="carousel" data-interval="9000">
+    <div class="carousel-inner row w-100 mx-auto" role="listbox" id="img-saveurs">
+      <div [ngClass]="{'carousel-item col-md-3':true,
+                                'active' : i==0}" 
+            *ngFor="let partenaire of detail.partenaire;index as i">
+        <div class="panel panel-default">
+          <div class="panel-thumbnail">
+            <a href="{{partenaire.sieWebPatenaire}}" class="thumb" target="_blank">
+              <img src="/assets/images/{{i+1}}.png" alt="{{partenaire.raisonSocial}}" class="img-fluid mx-auto d-block">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<h3 class="tab-content-title" i18n>Temoignages</h3>
+<div class="content">
+
+</div>
+<br>
+<h3 class="tab-content-title" i18n>Localisation</h3>
+<div class="content">
+
+</div>
+<br>

@@ -1,59 +1,64 @@
 <div class="container">
-  <div class="row">
+  <div class="row" *ngIf="isValid; else notFound">
     <div class="col-md-12 col-lg-12 col-12">
       <div id="profile-abonne" style="min-height: 200px;">
           <br>
-          <app-profil-cover [titre]="abonne?.block?.libelle" id="img_cover" [vues]="abonne?.nombreVue" [image]="abonne?.membre?.pathPhotoCouveture" (clickOcur)="handleClick($event)" >
-            <app-profil-avatar  id="img_profil" [image]="abonne?.membre?.pathPhoto" (clickOcur)="handleClick($event)" ></app-profil-avatar>
+          <app-profil-cover [titre]="titre" id="img_cover" [vues]="vues" [multiple_interval]="5000" [multiple]="photoCouvertureArr" [image]="" (clickOcur)="handleClick($event)" >
+            <app-profil-avatar  id="img_profil" [image]="image" (clickOcur)="handleClick($event)" ></app-profil-avatar>
             <div class="footer">
-              <button mat-raised-button color="primary" (click)="onContactAbonne()"><i class="fa fa-envelope"></i><span class="d-none d-sm-inline" style="display: none"> Contacter</span></button>&nbsp;&nbsp;
-              <button mat-raised-button color="warn"><i class="fa fa-comments"></i><span class="d-none d-sm-inline"> Discuter</span></button>
+              <button mat-raised-button color="primary" (click)="onContactAbonne()"><i class="fa fa-envelope"></i><span class="d-none d-sm-inline" style="display: none" i18n> Contacter</span></button>&nbsp;&nbsp;
+        			<button mat-raised-button color="warn" (click)="activatchat()">
+                <i class="fa fa-comments"></i>
+                <span class="d-none d-sm-inline" i18n> Discuter</span>
+              </button>
             </div>
           </app-profil-cover>
           <br>
+        <!-- Contenu de la page du profile -->
         <div class="profile-content" style="min-height: 500px;">
-          <app-page-ecole *ngIf="abonne?.block?.typeBlock==='ecole'"></app-page-ecole>  
+          <app-page-ecole *ngIf="typeblock==='ecole'" [ecole]="sousBlock"></app-page-ecole>  
           <div class="row">
             <div class="col-lg-9 col-md-6 col-12">
-              <mat-card class="abonne-info" *ngIf="abonne?.block.typeBlock==='competence'">
+              <mat-card class="abonne-info" *ngIf="typeblock==='competence'">
                 <div class="abonne-meta-info">
                   <div class="abonne-name">
                     {{abonne?.membre?.nomComplet |uppercase}}
                   </div>
-                  <div class="abonne-meta">
+                  <div class="abonne-meta" i18n>
                     {{abonne?.membre?.cvPersonne?.specialite}} {{abonne?.membre?.cvPersonne?.anneExperience}} d'espériences
                   </div>
                 </div>
               </mat-card>
               <mat-card>
-                <mat-tab-group class="col-md-12 col-sm-12">
+                <!-- Tab group competence -->
+                <mat-tab-group class="col-md-12 col-sm-12" *ngIf="typeblock==='competence'">
                   <mat-tab>
                     <span *mat-tab-label>
                       <i class="fa fa-address-card"></i>
-                      <span class="d-none d-lg-inline"> Bio</span>
+                      <span class="d-none d-lg-inline" i18n> Bio</span>
                     </span>
                     <div class="tab-content">
-                      <h3 class="tab-content-title">Biographie</h3>
+                      <h3 class="tab-content-title" i18n>Biographie</h3>
                       <app-bio-profil [abonne]="abonne"></app-bio-profil>
                     </div>
                   </mat-tab>
                   <mat-tab>
                     <span *mat-tab-label>
                       <i class="fa fa-trophy"></i>
-                      <span class="d-none d-lg-inline"> Expérience</span>
+                      <span class="d-none d-lg-inline" i18n> Expérience</span>
                     </span>
                     <div class="tab-content">
-                      <h3 class="tab-content-title">expérince</h3>
+                      <h3 class="tab-content-title" i18n>expérince</h3>
                       <app-experience-profil [experience]="experience"></app-experience-profil>
                     </div>
                   </mat-tab>
                   <mat-tab>
                     <span *mat-tab-label>
                       <i class="fa fa-graduation-cap"></i>
-                      <span class="d-none d-lg-inline"> Formation</span>
+                      <span class="d-none d-lg-inline" i18n> Formation</span>
                     </span>
                     <div class="tab-content">
-                      <h3 class="tab-content-title">Formations</h3>
+                      <h3 class="tab-content-title" i18n>Formations</h3>
                       <ul style="margin-left: -35px;">
                         <app-formation-profil [cursus]="cursus"></app-formation-profil>
                       </ul>
@@ -62,29 +67,119 @@
                   <mat-tab>
                     <span *mat-tab-label>
                       <i class="fa fa-file"></i>
-                      <span class="d-none d-lg-inline"> Documents</span>
+                      <span class="d-none d-lg-inline" i18n> Documents</span>
                     </span>
                     <div class="tab-content">
-                      <h3 class="tab-content-title">documents</h3>
+                      <h3 class="tab-content-title" i18n>documents</h3>
+                      <app-documents-profil></app-documents-profil>
+                    </div>
+                  </mat-tab>
+                  <mat-tab>
+                    <span *mat-tab-label>
+                      <i class="fa fa-image"></i>
+                      <span class="d-none d-lg-inline" i18n> Photos</span>
+                    </span>
+                    <div class="tab-content">
+                      <h3 class="tab-content-title" i18n>Photos</h3>
+                      <app-documents-profil></app-documents-profil>
+                    </div>
+                  </mat-tab>
+                  <mat-tab>
+                    <span *mat-tab-label>
+                      <i class="fa fa-video-camera"></i>
+                      <span class="d-none d-lg-inline" i18n> Vidéos </span>
+                    </span>
+                    <div class="tab-content">
+                      <h3 class="tab-content-title" i18n>Vidéos</h3>
                       <app-documents-profil></app-documents-profil>
                     </div>
                   </mat-tab>
                 </mat-tab-group>
+
+                <!-- Tab group ecole -->
+                <mat-tab-group class="col-md-12 col-sm-12" *ngIf="typeblock==='ecole'">
+                  <mat-tab>
+                    <span *mat-tab-label>
+                      <i class="fa fa-address-card"></i>
+                      <span class="d-none d-lg-inline" i18n> Présentation</span>
+                    </span>
+                    <div class="tab-content">
+                      <app-detail-ecole [detail]="sousBlock"></app-detail-ecole>
+                    </div>
+                  </mat-tab>
+                  <mat-tab>
+                    <span *mat-tab-label>
+                      <i class="fa fa-graduation-cap"></i>
+                      <span class="d-none d-lg-inline" i18n> Formations</span>
+                    </span>
+                    <div class="tab-content">
+                      <h3 class="tab-content-title" i18n>Formations</h3>
+                      <div class="col-sm-12 brdr pad-10 btm-mrg-20 box-shad property-listing" *ngFor="let format of formation">
+                        <app-forms-ecole [formation]="format"></app-forms-ecole>
+                      </div>
+                    </div>
+                  </mat-tab>
+                  <mat-tab>
+                    <span *mat-tab-label>
+                      <i class="fa fa-file"></i>
+                      <span class="d-none d-lg-inline" i18n> Documents</span>
+                    </span>
+                    <div class="tab-content">
+                      <h3 class="tab-content-title" i18n>Document</h3>
+                    </div>
+                  </mat-tab>
+                  <mat-tab>
+                    <span *mat-tab-label>
+                      <i class="fa fa-image"></i>
+                      <span class="d-none d-lg-inline" i18n> Photos</span>
+                    </span>
+                    <div class="tab-content">
+                      <h3 class="tab-content-title" i18n>Photos</h3>
+                      <app-documents-profil></app-documents-profil>
+                    </div>
+                  </mat-tab>
+                  <mat-tab>
+                    <span *mat-tab-label>
+                      <i class="fa fa-video-camera"></i>
+                      <span class="d-none d-lg-inline" i18n> Vidéos </span>
+                    </span>
+                    <div class="tab-content">
+                      <h3 class="tab-content-title" i18n>Vidéos</h3>
+                      <app-documents-profil></app-documents-profil>
+                    </div>
+                  </mat-tab>
+                </mat-tab-group>
+
               </mat-card>
+              <br>
               <mat-card>
                 <div>
-                  <h3 class="tab-content-title">Dans ce réseau</h3>0
+                  <h3 class="tab-content-title" i18n>Dans ce réseau</h3>0
                 </div>
               </mat-card>
+              <br>
             </div>
             <div class="d-none d-lg-block col-lg-3" >
-              <mat-card style="padding: 5px;">
-                <div style="height: 200px; border: 1px solid black;"></div>
-              </mat-card>
+              
+                
+                  <div class="col-md-3">
+                    <div class="rightcolumn" style="margin-top:10%;">
+                        <app-pub-profil></app-pub-profil>
+                   </div>
+                  </div>
+                
+
+                
             </div>
           </div>
         </div>
+
       </div>
     </div>
   </div>
+
+  <ng-template #notFound>
+    <app-not-found></app-not-found>
+  </ng-template>
 </div>
+

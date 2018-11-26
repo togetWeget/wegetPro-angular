@@ -23,7 +23,7 @@ export class FlashInfoEcoleComponent implements OnInit {
   id_block: number;
   id_sous_block: number;
   flashs: FlashInfo;
-  flash$: Observable<Resultat<FlashInfo>>;
+  flash$: Observable<Resultat<FlashInfo[]>>;
   flashSubject$ =  new BehaviorSubject<string>('');
 
   constructor(public dialog: MatDialog, private router: Router, 

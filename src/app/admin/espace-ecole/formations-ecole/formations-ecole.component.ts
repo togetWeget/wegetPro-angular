@@ -26,6 +26,7 @@ export class FormationsEcoleComponent implements OnInit {
   id_edit: number = 0;
   formation$: Observable<Resultat<Formation>>;
   formationSubject$ = new BehaviorSubject<string>('');
+  formation_selected: Formation;
   
   constructor(public dialog: MatDialog, private route: ActivatedRoute,
    private router: Router, private formationS: FormationEcoleService,
@@ -111,16 +112,21 @@ export class FormationsEcoleComponent implements OnInit {
   }
 
   gotoView(): void {
-    const dialogRef = this.dialog.open(FormationEcoleViewComponent, {
-      maxWidth: '768px',
-      maxHeight: '500px',
-      data: {id_block: this.id_block, id: this.id_edit}
-    });
+    // this.formationS.getFormationBySousBlock(this.id_sous_block).subscribe(
+    //   datas => {
+        // console.log(datas);
+        const dialogRef = this.dialog.open(FormationEcoleViewComponent, {
+          maxWidth: '768px',
+          maxHeight: '500px',
+          data: {id_block: this.id_block, id: this.id_edit, image: this.formation_selected.pathPhoto}
+        });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      this.search();
-    });
+        dialogRef.afterClosed().subscribe(result => {
+          console.log('The dialog was closed');
+          this.search();
+        });
+      // }
+      // );
   }
 
   gotoEdit(): void {

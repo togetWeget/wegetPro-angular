@@ -1,0 +1,67 @@
+mat-card{
+    padding:0px 0px;
+    padding-bottom: 25px;
+    //margin: 20px auto;
+    overflow: hidden;
+    .imagebg {
+    position: relative;
+    width: 100%;
+    height: 100px;
+    background-size: cover;
+    
+    }
+  }
+  mat-card-content{
+    //margin: 10px 0;
+  }
+ /* mat-card .img-fluid{
+    margin-right: 0px;
+    float: right;
+  }*/
+  mat-card-actions{
+    display: flex;
+    padding: 0 20px 10px 25px;
+    flex-direction: row;
+  }
+  mat-card-content .abonne-name{
+    font-size: 20px;
+    font-weight: bold;
+    padding: 5px;
+    font-variant: small-caps;
+    white-space: nowrap;
+    overflow: hidden;
+    //max-width: 70px;
+  }
+  .ecole-meta-holder{
+    position: absolute;
+    top: 10px;
+    padding: 0px 10px;
+    width: 100%;
+    font-size: small;
+    line-height: 24px;
+    color: #fff;
+  }
+  .space-card{
+    flex: 1 1 auto;
+  }
+  .ecole-status {
+    float: right;
+    width: 50px;
+    height: 25px;
+    border: 3px;
+    margin-right: 5px;
+    text-align: center;
+    background: orange;
+  }
+  
+  .meta{
+    display: inline-block;
+    padding:0 10px;
+    width: 100%;
+    margin-top: -25px;
+    background: orange;
+  }
+  mat-card-content .specialite{
+    font-variant: small-caps;
+    padding: 5px;
+  }

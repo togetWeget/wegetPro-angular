@@ -20,20 +20,22 @@
     <table class="table table-hover table-bordered">
       <thead>
         <tr>
-          <th>Documment</th>
-          <th>Titre</th>
-          <th>Description</th>
-          <th>Actions</th>
+          <!-- <th width="15%">Documment</th> -->
+          <th width="30%" i18n>Titre</th>
+          <th width="40%" i18n>Description</th>
+          <!-- <th width="15%">Aperçu</th> -->
+          <th width="15%" i18n>Actions</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td><img src="../../../../assets/icon/icon_pdf.png" class="img_doc"></td>
-          <td>Totre de mon document</td>
-          <td><div class="desc">Description de mon document</div></td>
+        <tr *ngFor="let doc of (documents$ | async)?.body; let i=index;">
+          <!-- <td><img src="../../../../assets/icon/icon_pdf.png" class="img_doc"></td> -->
+          <td>{{doc?.titre}}</td>
+          <td><div class="desc">{{doc?.description}}</div></td>
+          <!-- <td><div class="apercu"><iframe [src]="doc?.pathDocument"></iframe></div></td> -->
           <td>
-            <button mat-raised-button (click)="choseFile()" class="btn-blue"><i class="fa fa-photo"></i></button>
-            <button mat-raised-button class="btn-green"><i class="fa fa-edit"></i></button>
+            <!-- <button mat-raised-button (click)="choseFile(doc)" class="btn-blue"><i class="fa fa-photo"></i></button> -->
+            <button mat-raised-button (click)="edit(doc)" class="btn-green"><i class="fa fa-edit"></i></button>
             <button mat-raised-button color="warn"><i class="fa fa-trash"></i></button>
           </td>
         </tr>

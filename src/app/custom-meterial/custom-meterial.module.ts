@@ -10,7 +10,7 @@ import {
   MatToolbarModule,
   MatButtonToggleModule,
   MatTooltipModule, MatCheckboxModule,
-  MatBadgeModule
+  MatBadgeModule,MatAutocompleteModule
 } from '@angular/material';
 
 
@@ -36,7 +36,8 @@ import {
     MatButtonToggleModule,
     MatTooltipModule,
     MatCheckboxModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatAutocompleteModule
   ],
   declarations: [],
   exports: [
@@ -60,7 +61,8 @@ import {
     MatButtonToggleModule,
     MatTooltipModule,
     MatCheckboxModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatAutocompleteModule
   ],
   providers: [{provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: true}}]
 })

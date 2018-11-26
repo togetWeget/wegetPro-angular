@@ -1,7 +1,9 @@
-import { Component, OnInit} from '@angular/core';
+import { ChangeDetectorRef, Component, Input, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-
+import {ConnexionUpService} from './core/services/connexionUp/connexion-up.service';
 import * as firebase from 'firebase/app';
+import {ChatCliComponent} from './site/chat-cli/chat-cli.component';
+import {ChatLiasonService} from './core/services/chat-liason/chat-liason.service';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +12,10 @@ import * as firebase from 'firebase/app';
 })
 export class AppComponent {
   title = 'app';
-  constructor (private router: Router) {
+  @ViewChild('chat') public chat: ChatCliComponent;
+  public changechat: boolean;
+  public msgbool = false;
+  constructor (private router: Router, public connexionup: ConnexionUpService, public chatl: ChatLiasonService) {
   	const config = {
       apiKey: 'AIzaSyBcBo2iHpfSO3CzwTXdICgV2VX_erq_sKg',
       authDomain: 'toget-2b431.firebaseapp.com',
@@ -20,14 +25,22 @@ export class AppComponent {
       messagingSenderId: '311522038007'
     };
     firebase.initializeApp(config);
+	this.chatl.chatactivate = false;
+	// this.connexionup.sendconnexion();
   }
   
  ngOnInit() {
+	 
+				this.connexionup.sendconnexion();
+				
+				
         this.router.events.subscribe((evt) => {
             if (!(evt instanceof NavigationEnd)) {
                 return;
             }
 
+				// this.connexionup.sendconnexion();
+				
             let scrollToTop = window.setInterval(function () {
                 let pos = window.pageYOffset;
                 if (pos > 0) {
@@ -37,5 +50,23 @@ export class AppComponent {
                 }
             }, 16); // how fast to scroll (this equals roughly 60 fps)
         });
+		
     }
+	
+	loadchat(){
+		  this.chatl.globalCompt = 0;
+		  this.chatl.chatactivate = true;
+		  if(this.chatl.chatactivate == true){
+			  this.chat.activatechat();
+			  }
+	}
+  
+    closechat(){
+		  this.chatl.globalCompt = 0;
+		  this.chatl.chatactivate = false;
+		  if(this.chatl.chatactivate == false){
+			  this.chat.desactivatechat();
+			  }
+	}
+  
 }

@@ -1,0 +1,25 @@
+<app-super-modal [state]="pubPBool" [superClass]="'class-p1'"> 
+<i class="fa fa-remove" style="position:absolute; top:3px; right:3px; color:#333; cursor:pointer;font-size: 10px;" (click)="closing();"></i>
+	<a href="#" target="_blank">
+		<img src="assets/pub1.png" />
+	</a>
+</app-super-modal>
+
+
+<div class="pub2" style="display:none;" (mouseover)="hover();" (mouseout)="showpub2();">
+<i class="fa fa-remove" style="position:absolute; top:1px; right:1px; color:#333; cursor:pointer;font-size: 10px;" (click)="closeingpub2();" ></i>
+	<a href="#" target="_blank">
+		<img src="assets/pub/{{imglink}}.jpeg" />
+	</a>
+</div>
+
+
+
+<div class="pub3" style="display:none; z-index:1;" >
+<i class="fa fa-remove" style="position:absolute; top:1px; right:1px; color:#333; cursor:pointer;font-size: 10px;" (click)="hidepub3();"></i>
+	<a href="#" target="_blank">
+		<img src="assets/pub1.png" />
+	</a>
+</div>
+
+

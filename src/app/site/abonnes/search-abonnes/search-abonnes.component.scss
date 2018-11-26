@@ -17,3 +17,41 @@ mat-form-field{
   }
 
 }
+.input-append{
+  width: 98%;
+  margin: auto;
+  margin-top: 3px;
+}
+.field-search .search-query{
+  padding-right: 3px;
+  padding-right: 4px \9;
+  padding-left: 3px;
+  padding-left: 4px \9;
+  margin-bottom: 0;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-transition: width  0.2s ease-in-out;
+  -moz-transition:width  0.2s ease-in-out;
+  -o-transition: width  0.2s ease-in-out;
+  transition: width  0.2s ease-in-out;
+}
+.input-append span {
+  border: 0;
+  background: none;
+  padding: 2px 5px;
+  margin-top: -28px;
+  position: relative;
+  float: right;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+} 
+.search-query + span {
+  z-index: 3; 
+  cursor: default;
+}   
+.search-query{
+  width:100%;
+} 
+  

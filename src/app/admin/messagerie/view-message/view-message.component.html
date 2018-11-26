@@ -4,11 +4,11 @@
       <h2>{{message.message.sujet}}</h2>
       <div class="mail-single-header-options"> 
         <a [routerLink]="'/admin/messagerie/repondre_message/'+message.message.id" class="btn btn-gray btn-icon"> 
-          <span>Répondre </span> 
+          <span i18n>Répondre </span> 
           <i class="fa fa-reply-all"></i> 
         </a> 
         <a href="#" class="btn btn-gray btn-icon">
-          <span>Supprimer </span> 
+          <span i18n>Supprimer </span> 
           <i class="fa fa-trash"></i>
         </a> 
     </div>
@@ -17,7 +17,7 @@
     <!-- Email Info From/Reply -->
     <div class="mail-single-info">
       <div class="mail-single-info-user "> 
-        <a href="#" data-toggle="dropdown">
+        <a href="#" data-toggle="dropdown" i18n>
           <img src="{{message.personne.pathPhoto}}" class="img-circle" width="38"> 
           <span>{{message.expediteur.nom}}</span> ({{message.expediteur.email}}) to <span>me</span> 
           <em class="time">{{message.message.date|date:'dd-MM-y'}} à {{message.message.date|date:'HH:mm:ss'}}</em> 

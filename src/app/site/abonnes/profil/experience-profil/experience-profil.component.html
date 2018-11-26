@@ -1,9 +1,18 @@
 <li style="margin-bottom: 24px;" *ngFor="let exp of experience">
-    <div class="header">        
+    <div class="header"> 
+        <!--    
         <span class="year">{{exp.dateDebut}}</span>-<span class="year">{{exp.dateFin}}</span>                 
         &nbsp;<span class="job">{{exp.postOccupe}}</span>
         &nbsp;<span class="domaine">{{exp.lieu}}</span>
         &nbsp;<span class="compagny pull-right">{{exp.entreprise}}</span>
+        -->
+        <ul class="list-inline mrg-0 btm-mrg-10 clr-535353">
+            <li class="list-inline-item"><i class="fa fa-tasks"></i>&nbsp;{{exp.postOccupe}}</li>
+            <li class="list-inline-item" style="list-style: none">|</li>
+            <li class="list-inline-item"><i class="fa fa-building-o"></i>&nbsp;{{exp.entreprise}}</li>
+            <li class="list-inline-item" style="list-style: none">|</li>
+            <li class="list-inline-item"><i class="fa fa-calendar-o"></i>&nbsp;{{exp.dateDebut}}-{{exp.dateFin}}</li>
+        </ul>
     </div>        
     <p class="description">
       {{exp.tache}}
